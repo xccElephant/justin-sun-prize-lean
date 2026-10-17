@@ -2,7 +2,7 @@
 
 - **Toolchain**: `leanprover/lean4:v4.33.1`
 - **Mathlib revision**: `0df444a360eaa60ab8c11dca51a86af692955474` (`v4.33.1`)
-- **Verification**: All 26 problem modules (8,821 lines of Lean 4) compile with **zero `sorry`**, **zero `admit`**, and **zero custom `axiom`** declarations, depending exclusively on the standard classical Lean axioms `[propext, Classical.choice, Quot.sound]`.
+- **Verification**: All 26 problem modules (11,335 lines of Lean 4) compile with **zero `sorry`**, **zero `admit`**, and **zero custom `axiom`** declarations, depending exclusively on the standard classical Lean axioms `[propext, Classical.choice, Quot.sound]`.
 
 ## Quick Verification
 
@@ -30,7 +30,7 @@ To verify any module using the precompiled Mathlib cache:
 | `JspBounties/Erdos575.lean` | `JSP-000465` | #575 | 230 | `card_le_one_of_no_K12_no_2K2`, `matchingGraph_card_and_K12_free`, `starGraph_card_and_2K2_free`, `unique_common_neighbor_of_C4_free`, `common_neighbors_coincide_of_C4_C6_free`, `Z_uv_independent_of_C4_C6_free` |
 | `JspBounties/Erdos699.lean` | `JSP-000570` | #699 | 226 | `choose_gcd_gt_one` (Erdős–Szekeres 1978), `erdos_699_of_le_two`, `erdos_699_of_prime_in_interval`, `erdos_699_succ_of_not_prime`, `mem_exceptions_of_erdos_szekeres_strengthening` |
 | `JspBounties/Erdos338.lean` | `JSP-000281` | #338 / #339 | 225 | `erdos_338_bateman` (Bateman unrestricted basis theorem), `erdos_339_order_two_contains_all_large_odd`, `erdos_339_order_two_counting_bound` |
-| `JspBounties/ErdosGraph.lean` | `JSP-000058` | #23 / #617 | 225 | `erdos_23.variants.n1`, `erdos_23.variants.n1_tight`, `erdos_617.variants.r2` |
+| `JspBounties/ErdosGraph.lean` | `JSP-000058` / `509` | #23 / #617 / #628 | 2,739 | `erdos_23.variants.n1`, `erdos_23.variants.n1_tight`, `erdos_617.variants.r2`, `erdos_617.variants.r_eq_3`, `erdos_628.variants.k_5_a_3_b_3` (Brown–Jung 1969), `erdos_628.variants.independence_number_2` (Balogh–Kostochka–Prince–Stiebitz 2009) |
 | `JspBounties/Erdos940.lean` | `JSP-000782` | #940 | 217 | `Nat.two_full_iff_exists_sq_mul_cube`, `seven_not_sum_three_powerful` |
 | `JspBounties/Erdos302.lean` | `JSP-000253` | #302 | 213 | `erdos_302.variants.lower_half`, `erdos_302.variants.lower_seventeen_thirtyseconds`, `erdos_302.parts.ii` (disproves $f(N) = (1/2+o(1))N$) |
 | `JspBounties/Erdos364_366.lean` | `JSP-000300`–`JSP-000302` | #364–#366 | 212 | `erdos_364_weak`, `no_four_consecutive_full`, `erdos_364_mod_thirtysix_barrier`, `erdos_366_mod_eight_barrier` |
