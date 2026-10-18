@@ -1,0 +1,8 @@
+ℹ [945/945] Replayed JspBounties.Erdos372
+info: JspBounties/Erdos372.lean:255:0: 'Erdos372.jsp_000307_least_decreasing_triple' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos372.lean:256:0: 'Erdos372.decreasing_quadruple_317' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos372.lean:257:0: 'Erdos372.infinite_maxPrimeFac_valley' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos372.lean:258:0: 'Erdos372.infinite_maxPrimeFac_gt_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos372.lean:259:0: 'Erdos372.infinite_maxPrimeFac_lt_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos372.lean:261:0: 'Erdos372.jsp_000307_exists_prime_factor_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (945 jobs).

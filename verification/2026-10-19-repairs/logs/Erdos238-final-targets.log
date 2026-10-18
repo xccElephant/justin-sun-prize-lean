@@ -1,0 +1,10 @@
+Erdos238.erdos_238_eventually_of_c2_lt_two : ∀ (c₁ c₂ : ℝ),
+  0 < c₁ →
+    c₂ < 2 →
+      ∀ᶠ (x : ℝ) in Filter.atTop,
+        ∃ k,
+          c₁ * Real.log x < ↑k ∧
+            ∃ f m,
+              (∀ (i : Fin k), ↑(f i) ≤ x ∧ f i = Nat.nth Nat.Prime (m + ↑i)) ∧
+                ∀ (i : Fin (k - 1)), c₂ < ↑(Erdos238.primeGap (m + ↑i))
+'Erdos238.erdos_238_eventually_of_c2_lt_two' depends on axioms: [propext, Classical.choice, Quot.sound]

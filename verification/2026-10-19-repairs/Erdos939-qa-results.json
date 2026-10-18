@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "erdos939_module_build": 0,
+    "erdos939_independent_targets": 0,
+    "review_238_372_semantic_bridges": 0,
+    "review_124_261_module_build": 0,
+    "review_124_261_independent_types": 0
+  },
+  "sha256": {
+    "JspBounties/Erdos939.lean": "d7f1d37fa33413ac4f09b027ece083c207d7ea2735e807748e58b2f27ce703ac",
+    "JspBounties/Erdos238.lean": "6bc67a41121c82763a3442d544c52a3aaa3784ca5cc699b62815120a513a2b3e",
+    "JspBounties/Erdos372.lean": "053d146b6dcb5a340698ce6086877568d8ca8b6f1d480a17d065d0aee5ba44da",
+    "JspBounties/Erdos124.lean": "f155337e833987f12d25cfbe763a00429c50d5f27076b55d465e4552aec9072b",
+    "JspBounties/Erdos261.lean": "312dfe9b43c61b3f8b86a3cd7df67dac794f37b858a054ac01eafc9978b096b4"
+  },
+  "reviewed_files_edited": false,
+  "939_external_full_source_retained": false,
+  "939_definition_unchanged": true,
+  "939_independent_main_agent_review_still_required": true
+}

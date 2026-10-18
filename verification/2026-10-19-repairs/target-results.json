@@ -1,0 +1,74 @@
+[
+  {
+    "module": "Erdos124",
+    "exit_code": 0,
+    "expected": 3,
+    "observed": 3,
+    "nonstandard_axioms": [],
+    "seconds": 11.089192125,
+    "log": "logs/Erdos124-final-targets.log"
+  },
+  {
+    "module": "Erdos238",
+    "exit_code": 0,
+    "expected": 1,
+    "observed": 1,
+    "nonstandard_axioms": [],
+    "seconds": 12.498081040999999,
+    "log": "logs/Erdos238-final-targets.log"
+  },
+  {
+    "module": "Erdos261",
+    "exit_code": 0,
+    "expected": 3,
+    "observed": 3,
+    "nonstandard_axioms": [],
+    "seconds": 8.272908708000001,
+    "log": "logs/Erdos261-final-targets.log"
+  },
+  {
+    "module": "Erdos372",
+    "exit_code": 0,
+    "expected": 1,
+    "observed": 1,
+    "nonstandard_axioms": [],
+    "seconds": 8.11761725,
+    "log": "logs/Erdos372-final-targets.log"
+  },
+  {
+    "module": "Erdos672",
+    "exit_code": 0,
+    "expected": 2,
+    "observed": 2,
+    "nonstandard_axioms": [],
+    "seconds": 8.156424000000001,
+    "log": "logs/Erdos672-final-targets.log"
+  },
+  {
+    "module": "Erdos711",
+    "exit_code": 0,
+    "expected": 2,
+    "observed": 2,
+    "nonstandard_axioms": [],
+    "seconds": 7.759232666999999,
+    "log": "logs/Erdos711-final-targets.log"
+  },
+  {
+    "module": "Erdos727_273",
+    "exit_code": 0,
+    "expected": 5,
+    "observed": 5,
+    "nonstandard_axioms": [],
+    "seconds": 9.614832666999998,
+    "log": "logs/Erdos727_273-final-targets.log"
+  },
+  {
+    "module": "Erdos939",
+    "exit_code": 0,
+    "expected": 1,
+    "observed": 1,
+    "nonstandard_axioms": [],
+    "seconds": 39.058732417,
+    "log": "logs/Erdos939-final-targets.log"
+  }
+]

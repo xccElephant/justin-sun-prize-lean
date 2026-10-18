@@ -1,0 +1,4 @@
+@Erdos672.four_ap_ne_sq : ∀ {n d : ℕ}, 0 < n → 0 < d → ∀ (q : ℕ), n * (n + d) * (n + 2 * d) * (n + 3 * d) ≠ q ^ 2
+'Erdos672.four_ap_ne_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos672.erdos_672_four_two : Erdos672.Erdos672With 4 2
+'Erdos672.erdos_672_four_two' depends on axioms: [propext, Classical.choice, Quot.sound]

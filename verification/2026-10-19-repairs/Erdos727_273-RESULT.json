@@ -1,0 +1,17 @@
+{
+  "main_mixed_theorem": "NOT PROVED",
+  "k_1_2_declared": false,
+  "squared_k_ge_two": "NOT PROVED",
+  "new_exact_lemmas": 5,
+  "source_compile_exit": 0,
+  "exact_checks_exit": 0,
+  "all_theorem_audit_exit": 0,
+  "kernel_replay_exit": 0,
+  "audited_theorems_including_generated": 170,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "nonstandard_axioms": []
+}

@@ -1,0 +1,8 @@
+ℹ [2758/2758] Built JspBounties.Erdos238 (20s)
+info: JspBounties/Erdos238.lean:317:0: 'Erdos238.two_le_primeGap_of_one_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos238.lean:318:0: 'Erdos238.erdos_238_block_pigeonhole' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos238.lean:319:0: 'Erdos238.erdos_238_run_of_block_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos238.lean:320:0: 'Erdos238.erdos_238_unconditional_of_c2_lt_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos238.lean:321:0: 'Erdos238.single_prime_smooth_gap_ge' depends on axioms: [propext, Quot.sound]
+info: JspBounties/Erdos238.lean:323:0: 'Erdos238.erdos_238_eventually_of_c2_lt_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (2758 jobs).

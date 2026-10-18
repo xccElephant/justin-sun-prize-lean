@@ -1,0 +1,8 @@
+Erdos711.erdos_711_parts_ii : ∀ (B : ℕ),
+  ∀ᶠ (n : ℕ) in Filter.atTop,
+    ∃ m Lm Ln, Erdos711.IsMinimalIntervalLength n m Lm ∧ Erdos711.IsMinimalIntervalLength n n Ln ∧ B ≤ Lm - Ln
+'Erdos711.erdos_711_parts_ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos711.erdos_711.parts.ii : ∀ (B : ℕ),
+  ∀ᶠ (n : ℕ) in Filter.atTop,
+    ∃ m Lm Ln, Erdos711.IsMinimalIntervalLength n m Lm ∧ Erdos711.IsMinimalIntervalLength n n Ln ∧ B ≤ Lm - Ln
+'Erdos711.erdos_711.parts.ii' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,1 @@
+'Erdos672.erdos_672_four_two' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,117 @@
+[
+  {
+    "module": "Erdos124",
+    "prs": [
+      5088
+    ],
+    "targets": [
+      "Erdos124.erdos124.gcd_eq_one_of_eventually",
+      "Erdos124.erdos124.necessary_conditions",
+      "Erdos124.exists_mem_sumsOfDistinctPowers_modEq"
+    ],
+    "completed": "Necessary gcd obstruction and explicit distinct-exponent representatives for every residue.",
+    "remaining": "Positive-cutoff sufficiency, {3,4,7} completeness, and Melfi construction remain unproved.",
+    "source": "JspBounties/Erdos124.lean",
+    "commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe"
+  },
+  {
+    "module": "Erdos238",
+    "prs": [
+      5103
+    ],
+    "targets": [
+      "Erdos238.erdos_238_eventually_of_c2_lt_two"
+    ],
+    "completed": "Every positive c1 and every c2<2: all sufficiently large real x have more than c1 log x consecutive primes with every adjacent gap above c2.",
+    "remaining": "Arbitrary c2>=2 and the unrestricted original question remain unproved.",
+    "source": "JspBounties/Erdos238.lean",
+    "commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe"
+  },
+  {
+    "module": "Erdos261",
+    "prs": [
+      5099
+    ],
+    "targets": [
+      "Erdos261.finite_deletion_representation",
+      "Erdos261.erdos_261.variants.arbitrarily_many_representations",
+      "Erdos261.erdos_261.variants.representations_le_continuum"
+    ],
+    "completed": "For every finite r, a rational x_r has at least 2^r canonical infinite representations; each fiber has cardinality at most continuum.",
+    "remaining": "A single rational with continuum many representations and finite decomposition for every positive n remain unproved; quantifiers cannot be exchanged.",
+    "source": "JspBounties/Erdos261.lean",
+    "commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe"
+  },
+  {
+    "module": "Erdos372",
+    "prs": [
+      5080
+    ],
+    "targets": [
+      "Erdos372.jsp_000307_exists_prime_factor_chain"
+    ],
+    "completed": "Literal existence theorem stated entirely using prime divisibility and domination of every prime divisor; witness 13,14,15.",
+    "remaining": "Infinitely many decreasing triples are not proved; catalog scope remains unresolved.",
+    "source": "JspBounties/Erdos372.lean",
+    "commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe"
+  },
+  {
+    "module": "Erdos672",
+    "prs": [
+      5097
+    ],
+    "targets": [
+      "Erdos672.four_ap_ne_sq",
+      "Erdos672.erdos_672_four_two"
+    ],
+    "completed": "Complete unconditional four-term square-product exclusion, with normalization and both infinite-descent branches.",
+    "remaining": "The original assertion for arbitrary progression length and perfect-power exponent remains unproved.",
+    "source": "JspBounties/Erdos672.lean",
+    "commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe"
+  },
+  {
+    "module": "Erdos711",
+    "prs": [
+      5106
+    ],
+    "targets": [
+      "Erdos711.erdos_711_parts_ii",
+      "Erdos711.erdos_711.parts.ii"
+    ],
+    "completed": "Unconditional parts.ii, all sufficiently large n and explicit offset m=4n; no external gap hypothesis.",
+    "remaining": "Parts.i uniform n^(1+o(1)) upper bound remains unproved.",
+    "source": "JspBounties/Erdos711.lean",
+    "commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe"
+  },
+  {
+    "module": "Erdos727_273",
+    "prs": [
+      5107
+    ],
+    "targets": [
+      "Erdos727.carry_of_dvd_offset",
+      "Erdos727.prime_pow_dvd_centralBinom_of_offset",
+      "Erdos727.mixed_factorial_dvd_iff",
+      "Erdos727.mixed_factorial_dvd_iff_carry_count",
+      "Erdos727.prime_pow_dvd_centralBinom_of_offset_interval"
+    ],
+    "completed": "Exact factorial/carry-count equivalence and offset carrying lemmas.",
+    "remaining": "Neither mixed-factorial infinitude nor the squared-factorial conjecture for k>=2 is proved.",
+    "source": "JspBounties/Erdos727_273.lean",
+    "commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe"
+  },
+  {
+    "module": "Erdos939",
+    "prs": [
+      5089,
+      5090
+    ],
+    "targets": [
+      "Erdos939.erdos_939.variants.infinite_of_six_le"
+    ],
+    "completed": "For every r>=6, infinitely many finite sets of exactly r-2 positive r-powerful terms, setwise gcd1 and r-powerful sum.",
+    "remaining": "r=4 existence, r=4/5 infinitude, full catalog counting/density questions and scope approval remain unresolved.",
+    "source": "JspBounties/Erdos939.lean",
+    "commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe"
+  }
+]

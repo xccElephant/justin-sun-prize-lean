@@ -1,0 +1,1 @@
+'Erdos711.erdos_711.parts.ii' depends on axioms: [propext, Classical.choice, Quot.sound]

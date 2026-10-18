@@ -1,0 +1,147 @@
+[
+  {
+    "module": "Erdos124",
+    "results": [
+      {
+        "kind": "build",
+        "command": [
+          "lake",
+          "build",
+          "+JspBounties.Erdos124"
+        ],
+        "exit_code": 0,
+        "seconds": 14.05,
+        "log": "logs/Erdos124-build.log"
+      },
+      {
+        "kind": "kernel",
+        "command": [
+          "lake",
+          "env",
+          "leanchecker",
+          "-v",
+          "JspBounties.Erdos124"
+        ],
+        "exit_code": 0,
+        "seconds": 22.67,
+        "log": "logs/Erdos124-kernel.log"
+      }
+    ]
+  },
+  {
+    "module": "Erdos238",
+    "results": [
+      {
+        "kind": "build",
+        "command": [
+          "lake",
+          "build",
+          "+JspBounties.Erdos238"
+        ],
+        "exit_code": 0,
+        "seconds": 35.71,
+        "log": "logs/Erdos238-build.log"
+      },
+      {
+        "kind": "kernel",
+        "command": [
+          "lake",
+          "env",
+          "leanchecker",
+          "-v",
+          "JspBounties.Erdos238"
+        ],
+        "exit_code": 0,
+        "seconds": 24.74,
+        "log": "logs/Erdos238-kernel.log"
+      }
+    ]
+  },
+  {
+    "module": "Erdos261",
+    "results": [
+      {
+        "kind": "build",
+        "command": [
+          "lake",
+          "build",
+          "+JspBounties.Erdos261"
+        ],
+        "exit_code": 0,
+        "seconds": 8.06,
+        "log": "logs/Erdos261-build.log"
+      },
+      {
+        "kind": "kernel",
+        "command": [
+          "lake",
+          "env",
+          "leanchecker",
+          "-v",
+          "JspBounties.Erdos261"
+        ],
+        "exit_code": 0,
+        "seconds": 18.22,
+        "log": "logs/Erdos261-kernel.log"
+      }
+    ]
+  },
+  {
+    "module": "Erdos372",
+    "results": [
+      {
+        "kind": "build",
+        "command": [
+          "lake",
+          "build",
+          "+JspBounties.Erdos372"
+        ],
+        "exit_code": 0,
+        "seconds": 5.94,
+        "log": "logs/Erdos372-build.log"
+      },
+      {
+        "kind": "kernel",
+        "command": [
+          "lake",
+          "env",
+          "leanchecker",
+          "-v",
+          "JspBounties.Erdos372"
+        ],
+        "exit_code": 0,
+        "seconds": 22.52,
+        "log": "logs/Erdos372-kernel.log"
+      }
+    ]
+  },
+  {
+    "module": "Erdos939",
+    "results": [
+      {
+        "kind": "build",
+        "command": [
+          "lake",
+          "build",
+          "+JspBounties.Erdos939"
+        ],
+        "exit_code": 0,
+        "seconds": 19.88,
+        "log": "logs/Erdos939-build.log"
+      },
+      {
+        "kind": "kernel",
+        "command": [
+          "lake",
+          "env",
+          "leanchecker",
+          "-v",
+          "JspBounties.Erdos939"
+        ],
+        "exit_code": 0,
+        "seconds": 100.87,
+        "log": "logs/Erdos939-kernel.log"
+      }
+    ]
+  }
+]

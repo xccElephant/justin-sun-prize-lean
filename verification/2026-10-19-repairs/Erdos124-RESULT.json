@@ -1,0 +1,16 @@
+{
+  "source_compile_exit": 0,
+  "exact_checks_exit": 0,
+  "artifact_compile_exit": 0,
+  "axiom_audit_exit": 0,
+  "kernel_replay_exit": 0,
+  "theorem_count": 78,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "nonstandard_axioms": [],
+  "original_target_status": "incomplete",
+  "new_exact_gcd_necessity": "proved"
+}

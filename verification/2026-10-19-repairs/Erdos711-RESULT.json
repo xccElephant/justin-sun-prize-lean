@@ -1,0 +1,12 @@
+{
+  "source_sha256": "01112dfa4b8c13fefbe3503a9f85ab8924aa9f076fedd05e99514faa1600cce2",
+  "exit_codes": {
+    "build": 0,
+    "target": 0,
+    "audit": 0,
+    "kernel": 0
+  },
+  "audited_theorems": 91,
+  "theorem": "Erdos711.erdos_711.parts.ii",
+  "standard_axioms_only": true
+}

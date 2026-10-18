@@ -1,0 +1,27 @@
+⚠ [8706/8706] Replayed JspBounties.Erdos939
+warning: JspBounties/Erdos939.lean:874:13: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Prod.snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: JspBounties/Erdos939.lean:874:23: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Prod.fst]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: JspBounties/Erdos939.lean:1091:0: 'Erdos939.erdos_939.variants.triples' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos939.lean:1092:0: 'Erdos939.erdos_939.variants.finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos939.lean:1093:0: 'Erdos939.erdos_939_five_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos939.lean:1094:0: 'Erdos939.erdos_939_six_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos939.lean:1095:0: 'Erdos939.erdos_939_seven_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos939.lean:1096:0: 'Erdos939.erdos_939_eight_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos939.lean:1097:0: 'Erdos939.erdos_939.variants.seven' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos939.lean:1098:0: 'Erdos939.erdos_939.variants.eight' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos939.lean:1099:0: 'Erdos939.erdos_939.variants.examples' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos939.lean:1100:0: 'Erdos939.erdos_939.variants.euler' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos939.lean:1101:0: 'Erdos939.erdos_939.variants.infinite_of_six_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8706 jobs).

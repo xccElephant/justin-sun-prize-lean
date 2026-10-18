@@ -1,0 +1,12 @@
+Erdos372.jsp_000307_exists_prime_factor_chain : ∃ n p q r,
+  0 < n ∧
+    Nat.Prime p ∧
+      Nat.Prime q ∧
+        Nat.Prime r ∧
+          p ∣ n ∧
+            q ∣ n + 1 ∧
+              r ∣ n + 2 ∧
+                (∀ (d : ℕ), Nat.Prime d → d ∣ n → d ≤ p) ∧
+                  (∀ (d : ℕ), Nat.Prime d → d ∣ n + 1 → d ≤ q) ∧
+                    (∀ (d : ℕ), Nat.Prime d → d ∣ n + 2 → d ≤ r) ∧ r < q ∧ q < p
+'Erdos372.jsp_000307_exists_prime_factor_chain' depends on axioms: [propext, Classical.choice, Quot.sound]

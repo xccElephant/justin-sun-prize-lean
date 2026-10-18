@@ -1,0 +1,12 @@
+@Erdos124.erdos124.gcd_eq_one_of_eventually : ∀ {D : Finset ℕ} {k : ℕ},
+  k ≠ 0 → (∀ᶠ (n : ℕ) in Filter.atTop, n ∈ ∑ d ∈ D, Erdos124.sumsOfDistinctPowers d k) → D.gcd id = 1
+'Erdos124.erdos124.gcd_eq_one_of_eventually' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Erdos124.erdos124.necessary_conditions : ∀ {D : Finset ℕ} {k : ℕ},
+  (∀ d ∈ D, 3 ≤ d) →
+    k ≠ 0 →
+      (∀ᶠ (n : ℕ) in Filter.atTop, n ∈ ∑ d ∈ D, Erdos124.sumsOfDistinctPowers d k) →
+        1 ≤ ∑ d ∈ D, (↑d - 1)⁻¹ ∧ D.gcd id = 1
+'Erdos124.erdos124.necessary_conditions' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Erdos124.exists_mem_sumsOfDistinctPowers_modEq : ∀ {d m : ℕ},
+  0 < m → d.Coprime m → ∀ (k r : ℕ), ∃ a ∈ Erdos124.sumsOfDistinctPowers d k, a ≡ r [MOD m]
+'Erdos124.exists_mem_sumsOfDistinctPowers_modEq' depends on axioms: [propext, Classical.choice, Quot.sound]

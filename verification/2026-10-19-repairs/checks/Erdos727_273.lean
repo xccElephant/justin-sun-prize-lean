@@ -1,0 +1,12 @@
+import JspBounties.Erdos727_273
+
+#check @Erdos727.carry_of_dvd_offset
+#print axioms Erdos727.carry_of_dvd_offset
+#check @Erdos727.prime_pow_dvd_centralBinom_of_offset
+#print axioms Erdos727.prime_pow_dvd_centralBinom_of_offset
+#check @Erdos727.mixed_factorial_dvd_iff
+#print axioms Erdos727.mixed_factorial_dvd_iff
+#check @Erdos727.mixed_factorial_dvd_iff_carry_count
+#print axioms Erdos727.mixed_factorial_dvd_iff_carry_count
+#check @Erdos727.prime_pow_dvd_centralBinom_of_offset_interval
+#print axioms Erdos727.prime_pow_dvd_centralBinom_of_offset_interval

@@ -1,0 +1,17 @@
+@Erdos727.carry_of_dvd_offset : ∀ {n j m : ℕ}, 0 < j → 2 * j ≤ m → m ∣ n + j → m ≤ 2 * (n % m)
+'Erdos727.carry_of_dvd_offset' depends on axioms: [propext, Quot.sound]
+@Erdos727.prime_pow_dvd_centralBinom_of_offset : ∀ {p n j e : ℕ},
+  Nat.Prime p → 0 < j → 2 * j ≤ p → p ^ e ∣ n + j → p ^ e ∣ n.centralBinom
+'Erdos727.prime_pow_dvd_centralBinom_of_offset' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos727.mixed_factorial_dvd_iff : ∀ (n k : ℕ),
+  (n + k).factorial * (n + 1).factorial ∣ (2 * n).factorial ↔ (n + 1) * (n + 1).ascFactorial k ∣ n.centralBinom
+'Erdos727.mixed_factorial_dvd_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos727.mixed_factorial_dvd_iff_carry_count : ∀ (n k : ℕ),
+  (n + k).factorial * (n + 1).factorial ∣ (2 * n).factorial ↔
+    ∀ p ∈ ((n + 1) * (n + 1).ascFactorial k).primeFactors,
+      ((n + 1) * (n + 1).ascFactorial k).factorization p ≤
+        {i ∈ Finset.Ico 1 (Nat.log p (n + n) + 1) | p ^ i ≤ 2 * (n % p ^ i)}.card
+'Erdos727.mixed_factorial_dvd_iff_carry_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Erdos727.prime_pow_dvd_centralBinom_of_offset_interval : ∀ {p n A t L : ℕ},
+  Nat.Prime p → 0 < A → 1 ≤ t → 2 * A ≤ p ^ t → p ^ L ∣ n + A → p ^ (L + 1 - t) ∣ n.centralBinom
+'Erdos727.prime_pow_dvd_centralBinom_of_offset_interval' depends on axioms: [propext, Classical.choice, Quot.sound]

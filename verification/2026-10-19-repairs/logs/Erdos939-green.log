@@ -1,0 +1,3 @@
+'Erdos939.erdos_939.variants.infinite_of_six_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos939.General.family_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos939.General.term_injective' depends on axioms: [propext, Classical.choice, Quot.sound]

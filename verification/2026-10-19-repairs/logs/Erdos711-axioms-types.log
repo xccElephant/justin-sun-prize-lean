@@ -1,0 +1,323 @@
+AUDIT|Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple|∀ {n m L : ℕ},
+  1 ≤ n → Erdos711.HasDivisibleDistinctTuple n m L → n + 1 ≤ L
+AUDIT|Erdos711.gap_from_diagonal|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.gap_from_diagonal|∀ {n Ln Lm : ℕ},
+  0 < n →
+    Erdos711.IsMinimalIntervalLength n n Ln → Erdos711.IsMinimalIntervalLength n (4 * n) Lm → Ln - 2 * n - 1 ≤ Lm - Ln
+AUDIT|Erdos711.erdos_711_parts_ii|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.erdos_711_parts_ii|∀ (B : ℕ),
+  ∀ᶠ (n : ℕ) in Filter.atTop,
+    ∃ m Lm Ln, Erdos711.IsMinimalIntervalLength n m Lm ∧ Erdos711.IsMinimalIntervalLength n n Ln ∧ B ≤ Lm - Ln
+AUDIT|Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple._proof_1_2|∀ {n L : ℕ}, n ≤ L - 1 → 1 ≤ L → ¬n + 1 ≤ L → False
+AUDIT|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.s_check|[]
+TYPE|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.s_check|Erdos711.FiniteObstruction.increasing✝
+    Erdos711.FiniteObstruction.s =
+  true
+AUDIT|Erdos711.exists_hasDivisibleDistinctTuple._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos711.exists_hasDivisibleDistinctTuple._proof_1_1|∀ (n m : ℕ) (i : Fin n),
+  ↑i < n → ¬m + ↑i + 1 ≤ m + n + 1 → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_restrict._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_restrict._proof_1_4|∀ {q N : ℕ} {n : ℕ} (i : Fin N),
+  0 < q * (↑i + 1) → ¬q * (↑i + 1) - 1 + 1 = q * (↑i + 1) → False
+AUDIT|Erdos711.scale_lower|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.scale_lower|∀ {q N n L A : ℕ},
+  0 < q →
+    0 < N →
+      q * N ≤ n →
+        Erdos711.IsMinimalIntervalLength N N A → Erdos711.HasDivisibleDistinctTuple n n L → q * (N + A - 1) < n + L
+AUDIT|Erdos711.erdos_711_parts_ii._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos711.erdos_711_parts_ii._proof_1_4|∀ (B n A Ln : ℕ), ¬0 < 5000 → False
+AUDIT|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.increasing.eq_1|[]
+TYPE|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.increasing.eq_1|Erdos711.FiniteObstruction.increasing✝
+    [] =
+  true
+AUDIT|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.closure_check._proof_1_1|[]
+TYPE|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.closure_check._proof_1_1|(Erdos711.FiniteObstruction.s.all
+    fun i =>
+    (List.range (15000 / i + 1)).all fun k => !decide (5000 < i * k) || Erdos711.FiniteObstruction.t.contains (i * k)) =
+  true
+AUDIT|Erdos711.FiniteObstruction.closure|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.FiniteObstruction.closure|∀ i ∈ Erdos711.FiniteObstruction.S,
+  ∀ k ∈ Finset.range (15000 / i + 1), 5000 < i * k → i * k ∈ Erdos711.FiniteObstruction.T
+AUDIT|Erdos711.FiniteObstruction.cards._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.FiniteObstruction.cards._proof_1_1|Erdos711.FiniteObstruction.T.card < Erdos711.FiniteObstruction.S.card
+AUDIT|Erdos711.isMinimalIntervalLength_zero._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos711.isMinimalIntervalLength_zero._proof_1_1|∀ {n : ℕ} ⦃i j : Fin n⦄, ↑i + 1 = ↑j + 1 → ¬↑i = ↑j → False
+AUDIT|Erdos711.scale_lower._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.scale_lower._proof_1_1|∀ {q N n L A : ℕ},
+  0 < q →
+    0 < N →
+      q * N ≤ n →
+        Erdos711.HasDivisibleDistinctTuple n n L →
+          A ≤ (n + L - 1) / q - N + 1 → N + 1 ≤ (n + L - 1) / q - N + 1 → ¬N + A - 1 ≤ (n + L - 1) / q → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_7|∀ {n m M : ℕ} {L : ℕ} (a : Fin n → ℕ) (i : Fin n),
+  m < a i → ¬m + M < a i + M → False
+AUDIT|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.increasing.eq_def|[]
+TYPE|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.increasing.eq_def|∀ (x : List ℕ),
+  Erdos711.FiniteObstruction.increasing✝ x =
+    match x with
+    | [] => true
+    | [head] => true
+    | a :: b :: xs => decide (a < b) && Erdos711.FiniteObstruction.increasing✝ (b :: xs)
+AUDIT|Erdos711.FiniteObstruction.obstruction._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos711.FiniteObstruction.obstruction._proof_1_8|∀ (a : Fin 5000 → ℕ) ⦃i : ℕ⦄ ⦃j : ℕ⦄,
+  0 < j → j ≤ 5000 → ¬j - 1 < 5000 → False
+AUDIT|Erdos711.FiniteObstruction.S._proof_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.FiniteObstruction.S._proof_1|Erdos711.FiniteObstruction.s.Nodup
+AUDIT|Erdos711.hasDivisibleDistinctTuple_splice._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_splice._proof_1_3|∀ {k n L : ℕ} (a : Fin n → ℕ) (i : Fin (k * n)) (hn : 0 < n),
+  k * k * n < a ⟨0, hn⟩ ∧ a ⟨0, hn⟩ < k * k * n + L ∧ ↑⟨0, hn⟩ + 1 ∣ a ⟨0, hn⟩ → ¬0 < L → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_splice|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_splice|∀ {k n L : ℕ},
+  1 ≤ k →
+    Erdos711.HasDivisibleDistinctTuple n (k * k * n) L →
+      Erdos711.HasDivisibleDistinctTuple (k * n) (k * n) (k * k * n - k * n + L)
+AUDIT|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.increasing.eq_2|[]
+TYPE|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.increasing.eq_2|∀ (head : ℕ),
+  Erdos711.FiniteObstruction.increasing✝ [head] = true
+AUDIT|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.increasing.match_1.eq_2|[]
+TYPE|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.increasing.match_1.eq_2|∀ (motive : List ℕ → Sort u_1)
+  (head : ℕ) (h_1 : Unit → motive []) (h_2 : (head : ℕ) → motive [head])
+  (h_3 : (a b : ℕ) → (xs : List ℕ) → motive (a :: b :: xs)),
+  (match [head] with
+    | [] => h_1 ()
+    | [head] => h_2 head
+    | a :: b :: xs => h_3 a b xs) =
+    h_2 head
+AUDIT|Erdos711.erdos_711.parts.ii|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.erdos_711.parts.ii|∀ (B : ℕ),
+  ∀ᶠ (n : ℕ) in Filter.atTop,
+    ∃ m Lm Ln, Erdos711.IsMinimalIntervalLength n m Lm ∧ Erdos711.IsMinimalIntervalLength n n Ln ∧ B ≤ Lm - Ln
+AUDIT|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.bounds_check|[]
+TYPE|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.bounds_check|(Erdos711.FiniteObstruction.s.all fun i =>
+    decide (0 < i ∧ i ≤ 5000)) =
+  true
+AUDIT|Erdos711.FiniteObstruction.cards|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.FiniteObstruction.cards|Erdos711.FiniteObstruction.T.card < Erdos711.FiniteObstruction.S.card
+AUDIT|Erdos711.exists_hasDivisibleDistinctTuple|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.exists_hasDivisibleDistinctTuple|∀ (n m : ℕ), ∃ L, Erdos711.HasDivisibleDistinctTuple n m L
+AUDIT|Erdos711.FiniteObstruction.obstruction._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos711.FiniteObstruction.obstruction._proof_1_3|∀ (a : Fin 5000 → ℕ) ⦃i : ℕ⦄,
+  0 < i → i ≤ 5000 → ¬i - 1 < 5000 → False
+AUDIT|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.increasing.match_1.eq_1|[]
+TYPE|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.increasing.match_1.eq_1|∀ (motive : List ℕ → Sort u_1)
+  (h_1 : Unit → motive []) (h_2 : (head : ℕ) → motive [head]) (h_3 : (a b : ℕ) → (xs : List ℕ) → motive (a :: b :: xs)),
+  (match [] with
+    | [] => h_1 ()
+    | [head] => h_2 head
+    | a :: b :: xs => h_3 a b xs) =
+    h_1 ()
+AUDIT|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.closure_check|[]
+TYPE|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.closure_check|(Erdos711.FiniteObstruction.s.all fun i =>
+    (List.range (15000 / i + 1)).all fun k => !decide (5000 < i * k) || Erdos711.FiniteObstruction.t.contains (i * k)) =
+  true
+AUDIT|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.s_check._proof_1_1|[]
+TYPE|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.s_check._proof_1_1|Erdos711.FiniteObstruction.increasing✝
+    Erdos711.FiniteObstruction.s =
+  true
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_3|∀ {n M : ℕ} (a : Fin n → ℕ) ⦃i j : Fin n⦄,
+  a i - M = a j - M → M < a i → M < a j → ¬a i = a j → False
+AUDIT|Erdos711.isMinimalIntervalLength_zero._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos711.isMinimalIntervalLength_zero._proof_1_3|∀ {n : ℕ} (i : Fin n), ↑i < n → ¬↑i + 1 < 0 + (n + 1) → False
+AUDIT|Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple._proof_1_1|∀ {n m L : ℕ} (a : Fin n → ℕ) (i0 : Fin n),
+  m < a i0 → a i0 < m + L → ¬1 ≤ L → False
+AUDIT|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.t_check|[]
+TYPE|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.t_check|Erdos711.FiniteObstruction.increasing✝
+    Erdos711.FiniteObstruction.t =
+  true
+AUDIT|Erdos711.hasDivisibleDistinctTuple_restrict._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_restrict._proof_1_7|∀ {q N n L : ℕ} (hq : 0 < q) (hN : q * N ≤ n)
+  (a : Fin n → ℕ) (i : Fin N),
+  a ((fun i => ⟨q * (↑i + 1) - 1, ⋯⟩) i) < n + L →
+    q * (a ((fun i => ⟨q * (↑i + 1) - 1, ⋯⟩) i) / q) = a ((fun i => ⟨q * (↑i + 1) - 1, ⋯⟩) i) →
+      ¬a ((fun i => ⟨q * (↑i + 1) - 1, ⋯⟩) i) ≤ n + L - 1 → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd|∀ {n m M L : ℕ},
+  (∀ (i : Fin n), ↑i + 1 ∣ M) →
+    (Erdos711.HasDivisibleDistinctTuple n (m + M) L ↔ Erdos711.HasDivisibleDistinctTuple n m L)
+AUDIT|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.bounds_check._proof_1_1|[]
+TYPE|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.bounds_check._proof_1_1|(Erdos711.FiniteObstruction.s.all
+    fun i => decide (0 < i ∧ i ≤ 5000)) =
+  true
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_1|∀ {n m M : ℕ} (a : Fin n → ℕ) ⦃i : Fin n⦄ ⦃j : Fin n⦄,
+  m + M < a i → ¬M < a i → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_restrict._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_restrict._proof_1_6|∀ {q N n : ℕ} {L : ℕ} (hq : 0 < q) (hN : q * N ≤ n)
+  (a : Fin n → ℕ) (i : Fin N),
+  n < a ((fun i => ⟨q * (↑i + 1) - 1, ⋯⟩) i) →
+    q * (a ((fun i => ⟨q * (↑i + 1) - 1, ⋯⟩) i) / q) = a ((fun i => ⟨q * (↑i + 1) - 1, ⋯⟩) i) →
+      q * (a ((fun i => ⟨q * (↑i + 1) - 1, ⋯⟩) i) / q) ≤ q * N → False
+AUDIT|Erdos711.exists_hasDivisibleDistinctTuple._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos711.exists_hasDivisibleDistinctTuple._proof_1_3|∀ (n m : ℕ) (i : Fin n),
+  ¬(m + n + 1) * (n + 1) < m + ((m + n + 1) * (n + 1) + 1) → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_6|∀ {n M : ℕ} (a : Fin n → ℕ) ⦃i j : Fin n⦄,
+  a i + M = a j + M → ¬a i = a j → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_restrict._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_restrict._proof_1_3|∀ {q N n : ℕ},
+  q * N ≤ n → ∀ (i : Fin N), q * (↑i + 1) ≤ q * N → 0 < q * (↑i + 1) → ¬q * (↑i + 1) - 1 < n → False
+AUDIT|Erdos711.isMinimalIntervalLength_unique|[]
+TYPE|Erdos711.isMinimalIntervalLength_unique|∀ {n m L₁ L₂ : ℕ},
+  Erdos711.IsMinimalIntervalLength n m L₁ → Erdos711.IsMinimalIntervalLength n m L₂ → L₁ = L₂
+AUDIT|Erdos711.hasDivisibleDistinctTuple_restrict._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_restrict._proof_1_2|∀ {q : ℕ} {N : ℕ} {n : ℕ} (i : Fin N), ¬0 < ↑i + 1 → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_splice._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_splice._proof_1_1|∀ {k n : ℕ} {L : ℕ} (a : Fin n → ℕ),
+  k * n ≤ k * k * n → ∀ (i : Fin (k * n)) (hi : ↑i < n), k * k * n < a ⟨↑i, hi⟩ → ¬k * n < a ⟨↑i, hi⟩ → False
+AUDIT|Erdos711.gap_from_diagonal._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos711.gap_from_diagonal._proof_1_6|∀ {n Ln Lm : ℕ},
+  0 < n →
+    ∀ (A : ℕ),
+      2 * (n + Ln - 1) < 2 * n + A →
+        A ≤ 2 * 2 * n - 2 * n + Lm → A ≤ 2 * n + Lm → ¬Ln ≤ 2 * n + 1 → ¬Ln - 2 * n - 1 ≤ Lm - Ln → False
+AUDIT|Erdos711.FiniteObstruction.obstruction._proof_1_9|[propext, Quot.sound]
+TYPE|Erdos711.FiniteObstruction.obstruction._proof_1_9|∀ (a : Fin 5000 → ℕ) ⦃i j : ℕ⦄,
+  0 < i → i ≤ 5000 → 0 < j → j ≤ 5000 → i - 1 = j - 1 → ¬i = j → False
+AUDIT|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.increasing.match_1.eq_3|[]
+TYPE|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.increasing.match_1.eq_3|∀ (motive : List ℕ → Sort u_1)
+  (a b : ℕ) (xs : List ℕ) (h_1 : Unit → motive []) (h_2 : (head : ℕ) → motive [head])
+  (h_3 : (a b : ℕ) → (xs : List ℕ) → motive (a :: b :: xs)),
+  (match a :: b :: xs with
+    | [] => h_1 ()
+    | [head] => h_2 head
+    | a :: b :: xs => h_3 a b xs) =
+    h_3 a b xs
+AUDIT|Erdos711.finite_diagonal_lower._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos711.finite_diagonal_lower._proof_1_1|∀ {A : ℕ},
+  ¬10002 ≤ A → ∀ (a : Fin 5000 → ℕ) (i : Fin 5000), a i < 5000 + A → ¬a i < 5000 + 10001 → False
+AUDIT|Erdos711.gap_from_diagonal._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos711.gap_from_diagonal._proof_1_2|∀ {n : ℕ}, ¬2 * n ≤ 2 * n → False
+AUDIT|Erdos711.FiniteObstruction.obstruction|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.FiniteObstruction.obstruction|¬Erdos711.HasDivisibleDistinctTuple 5000 5000 10001
+AUDIT|Erdos711.gap_from_diagonal._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos711.gap_from_diagonal._proof_1_4|∀ {n : ℕ} {Ln Lm : ℕ}, 0 < n → ∀ (A : ℕ), ¬2 * 2 * n - 2 * n = 2 * n → False
+AUDIT|Erdos711.erdos_711_parts_ii._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos711.erdos_711_parts_ii._proof_1_2|∀ (B n : ℕ), 5000 * (B + 15001) ≤ n → ∀ (A : ℕ), ¬0 < n / 5000 → False
+AUDIT|Erdos711.FiniteObstruction.T._proof_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.FiniteObstruction.T._proof_1|Erdos711.FiniteObstruction.t.Nodup
+AUDIT|Erdos711.gap_from_diagonal._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos711.gap_from_diagonal._proof_1_3|∀ {n Ln : ℕ} (A : ℕ), ¬1 ≤ 2 → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_restrict._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_restrict._proof_1_5|∀ {q N n : ℕ} {L : ℕ} (hq : 0 < q) (hN : q * N ≤ n)
+  (a : Fin n → ℕ) (i : Fin N),
+  ¬N < a ((fun i => ⟨q * (↑i + 1) - 1, ⋯⟩) i) / q → ¬a ((fun i => ⟨q * (↑i + 1) - 1, ⋯⟩) i) / q ≤ N → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_2|∀ {n m M : ℕ} (a : Fin n → ℕ) ⦃i : Fin n⦄ ⦃j : Fin n⦄,
+  m + M < a j → ¬M < a j → False
+AUDIT|Erdos711.FiniteObstruction.bounds|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.FiniteObstruction.bounds|∀ i ∈ Erdos711.FiniteObstruction.S, 0 < i ∧ i ≤ 5000
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_8|∀ {n m M L : ℕ} (a : Fin n → ℕ) (i : Fin n),
+  a i < m + L → ¬a i + M < m + M + L → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_splice._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_splice._proof_1_2|∀ {k n L : ℕ} (a : Fin n → ℕ),
+  k * n ≤ k * k * n →
+    ∀ (i : Fin (k * n)) (hi : ↑i < n),
+      a ⟨↑i, hi⟩ < k * k * n + L → ¬a ⟨↑i, hi⟩ < k * n + (k * k * n - k * n + L) → False
+AUDIT|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.increasing_sound|[propext]
+TYPE|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.increasing_sound|∀ (xs : List ℕ),
+  Erdos711.FiniteObstruction.increasing✝ xs = true → List.IsChain (fun x1 x2 => x1 < x2) xs
+AUDIT|Erdos711.IsMinimalIntervalLength.eq_1|[]
+TYPE|Erdos711.IsMinimalIntervalLength.eq_1|∀ (n m L : ℕ),
+  Erdos711.IsMinimalIntervalLength n m L =
+    (Erdos711.HasDivisibleDistinctTuple n m L ∧ ∀ (L' : ℕ), Erdos711.HasDivisibleDistinctTuple n m L' → L ≤ L')
+AUDIT|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.increasing.eq_3|[]
+TYPE|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.increasing.eq_3|∀ (a b : ℕ) (xs : List ℕ),
+  Erdos711.FiniteObstruction.increasing✝ (a :: b :: xs) =
+    (decide (a < b) && Erdos711.FiniteObstruction.increasing✝ (b :: xs))
+AUDIT|Erdos711.erdos_711_parts_ii_of_van_doorn|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.erdos_711_parts_ii_of_van_doorn|(∀ (B : ℕ),
+    ∀ᶠ (n : ℕ) in Filter.atTop,
+      ∃ m,
+        ∀ (Lm Ln : ℕ),
+          Erdos711.HasDivisibleDistinctTuple n m Lm → Erdos711.IsMinimalIntervalLength n n Ln → B ≤ Lm - Ln) →
+  ∀ (B : ℕ),
+    ∀ᶠ (n : ℕ) in Filter.atTop,
+      ∃ m Lm Ln, Erdos711.IsMinimalIntervalLength n m Lm ∧ Erdos711.IsMinimalIntervalLength n n Ln ∧ B ≤ Lm - Ln
+AUDIT|Erdos711.gap_from_diagonal._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos711.gap_from_diagonal._proof_1_1|∀ {n : ℕ}, ¬0 < 2 → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_splice._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_splice._proof_1_4|∀ {k n L : ℕ},
+  k * n ≤ k * k * n →
+    ∀ (i : Fin (k * n)), 0 < L → k * (↑i + 1) ≤ k * k * n → ¬k * (↑i + 1) < k * n + (k * k * n - k * n + L) → False
+AUDIT|Erdos711.gap_from_diagonal._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos711.gap_from_diagonal._proof_1_5|∀ {n Ln Lm : ℕ} (A : ℕ), Ln ≤ 2 * n + 1 → ¬Ln - 2 * n - 1 ≤ Lm - Ln → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_restrict|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_restrict|∀ {q N n L : ℕ},
+  0 < q →
+    q * N ≤ n →
+      Erdos711.HasDivisibleDistinctTuple n n L → Erdos711.HasDivisibleDistinctTuple N N ((n + L - 1) / q - N + 1)
+AUDIT|Erdos711.erdos_711_parts_ii._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos711.erdos_711_parts_ii._proof_1_3|∀ (B n A : ℕ), ¬0 < 5000 → False
+AUDIT|Erdos711.isMinimalIntervalLength_add_iff_of_dvd|[propext, Quot.sound]
+TYPE|Erdos711.isMinimalIntervalLength_add_iff_of_dvd|∀ {n m M L : ℕ},
+  (∀ (i : Fin n), ↑i + 1 ∣ M) → (Erdos711.IsMinimalIntervalLength n (m + M) L ↔ Erdos711.IsMinimalIntervalLength n m L)
+AUDIT|Erdos711.FiniteObstruction.obstruction._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos711.FiniteObstruction.obstruction._proof_1_7|∀ (a : Fin 5000 → ℕ) ⦃i : ℕ⦄ ⦃j : ℕ⦄,
+  0 < i → i ≤ 5000 → ¬i - 1 < 5000 → False
+AUDIT|Erdos711.FiniteObstruction.obstruction._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos711.FiniteObstruction.obstruction._proof_1_5|∀ (a : Fin 5000 → ℕ) ⦃i : ℕ⦄,
+  0 < i → i ≤ 5000 → ∀ t ≤ 15000 / i, ¬t < 15000 / i + 1 → False
+AUDIT|Erdos711.FiniteObstruction.obstruction._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos711.FiniteObstruction.obstruction._proof_1_6|∀ (a : Fin 5000 → ℕ) ⦃i : ℕ⦄ (hip : 0 < i) (hin : i ≤ 5000),
+  5000 < a ⟨i - 1, ⋯⟩ ∧ a ⟨i - 1, ⋯⟩ < 5000 + 10001 ∧ ↑⟨i - 1, ⋯⟩ + 1 ∣ a ⟨i - 1, ⋯⟩ →
+    ∀ (t : ℕ), a ⟨i - 1, ⋯⟩ = i * t → ¬5000 < i * t → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_restrict._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_restrict._proof_1_1|∀ {q : ℕ} {N : ℕ} {n : ℕ} (i : Fin N),
+  ↑i < N → ¬↑i + 1 ≤ N → False
+AUDIT|Erdos711.erdos_711_parts_ii._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos711.erdos_711_parts_ii._proof_1_6|∀ (B n : ℕ),
+  5000 * (B + 15001) ≤ n →
+    ∀ (A Ln : ℕ),
+      n / 5000 * (5000 + A - 1) < n + Ln → n / 5000 * 15001 ≤ n / 5000 * (5000 + A - 1) → ¬B ≤ Ln - 2 * n - 1 → False
+AUDIT|Erdos711.finite_diagonal_lower|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.finite_diagonal_lower|∀ {A : ℕ}, Erdos711.IsMinimalIntervalLength 5000 5000 A → 10002 ≤ A
+AUDIT|Erdos711.FiniteObstruction.obstruction._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos711.FiniteObstruction.obstruction._proof_1_2|∀ ⦃i : ℕ⦄, 0 < i → i ≤ 5000 → ¬i - 1 < 5000 → False
+AUDIT|Erdos711.exists_isMinimalIntervalLength|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.exists_isMinimalIntervalLength|∀ (n m : ℕ), ∃ L, Erdos711.IsMinimalIntervalLength n m L
+AUDIT|Erdos711.FiniteObstruction.obstruction._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos711.FiniteObstruction.obstruction._proof_1_1|∀ (i : ℕ), 0 < i ∧ i ≤ 5000 → ¬i - 1 < 5000 → False
+AUDIT|Erdos711.exists_hasDivisibleDistinctTuple._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos711.exists_hasDivisibleDistinctTuple._proof_1_2|∀ (n : ℕ) (i : Fin n), ↑i < n → ¬↑i + 1 ≤ n + 1 → False
+AUDIT|Erdos711.FiniteObstruction.obstruction._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos711.FiniteObstruction.obstruction._proof_1_4|∀ (a : Fin 5000 → ℕ) ⦃i : ℕ⦄ (hip : 0 < i) (hin : i ≤ 5000),
+  5000 < a ⟨i - 1, ⋯⟩ ∧ a ⟨i - 1, ⋯⟩ < 5000 + 10001 ∧ ↑⟨i - 1, ⋯⟩ + 1 ∣ a ⟨i - 1, ⋯⟩ →
+    ∀ (t : ℕ), a ⟨i - 1, ⋯⟩ = i * t → ¬i * t ≤ 15000 → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_restrict._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_restrict._proof_1_8|∀ {q N n L : ℕ} (hq : 0 < q) (hN : q * N ≤ n)
+  (a : Fin n → ℕ) (i : Fin N),
+  N < a ((fun i => ⟨q * (↑i + 1) - 1, ⋯⟩) i) / q →
+    a ((fun i => ⟨q * (↑i + 1) - 1, ⋯⟩) i) / q ≤ (n + L - 1) / q →
+      ¬a ((fun i => ⟨q * (↑i + 1) - 1, ⋯⟩) i) / q < N + ((n + L - 1) / q - N + 1) → False
+AUDIT|Erdos711.isMinimalIntervalLength_zero._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos711.isMinimalIntervalLength_zero._proof_1_2|∀ {n : ℕ} (i : Fin n), ¬0 < ↑i + 1 → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_4|∀ {n m M : ℕ} {L : ℕ} (a : Fin n → ℕ) (i : Fin n),
+  m + M < a i → ¬m < a i - M → False
+AUDIT|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.t_check._proof_1_1|[]
+TYPE|_private.JspBounties.Erdos711.0.Erdos711.FiniteObstruction.t_check._proof_1_1|Erdos711.FiniteObstruction.increasing✝
+    Erdos711.FiniteObstruction.t =
+  true
+AUDIT|Erdos711.erdos_711_parts_ii._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos711.erdos_711_parts_ii._proof_1_1|∀ (B n : ℕ), 5000 * (B + 15001) ≤ n → ∀ (A : ℕ), ¬0 < n → False
+AUDIT|Erdos711.erdos_711_parts_ii._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos711.erdos_711_parts_ii._proof_1_5|∀ (B n A Ln : ℕ), 10002 ≤ A → ¬15001 ≤ 5000 + A - 1 → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_5|∀ {n m M L : ℕ} (a : Fin n → ℕ) (i : Fin n),
+  m + M < a i → a i < m + M + L → ¬a i - M < m + L → False
+AUDIT|Erdos711.isMinimalIntervalLength_zero|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.isMinimalIntervalLength_zero|∀ {n : ℕ}, 1 ≤ n → Erdos711.IsMinimalIntervalLength n 0 (n + 1)
+AUDIT|Erdos711.scale_lower._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.scale_lower._proof_1_2|∀ {q N n L A : ℕ},
+  0 < q →
+    0 < N →
+      q * N ≤ n →
+        Erdos711.HasDivisibleDistinctTuple n n L →
+          n + 1 ≤ L → q * (N + A - 1) ≤ n + L - 1 → ¬q * (N + A - 1) < n + L → False

@@ -1,0 +1,15 @@
+ℹ [1487/1487] Replayed JspBounties.Erdos261
+info: JspBounties/Erdos261.lean:564:0: 'Erdos261.finite_deletion_representation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos261.lean:565:0: 'Erdos261.erdos_261.variants.arbitrarily_many_representations' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: JspBounties/Erdos261.lean:566:0: 'Erdos261.interiorRemainder_successor' depends on axioms: [propext, Quot.sound]
+info: JspBounties/Erdos261.lean:567:0: 'Erdos261.interiorRemainder_complement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos261.lean:568:0: 'Erdos261.interiorRemainder_complement_step' depends on axioms: [propext, Quot.sound]
+info: JspBounties/Erdos261.lean:569:0: 'Erdos261.interiorRemainder_branch_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos261.lean:570:0: 'Erdos261.erdos_261.variants.representations_le_continuum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos261.lean:572:0: 'Erdos261.erdos_261.variants.borwein_loring' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos261.lean:573:0: 'Erdos261.erdos_261.variants.borwein_loring_property' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos261.lean:574:0: 'Erdos261.erdos_261.parts.i' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: JspBounties/Erdos261.lean:575:0: 'Erdos261.erdos_261.variants.two_representations' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (1487 jobs).

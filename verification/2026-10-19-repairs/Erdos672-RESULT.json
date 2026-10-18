@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "source": "/Users/xcc/Project/justin-sun-prize-lean/JspBounties/Erdos672.lean",
+  "source_sha256": "6669c1d7eab74ec05536e90d16a8f7e2ee674f23a0aba1c98ffaaeead611e62b",
+  "olean_sha256": "0cb15b8a44aa5b2747af7a53fc4942e000ec21d36cbd96d521db8e91a6422778",
+  "target": "Erdos672.erdos_672_four_two : Erdos672.Erdos672With 4 2",
+  "compile_exit_code": 0,
+  "target_exit_code": 0,
+  "all_theorems_exit_code": 0,
+  "kernel_replay_exit_code": 0,
+  "audited_theorem_count_including_generated": 82,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "nonstandard_axioms": [],
+  "original_definitions_unchanged": true,
+  "scope": "Complete four-term square-product theorem; arbitrary k and exponent not proved",
+  "attribution": "Mathematical argument: Tamas Erdelyi, prog_sub.pdf; independently written Lean. NormalizeMain proof supplied by coordinating agent in the same repair task; no external Lean code copied."
+}

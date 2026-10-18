@@ -1,0 +1,4 @@
+import JspBounties.Erdos372
+
+#check @Erdos372.jsp_000307_exists_prime_factor_chain
+#print axioms Erdos372.jsp_000307_exists_prime_factor_chain

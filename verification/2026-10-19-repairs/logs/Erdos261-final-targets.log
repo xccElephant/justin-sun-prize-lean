@@ -1,0 +1,12 @@
+Erdos261.finite_deletion_representation : ∀ (s : Finset ℕ),
+  ∃ a,
+    Erdos261.Erdos261InfiniteRepresentation (2 - ∑ n ∈ s, Erdos261.dyadicWeight n) a ∧ Set.range a = {n | 0 < n ∧ n ∉ s}
+'Erdos261.finite_deletion_representation' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos261.erdos_261.variants.arbitrarily_many_representations : ∀ (r : ℕ),
+  ∃ x, 2 ^ ↑r ≤ Cardinal.mk ↑{a | Erdos261.Erdos261InfiniteRepresentation x a}
+'Erdos261.erdos_261.variants.arbitrarily_many_representations' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Erdos261.erdos_261.variants.representations_le_continuum : ∀ (x : ℚ),
+  Cardinal.mk ↑{a | Erdos261.Erdos261InfiniteRepresentation x a} ≤ Cardinal.continuum
+'Erdos261.erdos_261.variants.representations_le_continuum' depends on axioms: [propext, Classical.choice, Quot.sound]
