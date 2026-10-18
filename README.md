@@ -37,6 +37,17 @@ lake exe cache get
 | `JspBounties/Erdos940.lean` | `JSP-000782` | #940 | `Nat.two_full_iff_exists_sq_mul_cube`, `seven_not_sum_three_powerful` |
 | `JspBounties/Erdos302.lean` | `JSP-000254` | #302 | `erdos_302.variants.lower_half`, `erdos_302.variants.lower_seventeen_thirtyseconds`, `erdos_302.parts.ii` (disproves $f(N) = (1/2+o(1))N$) |
 | `JspBounties/Erdos364_366.lean` | `JSP-000300`–`JSP-000302` | #364–#366 | `erdos_364_weak`, `no_four_consecutive_full`, `erdos_364_mod_thirtysix_barrier`, `erdos_366_mod_eight_barrier` |
-| `JspBounties/Erdos602.lean` | `JSP-000489` | #602 | `erdos_602.variants.disjoint`, `erdos_602.variants.two_sets`, `disjoint_without_infinite_claim.disproof` |
-| `JspBounties/Erdos261.lean` | `JSP-000226` | #261 | `erdos_261.variants.borwein_loring`, `erdos_261.variants.borwein_loring_property`, `erdos_261.parts.i` |
+| `JspBounties/Erdos602.lean` | `JSP-000489` | #602 | `erdos_602.variants.countable_index` (Bernstein Property B theorem), `erdos_602.variants.disjoint`, `erdos_602.variants.two_sets`, `disjoint_without_infinite_claim.disproof` |
+| `JspBounties/Erdos261.lean` | `JSP-000226` | #261 | `erdos_261.variants.borwein_loring`, `erdos_261.variants.borwein_loring_property`, `erdos_261.parts.i`, `erdos_261.variants.two_representations` |
 | `JspBounties/Erdos885.lean` | `JSP-000736` | #885 | `erdos_885.variants.k_eq_2`, `erdos_885.variants.k_eq_3`, `erdos_885.variants.k_eq_4` |
+| `JspBounties/Erdos124.lean` | `JSP-000131` | #124 | `erdos124.zero`, `erdos124.zero_all`, `erdos124.converse`, `erdos124.eventually_iff_le_sum` |
+| `JspBounties/Erdos273.lean` | `JSP-000234` | #273 | `erdos_273.variants.three` (Explicit 12-congruence strict covering system mod 360 with moduli $p - 1$, $p \ge 3$ prime) |
+| `JspBounties/Erdos291_367.lean` | `JSP-000247` / `JSP-000303` | #291 / #367 | `Erdos291.erdos_291.parts.ii`, `Erdos367.erdos_367.parts.ii`, `Erdos367.erdos_367.variants.k_le_two`, `Erdos367.erdos_367.variants.k_ge_three_lower` |
+| `JspBounties/Erdos670.lean` | `JSP-000544` | #670 | `erdos_670.variants.dim_one` (Erdős 1997 $(1-\varepsilon)n^2$ diameter bound), `erdos_670.variants.choose_two` |
+| `JspBounties/Erdos939.lean` | `JSP-000780` / `JSP-000781` | #939 | `erdos_939.variants.triples`, `erdos_939.variants.finite`, `erdos_939_six_infinite`, `erdos_939.variants.seven`, `erdos_939.variants.eight`, `erdos_939.variants.examples` |
+| `JspBounties/Erdos80_596_668.lean` | `JSP-000097` / `JSP-000483` / `JSP-000542` | #80 / #596 / #668 | `Erdos596.erdos_596.variants.C4_free_countable_escape`, `Erdos668.erdos_668.parts.ii`, `Erdos668.erdos_668.variants.four_points`, `Erdos80.unrestricted_erdos_80_parts_i` |
+| `JspBounties/Erdos657.lean` | `JSP-000533` | #657 | `erdos_657.variants.straus` (Straus $2^k$-point hyperbox isosceles-free construction in $\mathbb{R}^k$) |
+| `JspBounties/Erdos44.lean` | `JSP-000072` | #44 | `erdos_turan_parabola_sidon`, `sidon_set_lower_bound_sqrt_div_three`, `greedy_sidon_construction`, `maxSidonSubsetCard_icc_bound` |
+| `JspBounties/Erdos319.lean` | `JSP-000265` | #319 | `erdos_319_isBigO`, `adenwalla_irreducible_of_unit_fraction_sum`, `erdos_319_isTheta_of_lb` |
+| `JspBounties/Erdos413.lean` | `JSP-000340` | #413 | `erdos_413_parts_ii_iff_linear_omega`, `barrier_traps_iterates`, `barrier_coalesces_trajectories`, `infinite_not_isBarrier_omega` |
+| `JspBounties/Erdos711.lean` | `JSP-000579` | #711 | `exists_isMinimalIntervalLength`, `isMinimalIntervalLength_add_iff_of_dvd`, `n_add_one_le_of_hasDivisibleDistinctTuple` |
