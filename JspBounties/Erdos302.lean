@@ -1,3 +1,9 @@
+/-
+Repository: https://github.com/xccElephant/justin-sun-prize-lean
+Formalization author: xccElephant (Ethan Xiang)
+Toolchain: leanprover/lean4:v4.33.1
+Mathlib: 0df444a360eaa60ab8c11dca51a86af692955474 (v4.33.1)
+-/
 import Mathlib.Topology.MetricSpace.Basic
 import Mathlib.Data.Real.Basic
 import Mathlib.Order.Filter.AtTopBot.Basic

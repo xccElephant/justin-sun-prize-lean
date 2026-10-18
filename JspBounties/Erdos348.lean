@@ -1,3 +1,9 @@
+/-
+Repository: https://github.com/xccElephant/justin-sun-prize-lean
+Formalization author: xccElephant (Ethan Xiang)
+Toolchain: leanprover/lean4:v4.33.1
+Mathlib: 0df444a360eaa60ab8c11dca51a86af692955474 (v4.33.1)
+-/
 import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Algebra.Order.BigOperators.Group.Finset
 import Mathlib.Order.Filter.AtTopBot.Basic
