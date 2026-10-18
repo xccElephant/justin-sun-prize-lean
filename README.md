@@ -16,6 +16,12 @@ All 32 PR bodies and catalog changes have now been corrected in place; 30 are dr
 
 Scope clarification: the catalog’s literal #372 existence question is already proved; whether its prize scope instead requires infinitely many triples remains unresolved. The current triage is 2 clearly complete scoped records, 27 broader-scope gaps, and 3 scope questions. [Scope recheck](verification/2026-10-19/SCOPE_RECHECK.md).
 
+## Proof repair batch (2026-10-19)
+
+The repair batch at `de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe` adds the unconditional four-term square-product theorem for Erdős672, the unconditional second question of Erdős711, and infinite powerful-sum families for every r≥6 in Erdős939. It also closes the eventual/logarithmic quantifiers in the c₂<2 branch of Erdős238 and adds checked construction/necessity lemmas for124,261,372,727. These are repairs of existing records; no new prize problem was submitted.
+
+The full project build passed (8740 jobs), all18 repair targets passed, and all8 changed modules passed Lean kernel replay. [Repair evidence and remaining scope](verification/2026-10-19-repairs/README.md). Complete original-problem coverage remains unresolved for these draft records; the full repair campaign is not complete.
+
 ## Quick Verification
 
 To verify any module using the precompiled Mathlib cache:
