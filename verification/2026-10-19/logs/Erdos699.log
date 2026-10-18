@@ -1,0 +1,7 @@
+'Erdos699.choose_gcd_gt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos699.erdos_699_of_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos699.dvd_gcd_choose_of_prime_gt_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos699.erdos_699_of_prime_in_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos699.erdos_699_succ_of_not_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos699.erdos_szekeres_exceptional_triples' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos699.mem_exceptions_of_erdos_szekeres_strengthening' depends on axioms: [propext, Classical.choice, Quot.sound]

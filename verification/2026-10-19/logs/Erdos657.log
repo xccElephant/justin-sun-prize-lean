@@ -1,0 +1,4 @@
+'Erdos657.sum_four_pow_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos657.erdos_657.variants.straus' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos657.isIsoscelesFree_real_iff_no_three_term_ap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos657.erdos_657_dim_one_of_dim_one_lower' depends on axioms: [propext, Classical.choice, Quot.sound]

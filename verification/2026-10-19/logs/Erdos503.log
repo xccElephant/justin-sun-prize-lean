@@ -1,0 +1,7 @@
+'Erdos503.erdos_503.variants.R0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos503.erdos_503.variants.R1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos503.kelly_R2_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos503.kelly_R3_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos503.alweiss_construction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos503.erdos_503_exists_isIsosceles_ge_choose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos503.erdos_503_lower_bound_of_bddAbove' depends on axioms: [propext, Classical.choice, Quot.sound]

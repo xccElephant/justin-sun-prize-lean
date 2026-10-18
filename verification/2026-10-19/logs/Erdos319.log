@@ -1,0 +1,6 @@
+'Erdos319.erdos_319_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos319.adenwalla_irreducible_of_unit_fraction_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos319.four_mem_erdos319Set' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos319.five_mem_erdos319Set' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos319.erdos_319_lb_of_croot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos319.erdos_319_isTheta_of_lb' depends on axioms: [propext, Classical.choice, Quot.sound]

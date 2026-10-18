@@ -1,0 +1,14 @@
+[
+  {
+    "bridge": "Bridge348",
+    "exit_code": 0,
+    "seconds": 5.15053025,
+    "log": "logs/Bridge348.log"
+  },
+  {
+    "bridge": "Bridge365",
+    "exit_code": 0,
+    "seconds": 5.299930958999999,
+    "log": "logs/Bridge365.log"
+  }
+]

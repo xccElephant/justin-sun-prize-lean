@@ -1,0 +1,6 @@
+'Erdos488.erdos_488_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos488.erdos_488_sharpness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos488.erdos_488_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos488.erdos_488_of_two_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos488.erdos_488_insert_gt_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos488.erdos_488_nonmultiples_false' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,3 @@
+'Erdos338.erdos_338_bateman' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos338.erdos_339_order_two_contains_all_large_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos338.erdos_339_order_two_counting_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

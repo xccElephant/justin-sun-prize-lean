@@ -1,0 +1,8 @@
+✔ [0/2] Ran job computation
+✔ [1/2] Ran JspBounties:extraDep
+✖ [2/2] Running JspBounties
+error: no such file or directory (error code: 4294967294)
+  file: /private/tmp/lean-verify-jsp-20261018/sources/current/JspBounties.lean
+Some required targets logged failures:
+- JspBounties
+error: build failed

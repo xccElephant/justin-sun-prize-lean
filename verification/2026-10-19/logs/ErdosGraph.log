@@ -1,0 +1,6 @@
+'Erdos23.erdos_23.variants.n1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos23.erdos_23.variants.n1_tight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos617.erdos_617.variants.r2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos617.erdos_617.variants.r_eq_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos628.erdos_628.variants.k_5_a_3_b_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos628.erdos_628.variants.independence_number_2' depends on axioms: [propext, Classical.choice, Quot.sound]

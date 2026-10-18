@@ -1,0 +1,7 @@
+'Erdos216.g_zero_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos216.g_three_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos216.not_convexIndep_of_fourth_in_hull' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos216.one_one_mem_convexHull_triangle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos216.hortonY_mul_sub_one_lt_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos216.horton_top_strictly_above_bottom_secant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos216.card_hortonSet' depends on axioms: [propext, Classical.choice, Quot.sound]

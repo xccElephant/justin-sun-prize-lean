@@ -1,0 +1,7 @@
+'Erdos44.maxSidonSubsetCard_icc_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos44.example_sidon_set' depends on axioms: [propext]
+'Erdos44.greedy_sidon_construction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos44.erdos_turan_parabola_sidon' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos44.sidon_set_lower_bound_sqrt_div_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos44.sidon_set_lower_bound_of_singer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos44.erdos_44_empty_start_of_singer' depends on axioms: [propext, Classical.choice, Quot.sound]

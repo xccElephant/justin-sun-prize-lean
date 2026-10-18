@@ -1,0 +1,8 @@
+'Erdos413.isBarrier_mul_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos413.erdos_413_parts_ii_iff_linear_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos413.erdos_413_parts_ii_of_lau' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos413.barrier_traps_iterates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos413.barrier_coalesces_trajectories' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos413.infinite_not_isBarrier_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos413.expProd_eq_one_of_squarefree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos413.barrier_ineq_expProd_of_squarefree' depends on axioms: [propext, Classical.choice, Quot.sound]

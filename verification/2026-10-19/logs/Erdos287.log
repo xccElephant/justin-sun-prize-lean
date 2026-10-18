@@ -1,0 +1,3 @@
+'Erdos287.erdos_287_best_possible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos287.erdos_287_gap_at_least_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos287.erdos_287_prime_conjecture_implies' depends on axioms: [propext, Classical.choice, Quot.sound]

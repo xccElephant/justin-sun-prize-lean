@@ -1,0 +1,7 @@
+'Erdos602.erdos_602.variants.disjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos602.erdos_602.variants.countable_index' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos602.erdos_602.variants.single_set' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos602.erdos_602.variants.empty_index' depends on axioms: [propext]
+'Erdos602.erdos_602.variants.unique_index' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos602.erdos_602.variants.two_sets' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos602.disjoint_without_infinite_claim.disproof' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,8 @@
+'Erdos364_366.erdos_364_weak' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos364_366.no_four_consecutive_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos364_366.erdos_364_mod_thirtysix_barrier' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos364_366.exists_three_full_then_two_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos364_366.erdos_366_variants_three_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos364_366.golomb_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos364_366.erdos_365_parts_i' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos364_366.erdos_366_mod_eight_barrier' depends on axioms: [propext, Classical.choice, Quot.sound]

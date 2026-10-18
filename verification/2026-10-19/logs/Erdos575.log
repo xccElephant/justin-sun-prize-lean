@@ -1,0 +1,6 @@
+'Erdos575.card_le_one_of_no_K12_no_2K2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos575.matchingGraph_card_and_K12_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos575.starGraph_card_and_2K2_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos575.unique_common_neighbor_of_C4_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos575.common_neighbors_coincide_of_C4_C6_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos575.Z_uv_independent_of_C4_C6_free' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,4 @@
+'Erdos261.erdos_261.variants.borwein_loring' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos261.erdos_261.variants.borwein_loring_property' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos261.erdos_261.parts.i' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos261.erdos_261.variants.two_representations' depends on axioms: [propext, Classical.choice, Quot.sound]

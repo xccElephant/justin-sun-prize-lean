@@ -6,16 +6,25 @@
 - **Mathlib revision**: `0df444a360eaa60ab8c11dca51a86af692955474` (`v4.33.1`)
 - **Verification**: All problem modules compile with **zero `sorry`**, **zero `admit`**, and **zero custom `axiom`** declarations, depending exclusively on the standard classical Lean axioms `[propext, Classical.choice, Quot.sound]`.
 
+## Verification status (2026-10-19)
+
+There are 32 open submission records: 30 are drafts pending full-scope corrections, and two scoped complete proofs remain ready for review. They cite 27 distinct source files; the repository contains 33 problem modules plus `Basic.lean`. A successful Lean check does not mean a module solves the full prize problem or qualifies for an award.
+
+A fresh audit compiled all 34 modules, checked the axiom dependencies of all 2,514 theorem declarations (including generated declarations), and replayed all 34 modules with Lean's `leanchecker`. Only the standard classical axioms were observed. The original default Lake build failed because `JspBounties.*` included a missing root module; the local configuration now uses `JspBounties.+` and the full build passes. Historical submitted commits retain the original configuration.
+
+The historical audit found 23 nonexistent target names across ten PRs, and broader statement mismatches. Most modules prove a special case or related theorem. See [verification evidence and scope limitations](verification/2026-10-19/README.md). Earlier completeness, uniqueness, priority and revenue estimates are withdrawn; source verification is separate from award eligibility.
+
 ## Quick Verification
 
 To verify any module using the precompiled Mathlib cache:
 
 ```bash
 lake exe cache get
+lake build
 ./check_lean.sh JspBounties/Erdos348.lean
 ```
 
-## Summary of Original Verified Modules
+## Verified Module Inventory (Includes Partial Results)
 
 | File | JSP ID | Erdős # | Key Verified Theorems |
 | :--- | :--- | :--- | :--- |

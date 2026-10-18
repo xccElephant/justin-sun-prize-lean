@@ -1,0 +1,5 @@
+'Erdos238.two_le_primeGap_of_one_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos238.erdos_238_block_pigeonhole' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos238.erdos_238_run_of_block_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos238.erdos_238_unconditional_of_c2_lt_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos238.single_prime_smooth_gap_ge' depends on axioms: [propext, Quot.sound]

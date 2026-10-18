@@ -1,0 +1,612 @@
+[
+  {
+    "module": "JspBounties.Basic",
+    "file": "JspBounties/Basic.lean",
+    "source_sha256": "d675a289bd4075d54e9f53543d409a4d7da0e655d087799056e483680b5243a9",
+    "exit_code": 0,
+    "elapsed_seconds": 7.1,
+    "expected_axiom_prints": 1,
+    "observed_axiom_prints": 1,
+    "axioms": [
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Basic.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos124",
+    "file": "JspBounties/Erdos124.lean",
+    "source_sha256": "b2c12244e861043e6eb4e552b6bf8ea1d12588889d5cf6d32006c5e9b7789d0d",
+    "exit_code": 0,
+    "elapsed_seconds": 11.86,
+    "expected_axiom_prints": 11,
+    "observed_axiom_prints": 11,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos124.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos131",
+    "file": "JspBounties/Erdos131.lean",
+    "source_sha256": "627c91e82c2314cf741c3f9f8ae081be25a20ddfca822688b1532e939166d75a",
+    "exit_code": 0,
+    "elapsed_seconds": 12.2,
+    "expected_axiom_prints": 11,
+    "observed_axiom_prints": 11,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos131.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos216",
+    "file": "JspBounties/Erdos216.lean",
+    "source_sha256": "f0a6a9931d22246a43d02abc0a50e7f0158b4f533d93073f601184505eb2a65a",
+    "exit_code": 0,
+    "elapsed_seconds": 13.93,
+    "expected_axiom_prints": 7,
+    "observed_axiom_prints": 7,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos216.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos238",
+    "file": "JspBounties/Erdos238.lean",
+    "source_sha256": "7a7520ecfae33548809b1af70c73bfb9cbdc01c4b406ce6227d3482020c6519c",
+    "exit_code": 0,
+    "elapsed_seconds": 6.37,
+    "expected_axiom_prints": 5,
+    "observed_axiom_prints": 5,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos238.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos261",
+    "file": "JspBounties/Erdos261.lean",
+    "source_sha256": "bcd411736b5bb2356947421193725c11ed0284bcafda7ab022867a1ae34343c8",
+    "exit_code": 0,
+    "elapsed_seconds": 5.52,
+    "expected_axiom_prints": 4,
+    "observed_axiom_prints": 4,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos261.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos273",
+    "file": "JspBounties/Erdos273.lean",
+    "source_sha256": "7a4c67aaad105d09af5cb4ae250e51c11c8b74c0ba957154b5ee19969f6587c1",
+    "exit_code": 0,
+    "elapsed_seconds": 4.92,
+    "expected_axiom_prints": 1,
+    "observed_axiom_prints": 1,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos273.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos287",
+    "file": "JspBounties/Erdos287.lean",
+    "source_sha256": "7cce543b48de3eb83e90e9abcc1bead7a30aec58e63ec25c6d461db16bd02900",
+    "exit_code": 0,
+    "elapsed_seconds": 8.78,
+    "expected_axiom_prints": 3,
+    "observed_axiom_prints": 3,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos287.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos291_367",
+    "file": "JspBounties/Erdos291_367.lean",
+    "source_sha256": "50432e1a0ec2baa84e49902753107e23f51f742e113c6a8c04b58ef674669948",
+    "exit_code": 0,
+    "elapsed_seconds": 7.53,
+    "expected_axiom_prints": 8,
+    "observed_axiom_prints": 8,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos291_367.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos302",
+    "file": "JspBounties/Erdos302.lean",
+    "source_sha256": "ab08c97071df7be15d83566a22a0edde835d77d97e6ab85e2bc0ba1d181cb04a",
+    "exit_code": 0,
+    "elapsed_seconds": 5.44,
+    "expected_axiom_prints": 3,
+    "observed_axiom_prints": 3,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos302.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos319",
+    "file": "JspBounties/Erdos319.lean",
+    "source_sha256": "b3674c926030c683e066babe3f68fdf03d7cfc4fec6715ad66b3dad4c876b39c",
+    "exit_code": 0,
+    "elapsed_seconds": 7.77,
+    "expected_axiom_prints": 6,
+    "observed_axiom_prints": 6,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos319.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos338",
+    "file": "JspBounties/Erdos338.lean",
+    "source_sha256": "c58f4ff5d62cc162d130b6696a0c519df6b497efb7075fc8022064cd4791fbc9",
+    "exit_code": 0,
+    "elapsed_seconds": 5.24,
+    "expected_axiom_prints": 3,
+    "observed_axiom_prints": 3,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos338.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos348",
+    "file": "JspBounties/Erdos348.lean",
+    "source_sha256": "f8d41785914e4ddfabce3f5227248e2f7cc8eefccb6c48499e3e9c2afb6884a9",
+    "exit_code": 0,
+    "elapsed_seconds": 11.2,
+    "expected_axiom_prints": 1,
+    "observed_axiom_prints": 1,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos348.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos364_366",
+    "file": "JspBounties/Erdos364_366.lean",
+    "source_sha256": "a5022c445f6b7394a1c473cccc69c1e118c1e93a88c57a346191bdb4d44edfe1",
+    "exit_code": 0,
+    "elapsed_seconds": 5.11,
+    "expected_axiom_prints": 8,
+    "observed_axiom_prints": 8,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos364_366.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos365",
+    "file": "JspBounties/Erdos365.lean",
+    "source_sha256": "56d8881de010dd1cfedc569dd205e410356f062f853174a3a946cc250d94f33d",
+    "exit_code": 0,
+    "elapsed_seconds": 5.24,
+    "expected_axiom_prints": 6,
+    "observed_axiom_prints": 6,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos365.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos372",
+    "file": "JspBounties/Erdos372.lean",
+    "source_sha256": "330f30f3a325e43f7d3d3527ea2b568a79ac1d7a19e523b1ae30c5a79243000e",
+    "exit_code": 0,
+    "elapsed_seconds": 4.56,
+    "expected_axiom_prints": 5,
+    "observed_axiom_prints": 5,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos372.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos413",
+    "file": "JspBounties/Erdos413.lean",
+    "source_sha256": "44ec95c120a39b20c4664c9a797fcef0f1cd23f864d756ce9f945c3c5aaf9817",
+    "exit_code": 0,
+    "elapsed_seconds": 7.27,
+    "expected_axiom_prints": 8,
+    "observed_axiom_prints": 8,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos413.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos44",
+    "file": "JspBounties/Erdos44.lean",
+    "source_sha256": "fc9139bedace9480442cb605f69d7fdc931dc2f589882fc112802dbb1d0fb77e",
+    "exit_code": 0,
+    "elapsed_seconds": 11.98,
+    "expected_axiom_prints": 7,
+    "observed_axiom_prints": 7,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos44.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos488",
+    "file": "JspBounties/Erdos488.lean",
+    "source_sha256": "c9a205f5256762134e9660b89f7d98b291eef23c22eb8a896f61781490d9077b",
+    "exit_code": 0,
+    "elapsed_seconds": 6.92,
+    "expected_axiom_prints": 6,
+    "observed_axiom_prints": 6,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos488.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos503",
+    "file": "JspBounties/Erdos503.lean",
+    "source_sha256": "d70ee485abb4ffdd6c168c4c3fb8942587e33337350069c15c867d342eeb9467",
+    "exit_code": 0,
+    "elapsed_seconds": 11.58,
+    "expected_axiom_prints": 7,
+    "observed_axiom_prints": 7,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos503.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos575",
+    "file": "JspBounties/Erdos575.lean",
+    "source_sha256": "8328009978ebb721d280fa540a8dcda43b0231d69b45685fa9061b254040f0d0",
+    "exit_code": 0,
+    "elapsed_seconds": 4.32,
+    "expected_axiom_prints": 6,
+    "observed_axiom_prints": 6,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos575.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos602",
+    "file": "JspBounties/Erdos602.lean",
+    "source_sha256": "6b6e77e89b0113558cf781a9a22a028627f5d62e386978c35ec014dcbf5572d1",
+    "exit_code": 0,
+    "elapsed_seconds": 4.53,
+    "expected_axiom_prints": 7,
+    "observed_axiom_prints": 7,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos602.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos657",
+    "file": "JspBounties/Erdos657.lean",
+    "source_sha256": "b3ec3c654b2b2af02a4ca582dd7263c968c87bc0b8f190127983913575307ff4",
+    "exit_code": 0,
+    "elapsed_seconds": 8.0,
+    "expected_axiom_prints": 4,
+    "observed_axiom_prints": 4,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos657.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos670",
+    "file": "JspBounties/Erdos670.lean",
+    "source_sha256": "bfd421c59b00bcdd36ddbd89ac83468dccab03a591b96969a05399657d8b85f7",
+    "exit_code": 0,
+    "elapsed_seconds": 9.04,
+    "expected_axiom_prints": 3,
+    "observed_axiom_prints": 3,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos670.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos672",
+    "file": "JspBounties/Erdos672.lean",
+    "source_sha256": "2ce89de1f4c41b0ce2241b94c8296d13bafa6158b7855ed2b3e04e8ba272f6f7",
+    "exit_code": 0,
+    "elapsed_seconds": 5.23,
+    "expected_axiom_prints": 10,
+    "observed_axiom_prints": 10,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos672.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos699",
+    "file": "JspBounties/Erdos699.lean",
+    "source_sha256": "e9e351c6b6291774601a87cacb1c0c54e637044190679f7dc5fb0808d6493d68",
+    "exit_code": 0,
+    "elapsed_seconds": 4.13,
+    "expected_axiom_prints": 7,
+    "observed_axiom_prints": 7,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos699.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos711",
+    "file": "JspBounties/Erdos711.lean",
+    "source_sha256": "9e7fe1c6ef2b4d36047313fa3f69bbef910369731920f2e5b4dbb95e672007b4",
+    "exit_code": 0,
+    "elapsed_seconds": 4.56,
+    "expected_axiom_prints": 6,
+    "observed_axiom_prints": 6,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos711.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos727_273",
+    "file": "JspBounties/Erdos727_273.lean",
+    "source_sha256": "417b1d2f05d8e3b3e783aa185c208b38defeb2c7850bc8d6f64873ce17aa7ec1",
+    "exit_code": 0,
+    "elapsed_seconds": 10.48,
+    "expected_axiom_prints": 6,
+    "observed_axiom_prints": 6,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos727_273.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos80_596_668",
+    "file": "JspBounties/Erdos80_596_668.lean",
+    "source_sha256": "c745881237077e4c9e4e37602cedbe92df456ff70e64a2cf59a43000ff8e2d05",
+    "exit_code": 0,
+    "elapsed_seconds": 15.05,
+    "expected_axiom_prints": 6,
+    "observed_axiom_prints": 6,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos80_596_668.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos835",
+    "file": "JspBounties/Erdos835.lean",
+    "source_sha256": "040d369b6193a14aa08cf26d87eec180ce003ea0b3b55d3fd33d624cecb09789",
+    "exit_code": 0,
+    "elapsed_seconds": 9.12,
+    "expected_axiom_prints": 11,
+    "observed_axiom_prints": 11,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos835.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos885",
+    "file": "JspBounties/Erdos885.lean",
+    "source_sha256": "72c5e3a16e2e2cb8b1f3289996f8f17d9e093ffa42bf1b0caa382c95ca89492a",
+    "exit_code": 0,
+    "elapsed_seconds": 4.33,
+    "expected_axiom_prints": 3,
+    "observed_axiom_prints": 3,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos885.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos939",
+    "file": "JspBounties/Erdos939.lean",
+    "source_sha256": "59eb0cae1aae1c84d1d0ecb84caec7c37094d86fa87336a3d560071f1b2a8b3a",
+    "exit_code": 0,
+    "elapsed_seconds": 9.09,
+    "expected_axiom_prints": 10,
+    "observed_axiom_prints": 10,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos939.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.Erdos940",
+    "file": "JspBounties/Erdos940.lean",
+    "source_sha256": "bb3bdd232fbe93d09228ec08c6b54e321db7f831f5bd57b5e51ead034157441f",
+    "exit_code": 0,
+    "elapsed_seconds": 4.43,
+    "expected_axiom_prints": 2,
+    "observed_axiom_prints": 2,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/Erdos940.log",
+    "errors": [],
+    "warnings": 0
+  },
+  {
+    "module": "JspBounties.ErdosGraph",
+    "file": "JspBounties/ErdosGraph.lean",
+    "source_sha256": "262081fd7abc54e26bac3ea6328a970d78c5b66bf0bee5b7b6a7b8c0fd67322b",
+    "exit_code": 0,
+    "elapsed_seconds": 11.42,
+    "expected_axiom_prints": 6,
+    "observed_axiom_prints": 6,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_axioms": [],
+    "log": "logs/ErdosGraph.log",
+    "errors": [],
+    "warnings": 0
+  }
+]

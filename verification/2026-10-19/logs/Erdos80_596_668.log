@@ -1,0 +1,6 @@
+'Erdos596.erdos_596.variants.C4_free_countable_escape' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos668.erdos_668.variants.four_points' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos668.erdos_668.parts.ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos80.f_eq_zero_of_ge_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos80.one_le_f_of_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos80.unrestricted_erdos_80_parts_i' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,8 @@
+{
+  "proof_project_commit": "70ca9dbd7ee3832a6bd87d24b3fa94c7cf881aa6",
+  "command": "lake build",
+  "exit_code": 0,
+  "jobs": 2609,
+  "source_files_unchanged_from_audited_snapshot": true,
+  "log": "logs/lake-build-fixed.log"
+}

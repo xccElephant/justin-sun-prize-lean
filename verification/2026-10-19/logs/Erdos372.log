@@ -1,0 +1,5 @@
+'Erdos372.jsp_000307_least_decreasing_triple' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos372.decreasing_quadruple_317' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos372.infinite_maxPrimeFac_valley' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos372.infinite_maxPrimeFac_gt_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos372.infinite_maxPrimeFac_lt_succ' depends on axioms: [propext, Classical.choice, Quot.sound]

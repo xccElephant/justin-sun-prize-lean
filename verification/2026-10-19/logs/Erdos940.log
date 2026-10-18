@@ -1,0 +1,2 @@
+'Nat.two_full_iff_exists_sq_mul_cube' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos940.seven_not_sum_three_powerful' depends on axioms: [propext, Classical.choice, Quot.sound]

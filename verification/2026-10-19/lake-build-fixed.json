@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "seconds": 4.306399791,
+  "change": "globs JspBounties.* -> JspBounties.+; original proof modules unchanged",
+  "log": "logs/lake-build-fixed.log"
+}

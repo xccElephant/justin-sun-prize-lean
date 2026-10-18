@@ -1,0 +1,3 @@
+'Erdos302.erdos_302.variants.lower_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos302.erdos_302.variants.lower_seventeen_thirtyseconds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos302.erdos_302.parts.ii' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,498 @@
+[
+  {
+    "pr": 5076,
+    "targets": [
+      "Erdos348.erdos_348"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5076-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5077,
+    "targets": [
+      "Erdos302.erdos_302.parts.ii",
+      "Erdos302.f_lower_bound_17_32"
+    ],
+    "exit_code": 1,
+    "errors": [
+      "/tmp/lean-verify-jsp-20261018/audit/PR5077.lean:5:8: error(lean.unknownIdentifier): Unknown identifier `Erdos302.f_lower_bound_17_32`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5077.lean:6:7: error(lean.unknownIdentifier): Unknown constant `Erdos302.f_lower_bound_17_32`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5077.lean:7:14: error(lean.unknownIdentifier): Unknown constant `Erdos302.f_lower_bound_17_32`"
+    ],
+    "log": "logs/PR5077-targets.log",
+    "missing_targets": [
+      "Erdos302.f_lower_bound_17_32"
+    ]
+  },
+  {
+    "pr": 5078,
+    "targets": [
+      "Erdos835.johnsonGraph_18_9_chromaticNumber",
+      "Erdos835.johnson_chromaticNumber_composite",
+      "Erdos835.johnson_chromaticNumber_four",
+      "Erdos835.johnson_chromaticNumber_odd",
+      "Erdos835.ma_tang_prop_2_1",
+      "Erdos835.not_property_four"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5078-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5079,
+    "targets": [
+      "Erdos365.erdos_365.parts.i",
+      "Erdos365.infinite_nonSquare_consecutive_powerful",
+      "Erdos365.jsp_000301_disproved"
+    ],
+    "exit_code": 1,
+    "errors": [
+      "/tmp/lean-verify-jsp-20261018/audit/PR5079.lean:8:8: error(lean.unknownIdentifier): Unknown identifier `Erdos365.jsp_000301_disproved`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5079.lean:9:7: error(lean.unknownIdentifier): Unknown constant `Erdos365.jsp_000301_disproved`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5079.lean:10:14: error(lean.unknownIdentifier): Unknown constant `Erdos365.jsp_000301_disproved`"
+    ],
+    "log": "logs/PR5079-targets.log",
+    "missing_targets": [
+      "Erdos365.jsp_000301_disproved"
+    ]
+  },
+  {
+    "pr": 5080,
+    "targets": [
+      "Erdos372.infinite_strictly_decreasing_pairs",
+      "Erdos372.jsp_000307_decreasing_quadruple_317",
+      "Erdos372.jsp_000307_least_decreasing_triple"
+    ],
+    "exit_code": 1,
+    "errors": [
+      "/tmp/lean-verify-jsp-20261018/audit/PR5080.lean:2:8: error(lean.unknownIdentifier): Unknown identifier `Erdos372.infinite_strictly_decreasing_pairs`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5080.lean:3:7: error(lean.unknownIdentifier): Unknown constant `Erdos372.infinite_strictly_decreasing_pairs`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5080.lean:4:14: error(lean.unknownIdentifier): Unknown constant `Erdos372.infinite_strictly_decreasing_pairs`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5080.lean:5:8: error(lean.unknownIdentifier): Unknown identifier `Erdos372.jsp_000307_decreasing_quadruple_317`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5080.lean:6:7: error(lean.unknownIdentifier): Unknown constant `Erdos372.jsp_000307_decreasing_quadruple_317`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5080.lean:7:14: error(lean.unknownIdentifier): Unknown constant `Erdos372.jsp_000307_decreasing_quadruple_317`"
+    ],
+    "log": "logs/PR5080-targets.log",
+    "missing_targets": [
+      "Erdos372.infinite_strictly_decreasing_pairs",
+      "Erdos372.jsp_000307_decreasing_quadruple_317"
+    ]
+  },
+  {
+    "pr": 5081,
+    "targets": [
+      "Erdos628.erdos_628.variants.independence_number_2",
+      "Erdos628.erdos_628.variants.k_5_a_3_b_3"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5081-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5082,
+    "targets": [
+      "Erdos617.erdos_617.variants.r2",
+      "Erdos617.erdos_617.variants.r_eq_3"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5082-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5083,
+    "targets": [
+      "Erdos503.erdos_503.variants.R0",
+      "Erdos503.erdos_503.variants.R1",
+      "Erdos503.erdos_503.variants.R2_lower_bound",
+      "Erdos503.erdos_503.variants.R3_lower_bound",
+      "Erdos503.erdos_503.variants.lower_bound"
+    ],
+    "exit_code": 1,
+    "errors": [
+      "/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:8:8: error(lean.unknownIdentifier): Unknown identifier `Erdos503.erdos_503.variants.R2_lower_bound`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:9:7: error(lean.unknownIdentifier): Unknown constant `Erdos503.erdos_503.variants.R2_lower_bound`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:10:14: error(lean.unknownIdentifier): Unknown constant `Erdos503.erdos_503.variants.R2_lower_bound`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:11:8: error(lean.unknownIdentifier): Unknown identifier `Erdos503.erdos_503.variants.R3_lower_bound`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:12:7: error(lean.unknownIdentifier): Unknown constant `Erdos503.erdos_503.variants.R3_lower_bound`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:13:14: error(lean.unknownIdentifier): Unknown constant `Erdos503.erdos_503.variants.R3_lower_bound`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:14:8: error(lean.unknownIdentifier): Unknown identifier `Erdos503.erdos_503.variants.lower_bound`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:15:7: error(lean.unknownIdentifier): Unknown constant `Erdos503.erdos_503.variants.lower_bound`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:16:14: error(lean.unknownIdentifier): Unknown constant `Erdos503.erdos_503.variants.lower_bound`"
+    ],
+    "log": "logs/PR5083-targets.log",
+    "missing_targets": [
+      "Erdos503.erdos_503.variants.R2_lower_bound",
+      "Erdos503.erdos_503.variants.R3_lower_bound",
+      "Erdos503.erdos_503.variants.lower_bound"
+    ]
+  },
+  {
+    "pr": 5084,
+    "targets": [
+      "Erdos291.erdos_291.parts.ii",
+      "Erdos291.three_dvd_gcd_two_mul_pow_three"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5084-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5085,
+    "targets": [
+      "Erdos367.erdos_367.parts.ii",
+      "Erdos367.erdos_367.variants.k_ge_three_lower",
+      "Erdos367.erdos_367.variants.k_le_two"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5085-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5086,
+    "targets": [
+      "Erdos602.erdos_602.variants.countable_index",
+      "Erdos602.erdos_602.variants.disjoint",
+      "Erdos602.erdos_602.variants.two_sets"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5086-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5087,
+    "targets": [
+      "Erdos670.erdos_670.variants.choose_two",
+      "Erdos670.erdos_670.variants.dim_one",
+      "Erdos670.erdos_670.variants.uniform_in_dim_of_ho"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5087-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5088,
+    "targets": [
+      "Erdos124.erdos124.converse",
+      "Erdos124.erdos124.eventually_iff_le_sum",
+      "Erdos124.erdos124.zero",
+      "Erdos124.erdos124.zero_all"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5088-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5089,
+    "targets": [
+      "Erdos939.erdos_939.variants.triples"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5089-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5090,
+    "targets": [
+      "Erdos939.erdos_939.variants.eight",
+      "Erdos939.erdos_939.variants.examples",
+      "Erdos939.erdos_939.variants.finite",
+      "Erdos939.erdos_939.variants.seven",
+      "Erdos939.erdos_939_six_infinite"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5090-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5091,
+    "targets": [
+      "Erdos23.erdos_23.variants.n1",
+      "Erdos23.erdos_23.variants.n1_tight"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5091-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5092,
+    "targets": [
+      "Erdos287.erdos_287.variants.example",
+      "Erdos287.erdos_287_gap_at_least_two",
+      "Erdos287.erdos_287_prime_conjecture_implies"
+    ],
+    "exit_code": 1,
+    "errors": [
+      "/tmp/lean-verify-jsp-20261018/audit/PR5092.lean:2:8: error(lean.unknownIdentifier): Unknown identifier `Erdos287.erdos_287.variants.example`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5092.lean:3:7: error(lean.unknownIdentifier): Unknown constant `Erdos287.erdos_287.variants.example`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5092.lean:4:14: error(lean.unknownIdentifier): Unknown constant `Erdos287.erdos_287.variants.example`"
+    ],
+    "log": "logs/PR5092-targets.log",
+    "missing_targets": [
+      "Erdos287.erdos_287.variants.example"
+    ]
+  },
+  {
+    "pr": 5093,
+    "targets": [
+      "Erdos338.bateman_example_has_no_restricted_order",
+      "Erdos338.order_two_distinct_sums_contain_large_odds"
+    ],
+    "exit_code": 1,
+    "errors": [
+      "/tmp/lean-verify-jsp-20261018/audit/PR5093.lean:2:8: error(lean.unknownIdentifier): Unknown identifier `Erdos338.bateman_example_has_no_restricted_order`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5093.lean:3:7: error(lean.unknownIdentifier): Unknown constant `Erdos338.bateman_example_has_no_restricted_order`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5093.lean:4:14: error(lean.unknownIdentifier): Unknown constant `Erdos338.bateman_example_has_no_restricted_order`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5093.lean:5:8: error(lean.unknownIdentifier): Unknown identifier `Erdos338.order_two_distinct_sums_contain_large_odds`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5093.lean:6:7: error(lean.unknownIdentifier): Unknown constant `Erdos338.order_two_distinct_sums_contain_large_odds`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5093.lean:7:14: error(lean.unknownIdentifier): Unknown constant `Erdos338.order_two_distinct_sums_contain_large_odds`"
+    ],
+    "log": "logs/PR5093-targets.log",
+    "missing_targets": [
+      "Erdos338.bateman_example_has_no_restricted_order",
+      "Erdos338.order_two_distinct_sums_contain_large_odds"
+    ]
+  },
+  {
+    "pr": 5094,
+    "targets": [
+      "Erdos699.erdos_699_for_i_le_2",
+      "Erdos699.erdos_szekeres_1978",
+      "Erdos699.erdos_szekeres_tightness_28",
+      "Erdos699.strengthened_conjecture_exceptions"
+    ],
+    "exit_code": 1,
+    "errors": [
+      "/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:2:8: error(lean.unknownIdentifier): Unknown identifier `Erdos699.erdos_699_for_i_le_2`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:3:7: error(lean.unknownIdentifier): Unknown constant `Erdos699.erdos_699_for_i_le_2`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:4:14: error(lean.unknownIdentifier): Unknown constant `Erdos699.erdos_699_for_i_le_2`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:5:8: error(lean.unknownIdentifier): Unknown identifier `Erdos699.erdos_szekeres_1978`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:6:7: error(lean.unknownIdentifier): Unknown constant `Erdos699.erdos_szekeres_1978`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:7:14: error(lean.unknownIdentifier): Unknown constant `Erdos699.erdos_szekeres_1978`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:8:8: error(lean.unknownIdentifier): Unknown identifier `Erdos699.erdos_szekeres_tightness_28`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:9:7: error(lean.unknownIdentifier): Unknown constant `Erdos699.erdos_szekeres_tightness_28`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:10:14: error(lean.unknownIdentifier): Unknown constant `Erdos699.erdos_szekeres_tightness_28`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:11:8: error(lean.unknownIdentifier): Unknown identifier `Erdos699.strengthened_conjecture_exceptions`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:12:7: error(lean.unknownIdentifier): Unknown constant `Erdos699.strengthened_conjecture_exceptions`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:13:14: error(lean.unknownIdentifier): Unknown constant `Erdos699.strengthened_conjecture_exceptions`"
+    ],
+    "log": "logs/PR5094-targets.log",
+    "missing_targets": [
+      "Erdos699.erdos_699_for_i_le_2",
+      "Erdos699.erdos_szekeres_1978",
+      "Erdos699.erdos_szekeres_tightness_28",
+      "Erdos699.strengthened_conjecture_exceptions"
+    ]
+  },
+  {
+    "pr": 5095,
+    "targets": [
+      "Erdos885.erdos_885.variants.k_eq_2",
+      "Erdos885.erdos_885.variants.k_eq_3",
+      "Erdos885.erdos_885.variants.k_eq_4"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5095-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5096,
+    "targets": [
+      "Erdos488.erdos_488_misprint_false",
+      "Erdos488.erdos_488_of_two_mem",
+      "Erdos488.erdos_488_pair",
+      "Erdos488.erdos_488_singleton",
+      "Erdos488.erdos_488_step_upper_half"
+    ],
+    "exit_code": 1,
+    "errors": [
+      "/tmp/lean-verify-jsp-20261018/audit/PR5096.lean:2:8: error(lean.unknownIdentifier): Unknown identifier `Erdos488.erdos_488_misprint_false`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5096.lean:3:7: error(lean.unknownIdentifier): Unknown constant `Erdos488.erdos_488_misprint_false`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5096.lean:4:14: error(lean.unknownIdentifier): Unknown constant `Erdos488.erdos_488_misprint_false`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5096.lean:14:8: error(lean.unknownIdentifier): Unknown identifier `Erdos488.erdos_488_step_upper_half`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5096.lean:15:7: error(lean.unknownIdentifier): Unknown constant `Erdos488.erdos_488_step_upper_half`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5096.lean:16:14: error(lean.unknownIdentifier): Unknown constant `Erdos488.erdos_488_step_upper_half`"
+    ],
+    "log": "logs/PR5096-targets.log",
+    "missing_targets": [
+      "Erdos488.erdos_488_misprint_false",
+      "Erdos488.erdos_488_step_upper_half"
+    ]
+  },
+  {
+    "pr": 5097,
+    "targets": [
+      "Erdos672.erdos_672_false_for_k_eq_2",
+      "Erdos672.erdos_672_false_for_k_eq_3",
+      "Erdos672.erdos_672_k4_l2_under_coprime_pairs",
+      "Erdos672.euler_four_squares_in_ap_no_solution"
+    ],
+    "exit_code": 1,
+    "errors": [
+      "/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:2:8: error(lean.unknownIdentifier): Unknown identifier `Erdos672.erdos_672_false_for_k_eq_2`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:3:7: error(lean.unknownIdentifier): Unknown constant `Erdos672.erdos_672_false_for_k_eq_2`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:4:14: error(lean.unknownIdentifier): Unknown constant `Erdos672.erdos_672_false_for_k_eq_2`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:5:8: error(lean.unknownIdentifier): Unknown identifier `Erdos672.erdos_672_false_for_k_eq_3`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:6:7: error(lean.unknownIdentifier): Unknown constant `Erdos672.erdos_672_false_for_k_eq_3`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:7:14: error(lean.unknownIdentifier): Unknown constant `Erdos672.erdos_672_false_for_k_eq_3`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:8:8: error(lean.unknownIdentifier): Unknown identifier `Erdos672.erdos_672_k4_l2_under_coprime_pairs`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:9:7: error(lean.unknownIdentifier): Unknown constant `Erdos672.erdos_672_k4_l2_under_coprime_pairs`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:10:14: error(lean.unknownIdentifier): Unknown constant `Erdos672.erdos_672_k4_l2_under_coprime_pairs`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:11:8: error(lean.unknownIdentifier): Unknown identifier `Erdos672.euler_four_squares_in_ap_no_solution`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:12:7: error(lean.unknownIdentifier): Unknown constant `Erdos672.euler_four_squares_in_ap_no_solution`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:13:14: error(lean.unknownIdentifier): Unknown constant `Erdos672.euler_four_squares_in_ap_no_solution`"
+    ],
+    "log": "logs/PR5097-targets.log",
+    "missing_targets": [
+      "Erdos672.erdos_672_false_for_k_eq_2",
+      "Erdos672.erdos_672_false_for_k_eq_3",
+      "Erdos672.erdos_672_k4_l2_under_coprime_pairs",
+      "Erdos672.euler_four_squares_in_ap_no_solution"
+    ]
+  },
+  {
+    "pr": 5098,
+    "targets": [
+      "Erdos273.erdos_273.variants.three"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5098-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5099,
+    "targets": [
+      "Erdos261.erdos_261.parts.i",
+      "Erdos261.erdos_261.variants.borwein_loring",
+      "Erdos261.erdos_261.variants.borwein_loring_property",
+      "Erdos261.erdos_261.variants.two_representations"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5099-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5100,
+    "targets": [
+      "Erdos596.erdos_596.variants.C4_free_countable_escape"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5100-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5101,
+    "targets": [
+      "Erdos668.erdos_668.parts.ii",
+      "Erdos668.erdos_668.variants.four_points"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5101-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5102,
+    "targets": [
+      "Erdos657.erdos_657.variants.straus",
+      "Erdos657.isIsoscelesFree_real_iff_no_three_term_ap"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5102-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5103,
+    "targets": [
+      "Erdos238.block_pigeonhole_prime_gaps",
+      "Erdos238.erdos_238_for_c2_lt_two",
+      "Erdos238.erdos_238_of_sparse_prime_count"
+    ],
+    "exit_code": 1,
+    "errors": [
+      "/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:2:8: error(lean.unknownIdentifier): Unknown identifier `Erdos238.block_pigeonhole_prime_gaps`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:3:7: error(lean.unknownIdentifier): Unknown constant `Erdos238.block_pigeonhole_prime_gaps`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:4:14: error(lean.unknownIdentifier): Unknown constant `Erdos238.block_pigeonhole_prime_gaps`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:5:8: error(lean.unknownIdentifier): Unknown identifier `Erdos238.erdos_238_for_c2_lt_two`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:6:7: error(lean.unknownIdentifier): Unknown constant `Erdos238.erdos_238_for_c2_lt_two`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:7:14: error(lean.unknownIdentifier): Unknown constant `Erdos238.erdos_238_for_c2_lt_two`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:8:8: error(lean.unknownIdentifier): Unknown identifier `Erdos238.erdos_238_of_sparse_prime_count`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:9:7: error(lean.unknownIdentifier): Unknown constant `Erdos238.erdos_238_of_sparse_prime_count`",
+      "/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:10:14: error(lean.unknownIdentifier): Unknown constant `Erdos238.erdos_238_of_sparse_prime_count`"
+    ],
+    "log": "logs/PR5103-targets.log",
+    "missing_targets": [
+      "Erdos238.block_pigeonhole_prime_gaps",
+      "Erdos238.erdos_238_for_c2_lt_two",
+      "Erdos238.erdos_238_of_sparse_prime_count"
+    ]
+  },
+  {
+    "pr": 5104,
+    "targets": [
+      "Erdos413.barrier_coalesces_trajectories",
+      "Erdos413.barrier_traps_iterates",
+      "Erdos413.erdos_413_parts_ii_iff_linear_omega",
+      "Erdos413.erdos_413_parts_ii_of_lau",
+      "Erdos413.infinite_not_isBarrier_omega"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5104-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5105,
+    "targets": [
+      "Erdos44.erdos_44_empty_start_of_singer",
+      "Erdos44.erdos_turan_parabola_sidon",
+      "Erdos44.greedy_sidon_construction",
+      "Erdos44.maxSidonSubsetCard_icc_bound",
+      "Erdos44.sidon_set_lower_bound_sqrt_div_three"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5105-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5106,
+    "targets": [
+      "Erdos711.erdos_711_parts_ii_of_van_doorn",
+      "Erdos711.exists_isMinimalIntervalLength",
+      "Erdos711.isMinimalIntervalLength_add_iff_of_dvd",
+      "Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5106-targets.log",
+    "missing_targets": []
+  },
+  {
+    "pr": 5107,
+    "targets": [
+      "Erdos727.erdos_727.variants.k_1"
+    ],
+    "exit_code": 0,
+    "errors": [],
+    "log": "logs/PR5107-targets.log",
+    "missing_targets": []
+  }
+]

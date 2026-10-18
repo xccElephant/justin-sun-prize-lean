@@ -1,0 +1,6 @@
+'Erdos365.golomb_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos365.erdos_365.parts.i' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos365.walker_base_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos365.walkerSeq_properties' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos365.golombWalkerSeq_properties' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos365.infinite_nonSquare_consecutive_powerful' depends on axioms: [propext, Classical.choice, Quot.sound]

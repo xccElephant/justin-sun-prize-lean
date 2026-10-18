@@ -1,0 +1,8 @@
+'Erdos291.L_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos291.a_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos291.three_dvd_gcd_two_mul_pow_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos291.erdos_291.parts.ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos367.erdos_367.variants.k_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos367.not_isBigO_of_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos367.erdos_367.parts.ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos367.erdos_367.variants.k_ge_three_lower' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,6 @@
+'Erdos727.balakram_case_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos727.balakram_case_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos727.exists_ge_centralBinom_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos727.erdos_727.variants.k_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos273.erdos_273.variants.three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos273.erdos_273.variants.three_int' depends on axioms: [propext, Classical.choice, Quot.sound]

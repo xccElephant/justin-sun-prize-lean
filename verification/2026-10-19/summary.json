@@ -1,0 +1,14 @@
+{
+  "proof_head": "fa0f84367bd744d6f135472327dfddc2158c4535",
+  "pr_count": 32,
+  "submitted_source_files": 27,
+  "source_module_count": 34,
+  "source_compile_pass": 34,
+  "source_axiom_print_count": 198,
+  "kernel_replay_pass": 34,
+  "all_theorems_including_generated": 2514,
+  "nonstandard_axioms": [],
+  "pr_missing_target_count": 23,
+  "prs_with_missing_targets": 10,
+  "source_hashes_still_match": true
+}
