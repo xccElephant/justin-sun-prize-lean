@@ -1,144 +1,134 @@
-# 孙宇晨奖（The Justin Sun Prize）Lean 4 形式化项目总报告与后续攻关计划
+# 项目复核与奖金导向计划
 
----
+审计日期：2026-10-18，Asia/Shanghai。结论：**整体为 Partial coverage（部分覆盖），并有明确的提交材料错误；不能把32个PR计为32道已完成悬赏或预期奖金。**
 
-## 一、 项目基础信息与仓库元数据
+## 2026-10-19 执行更新
 
-| 项目项 | 内容详情 |
-| :--- | :--- |
-| **申请者 / 形式化作者** | `Ethan Xiang (@xccElephant)` |
-| **本地工作区根目录** | `/Users/xcc/Project/justin-sun-prize-lean` |
-| **公开证明仓库（Original Proof Repo）** | [`https://github.com/xccElephant/justin-sun-prize-lean`](https://github.com/xccElephant/justin-sun-prize-lean) |
-| **官方评奖仓库 Fork** | [`https://github.com/xccElephant/awards`](https://github.com/xccElephant/awards)（本地位于 `/Users/xcc/Project/justin-sun-prize-lean/reference/awards`） |
-| **已提交官方 PR 汇总页** | [`https://github.com/TheJustinSunPrize/awards/pulls/xccElephant`](https://github.com/TheJustinSunPrize/awards/pulls/xccElephant)（共 **32 个 Open PR**：`#5076`–`#5107`） |
-| **Lean 4 工具链版本** | `leanprover/lean4:v4.33.1`（固定于 `lean-toolchain`） |
-| **Mathlib 版本与 Commit** | `v4.33.1` / `0df444a360eaa60ab8c11dca51a86af692955474`（固定于 `lake-manifest.json`） |
-| **单文件秒级验证脚本** | `/Users/xcc/Project/justin-sun-prize-lean/check_lean.sh`（5～20 秒完成单文件编译与 `#print axioms` 审计） |
-| **公理依赖审计结果** | 所有已提交模块 **0 `sorry`、0 `admit`、0 自定义 `axiom`**，仅依赖 Lean 4 标准经典公理 `[propext, Classical.choice, Quot.sound]` |
-| **关联访谈实录文档** | `/Users/xcc/Downloads/金明对话孙宇晨_黄金时代Vol02_访谈实录.md` |
+已实际修正并发布全部32个已有PR，逐条从GitHub回读确认正文、head、草稿状态与准备结果一致。30个非完整／范围待确认记录转为draft，目录恢复`Lean proof: No`，撤回自提完整Solver／Solved／错误publication记录；#348和#365修正声明、目标名、固定版本、构造与优先权说明后仍保留ready。后续公开措辞不再声称全网唯一、零竞争或保证收益。
 
-### 本地参考库路径（位于 `reference/`，已加入 `.gitignore`）
-1. **官方题库与评奖规则**：`/Users/xcc/Project/justin-sun-prize-lean/reference/awards`（`TheJustinSunPrize/awards`）
-2. **Google DeepMind 形式化题库**：`/Users/xcc/Project/justin-sun-prize-lean/reference/formal-conjectures`（`google-deepmind/formal-conjectures`）
-3. **社区已有 Lean 证明参考库**：`/Users/xcc/Project/justin-sun-prize-lean/reference/lean-proofs`（`plby/lean-proofs`）
-4. **Erdős 问题原始数据库**：`/Users/xcc/Project/justin-sun-prize-lean/reference/erdosproblems`（`teorth/erdosproblems`）
+全部109个修订目标已用Lean重新执行#check和公理检查，通过且只有标准公理。可构建证明项目提交`70ca9dbd7ee3832a6bd87d24b3fa94c7cf881aa6`，公开证据提交`3ea69363de8e609074dfdde75768199f75f174b3`，32项修正记录提交`8f7a948`，均已推送master。完整引用日志随后发布于`c565330682ecbcacda9fbbfff36aad036618e7c0`，所有PR证据链接也同步指向该版本。数学源码未变。完整构建2609 jobs通过，两项独立声明桥接再次通过。主要证据见`verification/2026-10-19/`和`reports/progress-2026-10-19/remote-validation.json`。
 
----
+新题发现已经从1072题目录、408个已有FC完整主问题声明展开，不能把整库扫描等同于逐题完整竞争复验。本轮#834被独立检查完整竞品通过；#915、#58、#131等发现实质完整先例，#1207存在原题范围和数域/大筛上游障碍。因此没有为凑数量发布新不合格题。
 
-## 二、 已完成的 32 个官方抢占 PR 与做题报告总表
+优先路线仍是中低难度完整题或已有完整数学证明的Lean缺口。短期暂停只补variants的奖金投入；先核验完整性与竞争，再实现。下一轮不重复已筛除#834/#915/#58/#131/#319/#694/#1133/#90，以及#216仅Horton分支，范围有新证据或竞品有具体可验证缺陷时再重开。
 
-所有证明源码位于 `/Users/xcc/Project/justin-sun-prize-lean/JspBounties/`，分模块详细技术报告位于 `/Users/xcc/Project/justin-sun-prize-lean/reports/`。
+公开可直接查阅的证据入口是`verification/2026-10-19/README.md`和`CORRECTIONS.md`；下文`reports/audit-*`与`reports/progress-*`中未纳入Git的抓取记录属于本地工作证据，不能当远程链接。
 
-### 🥇 第一梯队：原题已 100% 完整解决（2026 最新突破 / 完整主定理证明）
+以下为2026-10-18基线审计；其中“待修”“未发布”等描述以本节执行更新为准，原始失败和风险证据保留。
 
-| 序号 | 官方 PR | JSP 题号 | Erdős # | 源码文件 | 详细技术报告 | 核心证明定理与竞争优势 |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [PR #5076](https://github.com/TheJustinSunPrize/awards/pull/5076) | `JSP-000290` | #348 | `JspBounties/Erdos348.lean` (1,869 行) | `reports/Erdos348_report.md` | **全网唯一直接证明 `FormalConjectures` 原始签名 `Erdos348.erdos_348` 的完整证明**（基于 Geneson 2026-09 `arXiv:2609.25107`，完整证明 \(m=0\)、\(m=1\) 位移 Fibonacci 序列存在性及 \(2 \le m < n\) 中心区间不可能性定理） |
-| 2 | [PR #5098](https://github.com/TheJustinSunPrize/awards/pull/5098) | `JSP-000234` | #273 | `JspBounties/Erdos273.lean` & `Erdos727_273.lean` | `reports/Erdos727_273_report.md` | **`0 真实竞争 PR`**。完整证明 `FormalConjectures` 主定理 `Erdos273.erdos_273.variants.three`（及整数环版本 `three_int`），构造模 360 的 12 同余式严格覆盖系，所有模数均为 \(p-1, p \ge 3\) 素数 |
-| 3 | [PR #5089](https://github.com/TheJustinSunPrize/awards/pull/5089) | `JSP-000780` | #939 | `JspBounties/Erdos939.lean` (489 行) | `reports/Erdos939_report.md` | **`0 真实竞争 PR`**。将目录状态从 `Open` 更新为 `Solved`，完整证明 `FormalConjectures` 主定理 `Erdos939.erdos_939.variants.triples`（Nitaj–Cohn 互素 3-powerful 三元组 \(a+b=c\) 无穷族） |
-| 4 | [PR #5090](https://github.com/TheJustinSunPrize/awards/pull/5090) | `JSP-000781` | #939 | `JspBounties/Erdos939.lean` (489 行) | `reports/Erdos939_report.md` | **`全网第 1 个 PR / 0 竞争`**。完整证明 `FormalConjectures` 主定理 `Erdos939.erdos_939.variants.finite`（证伪 \(\forall r \ge 4\) 有限性）及 \(r=5,6,7,8\) 构造定理 |
-| 5 | [PR #5079](https://github.com/TheJustinSunPrize/awards/pull/5079) | `JSP-000301` | #365 | `JspBounties/Erdos365.lean` (336 行) | `reports/Erdos131_365_report.md` | 目录已标 `Solved`。不仅证明 `Erdos365.erdos_365.parts.i`（Golomb 反例 \((12167, 12168)\)），还完整证明 **Walker (1976) 三次 Pell 方程 \(7^3x^2 - 3y^2 = 1\) 无穷非平方连续强数对定理** `infinite_nonSquare_consecutive_powerful` |
-| 6 | [PR #5080](https://github.com/TheJustinSunPrize/awards/pull/5080) | `JSP-000307` | #372 | `JspBounties/Erdos372.lean` (239 行) | `reports/SolvedNoLean_report.md` | 目录已标 `Solved`。证明最小三连降 \(n=13\) 及最小性 `jsp_000307_least_decreasing_triple`、四连降 \(n=317\) 及无穷严格递减对定理 `infinite_strictly_decreasing_pairs` |
+## 1. 当前状态
 
-### 🥈 第二梯队：完整解决 `FormalConjectures` 已解主问题（`@[category research solved, question]`）且 **0 真实竞争 PR**
+- 作者记录：Ethan Xiang / xccElephant；角色主要是Lean形式化。署名、身份、原创性和最终优先权由官方独立确认，本报告不替代这些判断。
+- 项目：33个数学问题模块加1个Basic模块，共34个Lean文件。32个官方PR编号5076–5107，引用27个不同源码文件；同文件可服务多个PR。
+- 实时状态：32个全部OPEN、BLOCKED / REVIEW_REQUIRED，0 merged、0正式review、0 issue/inline评论；statusCheckRollup为空，不能称GitHub CI已通过。初末两次head比较无变化。
+- 官方main：`fd8fa66abb4e21df828fdebc25298e9ad75521bd`；审计原始证明HEAD：`fa0f84367bd744d6f135472327dfddc2158c4535`。
+- 32个PR的固定源码及工具链、Lake配置、manifest均与审计HEAD逐blob一致，6个固定提交均是远程master祖先。校验结束所有证明源哈希仍一致。
+- Lean `4.33.1`；工具链commit `819816b2e0a3bf405af45ae5c7af2491d8f5bee6`；Mathlib `0df444a360eaa60ab8c11dca51a86af692955474`。9项依赖的实际Git revision全部匹配manifest。
+- 暂无本项目的官方奖励确认；没有核实具体逐题金额或收款记录。历史悬赏数字不能替代本奖奖池。
 
-| 序号 | 官方 PR | JSP 题号 | Erdős # | 源码文件 | 详细技术报告 | 核心证明定理与竞争优势 |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 7 | [PR #5088](https://github.com/TheJustinSunPrize/awards/pull/5088) | `JSP-000131` | #124 | `JspBounties/Erdos124.lean` (596 行) | `reports/Erdos124_report.md` | **`全网第 1 个 PR / 0 竞争`**。完整证明 `erdos124.zero`（及其全体自然数加强版 `zero_all`）与 Pomerance 逆定理 `erdos124.converse`，给出完整充要条件 `eventually_iff_le_sum` |
-| 8 | [PR #5084](https://github.com/TheJustinSunPrize/awards/pull/5084) | `JSP-000247` | #291 | `JspBounties/Erdos291_367.lean` (476 行) | `reports/Erdos291_367_report.md` | **`全网第 1 个 PR / 0 竞争`**。完整证明主定理 `Erdos291.erdos_291.parts.ii`（对所有 \(k \ge 1\)，\(n_k = 2 \cdot 3^k\) 满足 \(3 \mid \gcd(a_{n_k}, L_{n_k})\)） |
-| 9 | [PR #5085](https://github.com/TheJustinSunPrize/awards/pull/5085) | `JSP-000303` | #367 | `JspBounties/Erdos291_367.lean` (476 行) | `reports/Erdos291_367_report.md` | **`0 真实竞争 PR`**。完整证明 `Erdos367.erdos_367.parts.ii`（对所有 \(k \ge 3\) 证伪 \(O(n^2)\)）、`k_le_two` 及伴随 Pell 三倍角构造给出的 \(\frac{3}{8}n^2\log n\) 下界 `k_ge_three_lower` |
-| 10 | [PR #5077](https://github.com/TheJustinSunPrize/awards/pull/5077) | `JSP-000254` | #302 | `JspBounties/Erdos302.lean` (219 行) | `reports/SystematicHunter_report.md` | **`全网唯一证明主定理的 PR`**（此前唯一 PR `#4582` 仅算 \(N=4\)）。完整证明 `Erdos302.erdos_302.parts.ii` 与 `f_lower_bound_17_32`（构造 \(\frac{17}{32}N\) 下界证伪 \(1/2\) 密度猜想） |
-| 11 | [PR #5086](https://github.com/TheJustinSunPrize/awards/pull/5086) | `JSP-000489` | #602 | `JspBounties/Erdos602.lean` (267 行) | `reports/Erdos670_602_report.md` | **`0 真实竞争 PR`**。完整证明主定理 `Erdos602.erdos_602.variants.countable_index`（Bernstein 可数无穷集族 Property B 定理）与 `two_sets` |
-| 12 | [PR #5087](https://github.com/TheJustinSunPrize/awards/pull/5087) | `JSP-000544` | #670 | `JspBounties/Erdos670.lean` (387 行) | `reports/Erdos670_602_report.md` | **`唯一作者原创 PR`**。完整证明 Erdős (1997) 一维渐近主定理 `Erdos670.erdos_670.variants.dim_one`（\(\operatorname{diam}(A) \ge (1-\varepsilon)n^2\)）与任意维组合下界 `choose_two` |
-| 13 | [PR #5107](https://github.com/TheJustinSunPrize/awards/pull/5107) | `JSP-000595` | #727 | `JspBounties/Erdos727_273.lean` (747 行) | `reports/Erdos727_273_report.md` | **`0 真实竞争 PR`**。完整证明主定理 `Erdos727.erdos_727.variants.k_1`（Balakram 定理：无穷多 \(n\) 满足 \(((n+1)!)^2 \mid (2n)!\)） |
-| 14 | [PR #5099](https://github.com/TheJustinSunPrize/awards/pull/5099) | `JSP-000226` | #261 | `JspBounties/Erdos261.lean` (312 行) | `reports/NewMainQuestions_report.md` | **唯一完整覆盖 `261.lean` 全部 4 个已解定理的原创 PR**：`erdos_261.parts.i`、`two_representations`、`borwein_loring`、`borwein_loring_property` |
-| 15 | [PR #5100](https://github.com/TheJustinSunPrize/awards/pull/5100) | `JSP-000483` | #596 | `JspBounties/Erdos80_596_668.lean` (1,115 行) | `reports/Erdos80_596_668_report.md` | **`0 真实竞争 PR`**。通过基数超限良基归纳与 2-邻域闭包完整证明 `Erdos596.erdos_596.variants.C4_free_countable_escape` |
-| 16 | [PR #5101](https://github.com/TheJustinSunPrize/awards/pull/5101) | `JSP-000542` | #668 | `JspBounties/Erdos80_596_668.lean` (1,115 行) | `reports/Erdos80_596_668_report.md` | **`0 真实竞争 PR`**。完整证明主定理 `Erdos668.erdos_668.parts.ii` 与 `four_points`（平面 4 点最大单位距离图等距唯一性 \(f(4)=1\)） |
-| 17 | [PR #5102](https://github.com/TheJustinSunPrize/awards/pull/5102) | `JSP-000533` | #657 | `JspBounties/Erdos657.lean` (335 行) | `reports/NewMainQuestions_report.md` | **`0 真实竞争 PR`**。完整证明 `Erdos657.erdos_657.variants.straus`（Straus \(\mathbb{R}^k\) 中 \(2^k\) 点无等腰三角形且不同距离数 \(\le 2^k-1\) 构造） |
-| 18 | [PR #5095](https://github.com/TheJustinSunPrize/awards/pull/5095) | `JSP-000736` | #885 | `JspBounties/Erdos885.lean` (168 行) | `reports/SystematicHunter_report.md` | **唯一证明 `FormalConjectures` 原始定理的 PR**：`Erdos885.erdos_885.variants.k_eq_2`, `k_eq_3`, `k_eq_4` |
+依据：`reports/audit-2026-10-18/evidence/user-prs.json`、`user-prs-final.json`、各`pr-N.json`、`submission-inventory.json`、`environment.json`。
 
-### 🥉 第三梯队：著名 Open 猜想的全部已知核心定理与新进展（锁定正式学术署名）
+## 2. 机械校验结果与限制
 
-| 序号 | 官方 PR | JSP 题号 | Erdős # | 源码文件 | 详细技术报告 | 核心证明定理与竞争优势 |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 19 | [PR #5078](https://github.com/TheJustinSunPrize/awards/pull/5078) | `JSP-000691` | #835 | `JspBounties/Erdos835.lean` (739 行) | `reports/Erdos835_report.md` | **`0 真实竞争 PR`**。完整形式化 Ma–Tang (2026, `arXiv:2604.07009`) 全文所有定理，并额外解决首个素数情形 \(k=4\)（`not_property_four`） |
-| 20 | [PR #5081](https://github.com/TheJustinSunPrize/awards/pull/5081) | `JSP-000509` | #628 | `JspBounties/ErdosGraph.lean` (2,745 行) | `reports/ErdosGraph_report.md` | **`0 真实竞争 PR`**。证明 `k_5_a_3_b_3` (Brown–Jung 1969) 与 `independence_number_2` (BKPS 2009，基于 Tutte 定理 1,650 行完整证明) |
-| 21 | [PR #5082](https://github.com/TheJustinSunPrize/awards/pull/5082) | `JSP-000500` | #617 | `JspBounties/ErdosGraph.lean` (2,745 行) | `reports/ErdosGraph_report.md` | **`0 真实竞争 PR`**。证明 `Erdos617.erdos_617.variants.r2` 与 `r_eq_3`（Erdős–Gyárfás 1999 \(K_{10}\) 定理） |
-| 22 | [PR #5083](https://github.com/TheJustinSunPrize/awards/pull/5083) | `JSP-000403` | #503 | `JspBounties/Erdos503.lean` (826 行) | `reports/SystematicHunter_report.md` | 完整证明 `R0`, `R1`, Kelly 2D(6点)/3D(8点) 构造及 Alweiss 任意维 \(\binom{n+1}{2}\) 下界 |
-| 23 | [PR #5091](https://github.com/TheJustinSunPrize/awards/pull/5091) | `JSP-000058` | #23 | `JspBounties/ErdosGraph.lean` (2,745 行) | `reports/ErdosGraph_report.md` | **`0 真实竞争 PR`**。证明 `Erdos23.erdos_23.variants.n1` & `n1_tight` |
-| 24 | [PR #5092](https://github.com/TheJustinSunPrize/awards/pull/5092) | `JSP-000244` | #287 | `JspBounties/Erdos287.lean` (563 行) | `reports/Erdos287_672_report.md` | **`0 真实竞争 PR`**。证明 Erdős (1932) 连续整数倒数和不为 1 定理 `erdos_287_gap_at_least_two` |
-| 25 | [PR #5093](https://github.com/TheJustinSunPrize/awards/pull/5093) | `JSP-000280` | #338 | `JspBounties/Erdos338.lean` (231 行) | `reports/SolvedNoLean_report.md` | **`全网第 1 个 PR / 0 竞争`**。证明 Bateman 无限制阶加法基反例与 2 阶基大奇数覆盖定理 |
-| 26 | [PR #5094](https://github.com/TheJustinSunPrize/awards/pull/5094) | `JSP-000569` | #699 | `JspBounties/Erdos699.lean` (232 行) | `reports/Erdos488_699_report.md` | **`0 真实竞争 PR`**。证明 Erdős–Szekeres (1978) \(\gcd(\binom{n}{i},\binom{n}{j}) > 1\) 定理及 \(i \le 2\) 完整定理 |
-| 27 | [PR #5096](https://github.com/TheJustinSunPrize/awards/pull/5096) | `JSP-000395` | #488 | `JspBounties/Erdos488.lean` (403 行) | `reports/Erdos488_699_report.md` | **`0 真实竞争 PR`**。证明单元素集、含 2 有限集、双元素集的倍数密度不等式及高半区归纳步 |
-| 28 | [PR #5097](https://github.com/TheJustinSunPrize/awards/pull/5097) | `JSP-000546` | #672 | `JspBounties/Erdos672.lean` (275 行) | `reports/Erdos287_672_report.md` | **`0 真实竞争 PR`**。证明 Euler 四项等差数列平方不可能性定理 `euler_four_squares_in_ap_no_solution` |
-| 29 | [PR #5103](https://github.com/TheJustinSunPrize/awards/pull/5103) | `JSP-000210` | #238 | `JspBounties/Erdos238.lean` (256 行) | `reports/SolvedNoLean_report.md` | **`全网第 1 个 PR / 0 竞争`**。证明 \(c_2 < 2\) 无条件定理与分块抽屉连续素数间隙引理 |
-| 30 | [PR #5104](https://github.com/TheJustinSunPrize/awards/pull/5104) | `JSP-000340` | #413 | `JspBounties/Erdos413.lean` (273 行) | `reports/NewMainQuestions_report.md` | **`全网第 1 个 PR / 0 竞争`**。证明 barrier 轨迹俘获与汇合定理及 Lau 线性移位规约 |
-| 31 | [PR #5105](https://github.com/TheJustinSunPrize/awards/pull/5105) | `JSP-000072` | #44 | `JspBounties/Erdos44.lean` (427 行) | `reports/NewMainQuestions_report.md` | **`0 真实竞争 PR`**。证明 Erdős–Turán 抛物线 Sidon 集构造与 \(\sqrt{N}/3\) 无条件造界 |
-| 32 | [PR #5106](https://github.com/TheJustinSunPrize/awards/pull/5106) | `JSP-000579` | #711 | `JspBounties/Erdos711.lean` (230 行) | `reports/NewMainQuestions_report.md` | **唯一证明一般定理的 PR**。证明极小区间长度存在唯一性、下界与 \(\operatorname{lcm}(1,\dots,k)\) 周期性 |
+1. 从独立源码快照重新编译34/34个模块，无源证明编译失败；没有重用本项目已有olean。
+2. 原始源码198条公理输出全部齐全；独立生成审计文件后，检查全部2,514个theorem声明的类型和传递公理。这一数量包含编译器生成和private辅助声明，不是题数。只观察到`propext`、`Classical.choice`、`Quot.sound`。
+3. 34/34个模块通过`leanchecker`内核重放。运行于禁止网络和用户工作区写入的macOS sandbox；依赖使用已固定版本缓存。未从零重建Mathlib，也未运行独立实现的外部检查器；不是“任何信任边界之外的绝对证明”。
+4. 对32个PR目录列出的每个目标运行`#check`、`#print`、`#print axioms`：**10个PR引用23个不存在的定理名称**。相关文件本身编译通过不消除这个材料缺陷。
+5. #348索引删除、#365正整数powerful反例分别通过独立定义桥接。只为这两个完整候选添加桥接；其余28项已有明确覆盖缺口，2项原题范围不明确。
+6. 原始项目级`lake build`失败：`JspBounties.*`包含不存在的`JspBounties.lean`。本地改为`JspBounties.+`后完整构建通过（2609 jobs）。另将`check_lean.sh`改为相对自身目录执行`lake env lean`，在另一个路径、从`/tmp`调用也验证通过。数学源码未改。**历史提交的默认构建仍有该问题；修复结果不能回填成原commit已通过。**
 
-*注：仓库内还包含另外 5 个同样零 `sorry` 通过验证的模块（`Erdos131.lean`, `Erdos216.lean`, `Erdos319.lean`, `Erdos364_366.lean`, `Erdos940.lean`），随时可按需增补 PR。*
+校验范围直接回答：源证明版本的逐文件检查通过；原始项目完整构建未通过；并非全部解决指定原题。整体不能认定满足原题完整Lean提交要求。细节、原始失败与修复后日志见`METHOD.md`、`build-results.json`、`deep-check-results.json`、`bridge-results.json`、`pr-target-results.json`和`logs/`。
 
----
+## 3. 原题覆盖：2完整、28部分、2待确认
 
-## 三、 领奖流程、支付币种与邮件模板
+**明确完整的2项**：
 
-### 1. 奖金比例与支付方式
-- **分成比例**：每题总奖金分为 **数学解答（Solution, 50%）** + **Lean 4 形式化（Lean, 30%）** + **科普解读（Exposition, 20%）**。两个角色独立评审、独立发钱。
-- **支付币种**：默认首选 **波场链 `TRC-20` 网络的 `USDT`**（或 `ERC-20 USDT` / `TRX`，也可在邮件确认阶段协商传统电汇），外加寄送一枚**实体孙宇晨奖奖牌**。
-- **收益预估**：
-  - 保守估计（第一梯队 100% 结题 PR 通过审核）：**$1,500 ～ $6,000 USDT** + 实体奖牌；
-  - 乐观估计（第二梯队 0 竞争已解主分支 PR 一并获批）：**$5,000 ～ $15,000+ USDT**。
+- PR5076 / JSP-000290 / Erdős348：非递减序列按索引删除的完整分类，`m<n`时恰为`m≤1`。源码匹配当前固定FC签名；PR正文却描述StrictMono和值域删除，构造与别名也不一致，需重写材料。
+- PR5079 / JSP-000301 / Erdős365：目录明确限定的“相邻powerful数至少一个是平方吗”是非题，由Golomb反例完全否定；额外Walker无穷族成立。整个Erdős365网页另有计数问题，未在此完成。PR正文`↔ False`真值、Walker方程、别名存在错误。
 
-### 2. 领奖两步操作（在任一 PR 被官方 Merged 之后立即执行）
-1. **第一步：提交 GitHub Claim Issue**
-   - 访问 [`https://github.com/TheJustinSunPrize/awards/issues/new?template=claim-award.yml`](https://github.com/TheJustinSunPrize/awards/issues/new?template=claim-award.yml)
-   - 填入被 Merge 的 `JSP-XXXXXX` 编号、Merged PR 链接、证明仓库 `https://github.com/xccElephant/justin-sun-prize-lean` 以及你的联系邮箱。
-2. **第二步：用该联系邮箱向官方唯一邮箱 `thejustinsunprize@hejustinsun.com` 发送身份与收款确认信**
-   - 切勿在 GitHub 公开页面暴露钱包地址或私人收件地址，仅通过邮件发送：
-   ```text
-   To: thejustinsunprize@hejustinsun.com
-   Subject: [Award claim] JSP-000290
+**范围待确认的2项**：
 
-   Required:
-   - Name or organization name: Ethan Xiang (@xccElephant)
-   - JSP problem ID: JSP-000290
-   - Claim issue link: <填入刚创建的 GitHub Claim Issue 链接>
-   - Merged submission PR links: https://github.com/TheJustinSunPrize/awards/pull/5076
-   - Role: Lean formalization
-   - Identity-verification method and corresponding public records: GitHub account @xccElephant (owner and sole author of https://github.com/xccElephant/justin-sun-prize-lean)
+- PR5088 / JSP-000131 / Erdős124：`k=0`及逆向条件已证，任意`k≥1`未证；官方目录是否只悬赏`k=0`须明确。已有更早逆定理来源，不能声称无竞争。
+- PR5089 / JSP-000780 / Erdős939：无穷3-powerful互素三元组已证，是否仅该分支属于JSP780须明确；一般`r≥4`不由此完成，而且3-powerful分支已有更早提交。
 
-   Recommended, if available:
-   - Public evidence connecting me to the credited author:
-     https://github.com/xccElephant/justin-sun-prize-lean/blob/master/AUTHORS.md
+**其余28项是部分覆盖**。最影响旧收益判断的例子：
 
-   May be supplied at the award-delivery stage:
-   - Payment network and address: TRON (TRC-20) USDT — <你的 T 开头波场钱包地址>
-   - Medal delivery address: <你的实体奖牌收件地址与联系电话>
-   ```
+- #273：原题`p≥5`，我们构造用到`p=3`；自然数到整数桥接不解决素数阈值。
+- #727：原题`k≥2`，目前证明`k=1`；补混合阶乘分支仍不解决全题。
+- #372：有限例子13/317、无穷谷形和两连降，均不推出无穷三连降。
+- #302、#367、#668：分别完成某一否定分支，仍缺原题其余主要要求。
+- #672：只有代数恒等式及`n≥d²`/`d=1`等区域结果，既未完成一般原题，也未完成所宣传的无条件Euler四项结论。
+- #596：C4-free可数逃逸证明真实存在，但有限Ramsey假设`hfin`仍未消除，全部图对分类未做。
+- #413、#711、#670：对应核心结果仍以`hlau`、`hvd`、`hHo`等前提输入；没有自定义axiom不表示没有未证明的数学假设。
+- #617：源码`variants.r2`是`r²`顶点反例家族，PR却把名字理解成`r=2`肯定命题。
 
----
+逐条32项的原始题干、实际范围、缺口、源码位置见`reports/audit-2026-10-18/coverage.json`及`COVERAGE.md`。这是本地数学范围判断，部分目录摘要省略了原始量词，以引用原题审查并保留范围争议，不自行缩窄悬赏。
 
-## 四、 后续解题计划（Phase 3：高确定性、全额奖金标的狙击路线图）
+## 4. 必须撤回的旧判断
 
-为了最大化拿奖确定性（直接触发 `Current status: Solved` + `Lean proof: Yes` + `Eligible to claim: Yes`，甚至同时拿走 **50% 数学解答奖 + 30% Lean 奖 = 80% 奖金**），后续攻关分三条主线推进：
+原报告的“32个抢占”“全网唯一”“0真实竞争”“单题稳拿30%”“保守$1,500–$6,000、乐观$5,000–$15,000+”均没有充分证据，本报告替代这些结论。
 
-### 主线 A：实时跟进已提交的 32 个 PR 审核反馈（最高优先级）
-- 每日检查 `https://github.com/TheJustinSunPrize/awards/pulls/xccElephant` 中官方审核员（`Federico2014`、`Simon0313`、`GordonLtron`）的 Review 意见。
-- 若审核员对某题提出定理签名对齐、补充等价性引理或补充文献说明的要求，第一时间在 `JspBounties/` 中补充无 `sorry` 证明并更新对应 PR。
+- **#348有强竞争线索**：PR4447指向`ljhfafa/jsp-000290-lean`的`fb17d578b351c490095dc12adccd280709d6a63b`，记录commit日期2026-09-24；端点声明完整整数域分类，附有自验记录。本次读取源码，尚未独立复现其全部依赖，不能据此直接判定谁赢，但不能再说我们唯一完整。
+- **#365有更早完整反例线索**：PR13与17选定源码日期2026-09-16；PR412另有2026-09-17的Walker族。对狭义是非题，一个真实反例已完整解决，后来加无穷族不能把先前完整证明变成“不完整”。
+- **#939三元组有PR65/265竞争**。同理，提交少、目录Lean=No、无人评论，都不是无更早完整证明的证据。
+- legacy优先权看被接受的完整证明固定提交及可核实公开历史，不按PR编号或打开时间。Git时间可以设置；上述日期仅是待独立核验的竞争线索，不能当官方裁定。
 
-### 主线 B：狙击“2026 年最新 100% 完整解决、但尚无有效 Lean 4 证明”的全题 Solved 标的（单题 30% Lean 奖稳拿）
-重点扫描 `TheJustinSunPrize/awards` 与 `erdosproblems.com` 中满足以下三个条件的目标：
-1. **原问题全部子句已在数学上 100% 解决**（不存在悬而未决的 Open 分支，确保 100% 符合 `Only complete solutions to the original problem are accepted`）；
-2. **在 `TheJustinSunPrize/awards` 中尚无编译通过的完整 Lean 4 证明**（或现有 PR 仅指向含 `sorry` 的 `plby/lean-proofs` 占位文件）；
-3. **证明依赖的数学工具在 Mathlib `v4.33.1` 能力范围内**（初等数论、组合图论、有限集/极值组合、Pell 方程、抽屉原理、构造性反例）。
+完整固定SHA、来源和核验级别见`opportunities.md`及`priority-*-raw.json`。本轮没有确认新的可领奖Lean目标，也未证明全球不存在机会。
 
-**当前锁定的下一批重点候选标的**：
-- **Erdős #727 第二部分 `erdos_727.variants.k_1_2`**（`JSP-000595` 扩展：证明对任意 \(k \ge 2\) 有无穷多 \(n\) 满足 \((n+k)!(n+1)! \mid (2n)!\)，可直接在现有 `JspBounties/Erdos727_273.lean` 的 Kummer 进位框架上扩充完成）。
-- **Erdős #124 剩余已解主问题 `erdos124.ne_zero_three_four_seven` 与 `erdos124.melfi_construction`**（`JSP-000131` 扩展：利用模周期同余法在 `JspBounties/Erdos124.lean` 中补齐基 \(\{3, 4, 7\}\) 在 \(k \ge 1\) 时的完整证明，使 `JSP-000131` 达到全文件 100% 零 `sorry` 覆盖）。
-- **Erdős #686 乘积整除表示问题**（`JSP-000558`：补齐 `686.lean` 中 `erdos_686.variants.four`、`four_three`、`twenty_five` 的显式构造验证，零竞争 PR）。
-- **持续监控 `arXiv`（`math.NT` / `math.CO`）与 `erdosproblems.com/forum` 2026 年 10 月最新结题帖**：一旦出现类似 `JSP-000290`（Geneson 2026-09）或 `JSP-000691`（Ma–Tang 2026）的新近短篇初等证明或反例，24 小时内完成 Lean 4 形式化并抢占首交 PR。
+## 5. 奖金规则与来源冲突
 
-### 主线 C：自研构造性反例与有限组合搜寻（冲击 50% Solver + 30% Lean = 80% 双重奖）
-- 针对 `problems/catalog-*.md` 中标记为 `Open`、但形如 **“Does there exist... / Is it true that for all \(n\)...”** 的是非题（类似此前 Neel Somani 获奖的 `JSP-000239`、`JSP-000327` 及 OpenAI 团队用反例解决的 `JSP-000465`）：
-  1. 先用 Python / SAT / ILP 搜索有限反例或代数参数族（如 Pell 方程族、小模数覆盖系、小规模超图/距离图构造）；
-  2. 一旦找到反例或初等构造，同时撰写 Markdown 数学论文（存入仓库 `papers/`）+ 零 `sorry` Lean 4 证明（存入 `JspBounties/`），以 **`Mathematical solution + Lean formalization` 双重身份（80% 奖金份额）** 提交 PR。
+官网`https://www.hejustinsun.com/prize/rules`与GitHub当前流程同时保留不同版本／范围口径：
+
+- 官网一般规则：Solver70%、Lean30%；Tier I固定USD1,000,000，II–V由委员会确定。对本32题未找到正式逐题等级／金额，因此不推算收入。
+- MathDB `mathdb-v1`只覆盖49题，规定Solution50%/Lean30%/Exposition20%，分母是正式公布的该题奖金。**现有32题与试点名单交集为0**。不能把试点20%或80%组合直接套到当前Erdős提交。
+- 官网§4.2允许按完整／实质／部分进展分档；GitHub legacy要求完整原题。因口径冲突，不能自行保证部分成果有奖，也不能断言任何部分成果永远无奖。当前行动按可满足的完整原题标准筛选，特殊成果另待官方书面解释。
+- 官网§2.5追溯至2026-01-01及之后合格成果；MathDB对Solution/Lean各自首次完整成果要求after 2026-01-01且最早有效。旧数学成果配新Lean形式化，应逐类别核实，不能把重写旧证明当新数学发现。
+- 官网§3.3列TRC-20 USDT或ERC-20 USDC。旧报告中的ERC-20 USDT／TRX／电汇没有此条依据；实际支付方式以官方确认，不推测。
+- 当前MathDB试点状态是prepared，自动申请尚需正式激活及官方账号配置；不能把空Exposition栏等同于可立即领奖。
+- legacy路径仍需数学／Lean分别审核、贡献PR合并、候选发布、公示、身份和书面确认。没有自动到账承诺。
+
+来源全文保存在`evidence/official/website-rules.txt`、`remote-official/docs/award-process*.md`、`docs/grading.md`、`problems/mathdb-pilot.md`。金额与具体资格是待核实事实，本文不提供确定收益率。
+
+## 6. 后续计划：优先提高有效申奖概率
+
+以下工时是建议的投入上限／规划估计，不是用户已授权的预算、完成承诺或概率估算。收益优先级按“原题完整性→优先权→明确申奖路径→追加工作量”过滤；奖金未知时不制造精确期望值。
+
+**P0，先处理存量材料，建议半个至一个工作日。**
+
+1. 先完善#348/#365的声明、目标名、构造、作者出处和复现路径。`SUBMISSION_CORRECTIONS.md`已有10个PR/23名称逐条清单，`drafts/PR5076-corrected-body.md`已有可审阅正文草案。
+2. 给28项部分结果准确标注范围，修掉“完整原题”与不实数学断言。范围待确认的#124/#939只陈述已证子题。不要为了消除错误名称而给弱定理套上强别名。
+3. 固定可构建的后续项目commit并重新关联证据；原始固定commit的源码审核结果保留。优先权必须绑定实际被审核版本与独立公开历史，不能假定改提交无影响。
+4. 本轮仅做本地审计、文档和构建修复；没有更新外部PR、评论、关闭提交或发送邮件。
+
+**P1，竞争核验，建议最多一个工作日。**
+
+- 对PR4447（#348）和PR13/17（#365）分别核实固定原始版本、完整范围、传递axiom、实际构建和同期公开证据；只核验最有决定性的先例。
+- 若更早完整证明有效且同范围，停止把该题作为新增Lean奖金主力；整理成果留作复用。若发现具体范围或证明缺口，记录可复验反例／错误后再决定投入。
+- #124/#939只有在范围清楚且不存在更早有效同范围证明时，才继续补材料；一般Open分支不作为例行补洞承诺。
+
+**P2，新Lean题发现，先做一轮受限筛选，再选一题。**
+
+- 从新近完整数学解与可实现证明开始，逐题核对准确JSP映射、所有参数、核心引理、文献出处、第三方早期完整代码和官方渠道。
+- 进入实施队列的条件：完整数学论证已读懂；全部原题要求有证明路线；所需Mathlib依赖可实现；更早完整Lean搜索留证；预估工时与资格风险可接受。
+- `scripts/jsp_erdos_map.json`与编号推算只能用于发现。已经发现JSP307=E372、JSP799=E960等错位，不能据其直接提交或计算机会。
+- 本轮E1213/1214/1216/1217/960、E575、E625、E193等发现已有证明入口／竞争；E1083仍有开放高维部分。均未冒充“确认无竞争的新题”。
+- 停止旧计划直接扩展#727 k_1_2、#124特殊基、#686有限见证的奖金导向投入：它们没有闭合原题。若未来找到一般定理的新证明、官方明确将分支独立奖励或先例被证伪，可重新进入。
+
+**P3，Exposition作为独立备选，先核验资格再写稿。**
+
+- 首个核验对象：JSP-000025 / Lehmer–Mahler measure；其次JSP-000016 / Littlewood、JSP-001025 / 单向函数存在性。
+- 三者均为MathDB试点中的未解问题，科普类别可以解释Open题，但须委员会选定首次满足其要求的作品。官方空栏和GitHub标题搜索为空不证明没有站内／待审竞争。
+- 先限制1工作日核验试点激活、题目映射、既有作品与委员会要求；只有路径确定才做一篇有严格定义、算例、引用和专家复核的稿件。暂估Lehmer2–4工作日，其余3–5工作日，不同时开三篇。
+- 此路线尚无确认资格或金额，不能称低风险20%收益，也不替代新Lean题的严格发现流程。
+
+验收标准：每个准备提交的题都必须有原题逐条映射、无额外核心假设、实际可构建固定SHA、全目标公理／内核记录、准确署名与竞争证据。原题不完整、先例有效、渠道未激活或金额未知时如实保留，不用“已提交”充当成功指标。
+
+## 7. 本次交付索引
+
+- `reports/audit-2026-10-18/COVERAGE.md` / `coverage.json`：32个提交逐题结论。
+- `reports/audit-2026-10-18/SUBMISSION_CORRECTIONS.md`：可执行材料修正清单。
+- `reports/audit-2026-10-18/drafts/PR5076-corrected-body.md`：未发布正文草案。
+- `reports/audit-2026-10-18/METHOD.md`：隔离、复现、信任与未完成外部检查边界。
+- `reports/audit-2026-10-18/summary.json`、各校验JSON、`audit/`、`logs/`：机械证据。
+- `reports/audit-2026-10-18/opportunities.md`：竞争、规则、新路线与证据索引。
+- `README.md`更新最新复核概况；`lakefile.toml`和`check_lean.sh`修复复现问题。证明文件无改动。
