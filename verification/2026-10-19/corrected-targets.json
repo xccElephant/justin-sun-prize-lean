@@ -55,7 +55,7 @@
     "pr": 5080,
     "jsp": "JSP-000307",
     "erdos": 372,
-    "classification": "partial",
+    "classification": "scope-uncertain",
     "targets": [
       "Erdos372.jsp_000307_least_decreasing_triple",
       "Erdos372.decreasing_quadruple_317",
@@ -64,7 +64,7 @@
       "Erdos372.infinite_maxPrimeFac_lt_succ"
     ],
     "proved_en": "Proves the least decreasing triple begins at n=13 and gives a decreasing quadruple at n=317. Also proves infinitely many valleys P(n)>P(n+1)<P(n+2), and infinitely many individual adjacent increases and decreases.",
-    "gap_en": "The original infinite decreasing-triple statement P(n)>P(n+1)>P(n+2), and its quantitative lower bound, are not proved. Valleys and separate infinite adjacent decreases do not supply infinite decreasing triples."
+    "gap_en": "The catalog literally asks finite existence, fully proved by the least witness n=13. The cited original research question asks infinitude, which is not proved. The intended award scope must be clarified; the stronger quantitative bound is not automatically an obligation."
   },
   {
     "pr": 5081,

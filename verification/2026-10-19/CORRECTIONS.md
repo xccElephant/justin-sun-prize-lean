@@ -9,6 +9,10 @@ Selected reproducible project: `70ca9dbd7ee3832a6bd87d24b3fa94c7cf881aa6`. Mathe
 - PR5076 / JSP-000290 / Erdős348: complete indexed-deletion classification; actual nondecreasing sequence statement, correct Fibonacci indexing and existing competition disclosed.
 - PR5079 / JSP-000301 / Erdős365: complete counterexample to the explicitly scoped yes/no question; correct negation, Walker equation and target names; earlier complete counterexamples disclosed.
 
+## Scope recheck
+
+PR5080 is now explicitly classified as scope unresolved: the catalog’s literal finite-existence question is fully proved at n=13, while the cited research infinitude question is not. The quantitative strengthening is not automatically required. See [scope recheck](SCOPE_RECHECK.md). Current triage: 2 clearly complete scoped records, 27 broader-scope gaps, 3 scope questions. All 30 non-ready records remain drafts; this is not an official rejection. The historical gap list below is retained as audit context.
+
 ## Draft scope register
 
 | PR | JSP | Actual result | Remaining original-problem gap |

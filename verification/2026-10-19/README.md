@@ -10,7 +10,7 @@ The Lean toolchain commit is `819816b2e0a3bf405af45ae5c7af2491d8f5bee6`; mathlib
 
 ## Scope findings
 
-Successful checking establishes the stated theorems, not correspondence to a whole prize problem. Of the 32 submissions, the review found two complete scoped original problems (#348 and the yes/no part of #365), 28 partial results, and two submissions whose catalog scope needs clarification (#124 and the triples variant of #939). Ten old catalog changes referenced 23 nonexistent theorem names. Those defective references and other inaccurate declarations are being corrected; old failure results are retained as historical findings.
+Successful checking establishes the stated theorems, not correspondence to a whole prize problem. Of the 32 submissions, the review found two complete scoped original problems (#348 and the yes/no part of #365), 27 records with broader-scope gaps, and three submissions whose catalog scope needs clarification (#372, #124 and the triples variant of #939). Ten old catalog changes referenced 23 nonexistent theorem names. Those defective references and other inaccurate declarations are being corrected; old failure results are retained as historical findings.
 
 The independent Bridge348 and Bridge365 definitions were checked against the intended indexed-deletion and positive-powerful-number questions. These bridges import the submission and use Lean's own kernel; they are not an independent external checker.
 
@@ -27,3 +27,5 @@ lake env lean verification/2026-10-19/Bridge365.lean
 ```
 
 The repaired project commit is `70ca9dbd7ee3832a6bd87d24b3fa94c7cf881aa6`; this report is committed after that selected proof-project version. Historical proof completion dates, attribution, scope and priority require independent public evidence. No uniqueness or prize eligibility is asserted by this report.
+
+Scope recheck: [finite existence versus infinitude](SCOPE_RECHECK.md). The earlier 28/2 split was too categorical for JSP-000307; its literal existence question is already proved.

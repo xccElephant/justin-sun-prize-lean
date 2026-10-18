@@ -14,6 +14,8 @@ A fresh audit compiled all 34 modules, checked the axiom dependencies of all 2,5
 
 All 32 PR bodies and catalog changes have now been corrected in place; 30 are drafts with explicit gaps. All 109 corrected target references pass Lean checks. [Correction record](verification/2026-10-19/CORRECTIONS.md). The historical audit found 23 nonexistent target names across ten PRs, and broader statement mismatches. Most modules prove a special case or related theorem. See [verification evidence and scope limitations](verification/2026-10-19/README.md). Earlier completeness, uniqueness, priority and revenue estimates are withdrawn; source verification is separate from award eligibility.
 
+Scope clarification: the catalog’s literal #372 existence question is already proved; whether its prize scope instead requires infinitely many triples remains unresolved. The current triage is 2 clearly complete scoped records, 27 broader-scope gaps, and 3 scope questions. [Scope recheck](verification/2026-10-19/SCOPE_RECHECK.md).
+
 ## Quick Verification
 
 To verify any module using the precompiled Mathlib cache:
