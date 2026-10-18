@@ -51,3 +51,4 @@ lake exe cache get
 | `JspBounties/Erdos319.lean` | `JSP-000265` | #319 | `erdos_319_isBigO`, `adenwalla_irreducible_of_unit_fraction_sum`, `erdos_319_isTheta_of_lb` |
 | `JspBounties/Erdos413.lean` | `JSP-000340` | #413 | `erdos_413_parts_ii_iff_linear_omega`, `barrier_traps_iterates`, `barrier_coalesces_trajectories`, `infinite_not_isBarrier_omega` |
 | `JspBounties/Erdos711.lean` | `JSP-000579` | #711 | `exists_isMinimalIntervalLength`, `isMinimalIntervalLength_add_iff_of_dvd`, `n_add_one_le_of_hasDivisibleDistinctTuple` |
+| `JspBounties/Erdos727_273.lean` | `JSP-000595` / `JSP-000234` | #727 / #273 | `Erdos727.erdos_727.variants.k_1` (Balakram infinite family $((n+1)!)^2 \mid (2n)!$), `Erdos273.erdos_273.variants.three`, `Erdos273.erdos_273.variants.three_int` |
