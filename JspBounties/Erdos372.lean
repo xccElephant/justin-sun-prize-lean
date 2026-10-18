@@ -230,6 +230,26 @@ theorem infinite_maxPrimeFac_lt_succ :
   · intro k
     exact (two_pow_sub_one_valley (by omega)).2
 
+/-- The literal finite-existence question in JSP-000307, expressed without the
+custom largest-prime-factor function. It does not assert infinitude. -/
+theorem jsp_000307_exists_prime_factor_chain :
+    ∃ n p q r : ℕ, 0 < n ∧ p.Prime ∧ q.Prime ∧ r.Prime ∧
+      p ∣ n ∧ q ∣ n + 1 ∧ r ∣ n + 2 ∧
+      (∀ d, d.Prime → d ∣ n → d ≤ p) ∧
+      (∀ d, d.Prime → d ∣ n + 1 → d ≤ q) ∧
+      (∀ d, d.Prime → d ∣ n + 2 → d ≤ r) ∧ r < q ∧ q < p := by
+  refine ⟨13, 13, 7, 5, by decide, by decide, by decide, by decide,
+    by decide, by decide, by decide, ?_, ?_, ?_, by decide, by decide⟩
+  · intro d hd hdiv
+    exact Nat.le_of_dvd (by decide) hdiv
+  · intro d hd hdiv
+    have hmax : Nat.maxPrimeFac 14 = 7 := by decide +kernel
+    exact hmax ▸ Nat.le_maxPrimeFac (by decide) hd hdiv
+  · intro d hd hdiv
+    have hmax : Nat.maxPrimeFac 15 = 5 := by decide +kernel
+    exact hmax ▸ Nat.le_maxPrimeFac (by decide) hd hdiv
+
+
 end Erdos372
 
 #print axioms Erdos372.jsp_000307_least_decreasing_triple
@@ -237,3 +257,5 @@ end Erdos372
 #print axioms Erdos372.infinite_maxPrimeFac_valley
 #print axioms Erdos372.infinite_maxPrimeFac_gt_succ
 #print axioms Erdos372.infinite_maxPrimeFac_lt_succ
+
+#print axioms Erdos372.jsp_000307_exists_prime_factor_chain

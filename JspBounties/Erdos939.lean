@@ -4,6 +4,7 @@ Formalization author: xccElephant (Ethan Xiang)
 Toolchain: leanprover/lean4:v4.33.1
 Mathlib: 0df444a360eaa60ab8c11dca51a86af692955474 (v4.33.1)
 -/
+import Mathlib
 import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Algebra.GCDMonoid.Finset
 import Mathlib.Algebra.GCDMonoid.Nat
@@ -40,7 +41,7 @@ Erdős Problem 939:
    at every step.
 2. **`erdos_939.variants.finite` (`JSP-000781`)**:
    Disproves the finiteness question `∀ r ≥ 4, (Erdos939Sums r).Finite` by constructing infinite
-   parametric families of coprime $r$-powerful sums in `Erdos939Sums r` for $r = 6, 7, 8$.
+   parametric families of coprime $r$-powerful sums in `Erdos939Sums r` for every $r ≥ 6$.
 3. **`erdos_939.variants.examples`, `erdos_939.variants.seven`, `erdos_939.variants.eight`,
    and `erdos_939.variants.euler`**:
    Complete proofs of all solved existence variants for $r = 5, 6, 7, 8$ and the Lander–Parkin
@@ -697,6 +698,355 @@ theorem erdos_939_eight_infinite : (Erdos939Sums 8).Infinite := by
 theorem erdos_939.variants.eight : (Erdos939Sums 8).Nonempty :=
   erdos_939_eight_infinite.nonempty
 
+/-!
+### Infinite families for every `r ≥ 6`
+
+Mathematical construction: GPT-5.5 Pro prompted by Liam Price, posted on 24 May 2026,
+https://www.erdosproblems.com/forum/thread/939#post-6640. This is a newly written
+Finset formalization using labels `(exponent, coefficient)`; no code from the linked
+Aristotle autoformalization is included (its reuse license was not established).
+The original `Erdos939Sums` definition is unchanged. The construction does not resolve
+positive existence at `r = 4` or infinitude at `r = 4, 5`.
+-/
+
+namespace General
+
+/-- Odd powers of `Y` in the binomial expansion. -/
+def oddTerms (r : ℕ) : Finset ℕ :=
+  (Finset.range (r + 1)).filter (fun j => Odd j)
+
+def pieces (r : ℕ) : ℕ := r / 2 - 2
+
+def smallCoefficients (r : ℕ) : Finset ℕ :=
+  (Finset.range (pieces r - 1)).image Nat.succ
+
+def remainder (r : ℕ) : ℕ := 2 * r.choose 3 - ∑ c ∈ smallCoefficients r, c
+
+def coefficients (r : ℕ) : Finset ℕ := insert (remainder r) (smallCoefficients r)
+
+lemma cubic_room (r : ℕ) (hr : 6 ≤ r) : r * r < 2 * r.choose 3 := by
+  have quadratic_room : ∀ n ≥ 4, n + 1 ≤ n.choose 2 := by
+    intro n hn
+    induction n, hn using Nat.le_induction with
+    | base => norm_num [Nat.choose]
+    | succ n hn ih =>
+      rw [show (n + 1).choose 2 = n.choose 1 + n.choose 2 by
+        exact Nat.choose_succ_succ n 1, Nat.choose_one_right]
+      omega
+  induction r, hr using Nat.le_induction with
+  | base => norm_num [Nat.choose]
+  | succ r hr ih =>
+    rw [Nat.choose_succ_succ]
+    have h := quadratic_room r (by omega)
+    nlinarith
+
+lemma pieces_bounds (r : ℕ) (hr : 6 ≤ r) : 1 ≤ pieces r ∧ pieces r ≤ r := by
+  unfold pieces
+  omega
+
+lemma small_mem {r c : ℕ} : c ∈ smallCoefficients r ↔ 1 ≤ c ∧ c < pieces r := by
+  simp only [smallCoefficients, Finset.mem_image, Finset.mem_range]
+  constructor
+  · rintro ⟨i, hi, rfl⟩
+    omega
+  · rintro ⟨hc, ht⟩
+    exact ⟨c - 1, by omega, by omega⟩
+
+lemma coefficient_spec (r : ℕ) (hr : 6 ≤ r) :
+    (coefficients r).card = pieces r ∧
+    (∑ c ∈ coefficients r, c) = 2 * r.choose 3 ∧
+    ∀ c ∈ coefficients r, 0 < c := by
+  have ht := pieces_bounds r hr
+  have hcard : (smallCoefficients r).card = pieces r - 1 := by
+    rw [smallCoefficients, Finset.card_image_of_injective _ Nat.succ_injective]
+    simp
+  have hbound : (∑ c ∈ smallCoefficients r, c) + pieces r ≤ r * r := by
+    have hsum : (∑ c ∈ smallCoefficients r, c) ≤ (pieces r - 1) * pieces r := by
+      calc
+        _ ≤ ∑ _c ∈ smallCoefficients r, pieces r :=
+          Finset.sum_le_sum (fun c hc => (small_mem.mp hc).2.le)
+        _ = (pieces r - 1) * pieces r := by simp [hcard]
+    have hcancel : (pieces r - 1) + 1 = pieces r := by omega
+    calc
+      _ ≤ (pieces r - 1) * pieces r + pieces r := Nat.add_le_add_right hsum _
+      _ = pieces r * pieces r := by nlinarith
+      _ ≤ r * r := Nat.mul_le_mul ht.2 ht.2
+  have hlarge : pieces r < remainder r := by
+    unfold remainder
+    have h := lt_of_le_of_lt hbound (cubic_room r hr)
+    omega
+  have hnot : remainder r ∉ smallCoefficients r := by
+    intro hc
+    have := (small_mem.mp hc).2
+    omega
+  refine ⟨?_, ?_, ?_⟩
+  · simp [coefficients, hnot, hcard]
+    omega
+  · rw [coefficients, Finset.sum_insert hnot]
+    unfold remainder
+    have hroom := cubic_room r hr
+    omega
+  · intro c hc
+    rcases Finset.mem_insert.mp hc with rfl | hc
+    · omega
+    · exact (small_mem.mp hc).1
+
+lemma odd_card (r : ℕ) : (oddTerms r).card = (r + 1) / 2 := by
+  have heq : oddTerms r = (Finset.range ((r + 1) / 2)).image (fun i => 2 * i + 1) := by
+    ext j
+    simp only [oddTerms, Finset.mem_filter, Finset.mem_range, Finset.mem_image]
+    constructor
+    · rintro ⟨hj, ⟨i, rfl⟩⟩
+      exact ⟨i, by omega, by omega⟩
+    · rintro ⟨i, hi, rfl⟩
+      exact ⟨by omega, ⟨i, by ring⟩⟩
+  rw [heq, Finset.card_image_of_injective]
+  · simp
+  · intro i j h
+    change 2 * i + 1 = 2 * j + 1 at h
+    omega
+
+/-- A label records the exponent of `Y` and its positive coefficient. -/
+def labels (r : ℕ) : Finset (ℕ × ℕ) :=
+  ((oddTerms r).erase 3).image (fun j => (j, 2 * r.choose j)) ∪
+    (coefficients r).image (fun c => (3, c))
+
+lemma labels_disjoint (r : ℕ) :
+    Disjoint (((oddTerms r).erase 3).image (fun j => (j, 2 * r.choose j)))
+      ((coefficients r).image (fun c => (3, c))) := by
+  apply Finset.disjoint_left.mpr
+  intro z hz hz'
+  obtain ⟨j, hj, rfl⟩ := Finset.mem_image.mp hz
+  obtain ⟨c, hc, heq⟩ := Finset.mem_image.mp hz'
+  have := congrArg Prod.fst heq
+  exact (Finset.mem_erase.mp hj).1 this.symm
+
+lemma labels_card (r : ℕ) (hr : 6 ≤ r) : (labels r).card + 1 = r - 2 := by
+  have hthree : 3 ∈ oddTerms r := by
+    simp only [oddTerms, Finset.mem_filter, Finset.mem_range]
+    exact ⟨by omega, by decide⟩
+  rw [labels, Finset.card_union_of_disjoint (labels_disjoint r)]
+  rw [Finset.card_image_of_injective _ (by intro a b h; exact congrArg Prod.fst h)]
+  rw [Finset.card_image_of_injective _ (by intro a b h; exact congrArg Prod.snd h)]
+  rw [Finset.card_erase_of_mem hthree, odd_card, (coefficient_spec r hr).1]
+  unfold pieces
+  omega
+
+lemma label_bounds (r : ℕ) (hr : 6 ≤ r) {z : ℕ × ℕ} (hz : z ∈ labels r) :
+    1 ≤ z.1 ∧ z.1 ≤ r ∧ 0 < z.2 := by
+  rcases Finset.mem_union.mp hz with hz | hz
+  · obtain ⟨j, hj, rfl⟩ := Finset.mem_image.mp hz
+    have ho := Finset.mem_filter.mp (Finset.mem_erase.mp hj).2
+    have hj : j < r + 1 := Finset.mem_range.mp ho.1
+    exact ⟨Odd.pos ho.2, by omega, mul_pos two_pos (Nat.choose_pos (by omega))⟩
+  · obtain ⟨c, hc, rfl⟩ := Finset.mem_image.mp hz
+    exact ⟨by omega, by omega, (coefficient_spec r hr).2.2 c hc⟩
+
+lemma binomial_difference (r X Y : ℕ) (hYX : Y ≤ X) :
+    (X + Y) ^ r = (X - Y) ^ r +
+      ∑ j ∈ oddTerms r, 2 * r.choose j * X ^ (r - j) * Y ^ j := by
+  have hi : ((X : ℤ) + Y) ^ r - ((X : ℤ) - Y) ^ r =
+      ∑ j ∈ oddTerms r, 2 * (r.choose j : ℤ) * X ^ (r - j) * Y ^ j := by
+    rw [sub_eq_add_neg (a := (X : ℤ)) (b := (Y : ℤ)), add_comm (X : ℤ) (Y : ℤ),
+      add_pow, add_comm (X : ℤ) (-(Y : ℤ)), add_pow, ← Finset.sum_sub_distrib]
+    rw [oddTerms, Finset.sum_filter]
+    apply Finset.sum_congr rfl
+    intro j hj
+    by_cases ho : Odd j
+    · simp [ho, ho.neg_pow]
+      ring
+    · have he := (Nat.even_or_odd j).resolve_right ho
+      simp [ho, he.neg_pow]
+  have hi' : ((X : ℤ) + Y) ^ r = ((X : ℤ) - Y) ^ r +
+      ∑ j ∈ oddTerms r, 2 * (r.choose j : ℤ) * X ^ (r - j) * Y ^ j := by
+    linarith
+  exact_mod_cast hi'
+
+lemma labels_sum (r X Y : ℕ) (hr : 6 ≤ r) :
+    (∑ z ∈ labels r, z.2 * X ^ (r - z.1) * Y ^ z.1) =
+      ∑ j ∈ oddTerms r, 2 * r.choose j * X ^ (r - j) * Y ^ j := by
+  have hthree : 3 ∈ oddTerms r := by
+    simp only [oddTerms, Finset.mem_filter, Finset.mem_range]
+    exact ⟨by omega, by decide⟩
+  rw [labels, Finset.sum_union (labels_disjoint r)]
+  rw [Finset.sum_image (by intro a ha b hb h; exact congrArg Prod.fst h),
+    Finset.sum_image (by intro a ha b hb h; exact congrArg Prod.snd h)]
+  simp only [Prod.fst, Prod.snd]
+  rw [← Finset.sum_mul, ← Finset.sum_mul, (coefficient_spec r hr).2.1]
+  exact Finset.sum_erase_add _ _ hthree
+
+
+/-- A multiple of every coefficient, including a factor `2` to keep it above `1`. -/
+def base (r : ℕ) : ℕ := 2 * ∏ z ∈ labels r, z.2
+
+lemma base_positive (r : ℕ) (hr : 6 ≤ r) : 0 < base r := by
+  exact mul_pos two_pos (Finset.prod_pos (fun z hz => (label_bounds r hr hz).2.2))
+
+lemma coefficient_dvd_base {r : ℕ} {z : ℕ × ℕ} (hz : z ∈ labels r) : z.2 ∣ base r :=
+  dvd_mul_of_dvd_right (Finset.dvd_prod_of_mem Prod.snd hz) 2
+
+lemma base_gt_one (r : ℕ) (hr : 6 ≤ r) : 1 < base r := by
+  have h := Finset.prod_pos (fun z hz => (label_bounds r hr hz).2.2)
+  unfold base
+  omega
+
+def term (r q : ℕ) (z : ℕ × ℕ) : ℕ :=
+  z.2 * (q ^ r) ^ (r - z.1) * (base r ^ r) ^ z.1
+
+def sumFamily (r q : ℕ) : Finset ℕ :=
+  insert ((q ^ r - base r ^ r) ^ r) ((labels r).image (term r q))
+
+lemma term_positive {r q : ℕ} (hr : 6 ≤ r) (hq : 0 < q)
+    {z : ℕ × ℕ} (hz : z ∈ labels r) : 0 < term r q z := by
+  have hB := base_positive r hr
+  have hc := (label_bounds r hr hz).2.2
+  unfold term
+  positivity
+
+lemma term_full {r q : ℕ} (hr : 6 ≤ r) {z : ℕ × ℕ} (hz : z ∈ labels r) :
+    r.Full (term r q z) :=
+  Erdos939.full_monomial_term (coefficient_dvd_base hz) (label_bounds r hr hz).1
+
+lemma term_valuation {r q : ℕ} (hr : 6 ≤ r) (hq : q.Prime) (hBq : base r < q)
+    {z : ℕ × ℕ} (hz : z ∈ labels r) :
+    (term r q z).factorization q = r * (r - z.1) := by
+  have hB := base_positive r hr
+  have hc := (label_bounds r hr hz).2.2
+  have hcq : ¬q ∣ z.2 := Nat.not_dvd_of_pos_of_lt hc
+    ((Nat.le_of_dvd hB (coefficient_dvd_base hz)).trans_lt hBq)
+  have hqB : ¬q ∣ base r := Nat.not_dvd_of_pos_of_lt hB hBq
+  have hc0 : z.2 ≠ 0 := ne_of_gt hc
+  have hB0 : base r ≠ 0 := ne_of_gt hB
+  unfold term
+  rw [Nat.factorization_mul (mul_ne_zero hc0 (pow_ne_zero _ (pow_ne_zero _ hq.ne_zero)))
+      (pow_ne_zero _ (pow_ne_zero _ hB0)),
+    Nat.factorization_mul hc0 (pow_ne_zero _ (pow_ne_zero _ hq.ne_zero))]
+  have hcf : z.2.factorization q = 0 :=
+    by rw [Nat.factorization_eq_zero_iff]; exact Or.inr (Or.inl hcq)
+  have hBf : (base r).factorization q = 0 :=
+    by rw [Nat.factorization_eq_zero_iff]; exact Or.inr (Or.inl hqB)
+  simp [Nat.factorization_pow, hcf, hBf, hq.factorization_self, mul_comm]
+
+lemma term_injective {r q : ℕ} (hr : 6 ≤ r) (hq : q.Prime) (hBq : base r < q) :
+    Set.InjOn (term r q) (labels r) := by
+  intro z hz w hw heq
+  have hf := congrArg (fun n => n.factorization q) heq
+  rw [term_valuation hr hq hBq hz, term_valuation hr hq hBq hw] at hf
+  have hj : z.1 = w.1 := by
+    have hs := Nat.mul_left_cancel (by omega : 0 < r) hf
+    have hzle := (label_bounds r hr hz).2.1
+    have hwle := (label_bounds r hr hw).2.1
+    omega
+  have hp : 0 < (q ^ r) ^ (r - z.1) * (base r ^ r) ^ z.1 := by
+    have hB := base_positive r hr
+    have hqpos := hq.pos
+    positivity
+  have hc : z.2 = w.2 := by
+    apply Nat.mul_right_cancel hp
+    simpa only [term, ← hj, mul_assoc] using heq
+  exact Prod.ext hj hc
+
+lemma first_coprime_base {r q : ℕ} (hr : 6 ≤ r) (hq : q.Prime) (hBq : base r < q) :
+    Nat.Coprime ((q ^ r - base r ^ r) ^ r) (base r ^ r) := by
+  have hcop : Nat.Coprime q (base r) :=
+    hq.coprime_iff_not_dvd.mpr (Nat.not_dvd_of_pos_of_lt (base_positive r hr) hBq)
+  exact ((Nat.coprime_sub_self_left (Nat.pow_le_pow_left hBq.le r)).mpr
+    (hcop.pow r r)).pow_left r
+
+lemma first_not_mem {r q : ℕ} (hr : 6 ≤ r) (hq : q.Prime) (hBq : base r < q) :
+    (q ^ r - base r ^ r) ^ r ∉ (labels r).image (term r q) := by
+  intro hmem
+  obtain ⟨z, hz, heq⟩ := Finset.mem_image.mp hmem
+  have hd : base r ^ r ∣ (q ^ r - base r ^ r) ^ r := by
+    rw [← heq]
+    exact dvd_mul_of_dvd_right (dvd_pow_self _ (by
+      have := (label_bounds r hr hz).1
+      omega)) _
+  have hone := Nat.eq_one_of_dvd_coprimes (first_coprime_base hr hq hBq) hd dvd_rfl
+  have hlarge := (base_gt_one r hr).trans_le (Nat.le_self_pow (by omega : r ≠ 0) _)
+  omega
+
+lemma family_coprime {r q : ℕ} (hr : 6 ≤ r) (hq : q.Prime) (hBq : base r < q) :
+    (sumFamily r q).Coprime := by
+  have hcop : Nat.Coprime q (base r) :=
+    hq.coprime_iff_not_dvd.mpr (Nat.not_dvd_of_pos_of_lt (base_positive r hr) hBq)
+  have hXY := hcop.pow r r
+  have hle := Nat.pow_le_pow_left hBq.le r
+  have hsubB := (Nat.coprime_sub_self_left hle).mpr hXY
+  have hsubX : Nat.Coprime (q ^ r - base r ^ r) (q ^ r) := by
+    exact ((Nat.coprime_self_sub_right hle).mpr hXY).symm
+  have hone : (1, 2 * r.choose 1) ∈ labels r := by
+    apply Finset.mem_union_left
+    apply Finset.mem_image.mpr
+    refine ⟨1, ?_, rfl⟩
+    simp [oddTerms]
+    omega
+  have hc := coefficient_dvd_base hone
+  have hcY : 2 * r.choose 1 ∣ base r ^ r :=
+    dvd_trans hc (dvd_pow_self _ (by omega : r ≠ 0))
+  apply Erdos939.finset_coprime_of_mem_coprime
+    (x := (q ^ r - base r ^ r) ^ r) (y := term r q (1, 2 * r.choose 1))
+  · exact Finset.mem_insert_self _ _
+  · exact Finset.mem_insert_of_mem (Finset.mem_image.mpr ⟨_, hone, rfl⟩)
+  · exact (((hsubB.coprime_dvd_right hcY).mul_right (hsubX.pow_right (r - 1))).mul_right
+      (hsubB.pow_right 1)).pow_left r
+
+lemma family_spec {r q : ℕ} (hr : 6 ≤ r) (hq : q.Prime) (hBq : base r < q) :
+    sumFamily r q ∈ Erdos939.Erdos939Sums r ∧
+      (∑ s ∈ sumFamily r q, s) = (q ^ r + base r ^ r) ^ r := by
+  have hnot := first_not_mem hr hq hBq
+  have hsum : (∑ s ∈ sumFamily r q, s) = (q ^ r + base r ^ r) ^ r := by
+    rw [sumFamily, Finset.sum_insert hnot, Finset.sum_image (term_injective hr hq hBq)]
+    simp only [term]
+    rw [labels_sum r (q ^ r) (base r ^ r) hr]
+    exact (binomial_difference r (q ^ r) (base r ^ r) (Nat.pow_le_pow_left hBq.le r)).symm
+  refine ⟨⟨?_, family_coprime hr hq hBq, ?_, ?_⟩, hsum⟩
+  · rw [sumFamily, Finset.card_insert_of_notMem hnot,
+      Finset.card_image_of_injOn (term_injective hr hq hBq)]
+    exact labels_card r hr
+  · rw [hsum]
+    exact Nat.Full.pow_of_le le_rfl _
+  · intro s hs
+    rcases Finset.mem_insert.mp hs with rfl | hs
+    · exact ⟨pow_pos (Nat.sub_pos_of_lt (Nat.pow_lt_pow_left hBq (by omega))) _,
+        Nat.Full.pow_of_le le_rfl _⟩
+    · obtain ⟨z, hz, rfl⟩ := Finset.mem_image.mp hs
+      exact ⟨term_positive hr hq.pos hz, term_full hr hz⟩
+
+/-- Distinct prime parameters give distinct sums, hence distinct finite sets. -/
+lemma family_injective (r : ℕ) (hr : 6 ≤ r) :
+    Set.InjOn (sumFamily r) {q : ℕ | q.Prime ∧ base r < q} := by
+  intro q hq p hp heq
+  have hs := congrArg (fun S : Finset ℕ => ∑ s ∈ S, s) heq
+  rw [(family_spec hr hq.1 hq.2).2, (family_spec hr hp.1 hp.2).2] at hs
+  have hpow : Function.Injective (fun n : ℕ => n ^ r) := by
+    apply StrictMono.injective
+    intro a b hab
+    exact Nat.pow_lt_pow_left hab (by omega)
+  exact hpow (Nat.add_right_cancel (hpow hs))
+
+lemma large_primes_infinite (B : ℕ) : {q : ℕ | q.Prime ∧ B < q}.Infinite := by
+  apply Set.infinite_iff_exists_gt.mpr
+  intro M
+  obtain ⟨q, hq, hp⟩ := Nat.exists_infinite_primes (max (B + 1) (M + 1))
+  refine ⟨q, ⟨hp, ?_⟩, ?_⟩
+  · have := (Nat.le_max_left (B + 1) (M + 1)).trans hq
+    omega
+  · have := (Nat.le_max_right (B + 1) (M + 1)).trans hq
+    omega
+
+end General
+
+/-- The source-compatible infinitude variant, for every exponent at least six. -/
+theorem erdos_939.variants.infinite_of_six_le : ∀ r ≥ 6, (Erdos939Sums r).Infinite := by
+  intro r hr
+  have h := (General.large_primes_infinite (General.base r)).image
+    (General.family_injective r hr)
+  apply h.mono
+  rintro S ⟨q, hq, rfl⟩
+  exact (General.family_spec hr hq.1 hq.2).1
+
+
 /-- **Erdős Problem 939, Variant `r = 5` (`erdos_939_five_nonempty`)**:
 `Erdos939Sums 5` is nonempty, witnessed by
 $2^5 \cdot 17^6 + 7^{11} + 2^5 \cdot 3^6 \cdot 7^8 = 3^7 \cdot 13^7$. -/
@@ -748,3 +1098,4 @@ end Erdos939
 #print axioms Erdos939.erdos_939.variants.eight
 #print axioms Erdos939.erdos_939.variants.examples
 #print axioms Erdos939.erdos_939.variants.euler
+#print axioms Erdos939.erdos_939.variants.infinite_of_six_le

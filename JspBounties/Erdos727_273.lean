@@ -4,6 +4,7 @@ Formalization author: xccElephant (Ethan Xiang)
 Toolchain: leanprover/lean4:v4.33.1
 Mathlib: 0df444a360eaa60ab8c11dca51a86af692955474 (v4.33.1)
 -/
+import Mathlib.Data.Nat.Factorial.BigOperators
 import Mathlib.NumberTheory.Bertrand
 import Mathlib.Data.Nat.Prime.Infinite
 import Mathlib.Algebra.Group.Pointwise.Set.Basic
@@ -482,6 +483,111 @@ theorem erdos_727.variants.k_1 :
   change (n + 1)! ^ 2 ∣ (2 * n)!
   rwa [factorial_sq_dvd_two_mul_factorial_iff]
 
+/-!
+### Mixed factorial: exact carry criterion and arithmetic construction steps
+
+The known mixed theorem `erdos_727.variants.k_1_2` is stated by Erdős, Graham,
+Ruzsa, and Straus (1975), p. 90, as a consequence of Balakran's method. The
+following lemmas formalize exact Kummer reductions and uniform carry steps;
+they do not establish the infinitely-many-`n` mixed theorem. Its prime-pair
+construction is still missing. The squared-factorial problem for k≥2 also
+remains open and is not asserted here. No external Lean code is copied.
+-/
+
+/-- An offset divisible by a modulus forces a carry when the offset is in its lower half.
+This is an arithmetic sufficient condition, independent of factorial divisibility. -/
+lemma carry_of_dvd_offset {n j m : ℕ} (hj : 0 < j) (hjm : 2 * j ≤ m)
+    (hdiv : m ∣ n + j) : m ≤ 2 * (n % m) := by
+  have hm : 0 < m := by omega
+  have hjm' : j < m := by omega
+  have hmod : (n % m + j) % m = 0 := by
+    have h := Nat.mod_eq_zero_of_dvd hdiv
+    simpa [Nat.add_mod, Nat.mod_eq_of_lt hjm'] using h
+  have hr : n % m < m := Nat.mod_lt n hm
+  have hsum : n % m + j = m := by
+    have hsplit := Nat.mod_add_div (n % m + j) m
+    have hq : (n % m + j) / m ≤ 1 := by
+      apply (Nat.div_le_iff_le_mul_add_pred hm).mpr
+      omega
+    interval_cases h : (n % m + j) / m <;> simp [hmod] at hsplit <;> omega
+  omega
+
+/-- Large primes dividing `n+j` contribute their full exponent to the central binomial
+coefficient. The proof counts the distinct carrying levels `1,...,e`; no central-binomial
+or factorial divisibility is assumed. -/
+lemma prime_pow_dvd_centralBinom_of_offset {p n j e : ℕ} (hp : p.Prime)
+    (hj : 0 < j) (hjp : 2 * j ≤ p) (hdiv : p ^ e ∣ n + j) :
+    p ^ e ∣ n.centralBinom := by
+  have hcard : (Finset.Icc 1 e).card = e := by simp
+  rw [← hcard]
+  apply prime_pow_dvd_centralBinom_of_carries hp
+  intro i hi
+  obtain ⟨hi1, hie⟩ := Finset.mem_Icc.mp hi
+  refine ⟨hi1, carry_of_dvd_offset hj ?_ ?_⟩
+  · exact hjp.trans (by simpa using Nat.pow_le_pow_right hp.pos hi1)
+  · exact (pow_dvd_pow p hie).trans hdiv
+
+/-- The mixed factorial quotient has one copy of the ascending block and one
+additional factor `n+1` in its central-binomial denominator. -/
+lemma mixed_factorial_dvd_iff (n k : ℕ) :
+    (n + k)! * (n + 1)! ∣ (2 * n)! ↔
+      (n + 1) * (n + 1).ascFactorial k ∣ n.centralBinom := by
+  have hchoose := Nat.choose_mul_factorial_mul_factorial (show n ≤ 2 * n by omega)
+  rw [show 2 * n - n = n by omega, ← Nat.centralBinom_eq_two_mul_choose] at hchoose
+  have h1 : (n + k)! * (n + 1)! =
+      ((n + 1) * (n + 1).ascFactorial k) * (n ! * n !) := by
+    rw [← Nat.factorial_mul_ascFactorial, Nat.factorial_succ]
+    ring
+  have h2 : (2 * n)! = n.centralBinom * (n ! * n !) := by
+    rw [← hchoose]; ring
+  have hne : n ! * n ! ≠ 0 := mul_ne_zero (Nat.factorial_ne_zero n) (Nat.factorial_ne_zero n)
+  rw [h1, h2, mul_dvd_mul_iff_right hne]
+
+/-- Exact Kummer criterion for the mixed factorial quotient. The carrying set is
+bounded explicitly by `log_p(2n)+1`, not postulated as an arbitrary certificate. -/
+theorem mixed_factorial_dvd_iff_carry_count (n k : ℕ) :
+    (n + k)! * (n + 1)! ∣ (2 * n)! ↔
+      ∀ p ∈ ((n + 1) * (n + 1).ascFactorial k).primeFactors,
+        ((n + 1) * (n + 1).ascFactorial k).factorization p ≤
+          ((Finset.Ico 1 (Nat.log p (n + n) + 1)).filter
+            (fun i => p ^ i ≤ 2 * (n % p ^ i))).card := by
+  have hval : ∀ p, p.Prime → n.centralBinom.factorization p =
+      ((Finset.Ico 1 (Nat.log p (n + n) + 1)).filter
+        (fun i => p ^ i ≤ 2 * (n % p ^ i))).card := by
+    intro p hp
+    rw [Nat.centralBinom_eq_two_mul_choose, two_mul,
+      Nat.factorization_choose' hp (Nat.lt_succ_self (Nat.log p (n + n)))]
+    simp only [two_mul]
+  rw [mixed_factorial_dvd_iff,
+    ← Nat.factorization_le_iff_dvd (by positivity) (Nat.centralBinom_ne_zero n)]
+  constructor
+  · intro h p hp
+    rw [← hval p (Nat.prime_of_mem_primeFactors hp)]
+    exact h p
+  · intro h p
+    by_cases hp : p ∈ ((n + 1) * (n + 1).ascFactorial k).primeFactors
+    · rw [hval p (Nat.prime_of_mem_primeFactors hp)]
+      exact h p hp
+    · have hz : ((n + 1) * (n + 1).ascFactorial k).factorization p = 0 :=
+        Finsupp.notMem_support_iff.mp hp
+      simp [hz]
+
+/-- A prescribed congruence `n ≡ -A (mod p^L)` gives a whole interval of carries.
+This uniform bound proves the small-prime part of the proposed construction
+once the congruence is realized; it does not assert existence of a prime pair. -/
+theorem prime_pow_dvd_centralBinom_of_offset_interval {p n A t L : ℕ}
+    (hp : p.Prime) (hA : 0 < A) (ht : 1 ≤ t) (hsize : 2 * A ≤ p ^ t)
+    (hcong : p ^ L ∣ n + A) :
+    p ^ (L + 1 - t) ∣ n.centralBinom := by
+  have hcard : (Finset.Icc t L).card = L + 1 - t := by simp
+  rw [← hcard]
+  apply prime_pow_dvd_centralBinom_of_carries hp
+  intro i hi
+  obtain ⟨hti, hiL⟩ := Finset.mem_Icc.mp hi
+  refine ⟨ht.trans hti, carry_of_dvd_offset hA ?_ ?_⟩
+  · exact hsize.trans (Nat.pow_le_pow_right hp.pos hti)
+  · exact (pow_dvd_pow p hiL).trans hcong
+
 end Erdos727
 
 /-!
@@ -749,3 +855,9 @@ end Erdos273
 #print axioms Erdos727.erdos_727.variants.k_1
 #print axioms Erdos273.erdos_273.variants.three
 #print axioms Erdos273.erdos_273.variants.three_int
+
+#print axioms Erdos727.carry_of_dvd_offset
+#print axioms Erdos727.prime_pow_dvd_centralBinom_of_offset
+#print axioms Erdos727.mixed_factorial_dvd_iff
+#print axioms Erdos727.mixed_factorial_dvd_iff_carry_count
+#print axioms Erdos727.prime_pow_dvd_centralBinom_of_offset_interval

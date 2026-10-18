@@ -4,6 +4,8 @@ Formalization author: xccElephant (Ethan Xiang)
 Toolchain: leanprover/lean4:v4.33.1
 Mathlib: 0df444a360eaa60ab8c11dca51a86af692955474 (v4.33.1)
 -/
+import Mathlib.Algebra.GCDMonoid.Finset
+import Mathlib.NumberTheory.PowModTotient
 import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Algebra.BigOperators.Ring.Finset
 import Mathlib.Algebra.Field.GeomSum
@@ -672,6 +674,147 @@ theorem erdos124.forall_iff_le_sum {D : Finset ℕ} (hD : ∀ d ∈ D, 3 ≤ d) 
     (∀ n : ℕ, n ∈ ∑ d ∈ D, sumsOfDistinctPowers d 0) ↔ 1 ≤ ∑ d ∈ D, (d - 1 : ℚ)⁻¹ :=
   ⟨fun h => erdos124.converse hD (Filter.Eventually.of_forall h), erdos124.zero_all D hD⟩
 
+/-!
+## Positive-cutoff necessary conditions and construction lemmas
+
+The gcd obstruction below is complete. The bounded-gap and Euler-period lemmas
+are auxiliary steps only: the `{3,4,7}` and Melfi completeness statements are not
+proved by these lemmas. The Euler-period construction follows Giuseppe Melfi,
+*On certain positive integer sequences* (2004), Proposition 1.
+-/
+
+/-- A positive exponent cutoff preserves the common divisor of all bases. -/
+theorem gcd_dvd_of_mem_sum_sumsOfDistinctPowers {D : Finset ℕ} {k n : ℕ}
+    (hk : k ≠ 0) (hn : n ∈ ∑ d ∈ D, sumsOfDistinctPowers d k) : D.gcd id ∣ n := by
+  rw [Set.mem_finsetSum] at hn
+  obtain ⟨a, ha, rfl⟩ := hn
+  apply Finset.dvd_sum
+  intro d hd
+  have hdvd : D.gcd id ∣ d := Finset.gcd_dvd hd
+  have hdpow : d ∣ d ^ k := by
+    obtain ⟨j, rfl⟩ := Nat.exists_eq_succ_of_ne_zero hk
+    rw [pow_succ]
+    exact dvd_mul_left d (d ^ j)
+  exact (hdvd.trans hdpow).trans (pow_dvd_of_mem_sumsOfDistinctPowers (ha hd))
+
+/-- Exact gcd necessity for the positive-cutoff problem; no reciprocal-sum hypothesis
+or lower bound on the bases is required. The proof uses two consecutive represented integers. -/
+theorem erdos124.gcd_eq_one_of_eventually {D : Finset ℕ} {k : ℕ} (hk : k ≠ 0)
+    (h : ∀ᶠ n in atTop, n ∈ ∑ d ∈ D, sumsOfDistinctPowers d k) : D.gcd id = 1 := by
+  obtain ⟨N, hN⟩ := Filter.eventually_atTop.mp h
+  have h₀ := gcd_dvd_of_mem_sum_sumsOfDistinctPowers hk (hN N le_rfl)
+  have h₁ := gcd_dvd_of_mem_sum_sumsOfDistinctPowers hk (hN (N + 1) (by omega))
+  have hone : D.gcd id ∣ 1 := (Nat.dvd_add_iff_right h₀).mpr h₁
+  exact Nat.dvd_one.mp hone
+
+/-- If the bases have a common divisor greater than one, their positive-cutoff power
+sumset cannot contain every sufficiently large integer. -/
+theorem erdos124.not_eventually_of_one_lt_gcd {D : Finset ℕ} {k : ℕ} (hk : k ≠ 0)
+    (hD : 1 < D.gcd id) :
+    ¬ (∀ᶠ n in atTop, n ∈ ∑ d ∈ D, sumsOfDistinctPowers d k) := by
+  intro h
+  have := erdos124.gcd_eq_one_of_eventually hk h
+  omega
+
+/-- The two exact necessary conditions for the finite-base positive-cutoff problem. -/
+theorem erdos124.necessary_conditions {D : Finset ℕ} {k : ℕ}
+    (hD : ∀ d ∈ D, 3 ≤ d) (hk : k ≠ 0)
+    (h : ∀ᶠ n in atTop, n ∈ ∑ d ∈ D, sumsOfDistinctPowers d k) :
+    1 ≤ ∑ d ∈ D, (d - 1 : ℚ)⁻¹ ∧ D.gcd id = 1 :=
+  ⟨erdos124.converse_of_k hD h, erdos124.gcd_eq_one_of_eventually hk h⟩
+
+/-- A subset sum lies at most `C` below any target bounded by the total,
+provided each weight exceeds the sum of smaller weights by at most `C`. -/
+theorem subset_sum_gap_bound {α : Type*} [DecidableEq α] (w : α → ℕ) (C : ℕ) :
+    ∀ (t : ℕ) (I : Finset α), I.card = t →
+      (∀ a ∈ I, w a ≤ C + ∑ x ∈ I.filter (fun x => w x < w a), w x) →
+      ∀ n ≤ ∑ x ∈ I, w x, ∃ J ⊆ I, (∑ x ∈ J, w x) ≤ n ∧ n ≤ (∑ x ∈ J, w x) + C
+  | 0, I, hc, _, n, hn => by
+    rw [Finset.card_eq_zero.mp hc] at hn ⊢
+    refine ⟨∅, by simp, by simp, ?_⟩
+    simp only [Finset.sum_empty] at hn ⊢
+    omega
+  | t+1, I, hc, hb, n, hn => by
+    obtain ⟨a, ha, hmax⟩ := I.exists_max_image w (Finset.card_pos.mp (by omega))
+    let I' := I.erase a
+    have hc' : I'.card = t := by
+      have := Finset.card_erase_add_one ha
+      dsimp [I']; omega
+    have hs : ∑ x ∈ I, w x = w a + ∑ x ∈ I', w x :=
+      (Finset.add_sum_erase I w ha).symm
+    have hf : ∀ b ∈ I', I'.filter (fun x => w x < w b) = I.filter (fun x => w x < w b) := by
+      intro b hb'
+      ext x
+      simp only [I', Finset.mem_filter, Finset.mem_erase]
+      constructor
+      · rintro ⟨⟨_, hx⟩, hlt⟩; exact ⟨hx, hlt⟩
+      · rintro ⟨hx, hlt⟩
+        refine ⟨⟨?_, hx⟩, hlt⟩
+        rintro rfl
+        have := hmax b (Finset.mem_of_mem_erase hb')
+        omega
+    have hb' : ∀ b ∈ I', w b ≤ C + ∑ x ∈ I'.filter (fun x => w x < w b), w x := by
+      intro b hb'; rw [hf b hb']; exact hb b (Finset.mem_of_mem_erase hb')
+    by_cases hna : n < w a
+    · by_cases hn' : n ≤ ∑ x ∈ I', w x
+      · obtain ⟨J, hJ, hlo, hhi⟩ := subset_sum_gap_bound w C t I' hc' hb' n hn'
+        exact ⟨J, hJ.trans (Finset.erase_subset a I), hlo, hhi⟩
+      · refine ⟨I', Finset.erase_subset a I, by omega, ?_⟩
+        have hsub : I.filter (fun x => w x < w a) ⊆ I' := by
+          intro x hx
+          obtain ⟨hx, hlt⟩ := Finset.mem_filter.mp hx
+          exact Finset.mem_erase.mpr ⟨fun h => by subst h; omega, hx⟩
+        have := Finset.sum_le_sum_of_subset (f := w) hsub
+        have := hb a ha
+        omega
+    · have hn' : n - w a ≤ ∑ x ∈ I', w x := by omega
+      obtain ⟨J, hJ, hlo, hhi⟩ := subset_sum_gap_bound w C t I' hc' hb' (n-w a) hn'
+      have haJ : a ∉ J := fun h => (Finset.mem_erase.mp (hJ h)).1 rfl
+      refine ⟨insert a J, Finset.insert_subset ha (hJ.trans (Finset.erase_subset a I)), ?_, ?_⟩
+      all_goals rw [Finset.sum_insert haJ]; omega
+
+-- Euler-period residue step from Melfi, Proposition 1 (2004).
+def residueExponents (m k r : ℕ) : Finset ℕ :=
+  (Finset.range r).image (fun j => (k + j + 1) * Nat.totient m)
+lemma residue_representative {d m : ℕ} (hm : 0 < m) (hd : Nat.Coprime d m)
+    (k r : ℕ) :
+    (∀ i ∈ residueExponents m k r, k ≤ i) ∧
+    (∑ i ∈ residueExponents m k r, d ^ i) ≡ r [MOD m] := by
+  have ht : 0 < Nat.totient m := Nat.totient_pos.mpr hm
+  have hinj : Function.Injective (fun j : ℕ => (k + j + 1) * Nat.totient m) := by
+    intro a b hab
+    have := Nat.eq_of_mul_eq_mul_right ht hab
+    omega
+  constructor
+  · intro i hi
+    obtain ⟨j, _, rfl⟩ := Finset.mem_image.mp hi
+    have := Nat.le_mul_of_pos_right (k + j + 1) ht
+    omega
+  · rw [residueExponents, Finset.sum_image (fun a _ b _ h => hinj h)]
+    have he : ∀ j : ℕ, d ^ ((k + j + 1) * Nat.totient m) ≡ 1 [MOD m] := by
+      intro j
+      rw [Nat.mul_comm, pow_mul]
+      simpa using (Nat.ModEq.pow_totient hd).pow (k + j + 1)
+    have hs : ∀ t : ℕ, (∑ j ∈ Finset.range t, d ^ ((k + j + 1) * Nat.totient m)) ≡ t [MOD m] := by
+      intro t
+      induction t with
+      | zero => simpa using (Nat.ModEq.refl 0 : 0 ≡ 0 [MOD m])
+      | succ t ih =>
+        rw [Finset.sum_range_succ]
+        exact ih.add (he t)
+    exact hs r
+
+
+/-- Melfi's residue step with an actual distinct-exponent representation: any base
+coprime to a positive modulus supplies a representative of every residue class,
+even after an arbitrary exponent cutoff. -/
+theorem exists_mem_sumsOfDistinctPowers_modEq {d m : ℕ} (hm : 0 < m)
+    (hd : Nat.Coprime d m) (k r : ℕ) :
+    ∃ a ∈ sumsOfDistinctPowers d k, a ≡ r [MOD m] := by
+  obtain ⟨hcut, hmod⟩ := residue_representative hm hd k r
+  exact ⟨∑ i ∈ residueExponents m k r, d ^ i,
+    ⟨residueExponents m k r, hcut, rfl⟩, hmod⟩
+
 end Erdos124
 
 #print axioms Erdos124.pow_dvd_of_mem_sumsOfDistinctPowers
@@ -685,3 +828,12 @@ end Erdos124
 #print axioms Erdos124.erdos124.converse_of_k
 #print axioms Erdos124.erdos124.eventually_iff_le_sum
 #print axioms Erdos124.erdos124.forall_iff_le_sum
+
+#print axioms Erdos124.gcd_dvd_of_mem_sum_sumsOfDistinctPowers
+#print axioms Erdos124.erdos124.gcd_eq_one_of_eventually
+#print axioms Erdos124.erdos124.not_eventually_of_one_lt_gcd
+#print axioms Erdos124.erdos124.necessary_conditions
+#print axioms Erdos124.subset_sum_gap_bound
+#print axioms Erdos124.residue_representative
+
+#print axioms Erdos124.exists_mem_sumsOfDistinctPowers_modEq

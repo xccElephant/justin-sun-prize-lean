@@ -11,6 +11,10 @@ import Mathlib.Data.Set.Finite.Basic
 import Mathlib.SetTheory.Cardinal.Basic
 import Mathlib.Topology.Algebra.InfiniteSum.Order
 import Mathlib.Topology.Instances.Rat
+import Mathlib.Order.OrderIsoNat
+import Mathlib.Order.WellFounded
+import Mathlib.SetTheory.Cardinal.Continuum
+import Mathlib.Topology.Algebra.InfiniteSum.Group
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.FieldSimp
@@ -32,7 +36,10 @@ We prove:
    $$\frac{n}{2^n} = \sum_{1 \le k \le t} \frac{a_k}{2^{a_k}},$$
    as well as Borwein and Loring's identity and family construction (`erdos_261.variants.borwein_loring`
    and `erdos_261.variants.borwein_loring_property`).
-2. `erdos_261.variants.two_representations`: there exists a rational number $x$ with at least two
+2. `erdos_261.variants.arbitrarily_many_representations`: for every finite `r`, some rational
+   number has at least `2^r` canonical infinite representations. This does not settle the
+   continuum-many representations required by part iii.
+3. `erdos_261.variants.two_representations`: there exists a rational number $x$ with at least two
    distinct representations $x = \sum_{k=1}^\infty a_k / 2^{a_k}$ by strictly increasing positive
    integers $a_k$.
 -/
@@ -312,6 +319,255 @@ theorem erdos_261.variants.two_representations : ∃ x : ℚ,
     rw [Cardinal.mk_insert (by simpa using hne), Cardinal.mk_singleton]
     norm_num
   exact hcard ▸ Cardinal.mk_le_mk_of_subset hsub
+
+def dyadicWeight (n : ℕ) : ℚ := n / (2 ^ n : ℚ)
+
+lemma hasSum_dyadicWeight : HasSum dyadicWeight 2 := by
+  have h := hasSum_dyadic_tail 0
+  have hshift : HasSum (fun n => dyadicWeight (n + 1)) 2 := by
+    simpa [dyadicWeight, Nat.add_comm] using h
+  have hfull := (hasSum_nat_add_iff 1).mp hshift
+  simpa [dyadicWeight] using hfull
+
+noncomputable def canonicalEnumeration (s : Set ℕ) (hs : s.Infinite) : ℕ → ℕ :=
+  let := hs.to_subtype
+  fun n => (Nat.Subtype.orderIsoOfNat s n).val
+
+lemma canonicalEnumeration_range (s : Set ℕ) (hs : s.Infinite) :
+    Set.range (canonicalEnumeration s hs) = s := by
+  let := hs.to_subtype
+  ext n
+  constructor
+  · rintro ⟨k, rfl⟩
+    exact (Nat.Subtype.orderIsoOfNat s k).property
+  · intro hn
+    obtain ⟨k, hk⟩ := (Nat.Subtype.orderIsoOfNat s).surjective ⟨n, hn⟩
+    exact ⟨k, congrArg Subtype.val hk⟩
+
+lemma canonicalEnumeration_representation (s : Set ℕ) (hs : s.Infinite)
+    (hp : ∀ n ∈ s, 1 ≤ n) {x : ℚ}
+    (hx : HasSum (fun n : s => dyadicWeight n.val) x) :
+    Erdos261InfiniteRepresentation x (canonicalEnumeration s hs) := by
+  let := hs.to_subtype
+  have hsum : HasSum (fun n => dyadicWeight (canonicalEnumeration s hs n)) x :=
+    (Nat.Subtype.orderIsoOfNat s).toEquiv.hasSum_iff.mpr hx
+  refine ⟨?_, ?_, hsum.summable, hsum.tsum_eq.symm⟩
+  · intro i j hij
+    exact (Nat.Subtype.orderIsoOfNat s).strictMono hij
+  · intro n
+    exact hp _ (Nat.Subtype.orderIsoOfNat s n).property
+
+lemma hasSum_finite_indicator (s : Finset ℕ) :
+    HasSum (fun n => if n ∈ s then dyadicWeight n else 0)
+      (∑ n ∈ s, dyadicWeight n) := by
+  classical
+  have h : HasSum ((s : Set ℕ).indicator dyadicWeight) (∑ n ∈ s, dyadicWeight n) :=
+    hasSum_subtype_iff_indicator.mp (s.hasSum dyadicWeight)
+  exact h.congr_fun (fun n => by simp [Set.indicator_apply])
+
+/-- Removing finitely many positive denominators leaves a canonical infinite representation
+of the rational total minus their weights. -/
+theorem finite_deletion_representation (s : Finset ℕ) :
+    ∃ a : ℕ → ℕ,
+      Erdos261InfiniteRepresentation (2 - ∑ n ∈ s, dyadicWeight n) a ∧
+        Set.range a = {n : ℕ | 0 < n ∧ n ∉ s} := by
+  classical
+  let S : Set ℕ := {n | 0 < n ∧ n ∉ s}
+  have hpos : ({n : ℕ | 0 < n} : Set ℕ).Infinite :=
+    Set.infinite_of_injective_forall_mem (f := fun n => n + 1)
+      (by intro a b hab; dsimp at hab; omega) (by intro n; simp)
+  have hS : S.Infinite := hpos.sdiff s.finite_toSet
+  have hsub := hasSum_dyadicWeight.sub (hasSum_finite_indicator s)
+  have hind : HasSum (S.indicator dyadicWeight) (2 - ∑ n ∈ s, dyadicWeight n) := by
+    apply hsub.congr_fun
+    intro n
+    by_cases hn : n = 0
+    · subst n
+      simp [S, Set.indicator, dyadicWeight]
+    · by_cases hm : n ∈ s <;> simp [S, Set.indicator, hm, Nat.pos_of_ne_zero hn]
+  refine ⟨canonicalEnumeration S hS, ?_, canonicalEnumeration_range S hS⟩
+  apply canonicalEnumeration_representation S hS
+  · intro n hn; exact hn.1
+  · exact hasSum_subtype_iff_indicator.mpr hind
+
+/-- Starting points of disjoint Borwein--Loring replacement blocks. -/
+def blockStart (i : ℕ) : ℕ := 2 ^ (i + 3) - (i + 2) - 2
+
+def replacementBlock (i : ℕ) (b : Bool) : Finset ℕ :=
+  if b then Finset.Ioc (blockStart i) (blockStart i + (i + 2))
+  else {blockStart i}
+
+lemma blockStart_pos (i : ℕ) : 0 < blockStart i := by
+  have hmono := borwein_loring_strictMonoOn (a := 2) (b := i + 2)
+  by_cases hi : i = 0
+  · subst i; norm_num [blockStart]
+  · have hh := hmono (by simp) (by simp) (by omega)
+    norm_num at hh
+    simpa [blockStart, show i + 2 + 1 = i + 3 by omega] using (lt_trans (by norm_num : 0 < 4) hh)
+
+lemma block_separated {i j : ℕ} (hij : i < j) :
+    blockStart i + (i + 2) < blockStart j := by
+  have hi := add_two_le_two_pow_succ (i + 2) (by omega)
+  have hstep : blockStart i + (i + 2) < blockStart (i + 1) := by
+    have hh := add_two_le_two_pow_succ (i + 3) (by omega)
+    have hg : i + 3 ≤ 2 ^ (i + 2) := by
+      simpa [show i + 1 + 1 = i + 2 by omega] using add_two_le_two_pow_succ (i + 1) (by omega)
+    have hprev : 2 ^ (i + 3) = 2 * 2 ^ (i + 2) := by ring
+    have hlarge : 2 * (i + 3) ≤ 2 ^ (i + 3) := by omega
+    have hp : 2 ^ (i + 4) = 2 * 2 ^ (i + 3) := by ring
+    dsimp [blockStart]
+    rw [show i + 1 + 3 = i + 4 by omega, hp]
+    omega
+  by_cases he : j = i + 1
+  · simpa [he] using hstep
+  · have hh := borwein_loring_strictMonoOn
+        (a := i + 1 + 2) (b := j + 2) (by simp) (by simp) (by omega)
+    have hj : blockStart (i + 1) < blockStart j := by
+      simpa [blockStart, show i + 1 + 2 + 1 = i + 1 + 3 by omega,
+        show j + 2 + 1 = j + 3 by omega] using hh
+    exact hstep.trans hj
+
+lemma replacementBlock_bounds (i : ℕ) (b : Bool) {n : ℕ}
+    (hn : n ∈ replacementBlock i b) :
+    blockStart i ≤ n ∧ n ≤ blockStart i + (i + 2) := by
+  cases b <;> simp [replacementBlock] at hn <;> omega
+
+lemma replacementBlock_disjoint {i j : ℕ} (hij : i ≠ j) (b c : Bool) :
+    Disjoint (replacementBlock i b) (replacementBlock j c) := by
+  apply Finset.disjoint_left.mpr
+  intro n hn hm
+  have hi := replacementBlock_bounds i b hn
+  have hj := replacementBlock_bounds j c hm
+  rcases lt_or_gt_of_ne hij with h | h
+  · have := block_separated h; omega
+  · have := block_separated h; omega
+
+lemma replacementBlock_sum (i : ℕ) (b : Bool) :
+    ∑ n ∈ replacementBlock i b, dyadicWeight n = dyadicWeight (blockStart i) := by
+  cases b
+  · simp [replacementBlock]
+  · have h := erdos_261.variants.borwein_loring (i + 2) (by omega)
+    simpa [replacementBlock, blockStart, dyadicWeight,
+      show i + 2 + 1 = i + 3 by omega] using h.symm
+
+lemma replacementBlock_marker (i : ℕ) (b : Bool) :
+    blockStart i ∈ replacementBlock i b ↔ b = false := by
+  cases b <;> simp [replacementBlock]
+
+noncomputable def deletedBlocks (r : ℕ) (bits : Fin r → Bool) : Finset ℕ :=
+  Finset.univ.biUnion (fun i => replacementBlock i.val (bits i))
+
+lemma deletedBlocks_sum (r : ℕ) (bits : Fin r → Bool) :
+    ∑ n ∈ deletedBlocks r bits, dyadicWeight n =
+      ∑ i : Fin r, dyadicWeight (blockStart i.val) := by
+  classical
+  rw [deletedBlocks, Finset.sum_biUnion]
+  · exact Finset.sum_congr rfl (fun i _ => replacementBlock_sum i.val (bits i))
+  · intro i _ j _ hij
+    exact replacementBlock_disjoint (fun h => hij (Fin.ext h)) _ _
+
+lemma deletedBlocks_marker (r : ℕ) (bits : Fin r → Bool) (i : Fin r) :
+    blockStart i.val ∈ deletedBlocks r bits ↔ bits i = false := by
+  classical
+  simp only [deletedBlocks, Finset.mem_biUnion, Finset.mem_univ, true_and]
+  constructor
+  · rintro ⟨j, hj⟩
+    by_cases hji : j = i
+    · subst j; exact (replacementBlock_marker _ _).mp hj
+    · have hnot := replacementBlock_disjoint (i := j.val) (j := i.val)
+        (fun h => hji (Fin.ext h)) (bits j) false
+      have hi : blockStart i.val ∈ replacementBlock i.val false := by simp [replacementBlock]
+      exact False.elim (Finset.disjoint_left.mp hnot hj hi)
+  · intro hb
+    exact ⟨i, (replacementBlock_marker _ _).mpr hb⟩
+
+/-- For every finite number of independent binary choices, one rational number has
+at least that many canonical infinite representations. The equal-mass blocks are
+Borwein--Loring's; only finitely many are removed, preserving rationality. -/
+theorem erdos_261.variants.arbitrarily_many_representations (r : ℕ) :
+    ∃ x : ℚ, (2 : Cardinal) ^ (r : Cardinal) ≤ #{a : ℕ → ℕ | Erdos261InfiniteRepresentation x a} := by
+  classical
+  let x : ℚ := 2 - ∑ i : Fin r, dyadicWeight (blockStart i.val)
+  have hex : ∀ bits : Fin r → Bool, ∃ a : ℕ → ℕ,
+      Erdos261InfiniteRepresentation x a ∧
+      Set.range a = {n : ℕ | 0 < n ∧ n ∉ deletedBlocks r bits} := by
+    intro bits
+    simpa only [deletedBlocks_sum, x] using finite_deletion_representation (deletedBlocks r bits)
+  choose seq hrep hrange using hex
+  let f : (Fin r → Bool) → {a : ℕ → ℕ | Erdos261InfiniteRepresentation x a} :=
+    fun bits => ⟨seq bits, hrep bits⟩
+  have hf : Function.Injective f := by
+    intro b c hbc
+    have heq : seq b = seq c := congrArg Subtype.val hbc
+    have hr : Set.range (seq b) = Set.range (seq c) := congrArg Set.range heq
+    rw [hrange b, hrange c] at hr
+    funext i
+    have hi := Set.ext_iff.mp hr (blockStart i.val)
+    simp only [Set.mem_ofPred_eq, blockStart_pos, true_and, deletedBlocks_marker] at hi
+    cases hb : b i <;> cases hc : c i <;> simp_all
+  refine ⟨x, ?_⟩
+  have hc := Cardinal.mk_le_of_injective hf
+  simpa only [Cardinal.mk_arrow, Cardinal.mk_bool, Cardinal.mk_fin, Cardinal.lift_natCast,
+    Cardinal.lift_ofNat] using hc
+
+/-- An integer scaled remainder is kept strictly between the two tail boundaries. -/
+def interiorRemainder (n r : ℕ) : Prop := 0 < r ∧ r < n + 2
+
+/-- Every interior remainder has an interior successor, so finite searches cannot
+prove that an interior path eventually dies. This does not assert repeated branching. -/
+lemma interiorRemainder_successor {n r : ℕ} (hr : interiorRemainder n r) :
+    (interiorRemainder (n + 1) (2 * r)) ∨
+    (n + 1 ≤ 2 * r ∧ interiorRemainder (n + 1) (2 * r - (n + 1))) := by
+  dsimp [interiorRemainder] at *
+  by_cases h : 2 * r < n + 3
+  · exact Or.inl ⟨by omega, h⟩
+  · exact Or.inr ⟨by omega, by omega, by omega⟩
+
+/-- Both next digits preserve a strictly interior remainder exactly at the
+central state. Their successor remainders are `1` and `n+2`. -/
+lemma interiorRemainder_branch_iff {n r : ℕ} :
+    (interiorRemainder (n + 1) (2 * r) ∧
+      n + 1 ≤ 2 * r ∧ interiorRemainder (n + 1) (2 * r - (n + 1))) ↔
+      2 * r = n + 2 := by
+  dsimp [interiorRemainder]
+  omega
+
+lemma interiorRemainder_branch_values {n r : ℕ} (h : 2 * r = n + 2) :
+    2 * r - (n + 1) = 1 ∧ 2 * r = n + 2 := by omega
+
+/-- Complementing every digit complements the scaled remainder inside the tail capacity.
+This identifies the two central branches but does not prove another central return. -/
+lemma interiorRemainder_complement {n r : ℕ} (hr : interiorRemainder n r) :
+    interiorRemainder n (n + 2 - r) := by
+  dsimp [interiorRemainder] at *
+  omega
+
+lemma interiorRemainder_complement_step {n r : ℕ}
+    (hr : interiorRemainder n r) (hnext : interiorRemainder (n + 1) (2 * r)) :
+    2 * (n + 2 - r) - (n + 1) = n + 3 - 2 * r := by
+  dsimp [interiorRemainder] at *
+  omega
+
+/-- Canonical representations are determined by their denominator sets, so their
+cardinality can never exceed the continuum. -/
+theorem erdos_261.variants.representations_le_continuum (x : ℚ) :
+    #{a : ℕ → ℕ | Erdos261InfiniteRepresentation x a} ≤ 𝔠 := by
+  let f : {a : ℕ → ℕ | Erdos261InfiniteRepresentation x a} → Set ℕ :=
+    fun a => Set.range a.val
+  have hf : Function.Injective f := by
+    intro a b hab
+    apply Subtype.ext
+    exact (a.property.1.range_inj b.property.1).mp hab
+  have hc := Cardinal.mk_le_of_injective hf
+  simpa only [Cardinal.mk_set, Cardinal.mk_nat, Cardinal.two_power_aleph0] using hc
+
+#print axioms finite_deletion_representation
+#print axioms erdos_261.variants.arbitrarily_many_representations
+#print axioms interiorRemainder_successor
+#print axioms interiorRemainder_complement
+#print axioms interiorRemainder_complement_step
+#print axioms interiorRemainder_branch_iff
+#print axioms erdos_261.variants.representations_le_continuum
 
 #print axioms erdos_261.variants.borwein_loring
 #print axioms erdos_261.variants.borwein_loring_property

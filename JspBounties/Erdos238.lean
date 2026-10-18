@@ -4,6 +4,7 @@ Formalization author: xccElephant (Ethan Xiang)
 Toolchain: leanprover/lean4:v4.33.1
 Mathlib: 0df444a360eaa60ab8c11dca51a86af692955474 (v4.33.1)
 -/
+import Mathlib.NumberTheory.Chebyshev
 import Mathlib.Data.Nat.Prime.Basic
 import Mathlib.Data.Nat.Prime.Infinite
 import Mathlib.Data.Nat.Prime.Nth
@@ -39,7 +40,8 @@ This file formalizes:
    bound and Brun's sieve upper bound on small prime gaps.
 3. **Unconditional Resolution of Erdős #238 for $c_2 < 2$ (`erdos_238_unconditional_of_c2_lt_two`)**:
    Proves unconditionally that `primeGap n ≥ 2` for all $n \ge 1$ (since $p_n \ge 3$ is odd),
-   which yields arbitrary-length runs of consecutive primes with gap $> c_2$ whenever $c_2 < 2$.
+   which yields runs longer than any prescribed $c_1 \log x$ below every sufficiently large $x$
+   whenever $c_2 < 2$ (`erdos_238_eventually_of_c2_lt_two`).
 4. **$P$-Smooth Gap Growth (`JSP-000211` / Erdős #240)**:
    Formalizes $P$-smooth integers and proves strict gap divergence $a_{i+1} - a_i \to \infty$
    along power progressions and parity/valuation structural properties.
@@ -182,6 +184,69 @@ theorem erdos_238_unconditional_of_c2_lt_two {k : ℕ} {x c₂ : ℝ}
     have h2 : (2 : ℝ) ≤ primeGap j := by exact_mod_cast two_le_primeGap_of_one_le hj.1
     linarith
 
+/-- Chebyshev's lower bound implies that the number of primes below `x` eventually exceeds
+any fixed multiple of `log x`, with room for the initial prime and rounding. -/
+lemma eventually_primeCounting_gt_log (c : ℝ) (_hc : 0 < c) :
+    ∀ᶠ x : ℝ in atTop, c * log x + 3 < Nat.primeCounting ⌊x⌋₊ := by
+  have hlog : Tendsto (fun x : ℝ => log x / x) atTop (𝓝 0) := by
+    simpa using tendsto_pow_log_div_mul_add_atTop 1 0 1 one_ne_zero
+  have hlog2 : Tendsto (fun x : ℝ => log x ^ 2 / x) atTop (𝓝 0) := by
+    simpa using tendsto_pow_log_div_mul_add_atTop 1 0 2 one_ne_zero
+  have hinv : Tendsto (fun x : ℝ => (2 * log 2) / x) atTop (𝓝 0) :=
+    tendsto_const_nhds.div_atTop tendsto_id
+  have hsmall : Tendsto (fun x : ℝ =>
+      (c * log x ^ 2 + 4 * log x + 2 * log 2) / x) atTop (𝓝 0) := by
+    convert ((hlog2.const_mul c).add (hlog.const_mul 4)).add hinv using 1 <;>
+      simp [add_div, mul_div_assoc]
+  have hpos : 0 < log (2 : ℝ) := log_pos (by norm_num)
+  filter_upwards [hsmall.eventually (gt_mem_nhds hpos), eventually_ge_atTop (2 : ℝ)]
+    with x hx hx2
+  have hxpos : 0 < x := by linarith
+  have hlpos : 0 < log x := log_pos (by linarith)
+  have hnum : c * log x ^ 2 + 4 * log x + 2 * log 2 < x * log 2 := by
+    simpa [mul_comm] using (div_lt_iff₀ hxpos).mp hx
+  have hshift : log (x + 2) ≤ log 2 + log x := by
+    calc
+      log (x + 2) ≤ log (2 * x) := log_le_log (by linarith) (by linarith)
+      _ = log 2 + log x := log_mul (by norm_num) hxpos.ne'
+  have hpi := Chebyshev.pi_ge' (show 1 < x by linarith)
+  have hpi' : (x - 1) * log 2 - log (x + 2) ≤
+      (Nat.primeCounting ⌊x⌋₊ : ℝ) * log x := (div_le_iff₀ hlpos).mp hpi
+  have hmul : (c * log x + 3) * log x <
+      (Nat.primeCounting ⌊x⌋₊ : ℝ) * log x := by nlinarith
+  exact (mul_lt_mul_iff_left₀ hlpos).mp hmul
+
+/-- For every `c₁ > 0` and `c₂ < 2`, all sufficiently large `x` contain more than
+`c₁ * log x` consecutive primes with adjacent gaps greater than `c₂`.
+This removes the explicit prime-index hypothesis of the earlier finite-run lemma.
+The unrestricted question for `c₂ ≥ 2` is not asserted here. -/
+theorem erdos_238_eventually_of_c2_lt_two (c₁ c₂ : ℝ) (hc₁ : 0 < c₁) (hc₂ : c₂ < 2) :
+    ∀ᶠ x : ℝ in atTop, ∃ k : ℕ, c₁ * log x < k ∧
+      ∃ f : Fin k → ℕ, ∃ m,
+        (∀ i, (f i : ℝ) ≤ x ∧ f i = (m + i.1).nth Nat.Prime) ∧
+        ∀ i : Fin (k - 1), c₂ < primeGap (m + i.1) := by
+  filter_upwards [eventually_primeCounting_gt_log c₁ hc₁,
+    eventually_ge_atTop (2 : ℝ)] with x hx hx2
+  let k : ℕ := ⌊c₁ * log x⌋₊ + 1
+  have hk : c₁ * log x < (k : ℝ) := by
+    simpa [k] using Nat.lt_floor_add_one (c₁ * log x)
+  have hk_upper : (k : ℝ) ≤ c₁ * log x + 1 := by
+    dsimp [k]
+    push_cast
+    have hfloor := Nat.floor_le (mul_nonneg hc₁.le (log_nonneg (show 1 ≤ x by linarith)))
+    linarith
+  have hind : 1 + k < Nat.primeCounting ⌊x⌋₊ := by
+    have : ((1 + k : ℕ) : ℝ) < Nat.primeCounting ⌊x⌋₊ := by
+      push_cast
+      linarith
+    exact_mod_cast this
+  have hprime : (1 + k).nth Nat.Prime ≤ ⌊x⌋₊ := by
+    have h := Nat.nth_lt_of_lt_count (p := Nat.Prime) (n := ⌊x⌋₊ + 1) hind
+    omega
+  refine ⟨k, hk, erdos_238_unconditional_of_c2_lt_two hc₂ ?_⟩
+  exact (show ((1 + k).nth Nat.Prime : ℝ) ≤ (⌊x⌋₊ : ℝ) by exact_mod_cast hprime).trans
+    (Nat.floor_le (by linarith))
+
 /-- Reduction of `Erdos238.erdos_238.variants.small_c1` (`FormalConjectures/ErdosProblems/238.lean`)
 to the Brun–Chebyshev block hypothesis via `erdos_238_run_of_block_bound`. -/
 theorem erdos_238_small_c1_of_brun_chebyshev (c₂ : ℝ)
@@ -254,3 +319,5 @@ end Erdos238
 #print axioms Erdos238.erdos_238_run_of_block_bound
 #print axioms Erdos238.erdos_238_unconditional_of_c2_lt_two
 #print axioms Erdos238.single_prime_smooth_gap_ge
+
+#print axioms Erdos238.erdos_238_eventually_of_c2_lt_two
