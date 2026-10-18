@@ -12,7 +12,7 @@ There are 32 open submission records: 30 are drafts pending full-scope correctio
 
 A fresh audit compiled all 34 modules, checked the axiom dependencies of all 2,514 theorem declarations (including generated declarations), and replayed all 34 modules with Lean's `leanchecker`. Only the standard classical axioms were observed. The original default Lake build failed because `JspBounties.*` included a missing root module; the local configuration now uses `JspBounties.+` and the full build passes. Historical submitted commits retain the original configuration.
 
-The historical audit found 23 nonexistent target names across ten PRs, and broader statement mismatches. Most modules prove a special case or related theorem. See [verification evidence and scope limitations](verification/2026-10-19/README.md). Earlier completeness, uniqueness, priority and revenue estimates are withdrawn; source verification is separate from award eligibility.
+All 32 PR bodies and catalog changes have now been corrected in place; 30 are drafts with explicit gaps. All 109 corrected target references pass Lean checks. [Correction record](verification/2026-10-19/CORRECTIONS.md). The historical audit found 23 nonexistent target names across ten PRs, and broader statement mismatches. Most modules prove a special case or related theorem. See [verification evidence and scope limitations](verification/2026-10-19/README.md). Earlier completeness, uniqueness, priority and revenue estimates are withdrawn; source verification is separate from award eligibility.
 
 ## Quick Verification
 
