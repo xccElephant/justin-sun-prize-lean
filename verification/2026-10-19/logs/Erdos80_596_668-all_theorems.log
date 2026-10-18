@@ -1,0 +1,533 @@
+AUDIT|Erdos80.card_edgeFinset_bipGraph_two_mul|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.card_edgeFinset_bipGraph_two_mul|∀ (k : ℕ), k * k ≤ (Erdos80.bipGraph (2 * k)).edgeFinset.card
+AUDIT|Erdos596.fourCycleMap.eq_1|[propext]
+TYPE|Erdos596.fourCycleMap.eq_1|∀ {W : Type} (u₁ v₁ u₂ v₂ : W) (isLt : 0 < 4),
+  Erdos596.fourCycleMap u₁ v₁ u₂ v₂ ⟨0, isLt⟩ = u₁
+AUDIT|Erdos668.b0_ne_d0|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.b0_ne_d0|Erdos668.b₀ ≠ Erdos668.d₀
+AUDIT|Erdos668.unitDistNum_diamond._simp_1_4|[propext, Quot.sound]
+TYPE|Erdos668.unitDistNum_diamond._simp_1_4|∀ {α : Sort u_1} {a' : α} {P Q : α → Prop},
+  (∀ (a : α), a = a' ∨ Q a → P a) = (P a' ∧ ∀ (a : α), Q a → P a)
+AUDIT|Erdos596.fourCycleMap.eq_3|[propext]
+TYPE|Erdos596.fourCycleMap.eq_3|∀ {W : Type} (u₁ v₁ u₂ v₂ : W) (isLt : 2 < 4),
+  Erdos596.fourCycleMap u₁ v₁ u₂ v₂ ⟨2, isLt⟩ = u₂
+AUDIT|Erdos668.isometryOfUnitDist_b0|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.isometryOfUnitDist_b0|∀ {y z : EuclideanSpace ℝ (Fin 2)} (hyz : dist y z = 1),
+  (Erdos668.isometryOfUnitDist hyz) Erdos668.b₀ = y
+AUDIT|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._proof_1_9|∀ (x₀ x₁ x₂ x₃ : EuclideanSpace ℝ (Fin 2)),
+  5 ≤ unitDistNum {x₀, x₁, x₂, x₃} → unitDistNum {x₀, x₁, x₂, x₃} ≤ 4 → False
+AUDIT|_private.JspBounties.Erdos80_596_668.0.Erdos596.fourCycleMap.match_1.eq_4|[propext]
+TYPE|_private.JspBounties.Erdos80_596_668.0.Erdos596.fourCycleMap.match_1.eq_4|∀ (motive : Fin 4 → Sort u_1)
+  (isLt : 3 < 4) (h_1 : (isLt : 0 < 4) → motive ⟨0, isLt⟩) (h_2 : (isLt : 1 < 4) → motive ⟨1, isLt⟩)
+  (h_3 : (isLt : 2 < 4) → motive ⟨2, isLt⟩) (h_4 : (isLt : 3 < 4) → motive ⟨3, isLt⟩),
+  (match ⟨3, isLt⟩ with
+    | ⟨0, isLt⟩ => h_1 isLt
+    | ⟨1, isLt⟩ => h_2 isLt
+    | ⟨2, isLt⟩ => h_3 isLt
+    | ⟨3, isLt⟩ => h_4 isLt) =
+    h_4 isLt
+AUDIT|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_13|[propext]
+TYPE|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_13|∀ {a b c : Prop}, (a ∨ b ∨ c) = (b ∨ a ∨ c)
+AUDIT|Erdos668.isometryOfUnitDist.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.isometryOfUnitDist.eq_1|∀ {y z : EuclideanSpace ℝ (Fin 2)} (hyz : dist y z = 1),
+  Erdos668.isometryOfUnitDist hyz =
+    {
+      toFun := fun p =>
+        !₂[y.ofLp 0 + p.ofLp 0 * (z.ofLp 0 - y.ofLp 0) - p.ofLp 1 * (z.ofLp 1 - y.ofLp 1),
+          y.ofLp 1 + p.ofLp 0 * (z.ofLp 1 - y.ofLp 1) + p.ofLp 1 * (z.ofLp 0 - y.ofLp 0)],
+      invFun := fun w =>
+        !₂[(w.ofLp 0 - y.ofLp 0) * (z.ofLp 0 - y.ofLp 0) + (w.ofLp 1 - y.ofLp 1) * (z.ofLp 1 - y.ofLp 1),
+          -(w.ofLp 0 - y.ofLp 0) * (z.ofLp 1 - y.ofLp 1) + (w.ofLp 1 - y.ofLp 1) * (z.ofLp 0 - y.ofLp 0)],
+      left_inv := ⋯, right_inv := ⋯, isometry_toFun := ⋯ }
+AUDIT|Erdos668.unitDistNum_diamond._simp_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_diamond._simp_1_11|(Erdos668.a₀ = Erdos668.b₀) = False
+AUDIT|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._proof_1_11|∀
+  (x₀ x₁ x₂ x₃ : EuclideanSpace ℝ (Fin 2)), 5 ≤ unitDistNum {x₀, x₁, x₂, x₃} → unitDistNum {x₀, x₁, x₂, x₃} ≤ 2 → False
+AUDIT|Erdos80.bookNumber_bipGraph._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.bookNumber_bipGraph._simp_1_3|∀ {α : Type u_1} {G : SimpleGraph α} [inst : Fintype α]
+  [inst_1 : DecidableEq α] [inst_2 : DecidableRel G.Adj] {n : ℕ} {s : Finset α},
+  (s ∈ G.cliqueFinset n) = G.IsNClique n s
+AUDIT|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_7|[propext, Quot.sound]
+TYPE|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_7|∀ {α : Sort u_1} {a' : α} {P Q : α → Prop},
+  (∀ (a : α), a = a' ∨ Q a → P a) = (P a' ∧ ∀ (a : α), Q a → P a)
+AUDIT|Erdos668.isometryOfUnitDist._proof_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.isometryOfUnitDist._proof_4|∀ {y z : EuclideanSpace ℝ (Fin 2)},
+  (z.ofLp 0 - y.ofLp 0) ^ 2 + (z.ofLp 1 - y.ofLp 1) ^ 2 = 1 →
+    ∀ (w : EuclideanSpace ℝ (Fin 2)),
+      !₂[y.ofLp 0 +
+              !₂[(w.ofLp 0 - y.ofLp 0) * (z.ofLp 0 - y.ofLp 0) + (w.ofLp 1 - y.ofLp 1) * (z.ofLp 1 - y.ofLp 1),
+                      -(w.ofLp 0 - y.ofLp 0) * (z.ofLp 1 - y.ofLp 1) +
+                        (w.ofLp 1 - y.ofLp 1) * (z.ofLp 0 - y.ofLp 0)].ofLp
+                  0 *
+                (z.ofLp 0 - y.ofLp 0) -
+            !₂[(w.ofLp 0 - y.ofLp 0) * (z.ofLp 0 - y.ofLp 0) + (w.ofLp 1 - y.ofLp 1) * (z.ofLp 1 - y.ofLp 1),
+                    -(w.ofLp 0 - y.ofLp 0) * (z.ofLp 1 - y.ofLp 1) + (w.ofLp 1 - y.ofLp 1) * (z.ofLp 0 - y.ofLp 0)].ofLp
+                1 *
+              (z.ofLp 1 - y.ofLp 1),
+          y.ofLp 1 +
+              !₂[(w.ofLp 0 - y.ofLp 0) * (z.ofLp 0 - y.ofLp 0) + (w.ofLp 1 - y.ofLp 1) * (z.ofLp 1 - y.ofLp 1),
+                      -(w.ofLp 0 - y.ofLp 0) * (z.ofLp 1 - y.ofLp 1) +
+                        (w.ofLp 1 - y.ofLp 1) * (z.ofLp 0 - y.ofLp 0)].ofLp
+                  0 *
+                (z.ofLp 1 - y.ofLp 1) +
+            !₂[(w.ofLp 0 - y.ofLp 0) * (z.ofLp 0 - y.ofLp 0) + (w.ofLp 1 - y.ofLp 1) * (z.ofLp 1 - y.ofLp 1),
+                    -(w.ofLp 0 - y.ofLp 0) * (z.ofLp 1 - y.ofLp 1) + (w.ofLp 1 - y.ofLp 1) * (z.ofLp 0 - y.ofLp 0)].ofLp
+                1 *
+              (z.ofLp 0 - y.ofLp 0)] =
+        w
+AUDIT|Erdos668.a0_ne_c0|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.a0_ne_c0|Erdos668.a₀ ≠ Erdos668.c₀
+AUDIT|Erdos596.erdos_596.variants.exists_exceptional_of_finite_ramsey|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.erdos_596.variants.exists_exceptional_of_finite_ramsey|(SimpleGraph.cycleGraph 4).HasFiniteRamseyProperty
+    (SimpleGraph.cycleGraph 6) →
+  ∃ U₁ U₂ G₁ G₂, G₁.IsErdosHajnalExceptional G₂
+AUDIT|Erdos80.unrestricted_erdos_80_parts_i._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos80.unrestricted_erdos_80_parts_i._proof_1_2|∀ (N : ℕ), ¬0 < 2 * (N + 1) → False
+AUDIT|Erdos668.dist_b0_c0|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.dist_b0_c0|dist Erdos668.b₀ Erdos668.c₀ = 1
+AUDIT|Erdos668.unitDistNum_diamond._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_diamond._simp_1_1|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α}
+  {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_14|[propext]
+TYPE|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_14|∀ {a b : Prop}, (a ∨ b) = (b ∨ a)
+AUDIT|Erdos596.mk_clIter_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.mk_clIter_le|∀ {W : Type} (H : SimpleGraph W),
+  (SimpleGraph.cycleGraph 4).Free H →
+    ∀ {X : Set W} {a : Cardinal.{0}},
+      Cardinal.aleph0 ≤ a → Cardinal.mk ↑X ≤ a → ∀ (n : ℕ), Cardinal.mk ↑(Erdos596.clIter H X n) ≤ a
+AUDIT|Erdos596.clStep_diff_unique|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.clStep_diff_unique|∀ {W : Type} (H : SimpleGraph W),
+  (SimpleGraph.cycleGraph 4).Free H →
+    ∀ {X : Set W} {v₁ v₂ u₁ u₂ : W},
+      v₁ ∉ X → v₂ ∉ X → u₁ ∈ X → u₂ ∈ X → u₁ ≠ u₂ → H.Adj v₁ u₁ → H.Adj v₁ u₂ → H.Adj v₂ u₁ → H.Adj v₂ u₂ → v₁ = v₂
+AUDIT|Erdos668.isometryOfUnitDist._proof_1|[propext]
+TYPE|Erdos668.isometryOfUnitDist._proof_1|NeZero (1 + 1)
+AUDIT|Erdos668.unitDistNum_diamond._simp_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_diamond._simp_1_8|(Erdos668.b₀ = Erdos668.c₀) = False
+AUDIT|Erdos80.unrestricted_erdos_80_parts_i._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos80.unrestricted_erdos_80_parts_i._proof_1_1|∀ (N : ℕ), ¬N ≤ 2 * (N + 1) → False
+AUDIT|Erdos668.dist_sq_r2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.dist_sq_r2|∀ (p q : EuclideanSpace ℝ (Fin 2)),
+  dist p q ^ 2 = (p.ofLp 0 - q.ofLp 0) ^ 2 + (p.ofLp 1 - q.ofLp 1) ^ 2
+AUDIT|Erdos596.countable_escape_of_card_le._simp_1_19|[propext]
+TYPE|Erdos596.countable_escape_of_card_le._simp_1_19|∀ {a b : Prop}, (¬(a ∧ b)) = (a → ¬b)
+AUDIT|SimpleGraph.trianglesContaining.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.trianglesContaining.eq_1|∀ {α : Type u_1} [inst : Fintype α] (G : SimpleGraph α) (uv : Sym2 α),
+  G.trianglesContaining uv = {t ∈ G.cliqueFinset 3 | uv.toFinset ⊆ t}
+AUDIT|Erdos668.maxUnitDistances_four|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.maxUnitDistances_four|Erdos90.maxUnitDistances 4 = 5
+AUDIT|Erdos80.f_eq_zero_of_ge_half._simp_1_1|[propext]
+TYPE|Erdos80.f_eq_zero_of_ge_half._simp_1_1|∀ {α : Type u} (x : α), (x ∈ ∅) = False
+AUDIT|Erdos80.card_edgeFinset_bipGraph_two_mul._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos80.card_edgeFinset_bipGraph_two_mul._proof_1_3|∀ (k i : ℕ), i < k → ∀ (j : ℕ), ¬i < 2 * k / 2 → False
+AUDIT|Erdos668.b0_ne_c0|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.b0_ne_c0|Erdos668.b₀ ≠ Erdos668.c₀
+AUDIT|Erdos596.fourCycleMap.eq_2|[propext]
+TYPE|Erdos596.fourCycleMap.eq_2|∀ {W : Type} (u₁ v₁ u₂ v₂ : W) (isLt : 1 < 4),
+  Erdos596.fourCycleMap u₁ v₁ u₂ v₂ ⟨1, isLt⟩ = v₁
+AUDIT|Erdos668.unitDistNum_le_five_of_card_four|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_le_five_of_card_four|∀ {B : Finset (EuclideanSpace ℝ (Fin 2))}, B.card = 4 → unitDistNum B ≤ 5
+AUDIT|Erdos596.countable_escape_of_le_aleph0|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.countable_escape_of_le_aleph0|∀ {W : Type} (H : SimpleGraph W),
+  Cardinal.mk W ≤ Cardinal.aleph0 → ∃ d, H.IsEdgeColouring d ∧ ∀ (j : ℕ), (SimpleGraph.cycleGraph 6).Free (d j)
+AUDIT|Erdos668.a₀._proof_1|[propext]
+TYPE|Erdos668.a₀._proof_1|(1 + 1).AtLeastTwo
+AUDIT|Erdos80.bookNumber.congr_simp|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.bookNumber.congr_simp|∀ {α : Type u_1} [inst : Fintype α] (G G_1 : SimpleGraph α),
+  G = G_1 →
+    ∀ {inst_1 : DecidableRel G.Adj} [inst_2 : DecidableRel G_1.Adj], Erdos80.bookNumber G = Erdos80.bookNumber G_1
+AUDIT|Erdos668.eq_a0_or_d0_of_dist_b0_c0|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.eq_a0_or_d0_of_dist_b0_c0|∀ {p : EuclideanSpace ℝ (Fin 2)},
+  dist p Erdos668.b₀ = 1 → dist p Erdos668.c₀ = 1 → p = Erdos668.a₀ ∨ p = Erdos668.d₀
+AUDIT|Erdos668.unitDistNum_diamond._simp_1_13|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_diamond._simp_1_13|(Erdos668.a₀ = Erdos668.d₀) = False
+AUDIT|Erdos668.unitDistNum_map_isometry._simp_1_3|[propext, Quot.sound]
+TYPE|Erdos668.unitDistNum_map_isometry._simp_1_3|∀ {α : Type u_1} {a b c : α}, (a ∈ s(b, c)) = (a = b ∨ a = c)
+AUDIT|Erdos80.erdos_80_parts_i_of_fox_loh|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.erdos_80_parts_i_of_fox_loh|(∃ c,
+    0 < c ∧ c < 1 / 2 ∧ ∀ ε > 0, ∃ᶠ (n : ℕ) in Filter.atTop, ↑(Erdos80.f c n) ≤ ↑n ^ ε) →
+  ¬∀ (c : ℝ), 0 < c → c < 1 / 2 → ∃ ε > 0, ∀ᶠ (n : ℕ) in Filter.atTop, ↑n ^ ε < ↑(Erdos80.f c n)
+AUDIT|Erdos668.dist_sym2_out|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.dist_sym2_out|∀ {X : Type u_1} [inst : PseudoMetricSpace X] (u v : X),
+  dist (Quot.out s(u, v)).1 (Quot.out s(u, v)).2 = dist u v
+AUDIT|Erdos596.cycleGraph6_free_of_unique_lt_neighbor|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.cycleGraph6_free_of_unique_lt_neighbor|∀ {W : Type u_1} {W' : Type u_2} [inst : LinearOrder W']
+  (G : SimpleGraph W) (α : W → W'),
+  (∀ {u v : W}, G.Adj u v → α u ≠ α v) →
+    (∀ (v u₁ u₂ : W), G.Adj v u₁ → G.Adj v u₂ → α u₁ < α v → α u₂ < α v → u₁ = u₂) → (SimpleGraph.cycleGraph 6).Free G
+AUDIT|Erdos668.isometryOfUnitDist._proof_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.isometryOfUnitDist._proof_3|∀ {y z : EuclideanSpace ℝ (Fin 2)},
+  (z.ofLp 0 - y.ofLp 0) ^ 2 + (z.ofLp 1 - y.ofLp 1) ^ 2 = 1 →
+    ∀ (p : EuclideanSpace ℝ (Fin 2)),
+      !₂[(!₂[y.ofLp 0 + p.ofLp 0 * (z.ofLp 0 - y.ofLp 0) - p.ofLp 1 * (z.ofLp 1 - y.ofLp 1),
+                      y.ofLp 1 + p.ofLp 0 * (z.ofLp 1 - y.ofLp 1) + p.ofLp 1 * (z.ofLp 0 - y.ofLp 0)].ofLp
+                  0 -
+                y.ofLp 0) *
+              (z.ofLp 0 - y.ofLp 0) +
+            (!₂[y.ofLp 0 + p.ofLp 0 * (z.ofLp 0 - y.ofLp 0) - p.ofLp 1 * (z.ofLp 1 - y.ofLp 1),
+                      y.ofLp 1 + p.ofLp 0 * (z.ofLp 1 - y.ofLp 1) + p.ofLp 1 * (z.ofLp 0 - y.ofLp 0)].ofLp
+                  1 -
+                y.ofLp 1) *
+              (z.ofLp 1 - y.ofLp 1),
+          -(!₂[y.ofLp 0 + p.ofLp 0 * (z.ofLp 0 - y.ofLp 0) - p.ofLp 1 * (z.ofLp 1 - y.ofLp 1),
+                        y.ofLp 1 + p.ofLp 0 * (z.ofLp 1 - y.ofLp 1) + p.ofLp 1 * (z.ofLp 0 - y.ofLp 0)].ofLp
+                    0 -
+                  y.ofLp 0) *
+              (z.ofLp 1 - y.ofLp 1) +
+            (!₂[y.ofLp 0 + p.ofLp 0 * (z.ofLp 0 - y.ofLp 0) - p.ofLp 1 * (z.ofLp 1 - y.ofLp 1),
+                      y.ofLp 1 + p.ofLp 0 * (z.ofLp 1 - y.ofLp 1) + p.ofLp 1 * (z.ofLp 0 - y.ofLp 0)].ofLp
+                  1 -
+                y.ofLp 1) *
+              (z.ofLp 0 - y.ofLp 0)] =
+        p
+AUDIT|Erdos668.unitDistNum_diamond._simp_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_diamond._simp_1_6|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._proof_1_12|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._proof_1_12|∀
+  (x₀ x₁ x₂ x₃ : EuclideanSpace ℝ (Fin 2)), 5 ≤ unitDistNum {x₀, x₁, x₂, x₃} → unitDistNum {x₀, x₁, x₂, x₃} ≤ 1 → False
+AUDIT|Erdos668.unitDistNum_diamond|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_diamond|unitDistNum {Erdos668.a₀, Erdos668.b₀, Erdos668.c₀, Erdos668.d₀} = 5
+AUDIT|Erdos80.bipGraph._proof_2|[]
+TYPE|Erdos80.bipGraph._proof_2|∀ (n : ℕ), Std.Irrefl fun u v => (↑u < n / 2) ≠ (↑v < n / 2)
+AUDIT|Erdos80.one_le_bookNumber_of_everyEdgeInTriangle|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.one_le_bookNumber_of_everyEdgeInTriangle|∀ {α : Type u_1} [inst : Fintype α] (G : SimpleGraph α)
+  [inst_1 : DecidableRel G.Adj], Erdos80.EveryEdgeInTriangle G → G.edgeFinset.Nonempty → 1 ≤ Erdos80.bookNumber G
+AUDIT|Erdos668.unitDistNum_diamond._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_diamond._simp_1_2|∀ {α : Type u_1} {s : Finset α} {m : Sym2 α}, (m ∈ s.sym2) = ∀ a ∈ m, a ∈ s
+AUDIT|Erdos596.clStep_mono|[]
+TYPE|Erdos596.clStep_mono|∀ {W : Type} (H : SimpleGraph W) {X Y : Set W},
+  X ⊆ Y → Erdos596.clStep H X ⊆ Erdos596.clStep H Y
+AUDIT|Erdos668.erdos_668.variants.four_points._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.erdos_668.variants.four_points._proof_1_1|∀ (B : Finset (EuclideanSpace ℝ (Fin 2))),
+  unitDistNum B = 5 → ¬5 ≤ unitDistNum B → False
+AUDIT|Erdos596.subset_clStep|[]
+TYPE|Erdos596.subset_clStep|∀ {W : Type} (H : SimpleGraph W) (X : Set W), X ⊆ Erdos596.clStep H X
+AUDIT|Erdos668.unitDistNum_diamond._simp_1_3|[propext, Quot.sound]
+TYPE|Erdos668.unitDistNum_diamond._simp_1_3|∀ {α : Type u_1} {a b c : α}, (a ∈ s(b, c)) = (a = b ∨ a = c)
+AUDIT|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_5|∀ {α : Type u_1} {s : Finset α}
+  {m : Sym2 α}, (m ∈ s.sym2) = ∀ a ∈ m, a ∈ s
+AUDIT|Erdos668.dist_a0_c0|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.dist_a0_c0|dist Erdos668.a₀ Erdos668.c₀ = 1
+AUDIT|Erdos596.cl_mono|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.cl_mono|∀ {W : Type} (H : SimpleGraph W) {X Y : Set W}, X ⊆ Y → Erdos596.cl H X ⊆ Erdos596.cl H Y
+AUDIT|Erdos80.card_edgeFinset_bipGraph_two_mul._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos80.card_edgeFinset_bipGraph_two_mul._proof_1_2|∀ (k : ℕ) (p : Fin k × Fin k), ¬k + ↑p.2 < 2 * k → False
+AUDIT|Erdos80.bookNumber_bipGraph._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.bookNumber_bipGraph._simp_1_2|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α}
+  {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos668.unitDistNum_diamond._simp_1_12|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_diamond._simp_1_12|(Erdos668.a₀ = Erdos668.c₀) = False
+AUDIT|Erdos596.countable_escape_of_le_aleph0._simp_1_8|[propext]
+TYPE|Erdos596.countable_escape_of_le_aleph0._simp_1_8|∀ {a b : Prop}, (¬(a ∧ b)) = (a → ¬b)
+AUDIT|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum|∀ {B : Finset (EuclideanSpace ℝ (Fin 2))},
+  B.card = 4 → 5 ≤ unitDistNum B → ∃ f, ⇑f '' {Erdos668.a₀, Erdos668.b₀, Erdos668.c₀, Erdos668.d₀} = ↑B
+AUDIT|Erdos668.congruent_diamond_of_five_dists|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.congruent_diamond_of_five_dists|∀ {x y z w : EuclideanSpace ℝ (Fin 2)},
+  dist y z = 1 →
+    dist x y = 1 →
+      dist x z = 1 →
+        dist w y = 1 →
+          dist w z = 1 → x ≠ w → ∃ f, ⇑f '' {Erdos668.a₀, Erdos668.b₀, Erdos668.c₀, Erdos668.d₀} = {x, y, z, w}
+AUDIT|Erdos668.diamond_card._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.diamond_card._simp_1_1|(Erdos668.c₀ = Erdos668.d₀) = False
+AUDIT|Erdos596.fourCycleMap.eq_4|[propext]
+TYPE|Erdos596.fourCycleMap.eq_4|∀ {W : Type} (u₁ v₁ u₂ v₂ : W) (isLt : 3 < 4),
+  Erdos596.fourCycleMap u₁ v₁ u₂ v₂ ⟨3, isLt⟩ = v₂
+AUDIT|Erdos80.bookNumber_bot|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.bookNumber_bot|∀ {n : ℕ}, Erdos80.bookNumber ⊥ = 0
+AUDIT|Erdos668.unitDistNum_diamond._simp_1_5|[propext]
+TYPE|Erdos668.unitDistNum_diamond._simp_1_5|∀ {α : Sort u_1} {p : α → Prop} {a' : α}, (∀ (a : α), a = a' → p a) = p a'
+AUDIT|Erdos668.unitDistNum_map_isometry._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_map_isometry._simp_1_2|∀ {α : Type u_1} {β : Type u_2} {f : α ↪ β} {s : Finset α} {b : β},
+  (b ∈ Finset.map f s) = ∃ a ∈ s, f a = b
+AUDIT|Erdos596.countable_escape_of_card_le._simp_1_18|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.countable_escape_of_card_le._simp_1_18|∀ {V : Type u} (v w : V), ⊥.Adj v w = False
+AUDIT|Erdos668.unitDistNum_diamond._simp_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_diamond._simp_1_9|(Erdos668.b₀ = Erdos668.d₀) = False
+AUDIT|Erdos668.congruent_diamond_of_five_dists._simp_1_2|[propext]
+TYPE|Erdos668.congruent_diamond_of_five_dists._simp_1_2|∀ {a b : Prop}, (a ∨ b) = (b ∨ a)
+AUDIT|Erdos596.erdos_596.variants.C4_free_countable_escape|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.erdos_596.variants.C4_free_countable_escape|(SimpleGraph.cycleGraph 4).HasCountableRamseyEscape
+  (SimpleGraph.cycleGraph 6)
+AUDIT|Erdos668.unitDistNum_map_isometry._simp_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_map_isometry._simp_1_6|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α}
+  {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos668.d₀.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.d₀.eq_1|Erdos668.d₀ = !₂[1 / 2, -√3 / 2]
+AUDIT|Erdos80.one_le_f_of_admissible|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.one_le_f_of_admissible|∀ {c : ℝ} {n : ℕ}, 0 < c → 0 < n → (∃ G, Erdos80.Admissible c G) → 1 ≤ Erdos80.f c n
+AUDIT|Erdos668.card_le_sum_ite_six|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.card_le_sum_ite_six|∀ {α : Type u_1} [DecidableEq α] (S : Finset α) (Q : α → Prop)
+  [inst : DecidablePred Q] (e₁ e₂ e₃ e₄ e₅ e₆ : α),
+  (∀ p ∈ S, Q p ∧ (p = e₁ ∨ p = e₂ ∨ p = e₃ ∨ p = e₄ ∨ p = e₅ ∨ p = e₆)) →
+    S.card ≤
+      (((((if Q e₁ then 1 else 0) + if Q e₂ then 1 else 0) + if Q e₃ then 1 else 0) + if Q e₄ then 1 else 0) +
+          if Q e₅ then 1 else 0) +
+        if Q e₆ then 1 else 0
+AUDIT|Erdos668.b₀.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.b₀.eq_1|Erdos668.b₀ = !₂[0, 0]
+AUDIT|Erdos596.cl_adj_unique_of_notMem|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.cl_adj_unique_of_notMem|∀ {W : Type} (H : SimpleGraph W) {X : Set W} {v u₁ u₂ : W},
+  v ∉ Erdos596.cl H X → u₁ ∈ Erdos596.cl H X → u₂ ∈ Erdos596.cl H X → H.Adj v u₁ → H.Adj v u₂ → u₁ = u₂
+AUDIT|Erdos668.congruent_diamond_of_five_dists._simp_1_1|[propext]
+TYPE|Erdos668.congruent_diamond_of_five_dists._simp_1_1|∀ {a b c : Prop}, (a ∨ b ∨ c) = (b ∨ a ∨ c)
+AUDIT|Erdos80.bipGraph_cliqueFree|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.bipGraph_cliqueFree|∀ (n : ℕ), (Erdos80.bipGraph n).CliqueFree 3
+AUDIT|Erdos668.unitDistNum_map_isometry._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_map_isometry._simp_1_1|∀ {α : Type u_1} {s : Finset α} {m : Sym2 α},
+  (m ∈ s.sym2) = ∀ a ∈ m, a ∈ s
+AUDIT|Erdos596.erdos_596.variants.C4_C6_is_exceptional_of_finite_ramsey|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.erdos_596.variants.C4_C6_is_exceptional_of_finite_ramsey|(SimpleGraph.cycleGraph
+        4).HasFiniteRamseyProperty
+    (SimpleGraph.cycleGraph 6) →
+  (SimpleGraph.cycleGraph 4).IsErdosHajnalExceptional (SimpleGraph.cycleGraph 6)
+AUDIT|Erdos596.countable_escape_of_card_le._simp_1_17|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.countable_escape_of_card_le._simp_1_17|∀ {V : Type u} (x y : SimpleGraph V) (v w : V),
+  (x ⊓ y).Adj v w = (x.Adj v w ∧ y.Adj v w)
+AUDIT|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_3|[propext]
+TYPE|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_3|∀ {p q : Prop}, (¬(p ∨ q)) = (¬p ∧ ¬q)
+AUDIT|Erdos668.dist_a0_d0_ne_one|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.dist_a0_d0_ne_one|dist Erdos668.a₀ Erdos668.d₀ ≠ 1
+AUDIT|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_4|∀ {α : Type u_1} {p : α → Prop}
+  [inst : DecidablePred p] {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|IsometryEquiv.mk.congr_simp|[propext, Classical.choice, Quot.sound]
+TYPE|IsometryEquiv.mk.congr_simp|∀ {α : Type u} {β : Type v} [inst : PseudoEMetricSpace α]
+  [inst_1 : PseudoEMetricSpace β] (toEquiv toEquiv_1 : α ≃ β) (e_toEquiv : toEquiv = toEquiv_1)
+  (isometry_toFun : Isometry toEquiv.toFun),
+  { toEquiv := toEquiv, isometry_toFun := isometry_toFun } = { toEquiv := toEquiv_1, isometry_toFun := ⋯ }
+AUDIT|Erdos80.unrestricted_erdos_80_parts_i|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.unrestricted_erdos_80_parts_i|¬∀ (c : ℝ),
+    0 < c → c < 1 / 2 → ∃ ε > 0, ∀ᶠ (n : ℕ) in Filter.atTop, ↑n ^ ε < ↑(Erdos80.fUnrestricted c n)
+AUDIT|Erdos668.unitDistNum_le_five_of_card_four._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_le_five_of_card_four._proof_1_2|∀ {B : Finset (EuclideanSpace ℝ (Fin 2))},
+  ¬unitDistNum B ≤ 5 → unitDistNum B = 5 → False
+AUDIT|Erdos668.sqrt3_pos|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.sqrt3_pos|0 < √3
+AUDIT|Erdos668.erdos_668.variants.four_points|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.erdos_668.variants.four_points|∃ a b c d,
+  dist a b = 1 ∧
+    dist a c = 1 ∧
+      dist b c = 1 ∧
+        dist b d = 1 ∧
+          dist c d = 1 ∧
+            {a, b, c, d}.card = 4 ∧
+              ∀ (B : Finset (EuclideanSpace ℝ (Fin 2))),
+                B.card = 4 → (unitDistNum B = Erdos90.maxUnitDistances 4 ↔ ∃ f, ⇑f '' {a, b, c, d} = ↑B)
+AUDIT|Erdos80.f_eq_zero_of_ge_half._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.f_eq_zero_of_ge_half._proof_1_4|∀ (n m : ℕ) (G : SimpleGraph (Fin n)),
+  G.edgeFinset.card ≤ n.choose 2 →
+    2 * n.choose 2 ≤ n * (n - 1) → n * (n - 1) < n * n → ¬2 * G.edgeFinset.card < n * n → False
+AUDIT|Erdos668.a₀._proof_2|[propext]
+TYPE|Erdos668.a₀._proof_2|(2 + 1).AtLeastTwo
+AUDIT|Erdos596.erdos_596.variants.original_conjecture_is_false_of_finite_ramsey|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.erdos_596.variants.original_conjecture_is_false_of_finite_ramsey|(SimpleGraph.cycleGraph
+        4).HasFiniteRamseyProperty
+    (SimpleGraph.cycleGraph 6) →
+  ¬∀ {U₁ U₂ : Type} (G₁ : SimpleGraph U₁) (G₂ : SimpleGraph U₂), ¬G₁.IsErdosHajnalExceptional G₂
+AUDIT|Erdos596.mk_cl_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.mk_cl_le|∀ {W : Type} (H : SimpleGraph W),
+  (SimpleGraph.cycleGraph 4).Free H →
+    ∀ {X : Set W} {a : Cardinal.{0}}, Cardinal.aleph0 ≤ a → Cardinal.mk ↑X ≤ a → Cardinal.mk ↑(Erdos596.cl H X) ≤ a
+AUDIT|Erdos80.Admissible.congr_simp|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.Admissible.congr_simp|∀ (c c_1 : ℝ),
+  c = c_1 →
+    ∀ {n : ℕ} (G G_1 : SimpleGraph (Fin n)),
+      G = G_1 →
+        ∀ {inst : DecidableRel G.Adj} [inst_1 : DecidableRel G_1.Adj],
+          Erdos80.Admissible c G = Erdos80.Admissible c_1 G_1
+AUDIT|Erdos668.unitDistNum_le_five_of_card_four._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_le_five_of_card_four._proof_1_1|∀ {B : Finset (EuclideanSpace ℝ (Fin 2))},
+  ¬unitDistNum B ≤ 5 → ¬5 ≤ unitDistNum B → False
+AUDIT|Erdos668.erdos_668.parts.ii|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.erdos_668.parts.ii|¬∀ (n : ℕ),
+    3 < n →
+      ∃ A B,
+        A.card = n ∧
+          B.card = n ∧
+            unitDistNum A = Erdos90.maxUnitDistances n ∧
+              unitDistNum B = Erdos90.maxUnitDistances n ∧ ¬∃ f, ⇑f '' ↑A = ↑B
+AUDIT|Erdos80.bookNumber_bipGraph|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.bookNumber_bipGraph|∀ (n : ℕ), Erdos80.bookNumber (Erdos80.bipGraph n) = 0
+AUDIT|Erdos596.erdos_596.test.empty_is_free|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.erdos_596.test.empty_is_free|(SimpleGraph.cycleGraph 4).Free ⊥
+AUDIT|Erdos668.diamond_card._simp_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.diamond_card._simp_1_6|(Erdos668.a₀ = Erdos668.d₀) = False
+AUDIT|Erdos668.dist_c0_d0|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.dist_c0_d0|dist Erdos668.c₀ Erdos668.d₀ = 1
+AUDIT|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_6|[propext, Quot.sound]
+TYPE|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_6|∀ {α : Type u_1} {a b c : α},
+  (a ∈ s(b, c)) = (a = b ∨ a = c)
+AUDIT|Erdos668.isometryOfUnitDist._proof_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.isometryOfUnitDist._proof_5|∀ {y z : EuclideanSpace ℝ (Fin 2)},
+  (z.ofLp 0 - y.ofLp 0) ^ 2 + (z.ofLp 1 - y.ofLp 1) ^ 2 = 1 →
+    Isometry fun p =>
+      !₂[y.ofLp 0 + p.ofLp 0 * (z.ofLp 0 - y.ofLp 0) - p.ofLp 1 * (z.ofLp 1 - y.ofLp 1),
+        y.ofLp 1 + p.ofLp 0 * (z.ofLp 1 - y.ofLp 1) + p.ofLp 1 * (z.ofLp 0 - y.ofLp 0)]
+AUDIT|Erdos596.countable_escape_of_card_le._simp_1_3|[propext]
+TYPE|Erdos596.countable_escape_of_card_le._simp_1_3|∀ {a b : Prop}, (a ∨ b) = (b ∨ a)
+AUDIT|Erdos668.dist_b0_d0|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.dist_b0_d0|dist Erdos668.b₀ Erdos668.d₀ = 1
+AUDIT|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_2|∀ {α : Type u_1} {a b : α},
+  (b ∈ {a}) = (b = a)
+AUDIT|Erdos668.diamond_card._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.diamond_card._simp_1_2|(Erdos668.b₀ = Erdos668.c₀) = False
+AUDIT|Erdos596.countable_escape_of_le_aleph0._simp_1_5|[propext, Quot.sound]
+TYPE|Erdos596.countable_escape_of_le_aleph0._simp_1_5|∀ {ι : Sort u_1} {V : Type u} {a b : V} {f : ι → SimpleGraph V},
+  (⨆ i, f i).Adj a b = ∃ i, (f i).Adj a b
+AUDIT|Erdos668.unitDistNum_map_isometry|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_map_isometry|∀ (f : EuclideanSpace ℝ (Fin 2) ≃ᵢ EuclideanSpace ℝ (Fin 2))
+  (A : Finset (EuclideanSpace ℝ (Fin 2))), unitDistNum (Finset.map f.toEmbedding A) = unitDistNum A
+AUDIT|Erdos596.clIter_mono_nat|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.clIter_mono_nat|∀ {W : Type} (H : SimpleGraph W) (X : Set W) {m n : ℕ},
+  m ≤ n → Erdos596.clIter H X m ⊆ Erdos596.clIter H X n
+AUDIT|Erdos668.a₀.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.a₀.eq_1|Erdos668.a₀ = !₂[1 / 2, √3 / 2]
+AUDIT|Erdos80.bookNumber.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.bookNumber.eq_1|∀ {α : Type u_1} [inst : Fintype α] (G : SimpleGraph α) [inst_1 : DecidableRel G.Adj],
+  Erdos80.bookNumber G = G.edgeFinset.sup fun e => (G.trianglesContaining e).card
+AUDIT|Erdos668.isometryOfUnitDist_c0|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.isometryOfUnitDist_c0|∀ {y z : EuclideanSpace ℝ (Fin 2)} (hyz : dist y z = 1),
+  (Erdos668.isometryOfUnitDist hyz) Erdos668.c₀ = z
+AUDIT|Erdos596.countable_escape_of_card_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.countable_escape_of_card_le|∀ (κ : Cardinal.{0}) (W : Type) (H : SimpleGraph W),
+  Cardinal.mk W ≤ κ →
+    (SimpleGraph.cycleGraph 4).Free H → ∃ d, H.IsEdgeColouring d ∧ ∀ (j : ℕ), (SimpleGraph.cycleGraph 6).Free (d j)
+AUDIT|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._proof_1_10|∀
+  (x₀ x₁ x₂ x₃ : EuclideanSpace ℝ (Fin 2)), 5 ≤ unitDistNum {x₀, x₁, x₂, x₃} → unitDistNum {x₀, x₁, x₂, x₃} ≤ 3 → False
+AUDIT|_private.JspBounties.Erdos80_596_668.0.Erdos596.fourCycleMap.match_1.eq_2|[propext]
+TYPE|_private.JspBounties.Erdos80_596_668.0.Erdos596.fourCycleMap.match_1.eq_2|∀ (motive : Fin 4 → Sort u_1)
+  (isLt : 1 < 4) (h_1 : (isLt : 0 < 4) → motive ⟨0, isLt⟩) (h_2 : (isLt : 1 < 4) → motive ⟨1, isLt⟩)
+  (h_3 : (isLt : 2 < 4) → motive ⟨2, isLt⟩) (h_4 : (isLt : 3 < 4) → motive ⟨3, isLt⟩),
+  (match ⟨1, isLt⟩ with
+    | ⟨0, isLt⟩ => h_1 isLt
+    | ⟨1, isLt⟩ => h_2 isLt
+    | ⟨2, isLt⟩ => h_3 isLt
+    | ⟨3, isLt⟩ => h_4 isLt) =
+    h_2 isLt
+AUDIT|Erdos596.countable_escape_of_card_le._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.countable_escape_of_card_le._simp_1_2|∀ {α : Type u_1} [inst : PartialOrder α] {a b : α},
+  (a ≤ b) = (a < b ∨ a = b)
+AUDIT|Erdos596.countable_escape_of_card_le._simp_1_16|[propext, Quot.sound]
+TYPE|Erdos596.countable_escape_of_card_le._simp_1_16|∀ {ι : Sort u_1} {V : Type u} {a b : V} {f : ι → SimpleGraph V},
+  (⨆ i, f i).Adj a b = ∃ i, (f i).Adj a b
+AUDIT|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_8|[propext]
+TYPE|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_8|∀ {α : Sort u_1} {p : α → Prop} {a' : α},
+  (∀ (a : α), a = a' → p a) = p a'
+AUDIT|Erdos80.f_eq_zero_of_ge_half|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.f_eq_zero_of_ge_half|∀ {c : ℝ}, 1 / 2 ≤ c → ∀ (n : ℕ), Erdos80.f c n = 0
+AUDIT|Erdos668.diamond_card._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.diamond_card._simp_1_4|(Erdos668.a₀ = Erdos668.b₀) = False
+AUDIT|Erdos668.diamond_card._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.diamond_card._simp_1_3|(Erdos668.b₀ = Erdos668.d₀) = False
+AUDIT|Erdos80.bookNumber_bipGraph._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.bookNumber_bipGraph._simp_1_4|∀ {α : Type u_1} (a : α), (a ∈ ∅) = False
+AUDIT|Erdos80.fUnrestricted_two_mul_eq_zero|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.fUnrestricted_two_mul_eq_zero|∀ {c : ℝ}, c ≤ 1 / 4 → ∀ (k : ℕ), Erdos80.fUnrestricted c (2 * k) = 0
+AUDIT|Erdos80.bookNumber_bipGraph._simp_1_5|[propext]
+TYPE|Erdos80.bookNumber_bipGraph._simp_1_5|∀ {a b : Prop}, (¬(a ∧ b)) = (a → ¬b)
+AUDIT|Erdos80.bipGraph._proof_1|[]
+TYPE|Erdos80.bipGraph._proof_1|∀ (n : ℕ), Std.Symm fun u v => (↑u < n / 2) ≠ (↑v < n / 2)
+AUDIT|Erdos668.unitDistNum_diamond._simp_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_diamond._simp_1_7|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos668.unitDistNum_eq_of_image_eq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_eq_of_image_eq|∀ {A B : Finset (EuclideanSpace ℝ (Fin 2))}
+  (f : EuclideanSpace ℝ (Fin 2) ≃ᵢ EuclideanSpace ℝ (Fin 2)), ⇑f '' ↑A = ↑B → unitDistNum B = unitDistNum A
+AUDIT|Erdos596.countable_escape_of_le_aleph0._simp_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.countable_escape_of_le_aleph0._simp_1_7|∀ {V : Type u} (v w : V), ⊥.Adj v w = False
+AUDIT|Erdos80.card_edgeFinset_bipGraph_two_mul._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos80.card_edgeFinset_bipGraph_two_mul._proof_1_5|∀ (k i₁ j₁ i₂ j₂ : ℕ), k + j₁ = k + j₂ → ¬j₁ = j₂ → False
+AUDIT|Erdos80.bookNumber_eq_zero_iff|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.bookNumber_eq_zero_iff|∀ {α : Type u_1} [inst : Fintype α] (G : SimpleGraph α)
+  [inst_1 : DecidableRel G.Adj], Erdos80.bookNumber G = 0 ↔ ∀ e ∈ G.edgeFinset, G.trianglesContaining e = ∅
+AUDIT|Erdos80.EveryEdgeInTriangle.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.EveryEdgeInTriangle.eq_1|∀ {α : Type u_1} [inst : Fintype α] (G : SimpleGraph α)
+  [inst_1 : DecidableRel G.Adj], Erdos80.EveryEdgeInTriangle G = ∀ e ∈ G.edgeFinset, (G.trianglesContaining e).Nonempty
+AUDIT|Erdos668.a0_ne_b0|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.a0_ne_b0|Erdos668.a₀ ≠ Erdos668.b₀
+AUDIT|Erdos596.cycleGraph6_copy_const_on_fibers|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.cycleGraph6_copy_const_on_fibers|∀ {W : Type u_1} {α' : Type u_2} {G : SimpleGraph W} (α : W → α'),
+  (∀ {u v : W}, G.Adj u v → α u = α v) → ∀ (φ : (SimpleGraph.cycleGraph 6).Copy G) (i : Fin 6), α (φ i) = α (φ 0)
+AUDIT|Erdos596.countable_escape_of_card_le._simp_1_1|[propext]
+TYPE|Erdos596.countable_escape_of_card_le._simp_1_1|∀ {α : Type u_1} [inst : Preorder α] {b x : α},
+  (x ∈ Set.Iic b) = (x ≤ b)
+AUDIT|Erdos80.card_edgeFinset_bipGraph_two_mul._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos80.card_edgeFinset_bipGraph_two_mul._proof_1_4|∀ (k i j : ℕ), k + j < 2 * k / 2 → False
+AUDIT|Erdos668.a0_ne_d0|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.a0_ne_d0|Erdos668.a₀ ≠ Erdos668.d₀
+AUDIT|Erdos668.c0_ne_d0|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.c0_ne_d0|Erdos668.c₀ ≠ Erdos668.d₀
+AUDIT|Erdos80.card_edgeFinset_bipGraph_two_mul._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos80.card_edgeFinset_bipGraph_two_mul._proof_1_6|∀ (k i₁ : ℕ), i₁ < k → ∀ (j₁ i₂ j₂ : ℕ), i₁ = k + j₂ → False
+AUDIT|Erdos668.dist_eq_one_iff_sq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.dist_eq_one_iff_sq|∀ (p q : EuclideanSpace ℝ (Fin 2)),
+  dist p q = 1 ↔ (p.ofLp 0 - q.ofLp 0) ^ 2 + (p.ofLp 1 - q.ofLp 1) ^ 2 = 1
+AUDIT|Erdos668.c₀.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.c₀.eq_1|Erdos668.c₀ = !₂[1, 0]
+AUDIT|Erdos668.sq_sqrt3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.sq_sqrt3|√3 ^ 2 = 3
+AUDIT|Erdos596.countable_escape_of_le_aleph0._simp_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.countable_escape_of_le_aleph0._simp_1_6|∀ {V : Type u} (x y : SimpleGraph V) (v w : V),
+  (x ⊓ y).Adj v w = (x.Adj v w ∧ y.Adj v w)
+AUDIT|Erdos80.bookNumber_eq_zero_iff._simp_1_2|[propext, Quot.sound]
+TYPE|Erdos80.bookNumber_eq_zero_iff._simp_1_2|∀ {α : Type u_1} {s : Finset α}, (s.card = 0) = (s = ∅)
+AUDIT|Erdos668.unitDistNum_map_isometry._simp_1_4|[propext, Quot.sound]
+TYPE|Erdos668.unitDistNum_map_isometry._simp_1_4|∀ {α : Sort u_1} {a' : α} {P Q : α → Prop},
+  (∀ (a : α), a = a' ∨ Q a → P a) = (P a' ∧ ∀ (a : α), Q a → P a)
+AUDIT|Erdos80.card_edgeFinset_bipGraph_two_mul._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos80.card_edgeFinset_bipGraph_two_mul._proof_1_1|∀ (k : ℕ) (p : Fin k × Fin k), ¬↑p.1 < 2 * k → False
+AUDIT|Erdos668.isometryOfUnitDist._proof_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.isometryOfUnitDist._proof_2|∀ {y z : EuclideanSpace ℝ (Fin 2)},
+  dist y z = 1 → (z.ofLp 0 - y.ofLp 0) ^ 2 + (z.ofLp 1 - y.ofLp 1) ^ 2 = 1
+AUDIT|_private.JspBounties.Erdos80_596_668.0.Erdos596.fourCycleMap.match_1.eq_1|[propext]
+TYPE|_private.JspBounties.Erdos80_596_668.0.Erdos596.fourCycleMap.match_1.eq_1|∀ (motive : Fin 4 → Sort u_1)
+  (isLt : 0 < 4) (h_1 : (isLt : 0 < 4) → motive ⟨0, isLt⟩) (h_2 : (isLt : 1 < 4) → motive ⟨1, isLt⟩)
+  (h_3 : (isLt : 2 < 4) → motive ⟨2, isLt⟩) (h_4 : (isLt : 3 < 4) → motive ⟨3, isLt⟩),
+  (match ⟨0, isLt⟩ with
+    | ⟨0, isLt⟩ => h_1 isLt
+    | ⟨1, isLt⟩ => h_2 isLt
+    | ⟨2, isLt⟩ => h_3 isLt
+    | ⟨3, isLt⟩ => h_4 isLt) =
+    h_1 isLt
+AUDIT|Erdos668.diamond_card|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.diamond_card|{Erdos668.a₀, Erdos668.b₀, Erdos668.c₀, Erdos668.d₀}.card = 4
+AUDIT|Erdos668.unitDistNum_diamond._simp_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.unitDistNum_diamond._simp_1_10|(Erdos668.c₀ = Erdos668.d₀) = False
+AUDIT|Erdos596.subset_cl|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.subset_cl|∀ {W : Type} (H : SimpleGraph W) (X : Set W), X ⊆ Erdos596.cl H X
+AUDIT|Erdos596.clIter_mono_set|[]
+TYPE|Erdos596.clIter_mono_set|∀ {W : Type} (H : SimpleGraph W) {X Y : Set W},
+  X ⊆ Y → ∀ (n : ℕ), Erdos596.clIter H X n ⊆ Erdos596.clIter H Y n
+AUDIT|Erdos668.diamond_card._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.diamond_card._simp_1_5|(Erdos668.a₀ = Erdos668.c₀) = False
+AUDIT|Erdos668.unitDistNum_map_isometry._simp_1_5|[propext]
+TYPE|Erdos668.unitDistNum_map_isometry._simp_1_5|∀ {α : Sort u_1} {p : α → Prop} {a' : α},
+  (∀ (a : α), a = a' → p a) = p a'
+AUDIT|_private.JspBounties.Erdos80_596_668.0.Erdos596.fourCycleMap.match_1.eq_3|[propext]
+TYPE|_private.JspBounties.Erdos80_596_668.0.Erdos596.fourCycleMap.match_1.eq_3|∀ (motive : Fin 4 → Sort u_1)
+  (isLt : 2 < 4) (h_1 : (isLt : 0 < 4) → motive ⟨0, isLt⟩) (h_2 : (isLt : 1 < 4) → motive ⟨1, isLt⟩)
+  (h_3 : (isLt : 2 < 4) → motive ⟨2, isLt⟩) (h_4 : (isLt : 3 < 4) → motive ⟨3, isLt⟩),
+  (match ⟨2, isLt⟩ with
+    | ⟨0, isLt⟩ => h_1 isLt
+    | ⟨1, isLt⟩ => h_2 isLt
+    | ⟨2, isLt⟩ => h_3 isLt
+    | ⟨3, isLt⟩ => h_4 isLt) =
+    h_3 isLt
+AUDIT|Erdos80.everyEdgeInTriangle_bot|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos80.everyEdgeInTriangle_bot|∀ {n : ℕ}, Erdos80.EveryEdgeInTriangle ⊥
+AUDIT|Erdos668.dist_a0_b0|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.dist_a0_b0|dist Erdos668.a₀ Erdos668.b₀ = 1
+AUDIT|Erdos596.mk_clStep_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos596.mk_clStep_le|∀ {W : Type} (H : SimpleGraph W),
+  (SimpleGraph.cycleGraph 4).Free H →
+    ∀ {X : Set W} {a : Cardinal.{0}}, Cardinal.aleph0 ≤ a → Cardinal.mk ↑X ≤ a → Cardinal.mk ↑(Erdos596.clStep H X) ≤ a
+AUDIT|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum._simp_1_1|∀ {α : Type u_1} [inst : DecidableEq α]
+  {s : Finset α} {a b : α}, (a ∈ insert b s) = (a = b ∨ a ∈ s)

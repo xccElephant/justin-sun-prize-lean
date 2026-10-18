@@ -1,0 +1,9 @@
+/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:2:8: error(lean.unknownIdentifier): Unknown identifier `Erdos238.block_pigeonhole_prime_gaps`
+/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:3:7: error(lean.unknownIdentifier): Unknown constant `Erdos238.block_pigeonhole_prime_gaps`
+/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:4:14: error(lean.unknownIdentifier): Unknown constant `Erdos238.block_pigeonhole_prime_gaps`
+/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:5:8: error(lean.unknownIdentifier): Unknown identifier `Erdos238.erdos_238_for_c2_lt_two`
+/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:6:7: error(lean.unknownIdentifier): Unknown constant `Erdos238.erdos_238_for_c2_lt_two`
+/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:7:14: error(lean.unknownIdentifier): Unknown constant `Erdos238.erdos_238_for_c2_lt_two`
+/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:8:8: error(lean.unknownIdentifier): Unknown identifier `Erdos238.erdos_238_of_sparse_prime_count`
+/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:9:7: error(lean.unknownIdentifier): Unknown constant `Erdos238.erdos_238_of_sparse_prime_count`
+/tmp/lean-verify-jsp-20261018/audit/PR5103.lean:10:14: error(lean.unknownIdentifier): Unknown constant `Erdos238.erdos_238_of_sparse_prime_count`

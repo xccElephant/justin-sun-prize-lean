@@ -1,0 +1,1247 @@
+Erdos503.erdos_503.variants.R0 : IsGreatest {x | ∃ A, ∃ (_ : A.IsIsosceles), A.ncard = x} 1
+theorem Erdos503.erdos_503.variants.R0 : IsGreatest {x | ∃ A, ∃ (_ : A.IsIsosceles), A.ncard = x} 1 :=
+⟨Exists.intro {0}
+    (Exists.intro ⟨Exists.intro 0 rfl, fun x x_1 y x_2 x_3 x_4 hxy x_5 x_6 => False.elim (hxy (Subsingleton.elim x y))⟩
+      (Set.ncard_singleton 0)),
+  fun ⦃m⦄ a =>
+  Exists.casesOn a fun A h =>
+    Exists.casesOn h fun w h =>
+      h ▸
+        have hsub := fun x x_1 => Set.mem_singleton_iff.mpr (Subsingleton.elim x 0);
+        le_trans (Set.ncard_le_ncard hsub (Set.finite_singleton 0))
+          (of_eq_true (Eq.trans (congrFun' (congrArg LE.le (Set.ncard_singleton 0)) 1) (Std.le_refl._simp_1 1)))⟩
+'Erdos503.erdos_503.variants.R0' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos503.erdos_503.variants.R1 : IsGreatest {x | ∃ A, ∃ (_ : A.IsIsosceles), A.ncard = x} 3
+theorem Erdos503.erdos_503.variants.R1 : IsGreatest {x | ∃ A, ∃ (_ : A.IsIsosceles), A.ncard = x} 3 :=
+⟨let p0 := EuclideanSpace.single 0 (-1);
+  let p1 := 0;
+  let p2 := EuclideanSpace.single 0 1;
+  have hp0_val := of_eq_true (Eq.trans (congrFun' (congrArg Eq (PiLp.single_eq_same 2 0 (-1))) (-1)) (eq_self (-1)));
+  have hp1_val := of_eq_true (eq_self 0);
+  have hp2_val := of_eq_true (Eq.trans (congrFun' (congrArg Eq (PiLp.single_eq_same 2 0 1)) 1) (eq_self 1));
+  have hp01 := fun h =>
+    have this := congrArg (fun v => v.ofLp 0) h;
+    False.elim
+      (Mathlib.Tactic.Linarith.lt_irrefl
+        (Eq.mp
+          (congrArg (fun _a => _a < 0)
+            (Mathlib.Tactic.Ring.of_eq
+              (Mathlib.Tactic.Ring.Common.add_congr
+                (Mathlib.Tactic.Ring.Common.add_congr
+                  (Mathlib.Tactic.Ring.Common.add_congr
+                    (Mathlib.Tactic.Ring.Common.neg_congr
+                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ((fun x => ℝ) 0) Nat.cast_one))
+                      (Mathlib.Tactic.Ring.Common.neg_add
+                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                            (Eq.refl (Int.negOfNat 1))))
+                        Mathlib.Tactic.Ring.Common.neg_zero))
+                    (Mathlib.Tactic.Ring.Common.sub_congr
+                      (Mathlib.Tactic.Ring.Common.atom_pf (p0.ofLp 0) rfl
+                        (Eq.mpr
+                          (id
+                            (congrArg
+                              (fun _a => p0.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 = p0.ofLp 0 ^ Nat.rawCast 1 * _a)
+                              (Eq.symm rfl)))
+                          (Eq.refl (p0.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                      (Mathlib.Tactic.Ring.Common.neg_congr
+                        (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ((fun x => ℝ) 0) Nat.cast_one))
+                        (Mathlib.Tactic.Ring.Common.neg_add
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                              (Eq.refl (Int.negOfNat 1))))
+                          Mathlib.Tactic.Ring.Common.neg_zero))
+                      (Mathlib.Tactic.Ring.Common.sub_pf
+                        (Mathlib.Tactic.Ring.Common.neg_add
+                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                            (Mathlib.Meta.NormNum.IsInt.to_isNat
+                              (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1))
+                                (Eq.refl (Int.ofNat 1)))))
+                          Mathlib.Tactic.Ring.Common.neg_zero)
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_gt (Nat.rawCast 1)
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                            (p0.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                      (Mathlib.Meta.NormNum.IsInt.to_isNat
+                        (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                          (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1))
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                          (Eq.refl (Int.ofNat 0))))
+                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add (p0.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                  (Mathlib.Tactic.Ring.Common.neg_congr
+                    (Mathlib.Tactic.Ring.Common.sub_congr
+                      (Mathlib.Tactic.Ring.Common.atom_pf (p1.ofLp 0) rfl
+                        (Eq.mpr
+                          (id
+                            (congrArg
+                              (fun _a => p1.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 = p1.ofLp 0 ^ Nat.rawCast 1 * _a)
+                              (Eq.symm rfl)))
+                          (Eq.refl (p1.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                      (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ((fun x => ℝ) 0) Nat.cast_zero))
+                      (Mathlib.Tactic.Ring.Common.sub_pf Mathlib.Tactic.Ring.Common.neg_zero
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero (p1.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                    (Mathlib.Tactic.Ring.Common.neg_add
+                      (Mathlib.Tactic.Ring.Common.neg_mul (p1.ofLp 0) (Nat.rawCast 1)
+                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                            (Eq.refl (Int.negOfNat 1)))))
+                      Mathlib.Tactic.Ring.Common.neg_zero))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_lt (p0.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1)
+                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                      (p1.ofLp 0 ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0))))
+                (Mathlib.Tactic.Ring.Common.neg_congr
+                  (Mathlib.Tactic.Ring.Common.sub_congr
+                    (Mathlib.Tactic.Ring.Common.atom_pf (p0.ofLp 0) rfl
+                      (Eq.mpr
+                        (id
+                          (congrArg
+                            (fun _a => p0.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 = p0.ofLp 0 ^ Nat.rawCast 1 * _a)
+                            (Eq.symm rfl)))
+                        (Eq.refl (p0.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                    (Mathlib.Tactic.Ring.Common.atom_pf (p1.ofLp 0) rfl
+                      (Eq.mpr
+                        (id
+                          (congrArg
+                            (fun _a => p1.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 = p1.ofLp 0 ^ Nat.rawCast 1 * _a)
+                            (Eq.symm rfl)))
+                        (Eq.refl (p1.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                    (Mathlib.Tactic.Ring.Common.sub_pf
+                      (Mathlib.Tactic.Ring.Common.neg_add
+                        (Mathlib.Tactic.Ring.Common.neg_mul (p1.ofLp 0) (Nat.rawCast 1)
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                              (Eq.refl (Int.negOfNat 1)))))
+                        Mathlib.Tactic.Ring.Common.neg_zero)
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_lt (p0.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1)
+                        (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                          (p1.ofLp 0 ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0)))))
+                  (Mathlib.Tactic.Ring.Common.neg_add
+                    (Mathlib.Tactic.Ring.Common.neg_mul (p0.ofLp 0) (Nat.rawCast 1)
+                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                        (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                          (Eq.refl (Int.negOfNat 1)))))
+                    (Mathlib.Tactic.Ring.Common.neg_add
+                      (Mathlib.Tactic.Ring.Common.neg_mul (p1.ofLp 0) (Nat.rawCast 1)
+                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                          (Mathlib.Meta.NormNum.IsInt.to_isNat
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1))
+                              (Eq.refl (Int.ofNat 1))))))
+                      Mathlib.Tactic.Ring.Common.neg_zero)))
+                (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                  (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero (p0.ofLp 0) (Nat.rawCast 1)
+                    (Mathlib.Meta.NormNum.IsInt.to_isNat
+                      (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                        (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1)) (Eq.refl (Int.ofNat 0)))))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                    (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero (p1.ofLp 0) (Nat.rawCast 1)
+                      (Mathlib.Meta.NormNum.IsInt.to_isNat
+                        (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                          (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1))
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                          (Eq.refl (Int.ofNat 0)))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0))))
+              (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ((fun x => ℝ) 0) Nat.cast_zero))))
+          (Mathlib.Tactic.Linarith.lt_of_lt_of_eq
+            (Mathlib.Tactic.Linarith.lt_of_lt_of_eq
+              (Mathlib.Tactic.Linarith.lt_of_lt_of_eq (neg_neg_of_pos Mathlib.Tactic.Linarith.zero_lt_one)
+                (sub_eq_zero_of_eq hp0_val))
+              (neg_eq_zero.mpr (sub_eq_zero_of_eq hp1_val)))
+            (neg_eq_zero.mpr (sub_eq_zero_of_eq this)))));
+  have hp12 := fun h =>
+    have this := congrArg (fun v => v.ofLp 0) h;
+    False.elim
+      (Mathlib.Tactic.Linarith.lt_irrefl
+        (Eq.mp
+          (congrArg (fun _a => _a < 0)
+            (Mathlib.Tactic.Ring.of_eq
+              (Mathlib.Tactic.Ring.Common.add_congr
+                (Mathlib.Tactic.Ring.Common.add_congr
+                  (Mathlib.Tactic.Ring.Common.add_congr
+                    (Mathlib.Tactic.Ring.Common.neg_congr
+                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ((fun x => ℝ) 0) Nat.cast_one))
+                      (Mathlib.Tactic.Ring.Common.neg_add
+                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                            (Eq.refl (Int.negOfNat 1))))
+                        Mathlib.Tactic.Ring.Common.neg_zero))
+                    (Mathlib.Tactic.Ring.Common.sub_congr
+                      (Mathlib.Tactic.Ring.Common.atom_pf (p1.ofLp 0) rfl
+                        (Eq.mpr
+                          (id
+                            (congrArg
+                              (fun _a => p1.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 = p1.ofLp 0 ^ Nat.rawCast 1 * _a)
+                              (Eq.symm rfl)))
+                          (Eq.refl (p1.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                      (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ((fun x => ℝ) 0) Nat.cast_zero))
+                      (Mathlib.Tactic.Ring.Common.sub_pf Mathlib.Tactic.Ring.Common.neg_zero
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero (p1.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_lt (Int.negOfNat 1).rawCast
+                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add (p1.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                  (Mathlib.Tactic.Ring.Common.neg_congr
+                    (Mathlib.Tactic.Ring.Common.sub_congr
+                      (Mathlib.Tactic.Ring.Common.atom_pf (p2.ofLp 0) rfl
+                        (Eq.mpr
+                          (id
+                            (congrArg
+                              (fun _a => p2.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 = p2.ofLp 0 ^ Nat.rawCast 1 * _a)
+                              (Eq.symm rfl)))
+                          (Eq.refl (p2.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ((fun x => ℝ) 0) Nat.cast_one))
+                      (Mathlib.Tactic.Ring.Common.sub_pf
+                        (Mathlib.Tactic.Ring.Common.neg_add
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                              (Eq.refl (Int.negOfNat 1))))
+                          Mathlib.Tactic.Ring.Common.neg_zero)
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_gt (Int.negOfNat 1).rawCast
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                            (p2.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))))
+                    (Mathlib.Tactic.Ring.Common.neg_add
+                      (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                        (Mathlib.Meta.NormNum.IsInt.to_isNat
+                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                            (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1))
+                            (Eq.refl (Int.ofNat 1)))))
+                      (Mathlib.Tactic.Ring.Common.neg_add
+                        (Mathlib.Tactic.Ring.Common.neg_mul (p2.ofLp 0) (Nat.rawCast 1)
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                              (Eq.refl (Int.negOfNat 1)))))
+                        Mathlib.Tactic.Ring.Common.neg_zero)))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                    (Mathlib.Meta.NormNum.IsInt.to_isNat
+                      (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                        (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1))
+                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                        (Eq.refl (Int.ofNat 0))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_lt (p1.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1)
+                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                        (p2.ofLp 0 ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0)))))
+                (Mathlib.Tactic.Ring.Common.neg_congr
+                  (Mathlib.Tactic.Ring.Common.sub_congr
+                    (Mathlib.Tactic.Ring.Common.atom_pf (p1.ofLp 0) rfl
+                      (Eq.mpr
+                        (id
+                          (congrArg
+                            (fun _a => p1.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 = p1.ofLp 0 ^ Nat.rawCast 1 * _a)
+                            (Eq.symm rfl)))
+                        (Eq.refl (p1.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                    (Mathlib.Tactic.Ring.Common.atom_pf (p2.ofLp 0) rfl
+                      (Eq.mpr
+                        (id
+                          (congrArg
+                            (fun _a => p2.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 = p2.ofLp 0 ^ Nat.rawCast 1 * _a)
+                            (Eq.symm rfl)))
+                        (Eq.refl (p2.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                    (Mathlib.Tactic.Ring.Common.sub_pf
+                      (Mathlib.Tactic.Ring.Common.neg_add
+                        (Mathlib.Tactic.Ring.Common.neg_mul (p2.ofLp 0) (Nat.rawCast 1)
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                              (Eq.refl (Int.negOfNat 1)))))
+                        Mathlib.Tactic.Ring.Common.neg_zero)
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_lt (p1.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1)
+                        (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                          (p2.ofLp 0 ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0)))))
+                  (Mathlib.Tactic.Ring.Common.neg_add
+                    (Mathlib.Tactic.Ring.Common.neg_mul (p1.ofLp 0) (Nat.rawCast 1)
+                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                        (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                          (Eq.refl (Int.negOfNat 1)))))
+                    (Mathlib.Tactic.Ring.Common.neg_add
+                      (Mathlib.Tactic.Ring.Common.neg_mul (p2.ofLp 0) (Nat.rawCast 1)
+                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                          (Mathlib.Meta.NormNum.IsInt.to_isNat
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1))
+                              (Eq.refl (Int.ofNat 1))))))
+                      Mathlib.Tactic.Ring.Common.neg_zero)))
+                (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                  (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero (p1.ofLp 0) (Nat.rawCast 1)
+                    (Mathlib.Meta.NormNum.IsInt.to_isNat
+                      (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                        (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1)) (Eq.refl (Int.ofNat 0)))))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                    (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero (p2.ofLp 0) (Nat.rawCast 1)
+                      (Mathlib.Meta.NormNum.IsInt.to_isNat
+                        (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                          (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1))
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                          (Eq.refl (Int.ofNat 0)))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0))))
+              (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ((fun x => ℝ) 0) Nat.cast_zero))))
+          (Mathlib.Tactic.Linarith.lt_of_lt_of_eq
+            (Mathlib.Tactic.Linarith.lt_of_lt_of_eq
+              (Mathlib.Tactic.Linarith.lt_of_lt_of_eq (neg_neg_of_pos Mathlib.Tactic.Linarith.zero_lt_one)
+                (sub_eq_zero_of_eq hp1_val))
+              (neg_eq_zero.mpr (sub_eq_zero_of_eq hp2_val)))
+            (neg_eq_zero.mpr (sub_eq_zero_of_eq this)))));
+  have hp02 := fun h =>
+    have this := congrArg (fun v => v.ofLp 0) h;
+    False.elim
+      (Mathlib.Tactic.Linarith.lt_irrefl
+        (Eq.mp
+          (congrArg (fun _a => _a < 0)
+            (Mathlib.Tactic.Ring.of_eq
+              (Mathlib.Tactic.Ring.Common.add_congr
+                (Mathlib.Tactic.Ring.Common.add_congr
+                  (Mathlib.Tactic.Ring.Common.add_congr
+                    (Mathlib.Tactic.Ring.Common.mul_congr
+                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ((fun x => ℝ) 0) (Eq.refl 2)))
+                      (Mathlib.Tactic.Ring.Common.neg_congr
+                        (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ((fun x => ℝ) 0) Nat.cast_one))
+                        (Mathlib.Tactic.Ring.Common.neg_add
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                              (Eq.refl (Int.negOfNat 1))))
+                          Mathlib.Tactic.Ring.Common.neg_zero))
+                      (Mathlib.Tactic.Ring.Common.add_mul
+                        (Mathlib.Tactic.Ring.Common.mul_add
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_mul (Eq.refl HMul.hMul)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 2))
+                              (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1))
+                              (Eq.refl (Int.negOfNat 2))))
+                          (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 2))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero ((Int.negOfNat 2).rawCast + 0)))
+                        (Mathlib.Tactic.Ring.Common.zero_mul ((Int.negOfNat 1).rawCast + 0))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero ((Int.negOfNat 2).rawCast + 0))))
+                    (Mathlib.Tactic.Ring.Common.sub_congr
+                      (Mathlib.Tactic.Ring.Common.atom_pf (p0.ofLp 0) rfl
+                        (Eq.mpr
+                          (id
+                            (congrArg
+                              (fun _a => p0.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 = p0.ofLp 0 ^ Nat.rawCast 1 * _a)
+                              (Eq.symm rfl)))
+                          (Eq.refl (p0.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                      (Mathlib.Tactic.Ring.Common.neg_congr
+                        (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ((fun x => ℝ) 0) Nat.cast_one))
+                        (Mathlib.Tactic.Ring.Common.neg_add
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                              (Eq.refl (Int.negOfNat 1))))
+                          Mathlib.Tactic.Ring.Common.neg_zero))
+                      (Mathlib.Tactic.Ring.Common.sub_pf
+                        (Mathlib.Tactic.Ring.Common.neg_add
+                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                            (Mathlib.Meta.NormNum.IsInt.to_isNat
+                              (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1))
+                                (Eq.refl (Int.ofNat 1)))))
+                          Mathlib.Tactic.Ring.Common.neg_zero)
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_gt (Nat.rawCast 1)
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                            (p0.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_overlap
+                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                        (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                          (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 2))
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                          (Eq.refl (Int.negOfNat 1))))
+                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add (p0.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                  (Mathlib.Tactic.Ring.Common.neg_congr
+                    (Mathlib.Tactic.Ring.Common.sub_congr
+                      (Mathlib.Tactic.Ring.Common.atom_pf (p2.ofLp 0) rfl
+                        (Eq.mpr
+                          (id
+                            (congrArg
+                              (fun _a => p2.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 = p2.ofLp 0 ^ Nat.rawCast 1 * _a)
+                              (Eq.symm rfl)))
+                          (Eq.refl (p2.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ((fun x => ℝ) 0) Nat.cast_one))
+                      (Mathlib.Tactic.Ring.Common.sub_pf
+                        (Mathlib.Tactic.Ring.Common.neg_add
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                              (Eq.refl (Int.negOfNat 1))))
+                          Mathlib.Tactic.Ring.Common.neg_zero)
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_gt (Int.negOfNat 1).rawCast
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                            (p2.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))))
+                    (Mathlib.Tactic.Ring.Common.neg_add
+                      (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                        (Mathlib.Meta.NormNum.IsInt.to_isNat
+                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                            (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1))
+                            (Eq.refl (Int.ofNat 1)))))
+                      (Mathlib.Tactic.Ring.Common.neg_add
+                        (Mathlib.Tactic.Ring.Common.neg_mul (p2.ofLp 0) (Nat.rawCast 1)
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                              (Eq.refl (Int.negOfNat 1)))))
+                        Mathlib.Tactic.Ring.Common.neg_zero)))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                    (Mathlib.Meta.NormNum.IsInt.to_isNat
+                      (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                        (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1))
+                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                        (Eq.refl (Int.ofNat 0))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_lt (p0.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1)
+                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                        (p2.ofLp 0 ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0)))))
+                (Mathlib.Tactic.Ring.Common.neg_congr
+                  (Mathlib.Tactic.Ring.Common.sub_congr
+                    (Mathlib.Tactic.Ring.Common.atom_pf (p0.ofLp 0) rfl
+                      (Eq.mpr
+                        (id
+                          (congrArg
+                            (fun _a => p0.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 = p0.ofLp 0 ^ Nat.rawCast 1 * _a)
+                            (Eq.symm rfl)))
+                        (Eq.refl (p0.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                    (Mathlib.Tactic.Ring.Common.atom_pf (p2.ofLp 0) rfl
+                      (Eq.mpr
+                        (id
+                          (congrArg
+                            (fun _a => p2.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1 = p2.ofLp 0 ^ Nat.rawCast 1 * _a)
+                            (Eq.symm rfl)))
+                        (Eq.refl (p2.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                    (Mathlib.Tactic.Ring.Common.sub_pf
+                      (Mathlib.Tactic.Ring.Common.neg_add
+                        (Mathlib.Tactic.Ring.Common.neg_mul (p2.ofLp 0) (Nat.rawCast 1)
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                              (Eq.refl (Int.negOfNat 1)))))
+                        Mathlib.Tactic.Ring.Common.neg_zero)
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_lt (p0.ofLp 0 ^ Nat.rawCast 1 * Nat.rawCast 1)
+                        (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                          (p2.ofLp 0 ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0)))))
+                  (Mathlib.Tactic.Ring.Common.neg_add
+                    (Mathlib.Tactic.Ring.Common.neg_mul (p0.ofLp 0) (Nat.rawCast 1)
+                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                        (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                          (Eq.refl (Int.negOfNat 1)))))
+                    (Mathlib.Tactic.Ring.Common.neg_add
+                      (Mathlib.Tactic.Ring.Common.neg_mul (p2.ofLp 0) (Nat.rawCast 1)
+                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                          (Mathlib.Meta.NormNum.IsInt.to_isNat
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1))
+                              (Eq.refl (Int.ofNat 1))))))
+                      Mathlib.Tactic.Ring.Common.neg_zero)))
+                (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                  (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero (p0.ofLp 0) (Nat.rawCast 1)
+                    (Mathlib.Meta.NormNum.IsInt.to_isNat
+                      (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                        (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1)) (Eq.refl (Int.ofNat 0)))))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                    (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero (p2.ofLp 0) (Nat.rawCast 1)
+                      (Mathlib.Meta.NormNum.IsInt.to_isNat
+                        (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                          (Mathlib.Meta.NormNum.IsInt.of_raw ((fun x => ℝ) 0) (Int.negOfNat 1))
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ((fun x => ℝ) 0) 1))
+                          (Eq.refl (Int.ofNat 0)))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0))))
+              (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ((fun x => ℝ) 0) Nat.cast_zero))))
+          (Mathlib.Tactic.Linarith.lt_of_lt_of_eq
+            (Mathlib.Tactic.Linarith.lt_of_lt_of_eq
+              (Mathlib.Tactic.Linarith.lt_of_lt_of_eq
+                (Mathlib.Tactic.Linarith.mul_neg (neg_neg_of_pos Mathlib.Tactic.Linarith.zero_lt_one)
+                  (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ((fun x => ℝ) 0) Nat.cast_zero)
+                    (Mathlib.Meta.NormNum.isNat_ofNat ((fun x => ℝ) 0) (Eq.refl 2)) (Eq.refl false)))
+                (sub_eq_zero_of_eq hp0_val))
+              (neg_eq_zero.mpr (sub_eq_zero_of_eq hp2_val)))
+            (neg_eq_zero.mpr (sub_eq_zero_of_eq this)))));
+  Exists.intro {p0, p1, p2}
+    (Exists.intro
+      ⟨Exists.intro p0
+          (of_eq_true
+            (Eq.trans Set.mem_insert_iff._simp_1
+              (Eq.trans
+                (congr (congrArg Or (eq_self p0))
+                  (Eq.trans Set.mem_insert_iff._simp_1 (congrArg (Or (p0 = p1)) Set.mem_singleton_iff._simp_1)))
+                (true_or (p0 = p1 ∨ p0 = p2))))),
+        fun ⦃x⦄ hx ⦃y⦄ hy ⦃z⦄ hz hxy hyz hxz =>
+        id
+          (Eq.mpr
+            (id
+              (congr (congrArg Or (congr (congrArg Eq (Erdos503.dist_R1_eq_abs x y)) (Erdos503.dist_R1_eq_abs y z)))
+                (congr (congrArg Or (congr (congrArg Eq (Erdos503.dist_R1_eq_abs y z)) (Erdos503.dist_R1_eq_abs z x)))
+                  (congr (congrArg Eq (Erdos503.dist_R1_eq_abs z x)) (Erdos503.dist_R1_eq_abs x y)))))
+            (Or.casesOn hx
+              (fun h =>
+                Eq.ndrec (motive := fun ⦃x⦄ =>
+                  x ≠ y →
+                    x ≠ z →
+                      |x.ofLp 0 - y.ofLp 0| = |y.ofLp 0 - z.ofLp 0| ∨
+                        |y.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - x.ofLp 0| ∨ |z.ofLp 0 - x.ofLp 0| = |x.ofLp 0 - y.ofLp 0|)
+                  (fun hxy hxz =>
+                    Or.casesOn hy
+                      (fun h =>
+                        Eq.ndrec (motive := fun ⦃y⦄ =>
+                          y ≠ z →
+                            p0 ≠ y →
+                              |p0.ofLp 0 - y.ofLp 0| = |y.ofLp 0 - z.ofLp 0| ∨
+                                |y.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p0.ofLp 0| ∨
+                                  |z.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - y.ofLp 0|)
+                          (fun hyz hxy =>
+                            Or.casesOn hz
+                              (fun h =>
+                                Eq.ndrec (motive := fun ⦃z⦄ =>
+                                  p0 ≠ z →
+                                    p0 ≠ z →
+                                      |p0.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - z.ofLp 0| ∨
+                                        |p0.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p0.ofLp 0| ∨
+                                          |z.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - p0.ofLp 0|)
+                                  (fun hxz hyz => absurd (Eq.refl p0) hxy) (Eq.symm h) hxz hyz)
+                              fun h =>
+                              Or.casesOn h
+                                (fun h =>
+                                  Eq.ndrec (motive := fun ⦃z⦄ =>
+                                    p0 ≠ z →
+                                      p0 ≠ z →
+                                        |p0.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - z.ofLp 0| ∨
+                                          |p0.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p0.ofLp 0| ∨
+                                            |z.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - p0.ofLp 0|)
+                                    (fun hxz hyz => absurd (Eq.refl p0) hxy) (Eq.symm h) hxz hyz)
+                                fun h =>
+                                Eq.ndrec (motive := fun ⦃z⦄ =>
+                                  p0 ≠ z →
+                                    p0 ≠ z →
+                                      |p0.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - z.ofLp 0| ∨
+                                        |p0.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p0.ofLp 0| ∨
+                                          |z.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - p0.ofLp 0|)
+                                  (fun hxz hyz => absurd (Eq.refl p0) hxy) (Eq.symm h) hxz hyz)
+                          (Eq.symm h) hyz hxy)
+                      fun h =>
+                      Or.casesOn h
+                        (fun h =>
+                          Eq.ndrec (motive := fun ⦃y⦄ =>
+                            y ≠ z →
+                              p0 ≠ y →
+                                |p0.ofLp 0 - y.ofLp 0| = |y.ofLp 0 - z.ofLp 0| ∨
+                                  |y.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p0.ofLp 0| ∨
+                                    |z.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - y.ofLp 0|)
+                            (fun hyz hxy =>
+                              Or.casesOn hz
+                                (fun h =>
+                                  Eq.ndrec (motive := fun ⦃z⦄ =>
+                                    p0 ≠ z →
+                                      p1 ≠ z →
+                                        |p0.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - z.ofLp 0| ∨
+                                          |p1.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p0.ofLp 0| ∨
+                                            |z.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - p1.ofLp 0|)
+                                    (fun hxz hyz => absurd (Eq.refl p0) hxz) (Eq.symm h) hxz hyz)
+                                fun h =>
+                                Or.casesOn h
+                                  (fun h =>
+                                    Eq.ndrec (motive := fun ⦃z⦄ =>
+                                      p0 ≠ z →
+                                        p1 ≠ z →
+                                          |p0.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - z.ofLp 0| ∨
+                                            |p1.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p0.ofLp 0| ∨
+                                              |z.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - p1.ofLp 0|)
+                                      (fun hxz hyz => absurd (Eq.refl p1) hyz) (Eq.symm h) hxz hyz)
+                                  fun h =>
+                                  Eq.ndrec (motive := fun ⦃z⦄ =>
+                                    p0 ≠ z →
+                                      p1 ≠ z →
+                                        |p0.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - z.ofLp 0| ∨
+                                          |p1.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p0.ofLp 0| ∨
+                                            |z.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - p1.ofLp 0|)
+                                    (fun hxz hyz =>
+                                      Eq.mpr
+                                        (id
+                                          (congr
+                                            (congrArg Or
+                                              (congr
+                                                (congrArg Eq
+                                                  (congrArg abs (congr (congrArg HSub.hSub hp0_val) hp1_val)))
+                                                (congrArg abs (congr (congrArg HSub.hSub hp1_val) hp2_val))))
+                                            (congr
+                                              (congrArg Or
+                                                (congr
+                                                  (congrArg Eq
+                                                    (congrArg abs (congr (congrArg HSub.hSub hp1_val) hp2_val)))
+                                                  (congrArg abs (congr (congrArg HSub.hSub hp2_val) hp0_val))))
+                                              (congr
+                                                (congrArg Eq
+                                                  (congrArg abs (congr (congrArg HSub.hSub hp2_val) hp0_val)))
+                                                (congrArg abs (congr (congrArg HSub.hSub hp0_val) hp1_val))))))
+                                        (of_eq_true
+                                          (Eq.trans
+                                            (Eq.trans
+                                              (congr
+                                                (congrArg Or
+                                                  (eq_true
+                                                    (Mathlib.Meta.NormNum.isNat_eq_true
+                                                      (Mathlib.Meta.NormNum.isNat_abs_neg
+                                                        (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                            (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                            (Eq.refl (Int.negOfNat 1)))
+                                                          (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                            (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                          (Eq.refl (Int.negOfNat 1))))
+                                                      (Mathlib.Meta.NormNum.isNat_abs_neg
+                                                        (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                          (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                            (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                          (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                            (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                          (Eq.refl (Int.negOfNat 1)))))))
+                                                (Eq.trans
+                                                  (Eq.trans
+                                                    (congr
+                                                      (congrArg Or
+                                                        (eq_false
+                                                          (Mathlib.Meta.NormNum.isNat_eq_false
+                                                            (Mathlib.Meta.NormNum.isNat_abs_neg
+                                                              (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                                (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                                (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                (Eq.refl (Int.negOfNat 1))))
+                                                            (Mathlib.Meta.NormNum.isNat_abs_nonneg
+                                                              (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                                (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                                  (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                  (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                                    (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                    (Eq.refl (Int.negOfNat 1)))
+                                                                  (Eq.refl (Int.ofNat 2)))))
+                                                            (Eq.refl false))))
+                                                      (eq_false
+                                                        (Mathlib.Meta.NormNum.isNat_eq_false
+                                                          (Mathlib.Meta.NormNum.isNat_abs_nonneg
+                                                            (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                              (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                                (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                                  (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                  (Eq.refl (Int.negOfNat 1)))
+                                                                (Eq.refl (Int.ofNat 2)))))
+                                                          (Mathlib.Meta.NormNum.isNat_abs_neg
+                                                            (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                              (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                                (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                (Eq.refl (Int.negOfNat 1)))
+                                                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                              (Eq.refl (Int.negOfNat 1))))
+                                                          (Eq.refl false))))
+                                                    (or_self False))
+                                                  (eq_false not_false)))
+                                              (or_false True))
+                                            (eq_true True.intro))))
+                                    (Eq.symm h) hxz hyz)
+                            (Eq.symm h) hyz hxy)
+                        fun h =>
+                        Eq.ndrec (motive := fun ⦃y⦄ =>
+                          y ≠ z →
+                            p0 ≠ y →
+                              |p0.ofLp 0 - y.ofLp 0| = |y.ofLp 0 - z.ofLp 0| ∨
+                                |y.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p0.ofLp 0| ∨
+                                  |z.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - y.ofLp 0|)
+                          (fun hyz hxy =>
+                            Or.casesOn hz
+                              (fun h =>
+                                Eq.ndrec (motive := fun ⦃z⦄ =>
+                                  p0 ≠ z →
+                                    p2 ≠ z →
+                                      |p0.ofLp 0 - p2.ofLp 0| = |p2.ofLp 0 - z.ofLp 0| ∨
+                                        |p2.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p0.ofLp 0| ∨
+                                          |z.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - p2.ofLp 0|)
+                                  (fun hxz hyz => absurd (Eq.refl p0) hxz) (Eq.symm h) hxz hyz)
+                              fun h =>
+                              Or.casesOn h
+                                (fun h =>
+                                  Eq.ndrec (motive := fun ⦃z⦄ =>
+                                    p0 ≠ z →
+                                      p2 ≠ z →
+                                        |p0.ofLp 0 - p2.ofLp 0| = |p2.ofLp 0 - z.ofLp 0| ∨
+                                          |p2.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p0.ofLp 0| ∨
+                                            |z.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - p2.ofLp 0|)
+                                    (fun hxz hyz =>
+                                      Eq.mpr
+                                        (id
+                                          (congr
+                                            (congrArg Or
+                                              (congr
+                                                (congrArg Eq
+                                                  (congrArg abs (congr (congrArg HSub.hSub hp0_val) hp2_val)))
+                                                (congrArg abs (congr (congrArg HSub.hSub hp2_val) hp1_val))))
+                                            (congr
+                                              (congrArg Or
+                                                (congr
+                                                  (congrArg Eq
+                                                    (congrArg abs (congr (congrArg HSub.hSub hp2_val) hp1_val)))
+                                                  (congrArg abs (congr (congrArg HSub.hSub hp1_val) hp0_val))))
+                                              (congr
+                                                (congrArg Eq
+                                                  (congrArg abs (congr (congrArg HSub.hSub hp1_val) hp0_val)))
+                                                (congrArg abs (congr (congrArg HSub.hSub hp0_val) hp2_val))))))
+                                        (of_eq_true
+                                          (Eq.trans
+                                            (Eq.trans
+                                              (congr
+                                                (congrArg Or
+                                                  (eq_false
+                                                    (Mathlib.Meta.NormNum.isNat_eq_false
+                                                      (Mathlib.Meta.NormNum.isNat_abs_neg
+                                                        (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                            (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                            (Eq.refl (Int.negOfNat 1)))
+                                                          (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                            (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                          (Eq.refl (Int.negOfNat 2))))
+                                                      (Mathlib.Meta.NormNum.isNat_abs_nonneg
+                                                        (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                          (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                            (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                            (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                            (Eq.refl (Int.ofNat 1)))))
+                                                      (Eq.refl false))))
+                                                (Eq.trans
+                                                  (Eq.trans
+                                                    (congr
+                                                      (congrArg Or
+                                                        (eq_true
+                                                          (Mathlib.Meta.NormNum.isNat_eq_true
+                                                            (Mathlib.Meta.NormNum.isNat_abs_nonneg
+                                                              (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                                (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                                  (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                  (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                                  (Eq.refl (Int.ofNat 1)))))
+                                                            (Mathlib.Meta.NormNum.isNat_abs_nonneg
+                                                              (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                                (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                                  (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                                  (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                                    (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                    (Eq.refl (Int.negOfNat 1)))
+                                                                  (Eq.refl (Int.ofNat 1))))))))
+                                                      (eq_false
+                                                        (Mathlib.Meta.NormNum.isNat_eq_false
+                                                          (Mathlib.Meta.NormNum.isNat_abs_nonneg
+                                                            (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                              (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                                (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                                (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                                  (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                  (Eq.refl (Int.negOfNat 1)))
+                                                                (Eq.refl (Int.ofNat 1)))))
+                                                          (Mathlib.Meta.NormNum.isNat_abs_neg
+                                                            (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                              (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                                (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                (Eq.refl (Int.negOfNat 1)))
+                                                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                              (Eq.refl (Int.negOfNat 2))))
+                                                          (Eq.refl false))))
+                                                    (or_false True))
+                                                  (eq_true True.intro)))
+                                              (or_true False))
+                                            (eq_true True.intro))))
+                                    (Eq.symm h) hxz hyz)
+                                fun h =>
+                                Eq.ndrec (motive := fun ⦃z⦄ =>
+                                  p0 ≠ z →
+                                    p2 ≠ z →
+                                      |p0.ofLp 0 - p2.ofLp 0| = |p2.ofLp 0 - z.ofLp 0| ∨
+                                        |p2.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p0.ofLp 0| ∨
+                                          |z.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - p2.ofLp 0|)
+                                  (fun hxz hyz => absurd (Eq.refl p2) hyz) (Eq.symm h) hxz hyz)
+                          (Eq.symm h) hyz hxy)
+                  (Eq.symm h) hxy hxz)
+              fun h =>
+              Or.casesOn h
+                (fun h =>
+                  Eq.ndrec (motive := fun ⦃x⦄ =>
+                    x ≠ y →
+                      x ≠ z →
+                        |x.ofLp 0 - y.ofLp 0| = |y.ofLp 0 - z.ofLp 0| ∨
+                          |y.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - x.ofLp 0| ∨ |z.ofLp 0 - x.ofLp 0| = |x.ofLp 0 - y.ofLp 0|)
+                    (fun hxy hxz =>
+                      Or.casesOn hy
+                        (fun h =>
+                          Eq.ndrec (motive := fun ⦃y⦄ =>
+                            y ≠ z →
+                              p1 ≠ y →
+                                |p1.ofLp 0 - y.ofLp 0| = |y.ofLp 0 - z.ofLp 0| ∨
+                                  |y.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p1.ofLp 0| ∨
+                                    |z.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - y.ofLp 0|)
+                            (fun hyz hxy =>
+                              Or.casesOn hz
+                                (fun h =>
+                                  Eq.ndrec (motive := fun ⦃z⦄ =>
+                                    p1 ≠ z →
+                                      p0 ≠ z →
+                                        |p1.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - z.ofLp 0| ∨
+                                          |p0.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p1.ofLp 0| ∨
+                                            |z.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - p0.ofLp 0|)
+                                    (fun hxz hyz => absurd (Eq.refl p0) hyz) (Eq.symm h) hxz hyz)
+                                fun h =>
+                                Or.casesOn h
+                                  (fun h =>
+                                    Eq.ndrec (motive := fun ⦃z⦄ =>
+                                      p1 ≠ z →
+                                        p0 ≠ z →
+                                          |p1.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - z.ofLp 0| ∨
+                                            |p0.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p1.ofLp 0| ∨
+                                              |z.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - p0.ofLp 0|)
+                                      (fun hxz hyz => absurd (Eq.refl p1) hxz) (Eq.symm h) hxz hyz)
+                                  fun h =>
+                                  Eq.ndrec (motive := fun ⦃z⦄ =>
+                                    p1 ≠ z →
+                                      p0 ≠ z →
+                                        |p1.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - z.ofLp 0| ∨
+                                          |p0.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p1.ofLp 0| ∨
+                                            |z.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - p0.ofLp 0|)
+                                    (fun hxz hyz =>
+                                      Eq.mpr
+                                        (id
+                                          (congr
+                                            (congrArg Or
+                                              (congr
+                                                (congrArg Eq
+                                                  (congrArg abs (congr (congrArg HSub.hSub hp1_val) hp0_val)))
+                                                (congrArg abs (congr (congrArg HSub.hSub hp0_val) hp2_val))))
+                                            (congr
+                                              (congrArg Or
+                                                (congr
+                                                  (congrArg Eq
+                                                    (congrArg abs (congr (congrArg HSub.hSub hp0_val) hp2_val)))
+                                                  (congrArg abs (congr (congrArg HSub.hSub hp2_val) hp1_val))))
+                                              (congr
+                                                (congrArg Eq
+                                                  (congrArg abs (congr (congrArg HSub.hSub hp2_val) hp1_val)))
+                                                (congrArg abs (congr (congrArg HSub.hSub hp1_val) hp0_val))))))
+                                        (of_eq_true
+                                          (Eq.trans
+                                            (Eq.trans
+                                              (congr
+                                                (congrArg Or
+                                                  (eq_false
+                                                    (Mathlib.Meta.NormNum.isNat_eq_false
+                                                      (Mathlib.Meta.NormNum.isNat_abs_nonneg
+                                                        (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                          (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                            (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                              (Eq.refl (Int.negOfNat 1)))
+                                                            (Eq.refl (Int.ofNat 1)))))
+                                                      (Mathlib.Meta.NormNum.isNat_abs_neg
+                                                        (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                            (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                            (Eq.refl (Int.negOfNat 1)))
+                                                          (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                            (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                          (Eq.refl (Int.negOfNat 2))))
+                                                      (Eq.refl false))))
+                                                (Eq.trans
+                                                  (Eq.trans
+                                                    (congr
+                                                      (congrArg Or
+                                                        (eq_false
+                                                          (Mathlib.Meta.NormNum.isNat_eq_false
+                                                            (Mathlib.Meta.NormNum.isNat_abs_neg
+                                                              (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                                (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                                  (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                  (Eq.refl (Int.negOfNat 1)))
+                                                                (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                (Eq.refl (Int.negOfNat 2))))
+                                                            (Mathlib.Meta.NormNum.isNat_abs_nonneg
+                                                              (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                                (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                                  (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                  (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                                  (Eq.refl (Int.ofNat 1)))))
+                                                            (Eq.refl false))))
+                                                      (eq_true
+                                                        (Mathlib.Meta.NormNum.isNat_eq_true
+                                                          (Mathlib.Meta.NormNum.isNat_abs_nonneg
+                                                            (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                              (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                                (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                                (Eq.refl (Int.ofNat 1)))))
+                                                          (Mathlib.Meta.NormNum.isNat_abs_nonneg
+                                                            (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                              (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                                (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                                (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                                  (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                  (Eq.refl (Int.negOfNat 1)))
+                                                                (Eq.refl (Int.ofNat 1))))))))
+                                                    (or_true False))
+                                                  (eq_true True.intro)))
+                                              (or_true False))
+                                            (eq_true True.intro))))
+                                    (Eq.symm h) hxz hyz)
+                            (Eq.symm h) hyz hxy)
+                        fun h =>
+                        Or.casesOn h
+                          (fun h =>
+                            Eq.ndrec (motive := fun ⦃y⦄ =>
+                              y ≠ z →
+                                p1 ≠ y →
+                                  |p1.ofLp 0 - y.ofLp 0| = |y.ofLp 0 - z.ofLp 0| ∨
+                                    |y.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p1.ofLp 0| ∨
+                                      |z.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - y.ofLp 0|)
+                              (fun hyz hxy =>
+                                Or.casesOn hz
+                                  (fun h =>
+                                    Eq.ndrec (motive := fun ⦃z⦄ =>
+                                      p1 ≠ z →
+                                        p1 ≠ z →
+                                          |p1.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - z.ofLp 0| ∨
+                                            |p1.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p1.ofLp 0| ∨
+                                              |z.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - p1.ofLp 0|)
+                                      (fun hxz hyz => absurd (Eq.refl p1) hxy) (Eq.symm h) hxz hyz)
+                                  fun h =>
+                                  Or.casesOn h
+                                    (fun h =>
+                                      Eq.ndrec (motive := fun ⦃z⦄ =>
+                                        p1 ≠ z →
+                                          p1 ≠ z →
+                                            |p1.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - z.ofLp 0| ∨
+                                              |p1.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p1.ofLp 0| ∨
+                                                |z.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - p1.ofLp 0|)
+                                        (fun hxz hyz => absurd (Eq.refl p1) hxy) (Eq.symm h) hxz hyz)
+                                    fun h =>
+                                    Eq.ndrec (motive := fun ⦃z⦄ =>
+                                      p1 ≠ z →
+                                        p1 ≠ z →
+                                          |p1.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - z.ofLp 0| ∨
+                                            |p1.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p1.ofLp 0| ∨
+                                              |z.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - p1.ofLp 0|)
+                                      (fun hxz hyz => absurd (Eq.refl p1) hxy) (Eq.symm h) hxz hyz)
+                              (Eq.symm h) hyz hxy)
+                          fun h =>
+                          Eq.ndrec (motive := fun ⦃y⦄ =>
+                            y ≠ z →
+                              p1 ≠ y →
+                                |p1.ofLp 0 - y.ofLp 0| = |y.ofLp 0 - z.ofLp 0| ∨
+                                  |y.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p1.ofLp 0| ∨
+                                    |z.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - y.ofLp 0|)
+                            (fun hyz hxy =>
+                              Or.casesOn hz
+                                (fun h =>
+                                  Eq.ndrec (motive := fun ⦃z⦄ =>
+                                    p1 ≠ z →
+                                      p2 ≠ z →
+                                        |p1.ofLp 0 - p2.ofLp 0| = |p2.ofLp 0 - z.ofLp 0| ∨
+                                          |p2.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p1.ofLp 0| ∨
+                                            |z.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - p2.ofLp 0|)
+                                    (fun hxz hyz =>
+                                      Eq.mpr
+                                        (id
+                                          (congr
+                                            (congrArg Or
+                                              (congr
+                                                (congrArg Eq
+                                                  (congrArg abs (congr (congrArg HSub.hSub hp1_val) hp2_val)))
+                                                (congrArg abs (congr (congrArg HSub.hSub hp2_val) hp0_val))))
+                                            (congr
+                                              (congrArg Or
+                                                (congr
+                                                  (congrArg Eq
+                                                    (congrArg abs (congr (congrArg HSub.hSub hp2_val) hp0_val)))
+                                                  (congrArg abs (congr (congrArg HSub.hSub hp0_val) hp1_val))))
+                                              (congr
+                                                (congrArg Eq
+                                                  (congrArg abs (congr (congrArg HSub.hSub hp0_val) hp1_val)))
+                                                (congrArg abs (congr (congrArg HSub.hSub hp1_val) hp2_val))))))
+                                        (of_eq_true
+                                          (Eq.trans
+                                            (Eq.trans
+                                              (congr
+                                                (congrArg Or
+                                                  (eq_false
+                                                    (Mathlib.Meta.NormNum.isNat_eq_false
+                                                      (Mathlib.Meta.NormNum.isNat_abs_neg
+                                                        (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                          (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                            (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                          (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                            (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                          (Eq.refl (Int.negOfNat 1))))
+                                                      (Mathlib.Meta.NormNum.isNat_abs_nonneg
+                                                        (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                          (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                            (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                              (Eq.refl (Int.negOfNat 1)))
+                                                            (Eq.refl (Int.ofNat 2)))))
+                                                      (Eq.refl false))))
+                                                (Eq.trans
+                                                  (Eq.trans
+                                                    (congr
+                                                      (congrArg Or
+                                                        (eq_false
+                                                          (Mathlib.Meta.NormNum.isNat_eq_false
+                                                            (Mathlib.Meta.NormNum.isNat_abs_nonneg
+                                                              (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                                (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                                  (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                  (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                                    (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                    (Eq.refl (Int.negOfNat 1)))
+                                                                  (Eq.refl (Int.ofNat 2)))))
+                                                            (Mathlib.Meta.NormNum.isNat_abs_neg
+                                                              (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                                (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                                  (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                  (Eq.refl (Int.negOfNat 1)))
+                                                                (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                                (Eq.refl (Int.negOfNat 1))))
+                                                            (Eq.refl false))))
+                                                      (eq_true
+                                                        (Mathlib.Meta.NormNum.isNat_eq_true
+                                                          (Mathlib.Meta.NormNum.isNat_abs_neg
+                                                            (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                              (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                                (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                (Eq.refl (Int.negOfNat 1)))
+                                                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                              (Eq.refl (Int.negOfNat 1))))
+                                                          (Mathlib.Meta.NormNum.isNat_abs_neg
+                                                            (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                              (Eq.refl (Int.negOfNat 1)))))))
+                                                    (or_true False))
+                                                  (eq_true True.intro)))
+                                              (or_true False))
+                                            (eq_true True.intro))))
+                                    (Eq.symm h) hxz hyz)
+                                fun h =>
+                                Or.casesOn h
+                                  (fun h =>
+                                    Eq.ndrec (motive := fun ⦃z⦄ =>
+                                      p1 ≠ z →
+                                        p2 ≠ z →
+                                          |p1.ofLp 0 - p2.ofLp 0| = |p2.ofLp 0 - z.ofLp 0| ∨
+                                            |p2.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p1.ofLp 0| ∨
+                                              |z.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - p2.ofLp 0|)
+                                      (fun hxz hyz => absurd (Eq.refl p1) hxz) (Eq.symm h) hxz hyz)
+                                  fun h =>
+                                  Eq.ndrec (motive := fun ⦃z⦄ =>
+                                    p1 ≠ z →
+                                      p2 ≠ z →
+                                        |p1.ofLp 0 - p2.ofLp 0| = |p2.ofLp 0 - z.ofLp 0| ∨
+                                          |p2.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p1.ofLp 0| ∨
+                                            |z.ofLp 0 - p1.ofLp 0| = |p1.ofLp 0 - p2.ofLp 0|)
+                                    (fun hxz hyz => absurd (Eq.refl p2) hyz) (Eq.symm h) hxz hyz)
+                            (Eq.symm h) hyz hxy)
+                    (Eq.symm h) hxy hxz)
+                fun h =>
+                Eq.ndrec (motive := fun ⦃x⦄ =>
+                  x ≠ y →
+                    x ≠ z →
+                      |x.ofLp 0 - y.ofLp 0| = |y.ofLp 0 - z.ofLp 0| ∨
+                        |y.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - x.ofLp 0| ∨ |z.ofLp 0 - x.ofLp 0| = |x.ofLp 0 - y.ofLp 0|)
+                  (fun hxy hxz =>
+                    Or.casesOn hy
+                      (fun h =>
+                        Eq.ndrec (motive := fun ⦃y⦄ =>
+                          y ≠ z →
+                            p2 ≠ y →
+                              |p2.ofLp 0 - y.ofLp 0| = |y.ofLp 0 - z.ofLp 0| ∨
+                                |y.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p2.ofLp 0| ∨
+                                  |z.ofLp 0 - p2.ofLp 0| = |p2.ofLp 0 - y.ofLp 0|)
+                          (fun hyz hxy =>
+                            Or.casesOn hz
+                              (fun h =>
+                                Eq.ndrec (motive := fun ⦃z⦄ =>
+                                  p2 ≠ z →
+                                    p0 ≠ z →
+                                      |p2.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - z.ofLp 0| ∨
+                                        |p0.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p2.ofLp 0| ∨
+                                          |z.ofLp 0 - p2.ofLp 0| = |p2.ofLp 0 - p0.ofLp 0|)
+                                  (fun hxz hyz => absurd (Eq.refl p0) hyz) (Eq.symm h) hxz hyz)
+                              fun h =>
+                              Or.casesOn h
+                                (fun h =>
+                                  Eq.ndrec (motive := fun ⦃z⦄ =>
+                                    p2 ≠ z →
+                                      p0 ≠ z →
+                                        |p2.ofLp 0 - p0.ofLp 0| = |p0.ofLp 0 - z.ofLp 0| ∨
+                                          |p0.ofLp 0 - z.ofLp 0| = |z.ofLp 0 - p2.ofLp 0| ∨
+                                            |z.ofLp 0 - p2.ofLp 0| = |p2.ofLp 0 - p0.ofLp 0|)
+                                    (fun hxz hyz =>
+                                      Eq.mpr
+                                        (id
+                                          (congr
+                                            (congrArg Or
+                                              (congr
+                                                (congrArg Eq
+                                                  (congrArg abs (congr (congrArg HSub.hSub hp2_val) hp0_val)))
+                                                (congrArg abs (congr (congrArg HSub.hSub hp0_val) hp1_val))))
+                                            (congr
+                                              (congrArg Or
+                                                (congr
+                                                  (congrArg Eq
+                                                    (congrArg abs (congr (congrArg HSub.hSub hp0_val) hp1_val)))
+                                                  (congrArg abs (congr (congrArg HSub.hSub hp1_val) hp2_val))))
+                                              (congr
+                                                (congrArg Eq
+                                                  (congrArg abs (congr (congrArg HSub.hSub hp1_val) hp2_val)))
+                                                (congrArg abs (congr (congrArg HSub.hSub hp2_val) hp0_val))))))
+                                        (of_eq_true
+                                          (Eq.trans
+                                            (Eq.trans
+                                              (congr
+                                                (congrArg Or
+                                                  (eq_false
+                                                    (Mathlib.Meta.NormNum.isNat_eq_false
+                                                      (Mathlib.Meta.NormNum.isNat_abs_nonneg
+                                                        (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                          (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                            (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                              (Eq.refl (Int.negOfNat 1)))
+                                                            (Eq.refl (Int.ofNat 2)))))
+                                                      (Mathlib.Meta.NormNum.isNat_abs_neg
+                                                        (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                            (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                            (Eq.refl (Int.negOfNat 1)))
+                                                          (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                            (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                          (Eq.refl (Int.negOfNat 1))))
+                                                      (Eq.refl false))))
+                                                (Eq.trans
+                                                  (Eq.trans
+                                                    (congr
+                                                      (congrArg Or
+                                                        (eq_true
+                                                          (Mathlib.Meta.NormNum.isNat_eq_true
+                                                            (Mathlib.Meta.NormNum.isNat_abs_neg
+                                                              (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                                (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                                  (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                  (Eq.refl (Int.negOfNat 1)))
+                                                                (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                                (Eq.refl (Int.negOfNat 1))))
+                                                            (Mathlib.Meta.NormNum.isNat_abs_neg
+                                                              (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                                (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                                (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                (Eq.refl (Int.negOfNat 1)))))))
+                                                      (eq_false
+                                                        (Mathlib.Meta.NormNum.isNat_eq_false
+                                                          (Mathlib.Meta.NormNum.isNat_abs_neg
+                                                            (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                                                              (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                              (Eq.refl (Int.negOfNat 1))))
+                                                          (Mathlib.Meta.NormNum.isNat_abs_nonneg
+                                                            (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                              (Mathlib.Meta.NormNum.isInt_sub (Eq.refl HSub.hSub)
+                                                                (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                                  (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                                                  (Eq.refl (Int.negOfNat 1)))
+                                                                ⋯)))
+                                                          ⋯)))
+                                                    ⋯)
+                                                  ⋯))
+                                              ⋯)
+                                            ⋯)))
+                                    ⋯ ⋯ ⋯)
+                                ⋯)
+                          ⋯ ⋯ ⋯)
+                      ⋯)
+                  ⋯ ⋯ ⋯))⟩
+      ⋯),
+  ⋯⟩
+'Erdos503.erdos_503.variants.R1' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:8:8: error(lean.unknownIdentifier): Unknown identifier `Erdos503.erdos_503.variants.R2_lower_bound`
+/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:9:7: error(lean.unknownIdentifier): Unknown constant `Erdos503.erdos_503.variants.R2_lower_bound`
+/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:10:14: error(lean.unknownIdentifier): Unknown constant `Erdos503.erdos_503.variants.R2_lower_bound`
+/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:11:8: error(lean.unknownIdentifier): Unknown identifier `Erdos503.erdos_503.variants.R3_lower_bound`
+/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:12:7: error(lean.unknownIdentifier): Unknown constant `Erdos503.erdos_503.variants.R3_lower_bound`
+/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:13:14: error(lean.unknownIdentifier): Unknown constant `Erdos503.erdos_503.variants.R3_lower_bound`
+/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:14:8: error(lean.unknownIdentifier): Unknown identifier `Erdos503.erdos_503.variants.lower_bound`
+/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:15:7: error(lean.unknownIdentifier): Unknown constant `Erdos503.erdos_503.variants.lower_bound`
+/tmp/lean-verify-jsp-20261018/audit/PR5083.lean:16:14: error(lean.unknownIdentifier): Unknown constant `Erdos503.erdos_503.variants.lower_bound`

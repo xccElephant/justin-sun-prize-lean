@@ -1,0 +1,862 @@
+Erdos628.erdos_628.variants.independence_number_2 : ∀ (V : Type u_1) [Fintype V] (G : SimpleGraph V)
+  [DecidableRel G.Adj],
+  G.indepNum = 2 →
+    ∀ (k : ℕ),
+      G.chromaticNumber = ↑k →
+        G.CliqueFree k →
+          ∀ (a b : ℕ),
+            a ≥ 2 →
+              b ≥ 2 →
+                a + b = k + 1 →
+                  ∃ s, (SimpleGraph.induce s G).chromaticNumber ≥ ↑a ∧ (SimpleGraph.induce sᶜ G).chromaticNumber ≥ ↑b
+theorem Erdos628.erdos_628.variants.independence_number_2.{u_1} : ∀ (V : Type u_1) [Fintype V] (G : SimpleGraph V)
+  [DecidableRel G.Adj],
+  G.indepNum = 2 →
+    ∀ (k : ℕ),
+      G.chromaticNumber = ↑k →
+        G.CliqueFree k →
+          ∀ (a b : ℕ),
+            a ≥ 2 →
+              b ≥ 2 →
+                a + b = k + 1 →
+                  ∃ s, (SimpleGraph.induce s G).chromaticNumber ≥ ↑a ∧ (SimpleGraph.induce sᶜ G).chromaticNumber ≥ ↑b :=
+fun V [Fintype V] G [DecidableRel G.Adj] hG_indep k hG_chrom hG_clique a b ha hb hab =>
+  have h_indep2 := fun x y z hxy hxz hyz =>
+    Decidable.byContradiction fun hnone =>
+      have hind := fun ⦃p⦄ hp ⦃q⦄ hq hpq =>
+        Or.casesOn
+          (Eq.mp
+            (Eq.trans Erdos628.erdos_628.variants.independence_number_2._simp_1_1
+              (Eq.trans Erdos628.erdos_628.variants.independence_number_2._simp_1_2
+                (congrArg (Or (p = x))
+                  (Eq.trans Erdos628.erdos_628.variants.independence_number_2._simp_1_2
+                    (congrArg (Or (p = y)) Erdos628.erdos_628.variants.independence_number_2._simp_1_3)))))
+            hp)
+          (fun h =>
+            Eq.ndrec (motive := fun x =>
+              x ≠ y → x ≠ z → ¬G.Adj x y ∧ ¬G.Adj x z ∧ ¬G.Adj y z → q = x ∨ q = y ∨ q = z → ¬G.Adj p q)
+              (fun hxy hxz hnone hq =>
+                Or.casesOn hq
+                  (fun h =>
+                    Eq.ndrec (motive := fun ⦃p⦄ =>
+                      p ≠ q → p ≠ y → p ≠ z → ¬G.Adj p y ∧ ¬G.Adj p z ∧ ¬G.Adj y z → ¬G.Adj p q)
+                      (fun hpq hxy hxz hnone => False.elim (hpq rfl)) h hpq hxy hxz hnone)
+                  fun h =>
+                  Or.casesOn h
+                    (fun h =>
+                      Eq.ndrec (motive := fun y => y ≠ z → p ≠ y → ¬G.Adj p y ∧ ¬G.Adj p z ∧ ¬G.Adj y z → ¬G.Adj p q)
+                        (fun hyz hxy hnone => hnone.left) h hyz hxy hnone)
+                    fun h =>
+                    Eq.ndrec (motive := fun z => y ≠ z → p ≠ z → ¬G.Adj p y ∧ ¬G.Adj p z ∧ ¬G.Adj y z → ¬G.Adj p q)
+                      (fun hyz hxz hnone => hnone.right.left) h hyz hxz hnone)
+              h hxy hxz (Eq.mp (Eq.trans not_or._simp_2 (congrArg (And ¬G.Adj x y) not_or._simp_2)) hnone)
+              (Eq.mp
+                (Eq.trans Erdos628.erdos_628.variants.independence_number_2._simp_1_1
+                  (Eq.trans Erdos628.erdos_628.variants.independence_number_2._simp_1_2
+                    (congrArg (Or (q = x))
+                      (Eq.trans Erdos628.erdos_628.variants.independence_number_2._simp_1_2
+                        (congrArg (Or (q = y)) Erdos628.erdos_628.variants.independence_number_2._simp_1_3)))))
+                hq))
+          fun h =>
+          Or.casesOn h
+            (fun h =>
+              Eq.ndrec (motive := fun y =>
+                x ≠ y → y ≠ z → ¬G.Adj x y ∧ ¬G.Adj x z ∧ ¬G.Adj y z → q = x ∨ q = y ∨ q = z → ¬G.Adj p q)
+                (fun hxy hyz hnone hq =>
+                  Or.casesOn hq
+                    (fun h =>
+                      Eq.ndrec (motive := fun x => x ≠ z → x ≠ p → ¬G.Adj x p ∧ ¬G.Adj x z ∧ ¬G.Adj p z → ¬G.Adj p q)
+                        (fun hxz hxy hnone h => hnone.left (SimpleGraph.Adj.symm h)) h hxz hxy hnone)
+                    fun h =>
+                    Or.casesOn h
+                      (fun h =>
+                        Eq.ndrec (motive := fun ⦃p⦄ =>
+                          p ≠ q → x ≠ p → p ≠ z → ¬G.Adj x p ∧ ¬G.Adj x z ∧ ¬G.Adj p z → ¬G.Adj p q)
+                          (fun hpq hxy hyz hnone => False.elim (hpq rfl)) h hpq hxy hyz hnone)
+                      fun h =>
+                      Eq.ndrec (motive := fun z => x ≠ z → p ≠ z → ¬G.Adj x p ∧ ¬G.Adj x z ∧ ¬G.Adj p z → ¬G.Adj p q)
+                        (fun hxz hyz hnone => hnone.right.right) h hxz hyz hnone)
+                h hxy hyz (Eq.mp (Eq.trans not_or._simp_2 (congrArg (And ¬G.Adj x y) not_or._simp_2)) hnone)
+                (Eq.mp
+                  (Eq.trans Erdos628.erdos_628.variants.independence_number_2._simp_1_1
+                    (Eq.trans Erdos628.erdos_628.variants.independence_number_2._simp_1_2
+                      (congrArg (Or (q = x))
+                        (Eq.trans Erdos628.erdos_628.variants.independence_number_2._simp_1_2
+                          (congrArg (Or (q = y)) Erdos628.erdos_628.variants.independence_number_2._simp_1_3)))))
+                  hq))
+            fun h =>
+            Eq.ndrec (motive := fun z =>
+              x ≠ z → y ≠ z → ¬G.Adj x y ∧ ¬G.Adj x z ∧ ¬G.Adj y z → q = x ∨ q = y ∨ q = z → ¬G.Adj p q)
+              (fun hxz hyz hnone hq =>
+                Or.casesOn hq
+                  (fun h =>
+                    Eq.ndrec (motive := fun x => x ≠ y → x ≠ p → ¬G.Adj x y ∧ ¬G.Adj x p ∧ ¬G.Adj y p → ¬G.Adj p q)
+                      (fun hxy hxz hnone h => hnone.right.left (SimpleGraph.Adj.symm h)) h hxy hxz hnone)
+                  fun h =>
+                  Or.casesOn h
+                    (fun h =>
+                      Eq.ndrec (motive := fun y => x ≠ y → y ≠ p → ¬G.Adj x y ∧ ¬G.Adj x p ∧ ¬G.Adj y p → ¬G.Adj p q)
+                        (fun hxy hyz hnone h => hnone.right.right (SimpleGraph.Adj.symm h)) h hxy hyz hnone)
+                    fun h =>
+                    Eq.ndrec (motive := fun ⦃p⦄ =>
+                      p ≠ q → x ≠ p → y ≠ p → ¬G.Adj x y ∧ ¬G.Adj x p ∧ ¬G.Adj y p → ¬G.Adj p q)
+                      (fun hpq hxz hyz hnone => False.elim (hpq rfl)) h hpq hxz hyz hnone)
+              h hxz hyz (Eq.mp (Eq.trans not_or._simp_2 (congrArg (And ¬G.Adj x y) not_or._simp_2)) hnone)
+              (Eq.mp
+                (Eq.trans Erdos628.erdos_628.variants.independence_number_2._simp_1_1
+                  (Eq.trans Erdos628.erdos_628.variants.independence_number_2._simp_1_2
+                    (congrArg (Or (q = x))
+                      (Eq.trans Erdos628.erdos_628.variants.independence_number_2._simp_1_2
+                        (congrArg (Or (q = y)) Erdos628.erdos_628.variants.independence_number_2._simp_1_3)))))
+                hq);
+      have hcard_le := SimpleGraph.IsIndepSet.card_le_indepNum hind;
+      Erdos628.erdos_628.variants.independence_number_2._proof_1_4 V G k a b
+        (Eq.mp (congrArg (fun _a => _a + 1 + 1 ≤ 2) (Finset.card_singleton z))
+          (Eq.mp
+            (congrArg (fun _a => _a + 1 ≤ 2)
+              (Finset.card_insert_of_notMem
+                (of_eq_true
+                  (Eq.trans (congrArg Not (Eq.trans Finset.mem_singleton._simp_1 (eq_false hyz))) not_false_eq_true))))
+            (Eq.mp
+              (congrArg (fun _a => _a ≤ 2)
+                (Finset.card_insert_of_notMem
+                  (of_eq_true
+                    (Eq.trans
+                      (congrArg Not
+                        (Eq.trans Finset.mem_insert._simp_1
+                          (Eq.trans
+                            (congr (congrArg Or (eq_false hxy)) (Eq.trans Finset.mem_singleton._simp_1 (eq_false hxz)))
+                            (or_self False))))
+                      not_false_eq_true))))
+              (Eq.mp (congrArg (fun _a => {x, y, z}.card ≤ _a) hG_indep) hcard_le))));
+  have hG_col :=
+    Eq.mpr (id (congrArg (fun _a => _a) (Eq.symm (propext SimpleGraph.chromaticNumber_le_iff_colorable))))
+      (Eq.mpr (id (congrArg (fun _a => _a ≤ ↑k) hG_chrom)) (le_refl ↑k));
+  have hG_not := fun hcol =>
+    have hle := SimpleGraph.Colorable.chromaticNumber_le hcol;
+    have this := WithTop.coe_le_coe.mp (Eq.mp (congrArg (fun _a => _a ≤ ↑(k - 1)) hG_chrom) hle);
+    Erdos628.erdos_628.variants.independence_number_2._proof_1_5 V G k a b ha hb hab this;
+  have hU_col :=
+    Nonempty.casesOn hG_col fun col =>
+      Nonempty.intro (SimpleGraph.Coloring.mk (fun x => col ↑x) fun {v w} hadj => SimpleGraph.Coloring.valid col hadj);
+  have hU_not := fun a =>
+    Nonempty.casesOn a fun col =>
+      hG_not
+        (Nonempty.intro
+          (SimpleGraph.Coloring.mk (fun v => col ⟨v, trivial⟩) fun {v w} hadj => SimpleGraph.Coloring.valid col hadj));
+  have hU_cf := fun K hK =>
+    let f := Subtype.val;
+    hG_clique (Finset.image f K)
+      {
+        isClique := fun ⦃x⦄ hx ⦃y⦄ hy hxy =>
+          Exists.casesOn
+            (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_image))
+              (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_coe)) hx))
+            fun x' h =>
+            And.casesOn h fun hx' right =>
+              Eq.ndrec (motive := fun ⦃x⦄ => x ≠ y → G.Adj x y)
+                (fun hxy =>
+                  Exists.casesOn
+                    (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_image))
+                      (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_coe)) hy))
+                    fun y' h =>
+                    And.casesOn h fun hy' right =>
+                      Eq.ndrec (motive := fun ⦃y⦄ => f x' ≠ y → G.Adj (f x') y)
+                        (fun hxy => hK.isClique hx' hy' (Subtype.coe_ne_coe.mp hxy)) right hxy)
+                right hxy,
+        card_eq :=
+          Eq.mpr (id (congrArg (fun _a => _a = k) (Finset.card_image_of_injective K Subtype.val_injective)))
+            (Eq.mpr (id (congrArg (fun _a => _a = k) hK.card_eq)) (Eq.refl k)) };
+  Exists.casesOn
+    (Erdos628.indep2_splittable_on_set✝ h_indep2 Set.univ.ncard Set.univ rfl k a b ha hb hab hU_col hU_not hU_cf)
+    fun S h =>
+    And.casesOn h fun _hSU right =>
+      And.casesOn right fun hS_a hS_b =>
+        Exists.intro S
+          ⟨Decidable.byContradiction fun hlt =>
+              have hle :=
+                have this :=
+                  Eq.mpr
+                    (id
+                      ((fun a a_1 e_a =>
+                          Eq.rec (motive := fun a_2 e_a => ∀ (a_3 : ℕ∞), (a = a_3) = (a_2 = a_3))
+                            (fun a_2 => Eq.refl (a = a_2)) e_a)
+                        (↑a) (↑(a - 1 + 1))
+                        (Eq.trans
+                          (congrArg (fun _a => ↑_a)
+                            (have this :=
+                              Decidable.byContradiction fun a_1 =>
+                                Erdos628.erdos_628.variants.independence_number_2._proof_1_6 V G k a b ha hab a_1;
+                            this))
+                          (Eq.refl ↑(a - 1 + 1)))
+                        (↑(a - 1) + 1)))
+                    (Eq.mpr
+                      (id
+                        (congr
+                          (congrArg Eq
+                            (Eq.trans (Nat.cast_add (a - 1) 1)
+                              (congr (congrArg HAdd.hAdd (congrArg (HSub.hSub ↑a) Nat.cast_one)) Nat.cast_one)))
+                          (congrFun' (congrArg HAdd.hAdd (congrArg (HSub.hSub ↑a) Nat.cast_one)) 1)))
+                      (Eq.refl (↑a - 1 + 1)));
+                Order.le_of_lt_add_one
+                  (Eq.mp (congrArg (fun _a => (SimpleGraph.induce S G).chromaticNumber < _a) this)
+                    (Eq.mp not_le._simp_1 hlt));
+              hS_a (SimpleGraph.chromaticNumber_le_iff_colorable.mp hle),
+            Decidable.byContradiction fun hlt =>
+              have hle :=
+                have this :=
+                  Eq.mpr
+                    (id
+                      ((fun a a_1 e_a =>
+                          Eq.rec (motive := fun a_2 e_a => ∀ (a_3 : ℕ∞), (a = a_3) = (a_2 = a_3))
+                            (fun a_2 => Eq.refl (a = a_2)) e_a)
+                        (↑b) (↑(b - 1 + 1))
+                        (Eq.trans
+                          (congrArg (fun _a => ↑_a)
+                            (have this :=
+                              Decidable.byContradiction fun a_1 =>
+                                Erdos628.erdos_628.variants.independence_number_2._proof_1_7 V G k a b hb a_1;
+                            this))
+                          (Eq.refl ↑(b - 1 + 1)))
+                        (↑(b - 1) + 1)))
+                    (Eq.mpr
+                      (id
+                        (congr
+                          (congrArg Eq
+                            (Eq.trans (Nat.cast_add (b - 1) 1)
+                              (congr (congrArg HAdd.hAdd (congrArg (HSub.hSub ↑b) Nat.cast_one)) Nat.cast_one)))
+                          (congrFun' (congrArg HAdd.hAdd (congrArg (HSub.hSub ↑b) Nat.cast_one)) 1)))
+                      (Eq.refl (↑b - 1 + 1)));
+                Order.le_of_lt_add_one
+                  (Eq.mp (congrArg (fun _a => (SimpleGraph.induce Sᶜ G).chromaticNumber < _a) this)
+                    (Eq.mp not_le._simp_1 hlt));
+              have hcol_compl := SimpleGraph.chromaticNumber_le_iff_colorable.mp hle;
+              hS_b
+                (Nonempty.casesOn hcol_compl fun col =>
+                  Nonempty.intro
+                    (SimpleGraph.Coloring.mk (fun x => col ⟨↑x, x.property.right⟩) fun {v w} hadj =>
+                      SimpleGraph.Coloring.valid col hadj))⟩
+'Erdos628.erdos_628.variants.independence_number_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos628.erdos_628.variants.k_5_a_3_b_3 : ∀ (V : Type u_1) [Fintype V] (G : SimpleGraph V) [DecidableRel G.Adj],
+  G.chromaticNumber = 5 →
+    G.CliqueFree 5 → ∃ s, (SimpleGraph.induce s G).chromaticNumber ≥ 3 ∧ (SimpleGraph.induce sᶜ G).chromaticNumber ≥ 3
+theorem Erdos628.erdos_628.variants.k_5_a_3_b_3.{u_1} : ∀ (V : Type u_1) [Fintype V] (G : SimpleGraph V)
+  [DecidableRel G.Adj],
+  G.chromaticNumber = 5 →
+    G.CliqueFree 5 →
+      ∃ s, (SimpleGraph.induce s G).chromaticNumber ≥ 3 ∧ (SimpleGraph.induce sᶜ G).chromaticNumber ≥ 3 :=
+fun V [Fintype V] G [DecidableRel G.Adj] hG_chrom hG_clique =>
+  Decidable.byContradiction fun h_no_split =>
+    have hnot4 := fun hcol4 =>
+      have hle4 := SimpleGraph.Colorable.chromaticNumber_le hcol4;
+      absurd (Eq.mp (congrArg (fun _a => _a ≤ 4) hG_chrom) hle4) (of_decide_eq_true (id (Eq.refl true)));
+    have hnot2 := fun hcol2 => hnot4 (SimpleGraph.Colorable.mono (of_decide_eq_true (id (Eq.refl true))) hcol2);
+    have h_compl_bip := fun s hs_not2 =>
+      have hs_ge3 := Erdos628.three_le_chromaticNumber_iff_not_colorable_two✝.mpr hs_not2;
+      have h_lt3 :=
+        Eq.mp
+          (Eq.trans
+            (Mathlib.Tactic.Push.not_exists._simp_1 fun s =>
+              (SimpleGraph.induce s G).chromaticNumber ≥ 3 ∧ (SimpleGraph.induce sᶜ G).chromaticNumber ≥ 3)
+            (forall_congr fun s =>
+              Eq.trans
+                (Mathlib.Tactic.Push.not_and_eq ((SimpleGraph.induce s G).chromaticNumber ≥ 3)
+                  ((SimpleGraph.induce sᶜ G).chromaticNumber ≥ 3))
+                (implies_congr (Eq.refl ((SimpleGraph.induce s G).chromaticNumber ≥ 3)) not_le._simp_1)))
+          h_no_split s hs_ge3;
+      have h_le2 := Order.le_of_lt_add_one h_lt3;
+      SimpleGraph.chromaticNumber_le_iff_colorable.mp h_le2;
+    have h_tri_compl_bip := fun a b c hab hac hbc =>
+      h_compl_bip {a, b, c}
+        (let f := fun i => if i % 3 = 0 then a else if i % 3 = 1 then b else c;
+        have hf :=
+          ⟨fun i =>
+            id
+              (Eq.mpr
+                (id
+                  (congrArg
+                    (fun _a =>
+                      (if _a = 0 then a else if _a = 1 then b else c) =
+                        if i % 3 = 0 then a else if i % 3 = 1 then b else c)
+                    (Nat.add_mod_right i (2 * 1 + 1))))
+                (Eq.refl (if i % (2 * 1 + 1) = 0 then a else if i % (2 * 1 + 1) = 1 then b else c))),
+            fun i =>
+            id
+              (have this := Decidable.byContradiction fun a => Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_1 i a;
+              Or.casesOn this
+                (fun h0 =>
+                  have h_next :=
+                    Decidable.byContradiction fun a => Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_2 i h0 a;
+                  Eq.mpr
+                    (id
+                      (congrArg (fun _a => G.Adj _a (if (i + 1) % 3 = 0 then a else if (i + 1) % 3 = 1 then b else c))
+                        (if_pos h0)))
+                    (Eq.mpr (id (congrArg (fun _a => G.Adj a (if _a = 0 then a else if _a = 1 then b else c)) h_next))
+                      (of_eq_true
+                        (Eq.trans
+                          (congrArg (G.Adj a)
+                            (Eq.trans (ite_cond_eq_false a (if 1 = 1 then b else c) one_ne_zero._simp_1)
+                              (ite_cond_eq_true b c (eq_self 1))))
+                          (eq_true hab)))))
+                fun h =>
+                Or.casesOn h
+                  (fun h1 =>
+                    have h_next :=
+                      Decidable.byContradiction fun a => Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_3 i h1 a;
+                    Eq.mpr
+                      (id
+                        (congrArg (fun _a => G.Adj _a (if (i + 1) % 3 = 0 then a else if (i + 1) % 3 = 1 then b else c))
+                          (if_neg fun a => Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_4 i h1 a)))
+                      (Eq.mpr
+                        (id
+                          (congrArg
+                            (fun _a => G.Adj _a (if (i + 1) % 3 = 0 then a else if (i + 1) % 3 = 1 then b else c))
+                            (if_pos h1)))
+                        (Eq.mpr
+                          (id (congrArg (fun _a => G.Adj b (if _a = 0 then a else if _a = 1 then b else c)) h_next))
+                          (of_eq_true
+                            (Eq.trans
+                              (congrArg (G.Adj b)
+                                (Eq.trans (ite_cond_eq_false a (if 2 = 1 then b else c) (OfNat.ofNat_ne_zero._simp_1 2))
+                                  (ite_cond_eq_false b c (OfNat.ofNat_ne_one._simp_1 2))))
+                              (eq_true hbc))))))
+                  fun h2 =>
+                  have h_next :=
+                    Decidable.byContradiction fun a => Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_5 i h2 a;
+                  Eq.mpr
+                    (id
+                      (congrArg (fun _a => G.Adj _a (if (i + 1) % 3 = 0 then a else if (i + 1) % 3 = 1 then b else c))
+                        (if_neg fun a => Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_6 i h2 a)))
+                    (Eq.mpr
+                      (id
+                        (congrArg (fun _a => G.Adj _a (if (i + 1) % 3 = 0 then a else if (i + 1) % 3 = 1 then b else c))
+                          (if_neg fun a => Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_7 i h2 a)))
+                      (Eq.mpr (id (congrArg (fun _a => G.Adj c (if _a = 0 then a else if _a = 1 then b else c)) h_next))
+                        (Eq.mpr (id (congrArg (fun _a => G.Adj c _a) (if_pos rfl))) (SimpleGraph.Adj.symm hac)))))⟩;
+        Erdos628.not_colorable_two_induce_of_odd_cyclicWalk✝ hf fun i =>
+          id
+            (if h : i % 3 = 0 then
+              Eq.mpr (id (congrArg (Membership.mem {a, b, c}) (if_pos h)))
+                (of_eq_true
+                  (Eq.trans Set.mem_insert_iff._simp_1
+                    (Eq.trans
+                      (congr (congrArg Or (eq_self a))
+                        (Eq.trans Set.mem_insert_iff._simp_1 (congrArg (Or (a = b)) Set.mem_singleton_iff._simp_1)))
+                      (true_or (a = b ∨ a = c)))))
+            else
+              Eq.mpr (id (congrArg (Membership.mem {a, b, c}) (if_neg h)))
+                (if h : i % 3 = 1 then
+                  Eq.mpr (id (congrArg (Membership.mem {a, b, c}) (if_pos h)))
+                    (of_eq_true
+                      (Eq.trans Set.mem_insert_iff._simp_1
+                        (Eq.trans
+                          (congrArg (Or (b = a))
+                            (Eq.trans Set.mem_insert_iff._simp_1
+                              (Eq.trans (congr (congrArg Or (eq_self b)) Set.mem_singleton_iff._simp_1)
+                                (true_or (b = c)))))
+                          (or_true (b = a)))))
+                else
+                  Eq.mpr (id (congrArg (Membership.mem {a, b, c}) (if_neg h)))
+                    (of_eq_true
+                      (Eq.trans Set.mem_insert_iff._simp_1
+                        (Eq.trans
+                          (congrArg (Or (c = a))
+                            (Eq.trans Set.mem_insert_iff._simp_1
+                              (Eq.trans (congrArg (Or (c = b)) (Eq.trans Set.mem_singleton_iff._simp_1 (eq_self c)))
+                                (or_true (c = b)))))
+                          (or_true (c = a))))))));
+    Exists.casesOn (Erdos628.exists_min_odd_cyclicWalk✝ hnot2) fun m h =>
+      Exists.casesOn h fun f h =>
+        And.casesOn h fun hf hmin =>
+          have hm_ne0 := fun a =>
+            Eq.ndrec (motive := fun m =>
+              Erdos628.IsCyclicWalk✝ G (2 * m + 1) f →
+                (∀ m' < m, ∀ (g : ℕ → V), ¬Erdos628.IsCyclicWalk✝ G (2 * m' + 1) g) → False)
+              (fun hf hmin =>
+                Std.Irrefl.irrefl (f 0)
+                  (Eq.mpr (id (SimpleGraph.irrefl._simp_1 G))
+                    (False.elim
+                      (Eq.mp
+                        (Eq.trans (congrArg (G.Adj (f 0)) (Eq.trans (congrArg f (zero_add 1)) (hf.left 0)))
+                          (SimpleGraph.irrefl._simp_1 G))
+                        (hf.right 0)))))
+              (Eq.symm a) hf hmin;
+          if hm_ge2 : 2 ≤ m then
+            have hs_not2 := Erdos628.not_colorable_two_induce_of_odd_cyclicWalk✝ hf fun i => Exists.intro i rfl;
+            hnot4 (Erdos628.colorable_four_of_min_odd_cyclicWalk✝ hf hmin hm_ge2 (h_compl_bip (Set.range f) hs_not2))
+          else
+            have hm1 :=
+              Decidable.byContradiction fun a => Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_8 m hm_ne0 hm_ge2 a;
+            Eq.ndrec (motive := fun m =>
+              Erdos628.IsCyclicWalk✝ G (2 * m + 1) f →
+                (∀ m' < m, ∀ (g : ℕ → V), ¬Erdos628.IsCyclicWalk✝ G (2 * m' + 1) g) → m ≠ 0 → ¬2 ≤ m → False)
+              (fun hf hmin hm_ne0 hm_ge2 =>
+                have h01 := hf.right 0;
+                have h12 := hf.right 1;
+                have h02 :=
+                  have this := hf.right 2;
+                  SimpleGraph.Adj.symm
+                    (Eq.mp (congrArg (fun _a => G.Adj (f 2) _a) (hf.left 0))
+                      (Eq.mp
+                        (congrArg (fun _a => G.Adj (f 2) (f _a))
+                          (have this := Eq.refl (2 + 1);
+                          this))
+                        this));
+                let x1 := f 0;
+                let x2 := f 1;
+                let x3 := f 2;
+                have h_ex4 :=
+                  Decidable.byContradiction fun h_no4 =>
+                    hnot4
+                      (Erdos628.colorable_four_of_triangle_and_bipartite_compl✝
+                        (Eq.mp
+                          (congrArg (fun _a => G.Adj x1 _a)
+                            (have this := rfl;
+                            this))
+                          (Eq.mp
+                            (congrArg (fun _a => G.Adj _a (f 1))
+                              (have this := rfl;
+                              this))
+                            h01))
+                        (Eq.mp
+                          (congrArg (fun _a => G.Adj x1 _a)
+                            (have this := rfl;
+                            this))
+                          (Eq.mp
+                            (congrArg (fun _a => G.Adj _a (f 2))
+                              (have this := rfl;
+                              this))
+                            h02))
+                        (Eq.mp
+                          (congrArg (fun _a => G.Adj x2 _a)
+                            (have this := rfl;
+                            this))
+                          (Eq.mp
+                            (congrArg (fun _a => G.Adj _a (f 2))
+                              (have this := rfl;
+                              this))
+                            h12))
+                        (h_tri_compl_bip x1 x2 x3
+                          (Eq.mp
+                            (congrArg (fun _a => G.Adj x1 _a)
+                              (have this := rfl;
+                              this))
+                            (Eq.mp
+                              (congrArg (fun _a => G.Adj _a (f 1))
+                                (have this := rfl;
+                                this))
+                              h01))
+                          (Eq.mp
+                            (congrArg (fun _a => G.Adj x1 _a)
+                              (have this := rfl;
+                              this))
+                            (Eq.mp
+                              (congrArg (fun _a => G.Adj _a (f 2))
+                                (have this := rfl;
+                                this))
+                              h02))
+                          (Eq.mp
+                            (congrArg (fun _a => G.Adj x2 _a)
+                              (have this := rfl;
+                              this))
+                            (Eq.mp
+                              (congrArg (fun _a => G.Adj _a (f 2))
+                                (have this := rfl;
+                                this))
+                              h12)))
+                        fun a =>
+                        Exists.casesOn a fun y1 h =>
+                          Exists.casesOn h fun y2 h =>
+                            And.casesOn h fun hy1 right =>
+                              And.casesOn right fun _hy2 right =>
+                                And.casesOn right fun _hy12 right =>
+                                  And.casesOn right fun hy1_all _hy2_all =>
+                                    Eq.mp
+                                      (Eq.trans
+                                        (Mathlib.Tactic.Push.not_exists._simp_1 fun x4 =>
+                                          x4 ∉ {x1, x2, x3} ∧ G.Adj x4 x1 ∧ G.Adj x4 x2 ∧ G.Adj x4 x3)
+                                        (forall_congr fun x4 =>
+                                          Eq.trans
+                                            (Mathlib.Tactic.Push.not_and_eq (x4 ∉ {x1, x2, x3})
+                                              (G.Adj x4 x1 ∧ G.Adj x4 x2 ∧ G.Adj x4 x3))
+                                            (implies_congr (Eq.refl (x4 ∉ {x1, x2, x3}))
+                                              (Eq.trans
+                                                (Mathlib.Tactic.Push.not_and_eq (G.Adj x4 x1)
+                                                  (G.Adj x4 x2 ∧ G.Adj x4 x3))
+                                                (implies_congr (Eq.refl (G.Adj x4 x1))
+                                                  (Mathlib.Tactic.Push.not_and_eq (G.Adj x4 x2) (G.Adj x4 x3)))))))
+                                      h_no4 y1 hy1
+                                      (hy1_all x1
+                                        (of_eq_true
+                                          (Eq.trans Set.mem_insert_iff._simp_1
+                                            (Eq.trans
+                                              (congr (congrArg Or (eq_self x1))
+                                                (Eq.trans Set.mem_insert_iff._simp_1
+                                                  (congrArg (Or (x1 = x2)) Set.mem_singleton_iff._simp_1)))
+                                              (true_or (x1 = x2 ∨ x1 = x3))))))
+                                      (hy1_all x2
+                                        (of_eq_true
+                                          (Eq.trans Set.mem_insert_iff._simp_1
+                                            (Eq.trans
+                                              (congrArg (Or (x2 = x1))
+                                                (Eq.trans Set.mem_insert_iff._simp_1
+                                                  (Eq.trans
+                                                    (congr (congrArg Or (eq_self x2)) Set.mem_singleton_iff._simp_1)
+                                                    (true_or (x2 = x3)))))
+                                              (or_true (x2 = x1))))))
+                                      (hy1_all x3
+                                        (of_eq_true
+                                          (Eq.trans Set.mem_insert_iff._simp_1
+                                            (Eq.trans
+                                              (congrArg (Or (x3 = x1))
+                                                (Eq.trans Set.mem_insert_iff._simp_1
+                                                  (Eq.trans
+                                                    (congrArg (Or (x3 = x2))
+                                                      (Eq.trans Set.mem_singleton_iff._simp_1 (eq_self x3)))
+                                                    (or_true (x3 = x2)))))
+                                              (or_true (x3 = x1)))))));
+                Exists.casesOn h_ex4 fun x4 h =>
+                  And.casesOn h fun _hx4_not right =>
+                    And.casesOn right fun h41 right =>
+                      And.casesOn right fun h42 h43 =>
+                        have h_no_k5 := fun a b c d e hab hac had hae hbc hbd hbe hcd hce hde =>
+                          hG_clique {a, b, c, d, e}
+                            {
+                              isClique := fun ⦃u⦄ hu ⦃v⦄ hv huv =>
+                                Or.casesOn
+                                  (Eq.mp
+                                    (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_9
+                                      (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10
+                                        (congrArg (Or (u = a))
+                                          (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10
+                                            (congrArg (Or (u = b))
+                                              (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10
+                                                (congrArg (Or (u = c))
+                                                  (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10
+                                                    (congrArg (Or (u = d))
+                                                      Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_11)))))))))
+                                    hu)
+                                  (fun h =>
+                                    Eq.ndrec (motive := fun a =>
+                                      G.Adj a b →
+                                        G.Adj a c →
+                                          G.Adj a d → G.Adj a e → v = a ∨ v = b ∨ v = c ∨ v = d ∨ v = e → G.Adj u v)
+                                      (fun hab hac had hae hv =>
+                                        Or.casesOn hv
+                                          (fun h =>
+                                            Eq.ndrec (motive := fun ⦃u⦄ =>
+                                              u ≠ v → G.Adj u b → G.Adj u c → G.Adj u d → G.Adj u e → G.Adj u v)
+                                              (fun huv hab hac had hae => False.elim (huv rfl)) h huv hab hac had hae)
+                                          fun h =>
+                                          Or.casesOn h
+                                            (fun h =>
+                                              Eq.ndrec (motive := fun b =>
+                                                G.Adj b c → G.Adj b d → G.Adj b e → G.Adj u b → G.Adj u v)
+                                                (fun hbc hbd hbe hab => hab) h hbc hbd hbe hab)
+                                            fun h =>
+                                            Or.casesOn h
+                                              (fun h =>
+                                                Eq.ndrec (motive := fun c =>
+                                                  G.Adj b c → G.Adj c d → G.Adj c e → G.Adj u c → G.Adj u v)
+                                                  (fun hbc hcd hce hac => hac) h hbc hcd hce hac)
+                                              fun h =>
+                                              Or.casesOn h
+                                                (fun h =>
+                                                  Eq.ndrec (motive := fun d =>
+                                                    G.Adj b d → G.Adj c d → G.Adj d e → G.Adj u d → G.Adj u v)
+                                                    (fun hbd hcd hde had => had) h hbd hcd hde had)
+                                                fun h =>
+                                                Eq.ndrec (motive := fun e =>
+                                                  G.Adj b e → G.Adj c e → G.Adj d e → G.Adj u e → G.Adj u v)
+                                                  (fun hbe hce hde hae => hae) h hbe hce hde hae)
+                                      h hab hac had hae
+                                      (Eq.mp
+                                        (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_9
+                                          (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10
+                                            (congrArg (Or (v = a))
+                                              (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10
+                                                (congrArg (Or (v = b))
+                                                  (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10
+                                                    (congrArg (Or (v = c))
+                                                      (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10
+                                                        (congrArg (Or (v = d))
+                                                          Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_11)))))))))
+                                        hv))
+                                  fun h =>
+                                  Or.casesOn h
+                                    (fun h =>
+                                      Eq.ndrec (motive := fun b =>
+                                        G.Adj a b →
+                                          G.Adj b c →
+                                            G.Adj b d → G.Adj b e → v = a ∨ v = b ∨ v = c ∨ v = d ∨ v = e → G.Adj u v)
+                                        (fun hab hbc hbd hbe hv =>
+                                          Or.casesOn hv
+                                            (fun h =>
+                                              Eq.ndrec (motive := fun a =>
+                                                G.Adj a c → G.Adj a d → G.Adj a e → G.Adj a u → G.Adj u v)
+                                                (fun hac had hae hab => SimpleGraph.Adj.symm hab) h hac had hae hab)
+                                            fun h =>
+                                            Or.casesOn h
+                                              (fun h =>
+                                                Eq.ndrec (motive := fun ⦃u⦄ =>
+                                                  u ≠ v → G.Adj a u → G.Adj u c → G.Adj u d → G.Adj u e → G.Adj u v)
+                                                  (fun huv hab hbc hbd hbe => False.elim (huv rfl)) h huv hab hbc hbd
+                                                  hbe)
+                                              fun h =>
+                                              Or.casesOn h
+                                                (fun h =>
+                                                  Eq.ndrec (motive := fun c =>
+                                                    G.Adj a c → G.Adj c d → G.Adj c e → G.Adj u c → G.Adj u v)
+                                                    (fun hac hcd hce hbc => hbc) h hac hcd hce hbc)
+                                                fun h => Or.casesOn h ⋯ ⋯)
+                                        h hab hbc hbd hbe
+                                        (Eq.mp
+                                          (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_9
+                                            (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10
+                                              (congrArg (Or (v = a))
+                                                (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10
+                                                  (congrArg (Or (v = b))
+                                                    (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10
+                                                      (congrArg (Or (v = c)) ⋯)))))))
+                                          hv))
+                                    fun h =>
+                                    Or.casesOn h
+                                      (fun h =>
+                                        Eq.ndrec (motive := fun c =>
+                                          G.Adj a c →
+                                            G.Adj b c →
+                                              G.Adj c d → G.Adj c e → v = a ∨ v = b ∨ v = c ∨ v = d ∨ v = e → G.Adj u v)
+                                          (fun hac hbc hcd hce hv =>
+                                            Or.casesOn hv
+                                              (fun h =>
+                                                Eq.ndrec (motive := fun a =>
+                                                  G.Adj a b → G.Adj a d → G.Adj a e → G.Adj a u → G.Adj u v)
+                                                  (fun hab had hae hac => SimpleGraph.Adj.symm hac) h hab had hae hac)
+                                              fun h =>
+                                              Or.casesOn h
+                                                (fun h =>
+                                                  Eq.ndrec (motive := fun b =>
+                                                    G.Adj a b → G.Adj b d → G.Adj b e → G.Adj b u → G.Adj u v)
+                                                    (fun hab hbd hbe hbc => SimpleGraph.Adj.symm hbc) h hab hbd hbe hbc)
+                                                fun h => Or.casesOn h ⋯ ⋯)
+                                          h hac hbc hcd hce
+                                          (Eq.mp
+                                            (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_9
+                                              (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10
+                                                (congrArg (Or (v = a))
+                                                  (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10
+                                                    (congrArg (Or (v = b)) ⋯)))))
+                                            hv))
+                                      fun h =>
+                                      Or.casesOn h
+                                        (fun h =>
+                                          Eq.ndrec (motive := fun d =>
+                                            G.Adj a d →
+                                              G.Adj b d →
+                                                G.Adj c d →
+                                                  G.Adj d e → v = a ∨ v = b ∨ v = c ∨ v = d ∨ v = e → G.Adj u v)
+                                            (fun had hbd hcd hde hv =>
+                                              Or.casesOn hv
+                                                (fun h =>
+                                                  Eq.ndrec (motive := fun a =>
+                                                    G.Adj a b → G.Adj a c → G.Adj a e → G.Adj a u → G.Adj u v)
+                                                    (fun hab hac hae had => SimpleGraph.Adj.symm had) h hab hac hae had)
+                                                fun h => Or.casesOn h ⋯ ⋯)
+                                            h had hbd hcd hde
+                                            (Eq.mp
+                                              (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_9
+                                                (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10
+                                                  (congrArg (Or (v = a)) ⋯)))
+                                              hv))
+                                        fun h =>
+                                        Eq.ndrec (motive := fun e =>
+                                          G.Adj a e →
+                                            G.Adj b e →
+                                              G.Adj c e → G.Adj d e → v = a ∨ v = b ∨ v = c ∨ v = d ∨ v = e → G.Adj u v)
+                                          (fun hae hbe hce hde hv =>
+                                            Or.casesOn hv
+                                              (fun h =>
+                                                Eq.ndrec (motive := fun a =>
+                                                  G.Adj a b → G.Adj a c → G.Adj a d → G.Adj a u → G.Adj u v)
+                                                  (fun hab hac had hae => SimpleGraph.Adj.symm hae) h hab hac had hae)
+                                              fun h => Or.casesOn h ⋯ ⋯)
+                                          h hae hbe hce hde
+                                          (Eq.mp
+                                            (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_9
+                                              (Eq.trans Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10
+                                                (congrArg (Or (v = a)) ⋯)))
+                                            hv),
+                              card_eq :=
+                                Eq.mpr
+                                  (id
+                                    (congrArg (fun _a => _a = 5)
+                                      (Finset.card_insert_of_notMem
+                                        (of_eq_true
+                                          (Eq.trans
+                                            (congrArg Not
+                                              (Eq.trans Finset.mem_insert._simp_1
+                                                (Eq.trans
+                                                  (congr (congrArg Or (eq_false (SimpleGraph.ne_of_adj G hab)))
+                                                    (Eq.trans Finset.mem_insert._simp_1
+                                                      (Eq.trans
+                                                        (congr (congrArg Or (eq_false (SimpleGraph.ne_of_adj G hac)))
+                                                          (Eq.trans Finset.mem_insert._simp_1 ⋯))
+                                                        (or_self False))))
+                                                  (or_self False))))
+                                            not_false_eq_true)))))
+                                  (Eq.mpr
+                                    (id
+                                      (congrArg (fun _a => _a + 1 = 5)
+                                        (Finset.card_insert_of_notMem
+                                          (of_eq_true
+                                            (Eq.trans
+                                              (congrArg Not
+                                                (Eq.trans Finset.mem_insert._simp_1
+                                                  (Eq.trans
+                                                    (congr (congrArg Or (eq_false (SimpleGraph.ne_of_adj G hbc)))
+                                                      (Eq.trans Finset.mem_insert._simp_1
+                                                        (Eq.trans
+                                                          (congr (congrArg Or (eq_false (SimpleGraph.ne_of_adj G hbd)))
+                                                            ⋯)
+                                                          (or_self False))))
+                                                    (or_self False))))
+                                              not_false_eq_true)))))
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg (fun _a => _a + 1 + 1 = 5)
+                                          (Finset.card_insert_of_notMem
+                                            (of_eq_true
+                                              (Eq.trans
+                                                (congrArg Not
+                                                  (Eq.trans Finset.mem_insert._simp_1
+                                                    (Eq.trans
+                                                      (congr (congrArg Or (eq_false (SimpleGraph.ne_of_adj G hcd)))
+                                                        (Eq.trans Finset.mem_singleton._simp_1
+                                                          (eq_false (SimpleGraph.ne_of_adj G hce))))
+                                                      (or_self False))))
+                                                not_false_eq_true)))))
+                                      (Eq.mpr
+                                        (id
+                                          (congrArg (fun _a => _a + 1 + 1 + 1 = 5)
+                                            (Finset.card_insert_of_notMem
+                                              (of_eq_true
+                                                (Eq.trans
+                                                  (congrArg Not
+                                                    (Eq.trans Finset.mem_singleton._simp_1
+                                                      (eq_false (SimpleGraph.ne_of_adj G hde))))
+                                                  not_false_eq_true)))))
+                                        (Eq.mpr
+                                          (id (congrArg (fun _a => _a + 1 + 1 + 1 + 1 = 5) (Finset.card_singleton e)))
+                                          (Eq.refl (1 + 1 + 1 + 1 + 1)))))) };
+                        Exists.casesOn
+                          (Erdos628.exists_fourth_complete_of_not_colorable_four✝
+                            (Eq.mp
+                              (congrArg (fun _a => G.Adj x1 _a)
+                                (have this := rfl;
+                                this))
+                              (Eq.mp
+                                (congrArg (fun _a => G.Adj _a (f 1))
+                                  (have this := rfl;
+                                  this))
+                                h01))
+                            (Eq.mp
+                              (congrArg (fun _a => G.Adj x1 _a)
+                                (have this := rfl;
+                                this))
+                              (Eq.mp
+                                (congrArg (fun _a => G.Adj _a (f 2))
+                                  (have this := rfl;
+                                  this))
+                                h02))
+                            (SimpleGraph.Adj.symm h41)
+                            (Eq.mp
+                              (congrArg (fun _a => G.Adj x2 _a)
+                                (have this := rfl;
+                                this))
+                              (Eq.mp
+                                (congrArg (fun _a => G.Adj _a (f 2))
+                                  (have this := rfl;
+                                  this))
+                                h12))
+                            (SimpleGraph.Adj.symm h42) (SimpleGraph.Adj.symm h43)
+                            (h_tri_compl_bip x1 x2 x3
+                              (Eq.mp
+                                (congrArg (fun _a => G.Adj x1 _a)
+                                  (have this := rfl;
+                                  this))
+                                (Eq.mp
+                                  (congrArg (fun _a => G.Adj _a (f 1))
+                                    (have this := rfl;
+                                    this))
+                                  h01))
+                              (Eq.mp
+                                (congrArg (fun _a => G.Adj x1 _a)
+                                  (have this := rfl;
+                                  this))
+                                (Eq.mp
+                                  (congrArg (fun _a => G.Adj _a (f 2))
+                                    (have this := rfl;
+                                    this))
+                                  h02))
+                              (Eq.mp
+                                (congrArg (fun _a => G.Adj x2 _a)
+                                  (have this := rfl;
+                                  this))
+                                (Eq.mp
+                                  (congrArg (fun _a => G.Adj _a (f 2))
+                                    (have this := rfl;
+                                    this))
+                                  h12)))
+                            hnot4)
+                          fun z1 h =>
+                          And.casesOn h fun _hz1_not right =>
+                            And.casesOn right fun _hz1_ne_x4 right =>
+                              And.casesOn right fun hz1_x1 right =>
+                                And.casesOn right fun hz1_x2 hz1_x3 =>
+                                  Exists.casesOn
+                                    (Erdos628.exists_fourth_complete_of_not_colorable_four✝ hz1_x2 hz1_x3 hz1_x1
+                                      (Eq.mp
+                                        (congrArg (fun _a => G.Adj x2 _a)
+                                          (have this := rfl;
+                                          this))
+                                        (Eq.mp
+                                          (congrArg (fun _a => G.Adj _a (f 2))
+                                            (have this := rfl;
+                                            this))
+                                          h12))
+                                      (SimpleGraph.Adj.symm
+                                        (Eq.mp
+                                          (congrArg (fun _a => G.Adj x1 _a)
+                                            (have this := rfl;
+                                            this))
+                                          (Eq.mp
+                                            (congrArg (fun _a => G.Adj _a (f 1))
+                                              (have this := rfl;
+                                              this))
+                                            h01)))
+                                      (SimpleGraph.Adj.symm
+                                        (Eq.mp
+                                          (congrArg (fun _a => G.Adj x1 _a)
+                                            (have this := rfl;
+                                            this))
+                                          (Eq.mp
+                                            (congrArg (fun _a => G.Adj _a (f 2))
+                                              (have this := rfl;
+                                              this))
+                                            h02)))
+                                      (h_tri_compl_bip z1 x2 x3 hz1_x2 hz1_x3
+                                        (Eq.mp
+                                          (congrArg (fun _a => G.Adj x2 _a)
+                                            (have this := rfl;
+                                            this))
+                                          (Eq.mp
+                                            (congrArg (fun _a => G.Adj _a (f 2))
+                                              (have this := rfl;
+                                              this))
+                                            h12)))
+                                      hnot4)
+                                    fun z2 h =>
+                                    And.casesOn h fun _hz2_not right =>
+                                      And.casesOn right fun hz2_ne_x1 right => And.casesOn right ⋯)
+              (Eq.symm hm1) hf hmin hm_ne0 hm_ge2
+'Erdos628.erdos_628.variants.k_5_a_3_b_3' depends on axioms: [propext, Classical.choice, Quot.sound]

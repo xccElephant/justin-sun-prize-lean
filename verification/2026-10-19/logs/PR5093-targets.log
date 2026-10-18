@@ -1,0 +1,6 @@
+/tmp/lean-verify-jsp-20261018/audit/PR5093.lean:2:8: error(lean.unknownIdentifier): Unknown identifier `Erdos338.bateman_example_has_no_restricted_order`
+/tmp/lean-verify-jsp-20261018/audit/PR5093.lean:3:7: error(lean.unknownIdentifier): Unknown constant `Erdos338.bateman_example_has_no_restricted_order`
+/tmp/lean-verify-jsp-20261018/audit/PR5093.lean:4:14: error(lean.unknownIdentifier): Unknown constant `Erdos338.bateman_example_has_no_restricted_order`
+/tmp/lean-verify-jsp-20261018/audit/PR5093.lean:5:8: error(lean.unknownIdentifier): Unknown identifier `Erdos338.order_two_distinct_sums_contain_large_odds`
+/tmp/lean-verify-jsp-20261018/audit/PR5093.lean:6:7: error(lean.unknownIdentifier): Unknown constant `Erdos338.order_two_distinct_sums_contain_large_odds`
+/tmp/lean-verify-jsp-20261018/audit/PR5093.lean:7:14: error(lean.unknownIdentifier): Unknown constant `Erdos338.order_two_distinct_sums_contain_large_odds`

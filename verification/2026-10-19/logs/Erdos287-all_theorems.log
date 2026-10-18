@@ -1,0 +1,504 @@
+AUDIT|Erdos287.first_term_lt_len|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.first_term_lt_len|∀ {k : ℕ} (hk : 2 ≤ k) (s : Fin k → ℕ),
+  StrictMono s → 1 < s ⟨0, ⋯⟩ → ∑ i, 1 / ↑(s i) = 1 → s ⟨0, ⋯⟩ < k
+AUDIT|Erdos287.erdos_287_best_possible._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_best_possible._simp_1_1|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_9|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ},
+  11 < q → ∀ (i₀ i : Fin k), s i = q * 1 → q = 3 * q → False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_8|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ},
+  11 < q → ∀ (i₀ i : Fin k), s i = q * 1 → q = 2 * q → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_12|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_12|∀ (N₀ k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ),
+  ∀ p ≤ 2 * (s ⟨k - 1, ⋯⟩ / 2), p % 2 = 1 → ¬p + 1 ≤ s ⟨k - 1, ⋯⟩ → False
+AUDIT|Erdos287.max_gap._proof_1|[propext, Quot.sound]
+TYPE|Erdos287.max_gap._proof_1|∀ (k : ℕ) (i : Fin (k - 1)), ¬↑i + 1 < k → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_23|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_23|∀ (N₀ k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ) (p : ℕ),
+  p % 2 = 1 → p + 1 ≤ s ⟨k - 1, ⋯⟩ → 2 * ((p + 1) / 2) = p + 1 → s ⟨k - 1, ⋯⟩ < p → False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_5|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ} (i₀ i : Fin k) (m : ℕ),
+  s i = q * m → s i < 4 * q → q * 4 ≤ q * m → False
+AUDIT|Erdos287.max_gap._proof_3|[propext, Quot.sound]
+TYPE|Erdos287.max_gap._proof_3|∀ (k : ℕ) (i : Fin (k - 1)), ↑i + 1 < k
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_16|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_16|∀ (k : ℕ),
+  2 ≤ k → ∀ (s : Fin k → ℕ) (i₀ i : Fin k) (d : ℕ), ¬2 ^ d * 2 % 2 = 0 → False
+AUDIT|Erdos287.twoVal._proof_1|[propext, Quot.sound]
+TYPE|Erdos287.twoVal._proof_1|∀ (n : ℕ), 0 < n ∧ n % 2 = 0 → InvImage (fun x1 x2 => x1 < x2) (fun x => x) (n / 2) n
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_20|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_20|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ} (i₀ i : Fin k),
+  ¬(3 * q * (0 + 0 + 2) = 6 * q ∧ 0 < 0 + 0 + 2) → False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_4|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ} (i₀ i : Fin k) (m : ℕ),
+  ¬m < 4 → ¬4 ≤ m → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_2|∀ (N₀ k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ),
+  1 < s ⟨0, ⋯⟩ → ∀ (i : Fin k), s ⟨0, ⋯⟩ + ↑i ≤ s i → ¬0 < s i → False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_17|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_17|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ} (i₀ i : Fin k),
+  s i = q * 3 → ¬s i = 3 * q → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_6|∀ (N₀ k : ℕ),
+  2 * N₀ + 48 ≤ k →
+    ∀ (hk : 2 ≤ k) (s : Fin k → ℕ),
+      1 < s ⟨0, ⋯⟩ → s ⟨0, ⋯⟩ + (k - 1) ≤ s ⟨k - 1, ⋯⟩ → N₀ ≤ s ⟨k - 1, ⋯⟩ / 2 → ¬24 ≤ s ⟨k - 1, ⋯⟩ / 2 → False
+AUDIT|Erdos287.clear_denominators_eq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.clear_denominators_eq|∀ {k : ℕ} (s : Fin k → ℕ),
+  (∀ (i : Fin k), 0 < s i) → ∑ i, 1 / ↑(s i) = 1 → ∀ (M : ℕ), (∀ (i : Fin k), s i ∣ M) → ∑ i, M / s i = M
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_8|∀ (k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ) (i₀ : Fin k),
+  s ⟨1, ⋯⟩ % 2 = 0 → ¬2 ^ 1 ∣ s ⟨1, ⋯⟩ → False
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_17|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_17|∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (s : Fin k → ℕ) (i₀ : Fin k),
+      (fun i =>
+                2 ^ ((Finset.univ.sup fun i => Erdos287.twoVal (s i)) - Erdos287.twoVal (s i)) *
+                  ∏ j ∈ Finset.univ.erase i, Erdos287.oddPart (s j))
+              i₀ %
+            2 =
+          1 →
+        (∑ i ∈ Finset.univ.erase i₀,
+                (fun i =>
+                    2 ^ ((Finset.univ.sup fun i => Erdos287.twoVal (s i)) - Erdos287.twoVal (s i)) *
+                      ∏ j ∈ Finset.univ.erase i, Erdos287.oddPart (s j))
+                  i) %
+              2 =
+            0 →
+          ¬((fun i =>
+                        2 ^ ((Finset.univ.sup fun i => Erdos287.twoVal (s i)) - Erdos287.twoVal (s i)) *
+                          ∏ j ∈ Finset.univ.erase i, Erdos287.oddPart (s j))
+                      i₀ +
+                    ∑ x ∈ Finset.univ.erase i₀,
+                      (fun i =>
+                          2 ^ ((Finset.univ.sup fun i => Erdos287.twoVal (s i)) - Erdos287.twoVal (s i)) *
+                            ∏ j ∈ Finset.univ.erase i, Erdos287.oddPart (s j))
+                        x) %
+                  2 =
+                1 →
+            False
+AUDIT|Erdos287.s_add_le_of_strictMono._proof_1|[propext, Quot.sound]
+TYPE|Erdos287.s_add_le_of_strictMono._proof_1|∀ {k : ℕ}, 2 ≤ k → ∀ (j : ℕ), ¬0 < k → False
+AUDIT|Erdos287.s_eq_add_of_max_gap_lt_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.s_eq_add_of_max_gap_lt_two|∀ {k : ℕ} (hk : 2 ≤ k) (s : Fin k → ℕ),
+  StrictMono s → Erdos287.max_gap k s < 2 → ∀ (j : ℕ) (hj : j < k), s ⟨j, hj⟩ = s ⟨0, ⋯⟩ + j
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_13|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_13|∀ (N₀ k : ℕ),
+  2 ≤ k → ∀ (s : Fin k → ℕ) (p : ℕ), p % 2 = 1 → ¬2 * ((p + 1) / 2) = p + 1 → False
+AUDIT|Erdos287.s_eq_add_of_max_gap_lt_two._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.s_eq_add_of_max_gap_lt_two._proof_1_3|∀ {k : ℕ} (hk : 2 ≤ k) (s : Fin k → ℕ),
+  Erdos287.max_gap k s < 2 →
+    ∀ (m : ℕ) (hj : m + 1 < k) (hm : m < k),
+      s ⟨m + 1, ⋯⟩ - s ⟨m, ⋯⟩ ≤ Erdos287.max_gap k s →
+        s ⟨m, hm⟩ < s ⟨m + 1, hj⟩ → s ⟨m, hm⟩ = s ⟨0, ⋯⟩ + m → ¬s ⟨m + 1, hj⟩ = s ⟨0, ⋯⟩ + (m + 1) → False
+AUDIT|Erdos287.max_gap._proof_4|[propext, Quot.sound]
+TYPE|Erdos287.max_gap._proof_4|∀ (k : ℕ) (i : Fin (k - 1)), ↑i < k
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_2|∀ (k : ℕ), 2 ≤ k → ∀ (s : Fin k → ℕ), ¬0 < k → False
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_6|∀ (k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ) (i₀ : Fin k),
+  s ⟨1, ⋯⟩ = s ⟨0, ⋯⟩ + 1 → ¬(s ⟨0, ⋯⟩ % 2 = 0 ∨ s ⟨1, ⋯⟩ % 2 = 0) → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_1|∀ (N₀ k : ℕ),
+  2 ≤ k → ∀ (s : Fin k → ℕ), ¬3 ≤ Erdos287.max_gap k s → ¬Erdos287.max_gap k s < 3 → False
+AUDIT|Erdos287.two_pow_mul_oddPart._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos287.two_pow_mul_oddPart._proof_1_3|∀ (n : ℕ), 0 < n ∧ n % 2 = 0 → ¬n / 2 < n → False
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_9|∀ (k : ℕ),
+  2 ≤ k → ∀ (s : Fin k → ℕ) (i₀ i a b : Fin k), ¬0 < k → False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_12|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_12|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ} (i₀ i : Fin k),
+  s i = q * 2 → ¬s i = 2 * q → False
+AUDIT|Erdos287.two_pow_mul_oddPart|[propext, Quot.sound]
+TYPE|Erdos287.two_pow_mul_oddPart|∀ (n : ℕ), 2 ^ Erdos287.twoVal n * Erdos287.oddPart n = n
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_20|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_20|∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (s : Fin k → ℕ) (i₀ : Fin k),
+      ∑ i,
+            (fun i =>
+                2 ^ ((Finset.univ.sup fun i => Erdos287.twoVal (s i)) - Erdos287.twoVal (s i)) *
+                  ∏ j ∈ Finset.univ.erase i, Erdos287.oddPart (s j))
+              i =
+          (2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * ∏ j, Erdos287.oddPart (s j) →
+        (∑ i,
+                (fun i =>
+                    2 ^ ((Finset.univ.sup fun i => Erdos287.twoVal (s i)) - Erdos287.twoVal (s i)) *
+                      ∏ j ∈ Finset.univ.erase i, Erdos287.oddPart (s j))
+                  i) %
+              2 =
+            1 →
+          ((2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * ∏ j, Erdos287.oddPart (s j)) % 2 = 0 → False
+AUDIT|Erdos287.max_gap._proof_2|[propext, Quot.sound]
+TYPE|Erdos287.max_gap._proof_2|∀ (k : ℕ) (i : Fin (k - 1)), ¬↑i < k → False
+AUDIT|Erdos287.erdos_287_best_possible._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_best_possible._simp_1_2|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos287.s_add_le_of_strictMono|[propext, Quot.sound]
+TYPE|Erdos287.s_add_le_of_strictMono|∀ {k : ℕ} (hk : 2 ≤ k) (s : Fin k → ℕ),
+  StrictMono s → ∀ (j : ℕ) (hj : j < k), s ⟨0, ⋯⟩ + j ≤ s ⟨j, hj⟩
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_7|∀ (k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ) (i₀ : Fin k),
+  s ⟨0, ⋯⟩ % 2 = 0 → ¬2 ^ 1 ∣ s ⟨0, ⋯⟩ → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_22|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_22|∀ (N₀ k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ),
+  s ⟨0, ⋯⟩ ≤ s ⟨k - 1, ⋯⟩ / 2 →
+    ∀ (p : ℕ), s ⟨k - 1, ⋯⟩ / 2 ≤ p → p % 2 = 1 → 2 * ((p + 1) / 2) = p + 1 → s ⟨0, ⋯⟩ ≠ p → ¬s ⟨0, ⋯⟩ < p → False
+AUDIT|Erdos287.oddPart_mod_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.oddPart_mod_two|∀ {n : ℕ}, 0 < n → Erdos287.oddPart n % 2 = 1
+AUDIT|Erdos287.prod_odd_mod_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.prod_odd_mod_two|∀ {α : Type u_1} [DecidableEq α] (S : Finset α) (f : α → ℕ),
+  (∀ x ∈ S, f x % 2 = 1) → (∏ x ∈ S, f x) % 2 = 1
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven|∀ {k : ℕ} (s : Fin k → ℕ),
+  StrictMono s →
+    (∀ (i : Fin k), 0 < s i) →
+      ∑ i, 1 / ↑(s i) = 1 → ∀ {q : ℕ}, Nat.Prime q → 11 < q → (∀ (i : Fin k), s i < 4 * q) → ∀ (i₀ : Fin k), ¬q ∣ s i₀
+AUDIT|Erdos287.stay_below_barrier._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.stay_below_barrier._proof_1_2|∀ {k : ℕ},
+  2 ≤ k → ∀ (s : Fin k → ℕ) (p j : ℕ), j + 1 < k → j < k → ¬j < k - 1 → False
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_10|∀ (k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ) (i₀ i a b : Fin k),
+  (2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * (Erdos287.oddPart (s a) + 1) ≤ s b →
+    s a = s ⟨0, ⋯⟩ + ↑a →
+      s b = s ⟨0, ⋯⟩ + ↑b →
+        ¬(2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * (Erdos287.oddPart (s a) + 1) - s ⟨0, ⋯⟩ < k → False
+AUDIT|Erdos287.le_twoVal_of_two_pow_dvd|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.le_twoVal_of_two_pow_dvd|∀ {n r : ℕ}, 0 < n → 2 ^ r ∣ n → r ≤ Erdos287.twoVal n
+AUDIT|Erdos287.le_twoVal_of_two_pow_dvd._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos287.le_twoVal_of_two_pow_dvd._proof_1_2|∀ {n : ℕ} {r : ℕ},
+  2 ∣ Erdos287.oddPart n → Erdos287.oddPart n % 2 = 1 → False
+AUDIT|Erdos287.first_term_lt_len._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos287.first_term_lt_len._proof_1_2|∀ {k : ℕ}, 2 ≤ k → ∀ (s : Fin k → ℕ), ¬1 < k → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_5|∀ (N₀ k : ℕ),
+  2 * N₀ + 48 ≤ k →
+    ∀ (hk : 2 ≤ k) (s : Fin k → ℕ), 1 < s ⟨0, ⋯⟩ → s ⟨0, ⋯⟩ + (k - 1) ≤ s ⟨k - 1, ⋯⟩ → ¬N₀ ≤ s ⟨k - 1, ⋯⟩ / 2 → False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_15|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_15|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ} (i₀ i : Fin k),
+  ¬(2 * q * (0 + 3 + 0) = 6 * q ∧ 0 < 0 + 3 + 0) → False
+AUDIT|Erdos287.twoVal.eq_def|[propext, Quot.sound]
+TYPE|Erdos287.twoVal.eq_def|∀ (n : ℕ),
+  Erdos287.twoVal n = if x : 0 < n ∧ n % 2 = 0 then Erdos287.twoVal (n / 2) + 1 else 0
+AUDIT|Erdos287.s_add_le_of_strictMono._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos287.s_add_le_of_strictMono._proof_1_1|∀ {k : ℕ} (m : ℕ), m + 1 < k → ¬m < k → False
+AUDIT|Erdos287.oddPart_mod_two._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.oddPart_mod_two._proof_1_4|∀ (n : ℕ), 0 < n → ¬(0 < n ∧ n % 2 = 0) → ¬n % 2 = 1 → False
+AUDIT|Erdos287.prime_not_dvd_prod|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.prime_not_dvd_prod|∀ {α : Type u_1} [DecidableEq α] {q : ℕ},
+  Nat.Prime q → ∀ (S : Finset α) (g : α → ℕ), (∀ x ∈ S, ¬q ∣ g x) → ¬q ∣ ∏ x ∈ S, g x
+AUDIT|Erdos287.stay_below_barrier._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.stay_below_barrier._proof_1_3|∀ {k : ℕ} (hk : 2 ≤ k) (s : Fin k → ℕ),
+  Erdos287.max_gap k s < 3 →
+    ∀ (p j : ℕ) (hm : j + 1 < k) (hj : j < k),
+      s ⟨j, hj⟩ < p →
+        s ⟨j + 1, ⋯⟩ - s ⟨j, ⋯⟩ ≤ Erdos287.max_gap k s →
+          s ⟨j + 1, hm⟩ ≠ p ∧ s ⟨j + 1, hm⟩ ≠ p + 1 → ¬s ⟨j + 1, hm⟩ < p → False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_10|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ} (i₀ i : Fin k),
+  ¬(q * (6 + 0 + 0) = 6 * q ∧ 0 < 6 + 0 + 0) → False
+AUDIT|Erdos287.oddPart._proof_1|[propext, Quot.sound]
+TYPE|Erdos287.oddPart._proof_1|∀ (n : ℕ), 0 < n ∧ n % 2 = 0 → InvImage (fun x1 x2 => x1 < x2) (fun x => x) (n / 2) n
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_1|∀ (k : ℕ),
+  2 ≤ k → ∀ (s : Fin k → ℕ), ¬2 ≤ Erdos287.max_gap k s → ¬Erdos287.max_gap k s < 2 → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1|[propext, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1|∀ (k₀ k : ℕ), 2 ≤ k → ¬0 < k → False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_24|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_24|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ},
+  11 < q →
+    ∀ (i₀ : Fin k),
+      0 <
+          ∑ i,
+            (fun i =>
+                (fun i => if s i = q then 6 else 0) i + (fun i => if s i = 2 * q then 3 else 0) i +
+                  (fun i => if s i = 3 * q then 2 else 0) i)
+              i →
+        ∑ i,
+              (fun i =>
+                  (fun i => if s i = q then 6 else 0) i + (fun i => if s i = 2 * q then 3 else 0) i +
+                    (fun i => if s i = 3 * q then 2 else 0) i)
+                i ≤
+            11 →
+          q ≤
+              ∑ i,
+                (fun i =>
+                    (fun i => if s i = q then 6 else 0) i + (fun i => if s i = 2 * q then 3 else 0) i +
+                      (fun i => if s i = 3 * q then 2 else 0) i)
+                  i →
+            False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_6|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ} (i₀ i : Fin k) (m : ℕ),
+  0 < m → m < 4 → ¬(m = 1 ∨ m = 2 ∨ m = 3) → False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_18|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_18|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ},
+  11 < q → ∀ (i₀ i : Fin k), 3 * q = q → False
+AUDIT|Erdos287.oddPart.eq_1|[propext, Quot.sound]
+TYPE|Erdos287.oddPart.eq_1|∀ (n : ℕ), Erdos287.oddPart n = if x : 0 < n ∧ n % 2 = 0 then Erdos287.oddPart (n / 2) else n
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_14|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_14|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ},
+  11 < q → ∀ (i₀ i : Fin k), 2 * q = 3 * q → False
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_13|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_13|∀ (k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ),
+  (∀ (i : Fin k), s i = s ⟨0, ⋯⟩ + ↑i) →
+    ∀ (i₀ i a b : Fin k),
+      (2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * (Erdos287.oddPart (s a) + 1) ≤ s b →
+        Erdos287.oddPart (s a) % 2 = 1 → ¬2 ∣ Erdos287.oddPart (s a) + 1 → False
+AUDIT|Erdos287.stay_below_barrier|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.stay_below_barrier|∀ {k : ℕ} (hk : 2 ≤ k) (s : Fin k → ℕ),
+  Erdos287.max_gap k s < 3 →
+    ∀ (p : ℕ), s ⟨0, ⋯⟩ < p → (∀ (i : Fin k), s i ≠ p ∧ s i ≠ p + 1) → ∀ (m : ℕ) (hm : m < k), s ⟨m, hm⟩ < p
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_14|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_14|∀ (k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ)
+  (hs_eq : ∀ (i : Fin k), s i = s ⟨0, ⋯⟩ + ↑i) (i₀ : Fin k),
+  (Finset.univ.sup fun i => Erdos287.twoVal (s i)) = Erdos287.twoVal (s i₀) →
+    ∀ (i : Fin k),
+      (Erdos287.twoVal (s i) = Finset.univ.sup fun i => Erdos287.twoVal (s i)) →
+        ∀ (a b : Fin k),
+          (Erdos287.twoVal (s a) = Finset.univ.sup fun i => Erdos287.twoVal (s i)) →
+            (Erdos287.twoVal (s b) = Finset.univ.sup fun i => Erdos287.twoVal (s i)) →
+              ∀ (hm_le : (2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * (Erdos287.oddPart (s a) + 1) ≤ s b)
+                (t : ℕ),
+                (Finset.univ.sup fun i => Erdos287.twoVal (s i)) + 1 ≤
+                    Erdos287.twoVal
+                      (s
+                        ⟨(2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * (Erdos287.oddPart (s a) + 1) - s ⟨0, ⋯⟩,
+                          ⋯⟩) →
+                  (Erdos287.twoVal
+                        (s
+                          ⟨(2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * (Erdos287.oddPart (s a) + 1) -
+                              s ⟨0, ⋯⟩,
+                            ⋯⟩) ≤
+                      Finset.univ.sup fun i => Erdos287.twoVal (s i)) →
+                    False
+AUDIT|Erdos287.sum_ite_eq_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.sum_ite_eq_le|∀ {k : ℕ} (s : Fin k → ℕ),
+  Function.Injective s → ∀ (v w : ℕ), (∑ i, if s i = v then w else 0) ≤ w
+AUDIT|Erdos287.two_pow_mul_oddPart._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos287.two_pow_mul_oddPart._proof_1_4|∀ (n : ℕ), 0 < n ∧ n % 2 = 0 → ¬n / 2 * 2 = n → False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_3|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ} (i₀ i : Fin k),
+  0 < s i → s i = 0 → False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_21|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_21|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ},
+  11 < q → ∀ (i₀ i : Fin k), ¬3 * q = 3 * q → ¬(3 * q * (0 + 0 + 0) = 6 * q ∧ 0 < 0 + 0 + 0) → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_19|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_19|∀ (N₀ k : ℕ),
+  2 ≤ k →
+    ∀ (s : Fin k → ℕ) (p : ℕ),
+      p % 2 = 1 → 2 * ((p + 1) / 2) = p + 1 → ∀ (i : Fin k), s i < 4 * ((p + 1) / 2) → ¬s i < 4 * p → False
+AUDIT|Erdos287.oddPart.eq_def|[propext, Quot.sound]
+TYPE|Erdos287.oddPart.eq_def|∀ (n : ℕ),
+  Erdos287.oddPart n = if x : 0 < n ∧ n % 2 = 0 then Erdos287.oddPart (n / 2) else n
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_14|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_14|∀ (N₀ k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ),
+  24 ≤ s ⟨k - 1, ⋯⟩ / 2 →
+    ∀ (p : ℕ), s ⟨k - 1, ⋯⟩ / 2 ≤ p → 2 < p → p % 2 = 1 → 2 * ((p + 1) / 2) = p + 1 → ¬11 < (p + 1) / 2 → False
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_5|∀ (k : ℕ), 2 ≤ k → ∀ (s : Fin k → ℕ) (i₀ : Fin k), ¬1 < k → False
+AUDIT|Erdos287.oddPart_mod_two._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos287.oddPart_mod_two._proof_1_3|∀ (n : ℕ), 0 < n → 0 < n ∧ n % 2 = 0 → ¬0 < n / 2 → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_21|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_21|∀ (N₀ k : ℕ),
+  2 ≤ k → ∀ (s : Fin k → ℕ) (p : ℕ), ¬0 < k → False
+AUDIT|Erdos287.s_eq_add_of_max_gap_lt_two._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.s_eq_add_of_max_gap_lt_two._proof_1_2|∀ {k : ℕ},
+  2 ≤ k → ∀ (s : Fin k → ℕ) (m : ℕ), m + 1 < k → ¬m < k - 1 → False
+AUDIT|Erdos287.s_eq_add_of_max_gap_lt_two._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.s_eq_add_of_max_gap_lt_two._proof_1_1|∀ {k : ℕ} (s : Fin k → ℕ) (m : ℕ), m + 1 < k → ¬m < k → False
+AUDIT|Erdos287.twoVal.eq_1|[propext, Quot.sound]
+TYPE|Erdos287.twoVal.eq_1|∀ (n : ℕ),
+  Erdos287.twoVal n = if x : 0 < n ∧ n % 2 = 0 then Erdos287.twoVal (n / 2) + 1 else 0
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_13|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_13|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ},
+  11 < q → ∀ (i₀ i : Fin k), 2 * q = q → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_9|∀ (N₀ k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ),
+  24 ≤ s ⟨k - 1, ⋯⟩ / 2 → s ⟨k - 1, ⋯⟩ / 2 ≤ 2 → False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_7|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ} (i₀ i : Fin k),
+  s i = q * 1 → ¬s i = q → False
+AUDIT|Erdos287.erdos_287_best_possible|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_best_possible|have s := ![2, 3, 6];
+StrictMono s ∧ 1 < s 0 ∧ ∑ i, 1 / ↑(s i) = 1 ∧ Erdos287.max_gap 3 s = 3
+AUDIT|Erdos287.step_le_max_gap|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.step_le_max_gap|∀ {k : ℕ} (s : Fin k → ℕ) (i : Fin (k - 1)),
+  s ⟨↑i + 1, ⋯⟩ - s ⟨↑i, ⋯⟩ ≤ Erdos287.max_gap k s
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_22|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_22|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ} (i₀ : Fin k),
+  0 <
+      (fun i =>
+          (fun i => if s i = q then 6 else 0) i + (fun i => if s i = 2 * q then 3 else 0) i +
+            (fun i => if s i = 3 * q then 2 else 0) i)
+        i₀ →
+    (fun i =>
+            (fun i => if s i = q then 6 else 0) i + (fun i => if s i = 2 * q then 3 else 0) i +
+              (fun i => if s i = 3 * q then 2 else 0) i)
+          i₀ ≤
+        ∑ i,
+          (fun i =>
+              (fun i => if s i = q then 6 else 0) i + (fun i => if s i = 2 * q then 3 else 0) i +
+                (fun i => if s i = 3 * q then 2 else 0) i)
+            i →
+      ¬0 <
+            ∑ i,
+              (fun i =>
+                  (fun i => if s i = q then 6 else 0) i + (fun i => if s i = 2 * q then 3 else 0) i +
+                    (fun i => if s i = 3 * q then 2 else 0) i)
+                i →
+        False
+AUDIT|Erdos287.stay_below_barrier._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.stay_below_barrier._proof_1_1|∀ {k : ℕ}, 2 ≤ k → ∀ (s : Fin k → ℕ) (p j : ℕ), j + 1 < k → ¬j < k → False
+AUDIT|Erdos287.oddPart_mod_two._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos287.oddPart_mod_two._proof_1_2|∀ (n : ℕ), 0 < n → 0 < n ∧ n % 2 = 0 → ¬n / 2 < n → False
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_18|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_18|∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (s : Fin k → ℕ) (i₀ : Fin k),
+      (Finset.univ.sup fun i => Erdos287.twoVal (s i)) = Erdos287.twoVal (s i₀) →
+        (1 ≤ Finset.univ.sup fun i => Erdos287.twoVal (s i)) →
+          ¬(Finset.univ.sup fun i => Erdos287.twoVal (s i)) = (Finset.univ.sup fun i => Erdos287.twoVal (s i)) - 1 + 1 →
+            False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_4|∀ (N₀ k : ℕ), 2 ≤ k → ∀ (s : Fin k → ℕ), ¬k - 1 < k → False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_23|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_23|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ} (i₀ : Fin k),
+  ∑ i,
+        (fun i =>
+            (fun i => if s i = q then 6 else 0) i + (fun i => if s i = 2 * q then 3 else 0) i +
+              (fun i => if s i = 3 * q then 2 else 0) i)
+          i =
+      ∑ i, (fun i => if s i = q then 6 else 0) i + ∑ i, (fun i => if s i = 2 * q then 3 else 0) i +
+        ∑ i, (fun i => if s i = 3 * q then 2 else 0) i →
+    ∑ i, (fun i => if s i = q then 6 else 0) i ≤ 6 →
+      ∑ i, (fun i => if s i = 2 * q then 3 else 0) i ≤ 3 →
+        ∑ i, (fun i => if s i = 3 * q then 2 else 0) i ≤ 2 →
+          ¬∑ i,
+                  (fun i =>
+                      (fun i => if s i = q then 6 else 0) i + (fun i => if s i = 2 * q then 3 else 0) i +
+                        (fun i => if s i = 3 * q then 2 else 0) i)
+                    i ≤
+                11 →
+            False
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_3|∀ (k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ),
+  1 < s ⟨0, ⋯⟩ → ∀ (i : Fin k), ¬0 < s ⟨0, ⋯⟩ + ↑i → False
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_12|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_12|∀ (k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ)
+  (hs_eq : ∀ (i : Fin k), s i = s ⟨0, ⋯⟩ + ↑i) (i₀ i a b : Fin k),
+  s a < (2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * (Erdos287.oddPart (s a) + 1) →
+    ∀ (hm_le : (2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * (Erdos287.oddPart (s a) + 1) ≤ s b),
+      s ⟨(2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * (Erdos287.oddPart (s a) + 1) - s ⟨0, ⋯⟩, ⋯⟩ =
+          s ⟨0, ⋯⟩ + ((2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * (Erdos287.oddPart (s a) + 1) - s ⟨0, ⋯⟩) →
+        s a = s ⟨0, ⋯⟩ + ↑a →
+          ¬s ⟨(2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * (Erdos287.oddPart (s a) + 1) - s ⟨0, ⋯⟩, ⋯⟩ =
+                (2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * (Erdos287.oddPart (s a) + 1) →
+            False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_15|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_15|∀ (N₀ k : ℕ),
+  2 ≤ k → ∀ (s : Fin k → ℕ) (p : ℕ), p % 2 = 1 → 2 * ((p + 1) / 2) = p + 1 → 11 < (p + 1) / 2 → ¬11 < p → False
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_11|∀ (k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ),
+  (∀ (i : Fin k), s i = s ⟨0, ⋯⟩ + ↑i) →
+    ∀ (i₀ i a b : Fin k),
+      (2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * (Erdos287.oddPart (s a) + 1) ≤ s b → ¬0 < k → False
+AUDIT|Erdos287.le_twoVal_of_two_pow_dvd._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos287.le_twoVal_of_two_pow_dvd._proof_1_1|∀ {n r : ℕ},
+  ¬r ≤ Erdos287.twoVal n → ¬Erdos287.twoVal n + 1 ≤ r → False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_19|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_19|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ},
+  11 < q → ∀ (i₀ i : Fin k), 3 * q = 2 * q → False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_11|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ},
+  11 < q →
+    ∀ (i₀ i : Fin k),
+      s i = q * 1 → ¬q = q → ¬q = 2 * q → ¬q = 3 * q → ¬(q * (0 + 0 + 0) = 6 * q ∧ 0 < 0 + 0 + 0) → False
+AUDIT|Erdos287.s_add_le_of_strictMono._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos287.s_add_le_of_strictMono._proof_1_2|∀ {k : ℕ} (hk : 2 ≤ k) (s : Fin k → ℕ) (m : ℕ) (hj : m + 1 < k)
+  (hm : m < k), s ⟨m, hm⟩ < s ⟨m + 1, hj⟩ → s ⟨0, ⋯⟩ + m ≤ s ⟨m, hm⟩ → ¬s ⟨0, ⋯⟩ + (m + 1) ≤ s ⟨m + 1, hj⟩ → False
+AUDIT|Erdos287.erdos_287_gap_at_least_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two|∀ (k : ℕ) (x : 2 ≤ k) (s : Fin k → ℕ),
+  StrictMono s → 1 < s ⟨0, ⋯⟩ → ∑ i, 1 / ↑(s i) = 1 → 2 ≤ Erdos287.max_gap k s
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_3|∀ (N₀ k : ℕ), 2 ≤ k → ∀ (s : Fin k → ℕ), ¬0 < k → False
+AUDIT|Erdos287.first_term_lt_len._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos287.first_term_lt_len._proof_1_1|∀ {k : ℕ} (hk : 2 ≤ k) (s : Fin k → ℕ) (i : Fin k),
+  s ⟨0, ⋯⟩ + ↑i ≤ s i → ¬s ⟨0, ⋯⟩ ≤ s i → False
+AUDIT|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_16|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.not_dvd_of_prime_gt_eleven._proof_1_16|∀ {k : ℕ} (s : Fin k → ℕ) {q : ℕ},
+  11 < q → ∀ (i₀ i : Fin k), ¬2 * q = 2 * q → ¬2 * q = 3 * q → ¬(2 * q * (0 + 0 + 0) = 6 * q ∧ 0 < 0 + 0 + 0) → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_16|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_16|∀ (N₀ k : ℕ),
+  2 ≤ k → ∀ (s : Fin k → ℕ) (p : ℕ) (i : Fin k), ¬↑i ≤ k - 1 → False
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_4|∀ (k : ℕ), 2 ≤ k → ∀ (s : Fin k → ℕ) (i₀ : Fin k), ¬0 < k → False
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_15|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_15|∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (s : Fin k → ℕ) (i₀ : Fin k),
+      (Finset.univ.sup fun i => Erdos287.twoVal (s i)) = Erdos287.twoVal (s i₀) →
+        ∀ (i : Fin k),
+          (Erdos287.twoVal (s i) < Finset.univ.sup fun i => Erdos287.twoVal (s i)) →
+            ¬(Finset.univ.sup fun i => Erdos287.twoVal (s i)) - Erdos287.twoVal (s i) =
+                  (Finset.univ.sup fun i => Erdos287.twoVal (s i)) - Erdos287.twoVal (s i) - 1 + 1 →
+              False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_20|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_20|∀ (N₀ k : ℕ),
+  2 ≤ k →
+    ∀ (s : Fin k → ℕ) (p : ℕ),
+      p % 2 = 1 → 2 * ((p + 1) / 2) = p + 1 → ∀ (i : Fin k), s i = p + 1 → ¬s i = (p + 1) / 2 * 2 → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_18|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_18|∀ (N₀ k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ) (p : ℕ),
+  s ⟨k - 1, ⋯⟩ / 2 ≤ p →
+    p % 2 = 1 → 2 * ((p + 1) / 2) = p + 1 → ∀ (i : Fin k), s i ≤ s ⟨k - 1, ⋯⟩ → ¬s i < 4 * ((p + 1) / 2) → False
+AUDIT|Erdos287.s_eq_add_of_max_gap_lt_two._proof_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.s_eq_add_of_max_gap_lt_two._proof_1|∀ {k : ℕ}, 2 ≤ k → ∀ (s : Fin k → ℕ) (j : ℕ), ¬0 < k → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_7|∀ (N₀ k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ),
+  s ⟨0, ⋯⟩ + (k - 1) ≤ s ⟨k - 1, ⋯⟩ → s ⟨0, ⋯⟩ < k → ¬s ⟨0, ⋯⟩ ≤ s ⟨k - 1, ⋯⟩ / 2 → False
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1_19|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1_19|∀ (k : ℕ),
+  2 ≤ k →
+    ∀ (s : Fin k → ℕ) (i₀ : Fin k),
+      ∑ i,
+            (fun i =>
+                2 ^ ((Finset.univ.sup fun i => Erdos287.twoVal (s i)) - Erdos287.twoVal (s i)) *
+                  ∏ j ∈ Finset.univ.erase i, Erdos287.oddPart (s j))
+              i =
+          (2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * ∏ j, Erdos287.oddPart (s j) →
+        (∑ i,
+                (fun i =>
+                    2 ^ ((Finset.univ.sup fun i => Erdos287.twoVal (s i)) - Erdos287.twoVal (s i)) *
+                      ∏ j ∈ Finset.univ.erase i, Erdos287.oddPart (s j))
+                  i) %
+              2 =
+            1 →
+          ∀ (d : ℕ),
+            (2 ^ Finset.univ.sup fun i => Erdos287.twoVal (s i)) * ∏ j, Erdos287.oddPart (s j) =
+                2 * (2 ^ d * ∏ j, Erdos287.oddPart (s j)) →
+              False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_11|∀ (N₀ k : ℕ),
+  2 ≤ k → ∀ (s : Fin k → ℕ) (p : ℕ), ¬k - 1 < k → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_8|∀ (N₀ k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ),
+  24 ≤ s ⟨k - 1, ⋯⟩ / 2 → ∀ (p : ℕ), s ⟨k - 1, ⋯⟩ / 2 ≤ p → ¬2 < p → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies|(∃ N₀,
+    ∀ (N : ℕ), N₀ ≤ N → ∃ p, Nat.Prime p ∧ N ≤ p ∧ p ≤ 2 * N ∧ Nat.Prime ((p + 1) / 2)) →
+  ∃ k₀,
+    ∀ (k : ℕ),
+      k₀ ≤ k →
+        ∀ (x : 2 ≤ k) (s : Fin k → ℕ), StrictMono s → 1 < s ⟨0, ⋯⟩ → ∑ i, 1 / ↑(s i) = 1 → 3 ≤ Erdos287.max_gap k s
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_10|∀ (N₀ k : ℕ) (hk : 2 ≤ k) (s : Fin k → ℕ),
+  ∀ p ≤ 2 * (s ⟨k - 1, ⋯⟩ / 2), p % 2 = 1 → ¬p < 2 * (s ⟨k - 1, ⋯⟩ / 2) → False
+AUDIT|Erdos287.first_term_lt_len._proof_1|[propext, Quot.sound]
+TYPE|Erdos287.first_term_lt_len._proof_1|∀ {k : ℕ}, 2 ≤ k → ∀ (s : Fin k → ℕ), ¬0 < k → False
+AUDIT|Erdos287.erdos_287_prime_conjecture_implies._proof_1_17|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos287.erdos_287_prime_conjecture_implies._proof_1_17|∀ (N₀ k : ℕ),
+  2 ≤ k → ∀ (s : Fin k → ℕ) (p : ℕ) (i : Fin k), ↑i = k - 1 → ¬k - 1 < k → False
+AUDIT|Erdos287.erdos_287_gap_at_least_two._proof_1|[propext, Quot.sound]
+TYPE|Erdos287.erdos_287_gap_at_least_two._proof_1|∀ (k : ℕ), 2 ≤ k → ¬0 < k → False

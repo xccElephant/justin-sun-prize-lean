@@ -1,0 +1,106 @@
+AUDIT|Erdos261.sum_range_dyadic._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos261.sum_range_dyadic._proof_1_1|∀ (n m : ℕ), ¬n + 1 + m = n + m + 1 → False
+AUDIT|Erdos261.erdos_261.parts.i._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos261.erdos_261.parts.i._proof_1_4|∀ (k : ℕ), k ≠ 0 → ¬2 < k + 2 → False
+AUDIT|Erdos261.repSeq1_representation._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos261.repSeq1_representation._proof_1_1|∀ (k : ℕ), ¬7 + k = k + 1 + 6 → False
+AUDIT|Erdos261.erdos_261.variants.borwein_loring_property._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos261.erdos_261.variants.borwein_loring_property._proof_1_1|∀ (m : ℕ) ⦃i j : Fin m⦄,
+  2 ^ (m + 1) - m - 2 + 1 + ↑i = 2 ^ (m + 1) - m - 2 + 1 + ↑j → ¬↑i = ↑j → False
+AUDIT|Erdos261.sum_Ioc_dyadic._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos261.sum_Ioc_dyadic._proof_1_2|∀ (n m : ℕ), ¬n ≤ n + m → False
+AUDIT|Erdos261.add_two_le_two_pow_succ._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos261.add_two_le_two_pow_succ._proof_1_2|∀ (k : ℕ), ¬k + 1 + 2 = k + 2 + 1 → False
+AUDIT|Erdos261.erdos_261.variants.borwein_loring_property._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos261.erdos_261.variants.borwein_loring_property._proof_1_2|∀ (m : ℕ) (i : Fin m),
+  ¬1 ≤ 2 ^ (m + 1) - m - 2 + 1 + ↑i → False
+AUDIT|Erdos261.repSeq0_representation|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos261.repSeq0_representation|Erdos261.Erdos261InfiniteRepresentation (3 / 8) Erdos261.repSeq0
+AUDIT|Erdos261.erdos_261.parts.i|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos261.erdos_261.parts.i|{n | 0 < n ∧ Erdos261.Erdos261Prop n}.Infinite
+AUDIT|Erdos261.erdos_261.variants.borwein_loring|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos261.erdos_261.variants.borwein_loring|∀ (m : ℕ),
+  0 < m →
+    have n := 2 ^ (m + 1) - m - 2;
+    ↑n / 2 ^ n = ∑ k ∈ Finset.Ioc n (n + m), ↑k / 2 ^ k
+AUDIT|Erdos261.borwein_loring_strictMonoOn|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos261.borwein_loring_strictMonoOn|StrictMonoOn (fun m => 2 ^ (m + 1) - m - 2) (Set.Ici 2)
+AUDIT|Erdos261.sum_range_dyadic._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos261.sum_range_dyadic._proof_1_2|∀ (n m : ℕ), ¬n + (m + 1) = n + m + 1 → False
+AUDIT|Erdos261.hasSum_dyadic_tail._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos261.hasSum_dyadic_tail._proof_1_1|∀ (s : Finset ℕ) ⦃i : ℕ⦄, i ≤ s.sup id → ¬i < s.sup id + 1 → False
+AUDIT|Erdos261.repSeq0_representation._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos261.repSeq0_representation._proof_1_2|∀ ⦃i j : ℕ⦄, i < j → ¬i + 5 < j + 5 → False
+AUDIT|Erdos261.erdos_261.variants.two_representations._simp_1_4|[propext]
+TYPE|Erdos261.erdos_261.variants.two_representations._simp_1_4|∀ {α : Type u_1} {a b : α}, (a ∈ {b}) = (a = b)
+AUDIT|Erdos261.repSeq1_representation._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos261.repSeq1_representation._proof_1_4|∀ ⦃i j : ℕ⦄, i < j → j = 0 → False
+AUDIT|Erdos261.add_two_le_two_pow_succ._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos261.add_two_le_two_pow_succ._proof_1_1|0 < 0 → False
+AUDIT|Erdos261.sum_Ioc_dyadic|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos261.sum_Ioc_dyadic|∀ (n m : ℕ),
+  ∑ k ∈ Finset.Ioc n (n + m), ↑k / 2 ^ k = ∑ i ∈ Finset.range m, ↑(n + 1 + i) / 2 ^ (n + 1 + i)
+AUDIT|Erdos261.repSeq0_representation._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos261.repSeq0_representation._proof_1_3|∀ (k : ℕ), ¬1 ≤ k + 5 → False
+AUDIT|Erdos261.repSeq1_representation._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos261.repSeq1_representation._proof_1_2|∀ ⦃i j : ℕ⦄, i < j → i = 0 → j = 0 → False
+AUDIT|Erdos261.repSeq1.eq_1|[]
+TYPE|Erdos261.repSeq1.eq_1|∀ (k : ℕ), Erdos261.repSeq1 k = if k = 0 then 4 else k + 6
+AUDIT|Erdos261.erdos_261.variants.borwein_loring_property|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos261.erdos_261.variants.borwein_loring_property|∀ (m : ℕ), 2 ≤ m → Erdos261.Erdos261Prop (2 ^ (m + 1) - m - 2)
+AUDIT|Erdos261.erdos_261.parts.i._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos261.erdos_261.parts.i._proof_1_1|∀ ⦃x y : ℕ⦄ ⦃a b : ℕ⦄, a < b → ¬a + 2 < b + 2 → False
+AUDIT|Erdos261.erdos_261.variants.borwein_loring._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos261.erdos_261.variants.borwein_loring._proof_1_1|∀ (m : ℕ),
+  m + 2 ≤ 2 ^ (m + 1) → ¬2 ^ (m + 1) - m - 2 + m + 2 = 2 ^ (m + 1) → False
+AUDIT|Erdos261.repSeq1_representation._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos261.repSeq1_representation._proof_1_7|∀ (k : ℕ), ¬1 ≤ k + 6 → False
+AUDIT|Erdos261.erdos_261.variants.two_representations._simp_1_3|[propext]
+TYPE|Erdos261.erdos_261.variants.two_representations._simp_1_3|∀ {α : Type u_1} {x a : α} {s : Set α},
+  (x ∈ insert a s) = (x = a ∨ x ∈ s)
+AUDIT|Erdos261.sum_Ioc_dyadic._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos261.sum_Ioc_dyadic._proof_1_1|∀ (n m : ℕ), ¬n + (m + 1) = n + m + 1 → False
+AUDIT|Erdos261.mul_succ_succ_le_two_pow|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos261.mul_succ_succ_le_two_pow|∀ (k : ℕ), (k + 1) * (k + 2) ≤ 2 ^ (k + 2)
+AUDIT|Erdos261.sum_Ioc_dyadic._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos261.sum_Ioc_dyadic._proof_1_3|∀ (n m : ℕ), ¬n + m + 1 = n + 1 + m → False
+AUDIT|Erdos261.hasSum_dyadic_tail|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos261.hasSum_dyadic_tail|∀ (n : ℕ), HasSum (fun i => ↑(n + 1 + i) / 2 ^ (n + 1 + i)) (↑(n + 2) / 2 ^ n)
+AUDIT|Erdos261.sum_range_dyadic|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos261.sum_range_dyadic|∀ (n m : ℕ),
+  ∑ i ∈ Finset.range m, ↑(n + 1 + i) / 2 ^ (n + 1 + i) = ↑(n + 2) / 2 ^ n - ↑(n + m + 2) / 2 ^ (n + m)
+AUDIT|Erdos261.erdos_261.variants.borwein_loring_property._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos261.erdos_261.variants.borwein_loring_property._proof_1_3|∀ (m : ℕ), 2 ≤ m → ¬0 < m → False
+AUDIT|Erdos261.erdos_261.variants.two_representations|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos261.erdos_261.variants.two_representations|∃ x,
+  2 ≤ Cardinal.mk ↑{a | Erdos261.Erdos261InfiniteRepresentation x a}
+AUDIT|Erdos261.repSeq1_representation|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos261.repSeq1_representation|Erdos261.Erdos261InfiniteRepresentation (3 / 8) Erdos261.repSeq1
+AUDIT|Erdos261.dyadic_tail_remainder_le._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos261.dyadic_tail_remainder_le._proof_1_1|∀ (n m : ℕ), ¬m + 1 ≤ n + m + 1 → False
+AUDIT|Erdos261.erdos_261.parts.i._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos261.erdos_261.parts.i._proof_1_2|∀ (k : ℕ), ¬2 ≤ k + 2 → False
+AUDIT|Erdos261.borwein_loring_strictMonoOn._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos261.borwein_loring_strictMonoOn._proof_1_1|∀ ⦃a b : ℕ⦄, ∀ k ≥ 2, ¬0 < k → False
+AUDIT|Erdos261.dyadic_tail_remainder_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos261.dyadic_tail_remainder_le|∀ (n m : ℕ), ↑(n + m + 2) / 2 ^ (n + m) ≤ 4 / ↑(m + 1)
+AUDIT|Erdos261.add_two_le_two_pow_succ|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos261.add_two_le_two_pow_succ|∀ (m : ℕ), 0 < m → m + 2 ≤ 2 ^ (m + 1)
+AUDIT|Erdos261.repSeq1_representation._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos261.repSeq1_representation._proof_1_5|∀ ⦃i j : ℕ⦄, i < j → ¬i + 6 < j + 6 → False
+AUDIT|Erdos261.erdos_261.parts.i._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos261.erdos_261.parts.i._proof_1_5|∀ (k : ℕ),
+  2 ^ (0 + 2 + 1) - (0 + 2) - 2 < 2 ^ (k + 2 + 1) - (k + 2) - 2 → ¬0 < 2 ^ (k + 2 + 1) - (k + 2) - 2 → False
+AUDIT|Erdos261.erdos_261.parts.i._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos261.erdos_261.parts.i._proof_1_3|¬0 < 2 ^ (0 + 2 + 1) - (0 + 2) - 2 → False
+AUDIT|Erdos261.repSeq1_representation._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos261.repSeq1_representation._proof_1_6|∀ (k : ℕ), ¬1 ≤ 4 → False
+AUDIT|Erdos261.borwein_loring_strictMonoOn._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos261.borwein_loring_strictMonoOn._proof_1_2|∀ ⦃a b : ℕ⦄,
+  ∀ k ≥ 2,
+    k + 2 ≤ 2 ^ (k + 1) →
+      2 ^ (k + 2) = 2 ^ (k + 1) + 2 ^ (k + 1) → ¬2 ^ (k + 1) - k - 2 < 2 ^ (k + 2) - (k + 1) - 2 → False
+AUDIT|Erdos261.repSeq0.eq_1|[]
+TYPE|Erdos261.repSeq0.eq_1|∀ (k : ℕ), Erdos261.repSeq0 k = k + 5
+AUDIT|Erdos261.repSeq1_representation._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos261.repSeq1_representation._proof_1_3|∀ ⦃i : ℕ⦄ ⦃j : ℕ⦄, ¬4 < j + 6 → False

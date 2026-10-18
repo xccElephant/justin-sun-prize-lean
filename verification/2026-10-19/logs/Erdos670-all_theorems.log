@@ -1,0 +1,153 @@
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.sum_range_add_one_mul|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.sum_range_add_one_mul|∀ (k : ℕ) (D : ℝ),
+  ∑ r ∈ Finset.range k, (↑r + 1) * D = ↑k * (↑k + 1) / 2 * D
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep._proof_1_1|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep._proof_1_1|∀ {n k : ℕ} {p₁ p₂ : (_ : ℕ) × ℕ},
+  p₁.fst < k ∧ p₁.snd < n - (p₁.fst + 1) → p₂.fst < k ∧ p₂.snd < n - (p₂.fst + 1) → ¬p₁.snd < n → False
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.sum_range_sub_shift_eq|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.sum_range_sub_shift_eq|∀ (a : ℕ → ℝ) {n m : ℕ},
+  m ≤ n → ∑ i ∈ Finset.range (n - m), (a (i + m) - a i) = ∑ i ∈ Finset.range m, (a (n - m + i) - a i)
+AUDIT|Erdos670.erdos_670.variants.choose_two._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos670.erdos_670.variants.choose_two._proof_1_7|∀ (d : ℕ) (A : Finset (EuclideanSpace ℝ (Fin d)))
+  (p : (_ : ℕ) × ℕ), p.snd = p.snd + p.fst + 1 → False
+AUDIT|Erdos670.erdos_670.variants.dim_one._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos670.erdos_670.variants.dim_one._proof_1_1|∀ (m : ℕ), ¬1 ≤ m + 1 → False
+AUDIT|Erdos670.erdos_670.variants.dim_one._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos670.erdos_670.variants.dim_one._proof_1_4|∀ (m n : ℕ) (A : Finset (EuclideanSpace ℝ (Fin 1))),
+  A.card = n →
+    (Finset.image (fun x => x.ofLp 0) A).card = n →
+      ∀ (p : (_ : ℕ) × ℕ), p.fst < m + 1 ∧ p.snd < n - (p.fst + 1) → ¬p.snd + p.fst + 1 < n → False
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep._proof_1_2|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep._proof_1_2|∀ {n k : ℕ} {p₁ p₂ : (_ : ℕ) × ℕ},
+  p₁.fst < k ∧ p₁.snd < n - (p₁.fst + 1) → p₂.fst < k ∧ p₂.snd < n - (p₂.fst + 1) → ¬p₁.snd + p₁.fst + 1 < n → False
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.sep_sum_ge._proof_1_3|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.sep_sum_ge._proof_1_3|∀ {α : Type u_1} (m : ℕ) (P : Finset α),
+  P.card = m + 1 → ¬0 < P.card → False
+AUDIT|Erdos670.erdos_670.variants.choose_two._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos670.erdos_670.variants.choose_two._proof_1_4|∀ (d : ℕ) (A : Finset (EuclideanSpace ℝ (Fin d))),
+  3 ≤ A.card → ¬2 ≤ A.card → False
+AUDIT|Erdos670.erdos_670.variants.choose_two._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos670.erdos_670.variants.choose_two._proof_1_3|∀ (d : ℕ) (A : Finset (EuclideanSpace ℝ (Fin d))),
+  3 ≤ A.card → ¬0 < A.card → False
+AUDIT|Erdos670.erdos_670.variants.choose_two._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos670.erdos_670.variants.choose_two._proof_1_6|∀ (d : ℕ) (A : Finset (EuclideanSpace ℝ (Fin d)))
+  (p : (_ : ℕ) × ℕ), p.fst < A.card ∧ p.snd < A.card - (p.fst + 1) → ¬p.snd + p.fst + 1 < A.card → False
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.sep_max_ge._proof_1_4|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.sep_max_ge._proof_1_4|∀ {α : Type u_1} (m : ℕ) (P : Finset α),
+  m > 0 → ¬m + 1 - 1 = m → False
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.sep_max_ge|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.sep_max_ge|∀ {α : Type u_1} [DecidableEq α] (m : ℕ) (P : Finset α)
+  (f : α → ℝ) (c M : ℝ),
+  P.card = m →
+    0 < m → (∀ x ∈ P, c ≤ f x) → (∀ x ∈ P, f x ≤ M) → (∀ x ∈ P, ∀ y ∈ P, x ≠ y → 1 ≤ |f x - f y|) → c + ↑m - 1 ≤ M
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.mem_stepPairs|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.mem_stepPairs|∀ {n k : ℕ} {p : (_ : ℕ) × ℕ},
+  p ∈ Erdos670.stepPairs✝ n k ↔ p.fst < k ∧ p.snd < n - (p.fst + 1)
+AUDIT|Erdos670.erdos_670.variants.dim_one._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos670.erdos_670.variants.dim_one._proof_1_3|∀ (m n : ℕ) (A : Finset (EuclideanSpace ℝ (Fin 1))),
+  A.card = n →
+    (Finset.image (fun x => x.ofLp 0) A).card = n →
+      ∀ (p : (_ : ℕ) × ℕ), p.fst < m + 1 ∧ p.snd < n - (p.fst + 1) → ¬p.snd < n → False
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.one_le_dist_of_card_ge_three._proof_1_1|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.one_le_dist_of_card_ge_three._proof_1_1|∀ {X : Type u_1} {A : Finset X},
+  3 ≤ A.card → ¬2 ≤ A.card - 1 → False
+AUDIT|Erdos670.erdos_670.variants.choose_two._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos670.erdos_670.variants.choose_two._proof_1_2|∀ (d : ℕ) (A : Finset (EuclideanSpace ℝ (Fin d))),
+  A.card ≠ 2 → ¬A.card ≤ 1 → ¬3 ≤ A.card → False
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.sep_sum_ge|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.sep_sum_ge|∀ {α : Type u_1} [DecidableEq α] (m : ℕ) (P : Finset α)
+  (f : α → ℝ),
+  P.card = m → (∀ x ∈ P, 0 ≤ f x) → (∀ x ∈ P, ∀ y ∈ P, x ≠ y → 1 ≤ |f x - f y|) → ↑m * (↑m - 1) / 2 ≤ ∑ x ∈ P, f x
+AUDIT|Erdos670.erdos_670.variants.dim_one._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos670.erdos_670.variants.dim_one._proof_1_6|∀ (m n : ℕ),
+  (m + 1) ^ 2 + (m + 1) + 1 ≤ n →
+    ∀ (A : Finset (EuclideanSpace ℝ (Fin 1))),
+      A.card = n → (Finset.image (fun x => x.ofLp 0) A).card = n → ∀ r < m + 1, ¬r + 1 ≤ n → False
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep._proof_1_5|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep._proof_1_5|∀ {n k : ℕ} {p₁ : (_ : ℕ) × ℕ}
+  {p₂ : (_ : ℕ) × ℕ}, p₁.snd = p₁.snd + p₁.fst + 1 → False
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.euclidean_fin1_dist|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.euclidean_fin1_dist|∀ (x y : EuclideanSpace ℝ (Fin 1)),
+  dist x y = |x.ofLp 0 - y.ofLp 0|
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.one_le_dist_of_card_ge_three|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.one_le_dist_of_card_ge_three|∀ {X : Type u_1} [inst : MetricSpace X]
+  [DecidableEq X] {A : Finset X},
+  Erdos670.HasSeparatedDistances A → 3 ≤ A.card → ∀ {x y : X}, x ∈ A → y ∈ A → x ≠ y → 1 ≤ dist x y
+AUDIT|Erdos670.erdos_670.variants.dim_one._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos670.erdos_670.variants.dim_one._proof_1_2|∀ (m : ℕ),
+  1 ≤ m + 1 →
+    ∀ (n : ℕ), (m + 1) ^ 2 + (m + 1) + 1 ≤ n → ∀ (A : Finset (EuclideanSpace ℝ (Fin 1))), A.card = n → ¬0 < n → False
+AUDIT|Erdos670.erdos_670.variants.uniform_in_dim_of_ho|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos670.erdos_670.variants.uniform_in_dim_of_ho|(∀ ε > 0,
+    ∃ᶠ (n : ℕ) in Filter.atTop,
+      ∃ A, A.card = n ∧ Erdos670.HasSeparatedDistances A ∧ Metric.diam ↑A ≤ (1 - 1 / Real.pi ^ 2 + ε) * ↑n ^ 2) →
+  ¬∀ ε > 0,
+      ∀ᶠ (n : ℕ) in Filter.atTop,
+        ∀ (d : ℕ) (A : Finset (EuclideanSpace ℝ (Fin d))),
+          A.card = n → Erdos670.HasSeparatedDistances A → (1 - ε) * ↑n ^ 2 ≤ Metric.diam ↑A
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.choose_two_cast_real|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.choose_two_cast_real|∀ (n : ℕ), ↑(n.choose 2) = ↑n * (↑n - 1) / 2
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.card_stepPairs_self|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.card_stepPairs_self|∀ (n : ℕ),
+  ↑(Erdos670.stepPairs✝ n n).card = ↑(n.choose 2)
+AUDIT|Erdos670.erdos_670.variants.dim_one|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos670.erdos_670.variants.dim_one|∀ ε > 0,
+  ∀ᶠ (n : ℕ) in Filter.atTop,
+    ∀ (A : Finset (EuclideanSpace ℝ (Fin 1))),
+      A.card = n → Erdos670.HasSeparatedDistances A → (1 - ε) * ↑n ^ 2 ≤ Metric.diam ↑A
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.stepPairs.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.stepPairs.eq_1|∀ (n k : ℕ),
+  Erdos670.stepPairs✝ n k = (Finset.range k).sigma fun r => Finset.range (n - (r + 1))
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep._proof_1_7|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep._proof_1_7|∀ {n k : ℕ} (r₁ i₁ r₂ i₂ : ℕ),
+  i₁ = i₂ → i₁ + r₁ + 1 = i₂ + r₂ + 1 → ¬r₁ = r₂ → False
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.one_le_dist_of_card_ge_three._proof_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.one_le_dist_of_card_ge_three._proof_1_2|∀ {X : Type u_1}
+  [inst : DecidableEq X] {A : Finset X} {x : X}, 2 ≤ (A.erase x).card → ¬0 < (A.erase x).card - 1 → False
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.euclidean_fin1_eval_injective|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.euclidean_fin1_eval_injective|Function.Injective fun x => x.ofLp 0
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.sep_sum_ge._proof_1_4|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.sep_sum_ge._proof_1_4|∀ {α : Type u_1} (m : ℕ) (P : Finset α),
+  ¬m + 1 - 1 = m → False
+AUDIT|Erdos670.erdos_670.variants.choose_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos670.erdos_670.variants.choose_two|∀ (d : ℕ) (A : Finset (EuclideanSpace ℝ (Fin d))),
+  Erdos670.HasSeparatedDistances A → A.card ≠ 2 → ↑(A.card.choose 2) ≤ Metric.diam ↑A
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.sep_max_ge._proof_1_3|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.sep_max_ge._proof_1_3|∀ {α : Type u_1} (m : ℕ) (P : Finset α),
+  P.card = m + 1 → ¬0 < P.card → False
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep._proof_1_6|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep._proof_1_6|∀ {n k : ℕ} {p₁ : (_ : ℕ) × ℕ}
+  {p₂ : (_ : ℕ) × ℕ}, p₂.snd = p₂.snd + p₂.fst + 1 → False
+AUDIT|Erdos670.erdos_670.variants.dim_one._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos670.erdos_670.variants.dim_one._proof_1_5|∀ (m n : ℕ) (A : Finset (EuclideanSpace ℝ (Fin 1)))
+  (p : (_ : ℕ) × ℕ), ¬p.snd < p.snd + p.fst + 1 → False
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep._proof_1_4|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep._proof_1_4|∀ {n k : ℕ} {p₁ : (_ : ℕ) × ℕ}
+  {p₂ : (_ : ℕ) × ℕ}, p₂.fst < k ∧ p₂.snd < n - (p₂.fst + 1) → ¬p₂.snd + p₂.fst + 1 < n → False
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep._proof_1_3|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep._proof_1_3|∀ {n k : ℕ} {p₁ : (_ : ℕ) × ℕ}
+  {p₂ : (_ : ℕ) × ℕ}, p₂.fst < k ∧ p₂.snd < n - (p₂.fst + 1) → ¬p₂.snd < n → False
+AUDIT|Erdos670.erdos_670.variants.choose_two._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos670.erdos_670.variants.choose_two._proof_1_5|∀ (d : ℕ) (A : Finset (EuclideanSpace ℝ (Fin d)))
+  (p : (_ : ℕ) × ℕ), p.fst < A.card ∧ p.snd < A.card - (p.fst + 1) → ¬p.snd < A.card → False
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.card_stepPairs|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.card_stepPairs|∀ (n k : ℕ),
+  k ≤ n → ↑(Erdos670.stepPairs✝ n k).card = ↑k * ↑n - ↑k * (↑k + 1) / 2
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep._proof_1_8|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep._proof_1_8|∀ {n k : ℕ} {p₁ p₂ : (_ : ℕ) × ℕ},
+  p₁.snd = p₂.snd + p₂.fst + 1 → p₁.snd + p₁.fst + 1 = p₂.snd → False
+AUDIT|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos670.0.Erdos670.stepPairs_sep|∀ {X : Type u_1} [inst : MetricSpace X] {A : Finset X},
+  Erdos670.HasSeparatedDistances A →
+    ∀ {n k : ℕ} {g : ℕ → X},
+      (∀ (i : ℕ), g i ∈ A) →
+        (∀ i < n, ∀ j < n, g i = g j → i = j) →
+          ∀ {p₁ p₂ : (_ : ℕ) × ℕ},
+            p₁ ∈ Erdos670.stepPairs✝ n k →
+              p₂ ∈ Erdos670.stepPairs✝ n k →
+                p₁ ≠ p₂ → 1 ≤ |dist (g p₁.snd) (g (p₁.snd + p₁.fst + 1)) - dist (g p₂.snd) (g (p₂.snd + p₂.fst + 1))|
+AUDIT|Erdos670.erdos_670.variants.choose_two._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos670.erdos_670.variants.choose_two._proof_1_1|∀ (d : ℕ) (A : Finset (EuclideanSpace ℝ (Fin d))),
+  A.card ≤ 1 → ¬A.card < 2 → False

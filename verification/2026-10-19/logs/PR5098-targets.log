@@ -1,0 +1,14 @@
+Erdos273.erdos_273.variants.three : ∃ c, ∀ (i : c.ι), ∃ p, Nat.Prime p ∧ 3 ≤ p ∧ c.moduli i = Ideal.span {p - 1}
+theorem Erdos273.erdos_273.variants.three : ∃ c,
+  ∀ (i : c.ι), ∃ p, Nat.Prime p ∧ 3 ≤ p ∧ c.moduli i = Ideal.span {p - 1} :=
+Exists.intro Erdos273.witnessCoveringSystem fun i =>
+  Exists.intro (Erdos273.primeVal i)
+    ⟨Erdos273.primeVal_prime i,
+      ⟨Erdos273.three_le_primeVal i,
+        id
+          (Eq.mpr
+            (id
+              (congrArg (fun _a => Ideal.span {_a} = Ideal.span {Erdos273.primeVal i - 1})
+                (Erdos273.modVal_eq_primeVal_sub_one i)))
+            (Eq.refl (Ideal.span {Erdos273.primeVal i - 1})))⟩⟩
+'Erdos273.erdos_273.variants.three' depends on axioms: [propext, Classical.choice, Quot.sound]

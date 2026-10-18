@@ -1,0 +1,80 @@
+AUDIT|_private.JspBounties.Erdos602.0.Erdos602.bernsteinStep._proof_3|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos602.0.Erdos602.bernsteinStep._proof_3|∀ {α : Type u_1} (A : ℕ → Set α)
+  (hInf : ∀ (i : ℕ), (A i).Infinite) (n : ℕ), ((A n \ ↑(Erdos602.bernsteinStep✝ A hInf n)) \ {⋯.some}).Nonempty
+AUDIT|_private.JspBounties.Erdos602.0.Erdos602.bernsteinY.congr_simp|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos602.0.Erdos602.bernsteinY.congr_simp|∀ {α : Type u_1} (A A_1 : ℕ → Set α) (e_A : A = A_1)
+  (hInf : ∀ (i : ℕ), (A i).Infinite) (n n_1 : ℕ),
+  n = n_1 → Erdos602.bernsteinY✝ A hInf n = Erdos602.bernsteinY✝ A_1 ⋯ n_1
+AUDIT|Erdos602.erdos_602.variants.disjoint|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos602.erdos_602.variants.disjoint|∀ {α : Type u_1} {I : Type u_2} (A : I → Set α),
+  (∀ (i : I), (A i).Infinite) → (∀ (i j : I), i ≠ j → Disjoint (A i) (A j)) → Erdos602.HasPropertyB I A
+AUDIT|Erdos602.disjoint_without_infinite_claim.disproof|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos602.disjoint_without_infinite_claim.disproof|¬Erdos602.disjoint_without_infinite_claim
+AUDIT|_private.JspBounties.Erdos602.0.Erdos602.bernsteinX.congr_simp|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos602.0.Erdos602.bernsteinX.congr_simp|∀ {α : Type u_1} (A A_1 : ℕ → Set α) (e_A : A = A_1)
+  (hInf : ∀ (i : ℕ), (A i).Infinite) (n n_1 : ℕ),
+  n = n_1 → Erdos602.bernsteinX✝ A hInf n = Erdos602.bernsteinX✝ A_1 ⋯ n_1
+AUDIT|Erdos602.erdos_602.variants.single_set._simp_1_1|[propext]
+TYPE|Erdos602.erdos_602.variants.single_set._simp_1_1|∀ {α : Type u_1} {a b : α}, (a ∈ {b}) = (a = b)
+AUDIT|Erdos602.erdos_602.variants.two_sets._simp_1_1|[propext]
+TYPE|Erdos602.erdos_602.variants.two_sets._simp_1_1|∀ {α : Type u_1} {a b : α}, (a ∈ {b}) = (a = b)
+AUDIT|_private.JspBounties.Erdos602.0.Erdos602.bernsteinStep._proof_1|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos602.0.Erdos602.bernsteinStep._proof_1|∀ {α : Type u_1} (A : ℕ → Set α)
+  (hInf : ∀ (i : ℕ), (A i).Infinite) (n : ℕ), (↑(Erdos602.bernsteinStep✝ A hInf n)).Finite
+AUDIT|Erdos602.erdos_602.variants.countable_index|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos602.erdos_602.variants.countable_index|∀ {α : Type u_1} (A : ℕ → Set α),
+  (∀ (i : ℕ), (A i).Countable ∧ (A i).Infinite) →
+    (∀ (i j : ℕ), i ≠ j → (A i ∩ A j).Finite) → (∀ (i j : ℕ), i ≠ j → (A i ∩ A j).ncard ≠ 1) → Erdos602.HasPropertyB ℕ A
+AUDIT|_private.JspBounties.Erdos602.0.Erdos602.bernsteinY_mem|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos602.0.Erdos602.bernsteinY_mem|∀ {α : Type u_1} (A : ℕ → Set α)
+  (hInf : ∀ (i : ℕ), (A i).Infinite) (n : ℕ),
+  Erdos602.bernsteinY✝ A hInf n ∈ A n ∧
+    Erdos602.bernsteinY✝ A hInf n ∉ ↑(Erdos602.bernsteinStep✝ A hInf n) ∧
+      Erdos602.bernsteinY✝ A hInf n ≠ Erdos602.bernsteinX✝ A hInf n
+AUDIT|Erdos602.erdos_602.variants.unique_index|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos602.erdos_602.variants.unique_index|∀ {α : Type u_1} (I : Type u_2) [Unique I] (A : I → Set α),
+  (∀ (i : I), (A i).Infinite) → Erdos602.HasPropertyB I A
+AUDIT|Erdos602.disjoint_without_infinite_claim.disproof._simp_1_1|[propext]
+TYPE|Erdos602.disjoint_without_infinite_claim.disproof._simp_1_1|∀ {α : Type u_1} {a b : α}, (a ∈ {b}) = (a = b)
+AUDIT|Erdos602.erdos_602.variants.two_sets._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos602.erdos_602.variants.two_sets._proof_1_2|∀ {α : Type u_1} (A : Fin 2 → Set α),
+  (A 0 ∩ A 1).ncard ≠ 1 → 0 < (A 0 ∩ A 1).ncard → ¬1 < (A 0 ∩ A 1).ncard → False
+AUDIT|Erdos602.erdos_602.variants.empty_index|[propext]
+TYPE|Erdos602.erdos_602.variants.empty_index|∀ {α : Type u_1} (A : PEmpty.{u_2 + 1} → Set α),
+  (∀ (i : PEmpty.{u_2 + 1}), (A i).Infinite) → Erdos602.HasPropertyB PEmpty.{u_2 + 1} A
+AUDIT|_private.JspBounties.Erdos602.0.Erdos602.bernsteinStep_mono|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos602.0.Erdos602.bernsteinStep_mono|∀ {α : Type u_1} (A : ℕ → Set α)
+  (hInf : ∀ (i : ℕ), (A i).Infinite), Monotone fun n => ↑(Erdos602.bernsteinStep✝ A hInf n)
+AUDIT|Erdos602.bernstein_countable_propertyB|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos602.bernstein_countable_propertyB|∀ {α : Type u_1} (A : ℕ → Set α),
+  (∀ (i : ℕ), (A i).Infinite) → Erdos602.HasPropertyB ℕ A
+AUDIT|Erdos602.erdos_602.variants.two_sets|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos602.erdos_602.variants.two_sets|∀ {α : Type u_1} (A : Fin 2 → Set α),
+  (∀ (i : Fin 2), (A i).Infinite) → (A 0 ∩ A 1).Finite → (A 0 ∩ A 1).ncard ≠ 1 → Erdos602.HasPropertyB (Fin 2) A
+AUDIT|_private.JspBounties.Erdos602.0.Erdos602.bernsteinStep._proof_2|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos602.0.Erdos602.bernsteinStep._proof_2|∀ {α : Type u_1} (A : ℕ → Set α)
+  (hInf : ∀ (i : ℕ), (A i).Infinite) (n : ℕ), (A n \ ↑(Erdos602.bernsteinStep✝ A hInf n)).Nonempty
+AUDIT|Erdos602.erdos_602.variants.disjoint._simp_1_1|[propext]
+TYPE|Erdos602.erdos_602.variants.disjoint._simp_1_1|∀ {α : Type u_1} {a b : α}, (a ∈ {b}) = (a = b)
+AUDIT|Erdos602.erdos_602.variants.single_set|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos602.erdos_602.variants.single_set|∀ {α : Type u_1} (A : Set α),
+  A.Infinite → ∃ f, ¬Erdos602.IsMonochromatic f A
+AUDIT|_private.JspBounties.Erdos602.0.Erdos602.bernsteinY._proof_1|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos602.0.Erdos602.bernsteinY._proof_1|∀ {α : Type u_1} (A : ℕ → Set α)
+  (hInf : ∀ (i : ℕ), (A i).Infinite) (n : ℕ),
+  ((A n \ ↑(Erdos602.bernsteinStep✝ A hInf n)) \ {Erdos602.bernsteinX✝ A hInf n}).Nonempty
+AUDIT|_private.JspBounties.Erdos602.0.Erdos602.bernsteinX_ne_bernsteinY|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos602.0.Erdos602.bernsteinX_ne_bernsteinY|∀ {α : Type u_1} (A : ℕ → Set α)
+  (hInf : ∀ (i : ℕ), (A i).Infinite) (i j : ℕ), Erdos602.bernsteinX✝ A hInf i ≠ Erdos602.bernsteinY✝ A hInf j
+AUDIT|_private.JspBounties.Erdos602.0.Erdos602.bernsteinStep._proof_4|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos602.0.Erdos602.bernsteinStep._proof_4|∀ {α : Type u_1} (A : ℕ → Set α)
+  (hInf : ∀ (i : ℕ), (A i).Infinite) (n : ℕ), (insert ⋯.some (insert ⋯.some ↑(Erdos602.bernsteinStep✝ A hInf n))).Finite
+AUDIT|_private.JspBounties.Erdos602.0.Erdos602.bernsteinStep_succ|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos602.0.Erdos602.bernsteinStep_succ|∀ {α : Type u_1} (A : ℕ → Set α)
+  (hInf : ∀ (i : ℕ), (A i).Infinite) (n : ℕ),
+  ↑(Erdos602.bernsteinStep✝ A hInf (n + 1)) =
+    insert (Erdos602.bernsteinX✝ A hInf n) (insert (Erdos602.bernsteinY✝ A hInf n) ↑(Erdos602.bernsteinStep✝ A hInf n))
+AUDIT|_private.JspBounties.Erdos602.0.Erdos602.bernsteinX_mem|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos602.0.Erdos602.bernsteinX_mem|∀ {α : Type u_1} (A : ℕ → Set α)
+  (hInf : ∀ (i : ℕ), (A i).Infinite) (n : ℕ),
+  Erdos602.bernsteinX✝ A hInf n ∈ A n ∧ Erdos602.bernsteinX✝ A hInf n ∉ ↑(Erdos602.bernsteinStep✝ A hInf n)

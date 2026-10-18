@@ -1,0 +1,247 @@
+AUDIT|Erdos503.erdos_503_exists_isIsosceles_ge_choose|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.erdos_503_exists_isIsosceles_ge_choose|∀ (n : ℕ), ∃ A, A.IsIsosceles ∧ (n + 1).choose 2 ≤ A.ncard
+AUDIT|Erdos503.kellyEightMap.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.kellyEightMap.eq_1|∀ (k : Fin 3), Erdos503.kellyEightMap (Sum.inl k) = Erdos503.poleAxis k
+AUDIT|Erdos503.embedR2ToR3_apply|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.embedR2ToR3_apply|∀ (p : EuclideanSpace ℝ (Fin 2)) (j : Fin 3),
+  (Erdos503.embedR2ToR3 p).ofLp j = if ↑j = 0 then p.ofLp 0 else if ↑j = 1 then p.ofLp 1 else 0
+AUDIT|Erdos503.dist_alweissMap|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.dist_alweissMap|∀ {n : ℕ},
+  1 ≤ n →
+    ∀ {S T : Finset (Fin (n + 1))},
+      S.card = 2 →
+        T.card = 2 →
+          S ≠ T →
+            dist (Erdos503.alweissMap n S) (Erdos503.alweissMap n T) = √2 ∨
+              dist (Erdos503.alweissMap n S) (Erdos503.alweissMap n T) = 2
+AUDIT|Erdos503.dist_poleAxis|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.dist_poleAxis|∀ (a b : Fin 3),
+  dist (Erdos503.poleAxis a) (Erdos503.poleAxis b) = if a = b then 0 else if ↑a = 0 ∨ ↑b = 0 then 1 else 2
+AUDIT|Erdos503.pentagonVertex.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.pentagonVertex.eq_1|∀ (isLt : 0 < 5), Erdos503.pentagonVertex ⟨0, isLt⟩ = !₂[1, 0]
+AUDIT|Erdos503.kelly_R2_lower_bound|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.kelly_R2_lower_bound|Erdos503.kellySixPoints.IsIsosceles ∧ Erdos503.kellySixPoints.ncard = 6
+AUDIT|Erdos503.s1_sq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.s1_sq|Erdos503.s1 ^ 2 = (5 + √5) / 8
+AUDIT|Erdos503.c1._proof_1|[propext]
+TYPE|Erdos503.c1._proof_1|(4 + 1).AtLeastTwo
+AUDIT|Erdos503.s1_mul_s2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.s1_mul_s2|Erdos503.s1 * Erdos503.s2 = √5 / 4
+AUDIT|Erdos503.not_all_triples_isosceles_four_reals|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.not_all_triples_isosceles_four_reals|∀ {a b c d : ℝ},
+  a < b →
+    b < c →
+      c < d →
+        |a - b| = |b - c| ∨ |b - c| = |c - a| ∨ |c - a| = |a - b| →
+          |b - c| = |c - d| ∨ |c - d| = |d - b| ∨ |d - b| = |b - c| →
+            |a - b| = |b - d| ∨ |b - d| = |d - a| ∨ |d - a| = |a - b| → False
+AUDIT|Erdos503.c1._proof_2|[propext]
+TYPE|Erdos503.c1._proof_2|(3 + 1).AtLeastTwo
+AUDIT|Erdos503.erdos_503_R2_of_upper_bound|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.erdos_503_R2_of_upper_bound|(∀ m ∈ {x | ∃ A, ∃ (_ : A.IsIsosceles), A.ncard = x}, m ≤ 6) →
+  IsGreatest {x | ∃ A, ∃ (_ : A.IsIsosceles), A.ncard = x} 6
+AUDIT|Erdos503.pentagonVertex_ne_zero|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.pentagonVertex_ne_zero|∀ (i : Fin 5), Erdos503.pentagonVertex i ≠ 0
+AUDIT|Erdos503.s1._proof_1|[propext]
+TYPE|Erdos503.s1._proof_1|(7 + 1).AtLeastTwo
+AUDIT|Erdos503.dist_sq_add_four_point|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.dist_sq_add_four_point|∀ {n : ℕ} (u v p q : EuclideanSpace ℝ (Fin n)),
+  dist (u + v) (p + q) ^ 2 + dist u v ^ 2 + dist p q ^ 2 = dist u p ^ 2 + dist u q ^ 2 + dist v p ^ 2 + dist v q ^ 2
+AUDIT|Erdos503.dist_sq_alweissMap|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.dist_sq_alweissMap|∀ {n : ℕ},
+  1 ≤ n →
+    ∀ {S T : Finset (Fin (n + 1))},
+      S.card = 2 →
+        T.card = 2 →
+          S ≠ T →
+            dist (Erdos503.alweissMap n S) (Erdos503.alweissMap n T) ^ 2 = 2 ∨
+              dist (Erdos503.alweissMap n S) (Erdos503.alweissMap n T) ^ 2 = 4
+AUDIT|Erdos503.erdos_503_R3_of_upper_bound|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.erdos_503_R3_of_upper_bound|(∀ m ∈ {x | ∃ A, ∃ (_ : A.IsIsosceles), A.ncard = x}, m ≤ 8) →
+  IsGreatest {x | ∃ A, ∃ (_ : A.IsIsosceles), A.ncard = x} 8
+AUDIT|Erdos503.dist_sq_alweissMap._simp_1_1|[propext]
+TYPE|Erdos503.dist_sq_alweissMap._simp_1_1|∀ {a b : Prop}, (a ∨ b) = (b ∨ a)
+AUDIT|Erdos503.s1_pos|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.s1_pos|0 < Erdos503.s1
+AUDIT|Erdos503.dist_R1_eq_abs|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.dist_R1_eq_abs|∀ (x y : EuclideanSpace ℝ (Fin 1)), dist x y = |x.ofLp 0 - y.ofLp 0|
+AUDIT|Erdos503.embedR2ToR3._proof_1|[propext]
+TYPE|Erdos503.embedR2ToR3._proof_1|NeZero (1 + 1)
+AUDIT|Erdos503.triplewise_isIsosceles_of_two_distances|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.triplewise_isIsosceles_of_two_distances|∀ {α : Type u_1} [inst : PseudoMetricSpace α] {A : Set α}
+  {d₁ d₂ : ℝ},
+  (∀ ⦃x : α⦄, x ∈ A → ∀ ⦃y : α⦄, y ∈ A → x ≠ y → dist x y = d₁ ∨ dist x y = d₂) →
+    A.Triplewise fun x1 x2 x3 => IsIsosceles x1 x2 x3
+AUDIT|Erdos503.c1.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.c1.eq_1|Erdos503.c1 = (√5 - 1) / 4
+AUDIT|Erdos503.dist_pentagonVertex|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.dist_pentagonVertex|∀ (i j : Fin 5),
+  i ≠ j →
+    dist (Erdos503.pentagonVertex i) (Erdos503.pentagonVertex j) = √((5 - √5) / 2) ∨
+      dist (Erdos503.pentagonVertex i) (Erdos503.pentagonVertex j) = √((5 + √5) / 2)
+AUDIT|Erdos503.pentagonVertex._proof_1|[propext]
+TYPE|Erdos503.pentagonVertex._proof_1|(1 + 1).AtLeastTwo
+AUDIT|Erdos503.card_le_three_of_isIsosceles_R1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.card_le_three_of_isIsosceles_R1|∀ {A : Set (EuclideanSpace ℝ (Fin 1))},
+  A.IsIsosceles → A.Finite → A.ncard ≤ 3
+AUDIT|Erdos503.kelly_R3_lower_bound|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.kelly_R3_lower_bound|Erdos503.kellyEightPoints.IsIsosceles ∧ Erdos503.kellyEightPoints.ncard = 8
+AUDIT|Erdos503.pentagonVertex.eq_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.pentagonVertex.eq_2|∀ (isLt : 1 < 5), Erdos503.pentagonVertex ⟨1, isLt⟩ = !₂[Erdos503.c1, Erdos503.s1]
+AUDIT|Erdos503.dist_sq_simplexVertex_ite|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.dist_sq_simplexVertex_ite|∀ {n : ℕ},
+  1 ≤ n →
+    ∀ (a b : Fin (n + 1)), dist (Erdos503.simplexVertex n a) (Erdos503.simplexVertex n b) ^ 2 = if a = b then 0 else 2
+AUDIT|Erdos503.dist_embedR2ToR3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.dist_embedR2ToR3|∀ (p q : EuclideanSpace ℝ (Fin 2)),
+  dist (Erdos503.embedR2ToR3 p) (Erdos503.embedR2ToR3 q) = dist p q
+AUDIT|Erdos503.poleAxis_apply|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.poleAxis_apply|∀ (k j : Fin 3),
+  (Erdos503.poleAxis k).ofLp j = if ↑j = 2 then if ↑k = 0 then 0 else if ↑k = 1 then 1 else -1 else 0
+AUDIT|Erdos503.dist_poleAxis_embed_pentagon|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.dist_poleAxis_embed_pentagon|∀ (k : Fin 3) (i : Fin 5),
+  dist (Erdos503.poleAxis k) (Erdos503.embedR2ToR3 (Erdos503.pentagonVertex i)) = if ↑k = 0 then 1 else √2
+AUDIT|Erdos503.triplewise_isIsosceles_insert_center|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.triplewise_isIsosceles_insert_center|∀ {α : Type u_1} [inst : PseudoMetricSpace α] {S : Set α} {c : α}
+  {r d₁ d₂ : ℝ},
+  (∀ ⦃x : α⦄, x ∈ S → dist c x = r) →
+    (∀ ⦃x : α⦄, x ∈ S → ∀ ⦃y : α⦄, y ∈ S → x ≠ y → dist x y = d₁ ∨ dist x y = d₂) →
+      (insert c S).Triplewise fun x1 x2 x3 => IsIsosceles x1 x2 x3
+AUDIT|_private.JspBounties.Erdos503.0.Erdos503.pentagonVertex.match_1.eq_2|[propext]
+TYPE|_private.JspBounties.Erdos503.0.Erdos503.pentagonVertex.match_1.eq_2|∀ (motive : Fin 5 → Sort u_1) (isLt : 1 < 5)
+  (h_1 : (isLt : 0 < 5) → motive ⟨0, isLt⟩) (h_2 : (isLt : 1 < 5) → motive ⟨1, isLt⟩)
+  (h_3 : (isLt : 2 < 5) → motive ⟨2, isLt⟩) (h_4 : (isLt : 3 < 5) → motive ⟨3, isLt⟩)
+  (h_5 : (isLt : 4 < 5) → motive ⟨4, isLt⟩),
+  (match ⟨1, isLt⟩ with
+    | ⟨0, isLt⟩ => h_1 isLt
+    | ⟨1, isLt⟩ => h_2 isLt
+    | ⟨2, isLt⟩ => h_3 isLt
+    | ⟨3, isLt⟩ => h_4 isLt
+    | ⟨4, isLt⟩ => h_5 isLt) =
+    h_2 isLt
+AUDIT|Erdos503.pentagonVertex_injective|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.pentagonVertex_injective|Function.Injective Erdos503.pentagonVertex
+AUDIT|Erdos503.kellyEightMap.eq_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.kellyEightMap.eq_2|∀ (i : Fin 5),
+  Erdos503.kellyEightMap (Sum.inr i) = Erdos503.embedR2ToR3 (Erdos503.pentagonVertex i)
+AUDIT|Erdos503.pentagonVertex.eq_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.pentagonVertex.eq_4|∀ (isLt : 3 < 5), Erdos503.pentagonVertex ⟨3, isLt⟩ = !₂[Erdos503.c2, -Erdos503.s2]
+AUDIT|Erdos503.dist_zero_pentagonVertex|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.dist_zero_pentagonVertex|∀ (i : Fin 5), dist 0 (Erdos503.pentagonVertex i) = 1
+AUDIT|Erdos503.dist_sq_simplexVertex._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos503.dist_sq_simplexVertex._proof_1_1|∀ {n : ℕ} (a b : Fin (n + 1)), ¬↑a < n → ¬↑b < n → ¬↑a = ↑b → False
+AUDIT|Erdos503.erdos_503_upper_bound_R1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.erdos_503_upper_bound_R1|∀ m ∈ {x | ∃ A, ∃ (_ : A.IsIsosceles), A.ncard = x}, m ≤ (1 + 2).choose 2
+AUDIT|Erdos503.dist_sq_pentagonVertex|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.dist_sq_pentagonVertex|∀ (i j : Fin 5),
+  i ≠ j →
+    dist (Erdos503.pentagonVertex i) (Erdos503.pentagonVertex j) ^ 2 = (5 - √5) / 2 ∨
+      dist (Erdos503.pentagonVertex i) (Erdos503.pentagonVertex j) ^ 2 = (5 + √5) / 2
+AUDIT|_private.JspBounties.Erdos503.0.Erdos503.kellyEightMap.match_1.eq_1|[]
+TYPE|_private.JspBounties.Erdos503.0.Erdos503.kellyEightMap.match_1.eq_1|∀ (motive : Fin 3 ⊕ Fin 5 → Sort u_1)
+  (k : Fin 3) (h_1 : (k : Fin 3) → motive (Sum.inl k)) (h_2 : (i : Fin 5) → motive (Sum.inr i)),
+  (match Sum.inl k with
+    | Sum.inl k => h_1 k
+    | Sum.inr i => h_2 i) =
+    h_1 k
+AUDIT|Erdos503.dist_poleAxis_embed_pentagon._simp_1_1|[propext]
+TYPE|Erdos503.dist_poleAxis_embed_pentagon._simp_1_1|∀ {α : Type u_2} [inst : Zero α] [inst_1 : One α] [NeZero 1],
+  (1 = 0) = False
+AUDIT|Erdos503.sqrt5_Bounds|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.sqrt5_Bounds|2 < √5 ∧ √5 < 3
+AUDIT|Erdos503.erdos_503_lower_bound_of_bddAbove|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.erdos_503_lower_bound_of_bddAbove|∀ (n : ℕ),
+  BddAbove {x | ∃ A, ∃ (_ : A.IsIsosceles), A.ncard = x} →
+    (n + 1).choose 2 ≤ sSup {x | ∃ A, ∃ (_ : A.IsIsosceles), A.ncard = x}
+AUDIT|_private.JspBounties.Erdos503.0.Erdos503.pentagonVertex.match_1.eq_5|[propext]
+TYPE|_private.JspBounties.Erdos503.0.Erdos503.pentagonVertex.match_1.eq_5|∀ (motive : Fin 5 → Sort u_1) (isLt : 4 < 5)
+  (h_1 : (isLt : 0 < 5) → motive ⟨0, isLt⟩) (h_2 : (isLt : 1 < 5) → motive ⟨1, isLt⟩)
+  (h_3 : (isLt : 2 < 5) → motive ⟨2, isLt⟩) (h_4 : (isLt : 3 < 5) → motive ⟨3, isLt⟩)
+  (h_5 : (isLt : 4 < 5) → motive ⟨4, isLt⟩),
+  (match ⟨4, isLt⟩ with
+    | ⟨0, isLt⟩ => h_1 isLt
+    | ⟨1, isLt⟩ => h_2 isLt
+    | ⟨2, isLt⟩ => h_3 isLt
+    | ⟨3, isLt⟩ => h_4 isLt
+    | ⟨4, isLt⟩ => h_5 isLt) =
+    h_5 isLt
+AUDIT|Erdos503.alweiss_construction|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.alweiss_construction|∀ {n : ℕ},
+  1 ≤ n →
+    (Erdos503.alweissSet n).Finite ∧
+      (Erdos503.alweissSet n).IsIsosceles ∧ (Erdos503.alweissSet n).ncard = (n + 1).choose 2
+AUDIT|Erdos503.card_le_three_of_isIsosceles_R1._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.card_le_three_of_isIsosceles_R1._proof_1_1|∀ {A : Set (EuclideanSpace ℝ (Fin 1))} (hfin : A.Finite),
+  3 < A.ncard → hfin.toFinset.card = A.ncard → ¬4 ≤ hfin.toFinset.card → False
+AUDIT|Erdos503.pentagonVertex.eq_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.pentagonVertex.eq_3|∀ (isLt : 2 < 5), Erdos503.pentagonVertex ⟨2, isLt⟩ = !₂[Erdos503.c2, Erdos503.s2]
+AUDIT|Erdos503.s2_pos|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.s2_pos|0 < Erdos503.s2
+AUDIT|Erdos503.erdos_503.variants.R1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.erdos_503.variants.R1|IsGreatest {x | ∃ A, ∃ (_ : A.IsIsosceles), A.ncard = x} 3
+AUDIT|_private.JspBounties.Erdos503.0.Erdos503.kellyEightMap.match_1.eq_2|[]
+TYPE|_private.JspBounties.Erdos503.0.Erdos503.kellyEightMap.match_1.eq_2|∀ (motive : Fin 3 ⊕ Fin 5 → Sort u_1)
+  (i : Fin 5) (h_1 : (k : Fin 3) → motive (Sum.inl k)) (h_2 : (i : Fin 5) → motive (Sum.inr i)),
+  (match Sum.inr i with
+    | Sum.inl k => h_1 k
+    | Sum.inr i => h_2 i) =
+    h_2 i
+AUDIT|Erdos503.erdos_503.variants.R0|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.erdos_503.variants.R0|IsGreatest {x | ∃ A, ∃ (_ : A.IsIsosceles), A.ncard = x} 1
+AUDIT|Erdos503.simplexVertex_apply|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.simplexVertex_apply|∀ (n : ℕ) (a : Fin (n + 1)) (i : Fin n),
+  (Erdos503.simplexVertex n a).ofLp i = if ↑a < n then if ↑i = ↑a then 1 else 0 else (1 - √(↑n + 1)) / ↑n
+AUDIT|_private.JspBounties.Erdos503.0.Erdos503.pentagonVertex.match_1.eq_1|[propext]
+TYPE|_private.JspBounties.Erdos503.0.Erdos503.pentagonVertex.match_1.eq_1|∀ (motive : Fin 5 → Sort u_1) (isLt : 0 < 5)
+  (h_1 : (isLt : 0 < 5) → motive ⟨0, isLt⟩) (h_2 : (isLt : 1 < 5) → motive ⟨1, isLt⟩)
+  (h_3 : (isLt : 2 < 5) → motive ⟨2, isLt⟩) (h_4 : (isLt : 3 < 5) → motive ⟨3, isLt⟩)
+  (h_5 : (isLt : 4 < 5) → motive ⟨4, isLt⟩),
+  (match ⟨0, isLt⟩ with
+    | ⟨0, isLt⟩ => h_1 isLt
+    | ⟨1, isLt⟩ => h_2 isLt
+    | ⟨2, isLt⟩ => h_3 isLt
+    | ⟨3, isLt⟩ => h_4 isLt
+    | ⟨4, isLt⟩ => h_5 isLt) =
+    h_1 isLt
+AUDIT|Erdos503.pentagonVertex.eq_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.pentagonVertex.eq_5|∀ (isLt : 4 < 5), Erdos503.pentagonVertex ⟨4, isLt⟩ = !₂[Erdos503.c1, -Erdos503.s1]
+AUDIT|Erdos503.dist_poleAxis_embed_pentagon._simp_1_2|[propext]
+TYPE|Erdos503.dist_poleAxis_embed_pentagon._simp_1_2|∀ {R : Type u_1} [inst : AddMonoidWithOne R] [CharZero R] (n : ℕ)
+  [inst_2 : n.AtLeastTwo], (OfNat.ofNat n = 0) = False
+AUDIT|Erdos503.dist_sq_simplexVertex|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.dist_sq_simplexVertex|∀ {n : ℕ},
+  1 ≤ n → ∀ (a b : Fin (n + 1)), a ≠ b → dist (Erdos503.simplexVertex n a) (Erdos503.simplexVertex n b) ^ 2 = 2
+AUDIT|_private.JspBounties.Erdos503.0.Erdos503.pentagonVertex.match_1.eq_4|[propext]
+TYPE|_private.JspBounties.Erdos503.0.Erdos503.pentagonVertex.match_1.eq_4|∀ (motive : Fin 5 → Sort u_1) (isLt : 3 < 5)
+  (h_1 : (isLt : 0 < 5) → motive ⟨0, isLt⟩) (h_2 : (isLt : 1 < 5) → motive ⟨1, isLt⟩)
+  (h_3 : (isLt : 2 < 5) → motive ⟨2, isLt⟩) (h_4 : (isLt : 3 < 5) → motive ⟨3, isLt⟩)
+  (h_5 : (isLt : 4 < 5) → motive ⟨4, isLt⟩),
+  (match ⟨3, isLt⟩ with
+    | ⟨0, isLt⟩ => h_1 isLt
+    | ⟨1, isLt⟩ => h_2 isLt
+    | ⟨2, isLt⟩ => h_3 isLt
+    | ⟨3, isLt⟩ => h_4 isLt
+    | ⟨4, isLt⟩ => h_5 isLt) =
+    h_4 isLt
+AUDIT|Erdos503.erdos_503_exists_isIsosceles_ge_choose._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos503.erdos_503_exists_isIsosceles_ge_choose._proof_1_1|∀ (n : ℕ), ¬1 ≤ n → ¬n = 0 → False
+AUDIT|Erdos503.alweiss_construction._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.alweiss_construction._proof_1_1|∀ {n : ℕ}, 1 ≤ n → ¬2 ≤ n + 1 → False
+AUDIT|_private.JspBounties.Erdos503.0.Erdos503.pentagonVertex.match_1.eq_3|[propext]
+TYPE|_private.JspBounties.Erdos503.0.Erdos503.pentagonVertex.match_1.eq_3|∀ (motive : Fin 5 → Sort u_1) (isLt : 2 < 5)
+  (h_1 : (isLt : 0 < 5) → motive ⟨0, isLt⟩) (h_2 : (isLt : 1 < 5) → motive ⟨1, isLt⟩)
+  (h_3 : (isLt : 2 < 5) → motive ⟨2, isLt⟩) (h_4 : (isLt : 3 < 5) → motive ⟨3, isLt⟩)
+  (h_5 : (isLt : 4 < 5) → motive ⟨4, isLt⟩),
+  (match ⟨2, isLt⟩ with
+    | ⟨0, isLt⟩ => h_1 isLt
+    | ⟨1, isLt⟩ => h_2 isLt
+    | ⟨2, isLt⟩ => h_3 isLt
+    | ⟨3, isLt⟩ => h_4 isLt
+    | ⟨4, isLt⟩ => h_5 isLt) =
+    h_3 isLt
+AUDIT|Erdos503.c2.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.c2.eq_1|Erdos503.c2 = -(√5 + 1) / 4
+AUDIT|Erdos503.kellyEightMap_injective|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.kellyEightMap_injective|Function.Injective Erdos503.kellyEightMap
+AUDIT|Erdos503.s2_sq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos503.s2_sq|Erdos503.s2 ^ 2 = (5 - √5) / 8

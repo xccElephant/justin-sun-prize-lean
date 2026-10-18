@@ -1,0 +1,31 @@
+Erdos939.erdos_939.variants.eight : (Erdos939.Erdos939Sums 8).Nonempty
+theorem Erdos939.erdos_939.variants.eight : (Erdos939.Erdos939Sums 8).Nonempty :=
+Set.Infinite.nonempty Erdos939.erdos_939_eight_infinite
+'Erdos939.erdos_939.variants.eight' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos939.erdos_939.variants.examples : ∃ r ≥ 4, (Erdos939.Erdos939Sums r).Nonempty
+theorem Erdos939.erdos_939.variants.examples : ∃ r ≥ 4, (Erdos939.Erdos939Sums r).Nonempty :=
+Exists.intro 5
+  ⟨Decidable.byContradiction fun a => Erdos939.erdos_939.variants.examples._proof_1_1 a,
+    Erdos939.erdos_939_five_nonempty⟩
+'Erdos939.erdos_939.variants.examples' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos939.erdos_939.variants.finite : ¬∀ r ≥ 4, (Erdos939.Erdos939Sums r).Finite
+theorem Erdos939.erdos_939.variants.finite : ¬∀ r ≥ 4, (Erdos939.Erdos939Sums r).Finite :=
+fun h =>
+  Erdos939.erdos_939_six_infinite
+    (h 6 (Decidable.byContradiction fun a => Erdos939.erdos_939.variants.finite._proof_1_1 a))
+'Erdos939.erdos_939.variants.finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos939.erdos_939.variants.seven : (Erdos939.Erdos939Sums 7).Nonempty
+theorem Erdos939.erdos_939.variants.seven : (Erdos939.Erdos939Sums 7).Nonempty :=
+Set.Infinite.nonempty Erdos939.erdos_939_seven_infinite
+'Erdos939.erdos_939.variants.seven' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos939.erdos_939_six_infinite : (Erdos939.Erdos939Sums 6).Infinite
+theorem Erdos939.erdos_939_six_infinite : (Erdos939.Erdos939Sums 6).Infinite :=
+Erdos939.infinite_of_strictMono_sum Erdos939.sumSetSix (fun m => ((120 * (m + 4) + 1) ^ 6 + 120 ^ 6) ^ 6)
+  (fun m => (Erdos939.sumSetSix_spec m).left) (fun m => (Erdos939.sumSetSix_spec m).right) fun ⦃a b⦄ hab =>
+  Nat.pow_lt_pow_left
+    (Nat.add_lt_add_right
+      (Nat.pow_lt_pow_left (Decidable.byContradiction fun a_1 => Erdos939.erdos_939_six_infinite._proof_1_2 hab a_1)
+        fun a_1 => Erdos939.erdos_939_six_infinite._proof_1_1 a_1)
+      (120 ^ 6))
+    fun a_1 => Erdos939.erdos_939_six_infinite._proof_1_1 a_1
+'Erdos939.erdos_939_six_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]

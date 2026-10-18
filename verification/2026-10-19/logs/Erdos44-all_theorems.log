@@ -1,0 +1,226 @@
+AUDIT|Erdos44.erdos_turan_parabola_sidon|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.erdos_turan_parabola_sidon|∀ {p : ℕ},
+  Nat.Prime p →
+    p ≠ 2 →
+      Erdos44.parabolaSidonSet p ⊆ Finset.Icc 1 (2 * p ^ 2) ∧
+        IsSidon ↑(Erdos44.parabolaSidonSet p) ∧ (Erdos44.parabolaSidonSet p).card = p
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_14|[propext, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_14|∀ (N : ℕ), ¬N ≤ 12 → N < 72 → ¬N ≤ 9 ^ 2 → False
+AUDIT|Erdos44.maxSidonSubsetCard_icc_bound._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.maxSidonSubsetCard_icc_bound._proof_1_7|∀ (N : ℕ) (B : Finset ℕ) (a b : ℕ),
+  1 ≤ (a, b).1 ∧ (a, b).1 ≤ N → 1 ≤ (a, b).2 ∧ (a, b).2 ≤ N → ¬(-↑N ≤ ↑a - ↑b ∧ ↑a - ↑b ≤ ↑N) → False
+AUDIT|Erdos44.sidon_set_lower_bound_of_singer._simp_1_7|[propext]
+TYPE|Erdos44.sidon_set_lower_bound_of_singer._simp_1_7|∀ {α : Type u_1} {a b : α}, (a ∈ {b}) = (a = b)
+AUDIT|Erdos44.erdos_turan_parabola_sidon._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos44.erdos_turan_parabola_sidon._proof_1_4|∀ {p : ℕ} (x₁ y₁ x₂ y₂ : Fin p),
+  ↑x₁ + ↑x₂ = ↑y₁ + ↑y₂ → ↑x₁ = ↑y₁ → ¬↑x₂ = ↑y₂ → False
+AUDIT|Erdos44.greedy_sidon_construction._proof_1_12|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.greedy_sidon_construction._proof_1_12|∀ (N : ℕ) (A : Finset ℕ) ⦃x : ℕ⦄ (a b c : ℕ),
+  x + a = b + c → ¬b + c - a = x → False
+AUDIT|Erdos44.greedy_sidon_construction._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.greedy_sidon_construction._simp_1_1|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α}
+  {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos44.maxSidonSubsetCard_icc_bound._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.maxSidonSubsetCard_icc_bound._proof_1_11|∀ (N : ℕ) (B : Finset ℕ),
+  B.card ≤ N → B.card > 0 → ¬2 * N + 1 + B.card ≤ 4 * N → False
+AUDIT|Erdos44.greedy_sidon_construction._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.greedy_sidon_construction._proof_1_8|∀ (N : ℕ) (A : Finset ℕ) ⦃x : ℕ⦄,
+  (A ∪ {x}).card ≤ A.card → (A ∪ {x}).card = A.card + 1 → False
+AUDIT|Finset.maxSidonSubsetCard.congr_simp|[propext, Classical.choice, Quot.sound]
+TYPE|Finset.maxSidonSubsetCard.congr_simp|∀ {α : Type u_1} [inst : AddCommMonoid α] (A A_1 : Finset α),
+  A = A_1 → ∀ {inst_1 : DecidableEq α} [inst_2 : DecidableEq α], A.maxSidonSubsetCard = A_1.maxSidonSubsetCard
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_16|[propext, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_16|∀ (N : ℕ), 3 ≤ (N / 8).sqrt → (N / 8).sqrt = 0 → False
+AUDIT|Erdos44.sidon_set_lower_bound_of_singer._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_of_singer._simp_1_3|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos44.maxSidonSubsetCard_icc_bound._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.maxSidonSubsetCard_icc_bound._proof_1_9|∀ (N : ℕ),
+  1 ≤ N → ∀ (B : Finset ℕ), ¬(↑N + 1 - -↑N).toNat = 2 * N + 1 → False
+AUDIT|Set.IsSidon.insert|[propext, Classical.choice, Quot.sound]
+TYPE|Set.IsSidon.insert|∀ {α : Type u_1} [inst : AddCommMonoid α] {A : Set α} {m : α} [IsRightCancelAdd α]
+  [IsLeftCancelAdd α],
+  IsSidon A → (IsSidon (A ∪ {m}) ↔ m ∈ A ∨ ∀ a ∈ A, ∀ b ∈ A, m + m ≠ a + b ∧ ∀ c ∈ A, m + a ≠ b + c)
+AUDIT|Erdos44.erdos_turan_parabola_sidon._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos44.erdos_turan_parabola_sidon._proof_1_1|∀ {p : ℕ} (x₁ y₁ x₂ y₂ : Fin p),
+  ↑x₁ ^ 2 % p < p →
+    ↑x₂ ^ 2 % p < p →
+      2 * p * (↑x₁ + ↑x₂) + (↑x₁ ^ 2 % p + ↑x₂ ^ 2 % p) = 2 * p * (↑y₁ + ↑y₂) + (↑y₁ ^ 2 % p + ↑y₂ ^ 2 % p) →
+        ¬↑x₁ ^ 2 % p + ↑x₂ ^ 2 % p < 2 * p → False
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three|∀ (N : ℕ),
+  1 ≤ N → ∃ A ⊆ Finset.Icc 1 N, IsSidon ↑A ∧ √↑N / 3 ≤ ↑A.card
+AUDIT|Erdos44.maxSidonSubsetCard_icc_bound._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.maxSidonSubsetCard_icc_bound._proof_1_10|∀ (N : ℕ) (B : Finset ℕ),
+  B.card * B.card - B.card ≤ 2 * N + 1 → B.card ≤ B.card * B.card → ¬B.card * B.card ≤ 2 * N + 1 + B.card → False
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_8|∀ (N : ℕ), ¬N ≤ 9 → N ≤ 12 → ¬N ≤ 6 ^ 2 → False
+AUDIT|Erdos44.sidon_set_lower_bound_of_singer._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_of_singer._simp_1_2|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._simp_1_7|[propext]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._simp_1_7|∀ {α : Type u_1} {a b : α}, (a ∈ {b}) = (a = b)
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_11|∀ (N : ℕ), ¬N ≤ 12 → N < 72 → ¬(1 ≤ 4 ∧ 4 ≤ N) → False
+AUDIT|Erdos44.eq_of_two_mul_add_eq._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos44.eq_of_two_mul_add_eq._proof_1_2|∀ {p : ℕ} {a : ℕ} {b r₁ r₂ : ℕ},
+  2 * p * b + r₁ = 2 * p * b + r₂ → ¬r₁ = r₂ → False
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_15|[propext, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_15|∀ (N : ℕ), ¬N < 72 → ¬3 * 3 ≤ N / 8 → False
+AUDIT|Erdos44.parabolaMap_mem_Icc._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos44.parabolaMap_mem_Icc._proof_1_3|∀ {p : ℕ} (x : Fin p),
+  0 < p → ¬2 * p * (p - 1) + (p - 1) + 1 = 2 * p * (p - 1) + p → False
+AUDIT|Erdos44.sidon_set_lower_bound_of_singer._proof_1_10|[propext, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_of_singer._proof_1_10|∀ (N : ℕ),
+  3 ≤ N.sqrt → ∀ q ≤ 2 * ((N.sqrt - 1) / 2), ∀ (A : Finset ℕ), A.card = q + 1 → ¬q + 1 ≤ N.sqrt → False
+AUDIT|Erdos44.erdos_turan_parabola_sidon._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos44.erdos_turan_parabola_sidon._proof_1_2|∀ {p : ℕ} (x₁ y₁ x₂ y₂ : Fin p),
+  ↑y₁ ^ 2 % p < p → ↑y₂ ^ 2 % p < p → ¬↑y₁ ^ 2 % p + ↑y₂ ^ 2 % p < 2 * p → False
+AUDIT|Erdos44.sidon_set_lower_bound_of_singer._simp_1_6|[propext]
+TYPE|Erdos44.sidon_set_lower_bound_of_singer._simp_1_6|∀ {α : Type u_1} {x a : α} {s : Set α},
+  (x ∈ insert a s) = (x = a ∨ x ∈ s)
+AUDIT|Erdos44.sidon_set_lower_bound_of_singer._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_of_singer._proof_1_8|∀ (N : ℕ), 1 ≤ N → N < 9 → ¬N ≤ 4 ^ 2 → False
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._simp_1_3|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α}
+  {a b : α}, (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_19|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_19|∀ (N p : ℕ),
+  2 * p ^ 2 ≤ N →
+    N / 8 < ((N / 8).sqrt + 1) * ((N / 8).sqrt + 1) →
+      ((N / 8).sqrt + 1) * ((N / 8).sqrt + 1) ≤ p ^ 2 → ¬N ≤ 9 * p ^ 2 → False
+AUDIT|Erdos44.greedy_sidon_construction._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.greedy_sidon_construction._simp_1_4|∀ {α : Type u_1} [inst : Preorder α] [inst_1 : LocallyFiniteOrder α]
+  {a b x : α}, (x ∈ Finset.Icc a b) = (a ≤ x ∧ x ≤ b)
+AUDIT|Erdos44.parabolaMap_injective._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos44.parabolaMap_injective._proof_1_2|∀ {p : ℕ} ⦃x : Fin p⦄ ⦃y : Fin p⦄,
+  0 < p → ↑x ^ 2 % p < p → ¬↑x ^ 2 % p < 2 * p → False
+AUDIT|Erdos44.example_sidon_set|[propext]
+TYPE|Erdos44.example_sidon_set|IsSidon {1, 2, 4, 8, 13}
+AUDIT|Erdos44.sidon_set_lower_bound_of_singer._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_of_singer._proof_1_4|∀ (N : ℕ), 1 ≤ N → N < 9 → ¬(1 ≤ 1 ∧ 1 ≤ N) → False
+AUDIT|Erdos44.parabolaMap_mem_Icc._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos44.parabolaMap_mem_Icc._proof_1_1|∀ {p : ℕ} (x : Fin p), ¬1 ≤ 2 * p * ↑x + ↑x ^ 2 % p + 1 → False
+AUDIT|Erdos44.sidon_set_lower_bound_of_singer._proof_1_9|[propext, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_of_singer._proof_1_9|∀ (N : ℕ), 3 ≤ N.sqrt → (N.sqrt - 1) / 2 = 0 → False
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_4|∀ (N : ℕ), ¬N ≤ 9 → N ≤ 12 → ¬(1 ≤ 1 ∧ 1 ≤ N) → False
+AUDIT|Erdos44.erdos_turan_parabola_sidon._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos44.erdos_turan_parabola_sidon._proof_1_3|∀ {p : ℕ},
+  p ≠ 2 → ∀ (x₁ y₁ x₂ y₂ : Fin p), 0 < p → p ≤ 2 → 2 ≤ p → False
+AUDIT|Erdos44.parabola_quad_identity|[propext, Quot.sound]
+TYPE|Erdos44.parabola_quad_identity|∀ {R : Type u_1} [inst : CommRing R] (x₁ x₂ y₁ y₂ : R),
+  x₁ + x₂ = y₁ + y₂ → x₁ ^ 2 + x₂ ^ 2 = y₁ ^ 2 + y₂ ^ 2 → 2 * (x₁ - y₁) * (x₁ - y₂) = 0
+AUDIT|Finset.maxSidonSubsetCard.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Finset.maxSidonSubsetCard.eq_1|∀ {α : Type u_1} [inst : AddCommMonoid α] (A : Finset α) [inst_1 : DecidableEq α],
+  A.maxSidonSubsetCard = {B ∈ A.powerset | IsSidon ↑B}.sup Finset.card
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_10|∀ (N : ℕ), ¬N ≤ 12 → N < 72 → ¬(1 ≤ 2 ∧ 2 ≤ N) → False
+AUDIT|Erdos44.erdos_turan_parabola_sidon._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos44.erdos_turan_parabola_sidon._proof_1_5|∀ {p : ℕ} (x₁ y₁ x₂ y₂ : Fin p),
+  ↑x₁ + ↑x₂ = ↑y₁ + ↑y₂ → ↑x₁ = ↑y₂ → ¬↑x₂ = ↑y₁ → False
+AUDIT|Erdos44.greedy_sidon_construction._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.greedy_sidon_construction._proof_1_11|∀ (N : ℕ) (A : Finset ℕ) ⦃x : ℕ⦄ (a c : ℕ),
+  x + a = a + c → ¬x = c → False
+AUDIT|Erdos44.greedy_sidon_construction._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.greedy_sidon_construction._proof_1_10|∀ (N : ℕ) (A : Finset ℕ) ⦃x : ℕ⦄ (a b : ℕ),
+  x + x = a + b → ¬(a + b) / 2 = x → False
+AUDIT|Erdos44.greedy_sidon_construction._simp_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.greedy_sidon_construction._simp_1_6|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_13|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_13|∀ (N : ℕ), ¬N ≤ 12 → N < 72 → ¬(1 ≤ 13 ∧ 13 ≤ N) → False
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._simp_1_1|∀ {α : Type u_1} {a : α} {s : Finset α}, (a ∈ ↑s) = (a ∈ s)
+AUDIT|Erdos44.maxSidonSubsetCard_icc_bound._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.maxSidonSubsetCard_icc_bound._simp_1_5|∀ {α : Type u_1} {a : α} {s : Finset α}, (a ∈ ↑s) = (a ∈ s)
+AUDIT|Erdos44.greedy_sidon_construction._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.greedy_sidon_construction._proof_1_9|∀ (N : ℕ) (A : Finset ℕ) ⦃x : ℕ⦄ (a : ℕ),
+  x + x = a + a → ¬x = a → False
+AUDIT|Erdos44.sidon_set_lower_bound_of_singer._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_of_singer._proof_1_5|∀ (N : ℕ), 1 ≤ N → ¬N = 1 → N < 9 → ¬(1 ≤ 2 ∧ 2 ≤ N) → False
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_18|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_18|∀ (N p : ℕ),
+  (N / 8).sqrt * (N / 8).sqrt ≤ N / 8 → p ^ 2 ≤ 4 * ((N / 8).sqrt * (N / 8).sqrt) → ¬2 * p ^ 2 ≤ N → False
+AUDIT|IsSidon.eq_1|[]
+TYPE|IsSidon.eq_1|∀ {α : Type u_1} [inst : AddCommMonoid α] (A : Set α),
+  IsSidon A = ∀ i₁ ∈ A, ∀ j₁ ∈ A, ∀ i₂ ∈ A, ∀ j₂ ∈ A, i₁ + i₂ = j₁ + j₂ → i₁ = j₁ ∧ i₂ = j₂ ∨ i₁ = j₂ ∧ i₂ = j₁
+AUDIT|Erdos44.parabolaMap_injective._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos44.parabolaMap_injective._proof_1_3|∀ {p : ℕ} ⦃x : Fin p⦄ ⦃y : Fin p⦄,
+  0 < p → ↑y ^ 2 % p < p → ¬↑y ^ 2 % p < 2 * p → False
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._simp_1_2|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos44.maxSidonSubsetCard_icc_bound._simp_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.maxSidonSubsetCard_icc_bound._simp_1_6|∀ {α : Type u_1} [inst : Preorder α] [inst_1 : LocallyFiniteOrder α]
+  {a b x : α}, (x ∈ Finset.Icc a b) = (a ≤ x ∧ x ≤ b)
+AUDIT|Erdos44.parabolaMap_mem_Icc|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.parabolaMap_mem_Icc|∀ {p : ℕ},
+  Nat.Prime p → ∀ (x : Fin p), Erdos44.parabolaMap p x ∈ Finset.Icc 1 (2 * p ^ 2)
+AUDIT|Erdos44.parabolaMap_injective|[propext, Quot.sound]
+TYPE|Erdos44.parabolaMap_injective|∀ {p : ℕ}, Nat.Prime p → Function.Injective (Erdos44.parabolaMap p)
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._simp_1_6|[propext]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._simp_1_6|∀ {α : Type u_1} {x a : α} {s : Set α},
+  (x ∈ insert a s) = (x = a ∨ x ∈ s)
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_12|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_12|∀ (N : ℕ), ¬N ≤ 12 → N < 72 → ¬(1 ≤ 8 ∧ 8 ≤ N) → False
+AUDIT|Erdos44.sidon_set_lower_bound_of_singer._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_of_singer._simp_1_1|∀ {α : Type u_1} {a : α} {s : Finset α}, (a ∈ ↑s) = (a ∈ s)
+AUDIT|Erdos44.greedy_sidon_construction._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.greedy_sidon_construction._simp_1_3|∀ {α : Type u_1} {s : Finset α} {a : α}, ({a} ⊆ s) = (a ∈ s)
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_9|∀ (N : ℕ), ¬N ≤ 12 → N < 72 → ¬(1 ≤ 1 ∧ 1 ≤ N) → False
+AUDIT|Erdos44.eq_of_two_mul_add_eq|[propext, Quot.sound]
+TYPE|Erdos44.eq_of_two_mul_add_eq|∀ {p a b r₁ r₂ : ℕ},
+  r₁ < 2 * p → r₂ < 2 * p → 2 * p * a + r₁ = 2 * p * b + r₂ → a = b ∧ r₁ = r₂
+AUDIT|Erdos44.parabolaMap_mem_Icc._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos44.parabolaMap_mem_Icc._proof_1_2|∀ {p : ℕ} (x : Fin p),
+  0 < p →
+    ↑x ^ 2 % p < p → 2 * p * ↑x ≤ 2 * p * (p - 1) → ¬2 * p * ↑x + ↑x ^ 2 % p + 1 ≤ 2 * p * (p - 1) + (p - 1) + 1 → False
+AUDIT|Erdos44.parabolaMap_injective._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos44.parabolaMap_injective._proof_1_1|∀ {p : ℕ} ⦃x y : Fin p⦄,
+  2 * p * ↑x + ↑x ^ 2 % p + 1 = 2 * p * ↑y + ↑y ^ 2 % p + 1 → ¬2 * p * ↑x + ↑x ^ 2 % p = 2 * p * ↑y + ↑y ^ 2 % p → False
+AUDIT|Erdos44.maxSidonSubsetCard_icc_bound|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.maxSidonSubsetCard_icc_bound|∀ (N : ℕ), 1 ≤ N → ↑(Finset.Icc 1 N).maxSidonSubsetCard ≤ 2 * √↑N
+AUDIT|Erdos44.erdos_44_empty_start_of_singer|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.erdos_44_empty_start_of_singer|Erdos44.SingerSidonProperty →
+  (∀ ε > 0, ∀ᶠ (M : ℕ) in Filter.atTop, ∃ q, Nat.Prime q ∧ (1 - ε) * √↑M ≤ ↑(q + 1) ∧ q ^ 2 + q + 1 ≤ M) →
+    ∀ ε > 0, ∀ᶠ (M : ℕ) in Filter.atTop, ∃ A ⊆ Finset.Icc 1 M, IsSidon ↑A ∧ (1 - ε) * √↑M ≤ ↑A.card
+AUDIT|Erdos44.greedy_sidon_construction._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.greedy_sidon_construction._simp_1_5|∀ {α : Type u_1} {a : α} {s : Finset α}, (a ∈ ↑s) = (a ∈ s)
+AUDIT|Erdos44.maxSidonSubsetCard_icc_bound._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.maxSidonSubsetCard_icc_bound._simp_1_4|∀ {α : Type u_1} {s t : Finset α}, (s ∈ t.powerset) = (s ⊆ t)
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_5|∀ (N : ℕ), ¬N ≤ 9 → N ≤ 12 → ¬(1 ≤ 2 ∧ 2 ≤ N) → False
+AUDIT|Erdos44.sidon_set_lower_bound_of_singer._proof_1_11|[propext, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_of_singer._proof_1_11|∀ (N : ℕ),
+  3 ≤ N.sqrt → ∀ (q : ℕ), (N.sqrt - 1) / 2 < q → ∀ (A : Finset ℕ), A.card = q + 1 → ¬N.sqrt + 1 ≤ 2 * (q + 1) → False
+AUDIT|Erdos44.maxSidonSubsetCard_icc_bound._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.maxSidonSubsetCard_icc_bound._proof_1_8|∀ (N : ℕ) (B : Finset ℕ) (a b c d : ℕ),
+  ↑a - ↑b = ↑c - ↑d → ¬a + d = c + b → False
+AUDIT|Erdos44.parabolaMap_mem_Icc._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos44.parabolaMap_mem_Icc._proof_1_4|∀ {p : ℕ} (x : Fin p),
+  ↑x ^ 2 % p < p → ¬2 * p * (p - 1) + p ≤ 2 * p * (p - 1) + 2 * p → False
+AUDIT|Erdos44.example_sidon_set._simp_1_2|[propext]
+TYPE|Erdos44.example_sidon_set._simp_1_2|∀ {α : Type u_1} {a b : α}, (a ∈ {b}) = (a = b)
+AUDIT|Erdos44.example_sidon_set._simp_1_1|[propext]
+TYPE|Erdos44.example_sidon_set._simp_1_1|∀ {α : Type u_1} {x a : α} {s : Set α}, (x ∈ insert a s) = (x = a ∨ x ∈ s)
+AUDIT|Erdos44.maxSidonSubsetCard_icc_bound._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.maxSidonSubsetCard_icc_bound._simp_1_3|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p]
+  {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Finset.instDecidableIsSidonCoeOfDecidableEq._proof_1|[propext, Classical.choice, Quot.sound]
+TYPE|Finset.instDecidableIsSidonCoeOfDecidableEq._proof_1|∀ {α : Type u_1} [inst : AddCommMonoid α] (A : Finset α),
+  (∀ i₁ ∈ A, ∀ j₁ ∈ A, ∀ i₂ ∈ A, ∀ j₂ ∈ A, i₁ + i₂ = j₁ + j₂ → i₁ = j₁ ∧ i₂ = j₂ ∨ i₁ = j₂ ∧ i₂ = j₁) ↔
+    ∀ i₁ ∈ A, ∀ j₁ ∈ A, ∀ i₂ ∈ A, ∀ j₂ ∈ A, i₁ + i₂ = j₁ + j₂ → i₁ = j₁ ∧ i₂ = j₂ ∨ i₁ = j₂ ∧ i₂ = j₁
+AUDIT|Erdos44.greedy_sidon_construction|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.greedy_sidon_construction|∀ (N : ℕ), 1 ≤ N → ∃ A ⊆ Finset.Icc 1 N, IsSidon ↑A ∧ N ≤ A.card ^ 3
+AUDIT|Erdos44.greedy_sidon_construction._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.greedy_sidon_construction._proof_1_7|∀ (N : ℕ) (A : Finset ℕ) ⦃x : ℕ⦄, ¬x + x - x = x → False
+AUDIT|Erdos44.greedy_sidon_construction._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.greedy_sidon_construction._simp_1_2|∀ {α : Type u_1} {s t : Finset α}, (s ∈ t.powerset) = (s ⊆ t)
+AUDIT|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_17|[propext, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_sqrt_div_three._proof_1_17|∀ (N : ℕ),
+  3 ≤ (N / 8).sqrt → ∀ (p : ℕ), (N / 8).sqrt < p → p ≤ 2 * (N / 8).sqrt → p = 2 → False
+AUDIT|Erdos44.eq_of_two_mul_add_eq._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos44.eq_of_two_mul_add_eq._proof_1_1|∀ {p a b r₁ r₂ : ℕ},
+  r₁ < 2 * p → 2 * p * a + r₁ = 2 * p * b + r₂ → ¬0 < 2 * p → False
+AUDIT|Erdos44.sidon_set_lower_bound_of_singer|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos44.sidon_set_lower_bound_of_singer|Erdos44.SingerSidonProperty →
+  ∀ (N : ℕ), 1 ≤ N → ∃ A ⊆ Finset.Icc 1 N, IsSidon ↑A ∧ √↑N / 2 ≤ ↑A.card

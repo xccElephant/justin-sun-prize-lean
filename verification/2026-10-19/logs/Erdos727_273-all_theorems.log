@@ -1,0 +1,761 @@
+AUDIT|CoveringSystem.ne_top|[propext, Classical.choice, Quot.sound]
+TYPE|CoveringSystem.ne_top|∀ {R : Type u_1} [inst : CommSemiring R] (self : CoveringSystem R) (i : self.ι),
+  self.moduli i ≠ ⊤
+AUDIT|Erdos273.selfridgeStrictCoveringInt._proof_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.selfridgeStrictCoveringInt._proof_4|∀ (i : Fin 12), Erdos273.selfridgeModuliInt i = ⊥ → False
+AUDIT|Erdos727.exists_max_prime_in_interval_and_bertrand._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.exists_max_prime_in_interval_and_bertrand._proof_1_5|∀ {p₀ : ℕ},
+  p₀ ∈ Finset.filter Nat.Prime (Finset.Icc p₀ (11 * p₀ / 8)) → ∀ (s : ℕ), 11 * p₀ / 8 < s → ¬11 * p₀ < 8 * s → False
+AUDIT|Erdos273.selfridgePrimes.eq_2|[propext]
+TYPE|Erdos273.selfridgePrimes.eq_2|Erdos273.selfridgePrimes 1 = 5
+AUDIT|Erdos273.selfridgeModuliNat_ge_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.selfridgeModuliNat_ge_two|∀ (i : Fin 12), 2 ≤ Erdos273.selfridgeModuliNat i
+AUDIT|Erdos273.selfridgePrimes.eq_12|[propext]
+TYPE|Erdos273.selfridgePrimes.eq_12|Erdos273.selfridgePrimes 11 = 181
+AUDIT|Erdos727.exists_good_of_valid_pair|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.exists_good_of_valid_pair|∀ {p q : ℕ},
+  Nat.Prime p →
+    Nat.Prime q →
+      3 < p →
+        p < q →
+          11 * p < 8 * q →
+            q < 2 * p → (∀ (k : ℕ), p * q - 1 ≠ 2 ^ k) → ∃ n, p * q - 1 ≤ n ∧ (n + 1) ^ 2 ∣ n.centralBinom
+AUDIT|Erdos273.selfridgeStrictCoveringNat._proof_3|[propext, Quot.sound]
+TYPE|Erdos273.selfridgeStrictCoveringNat._proof_3|∀ (n : ℕ) (i : Fin 12),
+  n % Erdos273.selfridgeModuliNat i = Erdos273.selfridgeResiduesNat i →
+    Erdos273.selfridgeModuliNat i * (n / Erdos273.selfridgeModuliNat i) + n % Erdos273.selfridgeModuliNat i = n →
+      ¬Erdos273.selfridgeResiduesNat i + Erdos273.selfridgeModuliNat i * (n / Erdos273.selfridgeModuliNat i) = n → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_23|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_23|∀ (N p₀ p₁ q₁ : ℕ),
+  N ≤ p₁ * q₁ - 1 →
+    ∀ (t : ℕ),
+      p₁ * q₁ - 1 = 2 ^ (2 * t) → ∀ (p₂ s : ℕ), 2 ^ (2 * t) < p₁ * p₂ - 1 → ∀ (n : ℕ), p₁ * p₂ - 1 ≤ n → ¬N ≤ n → False
+AUDIT|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_10|∀ {m : ℕ},
+  1 ≤ m.factorization 2 → ¬2 ≤ m.factorization 2 + 2 → False
+AUDIT|Erdos727.balakram_case_one._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.balakram_case_one._proof_1_1|∀ {p q : ℕ}, q < 2 * p → ¬(2 * 0 + 1) * q < 2 * p → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd|∀ (N : ℕ), ∃ n, N ≤ n ∧ (n + 1) ^ 2 ∣ n.centralBinom
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_28|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_28|∀ (N p₀ p₁ q₁ t p₂ s : ℕ),
+  8 * p₂ ≤ 11 * q₁ → 11 * q₁ < 8 * s → 2 * q₁ < s → ¬11 * p₂ < 8 * s → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_11|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_11|∀ (N p₀ p₁ q₁ : ℕ), 3 < q₁ → ∀ (t p₂ : ℕ), 2 = 2 * q₁ → False
+AUDIT|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_8|[propext]
+TYPE|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_8|∀ (motive : Fin 12 → Sort u_1)
+  (h_1 : Unit → motive 0) (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3)
+  (h_5 : Unit → motive 4) (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7)
+  (h_9 : Unit → motive 8) (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 7 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_8 ()
+AUDIT|Erdos727.prime_mul_mod_three_ne_zero._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.prime_mul_mod_three_ne_zero._proof_1_1|∀ {p q : ℕ}, 3 = 1 → False
+AUDIT|Erdos727.prime_sq_dvd_centralBinom_of_mul_sub_one._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos727.prime_sq_dvd_centralBinom_of_mul_sub_one._proof_1_3|∀ {m : ℕ} {k : ℕ} (p' : ℕ),
+  2 ≤ p' + 1 →
+    ∀ (r : ℕ),
+      (k * (p' + 1) + r + 1) * (p' + 1) = p' + (k * (p' + 1) + r) * (p' + 1) + 1 →
+        ¬(k * (p' + 1) + r + 1) * (p' + 1) - 1 = p' + (k * (p' + 1) + r) * (p' + 1) → False
+AUDIT|Erdos727.balakram_case_four._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.balakram_case_four._proof_1_1|∀ {p : ℕ} {q : ℕ}, 3 < p → p = 2 → False
+AUDIT|Erdos727.exists_max_prime_in_interval_and_bertrand._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.exists_max_prime_in_interval_and_bertrand._proof_1_4|∀ {p₀ : ℕ}
+  (hp₀_mem : p₀ ∈ Finset.filter Nat.Prime (Finset.Icc p₀ (11 * p₀ / 8))),
+  (Finset.filter Nat.Prime (Finset.Icc p₀ (11 * p₀ / 8))).max' ⋯ ≤ 11 * p₀ / 8 →
+    ∀ (s : ℕ), ¬8 * (Finset.filter Nat.Prime (Finset.Icc p₀ (11 * p₀ / 8))).max' ⋯ ≤ 11 * p₀ → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_20|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_20|∀ (N p₀ p₁ q₁ t p₂ s : ℕ),
+  16 ≤ 2 ^ (2 * t) →
+    p₁ * q₁ = 2 ^ (2 * t) + 1 →
+      2 ^ (2 * t) < p₁ * p₂ - 1 →
+        p₁ * p₂ < 2 * (p₁ * p₁) →
+          p₁ * p₁ < p₁ * q₁ → 2 ^ (2 * t + 2) = 4 * 2 ^ (2 * t) → ¬p₁ * p₂ - 1 < 2 ^ (2 * t + 2) → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_1|∀ (N p₀ : ℕ), 5 ≤ p₀ → ∀ (p₁ q₁ : ℕ), p₀ ≤ p₁ → ¬3 < p₁ → False
+AUDIT|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries._proof_1_2|∀ {p n i₁ : ℕ} {i₂ i₃ i₄ : ℕ},
+  i₂ < i₃ → i₃ < i₄ → ¬(¬i₂ = i₃ ∧ ¬i₂ = i₄) → False
+AUDIT|Erdos727.prime_mul_mod_three_ne_zero._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos727.prime_mul_mod_three_ne_zero._proof_1_3|∀ {p : ℕ} {q : ℕ}, 3 < q → 3 ∣ q → 3 = q → False
+AUDIT|Erdos273.selfridgeStrictCoveringNat._simp_1|[propext]
+TYPE|Erdos273.selfridgeStrictCoveringNat._simp_1|∀ {α : Type u} {ι : Sort v} {x : α} {s : ι → Set α},
+  (x ∈ ⋃ i, s i) = ∃ i, x ∈ s i
+AUDIT|Erdos727.not_pow_two_of_between_even_pow._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos727.not_pow_two_of_between_even_pow._proof_1_2|∀ {p q t : ℕ} (k : ℕ),
+  p * q - 1 = 2 ^ (2 * t + 1) → 1 ≤ p * q → ¬p * q = 2 ^ (2 * t + 1) + 1 → False
+AUDIT|Erdos727.prime_mul_mod_three_ne_zero|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.prime_mul_mod_three_ne_zero|∀ {p q : ℕ}, Nat.Prime p → Nat.Prime q → 3 < p → 3 < q → p * q % 3 ≠ 0
+AUDIT|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_1|∀ {m : ℕ}, 2 ∣ m → 2 ≤ m → m = 0 → False
+AUDIT|Erdos273.selfridgeStrictCoveringInt._proof_1|[propext, Quot.sound]
+TYPE|Erdos273.selfridgeStrictCoveringInt._proof_1|∀ (z : ℤ) (i : Fin 12) (k : ℕ), ¬360 * (z / 360) + z % 360 = z → False
+AUDIT|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_9|∀ {m : ℕ},
+  ¬2 ∣ m / 2 ^ m.factorization 2 → ¬m / 2 ^ m.factorization 2 = 2 * (m / 2 ^ m.factorization 2 / 2) + 1 → False
+AUDIT|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries._proof_1_6|∀ {p n : ℕ} {i₁ : ℕ} {i₃ i₄ : ℕ},
+  1 ≤ i₁ → ∀ (k : ℕ), i₁ < k → ¬1 ≤ k → False
+AUDIT|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries._proof_1_3|∀ {p n i₁ i₂ : ℕ} {i₃ i₄ : ℕ},
+  i₃ < i₄ → i₃ = i₄ → False
+AUDIT|Erdos727.balakram_case_four._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos727.balakram_case_four._proof_1_5|∀ {p q : ℕ},
+  16 ≤ p * q → 2 ∣ p * q - 1 → 4 * p * q = 4 * (p * q) → ¬4 * p * q - 1 = 4 * (p * q - 1) + 3 → False
+AUDIT|CoveringSystem.mk.sizeOf_spec|[propext, Classical.choice, Quot.sound]
+TYPE|CoveringSystem.mk.sizeOf_spec|∀ {R : Type u_1} [inst : CommSemiring R] [inst_1 : SizeOf R] (ι : Type)
+  [fintypeIndex : Fintype ι] (residue : ι → R) (moduli : ι → Ideal R)
+  (unionCovers : ⋃ i, {residue i} + ↑(moduli i) = Set.univ) (ne_bot : ∀ (i : ι), moduli i ≠ ⊥)
+  (ne_top : ∀ (i : ι), moduli i ≠ ⊤),
+  sizeOf
+      { ι := ι, fintypeIndex := fintypeIndex, residue := residue, moduli := moduli, unionCovers := unionCovers,
+        ne_bot := ne_bot, ne_top := ne_top } =
+    1 + sizeOf ι + sizeOf fintypeIndex + sizeOf unionCovers
+AUDIT|Erdos273.selfridgePrimes.eq_3|[propext]
+TYPE|Erdos273.selfridgePrimes.eq_3|Erdos273.selfridgePrimes 2 = 7
+AUDIT|Erdos273.selfridgePrimes.eq_4|[propext]
+TYPE|Erdos273.selfridgePrimes.eq_4|Erdos273.selfridgePrimes 3 = 11
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_14|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_14|∀ (N p₀ p₁ q₁ t p₂ s : ℕ),
+  16 ≤ 2 ^ (2 * t) →
+    p₁ * q₁ = 2 ^ (2 * t) + 1 →
+      2 ^ (2 * t) < q₁ * s - 1 →
+        q₁ * s < 2 * (q₁ * q₁) →
+          2 * (q₁ * q₁) < 3 * (p₁ * q₁) → 2 ^ (2 * t + 2) = 4 * 2 ^ (2 * t) → ¬q₁ * s - 1 < 2 ^ (2 * t + 2) → False
+AUDIT|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_7|[propext]
+TYPE|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_7|∀ (motive : Fin 12 → Sort u_1)
+  (h_1 : Unit → motive 0) (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3)
+  (h_5 : Unit → motive 4) (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7)
+  (h_9 : Unit → motive 8) (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 6 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_7 ()
+AUDIT|Erdos727.factorial_sq_dvd_two_mul_factorial_iff._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.factorial_sq_dvd_two_mul_factorial_iff._proof_1_1|∀ (n : ℕ), ¬n ≤ 2 * n → False
+AUDIT|Erdos727.even_of_prime_mul_sub_one_eq_two_pow._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.even_of_prime_mul_sub_one_eq_two_pow._proof_1_1|∀ {p q : ℕ}, 16 ≤ p * q → p * q - 1 = 2 ^ 0 → False
+AUDIT|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two|∀ {m : ℕ},
+  2 ∣ m → 2 ≤ m → (∀ (k : ℕ), m ≠ 2 ^ k) → 2 ^ 4 ∣ (4 * m + 3).centralBinom
+AUDIT|Erdos727.even_of_prime_mul_sub_one_eq_two_pow._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos727.even_of_prime_mul_sub_one_eq_two_pow._proof_1_6|∀ {p q : ℕ},
+  16 ≤ p * q → ∀ (t : ℕ), p * q - 1 = 2 ^ (2 * t + 1) → ¬p * q = 2 ^ (2 * t + 1) + 1 → False
+AUDIT|Erdos273.selfridgeStrictCoveringNat._proof_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.selfridgeStrictCoveringNat._proof_2|∀ (i : Fin 12), Erdos273.selfridgeModuli i = ⊥ → False
+AUDIT|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries._simp_1_5|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos273.selfridge_covers_nat|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.selfridge_covers_nat|∀ (n : ℕ), ∃ i, n % Erdos273.selfridgeModuliNat i = Erdos273.selfridgeResiduesNat i
+AUDIT|Erdos727.exists_good_of_valid_pair._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.exists_good_of_valid_pair._proof_1_1|∀ {p q : ℕ},
+  1 ≤ p * q → p * q ≤ 4 * p * q → ¬p * q - 1 ≤ 4 * p * q - 1 → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_2|∀ (N p₀ : ℕ),
+  5 ≤ p₀ → ∀ (p₁ q₁ : ℕ), p₀ ≤ p₁ → p₁ < q₁ → q₁ < 2 * p₁ → ¬3 < q₁ → False
+AUDIT|Erdos273.selfridgePrimes.eq_8|[propext]
+TYPE|Erdos273.selfridgePrimes.eq_8|Erdos273.selfridgePrimes 7 = 37
+AUDIT|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_11|[propext]
+TYPE|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_11|∀ (motive : Fin 12 → Sort u_1)
+  (h_1 : Unit → motive 0) (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3)
+  (h_5 : Unit → motive 4) (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7)
+  (h_9 : Unit → motive 8) (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 10 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_11 ()
+AUDIT|Erdos273.selfridge_covers_nat._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos273.selfridge_covers_nat._proof_1_3|∀ (n : ℕ), ¬n % 360 / 2 % 15 < 15 → False
+AUDIT|Erdos727.prime_sq_dvd_centralBinom_of_mul_sub_one|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.prime_sq_dvd_centralBinom_of_mul_sub_one|∀ {p m k : ℕ},
+  Nat.Prime p → (2 * k + 1) * p < 2 * m → m ≤ (k + 1) * p → p ^ 2 ∣ (m * p - 1).centralBinom
+AUDIT|Erdos273.selfridgePrimes.eq_7|[propext]
+TYPE|Erdos273.selfridgePrimes.eq_7|Erdos273.selfridgePrimes 6 = 31
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_8|∀ (N p₀ p₁ q₁ t : ℕ), 2 ≤ t → ∀ (p₂ s : ℕ), ¬2 * 2 ≤ 2 * t → False
+AUDIT|Erdos273.selfridgeModuliNat_dvd_360|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.selfridgeModuliNat_dvd_360|∀ (i : Fin 12), Erdos273.selfridgeModuliNat i ∣ 360
+AUDIT|Erdos727.not_pow_two_of_between_even_pow|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.not_pow_two_of_between_even_pow|∀ {p q t : ℕ},
+  Nat.Prime p →
+    Nat.Prime q → 3 < p → 3 < q → 2 ^ (2 * t) < p * q - 1 → p * q - 1 < 2 ^ (2 * t + 2) → ∀ (k : ℕ), p * q - 1 ≠ 2 ^ k
+AUDIT|Erdos273.erdos_273.variants.three_int|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.erdos_273.variants.three_int|∃ c,
+  ∀ (i : c.ι), ∃ p, Nat.Prime p ∧ 3 ≤ p ∧ c.moduli i = Ideal.span {↑(p - 1)}
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_4|∀ (N p₀ p₁ q₁ : ℕ),
+  q₁ < 2 * p₁ → p₁ + 1 ≤ p₁ * q₁ → ∀ (t : ℕ), 3 * p₁ < 2 * q₁ → ¬1 ≤ p₁ * q₁ → False
+AUDIT|Erdos727.prime_pow_dvd_centralBinom_of_carries|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.prime_pow_dvd_centralBinom_of_carries|∀ {p n : ℕ},
+  Nat.Prime p → ∀ (s : Finset ℕ), (∀ i ∈ s, 1 ≤ i ∧ p ^ i ≤ 2 * (n % p ^ i)) → p ^ s.card ∣ n.centralBinom
+AUDIT|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_2|[propext]
+TYPE|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_2|∀ (motive : Fin 12 → Sort u_1)
+  (h_1 : Unit → motive 0) (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3)
+  (h_5 : Unit → motive 4) (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7)
+  (h_9 : Unit → motive 8) (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 1 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_2 ()
+AUDIT|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_5|∀ {m : ℕ},
+  1 ≤ m.factorization 2 → ¬2 < m.factorization 2 + 3 → False
+AUDIT|Erdos727.prime_sq_dvd_centralBinom_of_mul_sub_one._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos727.prime_sq_dvd_centralBinom_of_mul_sub_one._proof_1_4|∀ {m k : ℕ} (p' r : ℕ), ¬p' < p' + 1 → False
+AUDIT|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_15|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_15|∀ {m : ℕ},
+  2 ∣ m →
+    2 ^ (Nat.log 2 m + 2) ≤ 4 * m + 3 →
+      2 ^ (Nat.log 2 m + 3) = 2 * 2 ^ (Nat.log 2 m + 2) → ¬2 ^ (Nat.log 2 m + 3) ≤ 2 * (4 * m + 3) → False
+AUDIT|Erdos727.three_mul_prime_ne_two_mul_prime|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.three_mul_prime_ne_two_mul_prime|∀ {p q : ℕ}, Nat.Prime p → Nat.Prime q → 3 < p → 3 * p ≠ 2 * q
+AUDIT|CoveringSystem.mk.injEq|[propext, Classical.choice, Quot.sound]
+TYPE|CoveringSystem.mk.injEq|∀ {R : Type u_1} [inst : CommSemiring R] (ι : Type) [fintypeIndex : Fintype ι]
+  (residue : ι → R) (moduli : ι → Ideal R) (unionCovers : ⋃ i, {residue i} + ↑(moduli i) = Set.univ)
+  (ne_bot : ∀ (i : ι), moduli i ≠ ⊥) (ne_top : ∀ (i : ι), moduli i ≠ ⊤) (ι_1 : Type) (fintypeIndex_1 : Fintype ι_1)
+  (residue_1 : ι_1 → R) (moduli_1 : ι_1 → Ideal R) (unionCovers_1 : ⋃ i, {residue_1 i} + ↑(moduli_1 i) = Set.univ)
+  (ne_bot_1 : ∀ (i : ι_1), moduli_1 i ≠ ⊥) (ne_top_1 : ∀ (i : ι_1), moduli_1 i ≠ ⊤),
+  ({ ι := ι, fintypeIndex := fintypeIndex, residue := residue, moduli := moduli, unionCovers := unionCovers,
+        ne_bot := ne_bot, ne_top := ne_top } =
+      { ι := ι_1, fintypeIndex := fintypeIndex_1, residue := residue_1, moduli := moduli_1,
+        unionCovers := unionCovers_1, ne_bot := ne_bot_1, ne_top := ne_top_1 }) =
+    (ι = ι_1 ∧ fintypeIndex ≍ fintypeIndex_1 ∧ residue ≍ residue_1 ∧ moduli ≍ moduli_1)
+AUDIT|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_1|[propext]
+TYPE|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_1|∀ (motive : Fin 12 → Sort u_1)
+  (h_1 : Unit → motive 0) (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3)
+  (h_5 : Unit → motive 4) (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7)
+  (h_9 : Unit → motive 8) (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 0 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_1 ()
+AUDIT|Erdos727.prime_mul_mod_three_ne_zero._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos727.prime_mul_mod_three_ne_zero._proof_1_2|∀ {p : ℕ} {q : ℕ}, 3 < p → 3 ∣ p → 3 = p → False
+AUDIT|Erdos727.balakram_case_four._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos727.balakram_case_four._proof_1_4|∀ {p q : ℕ}, 16 ≤ p * q → 2 ∣ p * q - 1 → ¬2 ≤ p * q - 1 → False
+AUDIT|Erdos273.selfridgeModuli_injective|[propext, Quot.sound]
+TYPE|Erdos273.selfridgeModuli_injective|Function.Injective Erdos273.selfridgeModuli
+AUDIT|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_2|∀ {m : ℕ}, 2 ∣ m → 2 ≤ m → ¬0 < m → False
+AUDIT|Erdos273.selfridge_covers_nat._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos273.selfridge_covers_nat._proof_1_1|∀ (n : ℕ), n % 2 = 0 → ¬n % 360 / 2 < 180 → False
+AUDIT|Erdos727.balakram_case_four._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos727.balakram_case_four._proof_1_2|∀ {p q : ℕ}, 3 < p → 11 * p < 8 * q → p % 2 = 1 → q = 2 → False
+AUDIT|Erdos727.balakram_case_four._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos727.balakram_case_four._proof_1_6|∀ {p : ℕ} {q : ℕ}, 3 < p → p % 2 = 1 → 2 = p → False
+AUDIT|CoveringSystem.mk.inj|[propext, Classical.choice, Quot.sound]
+TYPE|CoveringSystem.mk.inj|∀ {R : Type u_1} {inst : CommSemiring R} {ι : Type} {fintypeIndex : Fintype ι}
+  {residue : ι → R} {moduli : ι → Ideal R} {unionCovers : ⋃ i, {residue i} + ↑(moduli i) = Set.univ}
+  {ne_bot : ∀ (i : ι), moduli i ≠ ⊥} {ne_top : ∀ (i : ι), moduli i ≠ ⊤} {ι_1 : Type} {fintypeIndex_1 : Fintype ι_1}
+  {residue_1 : ι_1 → R} {moduli_1 : ι_1 → Ideal R} {unionCovers_1 : ⋃ i, {residue_1 i} + ↑(moduli_1 i) = Set.univ}
+  {ne_bot_1 : ∀ (i : ι_1), moduli_1 i ≠ ⊥} {ne_top_1 : ∀ (i : ι_1), moduli_1 i ≠ ⊤},
+  { ι := ι, fintypeIndex := fintypeIndex, residue := residue, moduli := moduli, unionCovers := unionCovers,
+        ne_bot := ne_bot, ne_top := ne_top } =
+      { ι := ι_1, fintypeIndex := fintypeIndex_1, residue := residue_1, moduli := moduli_1,
+        unionCovers := unionCovers_1, ne_bot := ne_bot_1, ne_top := ne_top_1 } →
+    ι = ι_1 ∧ fintypeIndex ≍ fintypeIndex_1 ∧ residue ≍ residue_1 ∧ moduli ≍ moduli_1
+AUDIT|Erdos273.selfridgePrimes.eq_5|[propext]
+TYPE|Erdos273.selfridgePrimes.eq_5|Erdos273.selfridgePrimes 4 = 13
+AUDIT|Erdos727.exists_prime_gt_and_lt_two_mul._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.exists_prime_gt_and_lt_two_mul._proof_1_1|∀ {p : ℕ}, 3 ≤ p → p = 0 → False
+AUDIT|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_14|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_14|∀ {m : ℕ},
+  2 ∣ m → 2 ^ Nat.log 2 m ≤ m → 2 ^ (Nat.log 2 m + 2) = 4 * 2 ^ Nat.log 2 m → ¬2 ^ (Nat.log 2 m + 2) ≤ 4 * m + 3 → False
+AUDIT|StrictCoveringSystem.injective_moduli|[propext, Classical.choice, Quot.sound]
+TYPE|StrictCoveringSystem.injective_moduli|∀ {R : Type u_1} [inst : CommSemiring R] (self : StrictCoveringSystem R),
+  Function.Injective self.moduli
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_29|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_29|∀ (N p₀ p₁ q₁ : ℕ),
+  N ≤ p₁ * q₁ - 1 →
+    ∀ (t : ℕ),
+      p₁ * q₁ - 1 = 2 ^ (2 * t) →
+        ∀ (p₂ s : ℕ),
+          16 ≤ 2 ^ (2 * t) → p₁ * q₁ = 2 ^ (2 * t) + 1 → ∀ (n : ℕ), p₁ * q₁ < p₂ * s → ¬N ≤ p₂ * s - 1 → False
+AUDIT|Erdos727.prime_sq_dvd_centralBinom_of_two_carries|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.prime_sq_dvd_centralBinom_of_two_carries|∀ {p n i j : ℕ},
+  Nat.Prime p → 1 ≤ i → 1 ≤ j → i ≠ j → p ^ i ≤ 2 * (n % p ^ i) → p ^ j ≤ 2 * (n % p ^ j) → p ^ 2 ∣ n.centralBinom
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_22|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_22|∀ (N p₀ p₁ q₁ : ℕ),
+  11 * p₁ < 8 * q₁ → ∀ (t p₂ s : ℕ), q₁ < p₂ → ¬11 * p₁ < 8 * p₂ → False
+AUDIT|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_4|∀ {m : ℕ}, ¬1 < 2 → False
+AUDIT|Erdos727.prime_pow_dvd_centralBinom_of_carries._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.prime_pow_dvd_centralBinom_of_carries._proof_1_1|∀ {p n : ℕ} ⦃i : ℕ⦄,
+  p ^ i ≤ 2 * (n % p ^ i) → n % p ^ i ≤ n → ¬p ^ i ≤ n + n → False
+AUDIT|Erdos273.selfridgePrimes.eq_1|[propext]
+TYPE|Erdos273.selfridgePrimes.eq_1|Erdos273.selfridgePrimes 0 = 3
+AUDIT|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_13|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_13|∀ {m : ℕ},
+  2 ∣ m →
+    m < 2 ^ (Nat.log 2 m + 1) →
+      2 ^ (Nat.log 2 m + 3) = 4 * 2 ^ (Nat.log 2 m + 1) → ¬4 * m + 3 < 2 ^ (Nat.log 2 m + 3) → False
+AUDIT|Erdos727.exists_prime_gt_and_lt_two_mul|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.exists_prime_gt_and_lt_two_mul|∀ {p : ℕ}, 3 ≤ p → ∃ q, Nat.Prime q ∧ p < q ∧ q < 2 * p
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_24|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_24|∀ (N p₀ p₁ q₁ t p₂ s : ℕ),
+  16 ≤ 2 ^ (2 * t) →
+    p₁ * q₁ = 2 ^ (2 * t) + 1 →
+      4 * (p₁ * q₁) < p₂ * s → 2 ^ (2 * (t + 1)) = 4 * 2 ^ (2 * t) → ¬2 ^ (2 * (t + 1)) < p₂ * s - 1 → False
+AUDIT|Erdos273.selfridgeStrictCoveringInt._proof_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.selfridgeStrictCoveringInt._proof_5|∀ (i : Fin 12), Erdos273.selfridgeModuliInt i = ⊤ → False
+AUDIT|Erdos727.balakram_case_one|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.balakram_case_one|∀ {p q : ℕ},
+  Nat.Prime p → Nat.Prime q → 3 < p → p < q → 3 * p < 2 * q → q < 2 * p → (p * q) ^ 2 ∣ (p * q - 1).centralBinom
+AUDIT|Erdos273.selfridgeStrictCoveringNat._proof_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.selfridgeStrictCoveringNat._proof_6|∀ (i : Fin 12), Erdos273.selfridgeModuli i = ⊤ → False
+AUDIT|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_10|[propext]
+TYPE|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_10|∀ (motive : Fin 12 → Sort u_1)
+  (h_1 : Unit → motive 0) (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3)
+  (h_5 : Unit → motive 4) (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7)
+  (h_9 : Unit → motive 8) (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 9 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_10 ()
+AUDIT|Erdos273.selfridge_covers_grid|[propext]
+TYPE|Erdos273.selfridge_covers_grid|∀ (a : Fin 12) (b : Fin 15),
+  have m := 2 * (15 * ↑a + ↑b);
+  m % Erdos273.selfridgeModuliNat (Erdos273.selfridgeIdx m) = Erdos273.selfridgeResiduesNat (Erdos273.selfridgeIdx m)
+AUDIT|Erdos727.balakram_case_one._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos727.balakram_case_one._proof_1_2|∀ {p q : ℕ}, p < q → ¬p ≤ (0 + 1) * q → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_21|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_21|∀ (N p₀ p₁ q₁ : ℕ),
+  p₁ < q₁ → ∀ (t p₂ s : ℕ), q₁ < p₂ → ¬p₁ < p₂ → False
+AUDIT|Erdos273.selfridgeStrictCoveringInt._proof_2|[propext, Quot.sound]
+TYPE|Erdos273.selfridgeStrictCoveringInt._proof_2|∀ (i : Fin 12),
+  ↑(Erdos273.selfridgeModuliNat i) = 0 → 2 ≤ Erdos273.selfridgeModuliNat i → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_27|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_27|∀ (N p₀ p₁ q₁ t p₂ s : ℕ),
+  16 ≤ 2 ^ (2 * t) →
+    p₁ * q₁ = 2 ^ (2 * t) + 1 →
+      p₂ * s < 8 * (q₁ * q₁) →
+        2 * (q₁ * q₁) < 3 * (p₁ * q₁) →
+          2 ^ (2 * (t + 1) + 2) = 16 * 2 ^ (2 * t) → ¬p₂ * s - 1 < 2 ^ (2 * (t + 1) + 2) → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_26|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_26|∀ (N p₀ p₁ q₁ t p₂ s : ℕ),
+  s < 2 * p₂ → p₂ < 2 * q₁ → ¬s < 4 * q₁ → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_18|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_18|∀ (N p₀ p₁ q₁ : ℕ), 3 < p₁ → ∀ (t s : ℕ), 2 = 2 * p₁ → False
+AUDIT|Erdos727.even_of_prime_mul_sub_one_eq_two_pow._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos727.even_of_prime_mul_sub_one_eq_two_pow._proof_1_2|∀ {p q : ℕ}, 16 ≤ p * q → p * q - 1 = 2 ^ 1 → False
+AUDIT|Erdos273.selfridgePrimes.eq_11|[propext]
+TYPE|Erdos273.selfridgePrimes.eq_11|Erdos273.selfridgePrimes 10 = 73
+AUDIT|Erdos273.erdos_273.variants.three|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.erdos_273.variants.three|∃ c, ∀ (i : c.ι), ∃ p, Nat.Prime p ∧ 3 ≤ p ∧ c.moduli i = Ideal.span {p - 1}
+AUDIT|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries._proof_1_1|∀ {p n : ℕ} {i₁ i₂ i₃ i₄ : ℕ},
+  i₁ < i₂ → i₂ < i₃ → i₃ < i₄ → ¬(¬i₁ = i₂ ∧ ¬i₁ = i₃ ∧ ¬i₁ = i₄) → False
+AUDIT|Erdos727.exists_max_prime_in_interval_and_bertrand._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.exists_max_prime_in_interval_and_bertrand._proof_1_1|∀ {p₀ : ℕ}, 5 ≤ p₀ → ¬p₀ ≤ 11 * p₀ / 8 → False
+AUDIT|Erdos727.exists_prime_gt_and_lt_two_mul._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos727.exists_prime_gt_and_lt_two_mul._proof_1_2|∀ {p : ℕ}, 2 = 1 → False
+AUDIT|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_3|∀ {m : ℕ},
+  2 ∣ m →
+    2 ^ Nat.log 2 m ≤ m →
+      ∀ (u : ℕ),
+        m = 2 ^ m.factorization 2 * u →
+          2 ^ m.factorization 2 = 2 ^ Nat.log 2 m → ¬2 ^ m.factorization 2 * 1 ≤ 2 ^ m.factorization 2 * u → False
+AUDIT|Erdos727.not_pow_two_of_between_even_pow._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.not_pow_two_of_between_even_pow._proof_1_1|∀ {p q : ℕ} {t : ℕ} (k : ℕ),
+  2 * t < k → k < 2 * t + 2 → ¬k = 2 * t + 1 → False
+AUDIT|Erdos727.balakram_case_four._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos727.balakram_case_four._proof_1_7|∀ {p : ℕ} {q : ℕ}, q % 2 = 1 → 2 = q → False
+AUDIT|Erdos273.selfridgePrimes.eq_10|[propext]
+TYPE|Erdos273.selfridgePrimes.eq_10|Erdos273.selfridgePrimes 9 = 61
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_25|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_25|∀ (N p₀ p₁ q₁ t p₂ s : ℕ),
+  8 * p₂ ≤ 11 * q₁ → q₁ < p₂ → ¬p₂ < 2 * q₁ → False
+AUDIT|Erdos727.exists_prime_pair_eleven_eighths._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos727.exists_prime_pair_eleven_eighths._proof_1_2|∀ {p₀ : ℕ},
+  5 ≤ p₀ → ∀ (p s : ℕ), 8 * p ≤ 11 * p₀ → 8 * s ≤ 11 * p → ¬s < 2 * p₀ → False
+AUDIT|Erdos727.factorial_sq_dvd_two_mul_factorial_iff|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.factorial_sq_dvd_two_mul_factorial_iff|∀ (n : ℕ),
+  (n + 1).factorial ^ 2 ∣ (2 * n).factorial ↔ (n + 1) ^ 2 ∣ n.centralBinom
+AUDIT|Erdos727.even_of_prime_mul_sub_one_eq_two_pow|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.even_of_prime_mul_sub_one_eq_two_pow|∀ {p q k : ℕ},
+  Nat.Prime p → Nat.Prime q → 3 < p → 3 < q → p * q - 1 = 2 ^ k → ∃ t, 2 ≤ t ∧ k = 2 * t
+AUDIT|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_9|[propext]
+TYPE|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_9|∀ (motive : Fin 12 → Sort u_1)
+  (h_1 : Unit → motive 0) (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3)
+  (h_5 : Unit → motive 4) (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7)
+  (h_9 : Unit → motive 8) (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 8 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_9 ()
+AUDIT|Erdos273.selfridgeStrictCoveringNat._simp_2|[propext]
+TYPE|Erdos273.selfridgeStrictCoveringNat._simp_2|∀ {α : Type u} (x : α), (x ∈ Set.univ) = True
+AUDIT|Erdos273.selfridgeModuliNat_injective|[propext]
+TYPE|Erdos273.selfridgeModuliNat_injective|Function.Injective Erdos273.selfridgeModuliNat
+AUDIT|Erdos727.erdos_727.variants.k_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.erdos_727.variants.k_1|{n | (n + 1).factorial ^ 2 ∣ (2 * n).factorial}.Infinite
+AUDIT|Erdos727.exists_prime_gt_and_lt_two_mul._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos727.exists_prime_gt_and_lt_two_mul._proof_1_3|∀ {p : ℕ}, 3 ≤ p → 2 = 2 * p → False
+AUDIT|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries|∀ {p n i₁ i₂ i₃ i₄ : ℕ},
+  Nat.Prime p →
+    1 ≤ i₁ →
+      i₁ < i₂ →
+        i₂ < i₃ →
+          i₃ < i₄ →
+            p ^ i₁ ≤ 2 * (n % p ^ i₁) →
+              p ^ i₂ ≤ 2 * (n % p ^ i₂) → p ^ i₃ ≤ 2 * (n % p ^ i₃) → p ^ i₄ ≤ 2 * (n % p ^ i₄) → p ^ 4 ∣ n.centralBinom
+AUDIT|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_3|[propext]
+TYPE|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_3|∀ (motive : Fin 12 → Sort u_1)
+  (h_1 : Unit → motive 0) (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3)
+  (h_5 : Unit → motive 4) (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7)
+  (h_9 : Unit → motive 8) (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 2 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_3 ()
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_19|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_19|∀ (N p₀ p₁ q₁ t p₂ s : ℕ),
+  16 ≤ 2 ^ (2 * t) → p₁ * q₁ = 2 ^ (2 * t) + 1 → p₁ * q₁ < p₁ * p₂ → ¬2 ^ (2 * t) < p₁ * p₂ - 1 → False
+AUDIT|Erdos273.selfridgePrimes_ge_three|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.selfridgePrimes_ge_three|∀ (i : Fin 12), 3 ≤ Erdos273.selfridgePrimes i
+AUDIT|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_7|∀ {m : ℕ},
+  2 ∣ m → ¬2 ≤ 2 * ((4 * m + 3) % 2) → False
+AUDIT|Erdos273.selfridge_covers_nat._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos273.selfridge_covers_nat._proof_1_2|∀ (n : ℕ), n % 2 = 0 → ¬n % 360 / 2 / 15 < 12 → False
+AUDIT|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_5|[propext]
+TYPE|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_5|∀ (motive : Fin 12 → Sort u_1)
+  (h_1 : Unit → motive 0) (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3)
+  (h_5 : Unit → motive 4) (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7)
+  (h_9 : Unit → motive 8) (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 4 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_5 ()
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_16|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_16|∀ (N p₀ p₁ q₁ : ℕ),
+  N ≤ p₁ * q₁ - 1 →
+    ∀ (t : ℕ),
+      p₁ * q₁ - 1 = 2 ^ (2 * t) → ∀ (p₂ s : ℕ), 2 ^ (2 * t) < q₁ * s - 1 → ∀ (n : ℕ), q₁ * s - 1 ≤ n → ¬N ≤ n → False
+AUDIT|Erdos727.exists_max_prime_in_interval_and_bertrand._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.exists_max_prime_in_interval_and_bertrand._proof_1_3|∀ {p₀ : ℕ}
+  (hp₀_mem : p₀ ∈ Finset.filter Nat.Prime (Finset.Icc p₀ (11 * p₀ / 8))),
+  p₀ ≤ (Finset.filter Nat.Prime (Finset.Icc p₀ (11 * p₀ / 8))).max' ⋯ →
+    ∀ (s : ℕ), (Finset.filter Nat.Prime (Finset.Icc p₀ (11 * p₀ / 8))).max' ⋯ < s → ¬p₀ ≤ s → False
+AUDIT|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_8|∀ {m : ℕ},
+  2 ∣ m → ¬4 ≤ 2 * ((4 * m + 3) % 4) → False
+AUDIT|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_12|[propext]
+TYPE|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_12|∀ (motive : Fin 12 → Sort u_1)
+  (h_1 : Unit → motive 0) (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3)
+  (h_5 : Unit → motive 4) (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7)
+  (h_9 : Unit → motive 8) (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 11 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_12 ()
+AUDIT|Erdos727.prime_sq_dvd_centralBinom_of_mul_sub_one._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.prime_sq_dvd_centralBinom_of_mul_sub_one._proof_1_1|∀ {p : ℕ} {m k : ℕ}, 2 ≤ p → ¬p = p - 1 + 1 → False
+AUDIT|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_12|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_12|∀ {m : ℕ},
+  2 ∣ m →
+    4 * m + 3 = 2 ^ (m.factorization 2 + 2) + 3 + m / 2 ^ m.factorization 2 / 2 * 2 ^ (m.factorization 2 + 3) →
+      2 ^ (m.factorization 2 + 3) = 2 * 2 ^ (m.factorization 2 + 2) →
+        ¬2 ^ (m.factorization 2 + 3) ≤ 2 * (2 ^ (m.factorization 2 + 2) + 3) → False
+AUDIT|Erdos727.exists_max_prime_in_interval_and_bertrand|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.exists_max_prime_in_interval_and_bertrand|∀ {p₀ : ℕ},
+  Nat.Prime p₀ →
+    5 ≤ p₀ → ∃ p s, Nat.Prime p ∧ Nat.Prime s ∧ p₀ ≤ p ∧ 8 * p ≤ 11 * p₀ ∧ p < s ∧ s < 2 * p ∧ 11 * p₀ < 8 * s
+AUDIT|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_6|∀ {m : ℕ},
+  m.factorization 2 < Nat.log 2 m → ¬m.factorization 2 + 3 < Nat.log 2 m + 3 → False
+AUDIT|Erdos273.selfridgeIdx._proof_1|[propext]
+TYPE|Erdos273.selfridgeIdx._proof_1|NeZero (11 + 1)
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_15|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_15|∀ (N p₀ p₁ q₁ t p₂ s : ℕ),
+  11 * q₁ < 8 * s → s < 2 * q₁ → ¬q₁ < s → False
+AUDIT|Erdos273.selfridgePrimes_prime|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.selfridgePrimes_prime|∀ (i : Fin 12), Nat.Prime (Erdos273.selfridgePrimes i)
+AUDIT|Erdos727.prime_sq_dvd_centralBinom_of_mul_sub_one._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos727.prime_sq_dvd_centralBinom_of_mul_sub_one._proof_1_5|∀ {m k : ℕ} (p' : ℕ),
+  2 ≤ p' + 1 →
+    ∀ (r : ℕ),
+      m * (p' + 1) - 1 = p' + (k * (p' + 1) + r) * (p' + 1) →
+        m * (p' + 1) - 1 = r * (p' + 1) + p' + k * (p' + 1) ^ 2 → ¬p' + 1 ≤ 2 * p' → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_6|∀ (N p₀ p₁ q₁ : ℕ),
+  11 * p₁ < 8 * q₁ → ∀ (t : ℕ), 2 * q₁ < 3 * p₁ → ∀ (p₂ s : ℕ), q₁ ≤ p₂ → ¬3 < p₂ → False
+AUDIT|StrictCoveringSystem.mk.inj|[propext, Classical.choice, Quot.sound]
+TYPE|StrictCoveringSystem.mk.inj|∀ {R : Type u_1} {inst : CommSemiring R} {toCoveringSystem : CoveringSystem R}
+  {injective_moduli : Function.Injective toCoveringSystem.moduli} {toCoveringSystem_1 : CoveringSystem R}
+  {injective_moduli_1 : Function.Injective toCoveringSystem_1.moduli},
+  { toCoveringSystem := toCoveringSystem, injective_moduli := injective_moduli } =
+      { toCoveringSystem := toCoveringSystem_1, injective_moduli := injective_moduli_1 } →
+    toCoveringSystem = toCoveringSystem_1
+AUDIT|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries._proof_1_7|∀ {p n : ℕ} {i₁ i₂ : ℕ} {i₄ : ℕ},
+  1 ≤ i₁ → i₁ < i₂ → ∀ (k : ℕ), i₂ < k → ¬1 ≤ k → False
+AUDIT|Erdos727.two_odd_pow_add_one_mod_three|[propext, Quot.sound]
+TYPE|Erdos727.two_odd_pow_add_one_mod_three|∀ (t : ℕ), (2 ^ (2 * t + 1) + 1) % 3 = 0
+AUDIT|Erdos273.selfridgeStrictCoveringNat._proof_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.selfridgeStrictCoveringNat._proof_1|⋃ i,
+    {Erdos273.selfridgeResiduesNat i} + ↑(Erdos273.selfridgeModuli i) =
+  Set.univ
+AUDIT|Erdos727.even_of_prime_mul_sub_one_eq_two_pow._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos727.even_of_prime_mul_sub_one_eq_two_pow._proof_1_4|∀ {p q : ℕ}, 16 ≤ p * q → p * q - 1 = 2 ^ 3 → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_12|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_12|∀ (N p₀ p₁ q₁ : ℕ),
+  p₁ < q₁ → ∀ (t p₂ s : ℕ), 11 * q₁ < 8 * s → 3 < s → s < 2 * q₁ → ¬p₁ < s → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_3|∀ (N p₀ : ℕ),
+  N ≤ p₀ → ∀ (p₁ q₁ : ℕ), p₀ ≤ p₁ → q₁ < 2 * p₁ → 3 < q₁ → p₁ + 1 ≤ p₁ * q₁ → ¬N ≤ p₁ * q₁ - 1 → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_7|∀ (N p₀ p₁ q₁ t p₂ s : ℕ),
+  p₂ < s → s < 2 * p₂ → 3 < p₂ → ¬3 < s → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_13|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_13|∀ (N p₀ p₁ q₁ t p₂ s : ℕ),
+  16 ≤ 2 ^ (2 * t) → p₁ * q₁ = 2 ^ (2 * t) + 1 → p₁ * q₁ < q₁ * s → ¬2 ^ (2 * t) < q₁ * s - 1 → False
+AUDIT|Erdos273.selfridgePrimes.eq_6|[propext]
+TYPE|Erdos273.selfridgePrimes.eq_6|Erdos273.selfridgePrimes 5 = 19
+AUDIT|Erdos727.even_of_prime_mul_sub_one_eq_two_pow._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos727.even_of_prime_mul_sub_one_eq_two_pow._proof_1_3|∀ {p q : ℕ}, 16 ≤ p * q → p * q - 1 = 2 ^ 2 → False
+AUDIT|Erdos727.even_of_prime_mul_sub_one_eq_two_pow._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos727.even_of_prime_mul_sub_one_eq_two_pow._proof_1_5|∀ {p q : ℕ} (t : ℕ), 4 ≤ 2 * t → ¬2 ≤ t → False
+AUDIT|Erdos727.prime_sq_dvd_centralBinom_of_mul_sub_one._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos727.prime_sq_dvd_centralBinom_of_mul_sub_one._proof_1_2|∀ {m k : ℕ} (p' : ℕ),
+  k * (p' + 1) < m → ¬m = k * (p' + 1) + (m - 1 - k * (p' + 1)) + 1 → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_9|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_9|∀ (N p₀ p₁ q₁ t : ℕ),
+  p₁ * q₁ - 1 = 2 ^ (2 * t) →
+    3 * p₁ ≠ 2 * q₁ → 2 * q₁ < 3 * p₁ → ∀ (p₂ s : ℕ), 16 ≤ 2 ^ (2 * t) → ¬p₁ * q₁ = 2 ^ (2 * t) + 1 → False
+AUDIT|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_4|[propext]
+TYPE|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_4|∀ (motive : Fin 12 → Sort u_1)
+  (h_1 : Unit → motive 0) (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3)
+  (h_5 : Unit → motive 4) (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7)
+  (h_9 : Unit → motive 8) (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 3 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_4 ()
+AUDIT|Erdos727.balakram_case_one._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos727.balakram_case_one._proof_1_3|∀ {p q : ℕ}, q < 2 * p → ¬q ≤ (1 + 1) * p → False
+AUDIT|Erdos727.exists_max_prime_in_interval_and_bertrand._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.exists_max_prime_in_interval_and_bertrand._proof_1_2|∀ {p₀ : ℕ},
+  5 ≤ p₀ →
+    ∀ (hp₀_mem : p₀ ∈ Finset.filter Nat.Prime (Finset.Icc p₀ (11 * p₀ / 8))),
+      p₀ ≤ (Finset.filter Nat.Prime (Finset.Icc p₀ (11 * p₀ / 8))).max' ⋯ →
+        ¬3 ≤ (Finset.filter Nat.Prime (Finset.Icc p₀ (11 * p₀ / 8))).max' ⋯ → False
+AUDIT|Erdos727.three_mul_prime_ne_two_mul_prime._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos727.three_mul_prime_ne_two_mul_prime._proof_1_3|∀ {p q : ℕ}, 3 < p → 3 * p = 2 * q → p = q → False
+AUDIT|Erdos727.three_mul_prime_ne_two_mul_prime._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.three_mul_prime_ne_two_mul_prime._proof_1_1|∀ {p q : ℕ}, 3 < p → 3 * p = 2 * q → p ≤ 2 → False
+AUDIT|Erdos273.selfridge_covers_nat._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos273.selfridge_covers_nat._proof_1_4|∀ (n : ℕ),
+  n % 2 = 0 → ¬2 * (15 * (n % 360 / 2 / 15) + n % 360 / 2 % 15) = n % 360 → False
+AUDIT|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_6|[propext]
+TYPE|_private.JspBounties.Erdos727_273.0.Erdos273.selfridgePrimes.match_1.eq_6|∀ (motive : Fin 12 → Sort u_1)
+  (h_1 : Unit → motive 0) (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3)
+  (h_5 : Unit → motive 4) (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7)
+  (h_9 : Unit → motive 8) (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 5 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_6 ()
+AUDIT|Erdos727.exists_prime_pair_eleven_eighths._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.exists_prime_pair_eleven_eighths._proof_1_1|∀ {p₀ : ℕ},
+  5 ≤ p₀ → ∀ (p s : ℕ), 11 * p₀ < 8 * s → ¬p₀ < s → False
+AUDIT|Erdos273.selfridgeModuliInt_injective|[propext, Quot.sound]
+TYPE|Erdos273.selfridgeModuliInt_injective|Function.Injective Erdos273.selfridgeModuliInt
+AUDIT|CoveringSystem.ne_bot|[propext, Classical.choice, Quot.sound]
+TYPE|CoveringSystem.ne_bot|∀ {R : Type u_1} [inst : CommSemiring R] (self : CoveringSystem R) (i : self.ι),
+  self.moduli i ≠ ⊥
+AUDIT|Erdos727.exists_prime_pair_eleven_eighths|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.exists_prime_pair_eleven_eighths|∀ {p₀ : ℕ},
+  Nat.Prime p₀ → 5 ≤ p₀ → ∃ p q, Nat.Prime p ∧ Nat.Prime q ∧ p₀ ≤ p ∧ p < q ∧ 11 * p < 8 * q ∧ q < 2 * p
+AUDIT|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.two_pow_four_dvd_centralBinom_of_even_not_pow_two._proof_1_11|∀ {m : ℕ},
+  2 ∣ m →
+    4 * m + 3 = 2 ^ (m.factorization 2 + 2) + 3 + m / 2 ^ m.factorization 2 / 2 * 2 ^ (m.factorization 2 + 3) →
+      4 ≤ 2 ^ (m.factorization 2 + 2) →
+        2 ^ (m.factorization 2 + 3) = 2 ^ (m.factorization 2 + 2) + 2 ^ (m.factorization 2 + 2) →
+          ¬2 ^ (m.factorization 2 + 2) + 3 < 2 ^ (m.factorization 2 + 3) → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_17|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_17|∀ (N p₀ p₁ q₁ t p₂ s : ℕ),
+  q₁ ≤ p₂ → s < 2 * p₂ → 2 * q₁ < s → ¬q₁ < p₂ → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_5|∀ (N p₀ p₁ q₁ : ℕ),
+  11 * p₁ < 8 * q₁ → q₁ < 2 * p₁ → 3 < q₁ → ∀ (t : ℕ), ¬5 ≤ q₁ → False
+AUDIT|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries._simp_1_4|∀ {α : Type u_1} [inst : DecidableEq α]
+  {s : Finset α} {a b : α}, (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|CoveringSystem.unionCovers|[propext, Classical.choice, Quot.sound]
+TYPE|CoveringSystem.unionCovers|∀ {R : Type u_1} [inst : CommSemiring R] (self : CoveringSystem R),
+  ⋃ i, {self.residue i} + ↑(self.moduli i) = Set.univ
+AUDIT|StrictCoveringSystem.mk.sizeOf_spec|[propext, Classical.choice, Quot.sound]
+TYPE|StrictCoveringSystem.mk.sizeOf_spec|∀ {R : Type u_1} [inst : CommSemiring R] [inst_1 : SizeOf R]
+  (toCoveringSystem : CoveringSystem R) (injective_moduli : Function.Injective toCoveringSystem.moduli),
+  sizeOf { toCoveringSystem := toCoveringSystem, injective_moduli := injective_moduli } = 1 + sizeOf toCoveringSystem
+AUDIT|Erdos273.selfridgePrimes.eq_9|[propext]
+TYPE|Erdos273.selfridgePrimes.eq_9|Erdos273.selfridgePrimes 8 = 41
+AUDIT|Erdos273.selfridgeStrictCoveringNat._proof_4|[propext, Quot.sound]
+TYPE|Erdos273.selfridgeStrictCoveringNat._proof_4|∀ (i : Fin 12),
+  Erdos273.selfridgeModuliNat i = 0 → 2 ≤ Erdos273.selfridgeModuliNat i → False
+AUDIT|Erdos727.balakram_case_four._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos727.balakram_case_four._proof_1_3|∀ {p q : ℕ}, 16 ≤ p * q → p * q % 2 = 1 → ¬2 ∣ p * q - 1 → False
+AUDIT|Erdos273.selfridgeStrictCoveringNat._proof_5|[propext, Quot.sound]
+TYPE|Erdos273.selfridgeStrictCoveringNat._proof_5|∀ (i : Fin 12),
+  Erdos273.selfridgeModuliNat i ≤ 1 → 2 ≤ Erdos273.selfridgeModuliNat i → False
+AUDIT|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos727.prime_pow_four_dvd_centralBinom_of_four_carries._proof_1_8|∀ {p n : ℕ} {i₁ i₂ i₃ : ℕ},
+  1 ≤ i₁ → i₁ < i₂ → i₂ < i₃ → ∀ (k : ℕ), i₃ < k → ¬1 ≤ k → False
+AUDIT|Erdos273.selfridgeStrictCoveringInt._proof_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.selfridgeStrictCoveringInt._proof_3|⋃ i,
+    {↑(Erdos273.selfridgeResiduesNat i)} + ↑(Erdos273.selfridgeModuliInt i) =
+  Set.univ
+AUDIT|Erdos727.three_mul_prime_ne_two_mul_prime._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos727.three_mul_prime_ne_two_mul_prime._proof_1_2|∀ {p q : ℕ}, 3 < p → 3 * p = 2 * q → p = 1 → False
+AUDIT|Erdos727.balakram_case_four|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos727.balakram_case_four|∀ {p q : ℕ},
+  Nat.Prime p →
+    Nat.Prime q →
+      3 < p →
+        p < q →
+          11 * p < 8 * q →
+            2 * q < 3 * p → (∀ (k : ℕ), p * q - 1 ≠ 2 ^ k) → (4 * p * q) ^ 2 ∣ (4 * p * q - 1).centralBinom
+AUDIT|StrictCoveringSystem.mk.injEq|[propext, Classical.choice, Quot.sound]
+TYPE|StrictCoveringSystem.mk.injEq|∀ {R : Type u_1} [inst : CommSemiring R] (toCoveringSystem : CoveringSystem R)
+  (injective_moduli : Function.Injective toCoveringSystem.moduli) (toCoveringSystem_1 : CoveringSystem R)
+  (injective_moduli_1 : Function.Injective toCoveringSystem_1.moduli),
+  ({ toCoveringSystem := toCoveringSystem, injective_moduli := injective_moduli } =
+      { toCoveringSystem := toCoveringSystem_1, injective_moduli := injective_moduli_1 }) =
+    (toCoveringSystem = toCoveringSystem_1)
+AUDIT|Erdos727.factorial_sq_dvd_two_mul_factorial_iff._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos727.factorial_sq_dvd_two_mul_factorial_iff._proof_1_2|∀ (n : ℕ), ¬2 * n - n = n → False
+AUDIT|Erdos727.exists_ge_centralBinom_dvd._proof_1_10|[propext, Quot.sound]
+TYPE|Erdos727.exists_ge_centralBinom_dvd._proof_1_10|∀ (N p₀ p₁ q₁ t p₂ : ℕ), 2 = 1 → False
+AUDIT|Erdos727.two_odd_pow_add_one_mod_three._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.two_odd_pow_add_one_mod_three._proof_1_1|∀ (t : ℕ),
+  (2 ^ (2 * t + 1) + 1) % 3 = 0 →
+    2 ^ (2 * (t + 1) + 1) + 1 = 3 * 2 ^ (2 * t + 1) + (2 ^ (2 * t + 1) + 1) →
+      ¬(2 ^ (2 * (t + 1) + 1) + 1) % 3 = 0 → False
+AUDIT|Erdos727.erdos_727.variants.k_1._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos727.erdos_727.variants.k_1._proof_1_1|∀ (a n : ℕ), a + 1 ≤ n → ¬a < n → False

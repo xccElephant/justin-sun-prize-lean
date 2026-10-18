@@ -1,0 +1,1596 @@
+AUDIT|Erdos348.exists_first_gt._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos348.exists_first_gt._proof_1_3|∀ {B : ℕ → ℕ} {j : ℕ} (M r : ℕ), r < M + 1 → ¬r ≤ M → False
+AUDIT|Erdos348.exists_first_gt|[propext, Quot.sound]
+TYPE|Erdos348.exists_first_gt|∀ {B : ℕ → ℕ},
+  Monotone B → ∀ {j M : ℕ}, B j < B M → ∃ m ≤ M, B j < B m ∧ ∀ r < m, B r ≤ B j
+AUDIT|Erdos348.pow_two_dvd_sum_filter_gt._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.pow_two_dvd_sum_filter_gt._proof_1_1|∀ (j a : ℕ) (s : Finset ℕ) (k : ℕ),
+  j < a → ¬a = j + 1 + (a - (j + 1)) → False
+AUDIT|Erdos348.exists_for_m_eq_zero|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.exists_for_m_eq_zero|∀ {n : ℕ},
+  0 < n →
+    ∃ a,
+      Monotone a ∧
+        (∀ (s : Finset ℕ), s.card = 0 → IsAddCompleteNatSeq' (Function.updateFinset a s 0)) ∧
+          ∀ (t : Finset ℕ), t.card = n → ¬IsAddCompleteNatSeq' (Function.updateFinset a t 0)
+AUDIT|Erdos348.exists_for_m_eq_one._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.exists_for_m_eq_one._proof_1_1|∀ {n : ℕ}, 2 ≤ n → ∀ (t : Finset ℕ), t.card = n → ¬1 < t.card → False
+AUDIT|Erdos348.pow_two_repr._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos348.pow_two_repr._proof_1_3|∀ (n x : ℕ) (B : Finset ℕ) ⦃idx : ℕ⦄, idx = n → ¬idx < n + 1 → False
+AUDIT|Erdos348.add_const_block_mem_prefixSums._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.add_const_block_mem_prefixSums._proof_1_1|∀ {p : ℕ}, p ≤ 0 → ¬p = 0 → False
+AUDIT|Erdos348.sum_sdiff_pair._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.sum_sdiff_pair._proof_1_1|∀ {k : ℕ} {i j : ℕ}, i < j → j = i → False
+AUDIT|Erdos348.extension_prop._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_1|∀ (i : ℕ), i = i + 1 → False
+AUDIT|Erdos348.pow_two_not_complete_of_nonempty._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.pow_two_not_complete_of_nonempty._simp_1_3|∀ {α : Type u_1} [inst : DecidableEq α] {s t : Finset α}
+  {a : α}, (a ∈ s ∪ t) = (a ∈ s ∨ a ∈ t)
+AUDIT|Erdos348.central_interval_thm._proof_1_15|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_15|∀ {B : ℕ → ℕ} {T : ℕ} (J₀ : ℕ)
+  (hH : {u ∈ Finset.range T | u ∉ subseqSums' B}.Nonempty) (K_final L₀ N₀ N x j u : ℕ) (s : Finset ℕ) (r : ℕ),
+  ¬max J₀ (max K_final ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH)) < j →
+    ¬j ≤ max J₀ (max K_final ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH)) → False
+AUDIT|Erdos348.slack_diverges_of_one_del._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.slack_diverges_of_one_del._proof_1_2|∀ {A : ℕ → ℕ} (M i T_i k : ℕ),
+  k ≥ T_i + A i + i + 1 → k ≤ Erdos348.prefixSum A k → ¬T_i ≤ Erdos348.prefixSum A k - A i + 1 → False
+AUDIT|Erdos348.fibSeq_one_del_repr|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_one_del_repr|∀ (j k x : ℕ),
+  x ≤ ∑ i ∈ Finset.range k, Function.updateFinset Erdos348.fibSeq {j} 0 i →
+    ∃ B ⊆ Finset.range k, x = ∑ i ∈ B, Function.updateFinset Erdos348.fibSeq {j} 0 i
+AUDIT|Erdos348.step_exists._proof_1_50|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_50|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (K' J₀ J₁ L₁ K₁ K₂ j N : ℕ)
+  (E : Finset ℕ),
+  E.Nonempty →
+    ∀ (m l : ℕ) (E' : Finset ℕ) (j' N' : ℕ),
+      Erdos348.statePotential B (H.max' hH) j N E = (H.max' hH + 1) * (E.card + 1) →
+        (H.max' hH + 1) * E'.card + 1 ≤ Erdos348.statePotential B (H.max' hH) j' N' E' →
+          (H.max' hH + 1) * (E.card + 1) ≤ (H.max' hH + 1) * E'.card →
+            ¬Erdos348.statePotential B (H.max' hH) j N E < Erdos348.statePotential B (H.max' hH) j' N' E' → False
+AUDIT|Erdos348.pow_two_repr|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.pow_two_repr|∀ (n x : ℕ), x < 2 ^ n → ∃ B ⊆ Finset.range n, x = ∑ i ∈ B, 2 ^ i
+AUDIT|Erdos348.prefixSum_add_const_block._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.prefixSum_add_const_block._proof_1_4|∀ {B : ℕ → ℕ} {b : ℕ} {l : ℕ} (j : ℕ), l < j + 1 → ¬l ≤ j → False
+AUDIT|Erdos348.erdos_348|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.erdos_348|{x |
+    ∃ m n,
+      ∃ (_ : m < n),
+        ∃ a,
+          ∃ (_ : Monotone a) (_ : ∀ (s : Finset ℕ), s.card = m → IsAddCompleteNatSeq' (Function.updateFinset a s 0)) (_
+            : ∀ (t : Finset ℕ), t.card = n → ¬IsAddCompleteNatSeq' (Function.updateFinset a t 0)), (m, n) = x} =
+  Erdos348.erdos_348.answer
+AUDIT|Erdos348.sum_sdiff_pair|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.sum_sdiff_pair|∀ {a : ℕ → ℕ} {k i j : ℕ},
+  i < j → j < k → ∑ r ∈ Finset.range k \ {i, j}, a r + a i + a j = ∑ r ∈ Finset.range k, a r
+AUDIT|Erdos348.extension_prop._proof_1_16|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_16|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ : ℕ),
+  2 * max T₀ 1 ≤ Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) →
+    ∀ (M I₁ z : ℕ),
+      z ≥ (fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 →
+        ∀ (q : ℕ),
+          ¬(fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 +
+                  (z - ((fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1)) =
+                z →
+            False
+AUDIT|Erdos348.fibSeq_sum_range._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_sum_range._proof_1_1|∀ (k : ℕ),
+  ∑ i ∈ Finset.range k, Erdos348.fibSeq i + 1 = Erdos348.fibSeq (k + 1) →
+    ¬∑ x ∈ Finset.range k, Erdos348.fibSeq x + Erdos348.fibSeq k + 1 = Erdos348.fibSeq k + Erdos348.fibSeq (k + 1) →
+      False
+AUDIT|Erdos348.fibSeq_two_del_missing._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_two_del_missing._proof_1_3|∀ {i : ℕ} {j : ℕ} (B : Finset ℕ), ¬j < j + 1 → False
+AUDIT|Erdos348.exists_first_gt._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos348.exists_first_gt._proof_1_4|∀ {B : ℕ → ℕ} {j : ℕ} (M : ℕ),
+  ¬B j < B M → ∀ (r : ℕ), B r ≤ B M → ¬B r ≤ B j → False
+AUDIT|Erdos348.pow_two_not_complete_of_nonempty._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos348.pow_two_not_complete_of_nonempty._proof_1_8|∀ (j T : ℕ) (B : Finset ℕ),
+  2 ^ (j + 1) * T + 2 ^ j = ∑ x ∈ B with x < j, 2 ^ x + ∑ x ∈ B with j < x, 2 ^ x →
+    ∑ i ∈ B with i < j, 2 ^ i < 2 ^ j →
+      ∀ (k : ℕ), ∑ i ∈ B with j < i, 2 ^ i = 2 ^ (j + 1) * k → 2 ^ (j + 1) * k ≤ 2 ^ (j + 1) * T → False
+AUDIT|Erdos348.statePotential_ge_card|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.statePotential_ge_card|∀ {B : ℕ → ℕ} {H : Finset ℕ} {h j N : ℕ} {E : Finset ℕ},
+  (∀ u ∈ H, 1 ≤ u ∧ u ≤ h) → Erdos348.IsState B H j N E → (h + 1) * E.card + 1 ≤ Erdos348.statePotential B h j N E
+AUDIT|Erdos348.normalize_state._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.normalize_state._proof_1_2|∀ {B : ℕ → ℕ} {h l j K' : ℕ},
+  B (max K' h) < B l → B l = B (j - 1) → ∀ (p : ℕ), B p = B l → B p ≤ B (max K' h) → False
+AUDIT|Erdos348.extension_prop|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop|∀ {A : ℕ → ℕ},
+  Monotone A →
+    (∀ (i : ℕ), 1 ≤ A i) →
+      (∀ (M : ℕ), ∃ I, ∀ i ≥ I, M ≤ A i) →
+        (∀ (s : Finset ℕ), s.card = 2 → IsAddCompleteNatSeq' (Function.updateFinset A s 0)) →
+          ∀ (D : Finset ℕ),
+            IsAddCompleteNatSeq' (Function.updateFinset A D 0) →
+              ∃ d ∉ D, IsAddCompleteNatSeq' (Function.updateFinset A (insert d D) 0)
+AUDIT|Erdos348.exists_superset_card|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.exists_superset_card|∀ {s : Finset ℕ} {m : ℕ}, s.card ≤ m → ∃ s', s ⊆ s' ∧ s'.card = m
+AUDIT|Erdos348.fibSeq_two_del_missing._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.fibSeq_two_del_missing._proof_1_2|∀ {i : ℕ} {j : ℕ} (B : Finset ℕ),
+  Erdos348.fibSeq (j + 1) - 1 = ∑ i ∈ B, Erdos348.fibSeq i →
+    ∀ ⦃r : ℕ⦄,
+      Erdos348.fibSeq r ≤ Erdos348.fibSeq (j + 1) - 1 →
+        Erdos348.fibSeq (j + 1) ≤ Erdos348.fibSeq r → 1 ≤ Erdos348.fibSeq (j + 1) → False
+AUDIT|Erdos348.fibSeq_ge_index|[propext, Quot.sound]
+TYPE|Erdos348.fibSeq_ge_index|∀ (k : ℕ), k ≤ Erdos348.fibSeq (k + 1)
+AUDIT|Erdos348.fibSeq_complete_one._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_complete_one._proof_1_2|∀ (j x : ℕ),
+  Erdos348.fibSeq j + ∑ x ∈ (Finset.range (x + Erdos348.fibSeq j + j + 2)).erase j, Erdos348.fibSeq x =
+      ∑ x ∈ Finset.range (x + Erdos348.fibSeq j + j + 2), Erdos348.fibSeq x →
+    ∑ i ∈ Finset.range (x + Erdos348.fibSeq j + j + 2), Erdos348.fibSeq i + 1 =
+        Erdos348.fibSeq (x + Erdos348.fibSeq j + j + 2 + 1) →
+      x + Erdos348.fibSeq j + j + 2 ≤ Erdos348.fibSeq (x + Erdos348.fibSeq j + j + 2 + 1) →
+        ¬x ≤ ∑ i ∈ (Finset.range (x + Erdos348.fibSeq j + j + 2)).erase j, Erdos348.fibSeq i → False
+AUDIT|Erdos348.fibSeq_mono._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.fibSeq_mono._proof_1_1|∀ (i j : ℕ), i ≤ j → ¬i + 1 ≤ j + 1 → False
+AUDIT|Erdos348.extension_prop._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_3|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ : ℕ),
+  2 * max T₀ 1 ≤ max K₀ (max (I₀ + 1) (2 * max T₀ 1)) →
+    max K₀ (max (I₀ + 1) (2 * max T₀ 1)) ≤
+        Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) →
+      ¬2 * max T₀ 1 ≤ Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) → False
+AUDIT|Erdos348.fibSeq_one_del_step._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos348.fibSeq_one_del_step._proof_1_3|∀ (j k : ℕ), k < j → j < k → False
+AUDIT|Erdos348.central_interval_thm._proof_1_17|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_17|∀ {B : ℕ → ℕ} {T : ℕ} (J₀ : ℕ)
+  (hH : {u ∈ Finset.range T | u ∉ subseqSums' B}.Nonempty) (K_final L₀ N₀ N x j u : ℕ) (s : Finset ℕ) (r : ℕ),
+  max J₀ (max K_final ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH)) < j →
+    J₀ ≤ max J₀ (max K_final ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH)) → ¬J₀ ≤ j → False
+AUDIT|Erdos348.mem_prefixSums_of_sub_mem_prefixSums|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.mem_prefixSums_of_sub_mem_prefixSums|∀ {B : ℕ → ℕ} {N x : ℕ},
+  x ≤ Erdos348.prefixSum B N → Erdos348.prefixSum B N - x ∈ Erdos348.prefixSums B N → x ∈ Erdos348.prefixSums B N
+AUDIT|Erdos348.statePotential_ge_card._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.statePotential_ge_card._proof_1_1|∀ {B : ℕ → ℕ} {h : ℕ} {j N : ℕ} {E : Finset ℕ} (hE : E.Nonempty),
+  1 ≤ E.min' hE → ¬(h + 1) * E.card + 1 ≤ (h + 1) * E.card + E.min' hE → False
+AUDIT|Erdos348.central_interval_thm._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_5|∀ {B : ℕ → ℕ} {T : ℕ},
+  {u ∈ Finset.range T | u ∉ subseqSums' B}.Nonempty → ∀ (k K j N : ℕ) (E : Finset ℕ), ¬j < K → ¬K ≤ j → False
+AUDIT|Erdos348.add_mem_prefixSums_of_mem_prefixSums._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.add_mem_prefixSums_of_mem_prefixSums._proof_1_1|∀ {j m : ℕ} {N : ℕ}, j ≤ m → m < j → False
+AUDIT|Erdos348.normalize_state._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.normalize_state._proof_1_9|∀ {B : ℕ → ℕ} {h l : ℕ} {j K' : ℕ} (p : ℕ),
+  h < p →
+    p ≤ Erdos348.prefixSum B p →
+      Erdos348.prefixSum B l = Erdos348.prefixSum B p + (l - p) * B l →
+        ∀ e ≤ h, ¬Erdos348.prefixSum B p - e + (l - p) * B l = Erdos348.prefixSum B l - e → False
+AUDIT|Erdos348.fibSeq_one_del_step|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_one_del_step|∀ (j k : ℕ),
+  Function.updateFinset Erdos348.fibSeq {j} 0 k ≤
+    ∑ i ∈ Finset.range k, Function.updateFinset Erdos348.fibSeq {j} 0 i + 1
+AUDIT|Erdos348.shift_updateFinset_subseqSums'|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.shift_updateFinset_subseqSums'|∀ {a : ℕ → ℕ} {k₀ : ℕ},
+  (∀ j < k₀, a j = 0) →
+    ∀ (D : Finset ℕ),
+      subseqSums' (Function.updateFinset (fun i => a (k₀ + i)) D 0) =
+        subseqSums' (Function.updateFinset a (Finset.image (fun i => k₀ + i) D) 0)
+AUDIT|Erdos348.exists_complEmb._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.exists_complEmb._proof_1_2|∀ (i₀ : ℕ) ⦃i j : ℕ⦄, i < j → ¬i < i₀ → j < i₀ → ¬i + 1 < j → False
+AUDIT|Erdos348.prefixSum_add_const_block._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.prefixSum_add_const_block._proof_1_1|∀ {l : ℕ}, l ≤ 0 → ¬l = 0 → False
+AUDIT|Erdos348.step_exists._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_11|∀ {B : ℕ → ℕ} {T : ℕ},
+  1 ≤ T →
+    ∀ {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ),
+      B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+          Erdos348.prefixSum B j →
+        T ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+          Erdos348.prefixSum B L₁ ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+            B j = B (N - 1) →
+              ∀ (e₁ e₂ : ℕ),
+                e₁ ≤ H.max' hH →
+                  e₂ ≤ H.max' hH →
+                    ¬Erdos348.prefixSum B j - B j - e₁ ≤ Erdos348.prefixSum B j - B j - e₂ + 2 * H.max' hH → False
+AUDIT|Erdos348.pow_two_not_complete_of_nonempty._proof_1_9|[propext, Quot.sound]
+TYPE|Erdos348.pow_two_not_complete_of_nonempty._proof_1_9|∀ (j T : ℕ) (B : Finset ℕ),
+  2 ^ (j + 1) * T + 2 ^ j = ∑ x ∈ B with x < j, 2 ^ x + ∑ x ∈ B with j < x, 2 ^ x →
+    ∑ i ∈ B with i < j, 2 ^ i < 2 ^ j →
+      ∀ (k : ℕ), ∑ i ∈ B with j < i, 2 ^ i = 2 ^ (j + 1) * k → 2 ^ (j + 1) * T + 2 ^ (j + 1) ≤ 2 ^ (j + 1) * k → False
+AUDIT|Erdos348.central_close._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_close._proof_1_7|∀ {B : ℕ → ℕ} {T : ℕ} {j : ℕ} {N m : ℕ} (e : ℕ) (s : Finset ℕ),
+  B j + e = ∑ i ∈ s, B i → ∀ ⦃r : ℕ⦄, B r < B j → B j ≤ B r → False
+AUDIT|Erdos348.pow_two_not_complete_of_nonempty._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.pow_two_not_complete_of_nonempty._proof_1_1|¬0 < 2 → False
+AUDIT|Erdos348.not_exists_for_m_ge_two._proof_1_12|[propext, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._proof_1_12|∀ {m n : ℕ} (a : ℕ → ℕ) (m k₀ : ℕ), k₀ ≤ m → ¬k₀ ≤ m + 1 → False
+AUDIT|Erdos348.step_exists._proof_1_14|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_14|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty → ∀ (J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ) (l : ℕ) (E' : Finset ℕ), L₁ < l → ¬l ≥ L₁ → False
+AUDIT|Erdos348.extension_prop._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_5|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ : ℕ),
+  max K₀ (max (I₀ + 1) (2 * max T₀ 1)) < max K₀ (max (I₀ + 1) (2 * max T₀ 1)) → False
+AUDIT|Erdos348.fibSeq_one_del_repr._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_one_del_repr._proof_1_2|∀ (j k x : ℕ),
+  x ≤
+      ∑ x ∈ Finset.range k, Function.updateFinset Erdos348.fibSeq {j} 0 x +
+        Function.updateFinset Erdos348.fibSeq {j} 0 k →
+    ¬x ≤ ∑ i ∈ Finset.range k, Function.updateFinset Erdos348.fibSeq {j} 0 i →
+      Function.updateFinset Erdos348.fibSeq {j} 0 k ≤
+          ∑ i ∈ Finset.range k, Function.updateFinset Erdos348.fibSeq {j} 0 i + 1 →
+        ¬x - Function.updateFinset Erdos348.fibSeq {j} 0 k ≤
+              ∑ i ∈ Finset.range k, Function.updateFinset Erdos348.fibSeq {j} 0 i →
+          False
+AUDIT|Erdos348.step_exists._proof_1_47|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_47|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (K' J₀ J₁ L₁ K₁ K₂ j N : ℕ)
+  (E : Finset ℕ),
+  E.Nonempty →
+    ∀ (m l : ℕ) (E' : Finset ℕ),
+      max T (B (max K' (H.max' hH))) + 1 ≤ B l → ¬max T (B (max K' (H.max' hH))) < B l → False
+AUDIT|Erdos348.step_exists._proof_1_33|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_33|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty)
+  (J₀ J₁ L₁ K₁ K₂ j N m e₀ : ℕ), B m - B j ≤ e₀ → e₀ ≤ H.max' hH → ¬B m - B j ≤ H.max' hH → False
+AUDIT|Erdos348.exists_prefix_for_lt_T._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.exists_prefix_for_lt_T._proof_1_2|∀ (B : ℕ → ℕ) (J₀ : ℕ) (s : Finset ℕ) (u r : ℕ),
+  r ≤ s.sup id → ¬r < max J₀ (s.sup id + 1) → False
+AUDIT|Erdos348.add_const_block_mem_prefixSums._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos348.add_const_block_mem_prefixSums._proof_1_5|∀ {B : ℕ → ℕ} {b p : ℕ} (j : ℕ), ¬j + 1 < j + 1 + 1 → False
+AUDIT|Erdos348.central_close._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_close._proof_1_8|∀ {B : ℕ → ℕ} {T : ℕ} {j : ℕ} {N m : ℕ},
+  ∀ e ≤ Erdos348.prefixSum B j,
+    ∀ (s : Finset ℕ),
+      B j + e = ∑ i ∈ s, B i →
+        B j + e ≤ Erdos348.prefixSum B j →
+          ¬Erdos348.prefixSum B j - (B j + e) + B j = Erdos348.prefixSum B j - e → False
+AUDIT|Erdos348.prefixSum_add_const_block._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.prefixSum_add_const_block._proof_1_5|∀ {B : ℕ → ℕ} {b l : ℕ} (j : ℕ), ¬j < j + 1 → False
+AUDIT|IsAddCompleteNatSeq'.eq_1|[propext, Quot.sound]
+TYPE|IsAddCompleteNatSeq'.eq_1|∀ {M : Type u_1} [inst : AddCommMonoid M] [inst_1 : Preorder M] (A : ℕ → M),
+  IsAddCompleteNatSeq' A = ∀ᶠ (k : M) in Filter.atTop, k ∈ subseqSums' A
+AUDIT|Erdos348.exists_complEmb._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos348.exists_complEmb._proof_1_6|∀ (i₀ m : ℕ), m > i₀ → m - 1 < i₀ → False
+AUDIT|Erdos348.add_const_block_mem_prefixSums._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos348.add_const_block_mem_prefixSums._proof_1_4|∀ {p : ℕ} (j : ℕ), ¬j + 1 ≤ j + 1 → False
+AUDIT|Erdos348.extension_prop._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_9|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ M I₁ : ℕ),
+  ¬(fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 ≤
+        (fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 + 0 →
+    False
+AUDIT|Erdos348.normalize_state._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.normalize_state._proof_1_1|∀ {B : ℕ → ℕ} {h : ℕ} {l j : ℕ} {K' : ℕ} (p : ℕ),
+  ¬max K' h < p → ¬p ≤ max K' h → False
+AUDIT|Erdos348.le_prefixSum_of_mem_prefixSums|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.le_prefixSum_of_mem_prefixSums|∀ {B : ℕ → ℕ} {N x : ℕ},
+  x ∈ Erdos348.prefixSums B N → x ≤ Erdos348.prefixSum B N
+AUDIT|Erdos348.exists_complEmb._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos348.exists_complEmb._proof_1_3|∀ (i₀ : ℕ) ⦃i j : ℕ⦄, i < j → ¬i + 1 < j + 1 → False
+AUDIT|Erdos348.extension_prop._proof_1_27|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_27|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ : ℕ),
+  2 * max T₀ 1 + ∑ d ∈ D, A d + 1 ≤ (fun i => A (emb i)) I₀ →
+    2 * max T₀ 1 ≤ Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) →
+      ∀ (T_p q : ℕ),
+        (fun i => A (emb i)) I₀ ≤ Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) →
+          ∀ (S s : Finset ℕ),
+            q + Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) -
+                      (fun i => A (emb i)) I₀ +
+                    1 +
+                  ∑ d ∈ D, A d =
+                ∑ x ∈ S with x ∈ D, A x +
+                  (∑ x ∈ s with x < max K₀ (max (I₀ + 1) (2 * max T₀ 1)), (fun i => A (emb i)) x +
+                    ∑ x ∈ s with max K₀ (max (I₀ + 1) (2 * max T₀ 1)) < x, (fun i => A (emb i)) x) →
+              q + (Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) - 2 * max T₀ 1 + 1) <
+                  ∑ r ∈ s with max K₀ (max (I₀ + 1) (2 * max T₀ 1)) < r, (fun i => A (emb i)) r →
+                False
+AUDIT|Erdos348.prefixSum_mono|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.prefixSum_mono|∀ (B : ℕ → ℕ), Monotone (Erdos348.prefixSum B)
+AUDIT|Erdos348.central_cut._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_cut._proof_1_8|∀ {B : ℕ → ℕ} {T : ℕ},
+  1 ≤ T → ∀ {N : ℕ} {x : ℕ} (k : ℕ), ¬x + T ≤ Erdos348.prefixSum B k → ¬Erdos348.prefixSum B k - x < T → False
+AUDIT|Erdos348.normalize_state._proof_1_12|[propext, Quot.sound]
+TYPE|Erdos348.normalize_state._proof_1_12|∀ {B : ℕ → ℕ} {h l : ℕ} {j : ℕ} {K' : ℕ},
+  B (max K' h) < B l → B l ≤ B (max K' h) → False
+AUDIT|Erdos348.shift_updateFinset_subseqSums'._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.shift_updateFinset_subseqSums'._proof_1_6|∀ {a : ℕ → ℕ} {k₀ : ℕ} (B : Finset ℕ) (j : ℕ),
+  j ∈ B ∧ k₀ ≤ j → ¬j = k₀ + (j - k₀) → False
+AUDIT|Erdos348.fibSeq_ge_index._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.fibSeq_ge_index._proof_1_1|∀ k ≤ Erdos348.fibSeq (k + 1),
+  1 ≤ Erdos348.fibSeq k → ¬k + 1 ≤ Erdos348.fibSeq k + Erdos348.fibSeq (k + 1) → False
+AUDIT|Erdos348.extension_prop._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_7|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ M q q' : ℕ),
+  ¬(q' ≤ q ∨
+        q + (Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) - 2 * max T₀ 1 + 1) < q') →
+    ¬q' ≤ q + (Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) - 2 * max T₀ 1 + 1) →
+      False
+AUDIT|Erdos348.normalize_state._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos348.normalize_state._proof_1_4|∀ {B : ℕ → ℕ} {h : ℕ} {l j : ℕ} {K' : ℕ} (p : ℕ), max K' h < p → ¬h < p → False
+AUDIT|Erdos348.add_mem_prefixSums_of_mem_prefixSums|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.add_mem_prefixSums_of_mem_prefixSums|∀ {B : ℕ → ℕ} {j m N x : ℕ},
+  x ∈ Erdos348.prefixSums B j → j ≤ m → m < N → x + B m ∈ Erdos348.prefixSums B N
+AUDIT|Erdos348.exists_for_m_eq_zero._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.exists_for_m_eq_zero._proof_1_2|∀ {n : ℕ}, 0 < n → ∀ (t : Finset ℕ), t.card = n → ¬0 < t.card → False
+AUDIT|Erdos348.fibSeq_complete_one._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.fibSeq_complete_one._proof_1_1|∀ (j x : ℕ), x ≥ 0 → ¬j < x + Erdos348.fibSeq j + j + 2 → False
+AUDIT|Erdos348.exists_superset_card._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos348.exists_superset_card._proof_1_3|∀ {s : Finset ℕ} (m : ℕ) (s' : Finset ℕ),
+  s'.sup id + 1 ≤ s'.sup id → False
+AUDIT|Erdos348.central_close._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_close._proof_1_5|∀ {B : ℕ → ℕ} {T : ℕ} {j : ℕ} {N m : ℕ} (e : ℕ) (s : Finset ℕ),
+  B j + e = ∑ i ∈ s, B i →
+    ∀ ⦃r : ℕ⦄, B r = B j → B r + ∑ x ∈ s.erase r, B x = ∑ x ∈ s, B x → ¬e = ∑ i ∈ s.erase r, B i → False
+AUDIT|Erdos348.step_exists._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_6|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty → ∀ (J₀ J₁ L₁ K₁ K₂ j N : ℕ), K₂ + 1 ≤ j → j = 0 → False
+AUDIT|Erdos348.step_exists._proof_1_20|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_20|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty →
+    ∀ (K' J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ),
+      E.Nonempty → ∀ (l : ℕ) (E' : Finset ℕ) (j' : ℕ), B l = B (j - 1) → ∀ (r : ℕ), B r ≤ B (j - 1) → ¬B r ≤ B l → False
+AUDIT|Erdos348.exists_superset_card._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.exists_superset_card._proof_1_1|∀ {s : Finset ℕ}, s.card ≤ 0 → ¬s.card = 0 → False
+AUDIT|Erdos348.normalize_state|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.normalize_state|∀ {B : ℕ → ℕ},
+  Monotone B →
+    (∀ (i : ℕ), 1 ≤ B i) →
+      ∀ {H : Finset ℕ} {h l j K' : ℕ} {E' : Finset ℕ},
+        (∀ u ∈ H, 1 ≤ u ∧ u ≤ h) →
+          ∀ (hst : Erdos348.IsState B H l j E'),
+            B (max K' h) < B l →
+              ∃ j' N',
+                Erdos348.IsNormState B H j' N' E' ∧
+                  K' ≤ j' ∧
+                    (B l = B (j - 1) → Erdos348.statePotential B h j' N' E' = (h + 1) * E'.card + E'.min' ⋯) ∧
+                      (B l ≠ B (j - 1) → Erdos348.statePotential B h j' N' E' = (h + 1) * (E'.card + 1))
+AUDIT|Erdos348.prefixSum_add_const_block._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos348.prefixSum_add_const_block._proof_1_3|∀ {l : ℕ} (j r : ℕ), r < j → ¬r < j + 1 → False
+AUDIT|Erdos348.updateFinset_zero_apply|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.updateFinset_zero_apply|∀ (a : ℕ → ℕ) (s : Finset ℕ) (i : ℕ),
+  Function.updateFinset a s 0 i = if i ∈ s then 0 else a i
+AUDIT|Erdos348.extension_prop._proof_1_25|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_25|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ T_p q : ℕ)
+  (S s : Finset ℕ),
+  ∑ x ∈ s with x < max K₀ (max (I₀ + 1) (2 * max T₀ 1)), (fun i => A (emb i)) x ≤
+      ∑ x ∈ (Finset.range (max K₀ (max (I₀ + 1) (2 * max T₀ 1)))).erase I₀, (fun i => A (emb i)) x →
+    (fun i => A (emb i)) I₀ +
+          ∑ x ∈ (Finset.range (max K₀ (max (I₀ + 1) (2 * max T₀ 1)))).erase I₀, (fun i => A (emb i)) x =
+        ∑ x ∈ Finset.range (max K₀ (max (I₀ + 1) (2 * max T₀ 1))), (fun i => A (emb i)) x →
+      ¬∑ r ∈ s with r < max K₀ (max (I₀ + 1) (2 * max T₀ 1)), (fun i => A (emb i)) r + (fun i => A (emb i)) I₀ ≤
+            ∑ i ∈ Finset.range (max K₀ (max (I₀ + 1) (2 * max T₀ 1))), (fun i => A (emb i)) i →
+        False
+AUDIT|Erdos348.step_exists._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_7|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ),
+  B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+      Erdos348.prefixSum B j →
+    Erdos348.prefixSum B L₁ ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+      B j = B (N - 1) →
+        ∀ ⦃e₁ e₂ : ℕ⦄,
+          Erdos348.prefixSum B j - B j - e₁ = Erdos348.prefixSum B j - B j - e₂ →
+            e₁ ≤ H.max' hH → e₂ ≤ H.max' hH → ¬e₁ = e₂ → False
+AUDIT|Erdos348.slack_diverges_of_one_del._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.slack_diverges_of_one_del._proof_1_4|∀ {A : ℕ → ℕ} (M i T_i k : ℕ) (s : Finset ℕ),
+  ∑ i ∈ Finset.range k, A i - A i + 1 = ∑ i ∈ s, A i →
+    ∑ x ∈ s, A x ≤ ∑ x ∈ (Finset.range k).erase i, A x →
+      A i + ∑ x ∈ (Finset.range k).erase i, A x = ∑ x ∈ Finset.range k, A x → False
+AUDIT|Erdos348.fibSeq_two_del_missing._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos348.fibSeq_two_del_missing._proof_1_6|∀ {i : ℕ} {j : ℕ} (m : ℕ) (B : Finset ℕ) ⦃r : ℕ⦄,
+  ¬r < j + 2 * m + 2 + 1 → ¬j + 2 * m + 2 + 1 ≤ r → False
+AUDIT|Erdos348.prefixSum_add_const_block._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.prefixSum_add_const_block._proof_1_6|∀ {B : ℕ → ℕ} {b : ℕ} {l : ℕ} (j : ℕ),
+  l < j + 1 → ¬j + 1 - l = j - l + 1 → False
+AUDIT|Erdos348.pow_two_repr._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos348.pow_two_repr._proof_1_5|∀ (n x : ℕ) (B : Finset ℕ), n < n → False
+AUDIT|Erdos348.central_cut._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_cut._proof_1_6|∀ {B : ℕ → ℕ} {T N : ℕ} {x : ℕ} (k : ℕ),
+  ¬B k ≤ Erdos348.prefixSum B (k + 1) - x →
+    ∀ (s : Finset ℕ),
+      Erdos348.prefixSum B (k + 1) - x = ∑ i ∈ s, B i →
+        ∀ ⦃r : ℕ⦄, B r ≤ Erdos348.prefixSum B (k + 1) - x → B k ≤ B r → False
+AUDIT|Erdos348.exists_first_eq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.exists_first_eq|∀ {B : ℕ → ℕ}, Monotone B → ∀ (l : ℕ), ∃ p ≤ l, B p = B l ∧ (p = 0 ∨ B (p - 1) < B p)
+AUDIT|Erdos348.fibSeq_one|[]
+TYPE|Erdos348.fibSeq_one|Erdos348.fibSeq 1 = 1
+AUDIT|Erdos348.fibSeq_two_del_missing._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_two_del_missing._proof_1_9|∀ {i j : ℕ} (m : ℕ) (B : Finset ℕ) ⦃r : ℕ⦄,
+  r < j + 2 * m + 2 + 1 ∧ r ∉ {i, j} → r ≠ j + 2 * m + 2 → ¬r < j + 2 * m + 2 → False
+AUDIT|Erdos348.step_exists._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_3|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty → ∀ (J₀ J₁ L₁ K₁ K₂ j N : ℕ), K₂ + 1 ≤ j → ¬j - 1 ≥ K₂ → False
+AUDIT|Erdos348.central_interval_thm._proof_1_21|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_21|∀ {B : ℕ → ℕ} {T : ℕ} (J₀ : ℕ),
+  {u ∈ Finset.range T | u ∉ subseqSums' B}.Nonempty →
+    ∀ (K_final L₀ N₀ N x j u : ℕ),
+      Erdos348.prefixSum B j = x + u →
+        ∀ (s : Finset ℕ), x = ∑ i ∈ s, B i → ∀ (r : ℕ), ¬Erdos348.prefixSum B j - u = x → False
+AUDIT|Erdos348.central_cut._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_cut._proof_1_5|∀ {B : ℕ → ℕ} {T N x : ℕ} (k : ℕ) (s : Finset ℕ) ⦃r : ℕ⦄,
+  ¬r < k + 1 → ¬k ≤ r → False
+AUDIT|Erdos348.add_const_block_mem_prefixSums._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos348.add_const_block_mem_prefixSums._proof_1_7|∀ {B : ℕ → ℕ} {b p x : ℕ} (j : ℕ),
+  ¬x + ((j - p) * b + b) = x + (j - p) * b + b → False
+AUDIT|Erdos348.pow_two_repr._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.pow_two_repr._proof_1_2|∀ (n x : ℕ), x < 2 ^ n * 2 → ¬x < 2 ^ n → ¬x - 2 ^ n < 2 ^ n → False
+AUDIT|Erdos348.central_common._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common._proof_1_10|∀ {B : ℕ → ℕ} {T h J j : ℕ} (x₀ l u₀ x lx ux : ℕ), l < lx → ¬l + 1 ≤ lx → False
+AUDIT|Erdos348.step_exists._proof_1_38|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_38|∀ {B : ℕ → ℕ} {T : ℕ},
+  1 ≤ T →
+    ∀ {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ),
+      E.Nonempty →
+        B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+            Erdos348.prefixSum B j →
+          B (j - 1) ≤ B j →
+            T ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+              Erdos348.prefixSum B L₁ ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+                ∀ (m : ℕ),
+                  B j < B m →
+                    B m - B j ≤ H.max' hH →
+                      ∀ e ≤ H.max' hH, ¬Erdos348.prefixSum B j - B m - e + B m = Erdos348.prefixSum B j - e → False
+AUDIT|Erdos348.step_exists._proof_1_28|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_28|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty → ∀ (J₀ J₁ L₁ K₁ K₂ j N : ℕ), ¬B j = B (N - 1) → B j ≤ B (N - 1) → ¬B j < B (N - 1) → False
+AUDIT|Erdos348.mem_subseqSums'_updateFinset_iff|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.mem_subseqSums'_updateFinset_iff|∀ (a : ℕ → ℕ) (s : Finset ℕ) (x : ℕ),
+  x ∈ subseqSums' (Function.updateFinset a s 0) ↔ ∃ B, Disjoint B s ∧ x = ∑ i ∈ B, a i
+AUDIT|Erdos348.fibSeq_two_del_missing._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.fibSeq_two_del_missing._proof_1_1|∀ {i : ℕ} {j : ℕ} (B : Finset ℕ) ⦃r : ℕ⦄,
+  ¬r < j + 1 → ¬j + 1 ≤ r → False
+AUDIT|Erdos348.step_exists._proof_1_35|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_35|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ)
+  (E : Finset ℕ) (hE : E.Nonempty),
+  B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+      Erdos348.prefixSum B j →
+    Erdos348.prefixSum B L₁ ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+      ∀ (m : ℕ),
+        B j < B m →
+          E.max' hE ≤ H.max' hH →
+            ∀ (e : ℕ),
+              Erdos348.prefixSum B j - B j - e = Erdos348.prefixSum B j - B m - E.max' hE → e ≤ E.max' hE → False
+AUDIT|Erdos348.step_exists._proof_1_42|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_42|∀ {B : ℕ → ℕ} {T : ℕ},
+  1 ≤ T →
+    ∀ {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ),
+      E.Nonempty →
+        B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+            Erdos348.prefixSum B j →
+          max T (H.max' hH) < B (j - 1) →
+            B (j - 1) ≤ B j →
+              T ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+                ¬B j = B (N - 1) →
+                  B j < B (N - 1) →
+                    ∀ (m : ℕ),
+                      B j < B m →
+                        m < N →
+                          ∀ (x : ℕ),
+                            Erdos348.prefixSum B j - B j - 2 * H.max' hH ≤ x ∧ x ≤ Erdos348.prefixSum B j - B j - 1 →
+                              ¬x + T ≤ Erdos348.prefixSum B j → False
+AUDIT|Erdos348.fibSeq_zero|[]
+TYPE|Erdos348.fibSeq_zero|Erdos348.fibSeq 0 = 1
+AUDIT|Erdos348.complEmb_preimage_finset._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos348.complEmb_preimage_finset._proof_1_4|∀ {emb : ℕ → ℕ} {t : Finset ℕ},
+  ∀ i ≤ emb i, emb i ≤ t.sup id → ¬i < t.sup id + 1 → False
+AUDIT|Erdos348.exists_superset_card._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.exists_superset_card._proof_1_2|∀ {s : Finset ℕ} (m : ℕ), s.card < m + 1 → ¬s.card ≤ m → False
+AUDIT|Erdos348.add_const_block_mem_prefixSums._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos348.add_const_block_mem_prefixSums._proof_1_6|∀ {B : ℕ → ℕ} {b : ℕ} {p : ℕ} (j : ℕ),
+  p < j + 1 → ¬j + 1 - p = j - p + 1 → False
+AUDIT|Erdos348.pow_two_not_complete_of_nonempty._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.pow_two_not_complete_of_nonempty._proof_1_6|∀ (j T : ℕ) (B : Finset ℕ),
+  ∑ x ∈ B with x < j, 2 ^ x ≤ ∑ x ∈ Finset.range j, 2 ^ x →
+    ∑ i ∈ Finset.range j, 2 ^ i + 1 = 2 ^ j → ¬∑ i ∈ B with i < j, 2 ^ i < 2 ^ j → False
+AUDIT|Erdos348.add_mem_prefixSums_of_mem_prefixSums._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos348.add_mem_prefixSums_of_mem_prefixSums._proof_1_4|∀ {B : ℕ → ℕ} {j : ℕ} {m : ℕ} {N : ℕ} (s : Finset ℕ),
+  ¬∑ i ∈ s, B i + B m = B m + ∑ x ∈ s, B x → False
+AUDIT|Erdos348.prefixSum_ge_index|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.prefixSum_ge_index|∀ {B : ℕ → ℕ}, (∀ (i : ℕ), 1 ≤ B i) → ∀ (k : ℕ), k ≤ Erdos348.prefixSum B k
+AUDIT|Erdos348.fibSeq_one_del_step._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos348.fibSeq_one_del_step._proof_1_5|∀ (j k : ℕ), ¬k = j → ¬k < j → ¬j < k → False
+AUDIT|Erdos348.not_exists_for_m_ge_two._proof_1_11|[propext, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._proof_1_11|∀ {m n : ℕ} (a : ℕ → ℕ), ∀ x < 0, False
+AUDIT|Erdos348.statePotential_ge_card._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.statePotential_ge_card._proof_1_2|∀ {h : ℕ} {j N : ℕ} {E : Finset ℕ},
+  E.Nonempty → ¬(h + 1) * E.card + 1 ≤ (h + 1) * E.card + (h + 1) → False
+AUDIT|Erdos348.complEmb_preimage_finset._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.complEmb_preimage_finset._simp_1_2|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α}
+  {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos348.central_cut._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_cut._proof_1_1|∀ {B : ℕ → ℕ} {T : ℕ}, 1 ≤ T → ∀ {N : ℕ} {x : ℕ}, x + T ≤ 0 → False
+AUDIT|Erdos348.fibSeq_one_del_step._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_one_del_step._proof_1_7|∀ (j d : ℕ), j < d + 1 → ¬j ≤ d → False
+AUDIT|Erdos348.step_exists._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_5|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty → ∀ (J₀ J₁ L₁ K₁ K₂ j N : ℕ), K₂ + 1 ≤ j → ¬j - 1 ≤ j → False
+AUDIT|Erdos348.fibSeq_two_del_missing._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos348.fibSeq_two_del_missing._proof_1_7|∀ {i : ℕ} {j : ℕ} (m : ℕ) (B : Finset ℕ),
+  Erdos348.fibSeq (j + 2 * m + 2 + 1) - 1 = ∑ i ∈ B, Erdos348.fibSeq i →
+    ∀ ⦃r : ℕ⦄,
+      Erdos348.fibSeq r ≤ Erdos348.fibSeq (j + 2 * m + 2 + 1) - 1 →
+        Erdos348.fibSeq (j + 2 * m + 2 + 1) ≤ Erdos348.fibSeq r → 1 ≤ Erdos348.fibSeq (j + 2 * m + 2 + 1) → False
+AUDIT|Erdos348.prefixSum_complEmb_bound._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.prefixSum_complEmb_bound._simp_1_1|∀ {α : Type u_1} {β : Type u_2} [inst : DecidableEq β] {f : α → β}
+  {s : Finset α} {b : β}, (b ∈ Finset.image f s) = ∃ a ∈ s, f a = b
+AUDIT|Erdos348.prefixSum_complEmb_bound|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.prefixSum_complEmb_bound|∀ {A : ℕ → ℕ} {D : Finset ℕ} {emb : ℕ → ℕ},
+  Erdos348.IsComplEmb D emb →
+    ∀ (k : ℕ), Erdos348.prefixSum A (emb k) ≤ Erdos348.prefixSum (fun i => A (emb i)) k + ∑ j ∈ D, A j
+AUDIT|Erdos348.central_common._proof_1_15|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common._proof_1_15|∀ {B : ℕ → ℕ} {T h J j : ℕ} (x₀ l u₀ : ℕ),
+  Erdos348.prefixSum B l = x₀ + u₀ →
+    ∀ ⦃x y : ℕ⦄,
+      Erdos348.prefixSum B l - x = Erdos348.prefixSum B l - y →
+        x ≤ Erdos348.prefixSum B l → y ≤ Erdos348.prefixSum B l → ¬x = y → False
+AUDIT|Erdos348.fibSeq_two_del_missing._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_two_del_missing._proof_1_4|∀ {i j : ℕ} (B : Finset ℕ),
+  Erdos348.fibSeq (j + 1) - 1 = ∑ i ∈ B, Erdos348.fibSeq i →
+    ∑ x ∈ B, Erdos348.fibSeq x ≤ ∑ x ∈ Finset.range (j + 1) \ {i, j}, Erdos348.fibSeq x →
+      ∑ r ∈ Finset.range (j + 1) \ {i, j}, Erdos348.fibSeq r + Erdos348.fibSeq i + Erdos348.fibSeq j =
+          ∑ r ∈ Finset.range (j + 1), Erdos348.fibSeq r →
+        ∑ i ∈ Finset.range (j + 1), Erdos348.fibSeq i + 1 = Erdos348.fibSeq (j + 1 + 1) →
+          Erdos348.fibSeq (j + 1 + 1) = Erdos348.fibSeq j + Erdos348.fibSeq (j + 1) → 1 ≤ Erdos348.fibSeq i → False
+AUDIT|Erdos348.extension_prop._proof_1_13|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_13|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ M I₁ m q : ℕ),
+  (fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) ≤ q →
+    ∀ (q' : ℕ), q < q' → ¬(fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) ≤ q' → False
+AUDIT|Erdos348.extension_prop._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_11|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ M I₁ m q : ℕ),
+  q + max T₀ 1 ≤ (fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 + m →
+    ¬q + max T₀ 1 ≤ (fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 + (m + 1) →
+      False
+AUDIT|Erdos348.not_exists_for_m_ge_two._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._proof_1_8|∀ {m : ℕ} {n : ℕ} (k₀ j : ℕ),
+  k₀ ≤ j + n ∧ j + n < k₀ + n → k₀ ≤ j → False
+AUDIT|Erdos348.step_exists._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_2|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ : ℕ),
+  3 * H.max' hH + 1 ≤ B (max J₀ J₁) → ¬3 * H.max' hH < B (max J₀ J₁) → False
+AUDIT|Erdos348.fibSeq_two_del_missing._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_two_del_missing._proof_1_8|∀ {i : ℕ} {j : ℕ} (m : ℕ) (B : Finset ℕ),
+  Erdos348.fibSeq (j + 2 * m + 2 + 1) - 1 = ∑ i ∈ B, Erdos348.fibSeq i →
+    Erdos348.fibSeq (j + 2 * m + 2) + ∑ x ∈ B.erase (j + 2 * m + 2), Erdos348.fibSeq x = ∑ x ∈ B, Erdos348.fibSeq x →
+      Erdos348.fibSeq (j + 2 * m + 2 + 1) = Erdos348.fibSeq (j + 2 * m + 1) + Erdos348.fibSeq (j + 2 * m + 2) →
+        1 ≤ Erdos348.fibSeq (j + 2 * m + 1) →
+          ¬Erdos348.fibSeq (j + 2 * m + 1) - 1 = ∑ i ∈ B.erase (j + 2 * m + 2), Erdos348.fibSeq i → False
+AUDIT|Erdos348.step_exists._proof_1_37|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_37|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty → ∀ (J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ), E.Nonempty → ∀ (m : ℕ), j < m → ∀ (e : ℕ), ¬j ≤ m → False
+AUDIT|Erdos348.step_exists._proof_1_22|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_22|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty →
+    ∀ (K' J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ),
+      E.Nonempty →
+        B j = B (N - 1) → B (j - 1) < B j → ∀ (l : ℕ) (E' : Finset ℕ) (j' : ℕ), B l = B (j - 1) → ¬B l < B j → False
+AUDIT|Erdos348.slack_diverges_of_one_del._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.slack_diverges_of_one_del._proof_1_5|∀ {A : ℕ → ℕ} (M i : ℕ),
+  M + 1 ≤ A i →
+    ∀ (T_i k : ℕ),
+      k ≥ T_i + A i + i + 1 →
+        k ≤ Erdos348.prefixSum A k →
+          ∀ (s : Finset ℕ),
+            Erdos348.prefixSum A k - A i + 1 = ∑ i ∈ s, A i →
+              ∀ (r : ℕ), A k ≤ A r → A r ≤ Erdos348.prefixSum A k - A i + 1 → ¬A k + M ≤ Erdos348.prefixSum A k → False
+AUDIT|Erdos348.central_interval_thm._proof_1_20|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_20|∀ {B : ℕ → ℕ} {T : ℕ} (J₀ : ℕ),
+  {u ∈ Finset.range T | u ∉ subseqSums' B}.Nonempty →
+    ∀ (K_final L₀ N₀ N x j : ℕ), j < N → ∀ (u : ℕ) (s : Finset ℕ) (r : ℕ), ¬j ≤ N → False
+AUDIT|Erdos348.exists_complEmb._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos348.exists_complEmb._proof_1_7|∀ (i₀ m : ℕ), m > i₀ → ¬1 ≤ m → False
+AUDIT|Erdos348.central_cut._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_cut._proof_1_4|∀ {B : ℕ → ℕ} {T : ℕ} {N : ℕ} {x : ℕ} (k : ℕ),
+  x + T ≤ Erdos348.prefixSum B k + B k → ¬T ≤ Erdos348.prefixSum B k + B k - x → False
+AUDIT|Erdos348.exists_complEmb._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos348.exists_complEmb._proof_1_5|∀ (emb : ℕ → ℕ) (i₀ i : ℕ), ¬i < i₀ → i + 1 = i₀ → False
+AUDIT|Erdos348.add_const_block_mem_prefixSums|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.add_const_block_mem_prefixSums|∀ {B : ℕ → ℕ} {b p j x : ℕ},
+  x ∈ Erdos348.prefixSums B (p + 1) →
+    p ≤ j → (∀ (r : ℕ), p < r → r ≤ j → B r = b) → x + (j - p) * b ∈ Erdos348.prefixSums B (j + 1)
+AUDIT|Erdos348.not_exists_for_m_ge_two._proof_1_16|[propext, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._proof_1_16|∀ {m n : ℕ} (a : ℕ → ℕ) (I₁ k₀ i : ℕ), ¬k₀ ≤ k₀ + i → False
+AUDIT|Erdos348.not_exists_for_m_ge_two._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._proof_1_5|∀ {m n : ℕ} (k₀ x : ℕ), x < k₀ → k₀ ≤ x → False
+AUDIT|Erdos348.isAddCompleteNatSeq'_iff|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.isAddCompleteNatSeq'_iff|∀ (A : ℕ → ℕ), IsAddCompleteNatSeq' A ↔ ∃ T, ∀ x ≥ T, x ∈ subseqSums' A
+AUDIT|Erdos348.central_interval_thm._proof_1_16|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_16|∀ {B : ℕ → ℕ} {T : ℕ} (J₀ : ℕ)
+  (hH : {u ∈ Finset.range T | u ∉ subseqSums' B}.Nonempty) (K_final L₀ N₀ N x j u : ℕ) (s : Finset ℕ) (r : ℕ),
+  B (max J₀ (max K_final ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH))) < B j →
+    B j ≤ B (max J₀ (max K_final ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH))) → False
+AUDIT|Erdos348.central_common._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common._proof_1_11|∀ {B : ℕ → ℕ} {T h : ℕ} {J : ℕ} {j : ℕ} (x₀ l u₀ : ℕ),
+  J < l → ∀ (x lx ux : ℕ), ¬J ≤ l → False
+AUDIT|Erdos348.fibSeq_one_del_step._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos348.fibSeq_one_del_step._proof_1_4|∀ (j k : ℕ), ¬k ≤ k + 1 → False
+AUDIT|Erdos348.step_exists._proof_1_16|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_16|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (K' J₀ J₁ L₁ K₁ K₂ j N : ℕ)
+  (E : Finset ℕ) (l : ℕ) (E' : Finset ℕ), max T (B (max K' (H.max' hH))) < B l → ¬B (max K' (H.max' hH)) < B l → False
+AUDIT|Erdos348.step_exists._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_8|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ)
+  (E : Finset ℕ),
+  B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+      Erdos348.prefixSum B j →
+    Erdos348.prefixSum B L₁ ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+      B j = B (N - 1) →
+        B (j - 1) < B j → ∀ e ≤ H.max' hH, ¬Erdos348.prefixSum B j - B j - e + B j = Erdos348.prefixSum B j - e → False
+AUDIT|Erdos348.central_interval_thm|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm|∀ {B : ℕ → ℕ},
+  Monotone B →
+    (∀ (i : ℕ), 1 ≤ B i) →
+      (∀ (M : ℕ), ∃ I, ∀ i ≥ I, M ≤ B i) →
+        (∀ (M : ℕ), ∃ I, ∀ i ≥ I, B i + M ≤ Erdos348.prefixSum B i) →
+          ∀ {T : ℕ},
+            1 ≤ T →
+              (∀ x ≥ T, x ∈ subseqSums' B) →
+                ∃ N₀, ∀ N ≥ N₀, ∀ (x : ℕ), T ≤ x → x + T ≤ Erdos348.prefixSum B N → x ∈ Erdos348.prefixSums B N
+AUDIT|Erdos348.fibSeq_pos._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.fibSeq_pos._proof_1_1|∀ (i : ℕ), ¬0 < i + 1 → False
+AUDIT|Erdos348.central_cut|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_cut|∀ {B : ℕ → ℕ},
+  Monotone B →
+    ∀ {T : ℕ},
+      1 ≤ T →
+        (∀ x ≥ T, x ∈ subseqSums' B) →
+          ∀ {N x : ℕ},
+            T ≤ x →
+              x + T ≤ Erdos348.prefixSum B N →
+                x ∉ Erdos348.prefixSums B N → ∃ j < N, ∃ u < T, Erdos348.prefixSum B j = x + u
+AUDIT|Erdos348.central_interval_thm._proof_1_23|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_23|∀ {B : ℕ → ℕ} {T : ℕ} (J₀ : ℕ)
+  (hH : {u ∈ Finset.range T | u ∉ subseqSums' B}.Nonempty) (K_final L₀ N₀ N x j u : ℕ) (s : Finset ℕ) (r : ℕ),
+  B (max J₀ (max K_final ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH))) < B j →
+    B (max K_final ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH)) ≤
+        B (max J₀ (max K_final ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH))) →
+      ¬B (max K_final ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH)) < B j → False
+AUDIT|Erdos348.step_exists._proof_1_12|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_12|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty → ∀ (J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ) (l : ℕ) (E' : Finset ℕ) (e₀ : ℕ), ¬L₁ < l → ¬l ≤ L₁ → False
+AUDIT|Erdos348.central_interval_thm._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_10|∀ {B : ℕ → ℕ} {T : ℕ} (L₀ N₀ N x j u : ℕ) (s : Finset ℕ) (r : ℕ),
+  Erdos348.prefixSum B L₀ + 1 ≤ B N → ¬Erdos348.prefixSum B L₀ < B N → False
+AUDIT|Erdos348.central_common._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common._proof_1_3|∀ {B : ℕ → ℕ} {T h : ℕ} {J : ℕ} {j : ℕ} (x l u : ℕ), J < l → ¬J ≤ l → False
+AUDIT|Erdos348.slack_diverges_of_one_del._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.slack_diverges_of_one_del._proof_1_6|∀ {A : ℕ → ℕ} {D : Finset ℕ} {emb : ℕ → ℕ} (M K k : ℕ),
+  A (emb k) + (M + ∑ j ∈ D, A j) ≤ Erdos348.prefixSum A (emb k) →
+    Erdos348.prefixSum A (emb k) ≤ Erdos348.prefixSum (fun i => A (emb i)) k + ∑ j ∈ D, A j →
+      ¬A (emb k) + M ≤ Erdos348.prefixSum (fun i => A (emb i)) k → False
+AUDIT|Erdos348.eventually_const_of_monotone_bdd|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.eventually_const_of_monotone_bdd|∀ {a : ℕ → ℕ},
+  Monotone a → ∀ (M : ℕ), (∀ (i : ℕ), a i ≤ M) → ∃ k₀, ∀ i ≥ k₀, a i = a k₀
+AUDIT|Erdos348.pow_two_not_complete_of_nonempty|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.pow_two_not_complete_of_nonempty|∀ (t : Finset ℕ),
+  t.Nonempty → ¬IsAddCompleteNatSeq' (Function.updateFinset (fun i => 2 ^ i) t 0)
+AUDIT|Erdos348.extension_prop._proof_1_26|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_26|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ T_p q : ℕ),
+  (fun i => A (emb i)) I₀ ≤ Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) →
+    ∀ (S : Finset ℕ),
+      ∑ u ∈ S with u ∈ D, A u ≤ ∑ d ∈ D, A d →
+        ∀ (s : Finset ℕ),
+          q + Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) - (fun i => A (emb i)) I₀ +
+                  1 +
+                ∑ d ∈ D, A d =
+              ∑ x ∈ S with x ∈ D, A x +
+                (∑ x ∈ s with x < max K₀ (max (I₀ + 1) (2 * max T₀ 1)), (fun i => A (emb i)) x +
+                  ∑ x ∈ s with max K₀ (max (I₀ + 1) (2 * max T₀ 1)) < x, (fun i => A (emb i)) x) →
+            ∑ r ∈ s with r < max K₀ (max (I₀ + 1) (2 * max T₀ 1)), (fun i => A (emb i)) r + (fun i => A (emb i)) I₀ ≤
+                Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) →
+              ∑ r ∈ s with max K₀ (max (I₀ + 1) (2 * max T₀ 1)) < r, (fun i => A (emb i)) r ≤ q → False
+AUDIT|Erdos348.sum_sdiff_pair._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.sum_sdiff_pair._simp_1_4|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos348.central_interval_thm._proof_1_22|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_22|∀ {B : ℕ → ℕ} {T : ℕ} (J₀ : ℕ),
+  {u ∈ Finset.range T | u ∉ subseqSums' B}.Nonempty →
+    ∀ (K_final L₀ N₀ N x j u : ℕ),
+      Erdos348.prefixSum B j = x + u →
+        ∀ (s : Finset ℕ),
+          x = ∑ i ∈ s, B i → ∀ (r : ℕ), Erdos348.prefixSum B j - u = x → ¬u ≤ Erdos348.prefixSum B j → False
+AUDIT|Erdos348.step_exists._proof_1_44|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_44|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty →
+    ∀ (J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ), E.Nonempty → ∀ (m l : ℕ) (E' : Finset ℕ), ¬L₁ < l → ¬l ≤ L₁ → False
+AUDIT|Erdos348.central_common._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common._proof_1_5|∀ {B : ℕ → ℕ} {T h J j : ℕ} (x l u : ℕ),
+  Erdos348.prefixSum B l = x + u → ¬Erdos348.prefixSum B l - x = u → False
+AUDIT|Erdos348.statePotential_ub|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.statePotential_ub|∀ {B : ℕ → ℕ} {H : Finset ℕ} {h j N : ℕ} {E : Finset ℕ},
+  (∀ u ∈ H, 1 ≤ u ∧ u ≤ h) → Erdos348.IsState B H j N E → Erdos348.statePotential B h j N E ≤ (h + 1) * (H.card + 1)
+AUDIT|Erdos348.step_exists._proof_1_25|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_25|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (K' J₀ J₁ L₁ K₁ K₂ j N : ℕ)
+  (E : Finset ℕ) (hE : E.Nonempty),
+  B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+      Erdos348.prefixSum B j →
+    Erdos348.prefixSum B L₁ ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+      B j = B (N - 1) →
+        B (j - 1) < B j →
+          ∀ (l : ℕ) (E' : Finset ℕ) (hE' : E'.Nonempty) (hst' : Erdos348.IsState B H l j E') (j' : ℕ),
+            B l = B (j - 1) →
+              Erdos348.prefixSum B j = Erdos348.prefixSum B l + B (j - 1) →
+                E.min' hE ≤ H.max' hH →
+                  E'.min' hE' ≤ Erdos348.prefixSum B l →
+                    ∀ (e : ℕ),
+                      Erdos348.prefixSum B j - B j - e = Erdos348.prefixSum B l - E'.min' hE' →
+                        E.min' hE ≤ e →
+                          ¬(H.max' hH + 1) * E.card + E.min' hE < (H.max' hH + 1) * E.card + E'.min' ⋯ → False
+AUDIT|Erdos348.step_exists._proof_1_30|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_30|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty → ∀ (J₀ J₁ L₁ K₁ K₂ j N m : ℕ), B j < B m → B m ≤ B j → False
+AUDIT|Erdos348.extension_prop._simp_1_23|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._simp_1_23|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α} {a : α},
+  (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos348.step_exists._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_10|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ)
+  (E : Finset ℕ),
+  B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+      Erdos348.prefixSum B j →
+    max T (H.max' hH) < B (j - 1) →
+      T ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+        B j = B (N - 1) →
+          B (j - 1) < B j → ∀ (e : ℕ), 1 ≤ e → ¬Erdos348.prefixSum B j - B j - e + T ≤ Erdos348.prefixSum B j → False
+AUDIT|Erdos348.pow_two_repr._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos348.pow_two_repr._proof_1_4|∀ (n x : ℕ) (B : Finset ℕ) ⦃idx : ℕ⦄, idx < n → ¬idx < n + 1 → False
+AUDIT|Erdos348.extension_prop._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_4|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ : ℕ) ⦃r : ℕ⦄,
+  r < max K₀ (max (I₀ + 1) (2 * max T₀ 1)) → max K₀ (max (I₀ + 1) (2 * max T₀ 1)) < r → False
+AUDIT|Erdos348.central_interval_thm._proof_1_27|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_27|∀ {B : ℕ → ℕ} {T : ℕ} (J₀ N₀ N x j u : ℕ),
+  Erdos348.prefixSum B j = x + u → ∀ (s : Finset ℕ), x = ∑ i ∈ s, B i → ∀ (r : ℕ), ¬x ≤ Erdos348.prefixSum B j → False
+AUDIT|Erdos348.step_exists._proof_1_21|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_21|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (K' J₀ J₁ L₁ K₁ K₂ j N : ℕ)
+  (E : Finset ℕ),
+  E.Nonempty →
+    ∀ (l : ℕ) (E' : Finset ℕ) (hst' : Erdos348.IsState B H l j E'),
+      max T (B (max K' (H.max' hH))) < B l →
+        ∀ (j' N' : ℕ),
+          (B l = B (j - 1) → Erdos348.statePotential B (H.max' hH) j' N' E' = (H.max' hH + 1) * E'.card + E'.min' ⋯) →
+            (B l ≠ B (j - 1) → Erdos348.statePotential B (H.max' hH) j' N' E' = (H.max' hH + 1) * (E'.card + 1)) →
+              B l = B (j - 1) → ¬T ≤ B l → False
+AUDIT|Erdos348.step_exists._proof_1_29|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_29|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty → ∀ (J₀ J₁ L₁ K₁ K₂ j N m : ℕ), ¬j < m → ¬m ≤ j → False
+AUDIT|Erdos348.exists_first_gt._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.exists_first_gt._proof_1_2|∀ {B : ℕ → ℕ} {j : ℕ} (M m : ℕ), m ≤ M → ¬m ≤ M + 1 → False
+AUDIT|Erdos348.step_exists._proof_1_34|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_34|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ),
+  B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+      Erdos348.prefixSum B j →
+    Erdos348.prefixSum B L₁ ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+      ∀ (m : ℕ) ⦃e₁ e₂ : ℕ⦄,
+        Erdos348.prefixSum B j - B j - e₁ = Erdos348.prefixSum B j - B j - e₂ →
+          e₁ ≤ H.max' hH → e₂ ≤ H.max' hH → ¬e₁ = e₂ → False
+AUDIT|Erdos348.step_exists._proof_1_18|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_18|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty →
+    ∀ (K' J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ),
+      E.Nonempty →
+        ∀ (l : ℕ) (E' : Finset ℕ) (j' : ℕ),
+          B l = B (j - 1) → ∀ (r : ℕ), B l ≤ B r → B r ≤ B (j - 1) → ¬B r = B (j - 1) → False
+AUDIT|Erdos348.not_exists_for_m_ge_two._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._proof_1_6|∀ {m n : ℕ},
+  m < n → 2 ≤ m → ∀ (k₀ : ℕ), (Finset.Ico k₀ (k₀ + n)).card = n → ∀ (j : ℕ), j + n < k₀ → k₀ ≤ j → False
+AUDIT|Erdos348.exists_complEmb|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.exists_complEmb|∀ (D : Finset ℕ), ∃ emb, Erdos348.IsComplEmb D emb
+AUDIT|Erdos348.central_close._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_close._proof_1_6|∀ {B : ℕ → ℕ} {T : ℕ} {j : ℕ} {N m : ℕ} (e : ℕ) (s : Finset ℕ) ⦃r : ℕ⦄,
+  ¬r < j → ¬j ≤ r → False
+AUDIT|Erdos348.normalize_state._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.normalize_state._proof_1_10|∀ {B : ℕ → ℕ} {h : ℕ} {l j : ℕ} {K' : ℕ},
+  l < j → ∀ (p e : ℕ), ¬l + 1 ≤ j → False
+AUDIT|Erdos348.step_exists._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_4|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ),
+  max T (H.max' hH) + 1 ≤ B (j - 1) → ¬max T (H.max' hH) < B (j - 1) → False
+AUDIT|Erdos348.eventually_const_of_monotone_bdd._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos348.eventually_const_of_monotone_bdd._proof_1_3|∀ {a : ℕ → ℕ} (M d j : ℕ),
+  M - a j ≤ d + 1 → ∀ (j' : ℕ), a j < a j' → ¬M - a j' ≤ d → False
+AUDIT|Erdos348.not_exists_for_m_ge_two._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._proof_1_7|∀ {m : ℕ} {n : ℕ} (k₀ : ℕ) ⦃i : ℕ⦄,
+  k₀ ≤ i ∧ i < k₀ + n → i < k₀ → False
+AUDIT|Erdos348.central_interval_thm._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_7|∀ {B : ℕ → ℕ} {T : ℕ},
+  {u ∈ Finset.range T | u ∉ subseqSums' B}.Nonempty →
+    ∀ (k K' K j N : ℕ) (E : Finset ℕ) (j' N' : ℕ) (E' : Finset ℕ), K' ≤ j' → j' < K' → False
+AUDIT|Erdos348.central_interval_thm._proof_1_18|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_18|∀ {B : ℕ → ℕ} {T : ℕ} (J₀ : ℕ),
+  {u ∈ Finset.range T | u ∉ subseqSums' B}.Nonempty →
+    ∀ (K_final L₀ N₀ N x j u : ℕ),
+      Erdos348.prefixSum B j = x + u →
+        ∀ (s : Finset ℕ), x = ∑ i ∈ s, B i → ∀ (r : ℕ), ¬x ≤ Erdos348.prefixSum B j → False
+AUDIT|Erdos348.central_interval_thm._proof_1_12|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_12|∀ {B : ℕ → ℕ} {T : ℕ} (L₀ N₀ N x j u : ℕ),
+  Erdos348.prefixSum B j = x + u →
+    ∀ (s : Finset ℕ),
+      x = ∑ i ∈ s, B i →
+        ∀ (r : ℕ), B N ≤ x → Erdos348.prefixSum B L₀ < B N → Erdos348.prefixSum B j ≤ Erdos348.prefixSum B L₀ → False
+AUDIT|Erdos348.central_common._proof_1_14|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common._proof_1_14|∀ {B : ℕ → ℕ} {T : ℕ} {h : ℕ} {J j : ℕ} (x₀ u₀ x lx ux : ℕ),
+  Erdos348.prefixSum B lx = x + ux → 1 ≤ ux ∧ ux ≤ h → ¬Erdos348.prefixSum B lx - x = ux → False
+AUDIT|Erdos348.exists_prefix_for_lt_T|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.exists_prefix_for_lt_T|∀ (B : ℕ → ℕ) (T : ℕ),
+  ∃ J₀, ∀ u < T, u ∈ subseqSums' B → u ∈ Erdos348.prefixSums B J₀
+AUDIT|Erdos348.complEmb_preimage_finset|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.complEmb_preimage_finset|∀ {D : Finset ℕ} {emb : ℕ → ℕ},
+  Erdos348.IsComplEmb D emb → ∀ {t : Finset ℕ}, Disjoint t D → ∃ s, Finset.image emb s = t
+AUDIT|Erdos348.sub_mem_prefixSums_of_mem_prefixSums|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.sub_mem_prefixSums_of_mem_prefixSums|∀ {B : ℕ → ℕ} {N x : ℕ},
+  x ∈ Erdos348.prefixSums B N → Erdos348.prefixSum B N - x ∈ Erdos348.prefixSums B N
+AUDIT|Erdos348.complEmb_preimage_finset._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.complEmb_preimage_finset._simp_1_1|∀ {α : Type u_1} {β : Type u_2} [inst : DecidableEq β] {f : α → β}
+  {s : Finset α} {b : β}, (b ∈ Finset.image f s) = ∃ a ∈ s, f a = b
+AUDIT|Erdos348.extension_prop._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_8|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ I₁ : ℕ),
+  max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1 ≤ max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1) →
+    ¬max K₀ (max (I₀ + 1) (2 * max T₀ 1)) < max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1) → False
+AUDIT|Erdos348.statePotential_ub._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.statePotential_ub._proof_1_1|∀ {B : ℕ → ℕ} {H : Finset ℕ} {h : ℕ} {j N : ℕ} {E : Finset ℕ}
+  (hE : E.Nonempty),
+  E.min' hE ≤ h →
+    (h + 1) * E.card ≤ (h + 1) * H.card → ¬(h + 1) * E.card + E.min' hE ≤ (h + 1) * H.card + (h + 1) → False
+AUDIT|Erdos348.not_exists_for_m_ge_two._proof_1_13|[propext, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._proof_1_13|∀ {m n : ℕ} (a : ℕ → ℕ) (m j : ℕ), j < m + 1 → ¬j ≤ m → False
+AUDIT|Erdos348.step_exists._proof_1_36|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_36|∀ {B : ℕ → ℕ} {T : ℕ},
+  1 ≤ T →
+    ∀ {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ),
+      E.Nonempty →
+        B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+            Erdos348.prefixSum B j →
+          B (j - 1) ≤ B j →
+            T ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+              Erdos348.prefixSum B L₁ ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+                ∀ (m e : ℕ),
+                  e ≤ H.max' hH → ¬Erdos348.prefixSum B j - B j - e + B j = Erdos348.prefixSum B j - e → False
+AUDIT|Erdos348.sum_updateFinset_zero_eq_sum_sdiff|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.sum_updateFinset_zero_eq_sum_sdiff|∀ (a : ℕ → ℕ) (s B : Finset ℕ),
+  ∑ i ∈ B, Function.updateFinset a s 0 i = ∑ i ∈ B \ s, a i
+AUDIT|Erdos348.fibSeq_mono|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_mono|Monotone Erdos348.fibSeq
+AUDIT|Erdos348.central_interval_thm._proof_1_29|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_29|∀ {B : ℕ → ℕ} {T : ℕ} (J₀ N₀ N x j : ℕ),
+  j < N → ∀ (u : ℕ) (s : Finset ℕ) (r : ℕ), ¬j ≤ N → False
+AUDIT|Erdos348.central_common._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common._proof_1_9|∀ {B : ℕ → ℕ} {T : ℕ} {h J : ℕ},
+  3 * h < B J →
+    ∀ {j : ℕ} (x₀ l u₀ : ℕ),
+      Erdos348.prefixSum B l = x₀ + u₀ →
+        1 ≤ u₀ ∧ u₀ ≤ h →
+          ∀ (x lx ux : ℕ),
+            Erdos348.prefixSum B lx = x + ux →
+              1 ≤ ux ∧ ux ≤ h →
+                x₀ ≤ x + 2 * h → Erdos348.prefixSum B lx + B lx ≤ Erdos348.prefixSum B l → B J ≤ B lx → False
+AUDIT|Erdos348.step_exists._proof_1_43|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_43|∀ {B : ℕ → ℕ} {T : ℕ},
+  1 ≤ T →
+    ∀ {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ),
+      E.Nonempty →
+        B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+            Erdos348.prefixSum B j →
+          T ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+            ∀ (m x y : ℕ),
+              Erdos348.prefixSum B j - B j - 2 * H.max' hH ≤ x ∧ x ≤ Erdos348.prefixSum B j - B j - 1 →
+                Erdos348.prefixSum B j - B j - 2 * H.max' hH ≤ y ∧ y ≤ Erdos348.prefixSum B j - B j - 1 →
+                  ¬x ≤ y + 2 * H.max' hH → False
+AUDIT|Erdos348.erdos_348.answer.eq_1|[]
+TYPE|Erdos348.erdos_348.answer.eq_1|Erdos348.erdos_348.answer = {(m, n) | m < n ∧ m ≤ 1}
+AUDIT|Erdos348.erdos_348._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos348.erdos_348._proof_1_3|∀ (m n : ℕ), m ≤ 1 → ¬(m = 0 ∨ m = 1) → False
+AUDIT|Erdos348.normalize_state._proof_1_13|[propext, Quot.sound]
+TYPE|Erdos348.normalize_state._proof_1_13|∀ {B : ℕ → ℕ} {h l : ℕ} {j : ℕ} {K' : ℕ}, max K' h < l → ¬K' ≤ l → False
+AUDIT|Erdos348.slack_diverges_of_one_del|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.slack_diverges_of_one_del|∀ {A : ℕ → ℕ},
+  Monotone A →
+    (∀ (i : ℕ), 1 ≤ A i) →
+      (∀ (M : ℕ), ∃ I, ∀ i ≥ I, M ≤ A i) →
+        (∀ (i : ℕ), IsAddCompleteNatSeq' (Function.updateFinset A {i} 0)) →
+          ∀ {D : Finset ℕ} {emb : ℕ → ℕ},
+            Erdos348.IsComplEmb D emb →
+              ∀ (M : ℕ), ∃ K, ∀ k ≥ K, A (emb k) + M ≤ Erdos348.prefixSum (fun i => A (emb i)) k
+AUDIT|Erdos348.not_exists_for_m_ge_two._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._simp_1_3|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α}
+  {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos348.fibSeq_one_del_step._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_one_del_step._proof_1_8|∀ (j d : ℕ),
+  Erdos348.fibSeq j + ∑ x ∈ (Finset.range (d + 1)).erase j, Erdos348.fibSeq x =
+      ∑ x ∈ Finset.range (d + 1), Erdos348.fibSeq x →
+    ∑ i ∈ Finset.range (d + 1), Erdos348.fibSeq i + 1 = Erdos348.fibSeq (d + 1 + 1) →
+      Erdos348.fibSeq (d + 1 + 1) = Erdos348.fibSeq d + Erdos348.fibSeq (d + 1) →
+        Erdos348.fibSeq j ≤ Erdos348.fibSeq d →
+          ¬Erdos348.fibSeq (d + 1) ≤ ∑ i ∈ (Finset.range (d + 1)).erase j, Erdos348.fibSeq i + 1 → False
+AUDIT|Erdos348.pow_two_sum_range|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.pow_two_sum_range|∀ (k : ℕ), ∑ i ∈ Finset.range k, 2 ^ i + 1 = 2 ^ k
+AUDIT|Erdos348.extension_prop._proof_1_14|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_14|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ : ℕ),
+  2 * max T₀ 1 ≤ Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) →
+    ∀ (M I₁ m q : ℕ),
+      (fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 + m ≤
+          q + (Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) - max T₀ 1) →
+        ¬(fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 + (m + 1) ≤
+              q + (Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) - max T₀ 1) →
+          ∀
+            q' ≤
+              q + (Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) - 2 * max T₀ 1 + 1),
+            ¬q' + max T₀ 1 ≤
+                  (fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 + (m + 1) →
+              False
+AUDIT|Erdos348.step_exists._proof_1_13|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_13|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ)
+  (E : Finset ℕ),
+  B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+      Erdos348.prefixSum B j →
+    Erdos348.prefixSum B L₁ ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+      B j = B (N - 1) →
+        ∀ (l : ℕ) (E' : Finset ℕ) (e₀ : ℕ),
+          Erdos348.prefixSum B j - B j - e₀ ≤ Erdos348.prefixSum B l →
+            e₀ ≤ H.max' hH → Erdos348.prefixSum B l ≤ Erdos348.prefixSum B L₁ → False
+AUDIT|Erdos348.extension_prop._simp_1_22|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._simp_1_22|∀ {α : Type u_1} [inst : DecidableEq α] {s t : Finset α} {a : α},
+  (a ∈ s ∪ t) = (a ∈ s ∨ a ∈ t)
+AUDIT|Erdos348.extension_prop._proof_1_15|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_15|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ M I₁ m q : ℕ),
+  (fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 + m ≤
+      q + (Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) - max T₀ 1) →
+    ¬(fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 + (m + 1) ≤
+          q + (Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) - max T₀ 1) →
+      ∀ (q' : ℕ),
+        q < q' →
+          ¬(fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 + (m + 1) ≤
+                q' + (Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) - max T₀ 1) →
+            False
+AUDIT|Erdos348.extension_prop._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_6|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ M q q' : ℕ),
+  ¬(q' ≤ q ∨
+        q + (Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) - 2 * max T₀ 1 + 1) < q') →
+    ¬q < q' → False
+AUDIT|Erdos348.statePotential_ub._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.statePotential_ub._proof_1_2|∀ {H : Finset ℕ} {h j N : ℕ} {E : Finset ℕ},
+  E.Nonempty → E.card ≤ H.card → ¬E.card + 1 ≤ H.card + 1 → False
+AUDIT|Erdos348.central_common._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common._proof_1_2|∀ {B : ℕ → ℕ} {T h : ℕ} {J : ℕ} {j : ℕ} (x l u : ℕ),
+  Erdos348.prefixSum B l = x + u → Erdos348.prefixSum B l ≤ Erdos348.prefixSum B J → Erdos348.prefixSum B J < x → False
+AUDIT|Erdos348.normalize_state._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.normalize_state._proof_1_6|∀ {B : ℕ → ℕ} {h : ℕ} {l j : ℕ} {K' : ℕ},
+  B l = B (j - 1) → ∀ (p : ℕ), B p = B l → ∀ (r : ℕ), B p ≤ B r → B r ≤ B l → ¬B r = B l → False
+AUDIT|Erdos348.sum_sdiff_pair._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.sum_sdiff_pair._simp_1_2|∀ {α : Type u_1} [inst : DecidableEq α] {s t : Finset α} {a : α},
+  (a ∈ s \ t) = (a ∈ s ∧ a ∉ t)
+AUDIT|Erdos348.fibSeq_one_del_repr._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_one_del_repr._proof_1_5|∀ (j k x : ℕ) (B : Finset ℕ), k < k → False
+AUDIT|Erdos348.pow_two_not_complete_of_nonempty._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.pow_two_not_complete_of_nonempty._simp_1_4|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p]
+  {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos348.step_exists._proof_1_45|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_45|∀ {B : ℕ → ℕ} {T : ℕ},
+  1 ≤ T →
+    ∀ {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ) (hE : E.Nonempty),
+      B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+          Erdos348.prefixSum B j →
+        T ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+          Erdos348.prefixSum B L₁ ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+            ∀ (m l : ℕ) (E' : Finset ℕ),
+              Erdos348.prefixSum B j - B m - E.max' hE ≤ Erdos348.prefixSum B l →
+                Erdos348.prefixSum B j - B j - 2 * H.max' hH ≤ Erdos348.prefixSum B j - B m - E.max' hE ∧
+                    Erdos348.prefixSum B j - B m - E.max' hE ≤ Erdos348.prefixSum B j - B j - 1 →
+                  Erdos348.prefixSum B l ≤ Erdos348.prefixSum B L₁ → False
+AUDIT|Erdos348.sum_sdiff_pair._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.sum_sdiff_pair._simp_1_5|∀ {α : Type u_1} [inst : DecidableEq α] {a b : α} {s : Finset α},
+  (a ∈ s.erase b) = (a ≠ b ∧ a ∈ s)
+AUDIT|Erdos348.extension_prop._proof_1_19|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_19|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ : ℕ),
+  1 ≤ max T₀ 1 →
+    ∀ (K₀ I₀ M I₁ z q : ℕ),
+      q + max T₀ 1 ≤ z →
+        (fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 +
+              (z - ((fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1)) =
+            z →
+          ¬z - q + q = z → False
+AUDIT|Erdos348.exists_for_m_eq_one|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.exists_for_m_eq_one|∀ {n : ℕ},
+  2 ≤ n →
+    ∃ a,
+      Monotone a ∧
+        (∀ (s : Finset ℕ), s.card = 1 → IsAddCompleteNatSeq' (Function.updateFinset a s 0)) ∧
+          ∀ (t : Finset ℕ), t.card = n → ¬IsAddCompleteNatSeq' (Function.updateFinset a t 0)
+AUDIT|Erdos348.not_exists_for_m_ge_two._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._proof_1_10|∀ {m n : ℕ},
+  m < n → 2 ≤ m → ∀ (k₀ : ℕ), (Finset.Ico k₀ (k₀ + n)).card = n → ∀ (i : ℕ), k₀ ≤ i → ¬i + n ≥ k₀ → False
+AUDIT|Erdos348.prefixSum_add_const_block._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.prefixSum_add_const_block._proof_1_7|∀ {B : ℕ → ℕ} {b l : ℕ} (j : ℕ),
+  ¬Erdos348.prefixSum B l + (j - l) * b + b = Erdos348.prefixSum B l + ((j - l) * b + b) → False
+AUDIT|Erdos348.not_exists_for_m_ge_two._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._proof_1_9|∀ {m : ℕ} {n : ℕ} (k₀ i₁ i₂ : ℕ), i₁ + n = i₂ + n → ¬i₁ = i₂ → False
+AUDIT|Erdos348.sum_updateFinset_zero_eq_sum_sdiff._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.sum_updateFinset_zero_eq_sum_sdiff._proof_1_1|∀ (a : ℕ → ℕ) (s B : Finset ℕ),
+  ∑ i ∈ B \ (B \ s), Function.updateFinset a s 0 i = 0 →
+    ∑ i ∈ B \ s, Function.updateFinset a s 0 i = ∑ i ∈ B \ s, a i →
+      ¬∑ x ∈ B \ (B \ s), Function.updateFinset a s 0 x + ∑ x ∈ B \ s, Function.updateFinset a s 0 x =
+            ∑ i ∈ B \ s, a i →
+        False
+AUDIT|Erdos348.prefixSum_add_const_block._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.prefixSum_add_const_block._proof_1_2|∀ {l : ℕ} (j : ℕ), l < j + 1 → ¬l ≤ j → False
+AUDIT|Erdos348.pow_two_dvd_sum_filter_gt|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.pow_two_dvd_sum_filter_gt|∀ (B : Finset ℕ) (j : ℕ), ∃ k, ∑ i ∈ B with j < i, 2 ^ i = 2 ^ (j + 1) * k
+AUDIT|Erdos348.fibSeq_pos|[propext, Quot.sound]
+TYPE|Erdos348.fibSeq_pos|∀ (i : ℕ), 1 ≤ Erdos348.fibSeq i
+AUDIT|Erdos348.step_exists._proof_1_39|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_39|∀ {B : ℕ → ℕ} {T : ℕ},
+  1 ≤ T →
+    ∀ {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ),
+      E.Nonempty →
+        B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+            Erdos348.prefixSum B j →
+          T ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+            Erdos348.prefixSum B L₁ ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+              ∀ (m e : ℕ),
+                1 ≤ e →
+                  e ≤ H.max' hH →
+                    ¬(Erdos348.prefixSum B j - B j - 2 * H.max' hH ≤ Erdos348.prefixSum B j - B j - e ∧
+                          Erdos348.prefixSum B j - B j - e ≤ Erdos348.prefixSum B j - B j - 1) →
+                      False
+AUDIT|Erdos348.central_common|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common|∀ {B : ℕ → ℕ},
+  Monotone B →
+    (∀ (i : ℕ), 1 ≤ B i) →
+      ∀ {T : ℕ},
+        1 ≤ T →
+          (∀ x ≥ T, x ∈ subseqSums' B) →
+            ∀ {H : Finset ℕ},
+              (∀ (u : ℕ), u ∈ H ↔ u < T ∧ u ∉ subseqSums' B) →
+                ∀ {h J : ℕ},
+                  (∀ u ∈ H, 1 ≤ u ∧ u ≤ h) →
+                    (∀ u < T, u ∈ subseqSums' B → u ∈ Erdos348.prefixSums B J) →
+                      3 * h < B J →
+                        ∀ {j : ℕ} {R : Finset ℕ},
+                          R.Nonempty →
+                            (∀ x ∈ R, x ∉ Erdos348.prefixSums B j) →
+                              (∀ x ∈ R, T ≤ x ∧ Erdos348.prefixSum B J < x) →
+                                (∀ x ∈ R, x + T ≤ Erdos348.prefixSum B j) →
+                                  (∀ x ∈ R, ∀ y ∈ R, x ≤ y + 2 * h) →
+                                    ∃ l < j,
+                                      ∃ E',
+                                        E'.Nonempty ∧
+                                          E' ⊆ H ∧
+                                            E'.card = R.card ∧
+                                              (∀ e ∈ E',
+                                                  e ≤ Erdos348.prefixSum B l ∧
+                                                    Erdos348.prefixSum B l - e ∈ R ∧
+                                                      Erdos348.prefixSum B l - e ∉ Erdos348.prefixSums B j) ∧
+                                                ∀ x ∈ R, x ≤ Erdos348.prefixSum B l ∧ Erdos348.prefixSum B l - x ∈ E'
+AUDIT|Erdos348.central_common._proof_1_12|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common._proof_1_12|∀ {B : ℕ → ℕ} {T : ℕ} {h J : ℕ},
+  3 * h < B J →
+    ∀ {j : ℕ} (x₀ l u₀ : ℕ),
+      Erdos348.prefixSum B l = x₀ + u₀ →
+        1 ≤ u₀ ∧ u₀ ≤ h →
+          ∀ (x lx ux : ℕ),
+            Erdos348.prefixSum B lx = x + ux →
+              1 ≤ ux ∧ ux ≤ h →
+                x ≤ x₀ + 2 * h → Erdos348.prefixSum B l + B l ≤ Erdos348.prefixSum B lx → B J ≤ B l → False
+AUDIT|Erdos348.step_exists|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists|∀ {B : ℕ → ℕ},
+  Monotone B →
+    (∀ (i : ℕ), 1 ≤ B i) →
+      (∀ (M : ℕ), ∃ I, ∀ i ≥ I, M ≤ B i) →
+        (∀ (M : ℕ), ∃ I, ∀ i ≥ I, B i + M ≤ Erdos348.prefixSum B i) →
+          ∀ {T : ℕ},
+            1 ≤ T →
+              (∀ x ≥ T, x ∈ subseqSums' B) →
+                ∀ {H : Finset ℕ} (hH : H.Nonempty),
+                  (∀ (u : ℕ), u ∈ H ↔ u < T ∧ u ∉ subseqSums' B) →
+                    ∀ (K' : ℕ),
+                      have h := H.max' hH;
+                      ∃ K,
+                        ∀ (j N : ℕ) (E : Finset ℕ),
+                          Erdos348.IsNormState B H j N E →
+                            K ≤ j →
+                              ∃ j' N' E',
+                                Erdos348.IsNormState B H j' N' E' ∧
+                                  K' ≤ j' ∧ Erdos348.statePotential B h j N E < Erdos348.statePotential B h j' N' E'
+AUDIT|Erdos348.exists_complEmb._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.exists_complEmb._proof_1_1|∀ (i₀ : ℕ) ⦃i j : ℕ⦄, i < j → ¬i < j + 1 → False
+AUDIT|Erdos348.prefixSum_complEmb_bound._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.prefixSum_complEmb_bound._simp_1_3|∀ {α : Type u_1} [inst : DecidableEq α] {s t : Finset α} {a : α},
+  (a ∈ s \ t) = (a ∈ s ∧ a ∉ t)
+AUDIT|Erdos348.not_exists_for_m_ge_two._proof_1_17|[propext, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._proof_1_17|∀ {m n : ℕ} (a : ℕ → ℕ) (I₁ k₀ I i : ℕ), i ≥ I → ¬k₀ + i ≥ I → False
+AUDIT|Erdos348.central_interval_thm._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_4|∀ {B : ℕ → ℕ} {T : ℕ}
+  (hH : {u ∈ Finset.range T | u ∉ subseqSums' B}.Nonempty) (j N : ℕ) (E : Finset ℕ),
+  ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH + 1) * ({u ∈ Finset.range T | u ∉ subseqSums' B}.card + 1) + 1 -
+        Erdos348.statePotential B ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH) j N E ≤
+      0 →
+    Erdos348.statePotential B ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH) j N E ≤
+        ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH + 1) * ({u ∈ Finset.range T | u ∉ subseqSums' B}.card + 1) →
+      False
+AUDIT|Erdos348.central_cut._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_cut._proof_1_9|∀ {B : ℕ → ℕ} {T : ℕ},
+  1 ≤ T →
+    ∀ {N : ℕ} {x : ℕ} (k : ℕ),
+      x + T ≤ Erdos348.prefixSum B k + B k →
+        B k ≤ Erdos348.prefixSum B k + B k - x → ¬Erdos348.prefixSum B k = x + (Erdos348.prefixSum B k - x) → False
+AUDIT|Erdos348.pow_two_not_complete_of_nonempty._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos348.pow_two_not_complete_of_nonempty._proof_1_7|∀ (j T : ℕ) (B : Finset ℕ) (k : ℕ),
+  ¬2 ^ j * 2 = 2 ^ j + 2 ^ j → False
+AUDIT|Erdos348.extension_prop._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_10|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ : ℕ),
+  2 * max T₀ 1 ≤ Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) →
+    ∀ (M I₁ : ℕ),
+      ¬(fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 + 0 ≤
+            (fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) +
+              (Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) - max T₀ 1) →
+        False
+AUDIT|Erdos348.extension_prop._proof_1_21|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_21|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ T_p q : ℕ),
+  T_p ≤ q →
+    (fun i => A (emb i)) I₀ ≤ Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) →
+      ¬T_p ≤
+            q + Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) -
+                  (fun i => A (emb i)) I₀ +
+                1 +
+              ∑ d ∈ D, A d →
+        False
+AUDIT|Erdos348.fibSeq_one_del_repr._simp_1_1|[propext]
+TYPE|Erdos348.fibSeq_one_del_repr._simp_1_1|∀ {α : Type u_1} {a : α} [inst : PartialOrder α] [inst_1 : Zero α]
+  [IsBotZeroClass α], (a ≤ 0) = (a = 0)
+AUDIT|Erdos348.fibSeq_one_del_repr._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_one_del_repr._proof_1_3|∀ (j k x : ℕ) (B : Finset ℕ) ⦃idx : ℕ⦄, idx = k → ¬idx < k + 1 → False
+AUDIT|Erdos348.central_interval_thm._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_11|∀ {B : ℕ → ℕ} {T : ℕ} (L₀ N₀ N x j u : ℕ) (s : Finset ℕ) (r : ℕ),
+  ¬L₀ < j → ¬j ≤ L₀ → False
+AUDIT|Erdos348.exists_complete_deletion_of_two_del|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.exists_complete_deletion_of_two_del|∀ {A : ℕ → ℕ},
+  Monotone A →
+    (∀ (i : ℕ), 1 ≤ A i) →
+      (∀ (M : ℕ), ∃ I, ∀ i ≥ I, M ≤ A i) →
+        (∀ (s : Finset ℕ), s.card = 2 → IsAddCompleteNatSeq' (Function.updateFinset A s 0)) →
+          ∀ (r : ℕ), ∃ D, D.card = r ∧ IsAddCompleteNatSeq' (Function.updateFinset A D 0)
+AUDIT|Erdos348.sum_sdiff_pair._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.sum_sdiff_pair._proof_1_6|∀ {a : ℕ → ℕ} {k i j : ℕ},
+  a i + ∑ x ∈ (Finset.range k).erase i, a x = ∑ x ∈ Finset.range k, a x →
+    a j + ∑ x ∈ ((Finset.range k).erase i).erase j, a x = ∑ x ∈ (Finset.range k).erase i, a x →
+      ¬∑ r ∈ ((Finset.range k).erase i).erase j, a r + a i + a j = ∑ r ∈ Finset.range k, a r → False
+AUDIT|Erdos348.central_common._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common._proof_1_1|∀ {B : ℕ → ℕ} {T h : ℕ} {J : ℕ} {j : ℕ} (x l u : ℕ), ¬J < l → ¬l ≤ J → False
+AUDIT|Erdos348.fibSeq_one_del_repr._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_one_del_repr._proof_1_6|∀ (j k x : ℕ),
+  ¬x ≤ ∑ i ∈ Finset.range k, Function.updateFinset Erdos348.fibSeq {j} 0 i →
+    Function.updateFinset Erdos348.fibSeq {j} 0 k ≤
+        ∑ i ∈ Finset.range k, Function.updateFinset Erdos348.fibSeq {j} 0 i + 1 →
+      ∀ (B : Finset ℕ),
+        x - Function.updateFinset Erdos348.fibSeq {j} 0 k = ∑ i ∈ B, Function.updateFinset Erdos348.fibSeq {j} 0 i →
+          ¬x = Function.updateFinset Erdos348.fibSeq {j} 0 k + (x - Function.updateFinset Erdos348.fibSeq {j} 0 k) →
+            False
+AUDIT|Erdos348.slack_diverges_of_one_del._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.slack_diverges_of_one_del._proof_1_1|∀ {A : ℕ → ℕ} (M i : ℕ),
+  M + 1 ≤ A i → ∀ (T_i k : ℕ), k ≥ T_i + A i + i + 1 → ¬i < k → False
+AUDIT|Erdos348.pow_two_not_complete_of_nonempty._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos348.pow_two_not_complete_of_nonempty._proof_1_5|∀ (j T : ℕ) (B : Finset ℕ), ∀ i < j, j < i → False
+AUDIT|Erdos348.erdos_348._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.erdos_348._proof_1_2|∀ (m' n' : ℕ), ¬m' ≤ 1 → ¬2 ≤ m' → False
+AUDIT|Erdos348.exists_complEmb._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos348.exists_complEmb._proof_1_4|∀ (emb : ℕ → ℕ) (i₀ i : ℕ), i < i₀ → i = i₀ → False
+AUDIT|Erdos348.normalize_state._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos348.normalize_state._proof_1_3|∀ {B : ℕ → ℕ} {h : ℕ} {l j : ℕ} {K' : ℕ} (p : ℕ),
+  max K' h < p → ¬K' ≤ p → False
+AUDIT|Erdos348.not_exists_for_m_ge_two._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._simp_1_2|∀ {α : Type u_1} [inst : DecidableEq α] {s t : Finset α} {a : α},
+  (a ∈ s ∪ t) = (a ∈ s ∨ a ∈ t)
+AUDIT|Erdos348.shift_updateFinset_subseqSums'._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.shift_updateFinset_subseqSums'._proof_1_5|∀ {a : ℕ → ℕ} {k₀ : ℕ} (B : Finset ℕ) (j : ℕ),
+  j ∈ B ∧ k₀ ≤ j → ¬k₀ + (j - k₀) = j → False
+AUDIT|Erdos348.prefixSum_add_const_block|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.prefixSum_add_const_block|∀ {B : ℕ → ℕ} {b l j : ℕ},
+  l ≤ j → (∀ (r : ℕ), l ≤ r → r < j → B r = b) → Erdos348.prefixSum B j = Erdos348.prefixSum B l + (j - l) * b
+AUDIT|Erdos348.step_exists._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_1|∀ {T : ℕ} (u : ℕ), ¬1 ≤ u → ¬u = 0 → False
+AUDIT|Erdos348.not_exists_for_m_ge_two._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._proof_1_1|∀ {m n : ℕ} (a : ℕ → ℕ) (M i : ℕ),
+  ¬a i ≤ M → ∀ (j : ℕ), ¬M ≤ a i → False
+AUDIT|Erdos348.not_exists_for_m_ge_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two|∀ {m n : ℕ},
+  m < n →
+    2 ≤ m →
+      ∀ (a : ℕ → ℕ),
+        Monotone a →
+          (∀ (s : Finset ℕ), s.card = m → IsAddCompleteNatSeq' (Function.updateFinset a s 0)) →
+            (∀ (t : Finset ℕ), t.card = n → ¬IsAddCompleteNatSeq' (Function.updateFinset a t 0)) → False
+AUDIT|Erdos348.central_common._proof_1_13|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common._proof_1_13|∀ {B : ℕ → ℕ} {T : ℕ} {h : ℕ} {J j : ℕ} (x₀ u₀ x lx ux : ℕ),
+  Erdos348.prefixSum B lx = x + ux → 1 ≤ ux ∧ ux ≤ h → ¬x ≤ Erdos348.prefixSum B lx → False
+AUDIT|Erdos348.exists_first_eq._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.exists_first_eq._proof_1_1|∀ {B : ℕ → ℕ} (l p : ℕ), p ≤ l → ¬p ≤ l + 1 → False
+AUDIT|Erdos348.central_common._proof_1_16|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common._proof_1_16|∀ {B : ℕ → ℕ} {T h J j : ℕ} {R : Finset ℕ} (x₀ l u₀ : ℕ),
+  Erdos348.prefixSum B l = x₀ + u₀ →
+    ∀ x ≤ Erdos348.prefixSum B l,
+      Erdos348.prefixSum B l - (Erdos348.prefixSum B l - x) = x →
+        ¬Erdos348.prefixSum B l - x ≤ Erdos348.prefixSum B l → False
+AUDIT|Erdos348.prefixSums_subset_subseqSums'|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.prefixSums_subset_subseqSums'|∀ (B : ℕ → ℕ) (N : ℕ), Erdos348.prefixSums B N ⊆ subseqSums' B
+AUDIT|Erdos348.extension_prop._proof_1_17|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_17|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ : ℕ),
+  1 ≤ max T₀ 1 →
+    ∀ (K₀ I₀ M I₁ z q : ℕ),
+      q + max T₀ 1 ≤ z →
+        (fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 +
+              (z - ((fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1)) =
+            z →
+          ¬max T₀ 1 ≤ z - q → False
+AUDIT|Erdos348.step_exists._proof_1_26|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_26|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (K' J₀ J₁ L₁ K₁ K₂ j N : ℕ)
+  (E : Finset ℕ) (hE : E.Nonempty) (l : ℕ) (E' : Finset ℕ) (j' : ℕ),
+  E.min' hE ≤ H.max' hH → ¬(H.max' hH + 1) * E.card + E.min' hE < (H.max' hH + 1) * E.card + (H.max' hH + 1) → False
+AUDIT|Erdos348.extension_prop._proof_1_18|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_18|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ : ℕ),
+  1 ≤ max T₀ 1 →
+    ∀ (K₀ I₀ : ℕ),
+      2 * max T₀ 1 ≤ Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) →
+        ∀ (M I₁ z : ℕ),
+          z ≥ (fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 →
+            ∀ (q : ℕ),
+              z ≤ q + (Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) - max T₀ 1) →
+                (fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1 +
+                      (z - ((fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) + max T₀ 1)) =
+                    z →
+                  ¬z - q + max T₀ 1 ≤ Erdos348.prefixSum (fun i => A (emb i)) (max K₀ (max (I₀ + 1) (2 * max T₀ 1))) →
+                    False
+AUDIT|Erdos348.fibSeq_sum_range|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_sum_range|∀ (k : ℕ), ∑ i ∈ Finset.range k, Erdos348.fibSeq i + 1 = Erdos348.fibSeq (k + 1)
+AUDIT|Erdos348.central_common._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common._proof_1_7|∀ {B : ℕ → ℕ} {T h J j : ℕ} (x₀ l u₀ x lx ux : ℕ), lx < l → ¬lx + 1 ≤ l → False
+AUDIT|Erdos348.subseqSums'_complEmb_updateFinset|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.subseqSums'_complEmb_updateFinset|∀ {A : ℕ → ℕ} {D : Finset ℕ} {emb : ℕ → ℕ},
+  Erdos348.IsComplEmb D emb →
+    ∀ (E : Finset ℕ),
+      subseqSums' (Function.updateFinset (fun i => A (emb i)) E 0) =
+        subseqSums' (Function.updateFinset A (D ∪ Finset.image emb E) 0)
+AUDIT|Erdos348.slack_diverges_of_one_del._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.slack_diverges_of_one_del._proof_1_3|∀ {A : ℕ → ℕ} (M i T_i k : ℕ) (s : Finset ℕ) ⦃r : ℕ⦄,
+  ¬r < k → ¬k ≤ r → False
+AUDIT|Erdos348.add_mem_prefixSums_of_mem_prefixSums._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos348.add_mem_prefixSums_of_mem_prefixSums._proof_1_3|∀ {j m N : ℕ},
+  j ≤ m → m < N → ∀ ⦃r : ℕ⦄, r < j → ¬r < N → False
+AUDIT|Erdos348.exists_for_m_eq_zero._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.exists_for_m_eq_zero._proof_1_1|∀ {n : ℕ} (i j : ℕ), ¬2 > 0 → False
+AUDIT|Erdos348.exists_for_m_eq_one._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.exists_for_m_eq_one._proof_1_2|∀ {n : ℕ} (t : Finset ℕ) (i j : ℕ),
+  i < j → ∀ (T : ℕ), j + 2 * T ≤ Erdos348.fibSeq (j + 2 * T + 1) → ¬T ≤ Erdos348.fibSeq (j + 2 * T + 1) - 1 → False
+AUDIT|Erdos348.prefixSum_ge_index._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.prefixSum_ge_index._proof_1_1|∀ {B : ℕ → ℕ},
+  ∀ k ≤ Erdos348.prefixSum B k, 1 ≤ B k → ¬k + 1 ≤ Erdos348.prefixSum B k + B k → False
+AUDIT|Erdos348.step_exists._proof_1_40|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_40|∀ {B : ℕ → ℕ} {T : ℕ},
+  1 ≤ T →
+    ∀ {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ),
+      E.Nonempty →
+        B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+            Erdos348.prefixSum B j →
+          T ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+            ∀ (m : ℕ),
+              B j < B m →
+                B m - B j ≤ H.max' hH →
+                  ∀ (e : ℕ),
+                    1 ≤ e →
+                      e ≤ H.max' hH →
+                        ¬(Erdos348.prefixSum B j - B j - 2 * H.max' hH ≤ Erdos348.prefixSum B j - B m - e ∧
+                              Erdos348.prefixSum B j - B m - e ≤ Erdos348.prefixSum B j - B j - 1) →
+                          False
+AUDIT|Erdos348.extension_prop._proof_1_24|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_24|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ T_p q : ℕ)
+  (S s : Finset ℕ), ∀ x < max K₀ (max (I₀ + 1) (2 * max T₀ 1)), max K₀ (max (I₀ + 1) (2 * max T₀ 1)) < x → False
+AUDIT|Erdos348.step_exists._proof_1_23|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_23|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty →
+    ∀ (K' J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ),
+      E.Nonempty → ∀ l < j, ∀ (E' : Finset ℕ) (j' : ℕ), ¬j - l = 1 → ¬2 ≤ j - l → False
+AUDIT|Erdos348.pow_two_complete_zero|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.pow_two_complete_zero|∀ (s : Finset ℕ),
+  s.card = 0 → IsAddCompleteNatSeq' (Function.updateFinset (fun i => 2 ^ i) s 0)
+AUDIT|Erdos348.prefixSum_succ|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.prefixSum_succ|∀ (B : ℕ → ℕ) (N : ℕ), Erdos348.prefixSum B (N + 1) = Erdos348.prefixSum B N + B N
+AUDIT|Erdos348.fibSeq_one_del_step._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_one_del_step._proof_1_2|∀ (j k : ℕ), ¬0 ≤ ∑ i ∈ Finset.range k \ {j}, Erdos348.fibSeq i + 1 → False
+AUDIT|Erdos348.central_interval_thm._proof_1_25|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_25|∀ {B : ℕ → ℕ} {T : ℕ} (J₀ : ℕ),
+  {u ∈ Finset.range T | u ∉ subseqSums' B}.Nonempty →
+    ∀ (K_final L₀ N₀ N x j u : ℕ) (s : Finset ℕ) (r j' : ℕ), K_final ≤ j' → j' < K_final → False
+AUDIT|Erdos348.shift_updateFinset_subseqSums'._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos348.shift_updateFinset_subseqSums'._proof_1_4|∀ {a : ℕ → ℕ} {k₀ : ℕ} (B : Finset ℕ),
+  ∑ j ∈ B with ¬k₀ ≤ j, a j = 0 →
+    ¬∑ j ∈ B with k₀ ≤ j, a j + ∑ j ∈ B with ¬k₀ ≤ j, a j = ∑ j ∈ B with k₀ ≤ j, a j → False
+AUDIT|Erdos348.central_cut._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_cut._proof_1_7|∀ {B : ℕ → ℕ} {T : ℕ},
+  1 ≤ T →
+    ∀ {N : ℕ} {x : ℕ} (k : ℕ),
+      x + T ≤ Erdos348.prefixSum B k + B k → ∀ (s : Finset ℕ), ¬x ≤ Erdos348.prefixSum B k + B k → False
+AUDIT|Erdos348.eventually_const_of_monotone_bdd._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.eventually_const_of_monotone_bdd._proof_1_1|∀ {a : ℕ → ℕ} (M j : ℕ),
+  M - a j ≤ 0 → ∀ (i : ℕ), a j ≤ a i → a i ≤ M → ¬a i = a j → False
+AUDIT|Erdos348.central_interval_thm._proof_1_28|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_28|∀ {B : ℕ → ℕ} {T : ℕ} (J₀ N₀ N x j u : ℕ),
+  Erdos348.prefixSum B j = x + u →
+    ∀ (s : Finset ℕ), x = ∑ i ∈ s, B i → ∀ (r : ℕ), ¬Erdos348.prefixSum B j - x = u → False
+AUDIT|Erdos348.isAddCompleteNatSeq'_iff._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.isAddCompleteNatSeq'_iff._simp_1_2|∀ {α : Type u_3} [inst : Preorder α] [IsDirectedOrder α] {p : α → Prop}
+  [Nonempty α], (∀ᶠ (x : α) in Filter.atTop, p x) = ∃ a, ∀ (b : α), a ≤ b → p b
+AUDIT|Erdos348.fibSeq_add_two|[propext, Quot.sound]
+TYPE|Erdos348.fibSeq_add_two|∀ (i : ℕ), Erdos348.fibSeq (i + 1 + 1) = Erdos348.fibSeq i + Erdos348.fibSeq (i + 1)
+AUDIT|Erdos348.central_interval_thm._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_8|∀ {B : ℕ → ℕ} {T : ℕ} (N₀ N x j u : ℕ) (s : Finset ℕ) ⦃r : ℕ⦄,
+  ¬r < N → ¬N ≤ r → False
+AUDIT|Erdos348.central_interval_thm._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_9|∀ {B : ℕ → ℕ} {T : ℕ} (N₀ N x j u : ℕ),
+  Erdos348.prefixSum B j = x + u →
+    ∀ (s : Finset ℕ), x = ∑ i ∈ s, B i → ∀ (r : ℕ), B N ≤ B r → B r ≤ x → ¬B N ≤ x → False
+AUDIT|Erdos348.central_common._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common._proof_1_4|∀ {B : ℕ → ℕ} {T h J j : ℕ} (x l u : ℕ),
+  Erdos348.prefixSum B l = x + u → ¬x ≤ Erdos348.prefixSum B l → False
+AUDIT|Erdos348.fibSeq_two_del_missing|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_two_del_missing|∀ {i j : ℕ},
+  i < j → ∀ (m : ℕ), Erdos348.fibSeq (j + 2 * m + 1) - 1 ∉ subseqSums' (Function.updateFinset Erdos348.fibSeq {i, j} 0)
+AUDIT|Erdos348.shift_updateFinset_subseqSums'._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.shift_updateFinset_subseqSums'._proof_1_3|∀ {k₀ : ℕ} (B : Finset ℕ) (j : ℕ),
+  j ∈ B ∧ ¬k₀ ≤ j → ¬j < k₀ → False
+AUDIT|Erdos348.normalize_state._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.normalize_state._proof_1_8|∀ {B : ℕ → ℕ} {h l : ℕ} {j K' : ℕ} (p : ℕ),
+  h < p →
+    p ≤ Erdos348.prefixSum B p →
+      Erdos348.prefixSum B l = Erdos348.prefixSum B p + (l - p) * B l → ∀ e ≤ h, ¬e ≤ Erdos348.prefixSum B p → False
+AUDIT|Erdos348.central_close|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_close|∀ {B : ℕ → ℕ},
+  Monotone B →
+    ∀ {T : ℕ},
+      (∀ x ≥ T, x ∈ subseqSums' B) →
+        ∀ {j N m : ℕ} {E : Finset ℕ},
+          j < N →
+            (∀ e ∈ E, 1 ≤ e ∧ e ∉ subseqSums' B) →
+              (∀ e ∈ E, e ≤ Erdos348.prefixSum B j ∧ Erdos348.prefixSum B j - e ∉ Erdos348.prefixSums B N) →
+                T ≤ B j → B j < B m → (∀ r < m, B r ≤ B j) → ∀ e ∈ E, B m - B j ≤ e
+AUDIT|Erdos348.isAddCompleteNatSeq'_updateFinset_mono|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.isAddCompleteNatSeq'_updateFinset_mono|∀ {a : ℕ → ℕ} {s t : Finset ℕ},
+  s ⊆ t → IsAddCompleteNatSeq' (Function.updateFinset a t 0) → IsAddCompleteNatSeq' (Function.updateFinset a s 0)
+AUDIT|Erdos348.central_close._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_close._proof_1_3|∀ {B : ℕ → ℕ} {T j N : ℕ} {m : ℕ} (e : ℕ) (s : Finset ℕ) ⦃r : ℕ⦄,
+  ¬r < m → ¬m ≤ r → False
+AUDIT|Erdos348.exists_first_gt._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.exists_first_gt._proof_1_1|∀ {B : ℕ → ℕ} {j : ℕ}, ∀ r < 0, False
+AUDIT|Erdos348.central_close._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_close._proof_1_4|∀ {B : ℕ → ℕ} {T : ℕ} {j : ℕ} {N : ℕ} {m : ℕ} (e : ℕ),
+  B j + e < B m → ∀ (s : Finset ℕ), B j + e = ∑ i ∈ s, B i → ∀ ⦃r : ℕ⦄, B r ≤ B j + e → B m ≤ B r → False
+AUDIT|Erdos348.step_exists._proof_1_27|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_27|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty → ∀ (J₀ J₁ L₁ K₁ K₂ j N : ℕ), j < N → ¬j ≤ N - 1 → False
+AUDIT|Erdos348.step_exists._proof_1_31|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_31|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty → ∀ (J₀ J₁ L₁ K₁ K₂ j N : ℕ), j < N → K₁ ≤ j → ∀ m ≤ N - 1, ¬m < N → False
+AUDIT|Erdos348.eventually_const_of_monotone_bdd._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.eventually_const_of_monotone_bdd._proof_1_2|∀ {a : ℕ → ℕ} (M d j i : ℕ),
+  a j ≤ a i → ¬a j < a i → ¬a i = a j → False
+AUDIT|Erdos348.shift_updateFinset_subseqSums'._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.shift_updateFinset_subseqSums'._proof_1_1|∀ {k₀ : ℕ} (i₁ i₂ : ℕ), k₀ + i₂ = k₀ + i₁ → ¬i₁ = i₂ → False
+AUDIT|Erdos348.not_exists_for_m_ge_two._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._proof_1_4|∀ {m n : ℕ} (k₀ i : ℕ), ¬i < k₀ → ¬k₀ ≤ i → False
+AUDIT|Erdos348.exists_prefix_for_lt_T._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.exists_prefix_for_lt_T._proof_1_1|∀ u < 0, False
+AUDIT|Erdos348.central_interval_thm._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_3|∀ {T : ℕ} (u : ℕ), ¬1 ≤ u → ¬u = 0 → False
+AUDIT|Erdos348.central_common._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common._proof_1_6|∀ {B : ℕ → ℕ} {T h J : ℕ} {j : ℕ} (x l : ℕ), l < j → ∀ (u : ℕ), ¬l ≤ j → False
+AUDIT|Erdos348.step_exists._proof_1_41|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_41|∀ {B : ℕ → ℕ} {T : ℕ},
+  1 ≤ T →
+    ∀ {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ),
+      E.Nonempty →
+        B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+            Erdos348.prefixSum B j →
+          T ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+            Erdos348.prefixSum B (max J₀ J₁) ≤
+                max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+              ∀ (m x : ℕ),
+                Erdos348.prefixSum B j - B j - 2 * H.max' hH ≤ x ∧ x ≤ Erdos348.prefixSum B j - B j - 1 →
+                  ¬(T ≤ x ∧ Erdos348.prefixSum B (max J₀ J₁) < x) → False
+AUDIT|Erdos348.prefixSum_complEmb_bound._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.prefixSum_complEmb_bound._simp_1_2|∀ {n m : ℕ}, (m ∈ Finset.range n) = (m < n)
+AUDIT|Erdos348.shift_updateFinset_subseqSums'._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.shift_updateFinset_subseqSums'._proof_1_2|∀ {k₀ : ℕ} (i₁ i₂ : ℕ), k₀ + i₁ = k₀ + i₂ → ¬i₁ = i₂ → False
+AUDIT|Erdos348.normalize_state._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.normalize_state._proof_1_7|∀ {B : ℕ → ℕ} {h l j K' : ℕ} (p r : ℕ), p < r → ¬p ≤ r → False
+AUDIT|Erdos348.shift_updateFinset_subseqSums'._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.shift_updateFinset_subseqSums'._proof_1_7|∀ {a : ℕ → ℕ} {k₀ : ℕ} (B : Finset ℕ) ⦃j₁ : ℕ⦄,
+  j₁ ∈ B ∧ k₀ ≤ j₁ → ∀ ⦃j₂ : ℕ⦄, j₂ ∈ B ∧ k₀ ≤ j₂ → j₁ - k₀ = j₂ - k₀ → ¬j₁ = j₂ → False
+AUDIT|Erdos348.central_interval_thm._proof_1_26|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_26|∀ {B : ℕ → ℕ} {T : ℕ} (J₀ N₀ N x j u : ℕ) (s : Finset ℕ) (r : ℕ),
+  J₀ < j → ¬J₀ ≤ j → False
+AUDIT|Erdos348.central_common._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_common._proof_1_8|∀ {B : ℕ → ℕ} {T h : ℕ} {J : ℕ} {j : ℕ} (x₀ l u₀ x lx ux : ℕ),
+  J < lx → ¬J ≤ lx → False
+AUDIT|Erdos348.exists_complete_deletion_of_two_del._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.exists_complete_deletion_of_two_del._proof_1_1|0 = 1 → False
+AUDIT|Erdos348.step_exists._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_9|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ)
+  (E : Finset ℕ),
+  B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+      Erdos348.prefixSum B j →
+    T ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+      Erdos348.prefixSum B (max J₀ J₁) ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+        Erdos348.prefixSum B L₁ ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+          B j = B (N - 1) →
+            ∀ e ≤ H.max' hH,
+              ¬(T ≤ Erdos348.prefixSum B j - B j - e ∧
+                    Erdos348.prefixSum B (max J₀ J₁) < Erdos348.prefixSum B j - B j - e) →
+                False
+AUDIT|Erdos348.not_exists_for_m_ge_two._proof_1_18|[propext, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._proof_1_18|∀ {m n : ℕ} (a : ℕ → ℕ) (I₁ k₀ : ℕ) (s : Finset ℕ) (i₁ i₂ : ℕ),
+  k₀ + i₁ = k₀ + i₂ → ¬i₁ = i₂ → False
+AUDIT|Erdos348.not_exists_for_m_ge_two._proof_1_14|[propext, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._proof_1_14|∀ {m n : ℕ} (a : ℕ → ℕ) (m : ℕ),
+  ¬1 ≤ a m → ∀ (j : ℕ), a j ≤ a m → ¬a j = 0 → False
+AUDIT|Erdos348.fibSeq_two_del_missing._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_two_del_missing._proof_1_10|∀ {i : ℕ} {j : ℕ} (m : ℕ) (B : Finset ℕ), ¬j < j + 2 * m + 2 → False
+AUDIT|Erdos348.fibSeq_complete_one|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_complete_one|∀ (s : Finset ℕ),
+  s.card = 1 → IsAddCompleteNatSeq' (Function.updateFinset Erdos348.fibSeq s 0)
+AUDIT|Erdos348.central_close._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_close._proof_1_2|∀ {B : ℕ → ℕ} {T j : ℕ} {N m : ℕ},
+  T ≤ B j → ∀ (e : ℕ), 1 ≤ e → ¬T ≤ B j + e → False
+AUDIT|Erdos348.normalize_state._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.normalize_state._proof_1_5|∀ {B : ℕ → ℕ} {h : ℕ} {l : ℕ} {j K' : ℕ} (p r : ℕ), r < l → ¬r ≤ l → False
+AUDIT|Erdos348.prefixSum_zero|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.prefixSum_zero|∀ (B : ℕ → ℕ), Erdos348.prefixSum B 0 = 0
+AUDIT|Erdos348.add_mem_prefixSums_of_mem_prefixSums._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.add_mem_prefixSums_of_mem_prefixSums._proof_1_2|∀ {j : ℕ} {m N : ℕ},
+  m < N → ∀ ⦃r : ℕ⦄, r = m → ¬r < N → False
+AUDIT|Erdos348.central_interval_thm._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._simp_1_2|∀ {n m : ℕ}, (m ∈ Finset.range n) = (m < n)
+AUDIT|Erdos348.sum_sdiff_pair._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.sum_sdiff_pair._simp_1_3|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos348.pow_two_repr._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos348.pow_two_repr._proof_1_1|∀ x < 2 ^ 0, ¬x = 0 → False
+AUDIT|Erdos348.pow_two_not_complete_of_nonempty._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.pow_two_not_complete_of_nonempty._proof_1_2|∀ (j T : ℕ),
+  1 ≤ 2 ^ (j + 1) → 1 * T ≤ 2 ^ (j + 1) * T → ¬T ≤ 2 ^ (j + 1) * T + 2 ^ j → False
+AUDIT|Erdos348.fibSeq_one_del_repr._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_one_del_repr._proof_1_4|∀ (j k x : ℕ) (B : Finset ℕ) ⦃idx : ℕ⦄, idx < k → ¬idx < k + 1 → False
+AUDIT|Erdos348.add_const_block_mem_prefixSums._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos348.add_const_block_mem_prefixSums._proof_1_3|∀ {p : ℕ} (j r : ℕ), r ≤ j → ¬r ≤ j + 1 → False
+AUDIT|Erdos348.pow_two_repr._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos348.pow_two_repr._proof_1_6|∀ (n x : ℕ),
+  ¬x < 2 ^ n → ∀ (B : Finset ℕ), x - 2 ^ n = ∑ i ∈ B, 2 ^ i → ¬x = 2 ^ n + (x - 2 ^ n) → False
+AUDIT|Erdos348.subseqSums'_updateFinset_mono|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.subseqSums'_updateFinset_mono|∀ {a : ℕ → ℕ} {s t : Finset ℕ},
+  s ⊆ t → subseqSums' (Function.updateFinset a t 0) ⊆ subseqSums' (Function.updateFinset a s 0)
+AUDIT|Erdos348.extension_prop._proof_1_12|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_12|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ M I₁ : ℕ),
+  M ≤ (fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) →
+    ∀ (m q : ℕ), (fun i => A (emb i)) (max I₁ (max K₀ (max (I₀ + 1) (2 * max T₀ 1)) + 1)) ≤ q → ¬M ≤ q → False
+AUDIT|Erdos348.central_interval_thm._proof_1_13|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_13|∀ {B : ℕ → ℕ} {T : ℕ} (L₀ N₀ N x j u : ℕ) (s : Finset ℕ) (r : ℕ),
+  L₀ < j → ¬j ≥ L₀ → False
+AUDIT|Erdos348.normalize_state._proof_1_11|[propext, Quot.sound]
+TYPE|Erdos348.normalize_state._proof_1_11|∀ {B : ℕ → ℕ} {h l : ℕ} {j : ℕ} {K' : ℕ},
+  ¬max K' h < l → ¬l ≤ max K' h → False
+AUDIT|Erdos348.central_interval_thm._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_6|∀ {B : ℕ → ℕ} {T : ℕ}
+  (hH : {u ∈ Finset.range T | u ∉ subseqSums' B}.Nonempty) (k K' K j N : ℕ) (E : Finset ℕ),
+  ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH + 1) * ({u ∈ Finset.range T | u ∉ subseqSums' B}.card + 1) + 1 -
+        Erdos348.statePotential B ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH) j N E ≤
+      k + 1 →
+    ∀ (j' N' : ℕ) (E' : Finset ℕ),
+      Erdos348.statePotential B ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH) j N E <
+          Erdos348.statePotential B ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH) j' N' E' →
+        Erdos348.statePotential B ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH) j N E ≤
+            ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH + 1) *
+              ({u ∈ Finset.range T | u ∉ subseqSums' B}.card + 1) →
+          ¬({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH + 1) *
+                      ({u ∈ Finset.range T | u ∉ subseqSums' B}.card + 1) +
+                    1 -
+                  Erdos348.statePotential B ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH) j' N' E' ≤
+                k →
+            False
+AUDIT|Erdos348.central_close._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_close._proof_1_1|∀ {B : ℕ → ℕ} {T : ℕ} {j : ℕ} {N : ℕ} {m : ℕ},
+  B j < B m → ∀ (e : ℕ), ¬B m - B j ≤ e → ¬B j + e < B m → False
+AUDIT|Erdos348.complEmb_preimage_finset._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.complEmb_preimage_finset._simp_1_3|∀ {n m : ℕ}, (m ∈ Finset.range n) = (m < n)
+AUDIT|Erdos348.central_interval_thm._proof_1_19|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_19|∀ {B : ℕ → ℕ} {T : ℕ} (J₀ : ℕ),
+  {u ∈ Finset.range T | u ∉ subseqSums' B}.Nonempty →
+    ∀ (K_final L₀ N₀ N x j u : ℕ),
+      Erdos348.prefixSum B j = x + u →
+        ∀ (s : Finset ℕ), x = ∑ i ∈ s, B i → ∀ (r : ℕ), ¬Erdos348.prefixSum B j - x = u → False
+AUDIT|Erdos348.step_exists._proof_1_17|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_17|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty →
+    ∀ (K' J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ),
+      E.Nonempty → K₂ + 1 ≤ j → ∀ (l : ℕ) (E' : Finset ℕ) (j' r : ℕ), r < j → ¬r ≤ j - 1 → False
+AUDIT|Erdos348.fibSeq_one_del_step._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_one_del_step._simp_1_1|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos348.fibSeq_one_del_step._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_one_del_step._proof_1_6|∀ (j k : ℕ), j < k → ¬k = k - 1 + 1 → False
+AUDIT|Erdos348.step_exists._proof_1_46|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_46|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty →
+    ∀ (J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ), E.Nonempty → ∀ (m l : ℕ) (E' : Finset ℕ), L₁ < l → ¬l ≥ L₁ → False
+AUDIT|Erdos348.fibSeq_two_del_missing._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.fibSeq_two_del_missing._proof_1_11|∀ {i j : ℕ} (m : ℕ) (B : Finset ℕ),
+  Erdos348.fibSeq (j + 2 * m + 2 + 1) - 1 = ∑ i ∈ B, Erdos348.fibSeq i →
+    ∑ x ∈ B, Erdos348.fibSeq x ≤ ∑ x ∈ Finset.range (j + 2 * m + 2) \ {i, j}, Erdos348.fibSeq x →
+      ∑ r ∈ Finset.range (j + 2 * m + 2) \ {i, j}, Erdos348.fibSeq r + Erdos348.fibSeq i + Erdos348.fibSeq j =
+          ∑ r ∈ Finset.range (j + 2 * m + 2), Erdos348.fibSeq r →
+        ∑ i ∈ Finset.range (j + 2 * m + 2), Erdos348.fibSeq i + 1 = Erdos348.fibSeq (j + 2 * m + 2 + 1) →
+          1 ≤ Erdos348.fibSeq i → 1 ≤ Erdos348.fibSeq j → False
+AUDIT|Erdos348.extension_prop._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_2|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ : ℕ),
+  I₀ + 1 ≤ max K₀ (max (I₀ + 1) (2 * max T₀ 1)) → ¬I₀ < max K₀ (max (I₀ + 1) (2 * max T₀ 1)) → False
+AUDIT|Erdos348.step_exists._proof_1_48|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_48|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (K' J₀ J₁ L₁ K₁ K₂ j N : ℕ)
+  (E : Finset ℕ),
+  E.Nonempty → ∀ (m l : ℕ) (E' : Finset ℕ), max T (B (max K' (H.max' hH))) < B l → ¬B (max K' (H.max' hH)) < B l → False
+AUDIT|Erdos348.extension_prop._proof_1_20|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.extension_prop._proof_1_20|∀ {A : ℕ → ℕ} (D : Finset ℕ) (emb : ℕ → ℕ) (T₀ K₀ I₀ : ℕ),
+  I₀ < max K₀ (max (I₀ + 1) (2 * max T₀ 1)) → I₀ = max K₀ (max (I₀ + 1) (2 * max T₀ 1)) → False
+AUDIT|Erdos348.central_interval_thm._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._simp_1_1|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α}
+  {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos348.central_interval_thm._proof_1_24|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_24|∀ {B : ℕ → ℕ} {T : ℕ} (J₀ : ℕ)
+  (hH : {u ∈ Finset.range T | u ∉ subseqSums' B}.Nonempty) (K_final L₀ N₀ N x j u : ℕ) (s : Finset ℕ) (r j' N' : ℕ),
+  ¬({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH + 1) * ({u ∈ Finset.range T | u ∉ subseqSums' B}.card + 1) + 1 -
+          Erdos348.statePotential B ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH) j' N' {u} ≤
+        ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH + 1) * ({u ∈ Finset.range T | u ∉ subseqSums' B}.card + 1) +
+          1 →
+    False
+AUDIT|Erdos348.pow_two_sum_range._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.pow_two_sum_range._proof_1_1|∀ (k : ℕ),
+  ∑ i ∈ Finset.range k, 2 ^ i + 1 = 2 ^ k → ¬∑ x ∈ Finset.range k, 2 ^ x + 2 ^ k + 1 = 2 ^ k * 2 → False
+AUDIT|Erdos348.prefixSums_mono|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.prefixSums_mono|∀ {B : ℕ → ℕ} {M N : ℕ}, M ≤ N → Erdos348.prefixSums B M ⊆ Erdos348.prefixSums B N
+AUDIT|Erdos348.central_cut._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_cut._proof_1_3|∀ {B : ℕ → ℕ} {T N x : ℕ} (k j : ℕ), j < k → ∀ (u : ℕ), ¬j < k + 1 → False
+AUDIT|Erdos348.step_exists._proof_1_19|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_19|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty →
+    ∀ (K' J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ), E.Nonempty → ∀ l < j, ∀ (E' : Finset ℕ) (j' : ℕ), ¬l ≤ j → False
+AUDIT|Erdos348.step_exists._proof_1_24|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_24|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (K' J₀ J₁ L₁ K₁ K₂ j N : ℕ)
+  (E : Finset ℕ) (hE : E.Nonempty),
+  B j + (2 * H.max' hH + max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) + 1) ≤
+      Erdos348.prefixSum B j →
+    max T (H.max' hH) < B (j - 1) →
+      Erdos348.prefixSum B L₁ ≤ max T (max (Erdos348.prefixSum B (max J₀ J₁)) (Erdos348.prefixSum B L₁)) →
+        B j = B (N - 1) →
+          B (j - 1) < B j →
+            ∀ l < j,
+              ∀ (E' : Finset ℕ) (hst' : Erdos348.IsState B H l j E'),
+                max T (B (max K' (H.max' hH))) < B l →
+                  ∀ (j' N' : ℕ),
+                    (B l = B (j - 1) →
+                        Erdos348.statePotential B (H.max' hH) j' N' E' = (H.max' hH + 1) * E'.card + E'.min' ⋯) →
+                      (B l ≠ B (j - 1) →
+                          Erdos348.statePotential B (H.max' hH) j' N' E' = (H.max' hH + 1) * (E'.card + 1)) →
+                        B l = B (j - 1) →
+                          Erdos348.prefixSum B j = Erdos348.prefixSum B l + (j - l) * B (j - 1) →
+                            E.min' hE ≤ H.max' hH →
+                              Erdos348.prefixSum B j - B j - E.min' hE ≤ Erdos348.prefixSum B l →
+                                B j - B l ≤ Erdos348.prefixSum B l - (Erdos348.prefixSum B j - B j - E.min' hE) →
+                                  ¬j - l = 1 → 2 ≤ j - l → 2 * B (j - 1) ≤ (j - l) * B (j - 1) → False
+AUDIT|Erdos348.central_interval_thm._proof_1_14|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_interval_thm._proof_1_14|∀ {B : ℕ → ℕ} {T : ℕ} (J₀ : ℕ)
+  (hH : {u ∈ Finset.range T | u ∉ subseqSums' B}.Nonempty) (K_final L₀ N₀ N x j u : ℕ) (s : Finset ℕ) (r : ℕ),
+  B (max J₀ (max K_final ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH))) + 1 ≤ B j →
+    ¬B (max J₀ (max K_final ({u ∈ Finset.range T | u ∉ subseqSums' B}.max' hH))) < B j → False
+AUDIT|Erdos348.sub_mem_prefixSums_of_mem_prefixSums._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.sub_mem_prefixSums_of_mem_prefixSums._proof_1_1|∀ {B : ℕ → ℕ} {N : ℕ} (s : Finset ℕ),
+  ∑ x ∈ Finset.range N \ s, B x + ∑ x ∈ s, B x = ∑ x ∈ Finset.range N, B x →
+    ¬∑ i ∈ Finset.range N, B i - ∑ i ∈ s, B i = ∑ i ∈ Finset.range N \ s, B i → False
+AUDIT|Erdos348.not_exists_for_m_ge_two._proof_1_15|[propext, Quot.sound]
+TYPE|Erdos348.not_exists_for_m_ge_two._proof_1_15|∀ {m n : ℕ} (a : ℕ → ℕ) (I₁ k₀ i j : ℕ),
+  i ≤ j → ¬k₀ + i ≤ k₀ + j → False
+AUDIT|Erdos348.fibSeq_two_del_missing._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos348.fibSeq_two_del_missing._proof_1_5|∀ {i : ℕ} {j : ℕ} (m : ℕ) (B : Finset ℕ),
+  ¬j + 2 * (m + 1) + 1 = j + 2 * m + 2 + 1 → False
+AUDIT|Erdos348.add_const_block_mem_prefixSums._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos348.add_const_block_mem_prefixSums._proof_1_2|∀ {p : ℕ} (j : ℕ), p < j + 1 → ¬p ≤ j → False
+AUDIT|Erdos348.central_cut._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.central_cut._proof_1_2|∀ {B : ℕ → ℕ} {T : ℕ} {N : ℕ} {x : ℕ} (k : ℕ), k + 1 ≤ N → ¬k ≤ N → False
+AUDIT|Erdos348.step_exists._proof_1_49|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_49|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ},
+  H.Nonempty →
+    ∀ (K' J₀ J₁ L₁ K₁ K₂ j N : ℕ) (E : Finset ℕ),
+      E.Nonempty →
+        ∀ (m : ℕ),
+          E.card + 1 ≤
+              (Finset.image (fun e => Erdos348.prefixSum B j - B j - e) E ∪
+                  Finset.image (fun e => Erdos348.prefixSum B j - B m - e) E).card →
+            ∀ (l : ℕ) (E' : Finset ℕ),
+              E'.card =
+                  (Finset.image (fun e => Erdos348.prefixSum B j - B j - e) E ∪
+                      Finset.image (fun e => Erdos348.prefixSum B j - B m - e) E).card →
+                ∀ (j' N' : ℕ), ¬E.card + 1 ≤ E'.card → False
+AUDIT|Erdos348.step_exists._proof_1_15|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_15|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (K' J₀ J₁ L₁ K₁ K₂ j N : ℕ)
+  (E : Finset ℕ) (l : ℕ) (E' : Finset ℕ),
+  max T (B (max K' (H.max' hH))) + 1 ≤ B l → ¬max T (B (max K' (H.max' hH))) < B l → False
+AUDIT|Erdos348.step_exists._proof_1_32|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos348.step_exists._proof_1_32|∀ {B : ℕ → ℕ} {T : ℕ} {H : Finset ℕ} (hH : H.Nonempty) (J₀ J₁ L₁ K₁ K₂ j N : ℕ),
+  max T (H.max' hH) < B (j - 1) → B (j - 1) ≤ B j → ¬B j = B (N - 1) → B j < B (N - 1) → ∀ m < N, ¬T ≤ B j → False

@@ -1,0 +1,6 @@
+Erdos596.erdos_596.variants.C4_free_countable_escape : (SimpleGraph.cycleGraph 4).HasCountableRamseyEscape
+  (SimpleGraph.cycleGraph 6)
+theorem Erdos596.erdos_596.variants.C4_free_countable_escape : (SimpleGraph.cycleGraph 4).HasCountableRamseyEscape
+  (SimpleGraph.cycleGraph 6) :=
+fun W H hC4 => Erdos596.countable_escape_of_card_le (Cardinal.mk W) W H le_rfl hC4
+'Erdos596.erdos_596.variants.C4_free_countable_escape' depends on axioms: [propext, Classical.choice, Quot.sound]

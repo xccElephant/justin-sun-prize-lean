@@ -1,0 +1,52 @@
+AUDIT|Erdos885.factorDifferenceSet_finite|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos885.factorDifferenceSet_finite|∀ {n : ℕ}, 1 ≤ n → (Erdos885.factorDifferenceSet n).Finite
+AUDIT|Erdos885.erdos_885.variants.k_eq_4._simp_1_2|[propext]
+TYPE|Erdos885.erdos_885.variants.k_eq_4._simp_1_2|∀ {α : Type u_1} {a b : α}, (a ∈ {b}) = (a = b)
+AUDIT|Erdos885.erdos_885.variants.k_eq_3._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos885.erdos_885.variants.k_eq_3._simp_1_5|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos885.erdos_885.variants.k_eq_4._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos885.erdos_885.variants.k_eq_4._simp_1_4|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos885.erdos_885.variants.k_eq_2._simp_1_2|[propext]
+TYPE|Erdos885.erdos_885.variants.k_eq_2._simp_1_2|∀ {α : Type u_1} {a b : α}, (a ∈ {b}) = (a = b)
+AUDIT|Erdos885.erdos_885.variants.k_eq_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos885.erdos_885.variants.k_eq_2|∃ Ns,
+  (∀ n ∈ Ns, 1 ≤ n) ∧ Ns.card = 2 ∧ (⋂ n ∈ Ns, Erdos885.factorDifferenceSet n).ncard ≥ 2
+AUDIT|Erdos885.erdos_885.variants.k_eq_2._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos885.erdos_885.variants.k_eq_2._simp_1_5|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos885.mem_factorDifferenceSet_of_eq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos885.mem_factorDifferenceSet_of_eq|∀ {n d b : ℕ}, n = b * (b + d) → d ∈ Erdos885.factorDifferenceSet n
+AUDIT|Erdos885.erdos_885.variants.k_eq_3._simp_1_2|[propext]
+TYPE|Erdos885.erdos_885.variants.k_eq_3._simp_1_2|∀ {α : Type u_1} {a b : α}, (a ∈ {b}) = (a = b)
+AUDIT|Erdos885.erdos_885.variants.k_eq_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos885.erdos_885.variants.k_eq_4|∃ Ns,
+  (∀ n ∈ Ns, 1 ≤ n) ∧ Ns.card = 4 ∧ (⋂ n ∈ Ns, Erdos885.factorDifferenceSet n).ncard ≥ 4
+AUDIT|Erdos885.erdos_885.variants.k_eq_4._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos885.erdos_885.variants.k_eq_4._simp_1_5|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos885.erdos_885.variants.k_eq_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos885.erdos_885.variants.k_eq_3|∃ Ns,
+  (∀ n ∈ Ns, 1 ≤ n) ∧ Ns.card = 3 ∧ (⋂ n ∈ Ns, Erdos885.factorDifferenceSet n).ncard ≥ 3
+AUDIT|Erdos885.erdos_885.variants.k_eq_2._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos885.erdos_885.variants.k_eq_2._simp_1_4|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos885.erdos_885.variants.k_eq_2._simp_1_3|[propext]
+TYPE|Erdos885.erdos_885.variants.k_eq_2._simp_1_3|∀ {α : Type u} {ι : Sort v} {x : α} {s : ι → Set α},
+  (x ∈ ⋂ i, s i) = ∀ (i : ι), x ∈ s i
+AUDIT|Erdos885.erdos_885.variants.k_eq_3._simp_1_3|[propext]
+TYPE|Erdos885.erdos_885.variants.k_eq_3._simp_1_3|∀ {α : Type u} {ι : Sort v} {x : α} {s : ι → Set α},
+  (x ∈ ⋂ i, s i) = ∀ (i : ι), x ∈ s i
+AUDIT|Erdos885.erdos_885.variants.k_eq_4._simp_1_3|[propext]
+TYPE|Erdos885.erdos_885.variants.k_eq_4._simp_1_3|∀ {α : Type u} {ι : Sort v} {x : α} {s : ι → Set α},
+  (x ∈ ⋂ i, s i) = ∀ (i : ι), x ∈ s i
+AUDIT|Erdos885.erdos_885.variants.k_eq_2._simp_1_1|[propext]
+TYPE|Erdos885.erdos_885.variants.k_eq_2._simp_1_1|∀ {α : Type u_1} {x a : α} {s : Set α},
+  (x ∈ insert a s) = (x = a ∨ x ∈ s)
+AUDIT|Erdos885.erdos_885.variants.k_eq_3._simp_1_1|[propext]
+TYPE|Erdos885.erdos_885.variants.k_eq_3._simp_1_1|∀ {α : Type u_1} {x a : α} {s : Set α},
+  (x ∈ insert a s) = (x = a ∨ x ∈ s)
+AUDIT|Erdos885.erdos_885.variants.k_eq_4._simp_1_1|[propext]
+TYPE|Erdos885.erdos_885.variants.k_eq_4._simp_1_1|∀ {α : Type u_1} {x a : α} {s : Set α},
+  (x ∈ insert a s) = (x = a ∨ x ∈ s)
+AUDIT|Erdos885.erdos_885.variants.k_eq_3._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos885.erdos_885.variants.k_eq_3._simp_1_4|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)

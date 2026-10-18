@@ -1,0 +1,81 @@
+AUDIT|Erdos657.card_strausSet|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.card_strausSet|∀ (k : ℕ), (Erdos657.strausSet k).card = 2 ^ k
+AUDIT|Erdos657.sum_four_pow_range_lt|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.sum_four_pow_range_lt|∀ (m : ℕ), ∑ j ∈ Finset.range m, 4 ^ j < 4 ^ m
+AUDIT|Erdos657.dist_sq_strausPoint._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.dist_sq_strausPoint._simp_1_1|∀ {α : Type u_1} [inst : DecidableEq α] {s t : Finset α} {a : α},
+  (a ∈ symmDiff s t) = (a ∈ s ∧ a ∉ t ∨ a ∈ t ∧ a ∉ s)
+AUDIT|Erdos657.strausPoint._proof_1|[propext]
+TYPE|Erdos657.strausPoint._proof_1|(1 + 1).AtLeastTwo
+AUDIT|Erdos657.eq_of_symmDiff_eq_symmDiff._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.eq_of_symmDiff_eq_symmDiff._simp_1_1|∀ {α : Type u_1} [inst : DecidableEq α] {s t : Finset α} {a : α},
+  (a ∈ symmDiff s t) = (a ∈ s ∧ a ∉ t ∨ a ∈ t ∧ a ∉ s)
+AUDIT|Erdos657.sum_four_pow_lt_of_max_diff|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.sum_four_pow_lt_of_max_diff|∀ {k : ℕ} {D₁ D₂ : Finset (Fin k)},
+  ∀ m ∈ D₁, m ∉ D₂ → (∀ (i : Fin k), m < i → (i ∈ D₁ ↔ i ∈ D₂)) → ∑ i ∈ D₂, 4 ^ ↑i < ∑ i ∈ D₁, 4 ^ ↑i
+AUDIT|Erdos657.sum_four_pow_lt_of_max_diff._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.sum_four_pow_lt_of_max_diff._simp_1_1|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p]
+  {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos657.isIsoscelesFree_real_iff_no_three_term_ap|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.isIsoscelesFree_real_iff_no_three_term_ap|∀ (A : Set ℝ),
+  A.IsIsoscelesFree ↔ ∀ ⦃x : ℝ⦄, x ∈ A → ∀ ⦃y : ℝ⦄, y ∈ A → ∀ ⦃z : ℝ⦄, z ∈ A → x ≠ y → y ≠ z → x ≠ z → x + z ≠ 2 * y
+AUDIT|Erdos657.isIsoscelesFree_strausSet|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.isIsoscelesFree_strausSet|∀ (k : ℕ), (↑(Erdos657.strausSet k)).IsIsoscelesFree
+AUDIT|Erdos657.dist_sq_strausPoint|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.dist_sq_strausPoint|∀ (k : ℕ) (S T : Finset (Fin k)),
+  dist (Erdos657.strausPoint k S) (Erdos657.strausPoint k T) ^ 2 = ↑(∑ i ∈ symmDiff S T, 4 ^ ↑i)
+AUDIT|Erdos657.sum_four_pow_fin_lt|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.sum_four_pow_fin_lt|∀ {k : ℕ} (D : Finset (Fin k)) (m : Fin k),
+  (∀ i ∈ D, i < m) → ∑ i ∈ D, 4 ^ ↑i < 4 ^ ↑m
+AUDIT|Erdos657.erdos_657.variants.straus|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.erdos_657.variants.straus|∀ (k : ℕ),
+  ∃ A, A.card = 2 ^ k ∧ (↑A).IsIsoscelesFree ∧ distinctDistances A ≤ 2 ^ k - 1
+AUDIT|Erdos657.dist_strausPoint_eq_iff|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.dist_strausPoint_eq_iff|∀ (k : ℕ) (S T U V : Finset (Fin k)),
+  dist (Erdos657.strausPoint k S) (Erdos657.strausPoint k T) =
+      dist (Erdos657.strausPoint k U) (Erdos657.strausPoint k V) ↔
+    symmDiff S T = symmDiff U V
+AUDIT|Erdos657.strausPoint_injective|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.strausPoint_injective|∀ (k : ℕ), Function.Injective (Erdos657.strausPoint k)
+AUDIT|Erdos657.isIsosceles_real_iff|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.isIsosceles_real_iff|∀ {x y z : ℝ},
+  x ≠ y → y ≠ z → x ≠ z → (IsIsosceles x y z ↔ x + z = 2 * y ∨ y + x = 2 * z ∨ z + y = 2 * x)
+AUDIT|Erdos657.distinctDistances_strausSet_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.distinctDistances_strausSet_le|∀ (k : ℕ), distinctDistances (Erdos657.strausSet k) ≤ 2 ^ k - 1
+AUDIT|Erdos657.sum_four_pow_injective|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.sum_four_pow_injective|∀ (k : ℕ), Function.Injective fun D => ∑ i ∈ D, 4 ^ ↑i
+AUDIT|Erdos657.erdos_657_dim_one_of_dim_one_lower|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.erdos_657_dim_one_of_dim_one_lower|(∃ c > 0,
+    ∀ᶠ (n : ℕ) in Filter.atTop,
+      ∀ (A : Finset ℝ), A.card = n → (↑A).IsIsoscelesFree → ↑n * Real.log ↑n ^ c ≤ ↑(distinctDistances A)) →
+  ∃ f,
+    Filter.Tendsto f Filter.atTop Filter.atTop ∧
+      ∀ (n : ℕ) (A : Finset ℝ), A.card = n → (↑A).IsIsoscelesFree → f n * ↑n ≤ ↑(distinctDistances A)
+AUDIT|Erdos657.eq_of_symmDiff_eq_symmDiff|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.eq_of_symmDiff_eq_symmDiff|∀ {α : Type u_1} [inst : DecidableEq α] {A B C : Finset α},
+  symmDiff A B = symmDiff B C → A = C
+AUDIT|Erdos657.isIsosceles_real_iff._simp_1_1|[propext]
+TYPE|Erdos657.isIsosceles_real_iff._simp_1_1|∀ {α : Type u_1} [inst : AddGroup α] [inst_1 : LinearOrder α] {a b : α},
+  (|a| = |b|) = (a = b ∨ a = -b)
+AUDIT|Erdos657.sum_four_pow_lt_of_max_diff._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos657.sum_four_pow_lt_of_max_diff._proof_1_4|∀ {k : ℕ} {D₁ D₂ : Finset (Fin k)} (m : Fin k),
+  ∑ i ∈ D₂ with ¬m < i, 4 ^ ↑i < 4 ^ ↑m →
+    4 ^ ↑m ≤ ∑ i ∈ D₁ with ¬m < i, 4 ^ ↑i →
+      ¬∑ x ∈ D₁ with m < x, 4 ^ ↑x + ∑ x ∈ D₂ with ¬m < x, 4 ^ ↑x <
+            ∑ x ∈ D₁ with m < x, 4 ^ ↑x + ∑ x ∈ D₁ with ¬m < x, 4 ^ ↑x →
+        False
+AUDIT|Erdos657.sum_four_pow_range_lt._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.sum_four_pow_range_lt._proof_1_1|∀ (m : ℕ),
+  ∑ j ∈ Finset.range m, 4 ^ j < 4 ^ m → ¬∑ x ∈ Finset.range m, 4 ^ x + 4 ^ m < 4 ^ (m + 1) → False
+AUDIT|Erdos657.dist_strausPoint|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.dist_strausPoint|∀ (k : ℕ) (S T : Finset (Fin k)),
+  dist (Erdos657.strausPoint k S) (Erdos657.strausPoint k T) = √↑(∑ i ∈ symmDiff S T, 4 ^ ↑i)
+AUDIT|Erdos657.sum_four_pow_injective._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos657.sum_four_pow_injective._proof_1_1|∀ (k : ℕ) ⦃D₁ D₂ : Finset (Fin k)⦄,
+  ∑ i ∈ D₁, 4 ^ ↑i = ∑ i ∈ D₂, 4 ^ ↑i → ∑ i ∈ D₂, 4 ^ ↑i < ∑ i ∈ D₁, 4 ^ ↑i → False
+AUDIT|Erdos657.strausPoint_apply|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos657.strausPoint_apply|∀ (k : ℕ) (S : Finset (Fin k)) (i : Fin k),
+  (Erdos657.strausPoint k S).ofLp i = if i ∈ S then 2 ^ ↑i else 0
+AUDIT|Erdos657.sum_four_pow_injective._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos657.sum_four_pow_injective._proof_1_2|∀ (k : ℕ) ⦃D₁ D₂ : Finset (Fin k)⦄,
+  ∑ i ∈ D₁, 4 ^ ↑i = ∑ i ∈ D₂, 4 ^ ↑i → ∑ i ∈ D₁, 4 ^ ↑i < ∑ i ∈ D₂, 4 ^ ↑i → False

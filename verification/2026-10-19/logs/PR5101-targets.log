@@ -1,0 +1,120 @@
+Erdos668.erdos_668.parts.ii : ¬∀ (n : ℕ),
+    3 < n →
+      ∃ A B,
+        A.card = n ∧
+          B.card = n ∧
+            unitDistNum A = Erdos90.maxUnitDistances n ∧
+              unitDistNum B = Erdos90.maxUnitDistances n ∧ ¬∃ f, ⇑f '' ↑A = ↑B
+theorem Erdos668.erdos_668.parts.ii : ¬∀ (n : ℕ),
+    3 < n →
+      ∃ A B,
+        A.card = n ∧
+          B.card = n ∧
+            unitDistNum A = Erdos90.maxUnitDistances n ∧
+              unitDistNum B = Erdos90.maxUnitDistances n ∧ ¬∃ f, ⇑f '' ↑A = ↑B :=
+Exists.casesOn Erdos668.erdos_668.variants.four_points fun a h =>
+  Exists.casesOn h fun b h =>
+    Exists.casesOn h fun c h =>
+      Exists.casesOn h fun d h =>
+        And.casesOn h fun left right =>
+          And.casesOn right fun left right =>
+            And.casesOn right fun left right =>
+              And.casesOn right fun left right =>
+                And.casesOn right fun left right =>
+                  And.casesOn right fun left h H =>
+                    Exists.casesOn
+                      (H 4
+                        (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 3))
+                          (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 4)) (Eq.refl false)))
+                      fun A h_1 =>
+                      Exists.casesOn h_1 fun B h_2 =>
+                        And.casesOn h_2 fun hA right =>
+                          And.casesOn right fun hB right =>
+                            And.casesOn right fun hAm right =>
+                              And.casesOn right fun hBm hAB =>
+                                Exists.casesOn ((h A hA).mp hAm) fun f hf =>
+                                  Exists.casesOn ((h B hB).mp hBm) fun g hg =>
+                                    hAB
+                                      (Exists.intro (f.symm.trans g)
+                                        (Eq.mpr (id (congrArg (fun _a => ⇑(f.symm.trans g) '' _a = ↑B) (Eq.symm hf)))
+                                          (Eq.mpr
+                                            (id
+                                              (congrArg (fun _a => ⇑(f.symm.trans g) '' ⇑f '' {a, b, c, d} = _a)
+                                                (Eq.symm hg)))
+                                            (Eq.mpr
+                                              (id
+                                                (congrArg (fun _a => _a = ⇑g '' {a, b, c, d})
+                                                  (Set.image_image ⇑(f.symm.trans g) ⇑f {a, b, c, d})))
+                                              (of_eq_true
+                                                (Eq.trans
+                                                  (congrFun'
+                                                    (congrArg Eq
+                                                      (congrFun'
+                                                        (congrArg Set.image
+                                                          (funext fun x =>
+                                                            congrArg (⇑g) (IsometryEquiv.symm_apply_apply f x)))
+                                                        {a, b, c, d}))
+                                                    (⇑g '' {a, b, c, d}))
+                                                  (eq_self ((fun x => g x) '' {a, b, c, d}))))))))
+'Erdos668.erdos_668.parts.ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos668.erdos_668.variants.four_points : ∃ a b c d,
+  dist a b = 1 ∧
+    dist a c = 1 ∧
+      dist b c = 1 ∧
+        dist b d = 1 ∧
+          dist c d = 1 ∧
+            {a, b, c, d}.card = 4 ∧
+              ∀ (B : Finset (EuclideanSpace ℝ (Fin 2))),
+                B.card = 4 → (unitDistNum B = Erdos90.maxUnitDistances 4 ↔ ∃ f, ⇑f '' {a, b, c, d} = ↑B)
+theorem Erdos668.erdos_668.variants.four_points : ∃ a b c d,
+  dist a b = 1 ∧
+    dist a c = 1 ∧
+      dist b c = 1 ∧
+        dist b d = 1 ∧
+          dist c d = 1 ∧
+            {a, b, c, d}.card = 4 ∧
+              ∀ (B : Finset (EuclideanSpace ℝ (Fin 2))),
+                B.card = 4 → (unitDistNum B = Erdos90.maxUnitDistances 4 ↔ ∃ f, ⇑f '' {a, b, c, d} = ↑B) :=
+Exists.intro Erdos668.a₀
+  (Exists.intro Erdos668.b₀
+    (Exists.intro Erdos668.c₀
+      (Exists.intro Erdos668.d₀
+        ⟨Erdos668.dist_a0_b0,
+          ⟨Erdos668.dist_a0_c0,
+            ⟨Erdos668.dist_b0_c0,
+              ⟨Erdos668.dist_b0_d0,
+                ⟨Erdos668.dist_c0_d0,
+                  ⟨Erdos668.diamond_card, fun B hB =>
+                    Eq.mpr
+                      (id
+                        (congrArg
+                          (fun _a =>
+                            unitDistNum B = _a ↔ ∃ f, ⇑f '' {Erdos668.a₀, Erdos668.b₀, Erdos668.c₀, Erdos668.d₀} = ↑B)
+                          Erdos668.maxUnitDistances_four))
+                      {
+                        mp := fun h5 =>
+                          Erdos668.exists_isometry_of_card_four_of_five_le_unitDistNum hB
+                            (Decidable.byContradiction fun a =>
+                              Erdos668.erdos_668.variants.four_points._proof_1_1 B h5 a),
+                        mpr := fun a =>
+                          Exists.casesOn a fun f hf =>
+                            have hf_coe :=
+                              Eq.mpr
+                                (id
+                                  (congrFun'
+                                    (congrArg Eq
+                                      (congrArg (Set.image ⇑f)
+                                        (Eq.trans
+                                          (Finset.coe_insert Erdos668.a₀ {Erdos668.b₀, Erdos668.c₀, Erdos668.d₀})
+                                          (congrArg (insert Erdos668.a₀)
+                                            (Eq.trans (Finset.coe_insert Erdos668.b₀ {Erdos668.c₀, Erdos668.d₀})
+                                              (congrArg (insert Erdos668.b₀)
+                                                (Eq.trans (Finset.coe_insert Erdos668.c₀ {Erdos668.d₀})
+                                                  (congrArg (insert Erdos668.c₀)
+                                                    (Finset.coe_singleton Erdos668.d₀)))))))))
+                                    ↑B))
+                                hf;
+                            Eq.mpr (id (congrArg (fun _a => _a = 5) (Erdos668.unitDistNum_eq_of_image_eq f hf_coe)))
+                              (Eq.mpr (id (congrArg (fun _a => _a = 5) Erdos668.unitDistNum_diamond))
+                                (Eq.refl 5)) }⟩⟩⟩⟩⟩⟩)))
+'Erdos668.erdos_668.variants.four_points' depends on axioms: [propext, Classical.choice, Quot.sound]

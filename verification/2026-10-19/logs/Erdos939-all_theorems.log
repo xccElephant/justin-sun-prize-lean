@@ -1,0 +1,372 @@
+AUDIT|Erdos939.step_lt._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos939.step_lt._proof_1_2|∀ {a b c : ℕ}, 1 < a → a < b → a + b = c → ¬1 ≤ b + c → False
+AUDIT|Erdos939.rawSetEight_mem._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos939.rawSetEight_mem._proof_1_7|∀ {B k : ℕ},
+  0 < B ^ 8 → 65536 * B ^ 8 ≤ (B * k + 1) ^ 8 → 0 < (B * k + 1) ^ 8 → ¬0 < (B * k + 1) ^ 8 - B ^ 8 → False
+AUDIT|Erdos939.card_and_sum_four._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.card_and_sum_four._proof_1_2|∀ {a₁ : ℕ} {a₂ a₃ a₄ : ℕ}, a₂ < a₃ → a₃ < a₄ → ¬(¬a₂ = a₃ ∧ ¬a₂ = a₄) → False
+AUDIT|Erdos939.coprime_add_of_valid|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.coprime_add_of_valid|∀ {a b c : ℕ},
+  a.Coprime b → 3 ∣ a ∨ 3 ∣ b ∨ 3 ∣ c → a + b = c → (b + c).Coprime (a + c)
+AUDIT|Erdos939.monomial_lt_step2|[propext]
+TYPE|Erdos939.monomial_lt_step2|∀ {c₁ c₂ X Y a b : ℕ},
+  0 < X → 0 < Y → c₁ * Y ^ 2 < c₂ * X ^ 2 → c₁ * X ^ a * Y ^ (b + 2) < c₂ * X ^ (a + 2) * Y ^ b
+AUDIT|Erdos939.card_and_sum_four|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.card_and_sum_four|∀ {a₁ a₂ a₃ a₄ : ℕ},
+  a₁ < a₂ → a₂ < a₃ → a₃ < a₄ → {a₁, a₂, a₃, a₄}.card = 4 ∧ ∑ s ∈ {a₁, a₂, a₃, a₄}, s = a₁ + a₂ + a₃ + a₄
+AUDIT|Erdos939.rawSetSix.eq_1|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSix.eq_1|∀ (X Y : ℕ),
+  Erdos939.rawSetSix X Y = {12 * X ^ 1 * Y ^ 5, 40 * X ^ 3 * Y ^ 3, 12 * X ^ 5 * Y ^ 1, (X - Y) ^ 6}
+AUDIT|Nat.Full.one_right|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.Full.one_right|∀ (k : ℕ), k.Full 1
+AUDIT|Erdos939.rawSetSix_card_and_sum._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSix_card_and_sum._proof_1_6|∀ {X Y : ℕ}, X = X - Y + Y → ¬Y ≤ X → False
+AUDIT|Erdos939.erdos_939_eight_infinite._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos939.erdos_939_eight_infinite._proof_1_2|∀ ⦃a b : ℕ⦄, a < b → ¬1120 * (a + 4) + 1 < 1120 * (b + 4) + 1 → False
+AUDIT|Erdos939.coprime_add_of_valid._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos939.coprime_add_of_valid._proof_1_4|∀ {a b c : ℕ}, 3 ∣ 1 → False
+AUDIT|Erdos939.erdos_939_five_nonempty|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.erdos_939_five_nonempty|(Erdos939.Erdos939Sums 5).Nonempty
+AUDIT|Erdos939.erdos_939.variants.examples|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.erdos_939.variants.examples|∃ r ≥ 4, (Erdos939.Erdos939Sums r).Nonempty
+AUDIT|Nat.Full.pow_of_le._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.Full.pow_of_le._simp_1_1|∀ (k : ℕ), k.Full 1 = True
+AUDIT|Erdos939.erdos_939_seven_infinite._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.erdos_939_seven_infinite._proof_1_1|∀ ⦃a b : ℕ⦄, 7 = 0 → False
+AUDIT|Erdos939.rawSetEight_mem._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.rawSetEight_mem._simp_1_4|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos939.erdos_939_five_nonempty._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos939.erdos_939_five_nonempty._proof_1_6|¬5 ≤ 8 → False
+AUDIT|Erdos939.step_lt._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos939.step_lt._proof_1_4|∀ {a b c : ℕ}, 1 < a → a + b = c → ¬c < a + c → False
+AUDIT|Erdos939.sumSetSix_spec|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.sumSetSix_spec|∀ (m : ℕ),
+  Erdos939.sumSetSix m ∈ Erdos939.Erdos939Sums 6 ∧
+    ∑ s ∈ Erdos939.sumSetSix m, s = ((120 * (m + 4) + 1) ^ 6 + 120 ^ 6) ^ 6
+AUDIT|Erdos939.rawSetEight_card_and_sum|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.rawSetEight_card_and_sum|∀ {X Y : ℕ},
+  0 < Y → 65536 * Y ≤ X → (Erdos939.rawSetEight X Y).card = 6 ∧ ∑ s ∈ Erdos939.rawSetEight X Y, s = (X + Y) ^ 8
+AUDIT|Erdos939.card_and_sum_three._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.card_and_sum_three._proof_1_1|∀ {a₁ a₂ a₃ : ℕ}, a₁ < a₂ → a₂ < a₃ → ¬(¬a₁ = a₂ ∧ ¬a₁ = a₃) → False
+AUDIT|Erdos939.rawSetSeven_mem._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSeven_mem._proof_1_2|∀ {B k : ℕ}, ¬1 ≤ 7 → False
+AUDIT|Erdos939.rawSetSix_mem._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSix_mem._proof_1_6|∀ {B k : ℕ},
+  0 < B ^ 6 → 4096 * B ^ 6 ≤ (B * k + 1) ^ 6 → ¬0 < (B * k + 1) ^ 6 → False
+AUDIT|Erdos939.sumSetEight_spec|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.sumSetEight_spec|∀ (m : ℕ),
+  Erdos939.sumSetEight m ∈ Erdos939.Erdos939Sums 8 ∧
+    ∑ s ∈ Erdos939.sumSetEight m, s = ((1120 * (m + 4) + 1) ^ 8 + 1120 ^ 8) ^ 8
+AUDIT|Erdos939.rawSetSix_mem._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSix_mem._proof_1_8|∀ {B k : ℕ}, ¬1 ≤ 5 → False
+AUDIT|Erdos939.seedTriple.eq_1|[propext]
+TYPE|Erdos939.seedTriple.eq_1|Erdos939.seedTriple = (271 ^ 3, 2 ^ 3 * 3 ^ 5 * 73 ^ 3, 919 ^ 3)
+AUDIT|Erdos939.finset_coprime_of_mem_coprime|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.finset_coprime_of_mem_coprime|∀ {S : Finset ℕ} {x y : ℕ}, x ∈ S → y ∈ S → x.Coprime y → S.Coprime
+AUDIT|Erdos939.nextTriple_spec|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.nextTriple_spec|∀ {t : ℕ × ℕ × ℕ},
+  Erdos939.ValidTriple t → Erdos939.ValidTriple (Erdos939.nextTriple t) ∧ t.2.2 < (Erdos939.nextTriple t).2.2
+AUDIT|Erdos939.sumSetSix_spec._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.sumSetSix_spec._proof_1_1|∀ (m : ℕ), ¬4 ≤ m + 4 → False
+AUDIT|Erdos939.rawSetEight_card_and_sum._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos939.rawSetEight_card_and_sum._proof_1_2|∀ {X Y : ℕ}, 0 < Y → 65536 * Y ≤ X → ¬Y ≤ X → False
+AUDIT|Erdos939.step_lt|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.step_lt|∀ {a b c : ℕ},
+  1 < a →
+    a < b →
+      a.Coprime b →
+        3 ∣ a ∨ 3 ∣ b ∨ 3 ∣ c →
+          Nat.Full 3 a →
+            Nat.Full 3 b →
+              Nat.Full 3 c →
+                a + b = c →
+                  Erdos939.ValidTriple (a * (b + c) ^ 3, c * (b - a) ^ 3, b * (a + c) ^ 3) ∧ c < b * (a + c) ^ 3
+AUDIT|Erdos939.ValidTriple.dvd_three|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.ValidTriple.dvd_three|∀ {t : ℕ × ℕ × ℕ}, Erdos939.ValidTriple t → 3 ∣ t.1 ∨ 3 ∣ t.2.1 ∨ 3 ∣ t.2.2
+AUDIT|Erdos939.rawSetSix_card_and_sum._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSix_card_and_sum._proof_1_5|∀ {X Y : ℕ}, 0 < Y → 4096 * Y ≤ X → X = X - Y + Y → ¬0 < X - Y → False
+AUDIT|Erdos939.rawSetEight.eq_1|[propext, Quot.sound]
+TYPE|Erdos939.rawSetEight.eq_1|∀ (X Y : ℕ),
+  Erdos939.rawSetEight X Y =
+    {16 * X ^ 1 * Y ^ 7, 112 * X ^ 3 * Y ^ 5, 32 * X ^ 5 * Y ^ 3, 80 * X ^ 5 * Y ^ 3, 16 * X ^ 7 * Y ^ 1, (X - Y) ^ 8}
+AUDIT|Erdos939.rawSetSeven_card_and_sum._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSeven_card_and_sum._proof_1_4|∀ {X Y : ℕ},
+  16384 * Y ≤ X → 0 < X → X = X - Y + Y → ¬X ≤ 2 * (X - Y) → False
+AUDIT|Erdos939.rawSetEight_mem|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.rawSetEight_mem|∀ {B k : ℕ},
+  0 < B →
+    4 ≤ k →
+      16 ∣ B →
+        32 ∣ B →
+          80 ∣ B →
+            112 ∣ B →
+              have M := B * k + 1;
+              have X := M ^ 8;
+              have Y := B ^ 8;
+              Erdos939.rawSetEight X Y ∈ Erdos939.Erdos939Sums 8 ∧ ∑ s ∈ Erdos939.rawSetEight X Y, s = (X + Y) ^ 8
+AUDIT|Erdos939.rawSetSix_mem|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.rawSetSix_mem|∀ {B k : ℕ},
+  0 < B →
+    4 ≤ k →
+      12 ∣ B →
+        40 ∣ B →
+          have M := B * k + 1;
+          have X := M ^ 6;
+          have Y := B ^ 6;
+          Erdos939.rawSetSix X Y ∈ Erdos939.Erdos939Sums 6 ∧ ∑ s ∈ Erdos939.rawSetSix X Y, s = (X + Y) ^ 6
+AUDIT|Erdos939.rawSetEight_card_and_sum._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.rawSetEight_card_and_sum._proof_1_1|∀ {X Y : ℕ}, 0 < Y → 65536 * Y ≤ X → ¬0 < X → False
+AUDIT|Erdos939.rawSetSeven_card_and_sum._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSeven_card_and_sum._proof_1_5|∀ {X Y : ℕ},
+  0 < Y → 16384 * Y ≤ X → X = X - Y + Y → ¬0 < X - Y → False
+AUDIT|Erdos939.sumSetEight_spec._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.sumSetEight_spec._proof_1_1|∀ (m : ℕ), ¬4 ≤ m + 4 → False
+AUDIT|Erdos939.erdos_939.variants.examples._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.erdos_939.variants.examples._proof_1_1|¬5 ≥ 4 → False
+AUDIT|Erdos939.ValidTriple.add_eq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.ValidTriple.add_eq|∀ {t : ℕ × ℕ × ℕ}, Erdos939.ValidTriple t → t.1 + t.2.1 = t.2.2
+AUDIT|Erdos939.card_and_sum_six|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.card_and_sum_six|∀ {a₁ a₂ a₃ a₄ a₅ a₆ : ℕ},
+  a₁ < a₂ →
+    a₂ < a₃ →
+      a₃ < a₄ →
+        a₄ < a₅ →
+          a₅ < a₆ → {a₁, a₂, a₃, a₄, a₅, a₆}.card = 6 ∧ ∑ s ∈ {a₁, a₂, a₃, a₄, a₅, a₆}, s = a₁ + a₂ + a₃ + a₄ + a₅ + a₆
+AUDIT|Erdos939.rawSetEight_mem._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.rawSetEight_mem._simp_1_5|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos939.full_monomial_term._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.full_monomial_term._proof_1_1|∀ {B c : ℕ} {b : ℕ}, 1 ≤ b → b = 0 → False
+AUDIT|Erdos939.rawSetEight_mem._proof_1_11|[propext, Quot.sound]
+TYPE|Erdos939.rawSetEight_mem._proof_1_11|∀ {B k : ℕ}, ¬1 ≤ 1 → False
+AUDIT|Erdos939.rawSetSix_card_and_sum._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSix_card_and_sum._proof_1_2|∀ {X Y : ℕ}, 0 < Y → 4096 * Y ≤ X → ¬Y ≤ X → False
+AUDIT|Erdos939.card_and_sum_three._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos939.card_and_sum_three._proof_1_2|∀ {a₁ : ℕ} {a₂ a₃ : ℕ}, a₂ < a₃ → a₂ = a₃ → False
+AUDIT|Erdos939.erdos_939.variants.eight|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.erdos_939.variants.eight|(Erdos939.Erdos939Sums 8).Nonempty
+AUDIT|Erdos939.card_and_sum_six._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.card_and_sum_six._proof_1_1|∀ {a₁ a₂ a₃ a₄ a₅ a₆ : ℕ},
+  a₁ < a₂ → a₂ < a₃ → a₃ < a₄ → a₄ < a₅ → a₅ < a₆ → ¬(¬a₁ = a₂ ∧ ¬a₁ = a₃ ∧ ¬a₁ = a₄ ∧ ¬a₁ = a₅ ∧ ¬a₁ = a₆) → False
+AUDIT|Erdos939.coprime_add_of_valid._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.coprime_add_of_valid._proof_1_3|∀ {a b c : ℕ},
+  3 ∣ a ∨ 3 ∣ b ∨ 3 ∣ c → a + b = c → 3 ∣ b + c → 3 ∣ a + c → ¬(3 ∣ a ∧ 3 ∣ b) → False
+AUDIT|Erdos939.rawSetEight_mem._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos939.rawSetEight_mem._proof_1_6|∀ {B k : ℕ},
+  0 < B ^ 8 → 65536 * B ^ 8 ≤ (B * k + 1) ^ 8 → ¬0 < (B * k + 1) ^ 8 → False
+AUDIT|Erdos939.step_lt._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.step_lt._proof_1_1|∀ {a b c : ℕ}, a < b → a + b = c → ¬1 ≤ b - a → False
+AUDIT|Erdos939.rawSetEight_card_and_sum._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos939.rawSetEight_card_and_sum._proof_1_3|∀ {X Y : ℕ},
+  65536 * Y ≤ X → X = X - Y + Y → ¬65535 * Y ≤ X - Y → False
+AUDIT|Erdos939.step_lt._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos939.step_lt._proof_1_5|∀ {a b c : ℕ}, a + b = c → 2 ≤ a + c → ¬a + c > 0 → False
+AUDIT|Erdos939.card_and_sum_three|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.card_and_sum_three|∀ {a₁ a₂ a₃ : ℕ},
+  a₁ < a₂ → a₂ < a₃ → {a₁, a₂, a₃}.card = 3 ∧ ∑ s ∈ {a₁, a₂, a₃}, s = a₁ + a₂ + a₃
+AUDIT|Erdos939.rawSetSeven_mem._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.rawSetSeven_mem._simp_1_4|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Nat.Full.mul|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.Full.mul|∀ {k a b : ℕ}, k.Full a → k.Full b → k.Full (a * b)
+AUDIT|Erdos939.rawSetSeven_mem._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSeven_mem._proof_1_3|∀ {B : ℕ} {k : ℕ}, 4 ≤ k → ¬1 ≤ k → False
+AUDIT|Erdos939.rawSetSix_mem._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSix_mem._proof_1_3|∀ {B : ℕ} {k : ℕ}, 4 ≤ k → ¬1 ≤ k → False
+AUDIT|Erdos939.rawSetSeven_mem._proof_1_9|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSeven_mem._proof_1_9|∀ {B k : ℕ}, ¬1 ≤ 3 → False
+AUDIT|Erdos939.erdos_939.variants.euler._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.erdos_939.variants.euler._proof_1_1|¬5 ≥ 4 → False
+AUDIT|Erdos939.coprime_sub_pow_monomial|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.coprime_sub_pow_monomial|∀ {r B k c a b : ℕ},
+  1 ≤ r →
+    1 ≤ k →
+      c ∣ B →
+        have M := B * k + 1;
+        have X := M ^ r;
+        have Y := B ^ r;
+        ((X - Y) ^ r).Coprime (c * X ^ a * Y ^ b)
+AUDIT|Erdos939.card_and_sum_five._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.card_and_sum_five._proof_1_1|∀ {a₁ a₂ a₃ a₄ a₅ : ℕ},
+  a₁ < a₂ → a₂ < a₃ → a₃ < a₄ → a₄ < a₅ → ¬(¬a₁ = a₂ ∧ ¬a₁ = a₃ ∧ ¬a₁ = a₄ ∧ ¬a₁ = a₅) → False
+AUDIT|Nat.Full.pow_of_le|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.Full.pow_of_le|∀ {k m : ℕ}, k ≤ m → ∀ (a : ℕ), k.Full (a ^ m)
+AUDIT|Erdos939.step_lt._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos939.step_lt._proof_1_6|∀ {a b c : ℕ}, ¬1 ≤ 3 → False
+AUDIT|Erdos939.rawSetEight_mem._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos939.rawSetEight_mem._proof_1_2|∀ {B k : ℕ}, ¬1 ≤ 8 → False
+AUDIT|Erdos939.tripleSeq_strictMono|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.tripleSeq_strictMono|StrictMono fun n => (Erdos939.tripleSeq n).2.2
+AUDIT|Erdos939.erdos_939.variants.seven|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.erdos_939.variants.seven|(Erdos939.Erdos939Sums 7).Nonempty
+AUDIT|Erdos939.rawSetSeven_card_and_sum._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSeven_card_and_sum._proof_1_1|∀ {X Y : ℕ}, 0 < Y → 16384 * Y ≤ X → ¬0 < X → False
+AUDIT|Nat.Full.zero_right|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.Full.zero_right|∀ (k : ℕ), k.Full 0
+AUDIT|Erdos939.seedTriple_valid|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.seedTriple_valid|Erdos939.ValidTriple Erdos939.seedTriple
+AUDIT|Erdos939.rawSetSix_card_and_sum._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSix_card_and_sum._proof_1_3|∀ {X Y : ℕ}, 4096 * Y ≤ X → X = X - Y + Y → ¬4095 * Y ≤ X - Y → False
+AUDIT|Erdos939.card_and_sum_five|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.card_and_sum_five|∀ {a₁ a₂ a₃ a₄ a₅ : ℕ},
+  a₁ < a₂ →
+    a₂ < a₃ → a₃ < a₄ → a₄ < a₅ → {a₁, a₂, a₃, a₄, a₅}.card = 5 ∧ ∑ s ∈ {a₁, a₂, a₃, a₄, a₅}, s = a₁ + a₂ + a₃ + a₄ + a₅
+AUDIT|Erdos939.erdos_939.variants.euler|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.erdos_939.variants.euler|¬∀ k ≥ 4,
+    ∀ (S : Finset ℕ), S.card = k - 1 → (∀ s ∈ S, 0 < s) → ¬∃ q, ∑ s ∈ S, s ^ k = q ^ k
+AUDIT|Erdos939.erdos_939_six_infinite._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos939.erdos_939_six_infinite._proof_1_2|∀ ⦃a b : ℕ⦄, a < b → ¬120 * (a + 4) + 1 < 120 * (b + 4) + 1 → False
+AUDIT|Erdos939.rawSetSeven_mem._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSeven_mem._proof_1_7|∀ {B k : ℕ},
+  0 < B ^ 7 → 16384 * B ^ 7 ≤ (B * k + 1) ^ 7 → ¬0 < (B * k + 1) ^ 7 - B ^ 7 → False
+AUDIT|Erdos939.rawSetEight_card_and_sum._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos939.rawSetEight_card_and_sum._proof_1_5|∀ {X Y : ℕ},
+  65536 * Y ≤ X → 0 < X → X = X - Y + Y → ¬X ≤ 2 * (X - Y) → False
+AUDIT|Erdos939.rawSetSix_mem._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSix_mem._proof_1_2|∀ {B k : ℕ}, ¬1 ≤ 6 → False
+AUDIT|Erdos939.erdos_939_seven_infinite._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos939.erdos_939_seven_infinite._proof_1_2|∀ ⦃a b : ℕ⦄, a < b → ¬210 * (a + 4) + 1 < 210 * (b + 4) + 1 → False
+AUDIT|Erdos939.rawSetSix_card_and_sum._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSix_card_and_sum._proof_1_1|∀ {X Y : ℕ}, 0 < Y → 4096 * Y ≤ X → ¬0 < X → False
+AUDIT|Erdos939.erdos_939_eight_infinite|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.erdos_939_eight_infinite|(Erdos939.Erdos939Sums 8).Infinite
+AUDIT|Erdos939.rawSetSeven_mem._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSeven_mem._proof_1_8|∀ {B k : ℕ}, ¬1 ≤ 5 → False
+AUDIT|Erdos939.erdos_939.variants.finite._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.erdos_939.variants.finite._proof_1_1|¬6 ≥ 4 → False
+AUDIT|Erdos939.ValidTriple.full_c|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.ValidTriple.full_c|∀ {t : ℕ × ℕ × ℕ}, Erdos939.ValidTriple t → Nat.Full 3 t.2.2
+AUDIT|Erdos939.rawSetSeven_card_and_sum._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSeven_card_and_sum._proof_1_6|∀ {X Y : ℕ}, X = X - Y + Y → ¬Y ≤ X → False
+AUDIT|Erdos939.infinite_of_strictMono_sum|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.infinite_of_strictMono_sum|∀ {P : Finset ℕ → Prop} (f : ℕ → Finset ℕ) (g : ℕ → ℕ),
+  (∀ (m : ℕ), P (f m)) → (∀ (m : ℕ), ∑ s ∈ f m, s = g m) → StrictMono g → {S | P S}.Infinite
+AUDIT|Erdos939.rawSetSix_mem._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.rawSetSix_mem._simp_1_4|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos939.erdos_939_seven_infinite|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.erdos_939_seven_infinite|(Erdos939.Erdos939Sums 7).Infinite
+AUDIT|Erdos939.rawSetSix_card_and_sum._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSix_card_and_sum._proof_1_4|∀ {X Y : ℕ},
+  4096 * Y ≤ X → 0 < X → X = X - Y + Y → ¬X ≤ 2 * (X - Y) → False
+AUDIT|Erdos939.sumSetSeven_spec._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.sumSetSeven_spec._proof_1_1|∀ (m : ℕ), ¬4 ≤ m + 4 → False
+AUDIT|Erdos939.erdos_939_five_nonempty._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.erdos_939_five_nonempty._simp_1_2|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos939.step_lt._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos939.step_lt._proof_1_3|∀ {a b c : ℕ}, 1 < a → a < b → a + b = c → ¬2 ≤ a + c → False
+AUDIT|Erdos939.rawSetSeven_mem|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.rawSetSeven_mem|∀ {B k : ℕ},
+  0 < B →
+    4 ≤ k →
+      2 ∣ B →
+        14 ∣ B →
+          42 ∣ B →
+            70 ∣ B →
+              have M := B * k + 1;
+              have X := M ^ 7;
+              have Y := B ^ 7;
+              Erdos939.rawSetSeven X Y ∈ Erdos939.Erdos939Sums 7 ∧ ∑ s ∈ Erdos939.rawSetSeven X Y, s = (X + Y) ^ 7
+AUDIT|Nat.Full.mul_pow_of_dvd|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.Full.mul_pow_of_dvd|∀ {r c B : ℕ}, c ∣ B → r.Full (c * B ^ r)
+AUDIT|Erdos939.rawSetEight_card_and_sum._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos939.rawSetEight_card_and_sum._proof_1_4|∀ {X Y : ℕ}, ¬32 < 80 → False
+AUDIT|Erdos939.erdos_939_five_nonempty._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos939.erdos_939_five_nonempty._proof_1_4|¬5 ≤ 6 → False
+AUDIT|Erdos939.seedTriple_valid._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos939.seedTriple_valid._proof_1_2|¬3 ≤ 5 → False
+AUDIT|Erdos939.erdos_939_five_nonempty._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.erdos_939_five_nonempty._proof_1_1|¬5 ≤ 7 → False
+AUDIT|Erdos939.erdos_939.variants.triples|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.erdos_939.variants.triples|{(a, b, c) |
+    {a, b, c}.Coprime ∧ 0 < a ∧ 0 < b ∧ Nat.Full 3 a ∧ Nat.Full 3 b ∧ Nat.Full 3 c ∧ a + b = c}.Infinite
+AUDIT|Erdos939.rawSetSeven_mem._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSeven_mem._proof_1_6|∀ {B k : ℕ},
+  0 < B ^ 7 → 16384 * B ^ 7 ≤ (B * k + 1) ^ 7 → ¬0 < (B * k + 1) ^ 7 → False
+AUDIT|Erdos939.rawSetSeven_mem._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.rawSetSeven_mem._simp_1_5|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos939.card_and_sum_four._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.card_and_sum_four._proof_1_1|∀ {a₁ a₂ a₃ a₄ : ℕ},
+  a₁ < a₂ → a₂ < a₃ → a₃ < a₄ → ¬(¬a₁ = a₂ ∧ ¬a₁ = a₃ ∧ ¬a₁ = a₄) → False
+AUDIT|Erdos939.full_monomial_term|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.full_monomial_term|∀ {r M B c a b : ℕ}, c ∣ B → 1 ≤ b → r.Full (c * (M ^ r) ^ a * (B ^ r) ^ b)
+AUDIT|Erdos939.erdos_939_five_nonempty._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos939.erdos_939_five_nonempty._proof_1_5|¬5 ≤ 11 → False
+AUDIT|Erdos939.rawSetSix_mem._proof_1_9|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSix_mem._proof_1_9|∀ {B k : ℕ}, ¬1 ≤ 3 → False
+AUDIT|Erdos939.rawSetSeven_card_and_sum|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.rawSetSeven_card_and_sum|∀ {X Y : ℕ},
+  0 < Y → 16384 * Y ≤ X → (Erdos939.rawSetSeven X Y).card = 5 ∧ ∑ s ∈ Erdos939.rawSetSeven X Y, s = (X + Y) ^ 7
+AUDIT|Erdos939.coprime_add_of_valid._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos939.coprime_add_of_valid._proof_1_2|∀ {a b c : ℕ}, a + b = c → ¬3 * a + 3 * b = 3 * c → False
+AUDIT|Erdos939.ValidTriple.full_a|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.ValidTriple.full_a|∀ {t : ℕ × ℕ × ℕ}, Erdos939.ValidTriple t → Nat.Full 3 t.1
+AUDIT|Erdos939.rawSetEight_card_and_sum._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos939.rawSetEight_card_and_sum._proof_1_7|∀ {X Y : ℕ}, X = X - Y + Y → ¬Y ≤ X → False
+AUDIT|Erdos939.rawSetSix_card_and_sum|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.rawSetSix_card_and_sum|∀ {X Y : ℕ},
+  0 < Y → 4096 * Y ≤ X → (Erdos939.rawSetSix X Y).card = 4 ∧ ∑ s ∈ Erdos939.rawSetSix X Y, s = (X + Y) ^ 6
+AUDIT|Erdos939.ValidTriple.full_b|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.ValidTriple.full_b|∀ {t : ℕ × ℕ × ℕ}, Erdos939.ValidTriple t → Nat.Full 3 t.2.1
+AUDIT|Erdos939.rawSetSix_mem._proof_1_10|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSix_mem._proof_1_10|∀ {B k : ℕ}, ¬1 ≤ 1 → False
+AUDIT|Erdos939.coprime_add_of_valid._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.coprime_add_of_valid._proof_1_1|∀ {a b c : ℕ}, a + b = c → ¬b + c + (a + c) = 3 * c → False
+AUDIT|Erdos939.erdos_939_six_infinite._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.erdos_939_six_infinite._proof_1_1|∀ ⦃a b : ℕ⦄, 6 = 0 → False
+AUDIT|Erdos939.tripleSeq_valid|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.tripleSeq_valid|∀ (n : ℕ), Erdos939.ValidTriple (Erdos939.tripleSeq n)
+AUDIT|Erdos939.rawSetEight_mem._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos939.rawSetEight_mem._proof_1_8|∀ {B k : ℕ}, ¬1 ≤ 7 → False
+AUDIT|Erdos939.ValidTriple.one_lt_b|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.ValidTriple.one_lt_b|∀ {t : ℕ × ℕ × ℕ}, Erdos939.ValidTriple t → 1 < t.2.1
+AUDIT|Erdos939.rawSetEight_mem._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos939.rawSetEight_mem._proof_1_3|∀ {B : ℕ} {k : ℕ}, 4 ≤ k → ¬1 ≤ k → False
+AUDIT|Erdos939.sumSetSeven_spec|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.sumSetSeven_spec|∀ (m : ℕ),
+  Erdos939.sumSetSeven m ∈ Erdos939.Erdos939Sums 7 ∧
+    ∑ s ∈ Erdos939.sumSetSeven m, s = ((210 * (m + 4) + 1) ^ 7 + 210 ^ 7) ^ 7
+AUDIT|Erdos939.erdos_939.variants.finite|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.erdos_939.variants.finite|¬∀ r ≥ 4, (Erdos939.Erdos939Sums r).Finite
+AUDIT|Erdos939.erdos_939_eight_infinite._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.erdos_939_eight_infinite._proof_1_1|∀ ⦃a b : ℕ⦄, 8 = 0 → False
+AUDIT|Erdos939.erdos_939_six_infinite|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.erdos_939_six_infinite|(Erdos939.Erdos939Sums 6).Infinite
+AUDIT|Erdos939.nextTriple_spec._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.nextTriple_spec._proof_1_1|∀ (a b : ℕ), ¬a ≤ b → ¬b < a → False
+AUDIT|Erdos939.rawSetSix_mem._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.rawSetSix_mem._simp_1_5|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos939.erdos_939_five_nonempty._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.erdos_939_five_nonempty._simp_1_3|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos939.ValidTriple.coprime|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.ValidTriple.coprime|∀ {t : ℕ × ℕ × ℕ}, Erdos939.ValidTriple t → t.1.Coprime t.2.1
+AUDIT|Erdos939.rawSetSeven_mem._proof_1_10|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSeven_mem._proof_1_10|∀ {B k : ℕ}, ¬1 ≤ 1 → False
+AUDIT|Nat.Full.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.Full.eq_1|∀ (k n : ℕ), k.Full n = ∀ p ∈ n.primeFactors, p ^ k ∣ n
+AUDIT|Erdos939.rawSetSeven.eq_1|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSeven.eq_1|∀ (X Y : ℕ),
+  Erdos939.rawSetSeven X Y =
+    {2 * X ^ 0 * Y ^ 7, 42 * X ^ 2 * Y ^ 5, 70 * X ^ 4 * Y ^ 3, 14 * X ^ 6 * Y ^ 1, (X - Y) ^ 7}
+AUDIT|Erdos939.ValidTriple.one_lt_a|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos939.ValidTriple.one_lt_a|∀ {t : ℕ × ℕ × ℕ}, Erdos939.ValidTriple t → 1 < t.1
+AUDIT|Erdos939.card_and_sum_four._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos939.card_and_sum_four._proof_1_3|∀ {a₁ a₂ : ℕ} {a₃ a₄ : ℕ}, a₃ < a₄ → a₃ = a₄ → False
+AUDIT|Erdos939.rawSetEight_mem._proof_1_9|[propext, Quot.sound]
+TYPE|Erdos939.rawSetEight_mem._proof_1_9|∀ {B k : ℕ}, ¬1 ≤ 5 → False
+AUDIT|Erdos939.rawSetEight_card_and_sum._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos939.rawSetEight_card_and_sum._proof_1_6|∀ {X Y : ℕ},
+  0 < Y → 65536 * Y ≤ X → X = X - Y + Y → ¬0 < X - Y → False
+AUDIT|Erdos939.rawSetSeven_card_and_sum._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSeven_card_and_sum._proof_1_2|∀ {X Y : ℕ}, 0 < Y → 16384 * Y ≤ X → ¬Y ≤ X → False
+AUDIT|Erdos939.rawSetEight_mem._proof_1_10|[propext, Quot.sound]
+TYPE|Erdos939.rawSetEight_mem._proof_1_10|∀ {B k : ℕ}, ¬1 ≤ 3 → False
+AUDIT|Erdos939.coprime_sub_pow_monomial._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos939.coprime_sub_pow_monomial._proof_1_1|∀ {r : ℕ} {B k c : ℕ}, 1 ≤ r → r = 0 → False
+AUDIT|Erdos939.rawSetSeven_card_and_sum._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSeven_card_and_sum._proof_1_3|∀ {X Y : ℕ},
+  16384 * Y ≤ X → X = X - Y + Y → ¬16383 * Y ≤ X - Y → False
+AUDIT|Erdos939.rawSetSix_mem._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos939.rawSetSix_mem._proof_1_7|∀ {B k : ℕ},
+  0 < B ^ 6 → 4096 * B ^ 6 ≤ (B * k + 1) ^ 6 → 0 < (B * k + 1) ^ 6 → ¬0 < (B * k + 1) ^ 6 - B ^ 6 → False

@@ -1,0 +1,9 @@
+Erdos727.erdos_727.variants.k_1 : {n | (n + 1).factorial ^ 2 ∣ (2 * n).factorial}.Infinite
+theorem Erdos727.erdos_727.variants.k_1 : {n | (n + 1).factorial ^ 2 ∣ (2 * n).factorial}.Infinite :=
+Eq.mpr (id (congrArg (fun _a => _a) (propext Set.infinite_iff_exists_gt))) fun a =>
+  Exists.casesOn (Erdos727.exists_ge_centralBinom_dvd (a + 1)) fun n h =>
+    And.casesOn h fun han hdvd =>
+      Exists.intro n
+        ⟨id (Eq.mpr (id (congrArg (fun _a => _a) (propext (Erdos727.factorial_sq_dvd_two_mul_factorial_iff n)))) hdvd),
+          Decidable.byContradiction fun a_1 => Erdos727.erdos_727.variants.k_1._proof_1_1 a n han a_1⟩
+'Erdos727.erdos_727.variants.k_1' depends on axioms: [propext, Classical.choice, Quot.sound]

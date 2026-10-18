@@ -1,0 +1,12 @@
+/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:2:8: error(lean.unknownIdentifier): Unknown identifier `Erdos672.erdos_672_false_for_k_eq_2`
+/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:3:7: error(lean.unknownIdentifier): Unknown constant `Erdos672.erdos_672_false_for_k_eq_2`
+/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:4:14: error(lean.unknownIdentifier): Unknown constant `Erdos672.erdos_672_false_for_k_eq_2`
+/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:5:8: error(lean.unknownIdentifier): Unknown identifier `Erdos672.erdos_672_false_for_k_eq_3`
+/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:6:7: error(lean.unknownIdentifier): Unknown constant `Erdos672.erdos_672_false_for_k_eq_3`
+/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:7:14: error(lean.unknownIdentifier): Unknown constant `Erdos672.erdos_672_false_for_k_eq_3`
+/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:8:8: error(lean.unknownIdentifier): Unknown identifier `Erdos672.erdos_672_k4_l2_under_coprime_pairs`
+/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:9:7: error(lean.unknownIdentifier): Unknown constant `Erdos672.erdos_672_k4_l2_under_coprime_pairs`
+/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:10:14: error(lean.unknownIdentifier): Unknown constant `Erdos672.erdos_672_k4_l2_under_coprime_pairs`
+/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:11:8: error(lean.unknownIdentifier): Unknown identifier `Erdos672.euler_four_squares_in_ap_no_solution`
+/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:12:7: error(lean.unknownIdentifier): Unknown constant `Erdos672.euler_four_squares_in_ap_no_solution`
+/tmp/lean-verify-jsp-20261018/audit/PR5097.lean:13:14: error(lean.unknownIdentifier): Unknown constant `Erdos672.euler_four_squares_in_ap_no_solution`

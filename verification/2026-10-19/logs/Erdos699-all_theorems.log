@@ -1,0 +1,79 @@
+AUDIT|Erdos699.erdos_699_of_prime_in_interval._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos699.erdos_699_of_prime_in_interval._proof_1_4|∀ {n : ℕ} {i : ℕ} {j : ℕ} {p : ℕ}, i < p → p ≤ i → False
+AUDIT|Erdos699.erdos_szekeres_exceptional_triples|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos699.erdos_szekeres_exceptional_triples|(∀ (p : ℕ),
+    Nat.Prime p → p ∣ (Nat.choose 10 3).gcd (Nat.choose 10 5) → p ≤ 3) ∧
+  (∀ (p : ℕ), Nat.Prime p → p ∣ (Nat.choose 16 2).gcd (Nat.choose 16 6) → p ≤ 2) ∧
+    (∀ (p : ℕ), Nat.Prime p → p ∣ (Nat.choose 28 3).gcd (Nat.choose 28 14) → p ≤ 3) ∧
+      ∀ (p : ℕ), Nat.Prime p → p ∣ (Nat.choose 28 5).gcd (Nat.choose 28 14) → p ≤ 5
+AUDIT|Erdos699.erdos_699_of_prime_in_interval._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos699.erdos_699_of_prime_in_interval._proof_1_2|∀ {n : ℕ} {i j p : ℕ}, i < j → j < p → ¬i < p → False
+AUDIT|Erdos699.choose_lt_choose_of_lt._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos699.choose_lt_choose_of_lt._proof_1_2|∀ {n : ℕ} {j : ℕ} (k : ℕ), k + 1 ≤ j → ¬k ≤ j → False
+AUDIT|Erdos699.erdos_699_of_prime_in_interval|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos699.erdos_699_of_prime_in_interval|∀ {n i j p : ℕ},
+  i < j → j ≤ n / 2 → Nat.Prime p → n - i < p → p ≤ n → Nat.Prime p ∧ i < p ∧ p ∣ (n.choose i).gcd (n.choose j)
+AUDIT|Erdos699.erdos_699_succ_of_not_prime._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos699.erdos_699_succ_of_not_prime._proof_1_2|∀ {n : ℕ} {i : ℕ} {p : ℕ}, ¬i ≤ i + 1 → False
+AUDIT|Erdos699.mem_exceptions_of_erdos_szekeres_strengthening._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos699.mem_exceptions_of_erdos_szekeres_strengthening._proof_1_1|∀ (p : ℕ), 3 < p → p ≤ 3 → False
+AUDIT|Erdos699.mem_exceptions_of_erdos_szekeres_strengthening._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos699.mem_exceptions_of_erdos_szekeres_strengthening._proof_1_3|∀ (p : ℕ), 5 < p → p ≤ 5 → False
+AUDIT|Erdos699.mem_exceptions_of_erdos_szekeres_strengthening._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos699.mem_exceptions_of_erdos_szekeres_strengthening._proof_1_2|∀ (p : ℕ), 2 < p → p ≤ 2 → False
+AUDIT|Erdos699.dvd_gcd_choose_of_prime_gt_dvd._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos699.dvd_gcd_choose_of_prime_gt_dvd._proof_1_1|∀ {n i : ℕ} {j p : ℕ}, j < p → p ≤ j → False
+AUDIT|Erdos699.choose_lt_choose_of_lt._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos699.choose_lt_choose_of_lt._proof_1_4|∀ {n j : ℕ}, j < n → ∀ (k : ℕ), ¬j + 1 ≤ n → False
+AUDIT|Erdos699.erdos_699_of_le_two._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos699.erdos_699_of_le_two._proof_1_4|∀ (n i j : ℕ), 1 ≤ i → i ≤ 2 → ∀ (p : ℕ), 2 ≤ p → ¬i ≤ p → False
+AUDIT|Erdos699.erdos_699_of_le_two._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos699.erdos_699_of_le_two._proof_1_2|∀ (n i j : ℕ), 1 ≤ i → i ≤ 2 → i < j → j ≤ n / 2 → ¬j < n → False
+AUDIT|Erdos699.erdos_699_of_le_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos699.erdos_699_of_le_two|∀ (n i j : ℕ),
+  1 ≤ i → i ≤ 2 → i < j → j ≤ n / 2 → ∃ p, Nat.Prime p ∧ i ≤ p ∧ p ∣ (n.choose i).gcd (n.choose j)
+AUDIT|Erdos699.choose_gcd_gt_one._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos699.choose_gcd_gt_one._proof_1_1|∀ {n i j : ℕ}, n.choose i ≤ j.choose i → j.choose i < n.choose i → False
+AUDIT|Erdos699.choose_lt_choose_of_lt._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos699.choose_lt_choose_of_lt._proof_1_1|∀ {n : ℕ} {i : ℕ} {j : ℕ}, 1 ≤ i → ¬i = i - 1 + 1 → False
+AUDIT|Erdos699.mem_exceptions_of_erdos_szekeres_strengthening|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos699.mem_exceptions_of_erdos_szekeres_strengthening|∀ (E : Finset (ℕ × ℕ × ℕ)),
+  (∀ (n i j : ℕ),
+      1 ≤ i → i < j → j ≤ n / 2 → (n, i, j) ∉ E → ∃ p, Nat.Prime p ∧ i < p ∧ p ∣ (n.choose i).gcd (n.choose j)) →
+    (10, 3, 5) ∈ E ∧ (16, 2, 6) ∈ E ∧ (28, 3, 14) ∈ E ∧ (28, 5, 14) ∈ E
+AUDIT|Erdos699.erdos_699_of_prime_in_interval._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos699.erdos_699_of_prime_in_interval._proof_1_5|∀ {n i : ℕ} {j : ℕ} {p : ℕ}, n - i < p → p ≤ n - i → False
+AUDIT|Erdos699.choose_gcd_gt_one._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos699.choose_gcd_gt_one._proof_1_2|∀ {n i j : ℕ}, i ≤ j → j < n → ¬i ≤ n → False
+AUDIT|Erdos699.erdos_699_of_prime_in_interval._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos699.erdos_699_of_prime_in_interval._proof_1_3|∀ {n i j p : ℕ}, i < j → p ≤ n → j < p → ¬i ≤ n → False
+AUDIT|Erdos699.erdos_699_of_prime_in_interval._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos699.erdos_699_of_prime_in_interval._proof_1_6|∀ {n : ℕ} {i j : ℕ} {p : ℕ}, i < j → ¬i ≤ j → False
+AUDIT|Erdos699.erdos_699_of_le_two._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos699.erdos_699_of_le_two._proof_1_3|∀ (n i j : ℕ),
+  1 < (n.choose i).gcd (n.choose j) → (n.choose i).gcd (n.choose j) = 1 → False
+AUDIT|Erdos699.choose_lt_choose_of_lt._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos699.choose_lt_choose_of_lt._proof_1_3|∀ {n : ℕ} {j : ℕ} (k : ℕ),
+  0 < j.choose k → ¬j.choose (k + 1) < j.choose k + j.choose (k + 1) → False
+AUDIT|Erdos699.erdos_699_succ_of_not_prime._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos699.erdos_699_succ_of_not_prime._proof_1_1|∀ {n : ℕ} {i p : ℕ}, i < p → p ≠ i + 1 → ¬i + 1 < p → False
+AUDIT|Erdos699.erdos_699_of_le_two._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos699.erdos_699_of_le_two._proof_1_1|∀ (n i j : ℕ), i < j → ¬i ≤ j → False
+AUDIT|Erdos699.choose_lt_choose_of_lt|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos699.choose_lt_choose_of_lt|∀ {n i j : ℕ}, 1 ≤ i → i ≤ j → j < n → j.choose i < n.choose i
+AUDIT|Erdos699.prime_le_of_dvd_choose|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos699.prime_le_of_dvd_choose|∀ {p n k : ℕ}, Nat.Prime p → k ≤ n → p ∣ n.choose k → p ≤ n
+AUDIT|Erdos699.choose_gcd_gt_one|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos699.choose_gcd_gt_one|∀ {n i j : ℕ}, 1 ≤ i → i ≤ j → j < n → 1 < (n.choose i).gcd (n.choose j)
+AUDIT|Erdos699.erdos_699_of_prime_in_interval._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos699.erdos_699_of_prime_in_interval._proof_1_1|∀ {n i j p : ℕ}, i < j → j ≤ n / 2 → n - i < p → ¬j < p → False
+AUDIT|Erdos699.erdos_699_succ_of_not_prime|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos699.erdos_699_succ_of_not_prime|∀ {n i p : ℕ},
+  ¬Nat.Prime (i + 1) →
+    Nat.Prime p → i < p → p ∣ n.choose i → Nat.Prime p ∧ i < p ∧ p ∣ (n.choose i).gcd (n.choose (i + 1))
+AUDIT|Erdos699.dvd_gcd_choose_of_prime_gt_dvd|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos699.dvd_gcd_choose_of_prime_gt_dvd|∀ {n i j p : ℕ},
+  i ≤ j → Nat.Prime p → j < p → p ∣ n.choose i → p ∣ (n.choose i).gcd (n.choose j)
+AUDIT|Erdos699.choose_gcd_gt_one._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos699.choose_gcd_gt_one._proof_1_3|∀ {n i j : ℕ},
+  (n.choose i).gcd (n.choose j) ≠ 1 → 0 < (n.choose i).gcd (n.choose j) → ¬1 < (n.choose i).gcd (n.choose j) → False

@@ -1,0 +1,194 @@
+AUDIT|Erdos367.pellA_pos|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.pellA_pos|∀ (s : ℕ), 0 < Erdos367.pellA s
+AUDIT|Erdos291.three_dvd_a_two_mul_pow_three|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.three_dvd_a_two_mul_pow_three|∀ (k : ℕ), 3 ∣ Erdos291.a (2 * 3 ^ k)
+AUDIT|Erdos367.pellN_add_one|[propext]
+TYPE|Erdos367.pellN_add_one|∀ (s : ℕ), Erdos367.pellN s + 1 = Erdos367.pellX s
+AUDIT|Erdos367.B_pos|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.B_pos|∀ (r n : ℕ), 0 < Erdos367.B r n
+AUDIT|Erdos291.three_dvd_L_two_mul_pow_three._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.three_dvd_L_two_mul_pow_three._proof_1_1|∀ {k : ℕ}, 3 ^ 1 ≤ 3 ^ k → ¬(1 ≤ 3 ∧ 3 ≤ 2 * 3 ^ k) → False
+AUDIT|Erdos367.prod_B_Ico_le_four_mul_sq._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos367.prod_B_Ico_le_four_mul_sq._proof_1_3|∀ {n : ℕ}, ¬n + 2 = n + 1 + 1 → False
+AUDIT|Erdos367.pellA_succ|[propext]
+TYPE|Erdos367.pellA_succ|∀ (s : ℕ), Erdos367.pellA (s + 1) = Erdos367.pellA s * (4 * Erdos367.pellA s ^ 2 + 3)
+AUDIT|Erdos367.erdos_367.variants.k_ge_three_lower._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.erdos_367.variants.k_ge_three_lower._proof_1_2|∀ (N : ℕ), ¬2 * N + 2 = 2 * N + 1 + 1 → False
+AUDIT|Erdos291.gcd_two_mul_pow_three_gt_one|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.gcd_two_mul_pow_three_gt_one|∀ {k : ℕ}, 1 ≤ k → (Erdos291.a (2 * 3 ^ k)).gcd (Erdos291.L (2 * 3 ^ k)) > 1
+AUDIT|Erdos291.three_dvd_div_L_of_ne|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.three_dvd_div_L_of_ne|∀ {k j : ℕ},
+  j ∈ Finset.Icc 1 (2 * 3 ^ k) → j ≠ 3 ^ k → j ≠ 2 * 3 ^ k → 3 ∣ Erdos291.L (2 * 3 ^ k) / j
+AUDIT|Erdos367.not_isBigO_of_three_le._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos367.not_isBigO_of_three_le._proof_1_1|∀ {k : ℕ} (N M : ℕ), ¬M + N + 1 ≤ 2 * (M + N) + 2 → False
+AUDIT|Erdos367.pellN_le_pow_three|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.pellN_le_pow_three|∀ (s : ℕ), Erdos367.pellN s ≤ 3 ^ (2 * 3 ^ s)
+AUDIT|Erdos367.prod_B_Ico_mono_k|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.prod_B_Ico_mono_k|∀ {k₁ k₂ : ℕ},
+  k₁ ≤ k₂ → ∀ (n : ℕ), ∏ m ∈ Finset.Ico n (n + k₁), Erdos367.B 2 m ≤ ∏ m ∈ Finset.Ico n (n + k₂), Erdos367.B 2 m
+AUDIT|Erdos367.three_mul_pellA_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.three_mul_pellA_le|∀ (s : ℕ), 3 * Erdos367.pellA s ≤ 3 ^ 3 ^ s
+AUDIT|Erdos367.erdos_367.variants.k_ge_three_lower._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos367.erdos_367.variants.k_ge_three_lower._proof_1_1|∀ (N : ℕ),
+  2 * N + 1 ≤ Erdos367.pellN (2 * N + 1) → ¬N ≤ Erdos367.pellN (2 * N + 1) → False
+AUDIT|Erdos367.prod_B_Ico_le_four_mul_sq._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos367.prod_B_Ico_le_four_mul_sq._proof_1_4|∀ {n : ℕ}, ¬n ≤ n + 1 → False
+AUDIT|Erdos367.B_two_pellN_add_one_ge._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos367.B_two_pellN_add_one_ge._proof_1_1|∀ (j : ℕ), Erdos367.pellN (2 * j + 1) + 1 = 0 → False
+AUDIT|Erdos367.prod_B_Ico_three_pellN_ge._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.prod_B_Ico_three_pellN_ge._proof_1_6|∀ (j : ℕ),
+  Erdos367.pellN (2 * j + 1) + 2 ≤ Erdos367.B 2 (Erdos367.pellN (2 * j + 1) + 2) →
+    ¬Erdos367.pellN (2 * j + 1) ≤ Erdos367.B 2 (Erdos367.pellN (2 * j + 1) + 2) → False
+AUDIT|Erdos291.three_dvd_gcd_two_mul_pow_three|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.three_dvd_gcd_two_mul_pow_three|∀ {k : ℕ},
+  1 ≤ k → 3 ∣ (Erdos291.a (2 * 3 ^ k)).gcd (Erdos291.L (2 * 3 ^ k))
+AUDIT|Erdos367.erdos_367.variants.k_ge_three_lower|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.erdos_367.variants.k_ge_three_lower|∃ c > 0,
+  ∃ᶠ (n : ℕ) in Filter.atTop, c * (↑n ^ 2 * Real.log ↑n) ≤ ↑(∏ m ∈ Finset.Ico n (n + 3), Erdos367.B 2 m)
+AUDIT|Erdos291.dvd_L_of_mem|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.dvd_L_of_mem|∀ {n j : ℕ}, j ∈ Finset.Icc 1 n → j ∣ Erdos291.L n
+AUDIT|Erdos367.B_two_pellN_add_two_ge._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos367.B_two_pellN_add_two_ge._proof_1_1|∀ (s : ℕ), Erdos367.pellN s + 2 = 0 → False
+AUDIT|Erdos291.erdos_291.parts.ii._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos291.erdos_291.parts.ii._proof_1_3|∀ (k : ℕ), ¬1 ≤ k + 1 → False
+AUDIT|Erdos291.two_mul_pow_three_dvd_L._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.two_mul_pow_three_dvd_L._proof_1_1|∀ (k : ℕ), 1 ≤ 3 ^ k → ¬(1 ≤ 2 * 3 ^ k ∧ 2 * 3 ^ k ≤ 2 * 3 ^ k) → False
+AUDIT|Erdos367.pell_norm|[propext]
+TYPE|Erdos367.pell_norm|∀ (s : ℕ), 2 * Erdos367.pellB s ^ 2 = Erdos367.pellA s ^ 2 + 1
+AUDIT|Erdos367.erdos_367.parts.ii|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.erdos_367.parts.ii|¬∀ (k : ℕ),
+    1 ≤ k → (fun n => ↑(∏ m ∈ Finset.Ico n (n + k), Erdos367.B 2 m)) =O[Filter.atTop] fun n => ↑n ^ 2
+AUDIT|Erdos367.pellA_strictMono|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.pellA_strictMono|StrictMono Erdos367.pellA
+AUDIT|Erdos367.prod_B_Ico_le_four_mul_sq._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos367.prod_B_Ico_le_four_mul_sq._proof_1_2|∀ {n : ℕ}, 1 ≤ n → ¬0 < n → False
+AUDIT|Erdos291.L_eval|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.L_eval|Erdos291.L 1 = 1 ∧ Erdos291.L 2 = 2 ∧ Erdos291.L 3 = 6 ∧ Erdos291.L 4 = 12
+AUDIT|Erdos291.pow_three_dvd_L_two_mul_pow_three._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.pow_three_dvd_L_two_mul_pow_three._proof_1_1|∀ (k : ℕ),
+  1 ≤ 3 ^ k → ¬(1 ≤ 3 ^ k ∧ 3 ^ k ≤ 2 * 3 ^ k) → False
+AUDIT|Erdos367.not_isBigO_of_three_le._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos367.not_isBigO_of_three_le._proof_1_2|∀ {k : ℕ} (N M : ℕ),
+  M + N + 1 < 3 ^ (M + N + 1) → 3 ^ (M + N + 1) ≤ 3 ^ (2 * (M + N) + 2) → ¬M + N + 1 ≤ 3 ^ (2 * (M + N) + 2) → False
+AUDIT|Erdos367.B_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.B_le|∀ (r : ℕ) {n : ℕ}, 0 < n → Erdos367.B r n ≤ n
+AUDIT|Erdos367.prod_B_Ico_mono_k._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos367.prod_B_Ico_mono_k._proof_1_1|∀ {k₁ k₂ : ℕ}, k₁ ≤ k₂ → ∀ (n : ℕ), ¬n + k₁ ≤ n + k₂ → False
+AUDIT|Erdos367.prod_B_Ico_three_pellN_ge._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos367.prod_B_Ico_three_pellN_ge._proof_1_1|∀ (j : ℕ),
+  ¬Erdos367.pellN (2 * j + 1) + 3 = Erdos367.pellN (2 * j + 1) + 2 + 1 → False
+AUDIT|Erdos367.prod_B_Ico_three_pellN_ge._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos367.prod_B_Ico_three_pellN_ge._proof_1_3|∀ (j : ℕ),
+  ¬Erdos367.pellN (2 * j + 1) ≤ Erdos367.pellN (2 * j + 1) + 2 → False
+AUDIT|Erdos367.not_isBigO_of_three_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.not_isBigO_of_three_le|∀ {k : ℕ},
+  3 ≤ k → ¬(fun n => ↑(∏ m ∈ Finset.Ico n (n + k), Erdos367.B 2 m)) =O[Filter.atTop] fun n => ↑n ^ 2
+AUDIT|Erdos291.two_mul_pow_three_dvd_L|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.two_mul_pow_three_dvd_L|∀ (k : ℕ), 2 * 3 ^ k ∣ Erdos291.L (2 * 3 ^ k)
+AUDIT|Erdos291.three_dvd_a_two_mul_pow_three._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.three_dvd_a_two_mul_pow_three._proof_1_1|∀ (k : ℕ), 0 < 3 ^ k → ¬(1 ≤ 3 ^ k ∧ 3 ^ k ≤ 2 * 3 ^ k) → False
+AUDIT|Erdos367.pellN_strictMono|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.pellN_strictMono|StrictMono Erdos367.pellN
+AUDIT|Erdos291.erdos_291.parts.ii._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos291.erdos_291.parts.ii._proof_1_2|∀ ⦃k₁ k₂ : ℕ⦄, k₁ + 1 = k₂ + 1 → ¬k₁ = k₂ → False
+AUDIT|Erdos291.erdos_291.parts.ii._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos291.erdos_291.parts.ii._proof_1_1|∀ ⦃k₁ k₂ : ℕ⦄,
+  2 * 3 ^ (k₁ + 1) = 2 * 3 ^ (k₂ + 1) → ¬3 ^ (k₁ + 1) = 3 ^ (k₂ + 1) → False
+AUDIT|Erdos367.pellN_pos|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.pellN_pos|∀ (s : ℕ), 0 < Erdos367.pellN s
+AUDIT|Erdos291.a_eval|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.a_eval|Erdos291.a 1 = 1 ∧ Erdos291.a 2 = 3 ∧ Erdos291.a 3 = 11 ∧ Erdos291.a 4 = 25
+AUDIT|Erdos291.gcd_two_mul_pow_three_gt_one._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.gcd_two_mul_pow_three_gt_one._proof_1_2|∀ {k : ℕ} (m : ℕ),
+  (Erdos291.a (2 * 3 ^ k)).gcd (Erdos291.L (2 * 3 ^ k)) = 3 * m →
+    (Erdos291.a (2 * 3 ^ k)).gcd (Erdos291.L (2 * 3 ^ k)) ≠ 0 →
+      ¬(Erdos291.a (2 * 3 ^ k)).gcd (Erdos291.L (2 * 3 ^ k)) > 1 → False
+AUDIT|Erdos291.three_dvd_top_two_terms|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.three_dvd_top_two_terms|∀ (k : ℕ),
+  3 ∣ Erdos291.L (2 * 3 ^ k) / 3 ^ k + Erdos291.L (2 * 3 ^ k) / (2 * 3 ^ k)
+AUDIT|Erdos367.B_two_pellN_ge._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos367.B_two_pellN_ge._proof_1_1|∀ (s : ℕ), 0 < Erdos367.pellN s → Erdos367.pellN s = 0 → False
+AUDIT|Erdos367.pellX.eq_1|[propext]
+TYPE|Erdos367.pellX.eq_1|∀ (s : ℕ), Erdos367.pellX s = 2 * Erdos367.pellA s ^ 2 + 1
+AUDIT|Erdos367.prod_B_Ico_le_four_mul_sq._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos367.prod_B_Ico_le_four_mul_sq._proof_1_1|∀ {n : ℕ}, ¬n ≤ n → False
+AUDIT|Erdos367.pow_dvd_B_of_pow_dvd._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.pow_dvd_B_of_pow_dvd._proof_1_2|∀ {r : ℕ} {m : ℕ} {n : ℕ},
+  1 ≤ r → ∀ ⦃i : ℕ⦄, r ≤ n.factorization i → n.factorization i = 0 → False
+AUDIT|Erdos367.pow_dvd_B_of_pow_dvd|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.pow_dvd_B_of_pow_dvd|∀ {r m n : ℕ}, 1 ≤ r → n ≠ 0 → m ^ r ∣ n → m ^ r ∣ Erdos367.B r n
+AUDIT|Erdos367.pellN_add_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.pellN_add_two|∀ (s : ℕ), Erdos367.pellN s + 2 = (2 * Erdos367.pellB s) ^ 2
+AUDIT|Erdos367.B_two_pellN_add_one_ge|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.B_two_pellN_add_one_ge|∀ (j : ℕ), 3 ^ (2 * j + 2) ≤ Erdos367.B 2 (Erdos367.pellN (2 * j + 1) + 1)
+AUDIT|Erdos367.prod_B_Ico_le_four_mul_sq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.prod_B_Ico_le_four_mul_sq|∀ {k n : ℕ},
+  k ≤ 2 → 1 ≤ n → ∏ m ∈ Finset.Ico n (n + k), Erdos367.B 2 m ≤ 4 * n ^ 2
+AUDIT|Erdos291.pow_three_dvd_L_two_mul_pow_three|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.pow_three_dvd_L_two_mul_pow_three|∀ (k : ℕ), 3 ^ k ∣ Erdos291.L (2 * 3 ^ k)
+AUDIT|Erdos367.log_pellN_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.log_pellN_le|∀ (s : ℕ), Real.log ↑(Erdos367.pellN s) ≤ 4 * 3 ^ s
+AUDIT|Erdos291.not_pow_three_dvd_of_mem_of_ne|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.not_pow_three_dvd_of_mem_of_ne|∀ {k j : ℕ},
+  j ∈ Finset.Icc 1 (2 * 3 ^ k) → j ≠ 3 ^ k → j ≠ 2 * 3 ^ k → ¬3 ^ k ∣ j
+AUDIT|Erdos367.pellA_zero|[propext]
+TYPE|Erdos367.pellA_zero|Erdos367.pellA 0 = 1
+AUDIT|Erdos367.prod_B_Ico_three_pellN_ge._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos367.prod_B_Ico_three_pellN_ge._proof_1_2|∀ (j : ℕ),
+  ¬Erdos367.pellN (2 * j + 1) + 2 = Erdos367.pellN (2 * j + 1) + 1 + 1 → False
+AUDIT|Erdos367.B_dvd|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.B_dvd|∀ (r n : ℕ), Erdos367.B r n ∣ n
+AUDIT|Erdos367.pellB_succ|[propext]
+TYPE|Erdos367.pellB_succ|∀ (s : ℕ),
+  Erdos367.pellB (s + 1) = Erdos367.pellB s * (3 * Erdos367.pellA s ^ 2 + 2 * Erdos367.pellB s ^ 2)
+AUDIT|Erdos367.prod_B_Ico_three_pellN_ge._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos367.prod_B_Ico_three_pellN_ge._proof_1_4|∀ (j : ℕ),
+  ¬Erdos367.pellN (2 * j + 1) ≤ Erdos367.pellN (2 * j + 1) + 1 → False
+AUDIT|Erdos367.not_isBigO_of_three_le._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.not_isBigO_of_three_le._proof_1_4|∀ {k : ℕ} (N M : ℕ),
+  M + N + 1 ≤ 3 ^ (2 * (M + N) + 2) → ¬M < 3 ^ (2 * (M + N) + 2) → False
+AUDIT|Erdos291.not_pow_three_dvd_of_mem_of_ne._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos291.not_pow_three_dvd_of_mem_of_ne._proof_1_2|∀ {k : ℕ}, 1 ≤ 3 ^ k * 0 ∧ 3 ^ k * 0 ≤ 2 * 3 ^ k → False
+AUDIT|Erdos367.prod_B_Ico_le_four_mul_sq._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.prod_B_Ico_le_four_mul_sq._proof_1_5|∀ {n : ℕ}, 1 ≤ n → ¬0 < n + 1 → False
+AUDIT|Erdos291.not_pow_three_dvd_of_mem_of_ne._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos291.not_pow_three_dvd_of_mem_of_ne._proof_1_1|∀ {k : ℕ} (m : ℕ), ¬1 ≤ m → ¬m = 0 → False
+AUDIT|Erdos367.pow_le_B_of_pow_dvd|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.pow_le_B_of_pow_dvd|∀ {r m n : ℕ}, 1 ≤ r → n ≠ 0 → m ^ r ∣ n → m ^ r ≤ Erdos367.B r n
+AUDIT|Erdos367.prod_B_Ico_three_pellN_ge|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.prod_B_Ico_three_pellN_ge|∀ (j : ℕ),
+  3 ^ (2 * j + 2) * Erdos367.pellN (2 * j + 1) ^ 2 ≤
+    2 * ∏ m ∈ Finset.Ico (Erdos367.pellN (2 * j + 1)) (Erdos367.pellN (2 * j + 1) + 3), Erdos367.B 2 m
+AUDIT|Erdos291.three_dvd_a_two_mul_pow_three._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.three_dvd_a_two_mul_pow_three._proof_1_2|∀ (k : ℕ),
+  0 < 3 ^ k → ¬(2 * 3 ^ k ≠ 3 ^ k ∧ 1 ≤ 2 * 3 ^ k ∧ 2 * 3 ^ k ≤ 2 * 3 ^ k) → False
+AUDIT|Erdos367.B_two_pellN_add_two_ge|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.B_two_pellN_add_two_ge|∀ (s : ℕ), Erdos367.pellN s + 2 ≤ Erdos367.B 2 (Erdos367.pellN s + 2)
+AUDIT|Erdos367.prod_B_Ico_three_pellN_ge._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos367.prod_B_Ico_three_pellN_ge._proof_1_5|∀ (j : ℕ),
+  ¬Erdos367.pellN (2 * j + 1) ≤ Erdos367.pellN (2 * j + 1) → False
+AUDIT|Erdos291.not_pow_three_dvd_of_mem_of_ne._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos291.not_pow_three_dvd_of_mem_of_ne._proof_1_3|∀ {k : ℕ} (m : ℕ), 1 ≤ m → m ≤ 2 → ¬(m = 1 ∨ m = 2) → False
+AUDIT|Erdos367.pow_three_dvd_pellX_int|[propext, Quot.sound]
+TYPE|Erdos367.pow_three_dvd_pellX_int|∀ (s : ℕ), 3 ^ (s + 1) ∣ ↑(Erdos367.pellX s)
+AUDIT|Erdos291.gcd_two_mul_pow_three_gt_one._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.gcd_two_mul_pow_three_gt_one._proof_1_1|∀ {k : ℕ} (m : ℕ), 1 ≤ 0 ∧ 0 ≤ 2 * 3 ^ k → False
+AUDIT|Erdos291.three_dvd_L_two_mul_pow_three|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.three_dvd_L_two_mul_pow_three|∀ {k : ℕ}, 1 ≤ k → 3 ∣ Erdos291.L (2 * 3 ^ k)
+AUDIT|Erdos367.erdos_367.variants.k_le_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.erdos_367.variants.k_le_two|∀ k ≤ 2,
+  (fun n => ↑(∏ m ∈ Finset.Ico n (n + k), Erdos367.B 2 m)) =O[Filter.atTop] fun n => ↑n ^ 2
+AUDIT|Erdos367.pow_dvd_B_of_pow_dvd._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.pow_dvd_B_of_pow_dvd._proof_1_1|∀ {r : ℕ} {m : ℕ} {n : ℕ} ⦃i : ℕ⦄,
+  ¬1 ≤ m.factorization i → ¬m.factorization i = 0 → False
+AUDIT|Erdos291.erdos_291.parts.ii|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos291.erdos_291.parts.ii|{n | (Erdos291.a n).gcd (Erdos291.L n) > 1}.Infinite
+AUDIT|Erdos367.pow_three_dvd_pellX|[propext, Quot.sound]
+TYPE|Erdos367.pow_three_dvd_pellX|∀ (s : ℕ), 3 ^ (s + 1) ∣ Erdos367.pellX s
+AUDIT|Erdos367.not_isBigO_of_three_le._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos367.not_isBigO_of_three_le._proof_1_3|∀ {k : ℕ} (N M : ℕ),
+  2 * (M + N) + 1 ≤ Erdos367.pellN (2 * (M + N) + 1) → ¬N ≤ Erdos367.pellN (2 * (M + N) + 1) → False
+AUDIT|Erdos367.pellB_zero|[propext]
+TYPE|Erdos367.pellB_zero|Erdos367.pellB 0 = 1
+AUDIT|Erdos367.B_two_pellN_ge|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos367.B_two_pellN_ge|∀ (s : ℕ), Erdos367.pellA s ^ 2 ≤ Erdos367.B 2 (Erdos367.pellN s)

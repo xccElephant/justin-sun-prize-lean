@@ -1,0 +1,108 @@
+Erdos348.erdos_348 : {x |
+    ∃ m n,
+      ∃ (_ : m < n),
+        ∃ a,
+          ∃ (_ : Monotone a) (_ : ∀ (s : Finset ℕ), s.card = m → IsAddCompleteNatSeq' (Function.updateFinset a s 0)) (_
+            : ∀ (t : Finset ℕ), t.card = n → ¬IsAddCompleteNatSeq' (Function.updateFinset a t 0)), (m, n) = x} =
+  Erdos348.erdos_348.answer
+theorem Erdos348.erdos_348 : {x |
+    ∃ m n,
+      ∃ (_ : m < n),
+        ∃ a,
+          ∃ (_ : Monotone a) (_ : ∀ (s : Finset ℕ), s.card = m → IsAddCompleteNatSeq' (Function.updateFinset a s 0)) (_
+            : ∀ (t : Finset ℕ), t.card = n → ¬IsAddCompleteNatSeq' (Function.updateFinset a t 0)), (m, n) = x} =
+  Erdos348.erdos_348.answer :=
+Set.ext fun x =>
+  Prod.casesOn x fun m n =>
+    Eq.mpr
+      (id
+        (congrFun'
+          (congrArg Iff
+            (congrArg Exists
+              (funext fun m_1 =>
+                congrArg Exists
+                  (funext fun n_1 =>
+                    propext
+                      (exists_prop_congr
+                        (fun h =>
+                          Iff.of_eq
+                            (congrArg Exists
+                              (funext fun a =>
+                                propext
+                                  (exists_prop_congr
+                                    (fun h =>
+                                      exists_prop_congr
+                                        (fun h =>
+                                          exists_prop_congr (fun h => Iff.of_eq (Prod.mk.injEq m_1 n_1 m n))
+                                            (Iff.of_eq
+                                              (Eq.refl
+                                                (∀ (t : Finset ℕ),
+                                                  t.card = n_1 → ¬IsAddCompleteNatSeq' (Function.updateFinset a t 0)))))
+                                        (Iff.of_eq
+                                          (Eq.refl
+                                            (∀ (s : Finset ℕ),
+                                              s.card = m_1 → IsAddCompleteNatSeq' (Function.updateFinset a s 0)))))
+                                    (Iff.of_eq (Eq.refl (Monotone a)))))))
+                        (Iff.of_eq (Eq.refl (m_1 < n_1))))))))
+          (m < n ∧ m ≤ 1)))
+      {
+        mp := fun a =>
+          Exists.casesOn a fun m' h =>
+            Exists.casesOn h fun n' h =>
+              Exists.casesOn h fun hmn h =>
+                Exists.casesOn h fun a h =>
+                  Exists.casesOn h fun ha h =>
+                    Exists.casesOn h fun hm h =>
+                      Exists.casesOn h fun hn h =>
+                        And.casesOn h fun left right =>
+                          left ▸
+                            right ▸
+                              ⟨hmn,
+                                Decidable.byContradiction fun hm_gt =>
+                                  Erdos348.not_exists_for_m_ge_two hmn
+                                    (Decidable.byContradiction fun a => Erdos348.erdos_348._proof_1_2 m' n' hm_gt a) a
+                                    ha hm hn⟩,
+        mpr := fun a =>
+          And.casesOn a fun hmn hm1 =>
+            Or.casesOn (Decidable.byContradiction fun a => Erdos348.erdos_348._proof_1_3 m n hm1 a)
+              (fun h =>
+                Eq.ndrec (motive := fun m =>
+                  m < n →
+                    m ≤ 1 →
+                      ∃ m_1 n_1,
+                        ∃ (_ : m_1 < n_1),
+                          ∃ a,
+                            ∃ (_ : Monotone a) (_ :
+                              ∀ (s : Finset ℕ), s.card = m_1 → IsAddCompleteNatSeq' (Function.updateFinset a s 0)) (_ :
+                              ∀ (t : Finset ℕ), t.card = n_1 → ¬IsAddCompleteNatSeq' (Function.updateFinset a t 0)),
+                              m_1 = m ∧ n_1 = n)
+                  (fun hmn hm1 =>
+                    Exists.casesOn (Erdos348.exists_for_m_eq_zero hmn) fun a h =>
+                      And.casesOn h fun ha right =>
+                        And.casesOn right fun hm hn =>
+                          Exists.intro 0
+                            (Exists.intro n
+                              (Exists.intro hmn
+                                (Exists.intro a (Exists.intro ha (Exists.intro hm (Exists.intro hn ⟨rfl, rfl⟩)))))))
+                  (Eq.symm h) hmn hm1)
+              fun h =>
+              Eq.ndrec (motive := fun m =>
+                m < n →
+                  m ≤ 1 →
+                    ∃ m_1 n_1,
+                      ∃ (_ : m_1 < n_1),
+                        ∃ a,
+                          ∃ (_ : Monotone a) (_ :
+                            ∀ (s : Finset ℕ), s.card = m_1 → IsAddCompleteNatSeq' (Function.updateFinset a s 0)) (_ :
+                            ∀ (t : Finset ℕ), t.card = n_1 → ¬IsAddCompleteNatSeq' (Function.updateFinset a t 0)),
+                            m_1 = m ∧ n_1 = n)
+                (fun hmn hm1 =>
+                  Exists.casesOn (Erdos348.exists_for_m_eq_one hmn) fun a h =>
+                    And.casesOn h fun ha right =>
+                      And.casesOn right fun hm hn =>
+                        Exists.intro 1
+                          (Exists.intro n
+                            (Exists.intro hmn
+                              (Exists.intro a (Exists.intro ha (Exists.intro hm (Exists.intro hn ⟨rfl, rfl⟩)))))))
+                (Eq.symm h) hmn hm1 }
+'Erdos348.erdos_348' depends on axioms: [propext, Classical.choice, Quot.sound]

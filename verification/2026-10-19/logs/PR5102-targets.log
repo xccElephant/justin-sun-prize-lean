@@ -1,0 +1,21 @@
+Erdos657.erdos_657.variants.straus : ∀ (k : ℕ),
+  ∃ A, A.card = 2 ^ k ∧ (↑A).IsIsoscelesFree ∧ distinctDistances A ≤ 2 ^ k - 1
+theorem Erdos657.erdos_657.variants.straus : ∀ (k : ℕ),
+  ∃ A, A.card = 2 ^ k ∧ (↑A).IsIsoscelesFree ∧ distinctDistances A ≤ 2 ^ k - 1 :=
+fun k =>
+  Exists.intro (Erdos657.strausSet k)
+    ⟨Erdos657.card_strausSet k, ⟨Erdos657.isIsoscelesFree_strausSet k, Erdos657.distinctDistances_strausSet_le k⟩⟩
+'Erdos657.erdos_657.variants.straus' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos657.isIsoscelesFree_real_iff_no_three_term_ap : ∀ (A : Set ℝ),
+  A.IsIsoscelesFree ↔ ∀ ⦃x : ℝ⦄, x ∈ A → ∀ ⦃y : ℝ⦄, y ∈ A → ∀ ⦃z : ℝ⦄, z ∈ A → x ≠ y → y ≠ z → x ≠ z → x + z ≠ 2 * y
+theorem Erdos657.isIsoscelesFree_real_iff_no_three_term_ap : ∀ (A : Set ℝ),
+  A.IsIsoscelesFree ↔ ∀ ⦃x : ℝ⦄, x ∈ A → ∀ ⦃y : ℝ⦄, y ∈ A → ∀ ⦃z : ℝ⦄, z ∈ A → x ≠ y → y ≠ z → x ≠ z → x + z ≠ 2 * y :=
+fun A =>
+  {
+    mp := fun h ⦃x⦄ hx ⦃y⦄ hy ⦃z⦄ hz hxy hyz hxz hsum =>
+      h hx hy hz hxy hyz hxz ((Erdos657.isIsosceles_real_iff hxy hyz hxz).mpr (Or.inl hsum)),
+    mpr := fun h ⦃x⦄ hx ⦃y⦄ hy ⦃z⦄ hz hxy hyz hxz hiso =>
+      Or.casesOn ((Erdos657.isIsosceles_real_iff hxy hyz hxz).mp hiso) (fun h1 => h hx hy hz hxy hyz hxz h1) fun h_1 =>
+        Or.casesOn h_1 (fun h2 => h hy hz hx hyz (Ne.symm hxz) (Ne.symm hxy) h2) fun h3 =>
+          h hz hx hy (Ne.symm hxz) hxy (Ne.symm hyz) h3 }
+'Erdos657.isIsoscelesFree_real_iff_no_three_term_ap' depends on axioms: [propext, Classical.choice, Quot.sound]

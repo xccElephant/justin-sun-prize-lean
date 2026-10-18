@@ -1,0 +1,138 @@
+AUDIT|Erdos131.NonDividing.nonAveraging|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.NonDividing.nonAveraging|∀ {A : Finset ℕ}, Erdos131.NonDividing A → Erdos131.NonAveraging A
+AUDIT|Erdos131.card_le_F|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.card_le_F|∀ {N : ℕ} {A : Finset ℕ}, A ⊆ Finset.Icc 1 N → Erdos131.NonDividing A → A.card ≤ Erdos131.F N
+AUDIT|Erdos131.card_le_of_mem_nonDividing|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.card_le_of_mem_nonDividing|∀ {A : Finset ℕ},
+  Erdos131.NonDividing A → ∀ {a : ℕ}, a ∈ A → 0 < a → A.card ≤ a
+AUDIT|Erdos131.exists_nested_chain_of_le_card._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos131.exists_nested_chain_of_le_card._proof_1_4|∀ {B : Finset ℕ} (T : ℕ → Finset ℕ) (i : ℕ), i + 1 ≤ i → False
+AUDIT|Erdos131.exists_nested_chain_of_le_card._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos131.exists_nested_chain_of_le_card._proof_1_1|∀ {B : Finset ℕ}, ∀ i < 0, False
+AUDIT|Erdos131.exists_nested_chain_of_le_card._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos131.exists_nested_chain_of_le_card._proof_1_2|∀ {B : Finset ℕ} (m : ℕ),
+  m + 1 ≤ B.card → ∀ (T : ℕ → Finset ℕ), (T m).card = m → ¬(T m).card < B.card → False
+AUDIT|Erdos131.le_P_of_mul_pred_lt|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.le_P_of_mul_pred_lt|∀ {N k : ℕ}, 1 ≤ k → k ≤ N → k * (k - 1) < N → k ≤ Erdos131.P N
+AUDIT|Erdos131.F_mono|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.F_mono|Monotone Erdos131.F
+AUDIT|Erdos131.propertyP_Icc_top._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos131.propertyP_Icc_top._proof_1_4|∀ {N k : ℕ},
+  1 ≤ k →
+    k ≤ N → ∀ (a : ℕ) (S : Finset ℕ), N - k + 1 ≤ a ∧ a ≤ N → S.card ≤ N + 1 - (N - k + 2) → ¬S.card ≤ k - 1 → False
+AUDIT|Erdos131.PhamZakharovBound._proof_1|[propext]
+TYPE|Erdos131.PhamZakharovBound._proof_1|(3 + 1).AtLeastTwo
+AUDIT|Erdos131.NonDividing.not_dvd_of_ne|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.NonDividing.not_dvd_of_ne|∀ {A : Finset ℕ},
+  Erdos131.NonDividing A → ∀ {a b : ℕ}, a ∈ A → b ∈ A → a ≠ b → ¬a ∣ b
+AUDIT|Erdos131.NonDividing.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.NonDividing.eq_1|∀ (A : Finset ℕ),
+  Erdos131.NonDividing A = ∀ a ∈ A, ∀ S ⊆ A.erase a, S.Nonempty → ¬a ∣ ∑ x ∈ S, x
+AUDIT|Erdos131.card_le_of_mem_nonDividing._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.card_le_of_mem_nonDividing._proof_1_2|∀ {A : Finset ℕ} {a : ℕ},
+  0 < a →
+    ∀ (T : ℕ → Finset ℕ) (i j u v : Fin (a + 1)), u < v → (T ↑v \ T ↑u).card = ↑v - ↑u → ¬0 < (T ↑v \ T ↑u).card → False
+AUDIT|Erdos131.exists_nested_chain_of_le_card|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.exists_nested_chain_of_le_card|∀ {B : Finset ℕ},
+  ∀ m ≤ B.card, ∃ T, (∀ i ≤ m, T i ⊆ B ∧ (T i).card = i) ∧ ∀ i < m, T i ⊆ T (i + 1)
+AUDIT|Erdos131.exists_card_eq_F|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.exists_card_eq_F|∀ (N : ℕ), ∃ A ⊆ Finset.Icc 1 N, Erdos131.NonDividing A ∧ A.card = Erdos131.F N
+AUDIT|Erdos131.propertyP_Icc_top._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos131.propertyP_Icc_top._proof_1_8|∀ {N : ℕ} {k : ℕ}, 1 ≤ k → ∀ (a : ℕ) (S : Finset ℕ), ¬k - 1 + 1 = k → False
+AUDIT|Erdos131.two_mul_F_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.two_mul_F_le|∀ {N : ℕ}, 1 ≤ N → 2 * Erdos131.F N ≤ N + 1
+AUDIT|Erdos131.le_P_of_mul_pred_lt._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos131.le_P_of_mul_pred_lt._proof_1_2|∀ {N k : ℕ}, 1 ≤ k → k ≤ N → ¬N + 1 - (N - k + 1) = k → False
+AUDIT|Erdos131.propertyP_Icc_top._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos131.propertyP_Icc_top._proof_1_7|∀ {N k : ℕ},
+  1 ≤ k → k ≤ N → ∀ (a : ℕ) (S : Finset ℕ), N - k + 1 ≤ a ∧ a ≤ N → ¬N + 1 ≤ a + k → False
+AUDIT|Erdos131.propertyP_Icc_top._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.propertyP_Icc_top._simp_1_2|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α}
+  {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos131.F_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.F_le|∀ (N : ℕ), Erdos131.F N ≤ N
+AUDIT|Erdos131.chain_subset_of_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.chain_subset_of_le|∀ {T : ℕ → Finset ℕ} {m : ℕ},
+  (∀ i < m, T i ⊆ T (i + 1)) → ∀ {i j : ℕ}, i ≤ j → j ≤ m → T i ⊆ T j
+AUDIT|Erdos131.NonDividing.not_dvd_of_ne._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.NonDividing.not_dvd_of_ne._simp_1_1|∀ {α : Type u_1} {s : Finset α} {a : α}, ({a} ⊆ s) = (a ∈ s)
+AUDIT|Erdos131.erdos_131_of_pham_zakharov|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.erdos_131_of_pham_zakharov|Erdos131.PhamZakharovBound →
+  ¬∃ f, Filter.Tendsto f Filter.atTop (nhds 0) ∧ ∀ᶠ (N : ℕ) in Filter.atTop, ↑N ^ (1 / 2 - f N) < ↑(Erdos131.F N)
+AUDIT|Erdos131.two_mul_F_le._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.two_mul_F_le._simp_1_2|∀ {α : Type u_1} [inst : Preorder α] [inst_1 : LocallyFiniteOrder α] {a b x : α},
+  (x ∈ Finset.Icc a b) = (a ≤ x ∧ x ≤ b)
+AUDIT|Erdos131.exists_nested_chain_of_le_card._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos131.exists_nested_chain_of_le_card._proof_1_3|∀ {B : Finset ℕ} (m : ℕ) (T : ℕ → Finset ℕ), m + 1 ≤ m → False
+AUDIT|Erdos131.propertyP_Icc_top._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.propertyP_Icc_top._proof_1_3|∀ {N k : ℕ} (a : ℕ) (S : Finset ℕ),
+  N - k + 1 ≤ a ∧ a ≤ N → ∀ ⦃x : ℕ⦄, (N - k + 1 ≤ x ∧ x ≤ N) ∧ a < x → ¬(N - k + 2 ≤ x ∧ x ≤ N) → False
+AUDIT|Erdos131.le_P_of_mul_pred_lt._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos131.le_P_of_mul_pred_lt._proof_1_1|∀ {N k : ℕ}, ¬1 ≤ N - k + 1 → False
+AUDIT|Erdos131.propertyP_Icc_top._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.propertyP_Icc_top._proof_1_5|∀ {N k : ℕ} (a : ℕ) (S : Finset ℕ) (x : ℕ),
+  x ∈ Finset.Icc (N - k + 1) N ∧ a < x → ¬a + 1 ≤ x → False
+AUDIT|Erdos131.propertyP_Icc_top|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.propertyP_Icc_top|∀ {N k : ℕ},
+  1 ≤ k → k ≤ N → k * (k - 1) < N → Erdos131.PropertyP (Finset.Icc (N - k + 1) N)
+AUDIT|Erdos131.two_mul_F_le._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.two_mul_F_le._proof_1_1|∀ {N : ℕ} (A : Finset ℕ),
+  A.card = Erdos131.F N → 1 ≤ Erdos131.F N → ¬0 < A.card → False
+AUDIT|Erdos131.propertyP_Icc_top._proof_1_9|[propext, Quot.sound]
+TYPE|Erdos131.propertyP_Icc_top._proof_1_9|∀ {N k : ℕ} (a : ℕ) (S : Finset ℕ) (m : ℕ),
+  S.card < m → m < S.card + 1 → False
+AUDIT|Erdos131.two_mul_F_le._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.two_mul_F_le._proof_1_4|∀ {N : ℕ} (A : Finset ℕ),
+  A.card = Erdos131.F N →
+    ∀ (hA_ne : A.Nonempty),
+      A.card ≤ A.min' hA_ne → A.card ≤ N + 1 - A.min' hA_ne → A.min' hA_ne ≤ N → ¬2 * Erdos131.F N ≤ N + 1 → False
+AUDIT|Erdos131.exists_card_eq_F._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.exists_card_eq_F._simp_1_2|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α}
+  {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos131.NonDividing.mono|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.NonDividing.mono|∀ {A B : Finset ℕ}, A ⊆ B → Erdos131.NonDividing B → Erdos131.NonDividing A
+AUDIT|Erdos131.F_le_half|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.F_le_half|∀ {N : ℕ}, 1 ≤ N → Erdos131.F N ≤ (N + 1) / 2
+AUDIT|Erdos131.two_mul_F_le._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.two_mul_F_le._proof_1_3|∀ {N : ℕ} (A : Finset ℕ) (hA_ne : A.Nonempty),
+  1 ≤ A.min' hA_ne ∧ A.min' hA_ne ≤ N → ¬0 < A.min' hA_ne → False
+AUDIT|Erdos131.erdos_131_of_subSqrtBound|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.erdos_131_of_subSqrtBound|∀ {α : ℝ},
+  α < 1 / 2 →
+    Erdos131.SubSqrtBound α →
+      ¬∃ f, Filter.Tendsto f Filter.atTop (nhds 0) ∧ ∀ᶠ (N : ℕ) in Filter.atTop, ↑N ^ (1 / 2 - f N) < ↑(Erdos131.F N)
+AUDIT|Erdos131.NonDividing.propertyP._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.NonDividing.propertyP._simp_1_1|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α}
+  {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos131.F_le_P|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.F_le_P|∀ (N : ℕ), Erdos131.F N ≤ Erdos131.P N
+AUDIT|Erdos131.exists_card_eq_F._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.exists_card_eq_F._simp_1_3|∀ {α : Type u_1} {s t : Finset α}, (s ∈ t.powerset) = (s ⊆ t)
+AUDIT|Erdos131.one_le_F|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.one_le_F|∀ {N : ℕ}, 1 ≤ N → 1 ≤ Erdos131.F N
+AUDIT|Erdos131.NonDividing.propertyP|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.NonDividing.propertyP|∀ {A : Finset ℕ}, Erdos131.NonDividing A → Erdos131.PropertyP A
+AUDIT|Erdos131.F_small_values|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.F_small_values|Erdos131.F 0 = 0 ∧
+  Erdos131.F 1 = 1 ∧
+    Erdos131.F 2 = 1 ∧ Erdos131.F 3 = 2 ∧ Erdos131.F 4 = 2 ∧ Erdos131.F 5 = 2 ∧ Erdos131.F 6 = 2 ∧ Erdos131.F 7 = 3
+AUDIT|Erdos131.propertyP_Icc_top._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.propertyP_Icc_top._simp_1_1|∀ {α : Type u_1} [inst : Preorder α] [inst_1 : LocallyFiniteOrder α]
+  {a b x : α}, (x ∈ Finset.Icc a b) = (a ≤ x ∧ x ≤ b)
+AUDIT|Erdos131.card_le_of_mem_nonDividing._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.card_le_of_mem_nonDividing._proof_1_3|∀ {A : Finset ℕ} {a : ℕ},
+  0 < a →
+    ∀ (T : ℕ → Finset ℕ) (i j u v : Fin (a + 1)),
+      ∑ x ∈ T ↑v \ T ↑u, x + ∑ x ∈ T ↑u, x = ∑ x ∈ T ↑v, x →
+        ∑ x ∈ T ↑v \ T ↑u, x + a * ((∑ x ∈ T ↑u, x) / a) = a * ((∑ x ∈ T ↑v, x) / a) →
+          ¬∑ x ∈ T ↑v \ T ↑u, x = a * ((∑ x ∈ T ↑v, x) / a) - a * ((∑ x ∈ T ↑u, x) / a) → False
+AUDIT|Erdos131.propertyP_Icc_top._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos131.propertyP_Icc_top._proof_1_6|∀ {N : ℕ} {k : ℕ},
+  1 ≤ k → ∀ (a : ℕ) (S : Finset ℕ), S.card ≤ k - 1 → ¬S.card + 1 ≤ k → False
+AUDIT|Erdos131.F_le_half._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.F_le_half._proof_1_1|∀ {N : ℕ}, 2 * Erdos131.F N ≤ N + 1 → ¬Erdos131.F N ≤ (N + 1) / 2 → False
+AUDIT|Erdos131.F_le_H_nonavg|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.F_le_H_nonavg|∀ (N : ℕ), Erdos131.F N ≤ Erdos131.H_nonavg N
+AUDIT|Erdos131.card_le_of_mem_nonDividing._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos131.card_le_of_mem_nonDividing._proof_1_1|∀ {A : Finset ℕ} {a : ℕ},
+  ¬A.card ≤ a → (A.erase a).card + 1 = A.card → ¬a ≤ (A.erase a).card → False

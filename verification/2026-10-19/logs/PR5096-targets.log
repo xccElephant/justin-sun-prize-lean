@@ -1,0 +1,70 @@
+/tmp/lean-verify-jsp-20261018/audit/PR5096.lean:2:8: error(lean.unknownIdentifier): Unknown identifier `Erdos488.erdos_488_misprint_false`
+/tmp/lean-verify-jsp-20261018/audit/PR5096.lean:3:7: error(lean.unknownIdentifier): Unknown constant `Erdos488.erdos_488_misprint_false`
+/tmp/lean-verify-jsp-20261018/audit/PR5096.lean:4:14: error(lean.unknownIdentifier): Unknown constant `Erdos488.erdos_488_misprint_false`
+Erdos488.erdos_488_of_two_mem : ∀ (A : Finset ℕ) (n m : ℕ),
+  0 ∉ A →
+    1 ∉ A →
+      2 ∈ A →
+        A.max ≤ ↑n →
+          n < m →
+            ↑{x ∈ Finset.Icc 1 m | x ∈ {k | k ≥ 1 ∧ ∃ a ∈ A, a ∣ k}}.card / ↑m <
+              2 * ↑{x ∈ Finset.Icc 1 n | x ∈ {k | k ≥ 1 ∧ ∃ a ∈ A, a ∣ k}}.card / ↑n
+theorem Erdos488.erdos_488_of_two_mem : ∀ (A : Finset ℕ) (n m : ℕ),
+  0 ∉ A →
+    1 ∉ A →
+      2 ∈ A →
+        A.max ≤ ↑n →
+          n < m →
+            ↑{x ∈ Finset.Icc 1 m | x ∈ {k | k ≥ 1 ∧ ∃ a ∈ A, a ∣ k}}.card / ↑m <
+              2 * ↑{x ∈ Finset.Icc 1 n | x ∈ {k | k ≥ 1 ∧ ∃ a ∈ A, a ∣ k}}.card / ↑n :=
+fun A n m h0 h1 h2 hmax hnm =>
+  have hmax' := fun a ha => WithBot.coe_le_coe.mp (le_trans (Finset.le_max ha) hmax);
+  have hn_pos :=
+    have this := hmax' 2 h2;
+    Decidable.byContradiction fun a => Erdos488.erdos_488_of_two_mem._proof_1_1 n m this a;
+  Erdos488.rat_div_lt_two_mul_div_of_nat_lt A n m hn_pos
+    (Decidable.byContradiction fun a => Erdos488.erdos_488_of_two_mem._proof_1_2 n m hnm hn_pos a)
+    (Erdos488.erdos_488_of_two_mem_nat A n m h0 h1 h2 hmax' hnm)
+'Erdos488.erdos_488_of_two_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos488.erdos_488_pair : ∀ (a b n m : ℕ),
+  2 ≤ a →
+    a < b →
+      b ≤ n →
+        n < m →
+          ↑{x ∈ Finset.Icc 1 m | x ∈ {k | k ≥ 1 ∧ ∃ x ∈ {a, b}, x ∣ k}}.card / ↑m <
+            2 * ↑{x ∈ Finset.Icc 1 n | x ∈ {k | k ≥ 1 ∧ ∃ x ∈ {a, b}, x ∣ k}}.card / ↑n
+theorem Erdos488.erdos_488_pair : ∀ (a b n m : ℕ),
+  2 ≤ a →
+    a < b →
+      b ≤ n →
+        n < m →
+          ↑{x ∈ Finset.Icc 1 m | x ∈ {k | k ≥ 1 ∧ ∃ x ∈ {a, b}, x ∣ k}}.card / ↑m <
+            2 * ↑{x ∈ Finset.Icc 1 n | x ∈ {k | k ≥ 1 ∧ ∃ x ∈ {a, b}, x ∣ k}}.card / ↑n :=
+fun a b n m ha hab hbn hnm =>
+  Erdos488.rat_div_lt_two_mul_div_of_nat_lt {a, b} n m
+    (Decidable.byContradiction fun a_1 => Erdos488.erdos_488_pair._proof_1_1 a b n m ha hab hbn a_1)
+    (Decidable.byContradiction fun a_1 => Erdos488.erdos_488_pair._proof_1_2 a b n m ha hab hbn hnm a_1)
+    (Erdos488.erdos_488_pair_nat a b n m ha hab hbn hnm)
+'Erdos488.erdos_488_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos488.erdos_488_singleton : ∀ (a n m : ℕ),
+  2 ≤ a →
+    a ≤ n →
+      n < m →
+        ↑{x ∈ Finset.Icc 1 m | x ∈ {k | k ≥ 1 ∧ ∃ x ∈ {a}, x ∣ k}}.card / ↑m <
+          2 * ↑{x ∈ Finset.Icc 1 n | x ∈ {k | k ≥ 1 ∧ ∃ x ∈ {a}, x ∣ k}}.card / ↑n
+theorem Erdos488.erdos_488_singleton : ∀ (a n m : ℕ),
+  2 ≤ a →
+    a ≤ n →
+      n < m →
+        ↑{x ∈ Finset.Icc 1 m | x ∈ {k | k ≥ 1 ∧ ∃ x ∈ {a}, x ∣ k}}.card / ↑m <
+          2 * ↑{x ∈ Finset.Icc 1 n | x ∈ {k | k ≥ 1 ∧ ∃ x ∈ {a}, x ∣ k}}.card / ↑n :=
+fun a n m ha han hnm =>
+  Erdos488.rat_div_lt_two_mul_div_of_nat_lt {a} n m
+    (Decidable.byContradiction fun a_1 => Erdos488.erdos_488_singleton._proof_1_1 a n m ha han a_1)
+    (Decidable.byContradiction fun a_1 => Erdos488.erdos_488_singleton._proof_1_2 a n m ha han hnm a_1)
+    (Erdos488.erdos_488_singleton_nat a n m
+      (Decidable.byContradiction fun a_1 => Erdos488.erdos_488_singleton._proof_1_3 a n m ha a_1) han hnm)
+'Erdos488.erdos_488_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/lean-verify-jsp-20261018/audit/PR5096.lean:14:8: error(lean.unknownIdentifier): Unknown identifier `Erdos488.erdos_488_step_upper_half`
+/tmp/lean-verify-jsp-20261018/audit/PR5096.lean:15:7: error(lean.unknownIdentifier): Unknown constant `Erdos488.erdos_488_step_upper_half`
+/tmp/lean-verify-jsp-20261018/audit/PR5096.lean:16:14: error(lean.unknownIdentifier): Unknown constant `Erdos488.erdos_488_step_upper_half`

@@ -1,0 +1,340 @@
+@Erdos602.erdos_602.variants.countable_index : ∀ {α : Type u_1} (A : ℕ → Set α),
+  (∀ (i : ℕ), (A i).Countable ∧ (A i).Infinite) →
+    (∀ (i j : ℕ), i ≠ j → (A i ∩ A j).Finite) → (∀ (i j : ℕ), i ≠ j → (A i ∩ A j).ncard ≠ 1) → Erdos602.HasPropertyB ℕ A
+theorem Erdos602.erdos_602.variants.countable_index.{u_1} : ∀ {α : Type u_1} (A : ℕ → Set α),
+  (∀ (i : ℕ), (A i).Countable ∧ (A i).Infinite) →
+    (∀ (i j : ℕ), i ≠ j → (A i ∩ A j).Finite) →
+      (∀ (i j : ℕ), i ≠ j → (A i ∩ A j).ncard ≠ 1) → Erdos602.HasPropertyB ℕ A :=
+fun {α} A hCountInf _hFin _hNcard => Erdos602.bernstein_countable_propertyB A fun i => (hCountInf i).right
+'Erdos602.erdos_602.variants.countable_index' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Erdos602.erdos_602.variants.disjoint : ∀ {α : Type u_1} {I : Type u_2} (A : I → Set α),
+  (∀ (i : I), (A i).Infinite) → (∀ (i j : I), i ≠ j → Disjoint (A i) (A j)) → Erdos602.HasPropertyB I A
+theorem Erdos602.erdos_602.variants.disjoint.{u_1, u_2} : ∀ {α : Type u_1} {I : Type u_2} (A : I → Set α),
+  (∀ (i : I), (A i).Infinite) → (∀ (i j : I), i ≠ j → Disjoint (A i) (A j)) → Erdos602.HasPropertyB I A :=
+fun {α} {I} A hInfinite hDisjoint =>
+  have ha_b := fun i =>
+    Exists.casesOn (Set.Infinite.nonempty (hInfinite i)) fun a ha =>
+      have hA2 := Set.Infinite.nonempty (Set.Infinite.sdiff (hInfinite i) (Set.finite_singleton a));
+      Exists.casesOn hA2 fun b h =>
+        And.casesOn h fun hbA hba =>
+          Exists.intro a
+            (Exists.intro b
+              ⟨ha,
+                ⟨hbA, fun h => Eq.mp (congrArg Not Erdos602.erdos_602.variants.disjoint._simp_1_1) hba (Eq.symm h)⟩⟩);
+  (fun a_fn x =>
+      (fun b_fn x =>
+          have key := fun i j haj =>
+            if hij : i = j then
+              Eq.ndrec (motive := fun j => a_fn i = b_fn j → False)
+                (fun haj => (fun i => ((fun i => (x i).right) i).right) i haj) hij haj
+            else
+              have hdisj := hDisjoint i j hij;
+              have hbj := (fun i => ((fun i => (x i).right) i).left) j;
+              Eq.mp (congrArg (fun _a => _a) (propext Set.disjoint_left)) hdisj ((fun i => (x i).left) i)
+                (Eq.mp (congrArg (fun _a => _a ∈ A j) (Eq.symm haj)) hbj);
+          let f := fun n => if ∃ i, n = b_fn i then 1 else 0;
+          Exists.intro f fun i hMono =>
+            have hfa :=
+              id
+                (Eq.mpr (id (congrArg (fun _a => _a = 0) (if_neg fun a => Exists.casesOn a fun j hj => key i j hj)))
+                  (Eq.refl 0));
+            have hfb := id (Eq.mpr (id (congrArg (fun _a => _a = 1) (if_pos (Exists.intro i rfl)))) (Eq.refl 1));
+            have hne :=
+              hMono (a_fn i) ((fun i => (x i).left) i) (b_fn i) ((fun i => ((fun i => (x i).right) i).left) i);
+            absurd (Eq.mp (congrArg (fun _a => 0 = _a) hfb) (Eq.mp (congrArg (fun _a => _a = f (b_fn i)) hfa) hne))
+              (of_decide_eq_true (id (Eq.refl true))))
+        (fun i => Classical.choose (x i)) fun i => Classical.choose_spec (x i))
+    (fun i => Classical.choose (ha_b i)) fun i => Classical.choose_spec (ha_b i)
+'Erdos602.erdos_602.variants.disjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Erdos602.erdos_602.variants.two_sets : ∀ {α : Type u_1} (A : Fin 2 → Set α),
+  (∀ (i : Fin 2), (A i).Infinite) → (A 0 ∩ A 1).Finite → (A 0 ∩ A 1).ncard ≠ 1 → Erdos602.HasPropertyB (Fin 2) A
+theorem Erdos602.erdos_602.variants.two_sets.{u_1} : ∀ {α : Type u_1} (A : Fin 2 → Set α),
+  (∀ (i : Fin 2), (A i).Infinite) → (A 0 ∩ A 1).Finite → (A 0 ∩ A 1).ncard ≠ 1 → Erdos602.HasPropertyB (Fin 2) A :=
+fun {α} A hInfinite hFin hNcard =>
+  if hEmpty : A 0 ∩ A 1 = ∅ then
+    Exists.casesOn (Set.Infinite.nonempty (hInfinite 0)) fun a ha0 =>
+      have hA0' := Set.Infinite.nonempty (Set.Infinite.sdiff (hInfinite 0) (Set.finite_singleton a));
+      Exists.casesOn hA0' fun b h =>
+        And.casesOn h fun hbA0 hba =>
+          Exists.casesOn (Set.Infinite.nonempty (hInfinite 1)) fun c hc1 =>
+            have hA1' := Set.Infinite.nonempty (Set.Infinite.sdiff (hInfinite 1) (Set.finite_singleton c));
+            Exists.casesOn hA1' fun d h =>
+              And.casesOn h fun hd1 hdc =>
+                have hDisj := fun x hx0 hx1 =>
+                  have hmem := ⟨hx0, hx1⟩;
+                  Eq.mp (congrArg (fun _a => x ∈ _a) hEmpty) hmem;
+                have hb_ne_c := fun h => hDisj b hbA0 (Eq.symm h ▸ hc1);
+                have hb_ne_d := fun h => hDisj b hbA0 (Eq.symm h ▸ hd1);
+                have ha_ne_c := fun h => hDisj a ha0 (Eq.symm h ▸ hc1);
+                Exists.intro (fun n => if n = b ∨ n = c then 1 else 0) fun i =>
+                  List.Mem.casesOn (motive := fun a x =>
+                    List.finRange 2 = a →
+                      Fintype.complete i ≍ x →
+                        ¬Erdos602.IsMonochromatic (fun n => if n = b ∨ n = c then 1 else 0) (A i))
+                    (Fintype.complete i)
+                    (fun as h =>
+                      List.cons.noConfusion h fun head_eq =>
+                        Eq.ndrec (motive := fun i =>
+                          ∀ (this : i ∈ Fintype.elems),
+                            (fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, Nat.le_refl 2⟩ [] ≍ as →
+                              this ≍ List.Mem.head as →
+                                ¬Erdos602.IsMonochromatic (fun n => if n = b ∨ n = c then 1 else 0) (A i))
+                          (fun this tail_eq =>
+                            Eq.ndrec (motive := fun as =>
+                              this ≍ List.Mem.head as →
+                                ¬Erdos602.IsMonochromatic (fun n => if n = b ∨ n = c then 1 else 0)
+                                    (A ((fun i => i) ⟨0, Nat.le_of_lt (Nat.le_refl 2)⟩)))
+                              (fun h hMono =>
+                                have hfa :=
+                                  of_eq_true
+                                    (Eq.trans
+                                      (congrFun'
+                                        (congrArg Eq
+                                          (ite_cond_eq_false 1 0
+                                            (Eq.trans
+                                              (congr
+                                                (congrArg Or
+                                                  (eq_false
+                                                    (have this := fun h =>
+                                                      Eq.mp
+                                                        (congrArg Not Erdos602.erdos_602.variants.two_sets._simp_1_1)
+                                                        hba (Eq.symm h);
+                                                    this)))
+                                                (eq_false ha_ne_c))
+                                              (or_self False))))
+                                        0)
+                                      (eq_self 0));
+                                have hfb :=
+                                  of_eq_true
+                                    (Eq.trans
+                                      (congrFun'
+                                        (congrArg Eq
+                                          (ite_cond_eq_true 1 0
+                                            (Eq.trans (congrFun' (congrArg Or (eq_self b)) (b = c)) (true_or (b = c)))))
+                                        1)
+                                      (eq_self 1));
+                                have this := hMono a ha0 b hbA0;
+                                absurd
+                                  (Eq.mp (congrArg (fun _a => 0 = _a) hfb)
+                                    (Eq.mp (congrArg (fun _a => _a = (fun n => if n = b ∨ n = c then 1 else 0) b) hfa)
+                                      this))
+                                  (of_decide_eq_true (id (Eq.refl true))))
+                              (eq_of_heq tail_eq))
+                          (eq_of_heq head_eq) (Fintype.complete i))
+                    (fun b_1 {as} a h =>
+                      List.cons.noConfusion h fun head_eq =>
+                        Eq.ndrec (motive := fun b_2 =>
+                          (fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, Nat.le_refl 2⟩ [] ≍ as →
+                            Fintype.complete i ≍ List.Mem.tail b_2 a →
+                              ¬Erdos602.IsMonochromatic (fun n => if n = b ∨ n = c then 1 else 0) (A i))
+                          (fun tail_eq =>
+                            Eq.ndrec (motive := fun {as} =>
+                              ∀ (a : List.Mem i as),
+                                Fintype.complete i ≍ List.Mem.tail ((fun i => i) ⟨0, Nat.le_of_lt (Nat.le_refl 2)⟩) a →
+                                  ¬Erdos602.IsMonochromatic (fun n => if n = b ∨ n = c then 1 else 0) (A i))
+                              (fun a h =>
+                                List.Mem.casesOn (motive := fun a_1 x =>
+                                  (fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, Nat.le_refl 2⟩ [] = a_1 →
+                                    a ≍ x → ¬Erdos602.IsMonochromatic (fun n => if n = b ∨ n = c then 1 else 0) (A i))
+                                  a
+                                  (fun as h =>
+                                    List.cons.noConfusion h fun head_eq =>
+                                      Eq.ndrec (motive := fun i =>
+                                        ∀ (a : List.Mem i ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, Nat.le_refl 2⟩ [])),
+                                          [] ≍ as →
+                                            a ≍ List.Mem.head as →
+                                              ¬Erdos602.IsMonochromatic (fun n => if n = b ∨ n = c then 1 else 0) (A i))
+                                        (fun a tail_eq =>
+                                          Eq.ndrec (motive := fun as =>
+                                            a ≍ List.Mem.head as →
+                                              ¬Erdos602.IsMonochromatic (fun n => if n = b ∨ n = c then 1 else 0)
+                                                  (A ((fun i => i) ⟨1, Nat.le_refl 2⟩)))
+                                            (fun h hMono =>
+                                              have hfc :=
+                                                of_eq_true
+                                                  (Eq.trans
+                                                    (congrFun'
+                                                      (congrArg Eq
+                                                        (ite_cond_eq_true 1 0
+                                                          (Eq.trans (congrArg (Or (c = b)) (eq_self c))
+                                                            (or_true (c = b)))))
+                                                      1)
+                                                    (eq_self 1));
+                                              have hfd :=
+                                                of_eq_true
+                                                  (Eq.trans
+                                                    (congrFun'
+                                                      (congrArg Eq
+                                                        (ite_cond_eq_false 1 0
+                                                          (Eq.trans
+                                                            (congr (congrArg Or (eq_false (Ne.symm hb_ne_d)))
+                                                              (eq_false
+                                                                (Eq.mp
+                                                                  (congrArg Not
+                                                                    Erdos602.erdos_602.variants.two_sets._simp_1_1)
+                                                                  hdc)))
+                                                            (or_self False))))
+                                                      0)
+                                                    (eq_self 0));
+                                              have this := hMono c hc1 d hd1;
+                                              absurd
+                                                (Eq.mp (congrArg (fun _a => 1 = _a) hfd)
+                                                  (Eq.mp
+                                                    (congrArg
+                                                      (fun _a => _a = (fun n => if n = b ∨ n = c then 1 else 0) d) hfc)
+                                                    this))
+                                                (of_decide_eq_true (id (Eq.refl true))))
+                                            (eq_of_heq tail_eq))
+                                        (eq_of_heq head_eq) a)
+                                  (fun b_2 {as} a_1 h =>
+                                    List.cons.noConfusion h fun head_eq =>
+                                      Eq.ndrec (motive := fun b_3 =>
+                                        [] ≍ as →
+                                          a ≍ List.Mem.tail b_3 a_1 →
+                                            ¬Erdos602.IsMonochromatic (fun n => if n = b ∨ n = c then 1 else 0) (A i))
+                                        (fun tail_eq =>
+                                          Eq.ndrec (motive := fun {as} =>
+                                            ∀ (a_2 : List.Mem i as),
+                                              a ≍ List.Mem.tail ((fun i => i) ⟨1, Nat.le_refl 2⟩) a_2 →
+                                                ¬Erdos602.IsMonochromatic (fun n => if n = b ∨ n = c then 1 else 0)
+                                                    (A i))
+                                            (fun a_2 h =>
+                                              List.Mem.casesOn (motive := fun a x =>
+                                                [] = a →
+                                                  a_2 ≍ x →
+                                                    ¬Erdos602.IsMonochromatic (fun n => if n = b ∨ n = c then 1 else 0)
+                                                        (A i))
+                                                a_2 (fun as h => False.elim (noConfusion_of_Nat List.ctorIdx h))
+                                                (fun b_3 {as} a h => False.elim (noConfusion_of_Nat List.ctorIdx h))
+                                                (Eq.refl []) (HEq.refl a_2))
+                                            (eq_of_heq tail_eq) a_1)
+                                        (eq_of_heq head_eq))
+                                  (Eq.refl ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, Nat.le_refl 2⟩ [])) (HEq.refl a))
+                              (eq_of_heq tail_eq) a)
+                          (eq_of_heq head_eq))
+                    (Eq.refl (List.finRange 2)) (HEq.refl (Fintype.complete i))
+  else
+    have hge2 :=
+      have hpos :=
+        Eq.mpr (id (congrArg (fun _a => _a) (propext (Set.ncard_pos hFin)))) (Set.nonempty_iff_ne_empty.mpr hEmpty);
+      Decidable.byContradiction fun a => Erdos602.erdos_602.variants.two_sets._proof_1_2 A hNcard hpos a;
+    Exists.casesOn ((Set.one_lt_ncard hFin).mp hge2) fun x h =>
+      And.casesOn h fun hxI right =>
+        Exists.casesOn right fun y h =>
+          And.casesOn h fun hyI hxy =>
+            Exists.intro (fun n => if n = y then 1 else 0) fun i =>
+              List.Mem.casesOn (motive := fun a x =>
+                List.finRange 2 = a →
+                  Fintype.complete i ≍ x → ¬Erdos602.IsMonochromatic (fun n => if n = y then 1 else 0) (A i))
+                (Fintype.complete i)
+                (fun as h =>
+                  List.cons.noConfusion h fun head_eq =>
+                    Eq.ndrec (motive := fun i =>
+                      ∀ (this : i ∈ Fintype.elems),
+                        (fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, Nat.le_refl 2⟩ [] ≍ as →
+                          this ≍ List.Mem.head as → ¬Erdos602.IsMonochromatic (fun n => if n = y then 1 else 0) (A i))
+                      (fun this tail_eq =>
+                        Eq.ndrec (motive := fun as =>
+                          this ≍ List.Mem.head as →
+                            ¬Erdos602.IsMonochromatic (fun n => if n = y then 1 else 0)
+                                (A ((fun i => i) ⟨0, Nat.le_of_lt (Nat.le_refl 2)⟩)))
+                          (fun h hMono =>
+                            have hfx :=
+                              of_eq_true
+                                (Eq.trans
+                                  (congrFun'
+                                    (congrArg Eq
+                                      (ite_cond_eq_false 1 0
+                                        (eq_false
+                                          (have this := hxy;
+                                          this))))
+                                    0)
+                                  (eq_self 0));
+                            have hfy :=
+                              of_eq_true
+                                (Eq.trans (congrFun' (congrArg Eq (ite_cond_eq_true 1 0 (eq_self y))) 1) (eq_self 1));
+                            have this := hMono x hxI.left y hyI.left;
+                            absurd
+                              (Eq.mp (congrArg (fun _a => 0 = _a) hfy)
+                                (Eq.mp (congrArg (fun _a => _a = (fun n => if n = y then 1 else 0) y) hfx) this))
+                              (of_decide_eq_true (id (Eq.refl true))))
+                          (eq_of_heq tail_eq))
+                      (eq_of_heq head_eq) (Fintype.complete i))
+                (fun b {as} a h =>
+                  List.cons.noConfusion h fun head_eq =>
+                    Eq.ndrec (motive := fun b =>
+                      (fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, Nat.le_refl 2⟩ [] ≍ as →
+                        Fintype.complete i ≍ List.Mem.tail b a →
+                          ¬Erdos602.IsMonochromatic (fun n => if n = y then 1 else 0) (A i))
+                      (fun tail_eq =>
+                        Eq.ndrec (motive := fun {as} =>
+                          ∀ (a : List.Mem i as),
+                            Fintype.complete i ≍ List.Mem.tail ((fun i => i) ⟨0, Nat.le_of_lt (Nat.le_refl 2)⟩) a →
+                              ¬Erdos602.IsMonochromatic (fun n => if n = y then 1 else 0) (A i))
+                          (fun a h =>
+                            List.Mem.casesOn (motive := fun a_1 x =>
+                              (fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, Nat.le_refl 2⟩ [] = a_1 →
+                                a ≍ x → ¬Erdos602.IsMonochromatic (fun n => if n = y then 1 else 0) (A i))
+                              a
+                              (fun as h =>
+                                List.cons.noConfusion h fun head_eq =>
+                                  Eq.ndrec (motive := fun i =>
+                                    ∀ (a : List.Mem i ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, Nat.le_refl 2⟩ [])),
+                                      [] ≍ as →
+                                        a ≍ List.Mem.head as →
+                                          ¬Erdos602.IsMonochromatic (fun n => if n = y then 1 else 0) (A i))
+                                    (fun a tail_eq =>
+                                      Eq.ndrec (motive := fun as =>
+                                        a ≍ List.Mem.head as →
+                                          ¬Erdos602.IsMonochromatic (fun n => if n = y then 1 else 0)
+                                              (A ((fun i => i) ⟨1, Nat.le_refl 2⟩)))
+                                        (fun h hMono =>
+                                          have hfx :=
+                                            of_eq_true
+                                              (Eq.trans
+                                                (congrFun'
+                                                  (congrArg Eq
+                                                    (ite_cond_eq_false 1 0
+                                                      (eq_false
+                                                        (have this := hxy;
+                                                        this))))
+                                                  0)
+                                                (eq_self 0));
+                                          have hfy :=
+                                            of_eq_true
+                                              (Eq.trans (congrFun' (congrArg Eq (ite_cond_eq_true 1 0 (eq_self y))) 1)
+                                                (eq_self 1));
+                                          have this := hMono x hxI.right y hyI.right;
+                                          absurd
+                                            (Eq.mp (congrArg (fun _a => 0 = _a) hfy)
+                                              (Eq.mp (congrArg (fun _a => _a = (fun n => if n = y then 1 else 0) y) hfx)
+                                                this))
+                                            (of_decide_eq_true (id (Eq.refl true))))
+                                        (eq_of_heq tail_eq))
+                                    (eq_of_heq head_eq) a)
+                              (fun b {as} a_1 h =>
+                                List.cons.noConfusion h fun head_eq =>
+                                  Eq.ndrec (motive := fun b =>
+                                    [] ≍ as →
+                                      a ≍ List.Mem.tail b a_1 →
+                                        ¬Erdos602.IsMonochromatic (fun n => if n = y then 1 else 0) (A i))
+                                    (fun tail_eq =>
+                                      Eq.ndrec (motive := fun {as} =>
+                                        ∀ (a_2 : List.Mem i as),
+                                          a ≍ List.Mem.tail ((fun i => i) ⟨1, Nat.le_refl 2⟩) a_2 →
+                                            ¬Erdos602.IsMonochromatic (fun n => if n = y then 1 else 0) (A i))
+                                        (fun a_2 h =>
+                                          List.Mem.casesOn (motive := fun a x =>
+                                            [] = a →
+                                              a_2 ≍ x →
+                                                ¬Erdos602.IsMonochromatic (fun n => if n = y then 1 else 0) (A i))
+                                            a_2 (fun as h => False.elim (noConfusion_of_Nat List.ctorIdx h))
+                                            (fun b {as} a h => False.elim (noConfusion_of_Nat List.ctorIdx h))
+                                            (Eq.refl []) (HEq.refl a_2))
+                                        (eq_of_heq tail_eq) a_1)
+                                    (eq_of_heq head_eq))
+                              (Eq.refl ((fun x1 x2 => (fun i => i) x1 :: x2) ⟨1, Nat.le_refl 2⟩ [])) (HEq.refl a))
+                          (eq_of_heq tail_eq) a)
+                      (eq_of_heq head_eq))
+                (Eq.refl (List.finRange 2)) (HEq.refl (Fintype.complete i))
+'Erdos602.erdos_602.variants.two_sets' depends on axioms: [propext, Classical.choice, Quot.sound]

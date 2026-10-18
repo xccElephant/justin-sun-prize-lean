@@ -1,0 +1,106 @@
+AUDIT|Erdos672.isAPOfLengthWith_two._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos672.isAPOfLengthWith_two._proof_1_4|∀ (n d m : ℕ), m < 2 → ¬(m = 0 ∨ m = 1) → False
+AUDIT|Erdos672.erdos_672_four_two_of_sq_le._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos672.erdos_672_four_two_of_sq_le._proof_1_1|∀ {n d : ℕ}, d ^ 2 ≤ n → 0 < d ^ 2 → ¬0 < n → False
+AUDIT|Erdos672.isAPOfLengthWith_three._simp_1_3|[propext]
+TYPE|Erdos672.isAPOfLengthWith_three._simp_1_3|∀ {α : Type u_1} {x a : α} {s : Set α},
+  (x ∈ insert a s) = (x = a ∨ x ∈ s)
+AUDIT|Erdos672.four_consecutive_ne_sq._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos672.four_consecutive_ne_sq._proof_1_1|∀ {n : ℕ}, 0 < n → ¬1 ^ 2 ≤ n → False
+AUDIT|Erdos672.erdos_672_four_two_of_sq_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos672.erdos_672_four_two_of_sq_le|∀ {n d : ℕ},
+  0 < d → d ^ 2 ≤ n → ∀ (q : ℕ), n * (n + d) * (n + 2 * d) * (n + 3 * d) ≠ q ^ 2
+AUDIT|Erdos672.isAPOfLengthWith_two._simp_1_3|[propext]
+TYPE|Erdos672.isAPOfLengthWith_two._simp_1_3|∀ {α : Type u_1} {a b : α}, (a ∈ {b}) = (a = b)
+AUDIT|Erdos672.isAPOfLengthWith_three._simp_1_4|[propext]
+TYPE|Erdos672.isAPOfLengthWith_three._simp_1_4|∀ {α : Type u_1} {a b : α}, (a ∈ {b}) = (a = b)
+AUDIT|Erdos672.not_erdos672With_three_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos672.not_erdos672With_three_two|¬Erdos672.Erdos672With 3 2
+AUDIT|Erdos672.not_erdos672With_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos672.not_erdos672With_two|∀ (l : ℕ), 1 ≤ l → ¬Erdos672.Erdos672With 2 l
+AUDIT|Erdos672.erdos_672_four_two_of_sq_le._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos672.erdos_672_four_two_of_sq_le._proof_1_2|∀ {n d : ℕ},
+  d ^ 4 = (d ^ 2) ^ 2 →
+    (d ^ 2) ^ 2 ≤ n ^ 2 → 0 < 3 * n * d + d ^ 2 → ¬d ^ 4 + 1 < 2 * (n ^ 2 + 3 * n * d + d ^ 2) → False
+AUDIT|Erdos672.prod_eq_of_isAPOfLengthWith_four._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos672.prod_eq_of_isAPOfLengthWith_four._simp_1_1|∀ {α : Type u_1} {a : α} {s : Finset α}, (a ∈ ↑s) = (a ∈ s)
+AUDIT|Erdos672.isAPOfLengthWith_three._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos672.isAPOfLengthWith_three._proof_1_1|∀ (d : ℕ), 0 < d → d = 0 → False
+AUDIT|Erdos672.prod_eq_of_isAPOfLengthWith_four._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos672.prod_eq_of_isAPOfLengthWith_four._proof_1_5|∀ {d : ℕ}, 0 < d → d = 0 → False
+AUDIT|Erdos672.prod_eq_of_isAPOfLengthWith_four._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos672.prod_eq_of_isAPOfLengthWith_four._proof_1_7|∀ {d : ℕ}, 0 < d → d = 0 → False
+AUDIT|Erdos672.erdos_672_four_two_of_d_pow_four_lt|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos672.erdos_672_four_two_of_d_pow_four_lt|∀ {n d : ℕ},
+  0 < n →
+    0 < d → d ^ 4 + 1 < 2 * (n ^ 2 + 3 * n * d + d ^ 2) → ∀ (q : ℕ), n * (n + d) * (n + 2 * d) * (n + 3 * d) ≠ q ^ 2
+AUDIT|Erdos672.not_erdos672With_two._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos672.not_erdos672With_two._proof_1_2|∀ (l : ℕ),
+  2 ≤ 2 ^ l →
+    ∏ i ∈ {1, 1 + (2 ^ l - 1)}, i = 1 * (1 + (2 ^ l - 1)) →
+      ∏ i ∈ {1, 1 + (2 ^ l - 1)}, i ≠ 2 ^ l → ¬1 * (1 + (2 ^ l - 1)) = 2 ^ l → False
+AUDIT|Erdos672.erdos_672_four_two_primitive_pythagorean|[propext, Quot.sound]
+TYPE|Erdos672.erdos_672_four_two_primitive_pythagorean|∀ {n d q : ℕ},
+  n.gcd d = 1 →
+    n * (n + d) * (n + 2 * d) * (n + 3 * d) = q ^ 2 →
+      q ^ 2 + (d ^ 2) ^ 2 = (n ^ 2 + 3 * n * d + d ^ 2) ^ 2 ∧ q.gcd d = 1
+AUDIT|Erdos672.prod_eq_of_isAPOfLengthWith_four._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos672.prod_eq_of_isAPOfLengthWith_four._simp_1_3|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos672.erdos_672_four_two_of_d_pow_four_lt._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos672.erdos_672_four_two_of_d_pow_four_lt._proof_1_2|∀ {n d : ℕ},
+  ∀ q < n ^ 2 + 3 * n * d + d ^ 2, ¬n ^ 2 + 3 * n * d + d ^ 2 = n ^ 2 + 3 * n * d + d ^ 2 - 1 + 1 → False
+AUDIT|Erdos672.prod_eq_of_isAPOfLengthWith_four|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos672.prod_eq_of_isAPOfLengthWith_four|∀ {s : Finset ℕ} {n d : ℕ},
+  0 < d → Erdos672.Set.IsAPOfLengthWith (↑s) 4 n d → ∏ i ∈ s, i = n * (n + d) * (n + 2 * d) * (n + 3 * d)
+AUDIT|Erdos672.isAPOfLengthWith_two._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos672.isAPOfLengthWith_two._proof_1_1|∀ (d : ℕ), 0 < d → d = 0 → False
+AUDIT|Erdos672.erdos_672_four_two_of_d_pow_four_lt._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos672.erdos_672_four_two_of_d_pow_four_lt._proof_1_3|∀ {n d : ℕ} (q : ℕ),
+  d ^ 4 + 1 < 2 * (n ^ 2 + 3 * n * d + d ^ 2) →
+    q ^ 2 + d ^ 4 = (n ^ 2 + 3 * n * d + d ^ 2) ^ 2 →
+      q ^ 2 ≤ (n ^ 2 + 3 * n * d + d ^ 2 - 1) ^ 2 →
+        n ^ 2 + 3 * n * d + d ^ 2 = n ^ 2 + 3 * n * d + d ^ 2 - 1 + 1 →
+          (n ^ 2 + 3 * n * d + d ^ 2) ^ 2 =
+              (n ^ 2 + 3 * n * d + d ^ 2 - 1) ^ 2 + 2 * (n ^ 2 + 3 * n * d + d ^ 2 - 1) + 1 →
+            False
+AUDIT|Erdos672.prod_eq_of_isAPOfLengthWith_four._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos672.prod_eq_of_isAPOfLengthWith_four._proof_1_6|∀ {d : ℕ}, 0 < d → ¬(¬d = 2 * d ∧ ¬d = 3 * d) → False
+AUDIT|Erdos672.four_consecutive_ne_sq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos672.four_consecutive_ne_sq|∀ {n : ℕ}, 0 < n → ∀ (q : ℕ), n * (n + 1) * (n + 2) * (n + 3) ≠ q ^ 2
+AUDIT|Erdos672.three_term_ap_counterexample_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos672.three_term_ap_counterexample_two|have s := {18, 18 + 7, 18 + 2 * 7};
+s.card = 3 ∧ Nat.gcd 18 7 = 1 ∧ Erdos672.Set.IsAPOfLengthWith (↑s) 3 18 7 ∧ ∏ i ∈ s, i = 120 ^ 2
+AUDIT|Erdos672.isAPOfLengthWith_three._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos672.isAPOfLengthWith_three._proof_1_2|∀ (d : ℕ), 0 < d → d = 2 * d → False
+AUDIT|Erdos672.prod_eq_of_isAPOfLengthWith_four._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos672.prod_eq_of_isAPOfLengthWith_four._proof_1_4|∀ {d : ℕ}, ∀ m < 4, ¬(m = 0 ∨ m = 1 ∨ m = 2 ∨ m = 3) → False
+AUDIT|Erdos672.isAPOfLengthWith_three|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos672.isAPOfLengthWith_three|∀ (n d : ℕ),
+  0 < d →
+    have s := {n, n + d, n + 2 * d};
+    s.card = 3 ∧ Erdos672.Set.IsAPOfLengthWith (↑s) 3 n d ∧ ∏ i ∈ s, i = n * (n + d) * (n + 2 * d)
+AUDIT|Erdos672.not_erdos672With_two._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos672.not_erdos672With_two._proof_1_1|∀ (l : ℕ), 2 ≤ 2 ^ l → ¬0 < 2 ^ l - 1 → False
+AUDIT|Erdos672.erdos_672_four_two_of_d_pow_four_lt._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos672.erdos_672_four_two_of_d_pow_four_lt._proof_1_1|∀ {n d : ℕ},
+  ∀ q < n ^ 2 + 3 * n * d + d ^ 2, ¬q ≤ n ^ 2 + 3 * n * d + d ^ 2 - 1 → False
+AUDIT|Erdos672.prod_eq_of_isAPOfLengthWith_four._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos672.prod_eq_of_isAPOfLengthWith_four._simp_1_2|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α}
+  {a b : α}, (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos672.euler_four_ap_identity|[propext]
+TYPE|Erdos672.euler_four_ap_identity|∀ (n d : ℕ),
+  n * (n + d) * (n + 2 * d) * (n + 3 * d) + d ^ 4 = (n ^ 2 + 3 * n * d + d ^ 2) ^ 2
+AUDIT|Erdos672.coprime_middle_terms|[propext, Quot.sound]
+TYPE|Erdos672.coprime_middle_terms|∀ {n d : ℕ}, n.gcd d = 1 → (n + d).gcd (n + 2 * d) = 1
+AUDIT|Erdos672.isAPOfLengthWith_three._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos672.isAPOfLengthWith_three._proof_1_5|∀ (n d m : ℕ), m < 3 → ¬(m = 0 ∨ m = 1 ∨ m = 2) → False
+AUDIT|Erdos672.isAPOfLengthWith_two._simp_1_2|[propext]
+TYPE|Erdos672.isAPOfLengthWith_two._simp_1_2|∀ {α : Type u_1} {x a : α} {s : Set α}, (x ∈ insert a s) = (x = a ∨ x ∈ s)
+AUDIT|Erdos672.isAPOfLengthWith_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos672.isAPOfLengthWith_two|∀ (n d : ℕ),
+  0 < d →
+    have s := {n, n + d};
+    s.card = 2 ∧ Erdos672.Set.IsAPOfLengthWith (↑s) 2 n d ∧ ∏ i ∈ s, i = n * (n + d)
+AUDIT|Erdos672.erdos_672_four_two_d_eq_one|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos672.erdos_672_four_two_d_eq_one|∀ (s : Finset ℕ),
+  s.card = 4 → ∀ (n : ℕ), 0 < n → Erdos672.Set.IsAPOfLengthWith (↑s) 4 n 1 → ∀ (q : ℕ), ∏ i ∈ s, i ≠ q ^ 2

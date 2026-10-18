@@ -1,0 +1,2013 @@
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound|∀ {V : Type u_1} [inst : Fintype V]
+  [DecidableEq V] {G : SimpleGraph V},
+  (∀ (x y z : V), x ≠ y → x ≠ z → y ≠ z → G.Adj x y ∨ G.Adj x z ∨ G.Adj y z) →
+    ∀ {P : Set V} {c : ℕ},
+      (SimpleGraph.induce Pᶜ G).Colorable c →
+        Fintype.card V - P.ncard + (⊤.deleteVerts P).coe.oddComponents.ncard ≤ 2 * c
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.no_five_edges_in_four|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.no_five_edges_in_four|∀ {V : Type} [Fintype V] [DecidableEq V]
+  (coloring : Sym2 V → Fin 3),
+  (∀ (S : Finset V) (k : Fin 3), S.card = 4 → ∃ u ∈ S, ∃ v ∈ S, u ≠ v ∧ coloring s(u, v) = k) →
+    ∀ (c : Fin 3) {x1 x2 x3 x4 : V},
+      x1 ≠ x2 →
+        x1 ≠ x3 →
+          x1 ≠ x4 →
+            x2 ≠ x3 →
+              x2 ≠ x4 →
+                x3 ≠ x4 →
+                  coloring s(x1, x2) = c →
+                    coloring s(x1, x3) = c →
+                      coloring s(x1, x4) = c → coloring s(x2, x3) = c → coloring s(x2, x4) = c → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.not_colorable_two_induce_of_odd_cyclicWalk._proof_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.not_colorable_two_induce_of_odd_cyclicWalk._proof_1_2|∀ {V : Type u_1}
+  {G : SimpleGraph V} {f : ℕ → V} {s : Set V} (hs : ∀ (i : ℕ), f i ∈ s) (c : (SimpleGraph.induce s G).Coloring (Fin 2))
+  (k : ℕ),
+  ↑(c ⟨f k, ⋯⟩) % 2 = (↑(c ⟨f 0, ⋯⟩) + k) % 2 →
+    ↑(c ⟨f (k + 1), ⋯⟩) = 1 - ↑(c ⟨f k, ⋯⟩) → ¬↑(c ⟨f (k + 1), ⋯⟩) % 2 = (↑(c ⟨f 0, ⋯⟩) + (k + 1)) % 2 → False
+AUDIT|Erdos617.erdos_617.variants.r_eq_3._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos617.erdos_617.variants.r_eq_3._simp_1_5|∀ {α : Type u_1} [inst : DecidableEq α] {a b : α} {s : Finset α},
+  (a ∈ s.erase b) = (a ≠ b ∧ a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_10|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_10|∀ {m i j : ℕ},
+  ¬0 < 2 * ((2 * m + 1 - (j - i)) / 2) + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_nonneighbors_le_three|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_nonneighbors_le_three|∀ {V : Type} [Fintype V] [inst : DecidableEq V]
+  (coloring : Sym2 V → Fin 3),
+  (∀ (S : Finset V) (k : Fin 3), S.card = 4 → ∃ u ∈ S, ∃ v ∈ S, u ≠ v ∧ coloring s(u, v) = k) →
+    ∀ (c : Fin 3) (v : V) (U : Finset V),
+      (∀ u ∈ U, u ≠ v ∧ coloring s(v, u) ≠ c) → ∀ u ∈ U, {w ∈ U | w ≠ u ∧ coloring s(u, w) ≠ c}.card ≤ 3
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_indep2_card_lt._proof_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_indep2_card_lt._proof_1_2|∀ {V : Type u_1}
+  [inst : Fintype V] {G : SimpleGraph V} {s : Set V} {c : ℕ} (col : (SimpleGraph.induce s G).Coloring (Fin c)),
+  ∑ i, {x | col x = i}.card = Fintype.card ↑s → ∑ i, {x | col x = i}.card ≤ c * 2 → ¬Fintype.card ↑s ≤ 2 * c → False
+AUDIT|Erdos617.erdos_617.variants.r2._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos617.erdos_617.variants.r2._proof_1_2|∀ (n p : ℕ) (S : Finset (ZMod p × ZMod p)), ¬p < p + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.cliqueFree_join_or._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.cliqueFree_join_or._simp_1_3|∀ {α : Type u_1} {β : Type u_2}
+  [inst : DecidableEq β] {f : α → β} {s : Finset α} {b : β}, (b ∈ Finset.image f s) = ∃ a ∈ s, f a = b
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_nonneighbors_le_three._simp_1_3|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_nonneighbors_le_three._simp_1_3|∀ {α : Type u_1} {a b : α},
+  (b ∈ {a}) = (b = a)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_6|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_6|∀ {m : ℕ} {i j : ℕ},
+  0 < j - i → (j - i) % 2 = 1 → ¬0 < 2 * ((j - i) / 2) + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.not_colorable_two_induce_of_odd_cyclicWalk._proof_1_3|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.not_colorable_two_induce_of_odd_cyclicWalk._proof_1_3|∀ {V : Type u_1}
+  {G : SimpleGraph V} {m : ℕ} {f : ℕ → V} {s : Set V} (hs : ∀ (i : ℕ), f i ∈ s)
+  (c : (SimpleGraph.induce s G).Coloring (Fin 2)), ↑(c ⟨f 0, ⋯⟩) % 2 = (↑(c ⟨f 0, ⋯⟩) + (2 * m + 1)) % 2 → False
+AUDIT|Erdos617.erdos_617.variants.r_eq_3._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos617.erdos_617.variants.r_eq_3._simp_1_1|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_4|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_4|∀ {V : Type u_1} {m : ℕ}
+  {f : ℕ → V},
+  2 ≤ m →
+    ∀ (h_idx : ∀ x ∈ Set.range f, ∃ i < 2 * m + 1, f i = x) (x : V) (hx : x ∈ Set.range f) (y : V)
+      (hy : y ∈ Set.range f),
+      ((fun x hx => Classical.choose ⋯) y hy = (fun x hx => Classical.choose ⋯) x hx + 1 ∨
+            (fun x hx => Classical.choose ⋯) x hx = 0 ∧ (fun x hx => Classical.choose ⋯) y hy = 2 * m) ∨
+          (fun x hx => Classical.choose ⋯) x hx = (fun x hx => Classical.choose ⋯) y hy + 1 ∨
+            (fun x hx => Classical.choose ⋯) y hy = 0 ∧ (fun x hx => Classical.choose ⋯) x hx = 2 * m →
+        (fun x hx => Classical.choose ⋯) x hx = 2 * m → (fun x hx => Classical.choose ⋯) y hy = 2 * m → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_7|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_7|∀ {V : Type} [Fintype V]
+  [inst : DecidableEq V] (coloring : Sym2 V → Fin 3) (v : V) (k : Fin 3) (U7 : Finset V),
+  ∑ v, { Adj := fun a b => ↑a ≠ ↑b ∧ coloring s(↑a, ↑b) = k, symm := ⋯, loopless := ⋯ }.degree v =
+      2 * { Adj := fun a b => ↑a ≠ ↑b ∧ coloring s(↑a, ↑b) = k, symm := ⋯, loopless := ⋯ }.edgeFinset.card →
+    ∑ a, { Adj := fun a b => ↑a ≠ ↑b ∧ coloring s(↑a, ↑b) = k, symm := ⋯, loopless := ⋯ }.degree a = 21 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.exists_triangle_of_bal|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.exists_triangle_of_bal|∀ {V : Type} [inst : Fintype V] [DecidableEq V],
+  Fintype.card V = 10 →
+    ∀ (coloring : Sym2 V → Fin 3),
+      (∀ (S : Finset V) (k : Fin 3), S.card = 4 → ∃ u ∈ S, ∃ v ∈ S, u ≠ v ∧ coloring s(u, v) = k) →
+        ∃ x y z, x ≠ y ∧ x ≠ z ∧ y ≠ z ∧ coloring s(x, y) = 0 ∧ coloring s(x, z) = 0 ∧ coloring s(y, z) = 0
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_isPerfectMatching|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_isPerfectMatching|∀ {V : Type u_1} {W : Type u_2}
+  [inst : Fintype W] {G : SimpleGraph V} {H : SimpleGraph W} (f : V → W),
+  Function.Injective f →
+    (∀ (u v : V), G.Adj u v → ¬H.Adj (f u) (f v)) →
+      ∀ {M : H.Subgraph}, M.IsPerfectMatching → ∀ {c : ℕ}, Fintype.card W = 2 * c → G.Colorable c
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_split._proof_1_5|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_split._proof_1_5|∀ {V : Type u_1} {G : SimpleGraph V}
+  {U : Set V} {c d : ℕ} (col : (SimpleGraph.induce U G).Coloring (Fin c)) ⦃u : V⦄ (hu : u ∈ U),
+  ↑(col ⟨u, hu⟩) < d → ∀ (w : u ∈ U), d ≤ ↑(col ⟨u, w⟩) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_edge_of_three._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_edge_of_three._simp_1_1|∀ {α : Type u_1} [inst : DecidableEq α]
+  {s : Finset α} {a b : α}, (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos23.erdos_23.variants.n1._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos23.erdos_23.variants.n1._simp_1_3|∀ {α : Type u_1} {a : α} {s : Finset α}, (a ∈ ↑s) = (a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos23.sub_bipFromSet_isBipartite|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos23.sub_bipFromSet_isBipartite|∀ (G : SimpleGraph (Fin 5))
+  (S : Finset (Fin 5)), (G ⊓ Erdos23.bipFromSet✝ S).IsBipartite
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_split._proof_1_11|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_split._proof_1_11|∀ {c d : ℕ},
+  1 ≤ d → d < c → ¬d + (c - d - 1) = c - 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_7|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_7|∀ {m : ℕ},
+  2 ≤ m →
+    ∀ {i j k : ℕ},
+      j - i + (k - j) + (2 * m + 1 + i - k) = 2 * m + 1 →
+        (j - i) % 2 = 1 → j - i ≤ 2 * m - 3 → j - i + 2 = 2 * ((j - i + 1) / 2) + 1 → ¬(j - i + 1) / 2 < m → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_splittable_on_set._proof_1_16|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_splittable_on_set._proof_1_16|∀ {V : Type u_1}
+  {G : SimpleGraph V} (n : ℕ) (U : Set V) (k a b : ℕ),
+  3 ≤ k →
+    ∀ v0 ∈ U,
+      ∀ (k1 : ℕ), 1 ≤ k1 → ∀ (k2 : ℕ), 1 ≤ k2 → ¬k1 + k2 ≤ k - 1 → k1 - 1 + (k2 - 1) + 2 ≤ k → ¬k1 + k2 = k → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_13|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_13|∀ {V : Type} [inst : Fintype V]
+  [inst_1 : DecidableEq V] (coloring : Sym2 V → Fin 3) (v : V),
+  {u | u ≠ v ∧ coloring s(v, u) = 0}.card + {u | u ≠ v ∧ coloring s(v, u) = 1}.card +
+        {u | u ≠ v ∧ coloring s(v, u) = 2}.card =
+      9 →
+    3 ≤ {u | u ≠ v ∧ coloring s(v, u) = 0}.card →
+      3 ≤ {u | u ≠ v ∧ coloring s(v, u) = 1}.card →
+        3 ≤ {u | u ≠ v ∧ coloring s(v, u) = 2}.card → ¬{u | u ≠ v ∧ coloring s(v, u) = 2}.card = 3 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_10|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_10|∀
+  {V : Type u_1} {G : SimpleGraph V} {x1 x2 x3 : V} (c_bar : (SimpleGraph.induce {x1, x2, x3}ᶜ G).Coloring (Fin 2))
+  (b0 : Fin 2),
+  (∀ (v : V) (hv : v ∉ {x1, x2, x3}),
+      c_bar ⟨v, hv⟩ = b0 → ∃ col_v, (G.Adj v x1 → col_v ≠ 0) ∧ (G.Adj v x2 → col_v ≠ 1) ∧ (G.Adj v x3 → col_v ≠ 2)) →
+    ∀ {u : V} {v : V}, ↑((fun u => if u = x1 then 0 else if u = x2 then 1 else 2) u) = 3 → False
+AUDIT|Erdos23.erdos_23.variants.n1_tight._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos23.erdos_23.variants.n1_tight._proof_1_1|∀ (t : Finset (Fin 5)), ¬(SimpleGraph.cycleGraph 5).IsNClique 3 t
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_1|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_1|∀ {m : ℕ} {i j : ℕ},
+  i < j → ¬0 < j - i → False
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_9|∀ {α : Type u_1} {a : α} {s : Finset α}, (a ∈ ↑s) = (a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._simp_1_15|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._simp_1_15|∀ {α : Type u_1}
+  [inst : DecidableEq α] {s : Finset α} {a b : α}, (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_nonneighbors_le_three._proof_1_1|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_nonneighbors_le_three._proof_1_1|∀ {V : Type} [inst : DecidableEq V]
+  (coloring : Sym2 V → Fin 3) (c : Fin 3) (U : Finset V) (u : V),
+  ¬{w ∈ U | w ≠ u ∧ coloring s(u, w) ≠ c}.card ≤ 3 → ¬4 ≤ {w ∈ U | w ≠ u ∧ coloring s(u, w) ≠ c}.card → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.exists_fourth_complete_of_not_colorable_four|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.exists_fourth_complete_of_not_colorable_four|∀ {V : Type u_1}
+  {G : SimpleGraph V} {a b c d : V},
+  G.Adj a b →
+    G.Adj a c →
+      G.Adj a d →
+        G.Adj b c →
+          G.Adj b d →
+            G.Adj c d →
+              (SimpleGraph.induce {a, b, c}ᶜ G).Colorable 2 →
+                ¬G.Colorable 4 → ∃ z ∉ {a, b, c}, z ≠ d ∧ G.Adj z a ∧ G.Adj z b ∧ G.Adj z c
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.exists_exact_coloring_of_colorable._proof_1_1|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.exists_exact_coloring_of_colorable._proof_1_1|∀ {W : Type u_1}
+  (H : SimpleGraph W) {k : ℕ} (hcol : H.Colorable k), ¬1 ≤ Nat.find ⋯ → ¬Nat.find ⋯ = 0 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_neighbors_le_three_of_card_ge_six._proof_1_1|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_neighbors_le_three_of_card_ge_six._proof_1_1|∀ {V : Type}
+  [inst : DecidableEq V] (coloring : Sym2 V → Fin 3) (c : Fin 3) (U : Finset V) (u : V),
+  ¬{w ∈ U | w ≠ u ∧ coloring s(u, w) = c}.card ≤ 3 → ¬4 ≤ {w ∈ U | w ≠ u ∧ coloring s(u, w) = c}.card → False
+AUDIT|Erdos628.erdos_628.variants.independence_number_2._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.independence_number_2._proof_1_7|∀ (V : Type u_1) (G : SimpleGraph V) (k a b : ℕ),
+  b ≥ 2 → ¬b = b - 1 + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_9|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_9|∀ {V : Type u_1} {m : ℕ}
+  {f : ℕ → V} (h_idx : ∀ x ∈ Set.range f, ∃ i < 2 * m + 1, f i = x) (u : V) (hu : u ∈ Set.range f),
+  ↑((fun x hx =>
+            ⟨if (fun x hx => Classical.choose ⋯) x hx = 2 * m then 2 else (fun x hx => Classical.choose ⋯) x hx % 2, ⋯⟩)
+          u hu) <
+      3 →
+    ¬↑((fun x hx =>
+                ⟨if (fun x hx => Classical.choose ⋯) x hx = 2 * m then 2 else (fun x hx => Classical.choose ⋯) x hx % 2,
+                  ⋯⟩)
+              u hu) <
+          4 →
+      False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.no_five_edges_in_four._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.no_five_edges_in_four._simp_1_1|∀ {α : Type u_1} [inst : DecidableEq α]
+  {s : Finset α} {a b : α}, (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_join_colorable._proof_1_3|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_join_colorable._proof_1_3|∀ {V : Type u_1}
+  {G : SimpleGraph V} {A B : Set V} {cA c : ℕ} (col : (SimpleGraph.induce (A ∪ B) G).Coloring (Fin c)),
+  ¬cA < {i | ∃ u, ∃ (hu : u ∈ A), col ⟨u, ⋯⟩ = i}.card → ¬{i | ∃ u, ∃ (hu : u ∈ A), col ⟨u, ⋯⟩ = i}.card ≤ cA → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_9|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_9|∀ {V : Type} [inst : Fintype V]
+  [inst_1 : DecidableEq V] (coloring : Sym2 V → Fin 3) (v : V) (k : Fin 3),
+  10 - 1 = {u | u ≠ v ∧ coloring s(v, u) = k}.card + {u | u ≠ v ∧ coloring s(v, u) ≠ k}.card →
+    ¬{u | u ≠ v ∧ coloring s(v, u) = k}.card + {u | u ≠ v ∧ coloring s(v, u) ≠ k}.card = 9 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_16|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_16|∀ {V : Type u_1}
+  {G : SimpleGraph V} {m : ℕ} {f : ℕ → V} (c_bar : (SimpleGraph.induce (Set.range f)ᶜ G).Coloring (Fin 2))
+  (h_idx : ∀ x ∈ Set.range f, ∃ i < 2 * m + 1, f i = x),
+  (∀ v ∉ Set.range f,
+      ∃ col_v,
+        ∀ (x : V) (hx : x ∈ Set.range f),
+          G.Adj v x →
+            (fun x hx =>
+                  ⟨if (fun x hx => Classical.choose ⋯) x hx = 2 * m then 2
+                    else (fun x hx => Classical.choose ⋯) x hx % 2,
+                    ⋯⟩)
+                x hx ≠
+              col_v) →
+    ∀ {u v : V} (hu : u ∉ Set.range f) (hv : v ∉ Set.range f),
+      ↑(c_bar ⟨u, hu⟩) ≠ ↑(c_bar ⟨v, hv⟩) →
+        ↑(c_bar ⟨u, hu⟩) < 2 → ↑(c_bar ⟨v, hv⟩) < 2 → ¬↑(c_bar ⟨u, hu⟩) = 0 → ¬↑(c_bar ⟨v, hv⟩) = 0 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl|∀ {V : Type u_1}
+  {G : SimpleGraph V} {x1 x2 x3 : V},
+  G.Adj x1 x2 →
+    G.Adj x1 x3 →
+      G.Adj x2 x3 →
+        (SimpleGraph.induce {x1, x2, x3}ᶜ G).Colorable 2 →
+          (¬∃ y1 y2,
+                y1 ∉ {x1, x2, x3} ∧
+                  y2 ∉ {x1, x2, x3} ∧ y1 ≠ y2 ∧ (∀ x ∈ {x1, x2, x3}, G.Adj y1 x) ∧ ∀ x ∈ {x1, x2, x3}, G.Adj y2 x) →
+            G.Colorable 4
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_neighbors_le_three_of_card_ge_six|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_neighbors_le_three_of_card_ge_six|∀ {V : Type} [Fintype V]
+  [inst : DecidableEq V] (coloring : Sym2 V → Fin 3),
+  (∀ (S : Finset V) (k : Fin 3), S.card = 4 → ∃ u ∈ S, ∃ v ∈ S, u ≠ v ∧ coloring s(u, v) = k) →
+    ∀ (c : Fin 3) (v : V) (U : Finset V),
+      (∀ u ∈ U, u ≠ v ∧ coloring s(v, u) ≠ c) → 6 ≤ U.card → ∀ u ∈ U, {w ∈ U | w ≠ u ∧ coloring s(u, w) = c}.card ≤ 3
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_8|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_8|∀
+  {V : Type u_1} {G : SimpleGraph V} {x1 x2 x3 : V} (c_bar : (SimpleGraph.induce {x1, x2, x3}ᶜ G).Coloring (Fin 2))
+  (b0 : Fin 2),
+  (∀ (v : V) (hv : v ∉ {x1, x2, x3}),
+      c_bar ⟨v, hv⟩ = b0 → ∃ col_v, (G.Adj v x1 → col_v ≠ 0) ∧ (G.Adj v x2 → col_v ≠ 1) ∧ (G.Adj v x3 → col_v ≠ 2)) →
+    ∀ {u v : V} (hu : u ∉ {x1, x2, x3}) (hv : v ∉ {x1, x2, x3}),
+      ↑(c_bar ⟨u, hu⟩) < 2 →
+        ↑(c_bar ⟨v, hv⟩) < 2 →
+          ↑b0 < 2 → ↑(c_bar ⟨u, hu⟩) ≠ ↑b0 → ↑(c_bar ⟨v, hv⟩) ≠ ↑b0 → ↑(c_bar ⟨u, hu⟩) ≠ ↑(c_bar ⟨v, hv⟩) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three|∀ {V : Type} [inst : Fintype V]
+  [inst_1 : DecidableEq V],
+  Fintype.card V = 10 →
+    ∀ (coloring : Sym2 V → Fin 3),
+      (∀ (S : Finset V) (k : Fin 3), S.card = 4 → ∃ u ∈ S, ∃ v ∈ S, u ≠ v ∧ coloring s(u, v) = k) →
+        ∀ (c : Fin 3) (v : V), {u | u ≠ v ∧ coloring s(v, u) = c}.card = 3 ∧ {u | u ≠ v ∧ coloring s(v, u) ≠ c}.card = 6
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_via_external._proof_1_6|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_via_external._proof_1_6|∀ {d : ℕ} (t : ℕ),
+  (t + 1) % (d + 2) = t % (d + 2) + 1 → ¬t % (d + 2) = 0 → ¬t % (d + 2) + 1 - 1 = t % (d + 2) - 1 + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_3|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_3|∀ {m : ℕ} {i j : ℕ},
+  (j - i) % 2 = 1 → ¬2 * ((j - i) / 2) + 1 = j - i → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_6|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_6|∀ {m i j k : ℕ},
+  j - i + (k - j) + (2 * m + 1 + i - k) = 2 * m + 1 → (j - i) % 2 = 1 → ¬j - i + 2 = 2 * ((j - i + 1) / 2) + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_join_of_colorable._proof_1_1|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_join_of_colorable._proof_1_1|∀ {V : Type u_1}
+  {G : SimpleGraph V} {A B : Set V} {cA cB : ℕ} (colA : (SimpleGraph.induce A G).Coloring (Fin cA)) (x : ↑(A ∪ B))
+  (hxA : ↑x ∈ A), ↑(colA ⟨↑x, hxA⟩) < cA → ¬↑(colA ⟨↑x, hxA⟩) < cA + cB → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.no_five_edges_in_four._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.no_five_edges_in_four._simp_1_2|∀ {α : Type u_1} {a b : α},
+  (b ∈ {a}) = (b = a)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._simp_1_7|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._simp_1_7|∀ {α : Type u_1}
+  [inst : Fintype α] (x : α), (x ∈ Finset.univ) = True
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_6|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_6|∀ {V : Type u_1} {m : ℕ}
+  {f : ℕ → V} (h_idx : ∀ x ∈ Set.range f, ∃ i < 2 * m + 1, f i = x) (x : V) (hx : x ∈ Set.range f),
+  ∀ y ∈ Set.range f, (fun x hx => Classical.choose ⋯) x hx % 2 = 2 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_4|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_4|∀ {m i : ℕ} {j : ℕ}
+  {k : ℕ}, k < 2 * m + 1 → ¬1 ≤ 2 * m + 1 + i - k → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.exists_p_odd_components_bound|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.exists_p_odd_components_bound|∀ {V : Type u_1} [inst : Fintype V]
+  [DecidableEq V] {G : SimpleGraph V} {k : ℕ},
+  1 ≤ k →
+    ¬G.Colorable (k - 1) →
+      2 * k ≤ Fintype.card V + 1 ∨ ∃ P, 2 * k ≤ Fintype.card V + (⊤.deleteVerts P).coe.oddComponents.ncard - P.ncard
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_nonneighbors_le_three._simp_1_4|[propext]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_nonneighbors_le_three._simp_1_4|∀ {p q : Prop}, (¬(p ∨ q)) = (¬p ∧ ¬q)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.exists_odd_cyclicWalk_of_not_colorable_two._proof_1_1|[propext,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.exists_odd_cyclicWalk_of_not_colorable_two._proof_1_1|∀ {V : Type u_1}
+  {G : SimpleGraph V} (u : V) (w : G.Walk u u) (m : ℕ), w.length = 2 * m + 1 → ¬0 < 2 * m + 1 → False
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_7|∀ (i : ℕ), i % 3 = 2 → i % 3 = 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.exists_odd_cyclicWalk_of_not_colorable_two._proof_1_2|[propext,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.exists_odd_cyclicWalk_of_not_colorable_two._proof_1_2|∀ {V : Type u_1}
+  {G : SimpleGraph V} (u : V) (w : G.Walk u u) (m : ℕ),
+  w.length = 2 * m + 1 → ∀ (i : ℕ), i % (2 * m + 1) + 1 = 2 * m + 1 → ¬i % (2 * m + 1) < w.length → False
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_6|∀ (i : ℕ), i % 3 = 2 → i % 3 = 0 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.ge_three_of_colorable_not_colorable_cliqueFree._simp_1_4|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.ge_three_of_colorable_not_colorable_cliqueFree._simp_1_4|∀
+  {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos617.erdos_617.variants.r_eq_3._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos617.erdos_617.variants.r_eq_3._proof_1_11|∀ (r : ℕ) {V : Type} [inst : Fintype V] [inst_1 : DecidableEq V]
+  (coloring : Sym2 V → Fin 3) (x y z a b c : V),
+  (Finset.univ \ {x, y, z, a, b, c}).card = 4 →
+    {r ∈ Finset.univ \ {x, y, z, a, b, c} | coloring s(c, r) = 0}.card ≤ 2 →
+      (Finset.univ \ {x, y, z, a, b, c}).card ≤ {r ∈ Finset.univ \ {x, y, z, a, b, c} | coloring s(c, r) = 0}.card →
+        False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_5|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_5|∀ {m : ℕ},
+  2 ≤ m →
+    ∀ {i j k : ℕ},
+      j - i + (k - j) + (2 * m + 1 + i - k) = 2 * m + 1 →
+        1 ≤ j - i →
+          1 ≤ k - j →
+            1 ≤ 2 * m + 1 + i - k →
+              ¬((j - i) % 2 = 1 ∧ j - i ≤ 2 * m - 3 ∨
+                    (k - j) % 2 = 1 ∧ k - j ≤ 2 * m - 3 ∨ (2 * m + 1 + i - k) % 2 = 1 ∧ 2 * m + 1 + i - k ≤ 2 * m - 3) →
+                False
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_15|[propext]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_15|∀ {p q : Prop}, (¬(p ∨ q)) = (¬p ∧ ¬q)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_4|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_4|∀ {m i j : ℕ},
+  j - i < 2 * m + 1 → (j - i) % 2 = 1 → ¬(j - i) / 2 < m → False
+AUDIT|Erdos23.erdos_23.variants.n1._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos23.erdos_23.variants.n1._simp_1_4|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_split._proof_1_9|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_split._proof_1_9|∀ {V : Type u_1} {G : SimpleGraph V}
+  {U : Set V} {c d : ℕ},
+  d < c →
+    ∀ (col : (SimpleGraph.induce U G).Coloring (Fin c)) {x y : ↑{u | ∃ (hu : u ∈ U), d ≤ ↑(col ⟨u, hu⟩)}},
+      ↑(col ⟨↑x, ⋯⟩) - d = ↑(col ⟨↑y, ⋯⟩) - d →
+        d ≤ ↑(col ⟨↑x, ⋯⟩) → d ≤ ↑(col ⟨↑y, ⋯⟩) → ¬↑(col ⟨↑x, ⋯⟩) = ↑(col ⟨↑y, ⋯⟩) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._simp_1_8|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._simp_1_8|∀ {α : Type u_1}
+  {p : α → Prop} [inst : DecidablePred p] {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_3|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_3|∀ {V : Type u_1} {m : ℕ}
+  {f : ℕ → V} (h_idx : ∀ x ∈ Set.range f, ∃ i < 2 * m + 1, f i = x) (x : V) (hx : x ∈ Set.range f),
+  ¬(fun x hx => Classical.choose ⋯) x hx % 2 < 3 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_join_colorable._simp_1_1|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_join_colorable._simp_1_1|∀ {α : Type u_1} {p : α → Prop}
+  [inst : DecidablePred p] {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_splittable_on_set._proof_1_1|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_splittable_on_set._proof_1_1|∀ {V : Type u_1} (n : ℕ) (U : Set V)
+  (k a b : ℕ), 2 ≤ a → 2 ≤ b → a + b = k + 1 → ¬3 ≤ k → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.cliqueFree_join_or._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.cliqueFree_join_or._simp_1_2|∀ {α : Type u_1} [inst : DecidableEq α]
+  {s t : Finset α} {a : α}, (a ∈ s ∪ t) = (a ∈ s ∨ a ∈ t)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_split._simp_1_6|[propext]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_split._simp_1_6|∀ {α : Type u} (x : α) (a b : Set α),
+  (x ∈ a ∪ b) = (x ∈ a ∨ x ∈ b)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._simp_1_6|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._simp_1_6|∀ {α : Type u_1}
+  {p : α → Prop} [inst : DecidablePred p] {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_split._proof_1_10|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_split._proof_1_10|∀ {c d : ℕ},
+  1 ≤ d → d < c → ¬d - 1 + (c - d) = c - 1 → False
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_13|[propext]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_13|∀ {α : Type u_1} {x a : α} {s : Set α},
+  (x ∈ insert a s) = (x = a ∨ x ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_14|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_14|∀ {V : Type} [inst : Fintype V]
+  [inst_1 : DecidableEq V] (coloring : Sym2 V → Fin 3) (c : Fin 3) (v : V),
+  {u | u ≠ v ∧ coloring s(v, u) = c}.card = 3 →
+    {u | u ≠ v ∧ coloring s(v, u) = c}.card + {u | u ≠ v ∧ coloring s(v, u) ≠ c}.card = 9 →
+      ¬{u | u ≠ v ∧ coloring s(v, u) ≠ c}.card = 6 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.exists_exact_coloring_of_colorable|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.exists_exact_coloring_of_colorable|∀ {W : Type u_1} [Fintype W]
+  (H : SimpleGraph W), Nonempty W → ∀ {k : ℕ}, H.Colorable k → ∃ c, 1 ≤ c ∧ c ≤ k ∧ H.Colorable c ∧ ¬H.Colorable (c - 1)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_4|[propext,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_4|¬3 < 4 → False
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3|∀ (V : Type u_1) [Fintype V] (G : SimpleGraph V) [DecidableRel G.Adj],
+  G.chromaticNumber = 5 →
+    G.CliqueFree 5 → ∃ s, (SimpleGraph.induce s G).chromaticNumber ≥ 3 ∧ (SimpleGraph.induce sᶜ G).chromaticNumber ≥ 3
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.ge_three_of_colorable_not_colorable_cliqueFree._simp_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.ge_three_of_colorable_not_colorable_cliqueFree._simp_1_2|∀
+  {α : Type u_1} {a : α} {s : Finset α}, (a ∈ ↑s) = (a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_9|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_9|∀ {m i j : ℕ},
+  i < j →
+    j - i < 2 * m + 1 →
+      ¬(j - i) % 2 = 1 →
+        2 * ((2 * m + 1 - (j - i)) / 2) + 1 = 2 * m + 1 - (j - i) →
+          ¬j + (2 * ((2 * m + 1 - (j - i)) / 2) + 1) = i + (2 * m + 1) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._proof_1_8|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._proof_1_8|∀ {V : Type u_1}
+  [inst : Fintype V] {G : SimpleGraph V} {P : Set V} {c : ℕ} (col : (SimpleGraph.induce Pᶜ G).Coloring (Fin c))
+  (x : ↑(⊤.deleteVerts P).verts),
+  1 <
+      ((fun i =>
+            {x |
+              (fun x =>
+                    col ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯, right_inv := ⋯ } x))
+                  x =
+                i})
+          ((fun x => col ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯, right_inv := ⋯ } x))
+            x)).card →
+    ((fun i =>
+              {x |
+                (fun x =>
+                      col ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯, right_inv := ⋯ } x))
+                    x =
+                  i})
+            ((fun x => col ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯, right_inv := ⋯ } x))
+              x)).card ≤
+        2 →
+      ¬((fun i =>
+                  {x |
+                    (fun x =>
+                          col
+                            ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯, right_inv := ⋯ }
+                              x))
+                        x =
+                      i})
+                ((fun x =>
+                    col ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯, right_inv := ⋯ } x))
+                  x)).card =
+            2 →
+        False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_2|∀
+  {V : Type u_1} {G : SimpleGraph V} {x1 x2 x3 : V} (c_bar : (SimpleGraph.induce {x1, x2, x3}ᶜ G).Coloring (Fin 2))
+  (v : V) (hv hy0 : v ∉ {x1, x2, x3}),
+  c_bar ⟨v, hv⟩ = ⟨1 - ↑(c_bar ⟨v, hy0⟩), ⋯⟩ → ↑(c_bar ⟨v, hv⟩) = 1 - ↑(c_bar ⟨v, hv⟩) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_periodic_mul|[propext]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_periodic_mul|∀ {V : Type u_1} {G : SimpleGraph V} {n : ℕ}
+  {f : ℕ → V}, Erdos628.IsCyclicWalk✝ G n f → ∀ (i q : ℕ), f (i + n * q) = f i
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_1|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_1|∀ {V : Type} [inst : Fintype V]
+  [inst_1 : DecidableEq V] (coloring : Sym2 V → Fin 3) (v : V) (k : Fin 3),
+  ¬{u | u ≠ v ∧ coloring s(v, u) ≠ k}.card ≤ 6 → ¬7 ≤ {u | u ≠ v ∧ coloring s(v, u) ≠ k}.card → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff._proof_1_4|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff._proof_1_4|∀ {m i j : ℕ},
+  j - i < 2 * m → (j - i) % 2 = 0 → ¬(j - i) / 2 < m → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_join_colorable|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_join_colorable|∀ {V : Type u_1} {G : SimpleGraph V}
+  {A B : Set V},
+  (∀ u ∈ A, ∀ v ∈ B, G.Adj u v) →
+    ∀ {cA cB c : ℕ},
+      (SimpleGraph.induce (A ∪ B) G).Colorable c →
+        ¬(SimpleGraph.induce A G).Colorable cA → ¬(SimpleGraph.induce B G).Colorable cB → cA + cB + 2 ≤ c
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.exists_p_odd_components_bound._proof_1_7|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.exists_p_odd_components_bound._proof_1_7|∀ {V : Type u_1}
+  [inst : Fintype V] {G : SimpleGraph V} {k : ℕ},
+  ¬2 * k ≤ Fintype.card V + 1 →
+    ∀ (U : Set (V ⊕ Fin (2 * k - 2 - Fintype.card V))),
+      U.ncard + 2 ≤ (⊤.deleteVerts U).coe.oddComponents.ncard →
+        U.ncard = {v | Sum.inl v ∈ U}.ncard + (2 * k - 2 - Fintype.card V) →
+          (⊤.deleteVerts {v | Sum.inl v ∈ U}).coe.oddComponents.ncard = (⊤.deleteVerts U).coe.oddComponents.ncard →
+            ¬2 * k ≤
+                  Fintype.card V + (⊤.deleteVerts {v | Sum.inl v ∈ U}).coe.oddComponents.ncard -
+                    {v | Sum.inl v ∈ U}.ncard →
+              False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_7|∀ {V : Type u_1} {A : Set V} {n : ℕ}
+  {k a b kA kB : ℕ}, a + b = k + 1 → kA + kB = k → kB + 2 ≤ b → ¬a + (b - kB) = kA + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_of_adj|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_of_adj|∀ {V : Type u_1} {G : SimpleGraph V}
+  {n : ℕ} {f : ℕ → V},
+  Erdos628.IsCyclicWalk✝ G n f →
+    ∀ {d : ℕ}, G.Adj (f d) (f 0) → Erdos628.IsCyclicWalk✝ G (d + 1) fun t => f (t % (d + 1))
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_split._proof_1_8|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_split._proof_1_8|∀ {V : Type u_1} {G : SimpleGraph V}
+  {U : Set V} {c d : ℕ},
+  d < c →
+    ∀ (col : (SimpleGraph.induce U G).Coloring (Fin c)) (x : ↑{u | ∃ (hu : u ∈ U), d ≤ ↑(col ⟨u, hu⟩)}),
+      ↑(col ⟨↑x, ⋯⟩) < c → d ≤ ↑(col ⟨↑x, ⋯⟩) → ¬↑(col ⟨↑x, ⋯⟩) - d < c - d → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.three_le_chromaticNumber_iff_not_colorable_two|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.three_le_chromaticNumber_iff_not_colorable_two|∀ {V : Type u_1}
+  {G : SimpleGraph V}, 3 ≤ G.chromaticNumber ↔ ¬G.Colorable 2
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff._proof_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff._proof_1_2|∀ {m i j : ℕ},
+  j < 2 * m + 1 → i < j → ¬(j = i + 1 ∨ i = 0 ∧ j = 2 * m) → ¬j - i < 2 * m → False
+AUDIT|Erdos23.erdos_23.variants.n1._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos23.erdos_23.variants.n1._proof_1_7|∀ (A : Finset (Fin 5)), A.card ≤ 2 → {e ∈ A.sym2 | ¬e.IsDiag}.card ≤ 1
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_2|∀ {V : Type u_1} {A : Set V} {n : ℕ}
+  {k a b kA kB : ℕ}, a + b = k + 1 → kA + kB = k → kB + 2 ≤ a → ¬a - kB + b = kA + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.exists_triangle_of_bal._proof_1_1|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.exists_triangle_of_bal._proof_1_1|∀ {V : Type} [inst : Fintype V]
+  [inst_1 : DecidableEq V] (coloring : Sym2 V → Fin 3) (v : V),
+  {u | u ≠ v ∧ coloring s(v, u) ≠ 0}.card = 6 → ¬0 < {u | u ≠ v ∧ coloring s(v, u) ≠ 0}.card → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_1|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_1|∀ {m : ℕ},
+  2 ≤ m → ¬0 < 2 * m + 1 → False
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_3|∀ (i : ℕ), i % 3 = 1 → ¬(i + 1) % 3 = 2 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._simp_1_4|[propext]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._simp_1_4|∀ {α : Type u} {s t : Set α} (x : α),
+  (x ∈ s \ t) = (x ∈ s ∧ x ∉ t)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.critical_and_connected_compl_card_bound._proof_1_1|[propext,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.critical_and_connected_compl_card_bound._proof_1_1|∀ {k : ℕ},
+  2 ≤ k → ¬1 ≤ k → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._simp_1_5|[propext]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._simp_1_5|∀ {α : Type u} (x : α) (a b : Set α),
+  (x ∈ a ∪ b) = (x ∈ a ∨ x ∈ b)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff._proof_1_6|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff._proof_1_6|∀ {m i j : ℕ},
+  j - i < 2 * m → ¬(j - i) % 2 = 0 → ¬2 * ((2 * m + 1 - (j - i)) / 2) = 2 * m + 1 - (j - i) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_10|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_10|∀ {V : Type u_1}
+  [inst : Fintype V] [inst_1 : DecidableEq V] {G : SimpleGraph V} {k a b : ℕ},
+  a + b = k + 1 → ∀ (v : V), ¬{u | u ≠ v ∧ ¬G.Adj v u}.card < a → ¬a ≤ {u | u ≠ v ∧ ¬G.Adj v u}.card → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_15|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_15|∀ {V : Type u_1} {A : Set V} {n : ℕ}
+  {k a b kA kB : ℕ}, a + b = k + 1 → kA + kB = k → 3 ≤ a → 2 - 1 + (a - 2 - 1) + 2 ≤ a - 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_5|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_5|∀ {m : ℕ} {i j : ℕ},
+  i < j → (j - i) % 2 = 1 → ¬i + (j - i) = j → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._proof_1_1|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._proof_1_1|∀ {V : Type u_1}
+  [inst : Fintype V] {G : SimpleGraph V} {P : Set V} {c : ℕ} (col : (SimpleGraph.induce Pᶜ G).Coloring (Fin c))
+  (i : Fin c),
+  ¬((fun i =>
+              {x |
+                (fun x =>
+                      col ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯, right_inv := ⋯ } x))
+                    x =
+                  i})
+            i).card ≤
+        2 →
+    ¬3 ≤
+          ((fun i =>
+                {x |
+                  (fun x =>
+                        col
+                          ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯, right_inv := ⋯ } x))
+                      x =
+                    i})
+              i).card →
+      False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.oddComponents_ncard_iso._simp_1_2|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.oddComponents_ncard_iso._simp_1_2|∀ {V : Type u} {G : SimpleGraph V}
+  {v w : V}, (G.connectedComponentMk v = G.connectedComponentMk w) = G.Reachable v w
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.critical_and_connected_compl_card_bound._proof_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.critical_and_connected_compl_card_bound._proof_1_2|∀ {V : Type u_1}
+  [inst : Fintype V] {G : SimpleGraph V} {k : ℕ},
+  2 ≤ k →
+    ∀ (P : Set V),
+      2 * k ≤ Fintype.card V + (⊤.deleteVerts P).coe.oddComponents.ncard - P.ncard →
+        Fintype.card V - P.ncard + (⊤.deleteVerts P).coe.oddComponents.ncard ≤ 2 * (k - 1) →
+          P.ncard ≤ Fintype.card V → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_2|∀ {V : Type u_1}
+  [Fintype V] {k a b : ℕ},
+  2 ≤ a → a + b = k + 1 → ∀ (S : Finset V), S.card = 2 * a - 1 → 2 * a - 1 ≤ 2 * (a - 1) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._proof_1_10|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._proof_1_10|∀ {V : Type u_1}
+  [inst : Fintype V] {G : SimpleGraph V} {P : Set V} {c : ℕ} (col : (SimpleGraph.induce Pᶜ G).Coloring (Fin c)),
+  {i |
+            ((fun i =>
+                    {x |
+                      (fun x =>
+                            col
+                              ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯, right_inv := ⋯ }
+                                x))
+                          x =
+                        i})
+                  i).card ≤
+              1}.card +
+        {i |
+            ¬((fun i =>
+                      {x |
+                        (fun x =>
+                              col
+                                ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯,
+                                    right_inv := ⋯ }
+                                  x))
+                            x =
+                          i})
+                    i).card ≤
+                1}.card =
+      c →
+    ∑ i with
+          ((fun i =>
+                  {x |
+                    (fun x =>
+                          col
+                            ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯, right_inv := ⋯ }
+                              x))
+                        x =
+                      i})
+                i).card ≤
+            1,
+          ((fun i =>
+                {x |
+                  (fun x =>
+                        col
+                          ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯, right_inv := ⋯ } x))
+                      x =
+                    i})
+              i).card ≤
+        {i |
+            ((fun i =>
+                    {x |
+                      (fun x =>
+                            col
+                              ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯, right_inv := ⋯ }
+                                x))
+                          x =
+                        i})
+                  i).card ≤
+              1}.card →
+      ∑ i with
+            ¬((fun i =>
+                      {x |
+                        (fun x =>
+                              col
+                                ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯,
+                                    right_inv := ⋯ }
+                                  x))
+                            x =
+                          i})
+                    i).card ≤
+                1,
+            ((fun i =>
+                  {x |
+                    (fun x =>
+                          col
+                            ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯, right_inv := ⋯ }
+                              x))
+                        x =
+                      i})
+                i).card ≤
+          {i |
+                ¬((fun i =>
+                          {x |
+                            (fun x =>
+                                  col
+                                    ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯,
+                                        right_inv := ⋯ }
+                                      x))
+                                x =
+                              i})
+                        i).card ≤
+                    1}.card *
+            2 →
+        ¬∑ x with
+                  ((fun i =>
+                          {x |
+                            (fun x =>
+                                  col
+                                    ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯,
+                                        right_inv := ⋯ }
+                                      x))
+                                x =
+                              i})
+                        x).card ≤
+                    1,
+                  ((fun i =>
+                        {x |
+                          (fun x =>
+                                col
+                                  ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯,
+                                      right_inv := ⋯ }
+                                    x))
+                              x =
+                            i})
+                      x).card +
+                ∑ x with
+                  ¬((fun i =>
+                            {x |
+                              (fun x =>
+                                    col
+                                      ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯,
+                                          right_inv := ⋯ }
+                                        x))
+                                  x =
+                                i})
+                          x).card ≤
+                      1,
+                  ((fun i =>
+                        {x |
+                          (fun x =>
+                                col
+                                  ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯,
+                                      right_inv := ⋯ }
+                                    x))
+                              x =
+                            i})
+                      x).card ≤
+              {i |
+                    ((fun i =>
+                            {x |
+                              (fun x =>
+                                    col
+                                      ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯,
+                                          right_inv := ⋯ }
+                                        x))
+                                  x =
+                                i})
+                          i).card ≤
+                      1}.card +
+                2 *
+                  {i |
+                      ¬((fun i =>
+                                {x |
+                                  (fun x =>
+                                        col
+                                          ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯,
+                                              right_inv := ⋯ }
+                                            x))
+                                      x =
+                                    i})
+                              i).card ≤
+                          1}.card →
+          False
+AUDIT|Erdos628.erdos_628.variants.independence_number_2._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.independence_number_2._simp_1_1|∀ {α : Type u_1} {a : α} {s : Finset α},
+  (a ∈ ↑s) = (a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff._proof_1_5|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff._proof_1_5|∀ {m : ℕ} {i j : ℕ},
+  i < j → (j - i) % 2 = 0 → ¬i + (j - i) = j → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_14|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_14|∀ {m : ℕ},
+  2 ≤ m →
+    ∀ {i : ℕ} {j : ℕ} {k : ℕ},
+      (2 * m + 1 + i - k) % 2 = 1 →
+        2 * m + 1 + i - k + 2 = 2 * ((2 * m + 1 + i - k + 1) / 2) + 1 →
+          ¬k + (2 * m + 1 + i - k) = i + (2 * m + 1) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_2|∀ {V : Type u_1} {m : ℕ}
+  {f : ℕ → V}, (∀ x ∈ Set.range f, ∃ i < 2 * m + 1, f i = x) → ∀ x ∈ Set.range f, ¬2 < 3 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.ge_three_of_colorable_not_colorable_cliqueFree|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.ge_three_of_colorable_not_colorable_cliqueFree|∀ {V : Type u_1}
+  [Fintype V] {G : SimpleGraph V} {A : Set V} {c : ℕ},
+  1 ≤ c →
+    (SimpleGraph.induce A G).Colorable c →
+      ¬(SimpleGraph.induce A G).Colorable (c - 1) → (SimpleGraph.induce A G).CliqueFree c → 3 ≤ c
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_via_external._proof_1_3|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_via_external._proof_1_3|∀ {d : ℕ},
+  0 < d → ∀ (t : ℕ), t % (d + 2) = d + 1 → ¬d + 1 - 1 = d → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_9|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_9|∀ {m i : ℕ} {j k : ℕ},
+  (k - j) % 2 = 1 → ¬k - j + 2 = 2 * ((k - j + 1) / 2) + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_via_external._proof_1_5|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_via_external._proof_1_5|∀ {d : ℕ} (t : ℕ),
+  (t + 1) % (d + 2) = t % (d + 2) + 1 → t % (d + 2) + 1 = 0 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_5|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_5|∀ {V : Type u_1} {m : ℕ}
+  {f : ℕ → V} (h_idx : ∀ x ∈ Set.range f, ∃ i < 2 * m + 1, f i = x),
+  ∀ x ∈ Set.range f, ∀ (y : V) (hy : y ∈ Set.range f), 2 = (fun x hx => Classical.choose ⋯) y hy % 2 → False
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_14|[propext]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_14|∀ {α : Type u_1} {a b : α}, (a ∈ {b}) = (a = b)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_isPerfectMatching._simp_1_3|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_isPerfectMatching._simp_1_3|∀ {α : Type u_1} {a b c : α},
+  (a ∈ s(b, c)) = (a = b ∨ a = c)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.exists_p_odd_components_bound._proof_1_3|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.exists_p_odd_components_bound._proof_1_3|∀ {V : Type u_1}
+  [inst : Fintype V] {G : SimpleGraph V} {k : ℕ} (U : Set (V ⊕ Fin (2 * k - 2 - Fintype.card V))),
+  U.ncard < (⊤.deleteVerts U).coe.oddComponents.ncard →
+    ((⊤.deleteVerts U).coe.oddComponents.ncard % 2 = 1 ↔ U.ncard % 2 = 1) →
+      ¬U.ncard + 2 ≤ (⊤.deleteVerts U).coe.oddComponents.ncard → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_join_of_colorable._proof_1_5|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_join_of_colorable._proof_1_5|∀ {V : Type u_1}
+  {G : SimpleGraph V} {A B : Set V} {cA cB : ℕ} (colA : (SimpleGraph.induce A G).Coloring (Fin cA))
+  (colB : (SimpleGraph.induce B G).Coloring (Fin cB)) {x y : ↑(A ∪ B)} (hxA : ↑x ∉ A) (hyA : ↑y ∉ A),
+  cA + ↑(colB ⟨↑x, ⋯⟩) = cA + ↑(colB ⟨↑y, ⋯⟩) →
+    ∀ (hxB : ↑x ∈ B) (hyB : ↑y ∈ B), ¬↑(colB ⟨↑x, hxB⟩) = ↑(colB ⟨↑y, hyB⟩) → False
+AUDIT|Erdos628.erdos_628.variants.independence_number_2._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.independence_number_2._simp_1_3|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos628.erdos_628.variants.independence_number_2._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.independence_number_2._simp_1_2|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α}
+  {a b : α}, (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_join_colorable._simp_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_join_colorable._simp_1_2|∀ {α : Type u_1}
+  [inst : Fintype α] (x : α), (x ∈ Finset.univ) = True
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.exists_p_odd_components_bound._proof_1_4|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.exists_p_odd_components_bound._proof_1_4|∀ {V : Type u_1}
+  [inst : Fintype V] {G : SimpleGraph V} {k : ℕ} (U : Set (V ⊕ Fin (2 * k - 2 - Fintype.card V))),
+  U.ncard + 2 ≤ (⊤.deleteVerts U).coe.oddComponents.ncard → (⊤.deleteVerts U).coe.oddComponents.ncard ≤ 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_17|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_17|∀ {V : Type u_1}
+  [Fintype V] [DecidableEq V] {G : SimpleGraph V} {k a : ℕ} {b : ℕ},
+  2 ≤ b → ∀ (v : V) (T : Finset V), ¬b - 1 - 1 = b - 2 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_15|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_15|∀ {V : Type u_1}
+  {G : SimpleGraph V} {m : ℕ} {f : ℕ → V} (c_bar : (SimpleGraph.induce (Set.range f)ᶜ G).Coloring (Fin 2))
+  (h_idx : ∀ x ∈ Set.range f, ∃ i < 2 * m + 1, f i = x)
+  (h_ext_col :
+    ∀ v ∉ Set.range f,
+      ∃ col_v,
+        ∀ (x : V) (hx : x ∈ Set.range f),
+          G.Adj v x →
+            (fun x hx =>
+                  ⟨if (fun x hx => Classical.choose ⋯) x hx = 2 * m then 2
+                    else (fun x hx => Classical.choose ⋯) x hx % 2,
+                    ⋯⟩)
+                x hx ≠
+              col_v)
+  {u v : V}, u ∉ Set.range f → ∀ (hv : v ∉ Set.range f), 3 = ↑(Classical.choose ⋯) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff._proof_1_1|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff._proof_1_1|∀ {m i j : ℕ},
+  j < 2 * m + 1 → i < j → ¬(j = i + 1 ∨ i = 0 ∧ j = 2 * m) → ¬2 ≤ j - i → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_eq_mod|[propext]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_eq_mod|∀ {V : Type u_1} {G : SimpleGraph V} {n : ℕ}
+  {f : ℕ → V}, Erdos628.IsCyclicWalk✝ G n f → ∀ (i : ℕ), f (i % n) = f i
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_3|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_3|∀ {m : ℕ} {i : ℕ}
+  {j k : ℕ}, k < 2 * m + 1 → j < k → ¬1 ≤ k - j → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_splittable_on_set._proof_1_17|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_splittable_on_set._proof_1_17|∀ {V : Type u_1}
+  {G : SimpleGraph V} (n : ℕ) (U : Set V) (k a b : ℕ), ∀ v0 ∈ U, ∀ (k1 k2 : ℕ), k1 + k2 = k → ¬k2 + k1 = k → False
+AUDIT|Erdos628.erdos_628.variants.independence_number_2._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.independence_number_2._proof_1_6|∀ (V : Type u_1) (G : SimpleGraph V) (k a b : ℕ),
+  a ≥ 2 → a + b = k + 1 → ¬a = a - 1 + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_6|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_6|∀
+  {V : Type u_1} {G : SimpleGraph V} {x1 x2 x3 : V} (c_bar : (SimpleGraph.induce {x1, x2, x3}ᶜ G).Coloring (Fin 2))
+  (b0 : Fin 2)
+  (hb0 :
+    ∀ (v : V) (hv : v ∉ {x1, x2, x3}),
+      c_bar ⟨v, hv⟩ = b0 → ∃ col_v, (G.Adj v x1 → col_v ≠ 0) ∧ (G.Adj v x2 → col_v ≠ 1) ∧ (G.Adj v x3 → col_v ≠ 2))
+  {u : V} {v : V} (hu : u ∉ {x1, x2, x3}) (hcb1 : c_bar ⟨u, hu⟩ = b0), ↑(Classical.choose ⋯) = 3 → False
+AUDIT|Erdos23.erdos_23.variants.n1_tight|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos23.erdos_23.variants.n1_tight|∃ G,
+  G.CliqueFree 3 ∧ ∀ H ≤ G, H.IsBipartite → 1 ≤ (G.edgeFinset \ H.edgeFinset).card
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_of_adj._proof_1_2|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_of_adj._proof_1_2|∀ {d : ℕ} (t : ℕ),
+  t % (d + 1) < d + 1 → ¬t % (d + 1) = d → ¬t % (d + 1) + 1 < d + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._simp_1_8|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._simp_1_8|∀ {α : Type u_1}
+  [inst : Fintype α] (x : α), (x ∈ Finset.univ) = True
+AUDIT|Erdos617.erdos_617.variants.r_eq_3._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos617.erdos_617.variants.r_eq_3._simp_1_3|∀ {α : Type u_1} [inst : DecidableEq α] {s t : Finset α} {a : α},
+  (a ∈ s ∪ t) = (a ∈ s ∨ a ∈ t)
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_16|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_16|∀ (V : Type u_1) (G : SimpleGraph V) (f : ℕ → V) (z1 z2 z3 : V)
+  (c_comp : (SimpleGraph.induce {f 0, f 1, f 2}ᶜ G).Coloring (Fin 2)) (hz1_in : z1 ∈ {f 0, f 1, f 2}ᶜ)
+  (hz2_in : z2 ∈ {f 0, f 1, f 2}ᶜ) (hz3_in : z3 ∈ {f 0, f 1, f 2}ᶜ),
+  ↑(c_comp ⟨z1, hz1_in⟩) ≠ ↑(c_comp ⟨z2, hz2_in⟩) →
+    ↑(c_comp ⟨z1, hz1_in⟩) ≠ ↑(c_comp ⟨z3, hz3_in⟩) →
+      ↑(c_comp ⟨z2, hz2_in⟩) ≠ ↑(c_comp ⟨z3, hz3_in⟩) →
+        ↑(c_comp ⟨z1, hz1_in⟩) < 2 → ↑(c_comp ⟨z2, hz2_in⟩) < 2 → ↑(c_comp ⟨z3, hz3_in⟩) < 2 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos23.bipFromSet._proof_2|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos23.bipFromSet._proof_2|∀ (S : Finset (Fin 5)),
+  Std.Irrefl fun u v => (u ∈ S) ≠ (v ∈ S)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_neighbors_le_three_of_card_ge_six._proof_1_2|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_neighbors_le_three_of_card_ge_six._proof_1_2|∀ {V : Type}
+  [DecidableEq V] (coloring : Sym2 V → Fin 3) (c : Fin 3) (U : Finset V) (u : V) (T : Finset V),
+  T.card = 4 → ¬T.card + 1 ≤ 5 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_1|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_1|∀ {m i j k : ℕ},
+  k < 2 * m + 1 → i < j → j < k → ¬j - i + (k - j) + (2 * m + 1 + i - k) = 2 * m + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_indep2_card_lt._proof_1_1|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_indep2_card_lt._proof_1_1|∀ {V : Type u_1}
+  [inst : Fintype V] {G : SimpleGraph V} {s : Set V} {c : ℕ} (col : (SimpleGraph.induce s G).Coloring (Fin c))
+  (i : Fin c), ¬{x | col x = i}.card ≤ 2 → ¬3 ≤ {x | col x = i}.card → False
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_4|∀ (i : ℕ), i % 3 = 1 → i % 3 = 0 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_4|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_4|∀ {V : Type u_1}
+  [inst : Fintype V] {k : ℕ} {a b : ℕ},
+  2 * k - 1 ≤ Fintype.card V → ¬2 * k ≤ Fintype.card V → ¬Fintype.card V = 2 * k - 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._simp_1_14|[propext]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._simp_1_14|∀ {α : Type u}
+  (s : Set α) (x : α), (x ∈ sᶜ) = (x ∉ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_via_external|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_via_external|∀ {V : Type u_1} {G : SimpleGraph V}
+  {n : ℕ} {f : ℕ → V},
+  Erdos628.IsCyclicWalk✝ G n f →
+    ∀ (v : V) {d : ℕ},
+      0 < d →
+        G.Adj v (f 0) →
+          G.Adj (f d) v → Erdos628.IsCyclicWalk✝ G (d + 2) fun t => if t % (d + 2) = 0 then v else f (t % (d + 2) - 1)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_9|∀ {V : Type u_1} {A : Set V} {n : ℕ}
+  {k a b kA kB : ℕ}, 2 ≤ a → a + b = k + 1 → 3 ≤ kA → kA + kB = k → ¬kB + 2 ≤ b → ¬3 ≤ a → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_2|∀ {V : Type} [Fintype V]
+  [DecidableEq V] (coloring : Sym2 V → Fin 3) (v : V) (k : Fin 3) (U7 : Finset V), U7.card = 7 → ¬6 ≤ U7.card → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.exists_p_odd_components_bound._proof_1_1|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.exists_p_odd_components_bound._proof_1_1|∀ {V : Type u_1}
+  [inst : Fintype V] {k : ℕ},
+  1 ≤ k → ¬2 * k ≤ Fintype.card V + 1 → ¬Fintype.card V + (2 * k - 2 - Fintype.card V) = 2 * (k - 1) → False
+AUDIT|Erdos617.erdos_617.variants.r_eq_3._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos617.erdos_617.variants.r_eq_3._proof_1_10|∀ (r : ℕ) {V : Type} [inst : Fintype V] [inst_1 : DecidableEq V]
+  (coloring : Sym2 V → Fin 3) (x y z a b c : V),
+  (Finset.univ \ {x, y, z, a, b, c}).card = 4 →
+    {r ∈ Finset.univ \ {x, y, z, a, b, c} | coloring s(a, r) = 0}.card ≤ 2 →
+      {r ∈ Finset.univ \ {x, y, z, a, b, c} | coloring s(b, r) = 0}.card ≤ 2 →
+        ((Finset.univ \ {x, y, z, a, b, c}) \ {r ∈ Finset.univ \ {x, y, z, a, b, c} | coloring s(b, r) = 0}).card +
+              {r ∈ Finset.univ \ {x, y, z, a, b, c} | coloring s(b, r) = 0}.card =
+            (Finset.univ \ {x, y, z, a, b, c}).card →
+          ¬{r ∈ Finset.univ \ {x, y, z, a, b, c} | coloring s(a, r) = 0}.card ≤
+                ((Finset.univ \ {x, y, z, a, b, c}) \
+                    {r ∈ Finset.univ \ {x, y, z, a, b, c} | coloring s(b, r) = 0}).card →
+            False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_join_of_colorable._proof_1_3|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_join_of_colorable._proof_1_3|∀ {V : Type u_1}
+  {G : SimpleGraph V} {A B : Set V} {cA cB : ℕ} (colA : (SimpleGraph.induce A G).Coloring (Fin cA))
+  (colB : (SimpleGraph.induce B G).Coloring (Fin cB)) {x y : ↑(A ∪ B)} (hxA : ↑x ∈ A) (hyA : ↑y ∉ A),
+  ↑(colA ⟨↑x, hxA⟩) = cA + ↑(colB ⟨↑y, ⋯⟩) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_10|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_10|∀ {V : Type u_1}
+  {G : SimpleGraph V} {m : ℕ} {f : ℕ → V} (c_bar : (SimpleGraph.induce (Set.range f)ᶜ G).Coloring (Fin 2))
+  (h_idx : ∀ x ∈ Set.range f, ∃ i < 2 * m + 1, f i = x)
+  (h_ext_col :
+    ∀ v ∉ Set.range f,
+      ∃ col_v,
+        ∀ (x : V) (hx : x ∈ Set.range f),
+          G.Adj v x →
+            (fun x hx =>
+                  ⟨if (fun x hx => Classical.choose ⋯) x hx = 2 * m then 2
+                    else (fun x hx => Classical.choose ⋯) x hx % 2,
+                    ⋯⟩)
+                x hx ≠
+              col_v)
+  (u : V) (hu : u ∉ Set.range f), ↑(Classical.choose ⋯) < 3 → ¬↑(Classical.choose ⋯) < 4 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.exists_odd_cyclicWalk_of_not_colorable_two|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.exists_odd_cyclicWalk_of_not_colorable_two|∀ {V : Type u_1}
+  {G : SimpleGraph V}, ¬G.Colorable 2 → ∃ m f, Erdos628.IsCyclicWalk✝ G (2 * m + 1) f
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_join_colorable._proof_1_5|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_join_colorable._proof_1_5|∀ {V : Type u_1}
+  {G : SimpleGraph V} {A B : Set V} {cA cB c : ℕ} (col : (SimpleGraph.induce (A ∪ B) G).Coloring (Fin c)),
+  cA < {i | ∃ u, ∃ (hu : u ∈ A), col ⟨u, ⋯⟩ = i}.card →
+    cB < {i | ∃ v, ∃ (hv : v ∈ B), col ⟨v, ⋯⟩ = i}.card →
+      {i | ∃ u, ∃ (hu : u ∈ A), col ⟨u, ⋯⟩ = i}.card + {i | ∃ v, ∃ (hv : v ∈ B), col ⟨v, ⋯⟩ = i}.card ≤ c →
+        ¬cA + cB + 2 ≤ c → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.exists_exact_coloring_of_colorable._proof_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.exists_exact_coloring_of_colorable._proof_1_2|∀ {W : Type u_1}
+  (H : SimpleGraph W) {k : ℕ} (hcol : H.Colorable k), 1 ≤ Nat.find ⋯ → ¬Nat.find ⋯ - 1 < Nat.find ⋯ → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_8|∀ {V : Type u_1} {A : Set V} {n k a : ℕ}
+  {b : ℕ} {kA : ℕ} {kB : ℕ}, 2 ≤ b → 1 ≤ kB → kB + 2 ≤ b → b - kB - 1 + (kB - 1) + 2 ≤ b - 1 → False
+AUDIT|Erdos628.erdos_628.variants.independence_number_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.independence_number_2|∀ (V : Type u_1) [Fintype V] (G : SimpleGraph V)
+  [DecidableRel G.Adj],
+  G.indepNum = 2 →
+    ∀ (k : ℕ),
+      G.chromaticNumber = ↑k →
+        G.CliqueFree k →
+          ∀ (a b : ℕ),
+            a ≥ 2 →
+              b ≥ 2 →
+                a + b = k + 1 →
+                  ∃ s, (SimpleGraph.induce s G).chromaticNumber ≥ ↑a ∧ (SimpleGraph.induce sᶜ G).chromaticNumber ≥ ↑b
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_10|∀ {V : Type u_1} {A : Set V} {n : ℕ}
+  {k a b kA kB : ℕ}, a + b = k + 1 → kA + kB = k → 3 ≤ a → ¬1 ≤ a - 2 → False
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_11|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_18|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_18|∀ {V : Type u_1}
+  [inst : Fintype V] [inst_1 : DecidableEq V] {G : SimpleGraph V} {k a b : ℕ},
+  2 ≤ a →
+    2 ≤ b →
+      a + b = k + 1 →
+        Fintype.card V = 2 * k - 1 →
+          ∀ (v : V),
+            {u | u ≠ v ∧ ¬G.Adj v u}.card < a → ∀ (T : Finset V), Fintype.card V - (2 * a - 1 + 1) ≤ 2 * (b - 2) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._simp_1_3|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._simp_1_3|∀ {α : Type u_1}
+  {β : Type u_2} [inst : DecidableEq β] {f : α → β} {s : Finset α} {b : β}, (b ∈ Finset.image f s) = ∃ a ∈ s, f a = b
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_11|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_11|∀ {V : Type u_1}
+  [inst : Fintype V] [inst_1 : DecidableEq V] {G : SimpleGraph V} {k a b : ℕ},
+  2 ≤ b →
+    a + b = k + 1 →
+      ¬2 * k ≤ Fintype.card V →
+        Fintype.card V = 2 * k - 1 →
+          ∀ (v : V),
+            {u | u ≠ v ∧ ¬G.Adj v u}.card < a →
+              (Finset.univ.erase v \ {u | u ≠ v ∧ ¬G.Adj v u}).card + {u | u ≠ v ∧ ¬G.Adj v u}.card =
+                  Fintype.card V - 1 →
+                ¬2 * a - 1 - {u | u ≠ v ∧ ¬G.Adj v u}.card ≤ (Finset.univ.erase v \ {u | u ≠ v ∧ ¬G.Adj v u}).card →
+                  False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.ge_three_of_colorable_not_colorable_cliqueFree._proof_1_1|[propext,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.ge_three_of_colorable_not_colorable_cliqueFree._proof_1_1|∀ {c : ℕ},
+  1 ≤ c → ¬3 ≤ c → ¬(c = 1 ∨ c = 2) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.exists_odd_cyclicWalk_of_not_colorable_two._proof_1_3|[propext,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.exists_odd_cyclicWalk_of_not_colorable_two._proof_1_3|∀ {V : Type u_1}
+  {G : SimpleGraph V} (u : V) (w : G.Walk u u) (m i : ℕ),
+  i % (2 * m + 1) < 2 * m + 1 → ¬i % (2 * m + 1) + 1 = 2 * m + 1 → ¬i % (2 * m + 1) + 1 < 2 * m + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_isPerfectMatching._proof_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_isPerfectMatching._proof_1_2|∀ {W : Type u_1}
+  [inst : Fintype W] {H : SimpleGraph W} {M : H.Subgraph} {c : ℕ},
+  Fintype.card W = 2 * c →
+    ∑ v, M.spanningCoe.degree v = 2 * M.spanningCoe.edgeFinset.card →
+      ∑ w, M.spanningCoe.degree w = Fintype.card W →
+        Fintype.card ↑M.edgeSet = M.spanningCoe.edgeFinset.card → ¬Fintype.card ↑M.edgeSet = c → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.cliqueFree_join_or|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.cliqueFree_join_or|∀ {V : Type u_1} {G : SimpleGraph V} {A B : Set V},
+  (∀ u ∈ A, ∀ v ∈ B, G.Adj u v) →
+    ∀ {k1 k2 : ℕ},
+      (SimpleGraph.induce (A ∪ B) G).CliqueFree (k1 + k2) →
+        (SimpleGraph.induce A G).CliqueFree k1 ∨ (SimpleGraph.induce B G).CliqueFree k2
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._simp_1_9|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._simp_1_9|∀ {α : Type u_1}
+  [inst : Fintype α] (x : α), (x ∈ Finset.univ) = True
+AUDIT|Erdos617.erdos_617.variants.r_eq_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos617.erdos_617.variants.r_eq_3|∀ r ≥ 3,
+  ∀ {V : Type} [inst : Fintype V] [DecidableEq V],
+    Fintype.card V = 3 ^ 2 + 1 →
+      ∀ (coloring : Sym2 V → Fin 3), ∃ S k, S.card = 3 + 1 ∧ ∀ u ∈ S, ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_5|∀ (i : ℕ), i % 3 = 2 → ¬(i + 1) % 3 = 0 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos23.bipFromSet._proof_1|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos23.bipFromSet._proof_1|∀ (S : Finset (Fin 5)),
+  Std.Symm fun u v => (u ∈ S) ≠ (v ∈ S)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._simp_1_7|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._simp_1_7|∀ {α : Type u_1} {a : α}
+  {s : Finset α}, (a ∈ ↑s) = (a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._simp_1_16|[propext]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._simp_1_16|∀ {p q : Prop},
+  (¬(p ∨ q)) = (¬p ∧ ¬q)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_8|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_8|∀ {m : ℕ},
+  2 ≤ m →
+    ∀ {i j k : ℕ},
+      j < k →
+        j - i + (k - j) + (2 * m + 1 + i - k) = 2 * m + 1 →
+          1 ≤ 2 * m + 1 + i - k → (j - i) % 2 = 1 → j - i + 2 = 2 * ((j - i + 1) / 2) + 1 → ¬i + (j - i) = j → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_12|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_12|∀ {V : Type u_1}
+  [inst : Fintype V] [inst_1 : DecidableEq V] {G : SimpleGraph V} {k a b : ℕ},
+  2 ≤ a →
+    a + b = k + 1 →
+      ∀ (v : V),
+        {u | u ≠ v ∧ ¬G.Adj v u}.card < a →
+          ∀ (T : Finset V),
+            T.card = 2 * a - 1 - {u | u ≠ v ∧ ¬G.Adj v u}.card →
+              ¬{u | u ≠ v ∧ ¬G.Adj v u}.card + (2 * a - 1 - {u | u ≠ v ∧ ¬G.Adj v u}.card) = 2 * a - 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff._proof_1_3|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff._proof_1_3|∀ {m : ℕ} {i j : ℕ},
+  (j - i) % 2 = 0 → ¬2 * ((j - i) / 2) = j - i → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.exists_triangle_of_bal._simp_1_4|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.exists_triangle_of_bal._simp_1_4|∀ {α : Type u_1} [inst : DecidableEq α]
+  {a b : α} {s : Finset α}, (a ∈ s.erase b) = (a ≠ b ∧ a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_3|∀ {V : Type u_1} {A : Set V} {n : ℕ}
+  {k a b kA kB : ℕ},
+  2 ≤ a → a + b = k + 1 → 1 ≤ kB → kA + kB = k → kB + 2 ≤ a → a - kB - 1 + (kB - 1) + 2 ≤ a - 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_14|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_14|∀ {V : Type u_1}
+  {G : SimpleGraph V} {m : ℕ} {f : ℕ → V} (c_bar : (SimpleGraph.induce (Set.range f)ᶜ G).Coloring (Fin 2))
+  (h_idx : ∀ x ∈ Set.range f, ∃ i < 2 * m + 1, f i = x)
+  (h_ext_col :
+    ∀ v ∉ Set.range f,
+      ∃ col_v,
+        ∀ (x : V) (hx : x ∈ Set.range f),
+          G.Adj v x →
+            (fun x hx =>
+                  ⟨if (fun x hx => Classical.choose ⋯) x hx = 2 * m then 2
+                    else (fun x hx => Classical.choose ⋯) x hx % 2,
+                    ⋯⟩)
+                x hx ≠
+              col_v)
+  {u v : V} (hu : u ∉ Set.range f), v ∉ Set.range f → ↑(Classical.choose ⋯) = 3 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.oddComponents_ncard_le_one_of_universal|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.oddComponents_ncard_le_one_of_universal|∀ {W : Type u_1} [Fintype W]
+  (K : SimpleGraph W) (w0 : W), (∀ (w : W), w ≠ w0 → K.Adj w0 w) → K.oddComponents.ncard ≤ 1
+AUDIT|Erdos617.erdos_617.variants.r_eq_3._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos617.erdos_617.variants.r_eq_3._proof_1_9|∀ (r : ℕ) {V : Type} [inst : Fintype V] [inst_1 : DecidableEq V]
+  (coloring : Sym2 V → Fin 3) (x y z a b c p p_nb : V),
+  {r ∈ Finset.univ \ {x, y, z, a, b, c} | coloring s(p, r) = 0}.card + 1 ≤ 3 →
+    ¬{r ∈ Finset.univ \ {x, y, z, a, b, c} | coloring s(p, r) = 0}.card ≤ 2 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_join_of_colorable._proof_1_4|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_join_of_colorable._proof_1_4|∀ {V : Type u_1}
+  {G : SimpleGraph V} {A B : Set V} {cA cB : ℕ} (colA : (SimpleGraph.induce A G).Coloring (Fin cA))
+  (colB : (SimpleGraph.induce B G).Coloring (Fin cB)) {x y : ↑(A ∪ B)} (hxA : ↑x ∉ A) (hyA : ↑y ∈ A),
+  cA + ↑(colB ⟨↑x, ⋯⟩) = ↑(colA ⟨↑y, hyA⟩) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.not_colorable_two_iff_odd_loop._simp_1_1|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.not_colorable_two_iff_odd_loop._simp_1_1|∀ {n : ℕ}, (¬Even n) = Odd n
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_11|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_11|∀ {m : ℕ},
+  2 ≤ m →
+    ∀ {i j k : ℕ},
+      j < k → 1 ≤ 2 * m + 1 + i - k → (k - j) % 2 = 1 → k - j + 2 = 2 * ((k - j + 1) / 2) + 1 → ¬j + (k - j) = k → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_edge_of_three._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_edge_of_three._simp_1_2|∀ {α : Type u_1} {a b : α},
+  (b ∈ {a}) = (b = a)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos23.bipFromSet_isBipartite|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos23.bipFromSet_isBipartite|∀ (S : Finset (Fin 5)),
+  (Erdos23.bipFromSet✝ S).IsBipartite
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_1|∀ (i : ℕ), ¬(i % 3 = 0 ∨ i % 3 = 1 ∨ i % 3 = 2) → False
+AUDIT|Erdos23.erdos_23.variants.n1._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos23.erdos_23.variants.n1._proof_1_6|∀ (G : SimpleGraph (Fin 5)) (v : Fin 5),
+  2 ≤ (G.neighborFinset v).card → ¬5 - ((G.neighborFinset v).card + 1) ≤ 2 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_1|∀ {V : Type u_1} {A : Set V} {n : ℕ}
+  {k a b kA kB : ℕ}, a + b = k + 1 → kA + kB = k → kB + 2 ≤ a → ¬2 ≤ a - kB → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_1|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_1|∀
+  {V : Type u_1} {G : SimpleGraph V} {x1 x2 x3 : V} (c_bar : (SimpleGraph.induce {x1, x2, x3}ᶜ G).Coloring (Fin 2))
+  (y0 : V) (hy0 : y0 ∉ {x1, x2, x3}), ↑(c_bar ⟨y0, hy0⟩) < 2 → ¬1 - ↑(c_bar ⟨y0, hy0⟩) < 2 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._proof_1_11|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._proof_1_11|∀ {V : Type u_1}
+  [inst : Fintype V] {G : SimpleGraph V} {P : Set V} {c : ℕ} (col : (SimpleGraph.induce Pᶜ G).Coloring (Fin c)),
+  (⊤.deleteVerts P).coe.oddComponents.ncard ≤
+      {i |
+          ((fun i =>
+                  {x |
+                    (fun x =>
+                          col
+                            ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯, right_inv := ⋯ }
+                              x))
+                        x =
+                      i})
+                i).card ≤
+            1}.card →
+    ∑ i,
+          ((fun i =>
+                {x |
+                  (fun x =>
+                        col
+                          ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯, right_inv := ⋯ } x))
+                      x =
+                    i})
+              i).card =
+        Fintype.card ↑(⊤.deleteVerts P).verts →
+      {i |
+                ((fun i =>
+                        {x |
+                          (fun x =>
+                                col
+                                  ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯,
+                                      right_inv := ⋯ }
+                                    x))
+                              x =
+                            i})
+                      i).card ≤
+                  1}.card +
+            {i |
+                ¬((fun i =>
+                          {x |
+                            (fun x =>
+                                  col
+                                    ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯,
+                                        right_inv := ⋯ }
+                                      x))
+                                x =
+                              i})
+                        i).card ≤
+                    1}.card =
+          c →
+        ∑ i,
+              ((fun i =>
+                    {x |
+                      (fun x =>
+                            col
+                              ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯, right_inv := ⋯ }
+                                x))
+                          x =
+                        i})
+                  i).card ≤
+            {i |
+                  ((fun i =>
+                          {x |
+                            (fun x =>
+                                  col
+                                    ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯,
+                                        right_inv := ⋯ }
+                                      x))
+                                x =
+                              i})
+                        i).card ≤
+                    1}.card +
+              2 *
+                {i |
+                    ¬((fun i =>
+                              {x |
+                                (fun x =>
+                                      col
+                                        ({ toFun := fun x => ⟨↑x, ⋯⟩, invFun := fun x => ⟨↑x, ⋯⟩, left_inv := ⋯,
+                                            right_inv := ⋯ }
+                                          x))
+                                    x =
+                                  i})
+                            i).card ≤
+                        1}.card →
+          Fintype.card ↑(⊤.deleteVerts P).verts = Fintype.card V - P.ncard →
+            ¬Fintype.card V - P.ncard + (⊤.deleteVerts P).coe.oddComponents.ncard ≤ 2 * c → False
+AUDIT|Erdos23.erdos_23.variants.n1._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos23.erdos_23.variants.n1._simp_1_5|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_edge_of_three|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_edge_of_three|∀ {V : Type} [Fintype V] [DecidableEq V]
+  (coloring : Sym2 V → Fin 3),
+  (∀ (S : Finset V) (k : Fin 3), S.card = 4 → ∃ u ∈ S, ∃ v ∈ S, u ≠ v ∧ coloring s(u, v) = k) →
+    ∀ (c : Fin 3) (v : V) {x1 x2 x3 : V},
+      x1 ≠ v ∧ coloring s(v, x1) ≠ c →
+        x2 ≠ v ∧ coloring s(v, x2) ≠ c →
+          x3 ≠ v ∧ coloring s(v, x3) ≠ c →
+            x1 ≠ x2 → x1 ≠ x3 → x2 ≠ x3 → coloring s(x1, x2) = c ∨ coloring s(x1, x3) = c ∨ coloring s(x2, x3) = c
+AUDIT|Erdos23.erdos_23.variants.n1_tight._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos23.erdos_23.variants.n1_tight._simp_1_1|∀ {V : Type u_1} {G : SimpleGraph V} {e : Sym2 V}
+  [inst : Fintype ↑G.edgeSet], (e ∈ G.edgeFinset) = (e ∈ G.edgeSet)
+AUDIT|Erdos617.erdos_617.variants.r_eq_3._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos617.erdos_617.variants.r_eq_3._proof_1_7|∀ (r : ℕ) {V : Type} [inst : Fintype V] [inst_1 : DecidableEq V]
+  (coloring : Sym2 V → Fin 3) (x y z a b c q p q_nb w : V),
+  2 ≤ {u ∈ {u | u ≠ q ∧ coloring s(q, u) ≠ 0} | u ≠ p ∧ coloring s(p, u) = 0}.card →
+    ¬3 ≤ {u ∈ {u | u ≠ q ∧ coloring s(q, u) ≠ 0} | u ≠ p ∧ coloring s(p, u) = 0}.card + 1 → False
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_12|[propext]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_12|∀ {α : Type u} (s : Set α) (x : α), (x ∈ sᶜ) = (x ∉ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_13|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_13|∀ {V : Type u_1}
+  {G : SimpleGraph V} {m : ℕ} {f : ℕ → V} (c_bar : (SimpleGraph.induce (Set.range f)ᶜ G).Coloring (Fin 2))
+  (h_idx : ∀ x ∈ Set.range f, ∃ i < 2 * m + 1, f i = x),
+  (∀ v ∉ Set.range f,
+      ∃ col_v,
+        ∀ (x : V) (hx : x ∈ Set.range f),
+          G.Adj v x →
+            (fun x hx =>
+                  ⟨if (fun x hx => Classical.choose ⋯) x hx = 2 * m then 2
+                    else (fun x hx => Classical.choose ⋯) x hx % 2,
+                    ⋯⟩)
+                x hx ≠
+              col_v) →
+    ∀ {u : V} {v : V} (hv : v ∈ Set.range f),
+      3 =
+          ↑((fun x hx =>
+                ⟨if (fun x hx => Classical.choose ⋯) x hx = 2 * m then 2 else (fun x hx => Classical.choose ⋯) x hx % 2,
+                  ⋯⟩)
+              v hv) →
+        False
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_8|∀ (m : ℕ), m ≠ 0 → ¬2 ≤ m → ¬m = 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_neighbors_le_three_of_card_ge_six._simp_1_4|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_neighbors_le_three_of_card_ge_six._simp_1_4|∀ {α : Type u_1}
+  [inst : DecidableEq α] {s : Finset α} {a b : α}, (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_13|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_13|∀ {V : Type u_1} {A : Set V} {n k a b : ℕ}
+  {kA : ℕ} {kB : ℕ}, 3 ≤ kA → ¬2 ≤ kA - 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_6|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_6|∀ {V : Type u_1}
+  [inst : Fintype V] {k a b : ℕ},
+  2 ≤ a →
+    2 ≤ b →
+      a + b = k + 1 → ¬2 * k ≤ Fintype.card V → Fintype.card V = 2 * k - 1 → Fintype.card V - a ≤ 2 * (b - 1) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.exists_triangle_of_bal._proof_1_6|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.exists_triangle_of_bal._proof_1_6|∀ {V : Type} [inst : Fintype V]
+  [inst_1 : DecidableEq V] (coloring : Sym2 V → Fin 3) (v u : V),
+  {w ∈ {u | u ≠ v ∧ coloring s(v, u) ≠ 0} | w ≠ u ∧ coloring s(u, w) = 0}.card +
+        {w ∈ {u | u ≠ v ∧ coloring s(v, u) ≠ 0} | w ≠ u ∧ coloring s(u, w) ≠ 0}.card =
+      5 →
+    ¬3 ≤ {w ∈ {u | u ≠ v ∧ coloring s(v, u) ≠ 0} | w ≠ u ∧ coloring s(u, w) = 0}.card →
+      ¬3 ≤ {w ∈ {u | u ≠ v ∧ coloring s(v, u) ≠ 0} | w ≠ u ∧ coloring s(u, w) ≠ 0}.card → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_7|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_7|∀ {V : Type u_1} {m : ℕ}
+  {f : ℕ → V} (h_idx : ∀ x ∈ Set.range f, ∃ i < 2 * m + 1, f i = x) (x : V) (hx : x ∈ Set.range f) (y : V)
+  (hy : y ∈ Set.range f),
+  (fun x hx => Classical.choose ⋯) x hx < 2 * m + 1 →
+    (fun x hx => Classical.choose ⋯) y hy < 2 * m + 1 →
+      ((fun x hx => Classical.choose ⋯) y hy = (fun x hx => Classical.choose ⋯) x hx + 1 ∨
+            (fun x hx => Classical.choose ⋯) x hx = 0 ∧ (fun x hx => Classical.choose ⋯) y hy = 2 * m) ∨
+          (fun x hx => Classical.choose ⋯) x hx = (fun x hx => Classical.choose ⋯) y hy + 1 ∨
+            (fun x hx => Classical.choose ⋯) y hy = 0 ∧ (fun x hx => Classical.choose ⋯) x hx = 2 * m →
+        ¬(fun x hx => Classical.choose ⋯) x hx = 2 * m →
+          ¬(fun x hx => Classical.choose ⋯) y hy = 2 * m →
+            (fun x hx => Classical.choose ⋯) x hx % 2 = (fun x hx => Classical.choose ⋯) y hy % 2 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._simp_1_4|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._simp_1_4|∀ {α : Type u_1} {s : Set α}
+  [inst : Fintype ↑s] {a : α}, (a ∈ s.toFinset) = (a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_splittable_on_set._proof_1_6|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_splittable_on_set._proof_1_6|∀ {V : Type u_1} (n : ℕ) (U : Set V)
+  (k a b : ℕ), 3 ≤ k → ¬2 ≤ k → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_of_eq|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_of_eq|∀ {V : Type u_1} {G : SimpleGraph V} {n : ℕ}
+  {f : ℕ → V},
+  Erdos628.IsCyclicWalk✝ G n f → ∀ {d : ℕ}, 0 < d → f d = f 0 → Erdos628.IsCyclicWalk✝ G d fun t => f (t % d)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff._proof_1_7|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff._proof_1_7|∀ {m i j : ℕ},
+  2 ≤ j - i →
+    j - i < 2 * m → 2 * ((2 * m + 1 - (j - i)) / 2) = 2 * m + 1 - (j - i) → ¬(2 * m + 1 - (j - i)) / 2 < m → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_via_external._proof_1_4|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_via_external._proof_1_4|∀ {d : ℕ} (t : ℕ),
+  t % (d + 2) < d + 2 → ¬t % (d + 2) = d + 1 → ¬t % (d + 2) + 1 < d + 2 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.not_colorable_two_induce_of_odd_cyclicWalk|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.not_colorable_two_induce_of_odd_cyclicWalk|∀ {V : Type u_1}
+  {G : SimpleGraph V} {m : ℕ} {f : ℕ → V},
+  Erdos628.IsCyclicWalk✝ G (2 * m + 1) f → ∀ {s : Set V}, (∀ (i : ℕ), f i ∈ s) → ¬(SimpleGraph.induce s G).Colorable 2
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_12|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_12|∀ {V : Type u_1}
+  {G : SimpleGraph V} {m : ℕ} {f : ℕ → V} (c_bar : (SimpleGraph.induce (Set.range f)ᶜ G).Coloring (Fin 2))
+  (h_idx : ∀ x ∈ Set.range f, ∃ i < 2 * m + 1, f i = x),
+  (∀ v ∉ Set.range f,
+      ∃ col_v,
+        ∀ (x : V) (hx : x ∈ Set.range f),
+          G.Adj v x →
+            (fun x hx =>
+                  ⟨if (fun x hx => Classical.choose ⋯) x hx = 2 * m then 2
+                    else (fun x hx => Classical.choose ⋯) x hx % 2,
+                    ⋯⟩)
+                x hx ≠
+              col_v) →
+    ∀ {u : V} {v : V} (hu : u ∈ Set.range f),
+      ↑((fun x hx =>
+                ⟨if (fun x hx => Classical.choose ⋯) x hx = 2 * m then 2 else (fun x hx => Classical.choose ⋯) x hx % 2,
+                  ⋯⟩)
+              u hu) =
+          3 →
+        False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff|∀ {V : Type u_1} {G : SimpleGraph V} {m : ℕ}
+  {f : ℕ → V},
+  Erdos628.IsCyclicWalk✝ G (2 * m + 1) f →
+    (∀ m' < m, ∀ (g : ℕ → V), ¬Erdos628.IsCyclicWalk✝ G (2 * m' + 1) g) →
+      ∀ {i j : ℕ}, i < 2 * m + 1 → j < 2 * m + 1 → i < j → G.Adj (f i) (f j) → j = i + 1 ∨ i = 0 ∧ j = 2 * m
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_6|∀ {V : Type u_1} {A : Set V} {n k a : ℕ}
+  {b : ℕ} {kA : ℕ} {kB : ℕ}, kB + 2 ≤ b → ¬2 ≤ b - kB → False
+AUDIT|Erdos617.erdos_617.variants.r2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos617.erdos_617.variants.r2|{r |
+    ∃ V x x_1,
+      Fintype.card V = r ^ 2 ∧
+        ∃ coloring,
+          ∀ (S : Finset V), S.card = r + 1 → ∀ (k : Fin r), ∃ u ∈ S, ∃ v ∈ S, u ≠ v ∧ coloring s(u, v) = k}.Infinite
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.ge_three_of_colorable_not_colorable_cliqueFree._simp_1_3|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.ge_three_of_colorable_not_colorable_cliqueFree._simp_1_3|∀
+  {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α}, (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_nonneighbors_le_three._simp_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_nonneighbors_le_three._simp_1_2|∀ {α : Type u_1}
+  [inst : DecidableEq α] {s : Finset α} {a b : α}, (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_2|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_2|∀ {m i j : ℕ},
+  j < 2 * m + 1 → i < j → ¬j - i < 2 * m + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_splittable_on_set|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_splittable_on_set|∀ {V : Type u_1} [Fintype V] [DecidableEq V]
+  {G : SimpleGraph V},
+  (∀ (x y z : V), x ≠ y → x ≠ z → y ≠ z → G.Adj x y ∨ G.Adj x z ∨ G.Adj y z) →
+    ∀ (n : ℕ) (U : Set V),
+      U.ncard = n →
+        ∀ (k a b : ℕ),
+          2 ≤ a →
+            2 ≤ b →
+              a + b = k + 1 →
+                (SimpleGraph.induce U G).Colorable k →
+                  ¬(SimpleGraph.induce U G).Colorable (k - 1) →
+                    (SimpleGraph.induce U G).CliqueFree k →
+                      ∃ S ⊆ U,
+                        ¬(SimpleGraph.induce S G).Colorable (a - 1) ∧ ¬(SimpleGraph.induce (U \ S) G).Colorable (b - 1)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.not_colorable_two_induce_of_odd_cyclicWalk._proof_1_1|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.not_colorable_two_induce_of_odd_cyclicWalk._proof_1_1|∀ {V : Type u_1}
+  {G : SimpleGraph V} {f : ℕ → V} {s : Set V} (hs : ∀ (i : ℕ), f i ∈ s) (c : (SimpleGraph.induce s G).Coloring (Fin 2))
+  (i : ℕ),
+  ↑(c ⟨f i, ⋯⟩) < 2 →
+    ↑(c ⟨f (i + 1), ⋯⟩) < 2 → ↑(c ⟨f i, ⋯⟩) ≠ ↑(c ⟨f (i + 1), ⋯⟩) → ¬↑(c ⟨f (i + 1), ⋯⟩) = 1 - ↑(c ⟨f i, ⋯⟩) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_10|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_10|∀ {V : Type} [inst : Fintype V]
+  [inst_1 : DecidableEq V] (coloring : Sym2 V → Fin 3) (v : V) (k : Fin 3),
+  {u | u ≠ v ∧ coloring s(v, u) ≠ k}.card ≤ 6 →
+    {u | u ≠ v ∧ coloring s(v, u) = k}.card + {u | u ≠ v ∧ coloring s(v, u) ≠ k}.card = 9 →
+      ¬3 ≤ {u | u ≠ v ∧ coloring s(v, u) = k}.card → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._simp_1_3|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._simp_1_3|∀ {α : Type u_1}
+  [inst : DecidableEq α] {s t : Finset α} {a : α}, (a ∈ s ∪ t) = (a ∈ s ∨ a ∈ t)
+AUDIT|Erdos617.erdos_617.variants.r_eq_3._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos617.erdos_617.variants.r_eq_3._simp_1_4|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p]
+  {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_13|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_13|∀ {m : ℕ},
+  2 ≤ m →
+    ∀ {i : ℕ} {j : ℕ} {k : ℕ},
+      (2 * m + 1 + i - k) % 2 = 1 →
+        2 * m + 1 + i - k ≤ 2 * m - 3 →
+          2 * m + 1 + i - k + 2 = 2 * ((2 * m + 1 + i - k + 1) / 2) + 1 → ¬(2 * m + 1 + i - k + 1) / 2 < m → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_8|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_8|∀ {V : Type u_1} {m : ℕ}
+  {f : ℕ → V} (h_idx : ∀ x ∈ Set.range f, ∃ i < 2 * m + 1, f i = x) (x0 : V) (hx0 : x0 ∈ Set.range f) (x1 : V)
+  (hx1 : x1 ∈ Set.range f) (x2 : V) (hx2 : x2 ∈ Set.range f),
+  (fun x hx => Classical.choose ⋯) x0 hx0 ≠ (fun x hx => Classical.choose ⋯) x1 hx1 →
+    (fun x hx => Classical.choose ⋯) x0 hx0 ≠ (fun x hx => Classical.choose ⋯) x2 hx2 →
+      (fun x hx => Classical.choose ⋯) x1 hx1 ≠ (fun x hx => Classical.choose ⋯) x2 hx2 →
+        ¬((fun x hx => Classical.choose ⋯) x0 hx0 < (fun x hx => Classical.choose ⋯) x1 hx1 ∧
+                (fun x hx => Classical.choose ⋯) x1 hx1 < (fun x hx => Classical.choose ⋯) x2 hx2 ∨
+              (fun x hx => Classical.choose ⋯) x0 hx0 < (fun x hx => Classical.choose ⋯) x2 hx2 ∧
+                  (fun x hx => Classical.choose ⋯) x2 hx2 < (fun x hx => Classical.choose ⋯) x1 hx1 ∨
+                (fun x hx => Classical.choose ⋯) x1 hx1 < (fun x hx => Classical.choose ⋯) x0 hx0 ∧
+                    (fun x hx => Classical.choose ⋯) x0 hx0 < (fun x hx => Classical.choose ⋯) x2 hx2 ∨
+                  (fun x hx => Classical.choose ⋯) x1 hx1 < (fun x hx => Classical.choose ⋯) x2 hx2 ∧
+                      (fun x hx => Classical.choose ⋯) x2 hx2 < (fun x hx => Classical.choose ⋯) x0 hx0 ∨
+                    (fun x hx => Classical.choose ⋯) x2 hx2 < (fun x hx => Classical.choose ⋯) x0 hx0 ∧
+                        (fun x hx => Classical.choose ⋯) x0 hx0 < (fun x hx => Classical.choose ⋯) x1 hx1 ∨
+                      (fun x hx => Classical.choose ⋯) x2 hx2 < (fun x hx => Classical.choose ⋯) x1 hx1 ∧
+                        (fun x hx => Classical.choose ⋯) x1 hx1 < (fun x hx => Classical.choose ⋯) x0 hx0) →
+          False
+AUDIT|Erdos617.erdos_617.variants.r_eq_3._simp_1_8|[propext]
+TYPE|Erdos617.erdos_617.variants.r_eq_3._simp_1_8|∀ {p q : Prop}, (¬(p ∨ q)) = (¬p ∧ ¬q)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_2|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_2|∀ {m i j k : ℕ},
+  k < 2 * m + 1 → i < j → j < k → j - i + (k - j) + (2 * m + 1 + i - k) = 2 * m + 1 → ¬1 ≤ j - i → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shift|[propext]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shift|∀ {V : Type u_1} {G : SimpleGraph V} {n : ℕ}
+  {f : ℕ → V}, Erdos628.IsCyclicWalk✝ G n f → ∀ (a : ℕ), Erdos628.IsCyclicWalk✝ G n fun t => f (a + t)
+AUDIT|Erdos23.erdos_23.variants.n1._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos23.erdos_23.variants.n1._proof_1_8|∀ (G : SimpleGraph (Fin 5)),
+  1 < G.edgeFinset.card → ¬0 < G.edgeFinset.card → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_join_of_colorable._proof_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_join_of_colorable._proof_1_2|∀ {V : Type u_1}
+  {G : SimpleGraph V} {A B : Set V} {cA cB : ℕ} (colB : (SimpleGraph.induce B G).Coloring (Fin cB)) (x : ↑(A ∪ B))
+  (hxA : ↑x ∉ A), ↑(colB ⟨↑x, ⋯⟩) < cB → ¬cA + ↑(colB ⟨↑x, ⋯⟩) < cA + cB → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_neighbors_le_three_of_card_ge_six._proof_1_3|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_neighbors_le_three_of_card_ge_six._proof_1_3|∀ {V : Type}
+  [inst : DecidableEq V] (coloring : Sym2 V → Fin 3) (c : Fin 3) (U : Finset V),
+  6 ≤ U.card → ∀ (u : V) (T : Finset V), (insert u T).card ≤ 5 → ¬(insert u T).card < U.card → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_isPerfectMatching._proof_1_1|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_isPerfectMatching._proof_1_1|∀ {W : Type u_1}
+  [inst : Fintype W] {H : SimpleGraph W} {M : H.Subgraph} {c : ℕ},
+  Fintype.card W = 2 * c →
+    ∑ v, M.spanningCoe.degree v = 2 * M.spanningCoe.edgeFinset.card →
+      ∑ w, M.spanningCoe.degree w = Fintype.card W → ¬M.spanningCoe.edgeFinset.card = c → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_3|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_3|∀ {V : Type u_1}
+  [inst : Fintype V] {k a b : ℕ},
+  2 ≤ a →
+    2 ≤ b →
+      a + b = k + 1 →
+        2 * k ≤ Fintype.card V →
+          ∀ (S : Finset V), S.card = 2 * a - 1 → Fintype.card V - (2 * a - 1) ≤ 2 * (b - 1) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_7|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_7|∀ {m i j : ℕ},
+  j - i < 2 * m + 1 → ¬(j - i) % 2 = 1 → ¬2 * ((2 * m + 1 - (j - i)) / 2) + 1 = 2 * m + 1 - (j - i) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_of_eq._proof_1_1|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_of_eq._proof_1_1|∀ {d : ℕ} (t : ℕ),
+  t % d < d → ¬t % d + 1 = d → ¬t % d + 1 < d → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_16|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_16|∀ {V : Type u_1} {A : Set V} {n : ℕ}
+  {k a b kA kB : ℕ},
+  2 ≤ b →
+    a + b = k + 1 → 3 ≤ kA → kA + kB = k → ¬kB + 2 ≤ a → 3 ≤ a → kA - 1 - 1 + (kB - (a - 2) - 1) + 2 ≤ b - 1 → False
+AUDIT|Erdos23.erdos_23.variants.n1._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos23.erdos_23.variants.n1._proof_1_9|∀ (G : SimpleGraph (Fin 5)),
+  ∑ w, G.degree w ≤ 5 → ∑ v, G.degree v = 2 * G.edgeFinset.card → ¬G.edgeFinset.card ≤ 2 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_via_external._proof_1_1|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_via_external._proof_1_1|∀ {d : ℕ},
+  0 < d → ¬0 < d + 2 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_13|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_13|∀ {V : Type u_1}
+  [Fintype V] [DecidableEq V] {G : SimpleGraph V} {k a b : ℕ},
+  2 ≤ a → a + b = k + 1 → ∀ (v : V) (T : Finset V), 2 * a - 1 ≤ 2 * (a - 1) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.exists_triangle_of_bal._simp_1_3|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.exists_triangle_of_bal._simp_1_3|∀ {α : Type u_1} {p : α → Prop}
+  [inst : DecidablePred p] {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3._proof_1_2|∀ (i : ℕ), i % 3 = 0 → ¬(i + 1) % 3 = 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_12|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_12|∀ {V : Type u_1} {A : Set V}
+  {n k a b kA kB : ℕ}, ¬2 ≤ 2 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.exists_triangle_of_bal._simp_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.exists_triangle_of_bal._simp_1_2|∀ {α : Type u_1} [inst : DecidableEq α]
+  {s t : Finset α} {a : α}, (a ∈ s ∪ t) = (a ∈ s ∨ a ∈ t)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two|∀ {V : Type u_1} {G : SimpleGraph V}
+  {m : ℕ} {f : ℕ → V},
+  Erdos628.IsCyclicWalk✝ G (2 * m + 1) f →
+    (∀ m' < m, ∀ (g : ℕ → V), ¬Erdos628.IsCyclicWalk✝ G (2 * m' + 1) g) →
+      2 ≤ m →
+        ∀ {v : V} {i j k : ℕ},
+          i < 2 * m + 1 →
+            j < 2 * m + 1 → k < 2 * m + 1 → i < j → j < k → G.Adj v (f i) → G.Adj v (f j) → G.Adj v (f k) → False
+AUDIT|Erdos617.erdos_617.variants.r2._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos617.erdos_617.variants.r2._proof_1_1|∀ (n p : ℕ), 2 ≤ p → ¬0 < p → False
+AUDIT|Erdos628.erdos_628.variants.independence_number_2._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.independence_number_2._proof_1_5|∀ (V : Type u_1) (G : SimpleGraph V) (k a b : ℕ),
+  a ≥ 2 → b ≥ 2 → a + b = k + 1 → k ≤ k - 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_neighbors_le_three_of_card_ge_six._simp_1_6|[propext]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_neighbors_le_three_of_card_ge_six._simp_1_6|∀ {p q : Prop},
+  (¬(p ∨ q)) = (¬p ∧ ¬q)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_split._proof_1_7|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_split._proof_1_7|∀ {V : Type u_1} {G : SimpleGraph V}
+  {U : Set V} {c d : ℕ} (col : (SimpleGraph.induce U G).Coloring (Fin c)) (u : V) (hu : u ∈ U),
+  ¬↑(col ⟨u, hu⟩) < d → ¬d ≤ ↑(col ⟨u, hu⟩) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.oddComponents_ncard_iso|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.oddComponents_ncard_iso|∀ {W1 : Type u_1} {W2 : Type u_2} [Fintype W1]
+  [Fintype W2] {K1 : SimpleGraph W1} {K2 : SimpleGraph W2} (e : K1 ≃g K2),
+  K1.oddComponents.ncard = K2.oddComponents.ncard
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.exists_min_odd_cyclicWalk|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.exists_min_odd_cyclicWalk|∀ {V : Type u_1} {G : SimpleGraph V},
+  ¬G.Colorable 2 →
+    ∃ m f, Erdos628.IsCyclicWalk✝ G (2 * m + 1) f ∧ ∀ m' < m, ∀ (g : ℕ → V), ¬Erdos628.IsCyclicWalk✝ G (2 * m' + 1) g
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.oddComponents_ncard_iso._simp_1_1|[propext]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.oddComponents_ncard_iso._simp_1_1|∀ {V : Type u} {G : SimpleGraph V}
+  (C : G.ConnectedComponent) (v : V), (v ∈ C.supp) = (G.connectedComponentMk v = C)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_splittable_on_set._proof_1_7|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_splittable_on_set._proof_1_7|∀ {V : Type u_1} [inst : Fintype V]
+  (n : ℕ) (U : Set V) (k a b : ℕ), 3 ≤ k → 2 * k ≤ Fintype.card ↑U + 1 → ¬2 * k - 1 ≤ Fintype.card ↑U → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._simp_1_5|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._simp_1_5|∀ {α : Type u_1}
+  [inst : DecidableEq α] {a b : α} {s : Finset α}, (a ∈ s.erase b) = (a ≠ b ∧ a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.critical_and_connected_compl_card_bound._proof_1_3|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.critical_and_connected_compl_card_bound._proof_1_3|∀ {V : Type u_1}
+  [inst : Fintype V] {G : SimpleGraph V} {k : ℕ},
+  2 ≤ k →
+    2 * k ≤ Fintype.card V + (⊤.deleteVerts ∅).coe.oddComponents.ncard - 0 →
+      Gᶜ.oddComponents.ncard = (⊤.deleteVerts ∅).coe.oddComponents.ncard →
+        Gᶜ.oddComponents.ncard ≤ 1 → ¬2 * k ≤ Fintype.card V + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_10|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_10|∀ {m : ℕ},
+  2 ≤ m →
+    ∀ {i : ℕ} {j k : ℕ},
+      (k - j) % 2 = 1 → k - j ≤ 2 * m - 3 → k - j + 2 = 2 * ((k - j + 1) / 2) + 1 → ¬(k - j + 1) / 2 < m → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_12|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_12|∀ {V : Type} [inst : Fintype V]
+  [inst_1 : DecidableEq V] (coloring : Sym2 V → Fin 3) (v : V),
+  {u | u ≠ v ∧ coloring s(v, u) = 0}.card + {u | u ≠ v ∧ coloring s(v, u) = 1}.card +
+        {u | u ≠ v ∧ coloring s(v, u) = 2}.card =
+      9 →
+    3 ≤ {u | u ≠ v ∧ coloring s(v, u) = 0}.card →
+      3 ≤ {u | u ≠ v ∧ coloring s(v, u) = 1}.card →
+        3 ≤ {u | u ≠ v ∧ coloring s(v, u) = 2}.card → ¬{u | u ≠ v ∧ coloring s(v, u) = 1}.card = 3 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_via_external._proof_1_2|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_via_external._proof_1_2|∀ {d : ℕ},
+  0 < d → ∀ (t : ℕ), t % (d + 2) = d + 1 → d + 1 = 0 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.cliqueFree_join_or._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.cliqueFree_join_or._simp_1_1|∀ {α : Type u_1} {a : α} {s : Finset α},
+  (a ∈ ↑s) = (a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_indep2_card_lt|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_indep2_card_lt|∀ {V : Type u_1} [Fintype V] [DecidableEq V]
+  {G : SimpleGraph V},
+  (∀ (x y z : V), x ≠ y → x ≠ z → y ≠ z → G.Adj x y ∨ G.Adj x z ∨ G.Adj y z) →
+    ∀ {s : Set V} {c : ℕ}, (SimpleGraph.induce s G).Colorable c → s.ncard ≤ 2 * c
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step|∀ {V : Type u_1} {G : SimpleGraph V} {U A B : Set V}
+  {n k a b kA kB : ℕ},
+  2 ≤ a →
+    2 ≤ b →
+      a + b = k + 1 →
+        (∀ m < n,
+            ∀ (U' : Set V),
+              U'.ncard = m →
+                ∀ (k' a' b' : ℕ),
+                  2 ≤ a' →
+                    2 ≤ b' →
+                      a' + b' = k' + 1 →
+                        (SimpleGraph.induce U' G).Colorable k' →
+                          ¬(SimpleGraph.induce U' G).Colorable (k' - 1) →
+                            (SimpleGraph.induce U' G).CliqueFree k' →
+                              ∃ S ⊆ U',
+                                ¬(SimpleGraph.induce S G).Colorable (a' - 1) ∧
+                                  ¬(SimpleGraph.induce (U' \ S) G).Colorable (b' - 1)) →
+          A ⊆ U →
+            B ⊆ U →
+              Disjoint A B →
+                A ∪ B = U →
+                  (∀ x ∈ A, ∀ y ∈ B, G.Adj x y) →
+                    A.ncard < n →
+                      3 ≤ kA →
+                        1 ≤ kB →
+                          kA + kB = k →
+                            (SimpleGraph.induce A G).Colorable kA →
+                              ¬(SimpleGraph.induce A G).Colorable (kA - 1) →
+                                (SimpleGraph.induce B G).Colorable kB →
+                                  ¬(SimpleGraph.induce B G).Colorable (kB - 1) →
+                                    (SimpleGraph.induce A G).CliqueFree kA →
+                                      ∃ S ⊆ U,
+                                        ¬(SimpleGraph.induce S G).Colorable (a - 1) ∧
+                                          ¬(SimpleGraph.induce (U \ S) G).Colorable (b - 1)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_3|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_3|∀
+  {V : Type u_1} {G : SimpleGraph V} {x1 x2 x3 : V} (c_bar : (SimpleGraph.induce {x1, x2, x3}ᶜ G).Coloring (Fin 2))
+  (b0 : Fin 2)
+  (hb0 :
+    ∀ (v : V) (hv : v ∉ {x1, x2, x3}),
+      c_bar ⟨v, hv⟩ = b0 → ∃ col_v, (G.Adj v x1 → col_v ≠ 0) ∧ (G.Adj v x2 → col_v ≠ 1) ∧ (G.Adj v x3 → col_v ≠ 2))
+  (u : V) (hu : u ∉ {x1, x2, x3}) (hcb : c_bar ⟨u, hu⟩ = b0),
+  ↑(Classical.choose ⋯) < 3 → ¬↑(Classical.choose ⋯) < 4 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_9|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_9|∀
+  {V : Type u_1} {G : SimpleGraph V} {x1 x2 x3 : V} (c_bar : (SimpleGraph.induce {x1, x2, x3}ᶜ G).Coloring (Fin 2))
+  (b0 : Fin 2),
+  (∀ (v : V) (hv : v ∉ {x1, x2, x3}),
+      c_bar ⟨v, hv⟩ = b0 → ∃ col_v, (G.Adj v x1 → col_v ≠ 0) ∧ (G.Adj v x2 → col_v ≠ 1) ∧ (G.Adj v x3 → col_v ≠ 2)) →
+    ∀ {u : V} {v : V}, 3 = ↑((fun u => if u = x1 then 0 else if u = x2 then 1 else 2) v) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.critical_and_connected_compl_card_bound|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.critical_and_connected_compl_card_bound|∀ {V : Type u_1}
+  [inst : Fintype V] [DecidableEq V] {G : SimpleGraph V} {k : ℕ},
+  2 ≤ k →
+    (∀ (x y z : V), x ≠ y → x ≠ z → y ≠ z → G.Adj x y ∨ G.Adj x z ∨ G.Adj y z) →
+      ¬G.Colorable (k - 1) →
+        (∀ (P : Set V), P.Nonempty → (SimpleGraph.induce Pᶜ G).Colorable (k - 1)) →
+          (∀ (v0 u : V), Gᶜ.Reachable v0 u) → 2 * k ≤ Fintype.card V + 1
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_12|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_external_le_two._proof_1_12|∀ {m i : ℕ} {j : ℕ}
+  {k : ℕ}, (2 * m + 1 + i - k) % 2 = 1 → ¬2 * m + 1 + i - k + 2 = 2 * ((2 * m + 1 + i - k + 1) / 2) + 1 → False
+AUDIT|Erdos23.erdos_23.variants.n1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos23.erdos_23.variants.n1|∀ (G : SimpleGraph (Fin 5)),
+  G.CliqueFree 3 → ∃ H ≤ G, H.IsBipartite ∧ (G.edgeFinset \ H.edgeFinset).card ≤ 1
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk|∀ {V : Type u_1}
+  {G : SimpleGraph V} {m : ℕ} {f : ℕ → V},
+  Erdos628.IsCyclicWalk✝ G (2 * m + 1) f →
+    (∀ m' < m, ∀ (g : ℕ → V), ¬Erdos628.IsCyclicWalk✝ G (2 * m' + 1) g) →
+      2 ≤ m → (SimpleGraph.induce (Set.range f)ᶜ G).Colorable 2 → G.Colorable 4
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_5|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_5|∀ {V : Type u_1}
+  [Fintype V] {k a b : ℕ},
+  2 ≤ a → a + b = k + 1 → ∀ (S : Finset V), Fintype.card ↑↑S ≤ a - 1 → Fintype.card ↑↑S = a → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_join_colorable._proof_1_4|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_of_join_colorable._proof_1_4|∀ {V : Type u_1}
+  {G : SimpleGraph V} {A B : Set V} {cA : ℕ} {cB c : ℕ} (col : (SimpleGraph.induce (A ∪ B) G).Coloring (Fin c)),
+  ¬cB < {i | ∃ v, ∃ (hv : v ∈ B), col ⟨v, ⋯⟩ = i}.card → ¬{i | ∃ v, ∃ (hv : v ∈ B), col ⟨v, ⋯⟩ = i}.card ≤ cB → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_5|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_5|∀
+  {V : Type u_1} {x1 x2 : V} (u : V),
+  ↑((fun u => if u = x1 then 0 else if u = x2 then 1 else 2) u) < 3 →
+    ¬↑((fun u => if u = x1 then 0 else if u = x2 then 1 else 2) u) < 4 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._simp_1_5|[propext]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._simp_1_5|∀ {V : Type u}
+  {G : SimpleGraph V} (C : G.ConnectedComponent) (v : V), (v ∈ C.supp) = (G.connectedComponentMk v = C)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_neighbors_le_three_of_card_ge_six._simp_1_5|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_neighbors_le_three_of_card_ge_six._simp_1_5|∀ {α : Type u_1}
+  {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_of_adj._proof_1_1|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.isCyclicWalk_shortcut_of_adj._proof_1_1|∀ {d : ℕ}, ¬0 < d + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff._proof_1_8|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_adj_iff._proof_1_8|∀ {m i j : ℕ},
+  i < j →
+    j - i < 2 * m →
+      ¬(j - i) % 2 = 0 →
+        2 * ((2 * m + 1 - (j - i)) / 2) = 2 * m + 1 - (j - i) →
+          ¬j + 2 * ((2 * m + 1 - (j - i)) / 2) = i + (2 * m + 1) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_11|∀ {V : Type u_1} {A : Set V} {n : ℕ}
+  {k a b kA kB : ℕ}, a + b = k + 1 → kA + kB = k → ¬kB + 2 ≤ a → 3 ≤ a → ¬a - 2 < kB → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_8|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj._proof_1_8|∀ {m i j : ℕ},
+  0 < j - i →
+    j - i < 2 * m + 1 →
+      2 * ((2 * m + 1 - (j - i)) / 2) + 1 = 2 * m + 1 - (j - i) → ¬(2 * m + 1 - (j - i)) / 2 < m → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_6|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_6|∀ {V : Type} [Fintype V]
+  [inst : DecidableEq V] (coloring : Sym2 V → Fin 3) (v : V) (k : Fin 3) (U7 : Finset V) (u : V),
+  {w ∈ U7 | w ≠ u ∧ coloring s(u, w) ≠ k}.card ≤ 3 →
+    {w ∈ U7 | w ≠ u ∧ coloring s(u, w) = k}.card ≤ 3 →
+      7 - 1 = {w ∈ U7 | w ≠ u ∧ coloring s(u, w) ≠ k}.card + {w ∈ U7 | w ≠ u ∧ coloring s(u, w) = k}.card →
+        ¬{w ∈ U7 | w ≠ u ∧ coloring s(u, w) = k}.card = 3 → False
+AUDIT|Erdos628.erdos_628.variants.independence_number_2._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.independence_number_2._proof_1_4|∀ (V : Type u_1) (G : SimpleGraph V) (k a b : ℕ),
+  1 + 1 + 1 ≤ 2 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.HStar._proof_2|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.HStar._proof_2|∀ {V : Type u_1} (G : SimpleGraph V) (r : ℕ),
+  Std.Irrefl fun x y =>
+    match x, y with
+    | Sum.inl u, Sum.inl v => Gᶜ.Adj u v
+    | x, y => x ≠ y
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_split|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_split|∀ {V : Type u_1} {G : SimpleGraph V} {U : Set V}
+  {c d : ℕ},
+  1 ≤ d →
+    d < c →
+      ¬(SimpleGraph.induce U G).Colorable (c - 1) →
+        (SimpleGraph.induce U G).Colorable c →
+          ∃ A B,
+            A ⊆ U ∧
+              B ⊆ U ∧
+                Disjoint A B ∧
+                  A ∪ B = U ∧
+                    ¬(SimpleGraph.induce A G).Colorable (d - 1) ∧ ¬(SimpleGraph.induce B G).Colorable (c - d - 1)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.exists_p_odd_components_bound._proof_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.exists_p_odd_components_bound._proof_1_2|∀ {V : Type u_1}
+  [inst : Fintype V] {G : SimpleGraph V} {k : ℕ},
+  Fintype.card (V ⊕ Fin (2 * k - 2 - Fintype.card V)) = 2 * (k - 1) →
+    ∀ (U : Set (V ⊕ Fin (2 * k - 2 - Fintype.card V))),
+      U.ncard ≤ Fintype.card (V ⊕ Fin (2 * k - 2 - Fintype.card V)) →
+        ¬((2 * (k - 1) - U.ncard) % 2 = 1 ↔ U.ncard % 2 = 1) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_11|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_min_odd_cyclicWalk._proof_1_11|∀ {m : ℕ},
+  ¬3 < 4 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._simp_1_2|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._simp_1_2|∀ {α : Type u_1}
+  {β : Type u_2} {s : Finset α} {t : α → Finset β} [inst : DecidableEq β] {b : β}, (b ∈ s.biUnion t) = ∃ a ∈ s, b ∈ t a
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_14|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.indep2_join_step._proof_1_14|∀ {V : Type u_1} {A : Set V} {n k a b : ℕ}
+  {kA : ℕ} {kB : ℕ}, 3 ≤ kA → ¬2 + (kA - 1) = kA + 1 → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._simp_1_4|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._simp_1_4|∀ {α : Type u_1} {p : α → Prop}
+  [inst : DecidablePred p] {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._simp_1_9|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_induce_compl_odd_bound._simp_1_9|∀ {α : Type u_1}
+  [inst : DecidableEq α] {s t : Finset α} {a : α}, (a ∈ s ∪ t) = (a ∈ s ∨ a ∈ t)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_1|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one._proof_1_1|∀ {V : Type u_1}
+  [inst : Fintype V] {k a b : ℕ},
+  2 ≤ a → 2 ≤ b → a + b = k + 1 → 2 * k ≤ Fintype.card V → ¬2 * a - 1 ≤ Fintype.card V → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.HStar._proof_1|[propext, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.HStar._proof_1|∀ {V : Type u_1} (G : SimpleGraph V) (r : ℕ),
+  Std.Symm fun x y =>
+    match x, y with
+    | Sum.inl u, Sum.inl v => Gᶜ.Adj u v
+    | x, y => x ≠ y
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_join_of_colorable|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_join_of_colorable|∀ {V : Type u_1} {G : SimpleGraph V}
+  {A B : Set V} {cA cB : ℕ},
+  (SimpleGraph.induce A G).Colorable cA →
+    (SimpleGraph.induce B G).Colorable cB → (SimpleGraph.induce (A ∪ B) G).Colorable (cA + cB)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.exists_triangle_of_bal._proof_1_5|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.exists_triangle_of_bal._proof_1_5|∀ {V : Type} [inst : Fintype V]
+  [inst_1 : DecidableEq V] (coloring : Sym2 V → Fin 3) (v u : V),
+  6 - 1 =
+      {w ∈ {u | u ≠ v ∧ coloring s(v, u) ≠ 0} | w ≠ u ∧ coloring s(u, w) = 0}.card +
+        {w ∈ {u | u ≠ v ∧ coloring s(v, u) ≠ 0} | w ≠ u ∧ coloring s(u, w) ≠ 0}.card →
+    ¬{w ∈ {u | u ≠ v ∧ coloring s(v, u) ≠ 0} | w ≠ u ∧ coloring s(u, w) = 0}.card +
+            {w ∈ {u | u ≠ v ∧ coloring s(v, u) ≠ 0} | w ≠ u ∧ coloring s(u, w) ≠ 0}.card =
+          5 →
+      False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.splittable_of_card_ge_two_k_sub_one|∀ {V : Type u_1} [inst : Fintype V]
+  [DecidableEq V] {G : SimpleGraph V},
+  (∀ (x y z : V), x ≠ y → x ≠ z → y ≠ z → G.Adj x y ∨ G.Adj x z ∨ G.Adj y z) →
+    ∀ {k a b : ℕ},
+      2 ≤ a →
+        2 ≤ b →
+          a + b = k + 1 →
+            2 * k - 1 ≤ Fintype.card V →
+              Nonempty V →
+                ∃ s, ¬(SimpleGraph.induce s G).Colorable (a - 1) ∧ ¬(SimpleGraph.induce sᶜ G).Colorable (b - 1)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.min_odd_cyclicWalk_inj|∀ {V : Type u_1} {G : SimpleGraph V} {m : ℕ}
+  {f : ℕ → V},
+  Erdos628.IsCyclicWalk✝ G (2 * m + 1) f →
+    (∀ m' < m, ∀ (g : ℕ → V), ¬Erdos628.IsCyclicWalk✝ G (2 * m' + 1) g) →
+      ∀ {i j : ℕ}, i < 2 * m + 1 → j < 2 * m + 1 → i < j → f i ≠ f j
+AUDIT|Erdos617.erdos_617.variants.r_eq_3._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos617.erdos_617.variants.r_eq_3._proof_1_6|∀ (r : ℕ) {V : Type} [inst : Fintype V] [inst_1 : DecidableEq V]
+  (coloring : Sym2 V → Fin 3) (x y z a b c q p q_nb w : V),
+  {u ∈ {u | u ≠ q ∧ coloring s(q, u) ≠ 0} | u ≠ p ∧ coloring s(p, u) ≠ 0}.card ≤ 3 →
+    6 - 1 =
+        {u ∈ {u | u ≠ q ∧ coloring s(q, u) ≠ 0} | u ≠ p ∧ coloring s(p, u) = 0}.card +
+          {u ∈ {u | u ≠ q ∧ coloring s(q, u) ≠ 0} | u ≠ p ∧ coloring s(p, u) ≠ 0}.card →
+      ¬2 ≤ {u ∈ {u | u ≠ q ∧ coloring s(q, u) ≠ 0} | u ≠ p ∧ coloring s(p, u) = 0}.card → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_7|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.colorable_four_of_triangle_and_bipartite_compl._proof_1_7|∀
+  {V : Type u_1} {G : SimpleGraph V} {x1 x2 x3 : V} (c_bar : (SimpleGraph.induce {x1, x2, x3}ᶜ G).Coloring (Fin 2))
+  (b0 : Fin 2)
+  (hb0 :
+    ∀ (v : V) (hv : v ∉ {x1, x2, x3}),
+      c_bar ⟨v, hv⟩ = b0 → ∃ col_v, (G.Adj v x1 → col_v ≠ 0) ∧ (G.Adj v x2 → col_v ≠ 1) ∧ (G.Adj v x3 → col_v ≠ 2))
+  {u : V} {v : V} (hv : v ∉ {x1, x2, x3}) (hcb2 : c_bar ⟨v, hv⟩ = b0), 3 = ↑(Classical.choose ⋯) → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_11|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos617.w_card_eq_six_and_deg_three._proof_1_11|∀ {V : Type} [inst : Fintype V]
+  [inst_1 : DecidableEq V] (coloring : Sym2 V → Fin 3) (v : V),
+  {u | u ≠ v ∧ coloring s(v, u) = 0}.card + {u | u ≠ v ∧ coloring s(v, u) = 1}.card +
+        {u | u ≠ v ∧ coloring s(v, u) = 2}.card =
+      9 →
+    3 ≤ {u | u ≠ v ∧ coloring s(v, u) = 0}.card →
+      3 ≤ {u | u ≠ v ∧ coloring s(v, u) = 1}.card →
+        3 ≤ {u | u ≠ v ∧ coloring s(v, u) = 2}.card → ¬{u | u ≠ v ∧ coloring s(v, u) = 0}.card = 3 → False
+AUDIT|Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos628.erdos_628.variants.k_5_a_3_b_3._simp_1_10|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α}
+  {a b : α}, (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.exists_odd_cyclicWalk_of_not_colorable_two._proof_1_4|[propext,
+ Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.exists_odd_cyclicWalk_of_not_colorable_two._proof_1_4|∀ {V : Type u_1}
+  {G : SimpleGraph V} (u : V) (w : G.Walk u u) (m : ℕ),
+  w.length = 2 * m + 1 →
+    ∀ (i : ℕ),
+      i % (2 * m + 1) < 2 * m + 1 → (i + 1) % (2 * m + 1) = i % (2 * m + 1) + 1 → ¬i % (2 * m + 1) < w.length → False
+AUDIT|_private.JspBounties.ErdosGraph.0.Erdos628.not_colorable_two_iff_odd_loop|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.ErdosGraph.0.Erdos628.not_colorable_two_iff_odd_loop|∀ {V : Type u_1} {G : SimpleGraph V},
+  ¬G.Colorable 2 ↔ ∃ u w, Odd w.length
+AUDIT|Erdos617.erdos_617.variants.r_eq_3._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos617.erdos_617.variants.r_eq_3._simp_1_2|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)

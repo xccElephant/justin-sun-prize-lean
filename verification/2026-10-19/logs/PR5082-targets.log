@@ -1,0 +1,963 @@
+Erdos617.erdos_617.variants.r2 : {r |
+    ∃ V x x_1,
+      Fintype.card V = r ^ 2 ∧
+        ∃ coloring,
+          ∀ (S : Finset V), S.card = r + 1 → ∀ (k : Fin r), ∃ u ∈ S, ∃ v ∈ S, u ≠ v ∧ coloring s(u, v) = k}.Infinite
+theorem Erdos617.erdos_617.variants.r2 : {r |
+    ∃ V x x_1,
+      Fintype.card V = r ^ 2 ∧
+        ∃ coloring,
+          ∀ (S : Finset V), S.card = r + 1 → ∀ (k : Fin r), ∃ u ∈ S, ∃ v ∈ S, u ≠ v ∧ coloring s(u, v) = k}.Infinite :=
+Set.infinite_of_forall_exists_gt fun n =>
+  Exists.casesOn (Nat.exists_infinite_primes (max (n + 1) 2)) fun p h =>
+    And.casesOn h fun hp_ge hp_prime =>
+      have hp_gt := lt_of_lt_of_le (Nat.lt_succ_self n) (le_trans (le_max_left n.succ 2) hp_ge);
+      have hp_ge2 := le_trans (le_max_right (n + 1) 2) hp_ge;
+      have hp_pos := Decidable.byContradiction fun a => Erdos617.erdos_617.variants.r2._proof_1_1 n p hp_ge2 a;
+      have this := { out := ne_of_gt hp_pos };
+      have this_1 := { out := hp_prime };
+      Exists.intro p
+        ⟨Eq.mpr (id (congrArg (fun _a => _a) Set.mem_ofPred_eq))
+            (Exists.intro (ZMod p × ZMod p)
+              (Exists.intro inferInstance
+                (Exists.intro inferInstance
+                  ⟨of_eq_true
+                      (Eq.trans
+                        (congr
+                          (congrArg Eq
+                            (Eq.trans (Fintype.card_prod (ZMod p) (ZMod p))
+                              (congr (congrArg HMul.hMul (ZMod.card p)) (ZMod.card p))))
+                          (sq p))
+                        (eq_self (p * p))),
+                    Exists.intro
+                      (Sym2.lift
+                        ⟨fun u v =>
+                          if u.1 = v.1 then ⟨0, hp_pos⟩
+                          else
+                            let m := (v.2 - u.2) * (v.1 - u.1)⁻¹;
+                            ⟨m.val, ZMod.val_lt m⟩,
+                          fun u v =>
+                          id
+                            (if h1 : u.1 = v.1 then
+                              Eq.mpr
+                                (id
+                                  (congrFun' (congrArg Eq (if_pos h1))
+                                    (if v.1 = u.1 then ⟨0, hp_pos⟩
+                                    else
+                                      ⟨((u.2 - v.2) * (u.1 - v.1)⁻¹).val, ZMod.val_lt ((u.2 - v.2) * (u.1 - v.1)⁻¹)⟩)))
+                                (if h2 : v.1 = u.1 then
+                                  Eq.mpr (id (congrArg (Eq ⟨0, hp_pos⟩) (if_pos h2))) (Eq.refl ⟨0, hp_pos⟩)
+                                else Eq.mpr (id (congrArg (Eq ⟨0, hp_pos⟩) (if_neg h2))) (False.elim (h2 (Eq.symm h1))))
+                            else
+                              Eq.mpr
+                                (id
+                                  (congrFun' (congrArg Eq (if_neg h1))
+                                    (if v.1 = u.1 then ⟨0, hp_pos⟩
+                                    else
+                                      ⟨((u.2 - v.2) * (u.1 - v.1)⁻¹).val, ZMod.val_lt ((u.2 - v.2) * (u.1 - v.1)⁻¹)⟩)))
+                                (if h2 : v.1 = u.1 then
+                                  Eq.mpr
+                                    (id
+                                      (congrArg
+                                        (Eq
+                                          ⟨((v.2 - u.2) * (v.1 - u.1)⁻¹).val,
+                                            ZMod.val_lt ((v.2 - u.2) * (v.1 - u.1)⁻¹)⟩)
+                                        (if_pos h2)))
+                                    (False.elim (h1 (Eq.symm h2)))
+                                else
+                                  Eq.mpr
+                                    (id
+                                      (congrArg
+                                        (Eq
+                                          ⟨((v.2 - u.2) * (v.1 - u.1)⁻¹).val,
+                                            ZMod.val_lt ((v.2 - u.2) * (v.1 - u.1)⁻¹)⟩)
+                                        (if_neg h2)))
+                                    ((fun {n} val val_1 e_val =>
+                                        Eq.rec (motive := fun val_2 e_val =>
+                                          ∀ (isLt : val < n), ⟨val, isLt⟩ = ⟨val_2, e_val ▸ isLt⟩)
+                                          (fun isLt => Eq.refl ⟨val, isLt⟩) e_val)
+                                      ((v.2 - u.2) * (v.1 - u.1)⁻¹).val ((u.2 - v.2) * (u.1 - v.1)⁻¹).val
+                                      (have h_eq :=
+                                        have hnum :=
+                                          Mathlib.Tactic.Ring.of_eq
+                                            (Mathlib.Tactic.Ring.Common.sub_congr
+                                              (Mathlib.Tactic.Ring.Common.atom_pf u.2 rfl
+                                                (Eq.mpr
+                                                  (id
+                                                    (congrArg
+                                                      (fun _a =>
+                                                        u.2 ^ Nat.rawCast 1 * Nat.rawCast 1 = u.2 ^ Nat.rawCast 1 * _a)
+                                                      (Eq.symm rfl)))
+                                                  (Eq.refl (u.2 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                              (Mathlib.Tactic.Ring.Common.atom_pf v.2 rfl
+                                                (Eq.mpr
+                                                  (id
+                                                    (congrArg
+                                                      (fun _a =>
+                                                        v.2 ^ Nat.rawCast 1 * Nat.rawCast 1 = v.2 ^ Nat.rawCast 1 * _a)
+                                                      (Eq.symm rfl)))
+                                                  (Eq.refl (v.2 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                              (Mathlib.Tactic.Ring.Common.sub_pf
+                                                (Mathlib.Tactic.Ring.Common.neg_add
+                                                  (Mathlib.Tactic.Ring.Common.neg_mul v.2 (Nat.rawCast 1)
+                                                    (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                                      (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                        (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                          (Mathlib.Meta.NormNum.IsNat.of_raw (ZMod p) 1))
+                                                        (Eq.refl (Int.negOfNat 1)))))
+                                                  Mathlib.Tactic.Ring.Common.neg_zero)
+                                                (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                                  (u.2 ^ Nat.rawCast 1 * Nat.rawCast 1)
+                                                  (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                                    (v.2 ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0)))))
+                                            (Mathlib.Tactic.Ring.Common.neg_congr
+                                              (Mathlib.Tactic.Ring.Common.sub_congr
+                                                (Mathlib.Tactic.Ring.Common.atom_pf v.2 rfl
+                                                  (Eq.mpr
+                                                    (id
+                                                      (congrArg
+                                                        (fun _a =>
+                                                          v.2 ^ Nat.rawCast 1 * Nat.rawCast 1 =
+                                                            v.2 ^ Nat.rawCast 1 * _a)
+                                                        (Eq.symm rfl)))
+                                                    (Eq.refl (v.2 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                                (Mathlib.Tactic.Ring.Common.atom_pf u.2 rfl
+                                                  (Eq.mpr
+                                                    (id
+                                                      (congrArg
+                                                        (fun _a =>
+                                                          u.2 ^ Nat.rawCast 1 * Nat.rawCast 1 =
+                                                            u.2 ^ Nat.rawCast 1 * _a)
+                                                        (Eq.symm rfl)))
+                                                    (Eq.refl (u.2 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                                (Mathlib.Tactic.Ring.Common.sub_pf
+                                                  (Mathlib.Tactic.Ring.Common.neg_add
+                                                    (Mathlib.Tactic.Ring.Common.neg_mul u.2 (Nat.rawCast 1)
+                                                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                                        (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                          (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                            (Mathlib.Meta.NormNum.IsNat.of_raw (ZMod p) 1))
+                                                          (Eq.refl (Int.negOfNat 1)))))
+                                                    Mathlib.Tactic.Ring.Common.neg_zero)
+                                                  (Mathlib.Tactic.Ring.Common.add_pf_add_gt
+                                                    (u.2 ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast)
+                                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                                      (v.2 ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))))
+                                              (Mathlib.Tactic.Ring.Common.neg_add
+                                                (Mathlib.Tactic.Ring.Common.neg_mul u.2 (Nat.rawCast 1)
+                                                  (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                                    (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                      (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                        (Mathlib.Meta.NormNum.IsInt.of_raw (ZMod p) (Int.negOfNat 1))
+                                                        (Eq.refl (Int.ofNat 1))))))
+                                                (Mathlib.Tactic.Ring.Common.neg_add
+                                                  (Mathlib.Tactic.Ring.Common.neg_mul v.2 (Nat.rawCast 1)
+                                                    (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                                      (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                        (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                          (Mathlib.Meta.NormNum.IsNat.of_raw (ZMod p) 1))
+                                                        (Eq.refl (Int.negOfNat 1)))))
+                                                  Mathlib.Tactic.Ring.Common.neg_zero)));
+                                        have hden :=
+                                          Mathlib.Tactic.Ring.of_eq
+                                            (Mathlib.Tactic.Ring.Common.sub_congr
+                                              (Mathlib.Tactic.Ring.Common.atom_pf u.1 rfl
+                                                (Eq.mpr
+                                                  (id
+                                                    (congrArg
+                                                      (fun _a =>
+                                                        u.1 ^ Nat.rawCast 1 * Nat.rawCast 1 = u.1 ^ Nat.rawCast 1 * _a)
+                                                      (Eq.symm rfl)))
+                                                  (Eq.refl (u.1 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                              (Mathlib.Tactic.Ring.Common.atom_pf v.1 rfl
+                                                (Eq.mpr
+                                                  (id
+                                                    (congrArg
+                                                      (fun _a =>
+                                                        v.1 ^ Nat.rawCast 1 * Nat.rawCast 1 = v.1 ^ Nat.rawCast 1 * _a)
+                                                      (Eq.symm rfl)))
+                                                  (Eq.refl (v.1 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                              (Mathlib.Tactic.Ring.Common.sub_pf
+                                                (Mathlib.Tactic.Ring.Common.neg_add
+                                                  (Mathlib.Tactic.Ring.Common.neg_mul v.1 (Nat.rawCast 1)
+                                                    (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                                      (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                        (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                          (Mathlib.Meta.NormNum.IsNat.of_raw (ZMod p) 1))
+                                                        (Eq.refl (Int.negOfNat 1)))))
+                                                  Mathlib.Tactic.Ring.Common.neg_zero)
+                                                (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                                  (u.1 ^ Nat.rawCast 1 * Nat.rawCast 1)
+                                                  (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                                    (v.1 ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0)))))
+                                            (Mathlib.Tactic.Ring.Common.neg_congr
+                                              (Mathlib.Tactic.Ring.Common.sub_congr
+                                                (Mathlib.Tactic.Ring.Common.atom_pf v.1 rfl
+                                                  (Eq.mpr
+                                                    (id
+                                                      (congrArg
+                                                        (fun _a =>
+                                                          v.1 ^ Nat.rawCast 1 * Nat.rawCast 1 =
+                                                            v.1 ^ Nat.rawCast 1 * _a)
+                                                        (Eq.symm rfl)))
+                                                    (Eq.refl (v.1 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                                (Mathlib.Tactic.Ring.Common.atom_pf u.1 rfl
+                                                  (Eq.mpr
+                                                    (id
+                                                      (congrArg
+                                                        (fun _a =>
+                                                          u.1 ^ Nat.rawCast 1 * Nat.rawCast 1 =
+                                                            u.1 ^ Nat.rawCast 1 * _a)
+                                                        (Eq.symm rfl)))
+                                                    (Eq.refl (u.1 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                                (Mathlib.Tactic.Ring.Common.sub_pf
+                                                  (Mathlib.Tactic.Ring.Common.neg_add
+                                                    (Mathlib.Tactic.Ring.Common.neg_mul u.1 (Nat.rawCast 1)
+                                                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                                        (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                          (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                            (Mathlib.Meta.NormNum.IsNat.of_raw (ZMod p) 1))
+                                                          (Eq.refl (Int.negOfNat 1)))))
+                                                    Mathlib.Tactic.Ring.Common.neg_zero)
+                                                  (Mathlib.Tactic.Ring.Common.add_pf_add_gt
+                                                    (u.1 ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast)
+                                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                                      (v.1 ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))))
+                                              (Mathlib.Tactic.Ring.Common.neg_add
+                                                (Mathlib.Tactic.Ring.Common.neg_mul u.1 (Nat.rawCast 1)
+                                                  (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                                    (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                      (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                        (Mathlib.Meta.NormNum.IsInt.of_raw (ZMod p) (Int.negOfNat 1))
+                                                        (Eq.refl (Int.ofNat 1))))))
+                                                (Mathlib.Tactic.Ring.Common.neg_add
+                                                  (Mathlib.Tactic.Ring.Common.neg_mul v.1 (Nat.rawCast 1)
+                                                    (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                                      (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                        (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                          (Mathlib.Meta.NormNum.IsNat.of_raw (ZMod p) 1))
+                                                        (Eq.refl (Int.negOfNat 1)))))
+                                                  Mathlib.Tactic.Ring.Common.neg_zero)));
+                                        Eq.mpr
+                                          (id
+                                            (congrArg (fun _a => _a * (u.1 - v.1)⁻¹ = (v.2 - u.2) * (v.1 - u.1)⁻¹)
+                                              hnum))
+                                          (Eq.mpr
+                                            (id
+                                              (congrArg (fun _a => -(v.2 - u.2) * _a⁻¹ = (v.2 - u.2) * (v.1 - u.1)⁻¹)
+                                                hden))
+                                            (Eq.mpr
+                                              (id
+                                                (congrArg (fun _a => -(v.2 - u.2) * _a = (v.2 - u.2) * (v.1 - u.1)⁻¹)
+                                                  inv_neg))
+                                              (Eq.mpr
+                                                (id
+                                                  (congrArg (fun _a => _a = (v.2 - u.2) * (v.1 - u.1)⁻¹)
+                                                    (neg_mul_neg (v.2 - u.2) (v.1 - u.1)⁻¹)))
+                                                (Eq.refl ((v.2 - u.2) * (v.1 - u.1)⁻¹)))));
+                                      Eq.mpr (id (congrArg (fun _a => ((v.2 - u.2) * (v.1 - u.1)⁻¹).val = _a.val) h_eq))
+                                        (Eq.refl ((v.2 - u.2) * (v.1 - u.1)⁻¹).val))
+                                      (ZMod.val_lt ((v.2 - u.2) * (v.1 - u.1)⁻¹)))))⟩)
+                      fun S hS k =>
+                      let m := ↑↑k;
+                      have hcard :=
+                        Eq.mpr (id (congrArg (fun _a => _a < S.card) Finset.card_univ))
+                          (Eq.mpr (id (congrArg (fun _a => _a < S.card) (ZMod.card p)))
+                            (Eq.mpr (id (congrArg (fun _a => p < _a) hS))
+                              (Decidable.byContradiction fun a => Erdos617.erdos_617.variants.r2._proof_1_2 n p S a)));
+                      Exists.casesOn
+                        (Finset.exists_ne_map_eq_of_card_lt_of_maps_to hcard fun x x_1 =>
+                          Finset.mem_univ (x.2 - m * x.1))
+                        fun u h =>
+                        And.casesOn h fun hu right =>
+                          Exists.casesOn right fun v h =>
+                            And.casesOn h fun hv right =>
+                              And.casesOn right fun huv heq =>
+                                if h_u1_eq_v1 : u.1 = v.1 then
+                                  False.elim
+                                    (huv
+                                      (Prod.ext h_u1_eq_v1
+                                        (sub_left_inj.mp
+                                          (Eq.mp (congrArg (fun _a => u.2 - m * _a = v.2 - m * v.1) h_u1_eq_v1) heq))))
+                                else
+                                  Exists.intro u
+                                    ⟨hu,
+                                      Exists.intro v
+                                        ⟨hv,
+                                          ⟨huv,
+                                            Fin.ext
+                                              (Eq.mpr
+                                                (id
+                                                  (congrFun'
+                                                    (congrArg Eq
+                                                      (congrArg Fin.val
+                                                        (Eq.trans
+                                                          (congrFun'
+                                                            (congrArg (⇑Sym2.lift)
+                                                              (Subtype.mk.congr_simp
+                                                                (fun u v =>
+                                                                  if u.1 = v.1 then ⟨0, hp_pos⟩
+                                                                  else
+                                                                    let m := ⋯;
+                                                                    ⟨m.val, ZMod.val_lt m⟩)
+                                                                (fun u v => if u.1 = v.1 then ⟨0, hp_pos⟩ else ⟨⋯, ⋯⟩)
+                                                                (funext fun u => funext ⋯) fun u v =>
+                                                                id (if h1 : u.1 = v.1 then ⋯ else ⋯)))
+                                                            s(u, v))
+                                                          ((fun x_0 x_1 x_2 x_3 =>
+                                                              (fun x_0 x_1 x_2 x_3 => if_neg h_u1_eq_v1) x_0 x_1 x_2
+                                                                x_3)
+                                                            (ZMod.decidableEq p u.1 v.1) (Fin p) ⟨0, hp_pos⟩
+                                                            ⟨((v.2 - u.2) * (v.1 - u.1)⁻¹).val,
+                                                              ZMod.val_lt ((v.2 - u.2) * (v.1 - u.1)⁻¹)⟩))))
+                                                    ↑k))
+                                                (have h_sub :=
+                                                  Trans.trans
+                                                    (Mathlib.Tactic.Ring.of_eq
+                                                      (Mathlib.Tactic.Ring.Common.sub_congr
+                                                        (Mathlib.Tactic.Ring.Common.atom_pf v.2 rfl
+                                                          (Eq.mpr
+                                                            (id
+                                                              (congrArg (fun _a => ⋯ * Nat.rawCast 1 = ⋯ * _a)
+                                                                (Eq.symm rfl)))
+                                                            (Eq.refl (v.2 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                                        (Mathlib.Tactic.Ring.Common.atom_pf u.2 rfl
+                                                          (Eq.mpr
+                                                            (id
+                                                              (congrArg (fun _a => ⋯ * Nat.rawCast 1 = ⋯ * _a)
+                                                                (Eq.symm rfl)))
+                                                            (Eq.refl (u.2 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                                        (Mathlib.Tactic.Ring.Common.sub_pf
+                                                          (Mathlib.Tactic.Ring.Common.neg_add
+                                                            (Mathlib.Tactic.Ring.Common.neg_mul u.2 (Nat.rawCast 1)
+                                                              (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                                                (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                                  (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                    (Mathlib.Meta.NormNum.IsNat.of_raw (ZMod p) 1))
+                                                                  (Eq.refl (Int.negOfNat 1)))))
+                                                            Mathlib.Tactic.Ring.Common.neg_zero)
+                                                          (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                                            (v.2 ^ Nat.rawCast 1 * Nat.rawCast 1)
+                                                            (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                                              (u.2 ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0)))))
+                                                      (Mathlib.Tactic.Ring.Common.add_congr
+                                                        (Mathlib.Tactic.Ring.Common.sub_congr
+                                                          (Mathlib.Tactic.Ring.Common.sub_congr
+                                                            (Mathlib.Tactic.Ring.Common.atom_pf v.2 rfl
+                                                              (Eq.mpr (id (congrArg (fun _a => ⋯) (Eq.symm rfl)))
+                                                                (Eq.refl (v.2 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                                            (Mathlib.Tactic.Ring.Common.mul_congr
+                                                              (Mathlib.Tactic.Ring.Common.atom_pf m rfl
+                                                                (Eq.mpr (id (congrArg ⋯ ⋯))
+                                                                  (Eq.refl (⋯ * Nat.rawCast 1))))
+                                                              (Mathlib.Tactic.Ring.Common.atom_pf v.1 rfl
+                                                                (Eq.mpr (id (congrArg ⋯ ⋯))
+                                                                  (Eq.refl (⋯ * Nat.rawCast 1))))
+                                                              (Mathlib.Tactic.Ring.Common.add_mul
+                                                                (Mathlib.Tactic.Ring.Common.mul_add
+                                                                  (Mathlib.Tactic.Ring.Common.mul_pf_left m
+                                                                    (Nat.rawCast 1)
+                                                                    (Mathlib.Tactic.Ring.Common.mul_pf_right v.1
+                                                                      (Nat.rawCast 1) ⋯))
+                                                                  (Mathlib.Tactic.Ring.Common.mul_zero
+                                                                    (⋯ * Nat.rawCast 1))
+                                                                  (Mathlib.Tactic.Ring.Common.add_pf_add_zero (⋯ + 0)))
+                                                                (Mathlib.Tactic.Ring.Common.zero_mul
+                                                                  (⋯ * Nat.rawCast 1 + 0))
+                                                                (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                                                  (⋯ * ⋯ + 0))))
+                                                            (Mathlib.Tactic.Ring.Common.sub_pf
+                                                              (Mathlib.Tactic.Ring.Common.neg_add
+                                                                (Mathlib.Tactic.Ring.Common.neg_mul m (Nat.rawCast 1)
+                                                                  (Mathlib.Tactic.Ring.Common.neg_mul v.1
+                                                                    (Nat.rawCast 1)
+                                                                    (Mathlib.Meta.NormNum.IsInt.to_raw_eq ⋯)))
+                                                                Mathlib.Tactic.Ring.Common.neg_zero)
+                                                              (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                                                (v.2 ^ Nat.rawCast 1 * Nat.rawCast 1)
+                                                                (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                                                  (⋯ * ⋯ + 0)))))
+                                                          (Mathlib.Tactic.Ring.Common.sub_congr
+                                                            (Mathlib.Tactic.Ring.Common.atom_pf u.2 rfl
+                                                              (Eq.mpr (id (congrArg (fun _a => ⋯) (Eq.symm rfl)))
+                                                                (Eq.refl (u.2 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                                            (Mathlib.Tactic.Ring.Common.mul_congr
+                                                              (Mathlib.Tactic.Ring.Common.atom_pf m rfl
+                                                                (Eq.mpr (id (congrArg ⋯ ⋯))
+                                                                  (Eq.refl (⋯ * Nat.rawCast 1))))
+                                                              (Mathlib.Tactic.Ring.Common.atom_pf u.1 rfl
+                                                                (Eq.mpr (id (congrArg ⋯ ⋯))
+                                                                  (Eq.refl (⋯ * Nat.rawCast 1))))
+                                                              (Mathlib.Tactic.Ring.Common.add_mul
+                                                                (Mathlib.Tactic.Ring.Common.mul_add
+                                                                  (Mathlib.Tactic.Ring.Common.mul_pf_left m
+                                                                    (Nat.rawCast 1)
+                                                                    (Mathlib.Tactic.Ring.Common.mul_pf_right u.1
+                                                                      (Nat.rawCast 1) ⋯))
+                                                                  (Mathlib.Tactic.Ring.Common.mul_zero
+                                                                    (⋯ * Nat.rawCast 1))
+                                                                  (Mathlib.Tactic.Ring.Common.add_pf_add_zero (⋯ + 0)))
+                                                                (Mathlib.Tactic.Ring.Common.zero_mul
+                                                                  (⋯ * Nat.rawCast 1 + 0))
+                                                                (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                                                  (⋯ * ⋯ + 0))))
+                                                            (Mathlib.Tactic.Ring.Common.sub_pf
+                                                              (Mathlib.Tactic.Ring.Common.neg_add
+                                                                (Mathlib.Tactic.Ring.Common.neg_mul m (Nat.rawCast 1)
+                                                                  (Mathlib.Tactic.Ring.Common.neg_mul u.1
+                                                                    (Nat.rawCast 1)
+                                                                    (Mathlib.Meta.NormNum.IsInt.to_raw_eq ⋯)))
+                                                                Mathlib.Tactic.Ring.Common.neg_zero)
+                                                              (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                                                (u.2 ^ Nat.rawCast 1 * Nat.rawCast 1)
+                                                                (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                                                  (⋯ * ⋯ + 0)))))
+                                                          (Mathlib.Tactic.Ring.Common.sub_pf
+                                                            (Mathlib.Tactic.Ring.Common.neg_add
+                                                              (Mathlib.Tactic.Ring.Common.neg_mul u.2 (Nat.rawCast 1)
+                                                                (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                                                  (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                                                    (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                                                      (Mathlib.Meta.NormNum.IsNat.of_raw (ZMod p) 1))
+                                                                    (Eq.refl (Int.negOfNat 1)))))
+                                                              (Mathlib.Tactic.Ring.Common.neg_add
+                                                                (Mathlib.Tactic.Ring.Common.neg_mul m (Nat.rawCast 1)
+                                                                  (Mathlib.Tactic.Ring.Common.neg_mul u.1
+                                                                    (Nat.rawCast 1)
+                                                                    (Mathlib.Meta.NormNum.IsNat.to_raw_eq ⋯)))
+                                                                Mathlib.Tactic.Ring.Common.neg_zero))
+                                                            (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                                              (v.2 ^ Nat.rawCast 1 * Nat.rawCast 1)
+                                                              (Mathlib.Tactic.Ring.Common.add_pf_add_gt
+                                                                (u.2 ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast)
+                                                                (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                                                  (m ^ Nat.rawCast 1 * (⋯ * (Int.negOfNat 1).rawCast))
+                                                                  (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                                                    (⋯ + 0)))))))
+                                                        (Mathlib.Tactic.Ring.Common.mul_congr
+                                                          (Mathlib.Tactic.Ring.Common.atom_pf m rfl
+                                                            (Eq.mpr (id (congrArg (fun _a => ⋯ = ⋯) (Eq.symm rfl)))
+                                                              (Eq.refl (m ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                                          (Mathlib.Tactic.Ring.Common.sub_congr
+                                                            (Mathlib.Tactic.Ring.Common.atom_pf v.1 rfl
+                                                              (Eq.mpr (id (congrArg (fun _a => ⋯) (Eq.symm rfl)))
+                                                                (Eq.refl (v.1 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                                            (Mathlib.Tactic.Ring.Common.atom_pf u.1 rfl
+                                                              (Eq.mpr (id (congrArg (fun _a => ⋯) (Eq.symm rfl)))
+                                                                (Eq.refl (u.1 ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                                            (Mathlib.Tactic.Ring.Common.sub_pf
+                                                              (Mathlib.Tactic.Ring.Common.neg_add
+                                                                (Mathlib.Tactic.Ring.Common.neg_mul u.1 (Nat.rawCast 1)
+                                                                  (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                                                    (Mathlib.Meta.NormNum.isInt_neg ⋯ ⋯
+                                                                      (Eq.refl (Int.negOfNat 1)))))
+                                                                Mathlib.Tactic.Ring.Common.neg_zero)
+                                                              (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                                                (v.1 ^ Nat.rawCast 1 * Nat.rawCast 1)
+                                                                (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                                                  (⋯ * (Int.negOfNat 1).rawCast + 0)))))
+                                                          (Mathlib.Tactic.Ring.Common.add_mul
+                                                            (Mathlib.Tactic.Ring.Common.mul_add
+                                                              (Mathlib.Tactic.Ring.Common.mul_pf_left m (Nat.rawCast 1)
+                                                                (Mathlib.Tactic.Ring.Common.mul_pf_right v.1
+                                                                  (Nat.rawCast 1)
+                                                                  (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                                                    (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                                      (Mathlib.Meta.NormNum.IsNat.of_raw (ZMod p) 1)
+                                                                      (Mathlib.Meta.NormNum.IsNat.of_raw (ZMod p) 1)
+                                                                      (Eq.refl 1)))))
+                                                              (Mathlib.Tactic.Ring.Common.mul_add
+                                                                (Mathlib.Tactic.Ring.Common.mul_pf_left m
+                                                                  (Nat.rawCast 1)
+                                                                  (Mathlib.Tactic.Ring.Common.mul_pf_right u.1
+                                                                    (Nat.rawCast 1)
+                                                                    (Mathlib.Meta.NormNum.IsInt.to_raw_eq ⋯)))
+                                                                (Mathlib.Tactic.Ring.Common.mul_zero
+                                                                  (m ^ Nat.rawCast 1 * Nat.rawCast 1))
+                                                                (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                                                  (⋯ * ⋯ + 0)))
+                                                              (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                                                (m ^ Nat.rawCast 1 *
+                                                                  (v.1 ^ Nat.rawCast 1 * Nat.rawCast 1))
+                                                                (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                                                  (⋯ * ⋯ + 0))))
+                                                            (Mathlib.Tactic.Ring.Common.zero_mul
+                                                              (v.1 ^ Nat.rawCast 1 * Nat.rawCast 1 +
+                                                                (u.1 ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0)))
+                                                            (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                                              (m ^ Nat.rawCast 1 *
+                                                                  (v.1 ^ Nat.rawCast 1 * Nat.rawCast 1) +
+                                                                (m ^ Nat.rawCast 1 * (⋯ * (Int.negOfNat 1).rawCast) +
+                                                                  0)))))
+                                                        (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                                          (v.2 ^ Nat.rawCast 1 * Nat.rawCast 1)
+                                                          (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                                            (u.2 ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast)
+                                                            (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                                                              (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero m
+                                                                (Nat.rawCast 1)
+                                                                (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero v.1
+                                                                  (Nat.rawCast 1)
+                                                                  (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                                                    (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                                                                      (Mathlib.Meta.NormNum.IsInt.of_raw (ZMod p)
+                                                                        (Int.negOfNat 1))
+                                                                      ⋯ (Eq.refl (Int.ofNat 0))))))
+                                                              (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                                                                (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero m
+                                                                  (Nat.rawCast 1)
+                                                                  (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero u.1
+                                                                    (Nat.rawCast 1)
+                                                                    (Mathlib.Meta.NormNum.IsInt.to_isNat ⋯)))
+                                                                (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0)))))))
+                                                    (Eq.mpr
+                                                      (id
+                                                        (congrArg
+                                                          (fun _a =>
+                                                            v.2 - m * v.1 - _a + m * (v.1 - u.1) = m * (v.1 - u.1))
+                                                          heq))
+                                                      (Eq.mpr
+                                                        (id
+                                                          (congrArg (fun _a => _a + m * (v.1 - u.1) = m * (v.1 - u.1))
+                                                            (sub_self (v.2 - m * v.1))))
+                                                        (Eq.mpr
+                                                          (id
+                                                            (congrArg (fun _a => _a = m * (v.1 - u.1))
+                                                              (zero_add (m * (v.1 - u.1)))))
+                                                          (Eq.refl (m * (v.1 - u.1))))));
+                                                have h_den_ne := sub_ne_zero.mpr (Ne.symm h_u1_eq_v1);
+                                                have h_div :=
+                                                  Eq.mpr (id (congrArg (fun _a => _a * (v.1 - u.1)⁻¹ = m) h_sub))
+                                                    (Eq.mpr
+                                                      (id
+                                                        (congrArg (fun _a => _a = m)
+                                                          (mul_assoc m (v.1 - u.1) (v.1 - u.1)⁻¹)))
+                                                      (Eq.mpr
+                                                        (id
+                                                          (congrArg (fun _a => m * _a = m) (mul_inv_cancel₀ h_den_ne)))
+                                                        (Eq.mpr (id (congrArg (fun _a => _a = m) (mul_one m)))
+                                                          (Eq.refl m))));
+                                                Eq.mpr (id (congrArg (fun _a => _a.val = ↑k) h_div))
+                                                  (ZMod.val_cast_of_lt k.isLt)))⟩⟩⟩⟩))),
+          hp_gt⟩
+'Erdos617.erdos_617.variants.r2' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos617.erdos_617.variants.r_eq_3 : ∀ r ≥ 3,
+  ∀ {V : Type} [inst : Fintype V] [DecidableEq V],
+    Fintype.card V = 3 ^ 2 + 1 →
+      ∀ (coloring : Sym2 V → Fin 3), ∃ S k, S.card = 3 + 1 ∧ ∀ u ∈ S, ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k
+theorem Erdos617.erdos_617.variants.r_eq_3 : ∀ r ≥ 3,
+  ∀ {V : Type} [inst : Fintype V] [DecidableEq V],
+    Fintype.card V = 3 ^ 2 + 1 →
+      ∀ (coloring : Sym2 V → Fin 3), ∃ S k, S.card = 3 + 1 ∧ ∀ u ∈ S, ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k :=
+fun r _hr {V} [Fintype V] [DecidableEq V] hV coloring =>
+  Decidable.byContradiction fun hcon =>
+    have hV10 := hV;
+    Exists.casesOn
+      (Erdos617.exists_triangle_of_bal✝ hV10 coloring
+        (Eq.mp
+          (Eq.trans
+            (Mathlib.Tactic.Push.not_exists._simp_1 fun S =>
+              ∃ k, S.card = 3 + 1 ∧ ∀ u ∈ S, ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k)
+            (forall_congr fun S =>
+              Eq.trans
+                (Mathlib.Tactic.Push.not_exists._simp_1 fun k =>
+                  S.card = 3 + 1 ∧ ∀ u ∈ S, ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k)
+                (forall_congr fun k =>
+                  Eq.trans
+                    (Mathlib.Tactic.Push.not_and_eq (S.card = 3 + 1) (∀ u ∈ S, ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k))
+                    (implies_congr (Eq.refl (S.card = 3 + 1))
+                      (Eq.trans
+                        (Mathlib.Tactic.Push.not_forall_eq fun u => u ∈ S → ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k)
+                        (congrArg Exists
+                          (funext fun u =>
+                            Eq.trans Classical.not_imp._simp_2
+                              (congrArg (And (u ∈ S))
+                                (Eq.trans
+                                  (Mathlib.Tactic.Push.not_forall_eq fun v => v ∈ S → u ≠ v → coloring s(u, v) ≠ k)
+                                  (congrArg Exists
+                                    (funext fun v =>
+                                      Eq.trans Classical.not_imp._simp_2
+                                        (congrArg (And (v ∈ S))
+                                          (Eq.trans Classical.not_imp._simp_2
+                                            (congrArg (And (u ≠ v)) Classical.not_not._simp_2))))))))))))))
+          hcon))
+      fun x h =>
+      Exists.casesOn h fun y h =>
+        Exists.casesOn h fun z h =>
+          And.casesOn h fun hxy right =>
+            And.casesOn right fun hxz right =>
+              And.casesOn right fun hyz right =>
+                And.casesOn right fun exy right =>
+                  And.casesOn right fun exz eyz =>
+                    have h_third_nb := fun p q t hpq hpt hqt epq ept eqt =>
+                      let Np := {u | u ≠ p ∧ coloring s(p, u) = 0};
+                      have hNp_card :=
+                        (Erdos617.w_card_eq_six_and_deg_three✝ hV10 coloring
+                            (Eq.mp
+                              (Eq.trans
+                                (Mathlib.Tactic.Push.not_exists._simp_1 fun S =>
+                                  ∃ k, S.card = 3 + 1 ∧ ∀ u ∈ S, ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k)
+                                (forall_congr fun S =>
+                                  Eq.trans
+                                    (Mathlib.Tactic.Push.not_exists._simp_1 fun k =>
+                                      S.card = 3 + 1 ∧ ∀ u ∈ S, ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k)
+                                    (forall_congr fun k =>
+                                      Eq.trans
+                                        (Mathlib.Tactic.Push.not_and_eq (S.card = 3 + 1)
+                                          (∀ u ∈ S, ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k))
+                                        (implies_congr (Eq.refl (S.card = 3 + 1))
+                                          (Eq.trans
+                                            (Mathlib.Tactic.Push.not_forall_eq fun u =>
+                                              u ∈ S → ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k)
+                                            (congrArg Exists
+                                              (funext fun u =>
+                                                Eq.trans Classical.not_imp._simp_2
+                                                  (congrArg (And (u ∈ S))
+                                                    (Eq.trans
+                                                      (Mathlib.Tactic.Push.not_forall_eq fun v =>
+                                                        v ∈ S → u ≠ v → coloring s(u, v) ≠ k)
+                                                      (congrArg Exists
+                                                        (funext fun v =>
+                                                          Eq.trans Classical.not_imp._simp_2
+                                                            (congrArg (And (v ∈ S))
+                                                              (Eq.trans Classical.not_imp._simp_2
+                                                                (congrArg (And (u ≠ v))
+                                                                  Classical.not_not._simp_2))))))))))))))
+                              hcon)
+                            0 p).left;
+                      have hq_in := Finset.mem_filter.mpr ⟨Finset.mem_univ q, ⟨Ne.symm hpq, epq⟩⟩;
+                      have ht_in := Finset.mem_filter.mpr ⟨Finset.mem_univ t, ⟨Ne.symm hpt, ept⟩⟩;
+                      have hqt_sub := fun ⦃u⦄ hu =>
+                        Or.casesOn
+                          (Eq.mp
+                            (Eq.trans Erdos617.erdos_617.variants.r_eq_3._simp_1_1
+                              (congrArg (Or (u = q)) Erdos617.erdos_617.variants.r_eq_3._simp_1_2))
+                            hu)
+                          (fun h =>
+                            Eq.ndrec (motive := fun q =>
+                              p ≠ q → q ≠ t → coloring s(p, q) = 0 → coloring s(q, t) = 0 → q ∈ Np → u ∈ Np)
+                              (fun hpq hqt epq eqt hq_in => hq_in) h hpq hqt epq eqt hq_in)
+                          fun h =>
+                          Eq.ndrec (motive := fun t =>
+                            p ≠ t → q ≠ t → coloring s(p, t) = 0 → coloring s(q, t) = 0 → t ∈ Np → u ∈ Np)
+                            (fun hpt hqt ept eqt ht_in => ht_in) h hpt hqt ept eqt ht_in;
+                      have h_sdiff_card :=
+                        Eq.mpr (id (congrArg (fun _a => _a = 1) Finset.card_sdiff))
+                          (Eq.mpr (id (congrArg (fun _a => Np.card - _a.card = 1) (Finset.inter_eq_left.mpr hqt_sub)))
+                            (Eq.mpr (id (congrArg (fun _a => _a - {q, t}.card = 1) hNp_card))
+                              (Eq.mpr (id (congrArg (fun _a => 3 - _a = 1) (Finset.card_pair hqt)))
+                                (Eq.refl (3 - 2)))));
+                      Exists.casesOn (Finset.card_eq_one.mp h_sdiff_card) fun a ha_eq =>
+                        have ha_mem := Eq.symm ha_eq ▸ Finset.mem_singleton_self a;
+                        have hqa_ne0 := fun hqa0 =>
+                          Erdos617.no_five_edges_in_four✝ coloring
+                            (Eq.mp
+                              (Eq.trans
+                                (Mathlib.Tactic.Push.not_exists._simp_1 fun S =>
+                                  ∃ k, S.card = 3 + 1 ∧ ∀ u ∈ S, ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k)
+                                (forall_congr fun S =>
+                                  Eq.trans
+                                    (Mathlib.Tactic.Push.not_exists._simp_1 fun k =>
+                                      S.card = 3 + 1 ∧ ∀ u ∈ S, ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k)
+                                    (forall_congr fun k =>
+                                      Eq.trans
+                                        (Mathlib.Tactic.Push.not_and_eq (S.card = 3 + 1)
+                                          (∀ u ∈ S, ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k))
+                                        (implies_congr (Eq.refl (S.card = 3 + 1))
+                                          (Eq.trans
+                                            (Mathlib.Tactic.Push.not_forall_eq fun u =>
+                                              u ∈ S → ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k)
+                                            (congrArg Exists
+                                              (funext fun u =>
+                                                Eq.trans Classical.not_imp._simp_2
+                                                  (congrArg (And (u ∈ S))
+                                                    (Eq.trans
+                                                      (Mathlib.Tactic.Push.not_forall_eq fun v =>
+                                                        v ∈ S → u ≠ v → coloring s(u, v) ≠ k)
+                                                      (congrArg Exists ⋯))))))))))
+                              hcon)
+                            0 hpq hpt
+                            (Ne.symm
+                              (Eq.mp
+                                      (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ _a)
+                                        (propext not_or))
+                                      (Eq.mp
+                                        (congrArg
+                                          (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬(a = q ∨ _a))
+                                          (propext Finset.mem_singleton))
+                                        (Eq.mp
+                                          (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬_a)
+                                            (propext Finset.mem_insert))
+                                          (Eq.mp (congrArg (fun _a => _a ∧ a ∉ {q, t}) (propext Finset.mem_filter))
+                                            (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_sdiff))
+                                              ha_mem))))).left.right.left)
+                            hqt
+                            (Ne.symm
+                              (Eq.mp
+                                    (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ _a)
+                                      (propext not_or))
+                                    (Eq.mp
+                                      (congrArg
+                                        (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬(a = q ∨ _a))
+                                        (propext Finset.mem_singleton))
+                                      (Eq.mp
+                                        (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬_a)
+                                          (propext Finset.mem_insert))
+                                        (Eq.mp (congrArg (fun _a => _a ∧ a ∉ {q, t}) (propext Finset.mem_filter))
+                                          (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_sdiff))
+                                            ha_mem))))).right.left)
+                            (Ne.symm
+                              (Eq.mp
+                                    (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ _a)
+                                      (propext not_or))
+                                    (Eq.mp
+                                      (congrArg
+                                        (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬(a = q ∨ _a))
+                                        (propext Finset.mem_singleton))
+                                      (Eq.mp
+                                        (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬_a)
+                                          (propext Finset.mem_insert))
+                                        (Eq.mp (congrArg (fun _a => _a ∧ a ∉ {q, t}) (propext Finset.mem_filter))
+                                          (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_sdiff))
+                                            ha_mem))))).right.right)
+                            epq ept
+                            (Eq.mp
+                                    (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ _a)
+                                      (propext not_or))
+                                    (Eq.mp
+                                      (congrArg
+                                        (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬(a = q ∨ _a))
+                                        (propext Finset.mem_singleton))
+                                      (Eq.mp
+                                        (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬_a)
+                                          (propext Finset.mem_insert))
+                                        (Eq.mp (congrArg (fun _a => _a ∧ a ∉ {q, t}) (propext Finset.mem_filter))
+                                          (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_sdiff))
+                                            ha_mem))))).left.right.right
+                            eqt hqa0;
+                        have hta_ne0 := fun hta0 =>
+                          Erdos617.no_five_edges_in_four✝ coloring
+                            (Eq.mp
+                              (Eq.trans
+                                (Mathlib.Tactic.Push.not_exists._simp_1 fun S =>
+                                  ∃ k, S.card = 3 + 1 ∧ ∀ u ∈ S, ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k)
+                                (forall_congr fun S =>
+                                  Eq.trans
+                                    (Mathlib.Tactic.Push.not_exists._simp_1 fun k =>
+                                      S.card = 3 + 1 ∧ ∀ u ∈ S, ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k)
+                                    (forall_congr fun k =>
+                                      Eq.trans
+                                        (Mathlib.Tactic.Push.not_and_eq (S.card = 3 + 1)
+                                          (∀ u ∈ S, ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k))
+                                        (implies_congr (Eq.refl (S.card = 3 + 1))
+                                          (Eq.trans
+                                            (Mathlib.Tactic.Push.not_forall_eq fun u =>
+                                              u ∈ S → ∀ v ∈ S, u ≠ v → coloring s(u, v) ≠ k)
+                                            (congrArg Exists
+                                              (funext fun u =>
+                                                Eq.trans Classical.not_imp._simp_2
+                                                  (congrArg (And (u ∈ S))
+                                                    (Eq.trans
+                                                      (Mathlib.Tactic.Push.not_forall_eq fun v =>
+                                                        v ∈ S → u ≠ v → coloring s(u, v) ≠ k)
+                                                      ⋯)))))))))
+                              hcon)
+                            0 hpt hpq
+                            (Ne.symm
+                              (Eq.mp
+                                      (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ _a)
+                                        (propext not_or))
+                                      (Eq.mp
+                                        (congrArg
+                                          (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬(a = q ∨ _a))
+                                          (propext Finset.mem_singleton))
+                                        (Eq.mp
+                                          (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬_a)
+                                            (propext Finset.mem_insert))
+                                          (Eq.mp (congrArg (fun _a => _a ∧ a ∉ {q, t}) (propext Finset.mem_filter))
+                                            (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_sdiff))
+                                              ha_mem))))).left.right.left)
+                            (Ne.symm hqt)
+                            (Ne.symm
+                              (Eq.mp
+                                    (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ _a)
+                                      (propext not_or))
+                                    (Eq.mp
+                                      (congrArg
+                                        (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬(a = q ∨ _a))
+                                        (propext Finset.mem_singleton))
+                                      (Eq.mp
+                                        (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬_a)
+                                          (propext Finset.mem_insert))
+                                        (Eq.mp (congrArg (fun _a => _a ∧ a ∉ {q, t}) (propext Finset.mem_filter))
+                                          (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_sdiff))
+                                            ha_mem))))).right.right)
+                            (Ne.symm
+                              (Eq.mp
+                                    (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ _a)
+                                      (propext not_or))
+                                    (Eq.mp
+                                      (congrArg
+                                        (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬(a = q ∨ _a))
+                                        (propext Finset.mem_singleton))
+                                      (Eq.mp
+                                        (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬_a)
+                                          (propext Finset.mem_insert))
+                                        (Eq.mp (congrArg (fun _a => _a ∧ a ∉ {q, t}) (propext Finset.mem_filter))
+                                          (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_sdiff))
+                                            ha_mem))))).right.left)
+                            ept epq
+                            (Eq.mp
+                                    (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ _a)
+                                      (propext not_or))
+                                    (Eq.mp
+                                      (congrArg
+                                        (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬(a = q ∨ _a))
+                                        (propext Finset.mem_singleton))
+                                      (Eq.mp
+                                        (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬_a)
+                                          (propext Finset.mem_insert))
+                                        (Eq.mp (congrArg (fun _a => _a ∧ a ∉ {q, t}) (propext Finset.mem_filter))
+                                          (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_sdiff))
+                                            ha_mem))))).left.right.right
+                            (Eq.mpr (id (congrArg (fun _a => coloring _a = 0) Sym2.eq_swap)) eqt) hta0;
+                        Exists.intro a
+                          ⟨(Eq.mp
+                                    (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ _a)
+                                      (propext not_or))
+                                    (Eq.mp
+                                      (congrArg
+                                        (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬(a = q ∨ _a))
+                                        (propext Finset.mem_singleton))
+                                      (Eq.mp
+                                        (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬_a)
+                                          (propext Finset.mem_insert))
+                                        (Eq.mp (congrArg (fun _a => _a ∧ a ∉ {q, t}) (propext Finset.mem_filter))
+                                          (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_sdiff))
+                                            ha_mem))))).left.right.left,
+                            ⟨(Eq.mp
+                                    (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ _a)
+                                      (propext not_or))
+                                    (Eq.mp
+                                      (congrArg
+                                        (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬(a = q ∨ _a))
+                                        (propext Finset.mem_singleton))
+                                      (Eq.mp
+                                        (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬_a)
+                                          (propext Finset.mem_insert))
+                                        (Eq.mp (congrArg (fun _a => _a ∧ a ∉ {q, t}) (propext Finset.mem_filter))
+                                          (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_sdiff))
+                                            ha_mem))))).right.left,
+                              ⟨(Eq.mp
+                                      (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ _a)
+                                        (propext not_or))
+                                      (Eq.mp
+                                        (congrArg
+                                          (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬(a = q ∨ _a))
+                                          (propext Finset.mem_singleton))
+                                        (Eq.mp
+                                          (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬_a)
+                                            (propext Finset.mem_insert))
+                                          (Eq.mp (congrArg (fun _a => _a ∧ a ∉ {q, t}) (propext Finset.mem_filter))
+                                            (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_sdiff))
+                                              ha_mem))))).right.right,
+                                ⟨(Eq.mp
+                                          (congrArg (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ _a)
+                                            (propext not_or))
+                                          (Eq.mp
+                                            (congrArg
+                                              (fun _a =>
+                                                (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬(a = q ∨ _a))
+                                              (propext Finset.mem_singleton))
+                                            (Eq.mp
+                                              (congrArg
+                                                (fun _a => (a ∈ Finset.univ ∧ a ≠ p ∧ coloring s(p, a) = 0) ∧ ¬_a)
+                                                (propext Finset.mem_insert))
+                                              (Eq.mp (congrArg (fun _a => _a ∧ a ∉ {q, t}) (propext Finset.mem_filter))
+                                                (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_sdiff))
+                                                  ha_mem))))).left.right.right,
+                                  ⟨hqa_ne0,
+                                    ⟨hta_ne0,
+                                      Finset.ext fun u =>
+                                        Eq.mpr
+                                          (id
+                                            (congrArg (Iff (u ∈ {u | u ≠ p ∧ coloring s(p, u) = 0}))
+                                              (Eq.trans Erdos617.erdos_617.variants.r_eq_3._simp_1_1
+                                                (congrArg (Or (u = q))
+                                                  (Eq.trans Erdos617.erdos_617.variants.r_eq_3._simp_1_1
+                                                    (congrArg (Or (u = t))
+                                                      Erdos617.erdos_617.variants.r_eq_3._simp_1_2))))))
+                                          {
+                                            mp := fun hu =>
+                                              if hu_qt : u ∈ {q, t} then
+                                                Or.casesOn
+                                                  (Eq.mp
+                                                    (Eq.trans Erdos617.erdos_617.variants.r_eq_3._simp_1_1
+                                                      (congrArg (Or (u = q))
+                                                        Erdos617.erdos_617.variants.r_eq_3._simp_1_2))
+                                                    hu_qt)
+                                                  (fun h =>
+                                                    Eq.ndrec (motive := fun q => p ≠ q → ⋯)
+                                                      (fun hpq hqt epq eqt hq_in hqt_sub h_sdiff_card ha_eq ha_mem
+                                                          hqa_ne0 =>
+                                                        Or.inl rfl)
+                                                      h hpq hqt epq eqt hq_in hqt_sub h_sdiff_card ha_eq
+                                                      (Eq.mp (congrArg ⋯ (propext not_or)) (Eq.mp ⋯ ⋯)) hqa_ne0)
+                                                  fun h =>
+                                                  Eq.ndrec (motive := fun t => p ≠ t → ⋯)
+                                                    (fun hpt hqt ept eqt ht_in hqt_sub h_sdiff_card ha_eq ha_mem
+                                                        hta_ne0 =>
+                                                      Or.inr (Or.inl rfl))
+                                                    h hpt hqt ept eqt ht_in hqt_sub h_sdiff_card ha_eq
+                                                    (Eq.mp (congrArg ⋯ (propext not_or)) (Eq.mp ⋯ ⋯)) hta_ne0
+                                              else
+                                                have hu_sdiff := Finset.mem_sdiff.mpr ⟨hu, hu_qt⟩;
+                                                Or.inr
+                                                  (Or.inr
+                                                    (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_singleton))
+                                                      (Eq.mp (congrArg (fun _a => u ∈ _a) ha_eq) hu_sdiff))),
+                                            mpr := fun a_1 =>
+                                              Or.casesOn a_1
+                                                (fun h =>
+                                                  Eq.ndrec (motive := fun q => p ≠ q → q ≠ t → ⋯)
+                                                    (fun hpq hqt epq eqt hq_in hqt_sub h_sdiff_card ha_eq ha_mem
+                                                        hqa_ne0 =>
+                                                      hq_in)
+                                                    h hpq hqt epq eqt hq_in hqt_sub h_sdiff_card ha_eq
+                                                    (Eq.mp (congrArg (fun _a => ⋯) (propext not_or))
+                                                      (Eq.mp (congrArg ⋯ (propext Finset.mem_singleton)) (Eq.mp ⋯ ⋯)))
+                                                    hqa_ne0)
+                                                fun h =>
+                                                Or.casesOn h
+                                                  (fun h =>
+                                                    Eq.ndrec (motive := fun t => ⋯)
+                                                      (fun hpt hqt ept eqt ht_in hqt_sub h_sdiff_card ha_eq ha_mem
+                                                          hta_ne0 =>
+                                                        ht_in)
+                                                      h hpt hqt ept eqt ht_in hqt_sub h_sdiff_card ha_eq (Eq.mp ⋯ ⋯)
+                                                      hta_ne0)
+                                                  fun h =>
+                                                  Eq.ndrec (motive := fun a => ⋯)
+                                                    (fun ha_eq ha_mem hqa_ne0 hta_ne0 => ⋯) h ha_eq (Eq.mp ⋯ ⋯) hqa_ne0
+                                                    hta_ne0 }⟩⟩⟩⟩⟩⟩;
+                    Exists.casesOn (h_third_nb x y z hxy hxz hyz exy exz eyz) fun a h =>
+                      And.casesOn h fun hax right =>
+                        And.casesOn right fun hay right =>
+                          And.casesOn right fun haz right =>
+                            And.casesOn right fun exa right =>
+                              And.casesOn right fun eya right =>
+                                And.casesOn right fun eza hNx =>
+                                  Exists.casesOn
+                                    (h_third_nb y x z (Ne.symm hxy) hyz hxz
+                                      (Eq.mpr (id (congrArg (fun _a => coloring _a = 0) Sym2.eq_swap)) exy) eyz exz)
+                                    fun b h =>
+                                    And.casesOn h fun hby right =>
+                                      And.casesOn right fun hbx right =>
+                                        And.casesOn right fun hbz right =>
+                                          And.casesOn right fun eyb right =>
+                                            And.casesOn right fun exb right =>
+                                              And.casesOn right fun ezb hNy =>
+                                                Exists.casesOn
+                                                  (h_third_nb z x y (Ne.symm hxz) (Ne.symm hyz) hxy ⋯ ⋯ exy) fun c h =>
+                                                  ⋯
+'Erdos617.erdos_617.variants.r_eq_3' depends on axioms: [propext, Classical.choice, Quot.sound]

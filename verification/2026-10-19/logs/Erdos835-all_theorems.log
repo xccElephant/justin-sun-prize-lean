@@ -1,0 +1,529 @@
+AUDIT|SimpleGraph.johnson_adj_iff_ge._simp_1_1|[propext]
+TYPE|SimpleGraph.johnson_adj_iff_ge._simp_1_1|∀ {a c b : Prop}, (a ∧ c ↔ b ∧ c) = (c → (a ↔ b))
+AUDIT|SimpleGraph.le_chromaticNumber_iff_not_colorable._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.le_chromaticNumber_iff_not_colorable._simp_1_3|∀ {m n : ℕ∞}, m ≠ ⊤ → (m + 1 ≤ n) = (m < n)
+AUDIT|SimpleGraph.card_div_indepNum_le_chromaticNumber._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.card_div_indepNum_le_chromaticNumber._simp_1_1|∀ {V : Type u} {G : SimpleGraph V} {n : ℕ},
+  (↑n ≤ G.chromaticNumber) = ∀ (m : ℕ) (a : G.Coloring (Fin m)), n ≤ m
+AUDIT|Erdos835.johnson_chromaticNumber_composite._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.johnson_chromaticNumber_composite._proof_1_3|∀ (k : ℕ), 2 ≤ (k + 1).minFac → ¬1 ≤ (k + 1).minFac → False
+AUDIT|Erdos835.johnsonGraph_18_9_chromaticNumber._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos835.johnsonGraph_18_9_chromaticNumber._proof_1_1|¬2 < 9 → False
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.card_filter_ssubset_eq._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.card_filter_ssubset_eq._simp_1_4|∀ {α : Type u_1} {n : ℕ}
+  {s t : Finset α}, (s ∈ Finset.powersetCard n t) = (s ⊆ t ∧ s.card = n)
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.adj_of_ssubset_of_ne._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.adj_of_ssubset_of_ne._proof_1_1|∀ {k : ℕ} {A : Finset (Fin (2 * k))}
+  {s t : { s // s.card = k }},
+  (↑s ∪ ↑t).card ≤ k + 1 → (↑s ∪ ↑t).card + (↑s ∩ ↑t).card = k + k → ¬k ≤ (↑s ∩ ↑t).card + 1 → False
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.card_indepSet_johnson_le_johnsonBound._proof_1_14|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.card_indepSet_johnson_le_johnsonBound._proof_1_14|∀ (n w : ℕ)
+  (F : Finset { s // s.card = w + 2 }) (x : Fin (n + 1)) (s : { s // s.card = w + 2 }) (hs : s ∈ {s ∈ F | x ∈ ↑s})
+  (t : { s // s.card = w + 2 }) (ht : t ∈ {s ∈ F | x ∈ ↑s}),
+  (↑((fun x_1 =>
+                  match x_1 with
+                  | ⟨s, hs⟩ => ⟨{i | x.succAbove i ∈ ↑s}, ⋯⟩)
+                ⟨s, hs⟩) ∩
+            ↑((fun x_1 =>
+                  match x_1 with
+                  | ⟨s, hs⟩ => ⟨{i | x.succAbove i ∈ ↑s}, ⋯⟩)
+                ⟨t, ht⟩)).card +
+        1 =
+      w + 1 →
+    (↑((fun x_1 =>
+                  match x_1 with
+                  | ⟨s, hs⟩ => ⟨{i | x.succAbove i ∈ ↑s}, ⋯⟩)
+                ⟨s, hs⟩) ∩
+            ↑((fun x_1 =>
+                  match x_1 with
+                  | ⟨s, hs⟩ => ⟨{i | x.succAbove i ∈ ↑s}, ⋯⟩)
+                ⟨t, ht⟩)).card =
+        (↑s ∩ ↑t).card - 1 →
+      1 ≤ (↑s ∩ ↑t).card → ¬w + 2 ≤ (↑s ∩ ↑t).card + 1 → False
+AUDIT|Erdos835.johnsonGraph_chromaticNumber_odd_of_johnson_chromaticNumber_composite._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos835.johnsonGraph_chromaticNumber_odd_of_johnson_chromaticNumber_composite._proof_1_1|∀ (k : ℕ),
+  2 < k → ¬1 < k + 1 → False
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.map_succAboveEmb_filter|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.map_succAboveEmb_filter|∀ {n : ℕ} (x : Fin (n + 1))
+  (s : Finset (Fin (n + 1))), Finset.map x.succAboveEmb {i | x.succAbove i ∈ s} = s.erase x
+AUDIT|Erdos835.johnsonHomOfLe._proof_8|[propext, Quot.sound]
+TYPE|Erdos835.johnsonHomOfLe._proof_8|∀ {n₁ k₁ n₂ k₂ : ℕ},
+  n₁ + (k₂ - k₁) ≤ n₂ → ∀ {s t : { s // s.card = k₁ }} (a : Fin n₁) (b : Fin (k₂ - k₁)), n₁ + ↑b = ↑a → False
+AUDIT|Erdos835.johnson_chromaticNumber_composite._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.johnson_chromaticNumber_composite._proof_1_4|∀ (k : ℕ),
+  (k + 1).minFac < k + 1 → ¬(k + 1).minFac ≤ k → False
+AUDIT|SimpleGraph.card_div_indepNum_le_chromaticNumber._simp_1_2|[propext]
+TYPE|SimpleGraph.card_div_indepNum_le_chromaticNumber._simp_1_2|∀ {α : Type u_2} [inst : Semiring α]
+  [inst_1 : PartialOrder α] [inst_2 : FloorSemiring α] {a : α} {n : ℕ}, (⌈a⌉₊ ≤ n) = (a ≤ ↑n)
+AUDIT|SimpleGraph.johnson_adj|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.johnson_adj|∀ (n k : ℕ) (s t : { s // s.card = k }),
+  (SimpleGraph.johnson n k).Adj s t = ((↑s ∩ ↑t).card + 1 = k)
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.map_succAboveEmb_filter._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.map_succAboveEmb_filter._simp_1_1|∀ {α : Type u_1} {β : Type u_2}
+  {f : α ↪ β} {s : Finset α} {b : β}, (b ∈ Finset.map f s) = ∃ a ∈ s, f a = b
+AUDIT|SimpleGraph.indepNum_pos._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.indepNum_pos._simp_1_2|∀ {α : Type u_1} (G : SimpleGraph α) (n : ℕ) (s : Finset α),
+  G.IsNIndepSet n s = (G.IsIndepSet ↑s ∧ s.card = n)
+AUDIT|Erdos835.chromaticNumber_johnson_mono|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.chromaticNumber_johnson_mono|∀ {n₁ k₁ n₂ k₂ : ℕ},
+  k₁ ≤ k₂ →
+    n₁ + (k₂ - k₁) ≤ n₂ → (SimpleGraph.johnson n₁ k₁).chromaticNumber ≤ (SimpleGraph.johnson n₂ k₂).chromaticNumber
+AUDIT|Erdos835.johnson_chromaticNumber_composite._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.johnson_chromaticNumber_composite._proof_1_11|∀ (k : ℕ), 0 = 1 → False
+AUDIT|SimpleGraph.indepNum_pos._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.indepNum_pos._simp_1_3|∀ {α : Type u_1} [inst : Fintype α] (s : Finset α),
+  (s.card ≤ Fintype.card α) = True
+AUDIT|Erdos835.property_iff_chromaticNumber|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.property_iff_chromaticNumber|∀ (k : ℕ),
+  0 < k → ((SimpleGraph.johnson (2 * k) k).chromaticNumber = ↑k + 1 ↔ Erdos835.Property k)
+AUDIT|Erdos835.johnsonBound.eq_3|[]
+TYPE|Erdos835.johnsonBound.eq_3|∀ (x n w : ℕ),
+  Erdos835.johnsonBound n.succ x w.succ = if 2 * (w + 1) < x then 1 else (n + 1) * Erdos835.johnsonBound n x w / (w + 1)
+AUDIT|Erdos835.dvd_choose_of_colorable_johnson_add._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.dvd_choose_of_colorable_johnson_add._simp_1_3|∀ {α : Type u_1} [inst : Fintype α] (x : α),
+  (x ∈ Finset.univ) = True
+AUDIT|Erdos835.not_property_four|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.not_property_four|¬Erdos835.Property 4
+AUDIT|Erdos835.card_indepSet_mul_le_choose_pred|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.card_indepSet_mul_le_choose_pred|∀ {n t : ℕ},
+  1 ≤ t → ∀ (F : Finset { s // s.card = t }), (SimpleGraph.johnson n t).IsIndepSet ↑F → F.card * t ≤ n.choose (t - 1)
+AUDIT|Erdos835.not_property_of_composite|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.not_property_of_composite|∀ (k : ℕ), 2 < k → (k + 1).Composite → ¬Erdos835.Property k
+AUDIT|Erdos835.johnsonBound.eq_2|[]
+TYPE|Erdos835.johnsonBound.eq_2|∀ (x x_1 : ℕ), (x = 0 → False) → Erdos835.johnsonBound x x_1 0 = 1
+AUDIT|Erdos835.chromaticNumber_johnson_2k_k_lower_bound_odd._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos835.chromaticNumber_johnson_2k_k_lower_bound_odd._proof_1_1|∀ {k : ℕ}, 3 ≤ k → k ≤ 300 → ¬2 < k → False
+AUDIT|Erdos835.property_iff_chromaticNumber._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.property_iff_chromaticNumber._simp_1_2|∀ {α : Type u_1} [inst : Fintype α] (x : α),
+  (x ∈ Finset.univ) = True
+AUDIT|SimpleGraph.indepNum_pos._simp_1_1|[propext]
+TYPE|SimpleGraph.indepNum_pos._simp_1_1|∀ {α : Type u_1} [inst : Preorder α] {s : Set α} {a : α},
+  (a ∈ upperBounds s) = ∀ x ∈ s, x ≤ a
+AUDIT|Erdos835.johnson_chromaticNumber_composite._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.johnson_chromaticNumber_composite._proof_1_5|∀ (k : ℕ), 2 < k → k + 1 = (k + 1).minFac * 0 → False
+AUDIT|SimpleGraph.johnson._proof_2|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.johnson._proof_2|∀ (n k : ℕ), Std.Irrefl fun s t => (↑s ∩ ↑t).card + 1 = k
+AUDIT|Erdos835.johnsonHomOfLe._proof_10|[propext, Quot.sound]
+TYPE|Erdos835.johnsonHomOfLe._proof_10|∀ {n₁ k₁ n₂ k₂ : ℕ},
+  n₁ + (k₂ - k₁) ≤ n₂ → ∀ (s : { s // s.card = k₁ }) (i : Fin (k₂ - k₁)), n₁ + ↑i < n₂
+AUDIT|Erdos835.johnsonHomOfLe._simp_3|[propext]
+TYPE|Erdos835.johnsonHomOfLe._simp_3|∀ {n : ℕ} {a b : Fin n}, (a = b) = (↑a = ↑b)
+AUDIT|SimpleGraph.not_johnson_adj_iff_lt|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.not_johnson_adj_iff_lt|∀ {n k : ℕ} {s t : { s // s.card = k }},
+  ¬(SimpleGraph.johnson n k).Adj s t ↔ s = t ∨ (↑s ∩ ↑t).card + 1 < k
+AUDIT|Erdos835.johnsonHomOfLe._proof_6|[propext, Quot.sound]
+TYPE|Erdos835.johnsonHomOfLe._proof_6|∀ {n₁ k₁ n₂ k₂ : ℕ},
+  n₁ + (k₂ - k₁) ≤ n₂ → ∀ {s t : { s // s.card = k₁ }}, ¬n₁ ≤ n₂ → False
+AUDIT|Erdos835.not_colorable_five_johnson_6_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.not_colorable_five_johnson_6_3|¬(SimpleGraph.johnson 6 3).Colorable 5
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.card_indepSet_johnson_le_johnsonBound._simp_1_13|[propext]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.card_indepSet_johnson_le_johnsonBound._simp_1_13|∀ {α : Type u}
+  {ι : Sort u_1} {f : ι → α} {x : α}, (x ∈ Set.range f) = ∃ y, f y = x
+AUDIT|Erdos835.ma_tang_lemma_2_3._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos835.ma_tang_lemma_2_3._proof_1_2|∀ (k t : ℕ), 1 ≤ t → t ≤ k → t - 1 + 1 = t → ¬k + t - (t - 1) = k + 1 → False
+AUDIT|Erdos835.div_johnsonBound_le_chromaticNum_johnson|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.div_johnsonBound_le_chromaticNum_johnson|∀ {n k : ℕ},
+  ↑⌈↑(n.choose k) / ↑(Erdos835.johnsonBound n 4 k)⌉₊ ≤ (SimpleGraph.johnson n k).chromaticNumber
+AUDIT|Erdos835.property_iff_chromaticNumber._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos835.property_iff_chromaticNumber._proof_1_1|∀ (k : ℕ), 0 < k → ¬k + 1 ≤ 2 * k → False
+AUDIT|SimpleGraph.lt_chromaticNumber_iff_not_colorable|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.lt_chromaticNumber_iff_not_colorable|∀ {V : Type u_1} {G : SimpleGraph V} {n : ℕ},
+  ↑n < G.chromaticNumber ↔ ¬G.Colorable n
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.card_indepSet_johnson_le_johnsonBound._proof_1_8|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.card_indepSet_johnson_le_johnsonBound._proof_1_8|∀ (n : ℕ)
+  {s t : { s // s.card = 1 }}, ¬1 ≤ (↑s ∩ ↑t).card + 1 → False
+AUDIT|SimpleGraph.card_div_indepNum_le_chromaticNumber._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.card_div_indepNum_le_chromaticNumber._simp_1_3|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p]
+  {s : Finset α}, (Finset.filter p s).Nonempty = ∃ a ∈ s, p a
+AUDIT|Finset.card_lt_card_iff_of_subset|[propext, Classical.choice, Quot.sound]
+TYPE|Finset.card_lt_card_iff_of_subset|∀ {α : Type u_1} {s t : Finset α}, s ⊆ t → (s.card < t.card ↔ s ≠ t)
+AUDIT|Erdos835.johnsonGraph_chromaticNumber_odd_of_johnson_chromaticNumber_composite|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|Erdos835.johnsonGraph_chromaticNumber_odd_of_johnson_chromaticNumber_composite|(∀ (k : ℕ),
+    2 < k → (k + 1).Composite → ↑k + 1 < (SimpleGraph.johnson (2 * k) k).chromaticNumber) →
+  ∀ (k : ℕ), 2 < k → Odd k → ↑k + 1 < (SimpleGraph.johnson (2 * k) k).chromaticNumber
+AUDIT|Erdos835.card_indepSet_mul_le_choose_pred._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.card_indepSet_mul_le_choose_pred._simp_1_3|∀ {α : Type u_1} [inst : Fintype α] (s : Finset α),
+  (s ⊆ Finset.univ) = True
+AUDIT|Erdos835.johnsonGraph_18_9_chromaticNumber|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.johnsonGraph_18_9_chromaticNumber|(SimpleGraph.johnson 18 9).chromaticNumber > 9 + 1
+AUDIT|Erdos835.johnson_chromaticNumber_composite._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.johnson_chromaticNumber_composite._proof_1_6|∀ (k : ℕ),
+  2 ≤ (k + 1).minFac →
+    ∀ (q : ℕ), k + 1 = (k + 1).minFac * q → ¬k + (k + 1).minFac = (k + 1).minFac - 1 + (k + 1).minFac * q → False
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.recolor5.eq_1|[propext]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.recolor5.eq_1|∀ (c0 c1 c2 c3 x : Fin 5),
+  Erdos835.recolor5✝ c0 c1 c2 c3 x =
+    if x = c0 then 0 else if x = c1 then 1 else if x = c2 then 2 else if x = c3 then 3 else 4
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.recolor5_ne._proof_1_1|[propext]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.recolor5_ne._proof_1_1|∀ (c0 c1 : Fin 5),
+  c1 ≠ c0 →
+    ∀ (c2 : Fin 5),
+      c2 ≠ c0 →
+        c2 ≠ c1 →
+          ∀ (c3 : Fin 5),
+            c3 ≠ c0 →
+              c3 ≠ c1 →
+                c3 ≠ c2 → ∀ (x y : Fin 5), x ≠ y → Erdos835.recolor5✝ c0 c1 c2 c3 x ≠ Erdos835.recolor5✝ c0 c1 c2 c3 y
+AUDIT|Erdos835.card_indepSet_mul_le_choose_pred._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos835.card_indepSet_mul_le_choose_pred._proof_1_4|∀ {n t : ℕ},
+  1 ≤ t →
+    ∀ (R : Finset (Fin n)) {s₁ s₂ : { s // s.card = t }}, t - 1 ≤ (↑s₁ ∩ ↑s₂).card → ¬t ≤ (↑s₁ ∩ ↑s₂).card + 1 → False
+AUDIT|Erdos835.card_indepSet_mul_le_choose_pred._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.card_indepSet_mul_le_choose_pred._simp_1_1|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p]
+  {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos835.dvd_choose_of_colorable_johnson_add|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.dvd_choose_of_colorable_johnson_add|∀ {k t : ℕ},
+  1 ≤ t → (SimpleGraph.johnson (k + t) t).Colorable (k + 1) → t ∣ (k + t).choose (t - 1)
+AUDIT|Erdos835.johnsonHomOfLe._proof_7|[propext, Quot.sound]
+TYPE|Erdos835.johnsonHomOfLe._proof_7|∀ {n₁ k₁ n₂ k₂ : ℕ},
+  n₁ + (k₂ - k₁) ≤ n₂ → ∀ {s t : { s // s.card = k₁ }} (i : Fin (k₂ - k₁)), ¬n₁ + ↑i < n₂ → False
+AUDIT|Erdos835.johnsonHomOfLe._proof_4|[propext, Quot.sound]
+TYPE|Erdos835.johnsonHomOfLe._proof_4|∀ {n₁ k₁ n₂ k₂ : ℕ},
+  n₁ + (k₂ - k₁) ≤ n₂ → ∀ (s : { s // s.card = k₁ }) (a : Fin n₁) (b : Fin (k₂ - k₁)), n₁ + ↑b = ↑a → False
+AUDIT|SimpleGraph.indepNum_pos|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.indepNum_pos|∀ {V : Type u_1} {G : SimpleGraph V} [Finite V] [Nonempty V], 0 < G.indepNum
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.j63_no_5_coloring_aux._proof_1_1|[propext]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.j63_no_5_coloring_aux._proof_1_1|∀ (c4 : Fin 5),
+  c4 ≠ 0 →
+    c4 ≠ 1 →
+      ∀ (c5 : Fin 5),
+        c5 ≠ 0 →
+          c5 ≠ 2 →
+            c5 ≠ c4 →
+              ∀ (c6 : Fin 5),
+                c6 ≠ 0 →
+                  c6 ≠ 3 →
+                    c6 ≠ c4 →
+                      c6 ≠ c5 →
+                        ∀ (c7 : Fin 5),
+                          c7 ≠ 1 →
+                            c7 ≠ 2 →
+                              c7 ≠ c4 →
+                                c7 ≠ c5 →
+                                  ∀ (c8 : Fin 5),
+                                    c8 ≠ 1 →
+                                      c8 ≠ 3 →
+                                        c8 ≠ c4 →
+                                          c8 ≠ c6 →
+                                            c8 ≠ c7 →
+                                              ∀ (c9 : Fin 5),
+                                                c9 ≠ 2 →
+                                                  c9 ≠ 3 →
+                                                    c9 ≠ c5 →
+                                                      c9 ≠ c6 →
+                                                        c9 ≠ c7 →
+                                                          c9 ≠ c8 →
+                                                            ∀ (c10 : Fin 5),
+                                                              c10 ≠ 0 →
+                                                                c10 ≠ 1 →
+                                                                  c10 ≠ c4 →
+                                                                    ∀ (c11 : Fin 5),
+                                                                      c11 ≠ 0 →
+                                                                        c11 ≠ 2 →
+                                                                          c11 ≠ c5 →
+                                                                            c11 ≠ c10 →
+                                                                              ∀ (c12 : Fin 5),
+                                                                                c12 ≠ 0 →
+                                                                                  c12 ≠ 3 →
+                                                                                    c12 ≠ c6 →
+                                                                                      c12 ≠ c10 →
+                                                                                        c12 ≠ c11 →
+                                                                                          ∀ (c13 : Fin 5),
+                                                                                            c13 ≠ 1 →
+                                                                                              c13 ≠ 2 →
+                                                                                                c13 ≠ c7 →
+                                                                                                  c13 ≠ c10 →
+                                                                                                    c13 ≠ c11 → ⋯
+AUDIT|Erdos835.johnsonHomOfLe._proof_5|[propext, Quot.sound]
+TYPE|Erdos835.johnsonHomOfLe._proof_5|∀ {n₁ k₁ : ℕ} {n₂ : ℕ} {k₂ : ℕ},
+  k₁ ≤ k₂ → ∀ (s : { s // s.card = k₁ }), ¬k₁ + (k₂ - k₁) = k₂ → False
+AUDIT|Erdos835.dvd_choose_of_colorable_johnson_add._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.dvd_choose_of_colorable_johnson_add._simp_1_2|∀ {α : Type u_1} {s : Finset α}, (0 < s.card) = s.Nonempty
+AUDIT|Erdos835.johnson_chromaticNumber_composite._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.johnson_chromaticNumber_composite._proof_1_8|∀ (k : ℕ),
+  2 ≤ (k + 1).minFac → ∀ (q : ℕ), ¬(k + 1).minFac - 1 < (k + 1).minFac → False
+AUDIT|Erdos835.property_iff_chromaticNumber._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.property_iff_chromaticNumber._proof_1_4|∀ (k : ℕ) {s t : { s // s.card = k }}, k = k + 1 → False
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.card_filter_ssubset_eq._proof_1_6|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.card_filter_ssubset_eq._proof_1_6|∀ (k : ℕ) (u : Finset (Fin (2 * k))),
+  u.card = k → u.card = k + 1 → False
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.card_filter_ssubset_eq|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.card_filter_ssubset_eq|∀ (k : ℕ) {A : Finset (Fin (2 * k))},
+  A.card = k + 1 → {s | ↑s ⊂ A}.card = k + 1
+AUDIT|Erdos835.not_property_four._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos835.not_property_four._proof_1_1|¬0 < 4 → False
+AUDIT|Erdos835.johnson_chromaticNumber_four._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos835.johnson_chromaticNumber_four._proof_1_2|¬6 + (4 - 3) ≤ 2 * 4 → False
+AUDIT|Erdos835.johnsonBound.eq_def|[]
+TYPE|Erdos835.johnsonBound.eq_def|∀ (x x_1 x_2 : ℕ),
+  Erdos835.johnsonBound x x_1 x_2 =
+    match x, x_1, x_2 with
+    | 0, _d, _w => 1
+    | _n, _d, 0 => 1
+    | n.succ, d, w.succ => if 2 * (w + 1) < d then 1 else (n + 1) * Erdos835.johnsonBound n d w / (w + 1)
+AUDIT|Erdos835.ma_tang_prop_2_1_of_chromaticNumber|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.ma_tang_prop_2_1_of_chromaticNumber|∀ {k t : ℕ},
+  1 ≤ t → t ≤ k → (SimpleGraph.johnson (2 * k) k).chromaticNumber = ↑k + 1 → t ∣ (k + t).choose (t - 1)
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.recolor5_ne|[propext]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.recolor5_ne|∀ (c0 c1 : Fin 5),
+  c1 ≠ c0 →
+    ∀ (c2 : Fin 5),
+      c2 ≠ c0 →
+        c2 ≠ c1 →
+          ∀ (c3 : Fin 5),
+            c3 ≠ c0 →
+              c3 ≠ c1 →
+                c3 ≠ c2 → ∀ (x y : Fin 5), x ≠ y → Erdos835.recolor5✝ c0 c1 c2 c3 x ≠ Erdos835.recolor5✝ c0 c1 c2 c3 y
+AUDIT|Erdos835.johnson_chromaticNumber_composite|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.johnson_chromaticNumber_composite|∀ (k : ℕ),
+  2 < k → (k + 1).Composite → ↑k + 1 < (SimpleGraph.johnson (2 * k) k).chromaticNumber
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.card_indepSet_johnson_le_johnsonBound._proof_1_7|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.card_indepSet_johnson_le_johnsonBound._proof_1_7|¬2 * (0 + 1) < 4 → False
+AUDIT|SimpleGraph.not_johnson_adj_iff_lt._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.not_johnson_adj_iff_lt._simp_1_1|∀ {n k : ℕ} {s t : { s // s.card = k }},
+  (SimpleGraph.johnson n k).Adj s t = (s ≠ t ∧ k ≤ (↑s ∩ ↑t).card + 1)
+AUDIT|SimpleGraph.le_chromaticNumber_iff_not_colorable|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.le_chromaticNumber_iff_not_colorable|∀ {V : Type u_1} {G : SimpleGraph V} {n : ℕ},
+  n ≠ 0 → (↑n ≤ G.chromaticNumber ↔ ¬G.Colorable (n - 1))
+AUDIT|Erdos835.ma_tang_prop_2_1._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos835.ma_tang_prop_2_1._proof_1_1|∀ {k t : ℕ}, t ≤ k → ¬k + t + (k - t) ≤ 2 * k → False
+AUDIT|Erdos835.johnson_chromaticNumber_four|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.johnson_chromaticNumber_four|4 + 1 < (SimpleGraph.johnson (2 * 4) 4).chromaticNumber
+AUDIT|Erdos835.johnsonHomOfLe._proof_13|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.johnsonHomOfLe._proof_13|∀ {n₁ k₁ n₂ k₂ : ℕ} (hk : k₁ ≤ k₂) (hn : n₁ + (k₂ - k₁) ≤ n₂)
+  {s t : { s // s.card = k₁ }},
+  (SimpleGraph.johnson n₁ k₁).Adj s t →
+    (SimpleGraph.johnson n₂ k₂).Adj
+      ⟨Finset.map (Fin.castLEEmb ⋯) ↑s ∪ Finset.map { toFun := fun i => ⟨n₁ + ↑i, ⋯⟩, inj' := ⋯ } Finset.univ, ⋯⟩
+      ⟨Finset.map (Fin.castLEEmb ⋯) ↑t ∪ Finset.map { toFun := fun i => ⟨n₁ + ↑i, ⋯⟩, inj' := ⋯ } Finset.univ, ⋯⟩
+AUDIT|Erdos835.dvd_choose_of_colorable_johnson_add._simp_1_1|[propext]
+TYPE|Erdos835.dvd_choose_of_colorable_johnson_add._simp_1_1|∀ {n m : ℕ}, (n + 1 ≤ m) = (n < m)
+AUDIT|Erdos835.johnson_chromaticNumber_composite._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.johnson_chromaticNumber_composite._proof_1_9|∀ (k : ℕ),
+  2 ≤ (k + 1).minFac →
+    ∀ (q : ℕ), ((k + 1).minFac - 1) % (k + 1).minFac = (k + 1).minFac - 1 → ¬(k + 1).minFac - 1 < (k + 1).minFac → False
+AUDIT|Erdos835.johnson_chromaticNumber_composite._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.johnson_chromaticNumber_composite._proof_1_10|∀ (k : ℕ),
+  2 ≤ (k + 1).minFac → ∀ (q : ℕ), ¬1 < (k + 1).minFac → False
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.map_succAboveEmb_filter._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.map_succAboveEmb_filter._simp_1_2|∀ {α : Type u_1} {p : α → Prop}
+  [inst : DecidablePred p] {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.johnsonBound.match_1.eq_2|[]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.johnsonBound.match_1.eq_2|∀ (motive : ℕ → ℕ → ℕ → Sort u_1) (_n _d : ℕ)
+  (h_1 : (_d _w : ℕ) → motive 0 _d _w) (h_2 : (_n _d : ℕ) → motive _n _d 0)
+  (h_3 : (n d w : ℕ) → motive n.succ d w.succ),
+  (_n = 0 → False) →
+    (match _n, _d, 0 with
+      | 0, _d, _w => h_1 _d _w
+      | _n, _d, 0 => h_2 _n _d
+      | n.succ, d, w.succ => h_3 n d w) =
+      h_2 _n _d
+AUDIT|Erdos835.dvd_choose_of_colorable_johnson_add._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.dvd_choose_of_colorable_johnson_add._proof_1_5|∀ {k t : ℕ},
+  t - 1 + 1 = t → ¬k + t - (t - 1) = k + 1 → False
+AUDIT|Erdos835.johnsonHomOfLe._proof_9|[propext, Quot.sound]
+TYPE|Erdos835.johnsonHomOfLe._proof_9|∀ {n₁ k₁ : ℕ} {n₂ : ℕ} {k₂ : ℕ},
+  k₁ ≤ k₂ → ∀ {s t : { s // s.card = k₁ }}, (↑s ∩ ↑t).card + 1 = k₁ → ¬(↑s ∩ ↑t).card + (k₂ - k₁) + 1 = k₂ → False
+AUDIT|Erdos835.ma_tang_lemma_2_3._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos835.ma_tang_lemma_2_3._proof_1_1|∀ (k t : ℕ), 1 ≤ t → ¬t - 1 + 1 = t → False
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.card_filter_ssubset_eq._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.card_filter_ssubset_eq._simp_1_2|∀ {α : Type u_1} {p : α → Prop}
+  [inst : DecidablePred p] {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos835.johnson_chromaticNumber_four._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos835.johnson_chromaticNumber_four._proof_1_1|¬3 ≤ 4 → False
+AUDIT|Erdos835.johnsonHomOfLe._proof_3|[propext, Quot.sound]
+TYPE|Erdos835.johnsonHomOfLe._proof_3|∀ {n₁ k₁ n₂ k₂ : ℕ}, n₁ + (k₂ - k₁) ≤ n₂ → ∀ (s : { s // s.card = k₁ }), n₁ ≤ n₂
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.map_succAboveEmb_filter._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.map_succAboveEmb_filter._simp_1_4|∀ {α : Type u_1} [inst : DecidableEq α]
+  {a b : α} {s : Finset α}, (a ∈ s.erase b) = (a ≠ b ∧ a ∈ s)
+AUDIT|Erdos835.indepNum_johnson_le_choose_pred_div|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.indepNum_johnson_le_choose_pred_div|∀ {n t : ℕ},
+  1 ≤ t → (SimpleGraph.johnson n t).indepNum ≤ n.choose (t - 1) / t
+AUDIT|Erdos835.johnsonHomOfLe._proof_11|[propext, Quot.sound]
+TYPE|Erdos835.johnsonHomOfLe._proof_11|∀ {n₁ k₁ n₂ k₂ : ℕ} (hn : n₁ + (k₂ - k₁) ≤ n₂) (s : { s // s.card = k₁ })
+  (i j : Fin (k₂ - k₁)), ⟨n₁ + ↑i, ⋯⟩ = ⟨n₁ + ↑j, ⋯⟩ → i = j
+AUDIT|Erdos835.ma_tang_lemma_2_3._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos835.ma_tang_lemma_2_3._proof_1_3|∀ (k t : ℕ),
+  t ≤ k → t - 1 + 1 = t → k + t - (t - 1) = k + 1 → ¬t < k + 1 → False
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.map_succAboveEmb_filter._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.map_succAboveEmb_filter._simp_1_3|∀ {α : Type u_1} [inst : Fintype α]
+  (x : α), (x ∈ Finset.univ) = True
+AUDIT|SimpleGraph.Coloring.colorClass.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.Coloring.colorClass.eq_1|∀ {V : Type u} {G : SimpleGraph V} {α : Type u_2} (C : G.Coloring α) (c : α),
+  C.colorClass c = {v | C v = c}
+AUDIT|Erdos835.ma_tang_prop_2_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.ma_tang_prop_2_1|∀ {k t : ℕ},
+  1 ≤ t → t ≤ k → (SimpleGraph.johnson (2 * k) k).Colorable (k + 1) → t ∣ (k + t).choose (t - 1)
+AUDIT|SimpleGraph.indepNum_pos._simp_1|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.indepNum_pos._simp_1|∀ {V : Type u_1} {G : SimpleGraph V} [Finite V] [Nonempty V],
+  (0 < G.indepNum) = True
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.recolor5._proof_1|[propext]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.recolor5._proof_1|NeZero (4 + 1)
+AUDIT|SimpleGraph.johnson_adj_iff_ge._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.johnson_adj_iff_ge._simp_1_3|∀ {α : Type u_1} [inst : DecidableEq α] {s t : Finset α},
+  (s ∩ t = s) = (s ⊆ t)
+AUDIT|Erdos835.johnson_chromaticNumber_odd|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.johnson_chromaticNumber_odd|∀ (k : ℕ),
+  2 < k → Odd k → ↑k + 1 < (SimpleGraph.johnson (2 * k) k).chromaticNumber
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.card_filter_ssubset_eq._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.card_filter_ssubset_eq._simp_1_1|∀ {α : Type u_1} {β : Type u_2}
+  {f : α ↪ β} {s : Finset α} {b : β}, (b ∈ Finset.map f s) = ∃ a ∈ s, f a = b
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.j63_no_5_coloring_aux|[propext]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.j63_no_5_coloring_aux|∀ (c4 : Fin 5),
+  c4 ≠ 0 →
+    c4 ≠ 1 →
+      ∀ (c5 : Fin 5),
+        c5 ≠ 0 →
+          c5 ≠ 2 →
+            c5 ≠ c4 →
+              ∀ (c6 : Fin 5),
+                c6 ≠ 0 →
+                  c6 ≠ 3 →
+                    c6 ≠ c4 →
+                      c6 ≠ c5 →
+                        ∀ (c7 : Fin 5),
+                          c7 ≠ 1 →
+                            c7 ≠ 2 →
+                              c7 ≠ c4 →
+                                c7 ≠ c5 →
+                                  ∀ (c8 : Fin 5),
+                                    c8 ≠ 1 →
+                                      c8 ≠ 3 →
+                                        c8 ≠ c4 →
+                                          c8 ≠ c6 →
+                                            c8 ≠ c7 →
+                                              ∀ (c9 : Fin 5),
+                                                c9 ≠ 2 →
+                                                  c9 ≠ 3 →
+                                                    c9 ≠ c5 →
+                                                      c9 ≠ c6 →
+                                                        c9 ≠ c7 →
+                                                          c9 ≠ c8 →
+                                                            ∀ (c10 : Fin 5),
+                                                              c10 ≠ 0 →
+                                                                c10 ≠ 1 →
+                                                                  c10 ≠ c4 →
+                                                                    ∀ (c11 : Fin 5),
+                                                                      c11 ≠ 0 →
+                                                                        c11 ≠ 2 →
+                                                                          c11 ≠ c5 →
+                                                                            c11 ≠ c10 →
+                                                                              ∀ (c12 : Fin 5),
+                                                                                c12 ≠ 0 →
+                                                                                  c12 ≠ 3 →
+                                                                                    c12 ≠ c6 →
+                                                                                      c12 ≠ c10 →
+                                                                                        c12 ≠ c11 →
+                                                                                          ∀ (c13 : Fin 5),
+                                                                                            c13 ≠ 1 →
+                                                                                              c13 ≠ 2 →
+                                                                                                c13 ≠ c7 →
+                                                                                                  c13 ≠ c10 →
+                                                                                                    c13 ≠ c11 → ⋯
+AUDIT|SimpleGraph.indepNum_of_isEmpty._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.indepNum_of_isEmpty._simp_1_1|∀ {α : Type u_1} (G : SimpleGraph α) (n : ℕ) (s : Finset α),
+  G.IsNIndepSet n s = (G.IsIndepSet ↑s ∧ s.card = n)
+AUDIT|Erdos835.property_iff_chromaticNumber._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.property_iff_chromaticNumber._proof_1_3|∀ (k : ℕ) {s t : { s // s.card = k }},
+  (↑s ∩ ↑t).card + 1 = k → (↑s ∪ ↑t).card + (↑s ∩ ↑t).card = k + k → ¬(↑s ∪ ↑t).card = k + 1 → False
+AUDIT|Erdos835.johnson_chromaticNumber_composite._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos835.johnson_chromaticNumber_composite._proof_1_1|∀ (k : ℕ), 2 < k → k + 1 = 1 → False
+AUDIT|SimpleGraph.johnson._proof_1|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.johnson._proof_1|∀ (n k : ℕ), Std.Symm fun s t => (↑s ∩ ↑t).card + 1 = k
+AUDIT|Erdos835.chromaticNumber_johnson_2k_k_lower_bound_odd|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.chromaticNumber_johnson_2k_k_lower_bound_odd|∀ {k : ℕ},
+  3 ≤ k → k ≤ 300 → Odd k → ↑k + 1 < (SimpleGraph.johnson (2 * k) k).chromaticNumber
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.adj_of_ssubset_of_ne|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.adj_of_ssubset_of_ne|∀ {k : ℕ} {A : Finset (Fin (2 * k))},
+  A.card = k + 1 → ∀ {s t : { s // s.card = k }}, ↑s ⊂ A → ↑t ⊂ A → s ≠ t → (SimpleGraph.johnson (2 * k) k).Adj s t
+AUDIT|Erdos835.johnsonBound.eq_1|[]
+TYPE|Erdos835.johnsonBound.eq_1|∀ (x x_1 : ℕ), Erdos835.johnsonBound 0 x x_1 = 1
+AUDIT|Erdos835.ma_tang_lemma_2_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.ma_tang_lemma_2_3|∀ (k t : ℕ), 1 ≤ t → t ≤ k → Nat.Prime (k + 1) → t ∣ (k + t).choose (t - 1)
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.card_filter_ssubset_eq._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.card_filter_ssubset_eq._simp_1_5|∀ {α : Type u_1} {s t : Finset α},
+  (s ⊂ t) = (s ⊆ t ∧ s ≠ t)
+AUDIT|Erdos835.indepNum_johnson_le_johnsonBound|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.indepNum_johnson_le_johnsonBound|∀ {n k : ℕ},
+  (SimpleGraph.johnson n k).indepNum ≤ Erdos835.johnsonBound n 4 k
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.card_filter_ssubset_eq._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.card_filter_ssubset_eq._simp_1_3|∀ {α : Type u_1} [inst : Fintype α]
+  (x : α), (x ∈ Finset.univ) = True
+AUDIT|Erdos835.dvd_choose_of_colorable_johnson_add._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.dvd_choose_of_colorable_johnson_add._proof_1_4|∀ {k : ℕ} {t : ℕ}, 1 ≤ t → ¬t - 1 + 1 = t → False
+AUDIT|SimpleGraph.johnson_adj_iff_ge._proof_1_2|[propext, Quot.sound]
+TYPE|SimpleGraph.johnson_adj_iff_ge._proof_1_2|∀ {n k : ℕ} (s : Finset (Fin n)), s.card = k → s.card < k → False
+AUDIT|Erdos835.johnsonHomOfLe._proof_1|[propext, Quot.sound]
+TYPE|Erdos835.johnsonHomOfLe._proof_1|∀ {n₁ k₁ n₂ k₂ : ℕ},
+  n₁ + (k₂ - k₁) ≤ n₂ → ∀ (s : { s // s.card = k₁ }), ¬n₁ ≤ n₂ → False
+AUDIT|SimpleGraph.card_div_indepNum_le_chromaticNumber|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.card_div_indepNum_le_chromaticNumber|∀ {V : Type u_1} {G : SimpleGraph V},
+  ↑⌈↑(Nat.card V) / ↑G.indepNum⌉₊ ≤ G.chromaticNumber
+AUDIT|Erdos835.johnson_chromaticNumber_composite._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.johnson_chromaticNumber_composite._proof_1_2|∀ (k : ℕ), 2 < k → ¬0 < k + 1 → False
+AUDIT|SimpleGraph.indepNum_of_isEmpty|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.indepNum_of_isEmpty|∀ {V : Type u_1} {G : SimpleGraph V} [IsEmpty V], G.indepNum = 0
+AUDIT|Erdos835.johnsonHomOfLe._proof_12|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.johnsonHomOfLe._proof_12|∀ {n₁ k₁ n₂ k₂ : ℕ},
+  k₁ ≤ k₂ →
+    ∀ (hn : n₁ + (k₂ - k₁) ≤ n₂) (s : { s // s.card = k₁ }),
+      (Finset.map (Fin.castLEEmb ⋯) ↑s ∪ Finset.map { toFun := fun i => ⟨n₁ + ↑i, ⋯⟩, inj' := ⋯ } Finset.univ).card = k₂
+AUDIT|Erdos835.johnsonGraph_chromaticNumber_odd_of_johnson_chromaticNumber_composite._proof_1_3|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|Erdos835.johnsonGraph_chromaticNumber_odd_of_johnson_chromaticNumber_composite._proof_1_3|∀ (k : ℕ),
+  2 < k → ¬(2 ≤ 2 ∧ 2 < k + 1) → False
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.johnsonBound.match_1.eq_3|[]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.johnsonBound.match_1.eq_3|∀ (motive : ℕ → ℕ → ℕ → Sort u_1) (n d w : ℕ)
+  (h_1 : (_d _w : ℕ) → motive 0 _d _w) (h_2 : (_n _d : ℕ) → motive _n _d 0)
+  (h_3 : (n d w : ℕ) → motive n.succ d w.succ),
+  (match n.succ, d, w.succ with
+    | 0, _d, _w => h_1 _d _w
+    | _n, _d, 0 => h_2 _n _d
+    | n.succ, d, w.succ => h_3 n d w) =
+    h_3 n d w
+AUDIT|SimpleGraph.le_chromaticNumber_iff_not_colorable._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.le_chromaticNumber_iff_not_colorable._simp_1_4|∀ {V : Type u_1} {G : SimpleGraph V} {n : ℕ},
+  (↑n < G.chromaticNumber) = ¬G.Colorable n
+AUDIT|Erdos835.johnsonGraph_chromaticNumber_odd_of_johnson_chromaticNumber_composite._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos835.johnsonGraph_chromaticNumber_odd_of_johnson_chromaticNumber_composite._proof_1_2|∀ (k : ℕ),
+  2 < k → ¬2 ≤ k + 1 → False
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.johnsonBound.match_1.eq_1|[]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.johnsonBound.match_1.eq_1|∀ (motive : ℕ → ℕ → ℕ → Sort u_1) (_d _w : ℕ)
+  (h_1 : (_d _w : ℕ) → motive 0 _d _w) (h_2 : (_n _d : ℕ) → motive _n _d 0)
+  (h_3 : (n d w : ℕ) → motive n.succ d w.succ),
+  (match 0, _d, _w with
+    | 0, _d, _w => h_1 _d _w
+    | _n, _d, 0 => h_2 _n _d
+    | n.succ, d, w.succ => h_3 n d w) =
+    h_1 _d _w
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.card_indepSet_johnson_le_johnsonBound._proof_1_9|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.card_indepSet_johnson_le_johnsonBound._proof_1_9|∀ (w : ℕ),
+  2 * (w + 1 + 1) < 4 → False
+AUDIT|SimpleGraph.johnson_adj_iff_ge|[propext, Classical.choice, Quot.sound]
+TYPE|SimpleGraph.johnson_adj_iff_ge|∀ {n k : ℕ} {s t : { s // s.card = k }},
+  (SimpleGraph.johnson n k).Adj s t ↔ s ≠ t ∧ k ≤ (↑s ∩ ↑t).card + 1
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.card_indepSet_johnson_le_johnsonBound._proof_1_10|[propext, Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.card_indepSet_johnson_le_johnsonBound._proof_1_10|∀ (w : ℕ),
+  ¬0 < w + 1 + 1 → False
+AUDIT|Erdos835.johnson_chromaticNumber_composite._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.johnson_chromaticNumber_composite._proof_1_7|∀ (k q : ℕ),
+  k + 1 = (k + 1).minFac * q →
+    k + (k + 1).minFac = (k + 1).minFac - 1 + (k + 1).minFac * q → ¬(k + 1).minFac - 1 < (k + 1).minFac → False
+AUDIT|Erdos835.johnsonHomOfLe._proof_2|[propext, Quot.sound]
+TYPE|Erdos835.johnsonHomOfLe._proof_2|∀ {n₁ k₁ n₂ k₂ : ℕ},
+  n₁ + (k₂ - k₁) ≤ n₂ → ∀ (s : { s // s.card = k₁ }) (i : Fin (k₂ - k₁)), ¬n₁ + ↑i < n₂ → False
+AUDIT|Erdos835.card_indepSet_mul_le_choose_pred._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos835.card_indepSet_mul_le_choose_pred._simp_1_2|∀ {α : Type u_1} {n : ℕ} {s t : Finset α},
+  (s ∈ Finset.powersetCard n t) = (s ⊆ t ∧ s.card = n)
+AUDIT|Erdos835.not_property_of_composite._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos835.not_property_of_composite._proof_1_1|∀ (k : ℕ), 2 < k → ¬0 < k → False
+AUDIT|_private.JspBounties.Erdos835.0.Erdos835.card_indepSet_johnson_le_johnsonBound|[propext,
+ Classical.choice,
+ Quot.sound]
+TYPE|_private.JspBounties.Erdos835.0.Erdos835.card_indepSet_johnson_le_johnsonBound|∀ (n k : ℕ)
+  (F : Finset { s // s.card = k }), (SimpleGraph.johnson n k).IsIndepSet ↑F → F.card ≤ Erdos835.johnsonBound n 4 k

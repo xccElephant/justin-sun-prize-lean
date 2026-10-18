@@ -1,0 +1,86 @@
+AUDIT|Erdos338.erdos_339_order_two_contains_all_large_odd._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos338.erdos_339_order_two_contains_all_large_odd._proof_1_2|∀ (N₀ k : ℕ), N₀ ≤ k → ¬N₀ ≤ 2 * k + 1 → False
+AUDIT|Erdos338.not_sum_distinct_batemanBasis_of_mod_two._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos338.not_sum_distinct_batemanBasis_of_mod_two._proof_1_3|∀ {h : ℕ} (S : Finset ℕ),
+  (∑ x ∈ S, x) % h = 2 → (∑ x ∈ S, x) % h = 1 → False
+AUDIT|Erdos338.not_sum_distinct_batemanBasis_of_mod_two._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos338.not_sum_distinct_batemanBasis_of_mod_two._proof_1_2|∀ {h : ℕ} (S : Finset ℕ),
+  (∑ x ∈ S, x) % h = 2 → (∑ x ∈ S, x) % h = 0 → False
+AUDIT|Erdos338.erdos_339_order_two_counting_bound._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos338.erdos_339_order_two_counting_bound._simp_1_3|∀ {α : Type u_1} {β : Type u_2} [inst : DecidableEq β]
+  {f : α → β} {s : Finset α} {b : β}, (b ∈ Finset.image f s) = ∃ a ∈ s, f a = b
+AUDIT|Erdos338.erdos_339_order_two_counting_bound._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos338.erdos_339_order_two_counting_bound._proof_1_1|∀ (K₀ M a b : ℕ), 2 * a + 1 = 2 * b + 1 → ¬a = b → False
+AUDIT|Erdos338.not_sum_distinct_batemanBasis_of_mod_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos338.not_sum_distinct_batemanBasis_of_mod_two|∀ {h n : ℕ},
+  3 ≤ h → n % h = 2 → ¬∃ S, (∀ x ∈ S, x ∈ Erdos338.batemanBasis h) ∧ ∑ x ∈ S, x = n
+AUDIT|Erdos338.exists_pair_sum_of_multiset_card_le_two|[propext, Quot.sound]
+TYPE|Erdos338.exists_pair_sum_of_multiset_card_le_two|∀ {A : Set ℕ} {n : ℕ},
+  0 ∈ A → ∀ {S : Multiset ℕ}, S.card ≤ 2 → (∀ x ∈ S, x ∈ A) → S.sum = n → ∃ a ∈ A, ∃ b ∈ A, a + b = n
+AUDIT|Erdos338.sum_Subset_batemanBasis_mod|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos338.sum_Subset_batemanBasis_mod|∀ {h : ℕ},
+  2 ≤ h → ∀ (S : Finset ℕ), (∀ x ∈ S, x ∈ Erdos338.batemanBasis h) → (∑ x ∈ S, x) % h = 0 ∨ (∑ x ∈ S, x) % h = 1
+AUDIT|Erdos338.erdos_339_order_two_counting_bound._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos338.erdos_339_order_two_counting_bound._simp_1_4|∀ {α : Type u_1} [inst : Preorder α]
+  [inst_1 : LocallyFiniteOrder α] {a b x : α}, (x ∈ Finset.Ico a b) = (a ≤ x ∧ x < b)
+AUDIT|Erdos338.batemanBasis_isAsymptoticBasisOfOrder._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos338.batemanBasis_isAsymptoticBasisOfOrder._proof_1_3|∀ (h n : ℕ), n % h < h → ¬n % h + 1 ≤ h → False
+AUDIT|Erdos338.mod_eq_zero_of_mem_batemanBasis|[propext]
+TYPE|Erdos338.mod_eq_zero_of_mem_batemanBasis|∀ {h x : ℕ}, x ∈ Erdos338.batemanBasis h → x ≠ 1 → x % h = 0
+AUDIT|Erdos338.mem_restrictedExactSumset_two_of_odd._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos338.mem_restrictedExactSumset_two_of_odd._proof_1_1|∀ {k : ℕ} (a b : ℕ), a + b = 2 * k + 1 → a = b → False
+AUDIT|Erdos338.batemanBasis_isAsymptoticBasisOfOrder._simp_1_4|[propext, Quot.sound]
+TYPE|Erdos338.batemanBasis_isAsymptoticBasisOfOrder._simp_1_4|∀ {α : Type u_1} {a b : α} {s : Multiset α},
+  (a ∈ b ::ₘ s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos338.mem_restrictedExactSumset_two_of_odd|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos338.mem_restrictedExactSumset_two_of_odd|∀ {A : Set ℕ} {k : ℕ},
+  (∃ a ∈ A, ∃ b ∈ A, a + b = 2 * k + 1) → 2 * k + 1 ∈ Erdos338.RestrictedExactSumset A 2
+AUDIT|Erdos338.erdos_339_order_two_counting_bound._simp_1_5|[propext]
+TYPE|Erdos338.erdos_339_order_two_counting_bound._simp_1_5|∀ {α : Type u_1} [inst : Preorder α] {b x : α},
+  (x ∈ Set.Iio b) = (x < b)
+AUDIT|Erdos338.erdos_338_bateman|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos338.erdos_338_bateman|∀ (h : ℕ),
+  3 ≤ h → ∃ A, Erdos338.IsAsymptoticBasisOfOrder A h ∧ ¬Erdos338.HasRestrictedOrder A
+AUDIT|Erdos338.erdos_338_bateman._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos338.erdos_338_bateman._proof_1_1|∀ (h : ℕ), 3 ≤ h → ¬1 ≤ h → False
+AUDIT|Erdos338.erdos_338_bateman._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos338.erdos_338_bateman._proof_1_3|∀ (h : ℕ), 3 ≤ h → ∀ (t N : ℕ) (S : Finset ℕ), ¬2 < h → False
+AUDIT|Erdos338.batemanBasis_isAsymptoticBasisOfOrder|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos338.batemanBasis_isAsymptoticBasisOfOrder|∀ (h : ℕ),
+  1 ≤ h → Erdos338.IsAsymptoticBasisOfOrder (Erdos338.batemanBasis h) h
+AUDIT|Erdos338.batemanBasis_isAsymptoticBasisOfOrder._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos338.batemanBasis_isAsymptoticBasisOfOrder._proof_1_2|∀ (h n : ℕ), h ≤ n → ¬1 * h ≤ n → False
+AUDIT|Erdos338.HasRestrictedOrderLe.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos338.HasRestrictedOrderLe.eq_1|∀ (A : Set ℕ) (t : ℕ),
+  Erdos338.HasRestrictedOrderLe A t = ∀ᶠ (n : ℕ) in Filter.atTop, ∃ S, S.card ≤ t ∧ (∀ x ∈ S, x ∈ A) ∧ ∑ x ∈ S, x = n
+AUDIT|Erdos338.batemanBasis_isAsymptoticBasisOfOrder._simp_1_5|[propext]
+TYPE|Erdos338.batemanBasis_isAsymptoticBasisOfOrder._simp_1_5|∀ {α : Type u_1} {a b : α} {n : ℕ},
+  (b ∈ Multiset.replicate n a) = (n ≠ 0 ∧ b = a)
+AUDIT|Erdos338.exists_pair_sum_of_multiset_card_le_two._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos338.exists_pair_sum_of_multiset_card_le_two._proof_1_1|∀ {n : ℕ} {S : Multiset ℕ},
+  S.card ≤ 2 → ¬(S.card = 0 ∨ S.card = 1 ∨ S.card = 2) → False
+AUDIT|Erdos338.erdos_339_order_two_counting_bound|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos338.erdos_339_order_two_counting_bound|∀ {A : Set ℕ},
+  0 ∈ A →
+    Erdos338.IsAsymptoticBasisOfOrder A 2 →
+      ∃ K₀, ∀ M ≥ K₀, M - K₀ ≤ (Erdos338.RestrictedExactSumset A 2 ∩ Set.Iio (2 * M)).ncard
+AUDIT|Erdos338.mem_restrictedExactSumset_two_of_odd._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos338.mem_restrictedExactSumset_two_of_odd._simp_1_3|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos338.not_sum_distinct_batemanBasis_of_mod_two._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos338.not_sum_distinct_batemanBasis_of_mod_two._proof_1_1|∀ {h : ℕ}, 3 ≤ h → ∀ (S : Finset ℕ), ¬2 ≤ h → False
+AUDIT|Erdos338.erdos_339_order_two_contains_all_large_odd|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos338.erdos_339_order_two_contains_all_large_odd|∀ {A : Set ℕ},
+  0 ∈ A →
+    Erdos338.IsAsymptoticBasisOfOrder A 2 → ∀ᶠ (k : ℕ) in Filter.atTop, 2 * k + 1 ∈ Erdos338.RestrictedExactSumset A 2
+AUDIT|Erdos338.mem_restrictedExactSumset_two_of_odd._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos338.mem_restrictedExactSumset_two_of_odd._simp_1_2|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α}
+  {a b : α}, (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos338.erdos_339_order_two_counting_bound._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos338.erdos_339_order_two_counting_bound._simp_1_2|∀ {α : Type u_1} {a : α} {s : Finset α}, (a ∈ ↑s) = (a ∈ s)
+AUDIT|Erdos338.erdos_339_order_two_counting_bound._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos338.erdos_339_order_two_counting_bound._proof_1_6|∀ (K₀ M k : ℕ), k < M → ¬2 * k + 1 < 2 * M → False
+AUDIT|Erdos338.sum_Subset_batemanBasis_mod._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos338.sum_Subset_batemanBasis_mod._proof_1_1|∀ {h : ℕ}, 2 ≤ h → ∀ (S : Finset ℕ), ¬1 < h → False
+AUDIT|Erdos338.IsAsymptoticBasisOfOrder.eq_1|[propext, Quot.sound]
+TYPE|Erdos338.IsAsymptoticBasisOfOrder.eq_1|∀ (A : Set ℕ) (h : ℕ),
+  Erdos338.IsAsymptoticBasisOfOrder A h = ∀ᶠ (n : ℕ) in Filter.atTop, ∃ S, S.card ≤ h ∧ (∀ x ∈ S, x ∈ A) ∧ S.sum = n

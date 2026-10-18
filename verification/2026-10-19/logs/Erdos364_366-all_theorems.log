@@ -1,0 +1,79 @@
+AUDIT|Erdos364_366.not_full_of_prime_mod_prime_sq._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos364_366.not_full_of_prime_mod_prime_sq._proof_1_2|∀ (n k : ℕ) {p : ℕ},
+  n % p ^ (k + 1) = p → p ^ (k + 1) ∣ n → 1 < p → False
+AUDIT|Erdos364_366.exists_three_full_then_two_full|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.exists_three_full_then_two_full|∃ n > 0, Erdos364_366.Full 3 n ∧ Erdos364_366.Full 2 (n + 1)
+AUDIT|Erdos364_366.not_powerful_of_mod_nine_eq_three|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.not_powerful_of_mod_nine_eq_three|∀ {m : ℕ}, m % 9 = 3 → ¬Erdos364_366.Powerful m
+AUDIT|Erdos364_366.full_two_nine|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.full_two_nine|Erdos364_366.Full 2 9
+AUDIT|Erdos364_366.full_two_12168|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.full_two_12168|Erdos364_366.Full 2 12168
+AUDIT|Erdos364_366.not_full_of_prime_mod_prime_sq._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos364_366.not_full_of_prime_mod_prime_sq._proof_1_1|∀ (n k : ℕ) {p : ℕ}, k + 1 = 0 → False
+AUDIT|Erdos364_366.erdos_366_mod_eight_barrier|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.erdos_366_mod_eight_barrier|∀ {n : ℕ},
+  Erdos364_366.Full 2 n → Erdos364_366.Full 3 (n + 1) → n % 8 = 0 ∨ n % 8 = 4 ∨ n % 8 = 7
+AUDIT|Erdos364_366.erdos_366_variants_three_two._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos364_366.erdos_366_variants_three_two._proof_1_1|12167 = 8 → False
+AUDIT|Erdos364_366.erdos_364_weak._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos364_366.erdos_364_weak._proof_1_1|∀ (n : ℕ),
+  ¬(n % 4 = 2 ∨ (n + 1) % 4 = 2 ∨ (n + 2) % 4 = 2 ∨ (n + 3) % 4 = 2) → False
+AUDIT|Erdos364_366.golomb_pair._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos364_366.golomb_pair._proof_1_3|∀ (n r : ℕ), 110 < r → r < 111 → False
+AUDIT|Erdos364_366.not_full_of_prime_mod_prime_sq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.not_full_of_prime_mod_prime_sq|∀ (n k : ℕ) {p : ℕ},
+  Nat.Prime p → n % p ^ (k + 1) = p → ¬Erdos364_366.Full (k + 1) n
+AUDIT|Erdos364_366.full_of_le_full|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.full_of_le_full|∀ {k m n : ℕ}, k ≤ m → Erdos364_366.Full m n → Erdos364_366.Full k n
+AUDIT|Erdos364_366.erdos_364_weak|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.erdos_364_weak|¬∃ n,
+    Erdos364_366.Powerful n ∧
+      Erdos364_366.Powerful (n + 1) ∧ Erdos364_366.Powerful (n + 2) ∧ Erdos364_366.Powerful (n + 3)
+AUDIT|Erdos364_366.not_full_of_dvd_of_not_pow_dvd|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.not_full_of_dvd_of_not_pow_dvd|∀ {n k p : ℕ},
+  Nat.Prime p → p ∣ n → ¬p ^ (k + 1) ∣ n → ¬Erdos364_366.Full (k + 1) n
+AUDIT|Erdos364_366.erdos_365_parts_i|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.erdos_365_parts_i|¬∀ (n : ℕ),
+    0 < n → Erdos364_366.Powerful n → Erdos364_366.Powerful (n + 1) → IsSquare n ∨ IsSquare (n + 1)
+AUDIT|Erdos364_366.erdos_366_mod_eight_barrier._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.erdos_366_mod_eight_barrier._proof_1_3|∀ {n : ℕ},
+  n % 4 ≠ 2 → ¬(n % 2 = 1 ∧ (n + 1) % 8 ≠ 0) → ¬(n % 8 = 0 ∨ n % 8 = 4 ∨ n % 8 = 7) → False
+AUDIT|Erdos364_366.erdos_366_variants_three_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.erdos_366_variants_three_two|¬∀ n > 0, Erdos364_366.Full 3 n ∧ Erdos364_366.Full 2 (n + 1) → n = 8
+AUDIT|Erdos364_366.erdos_366_mod_eight_barrier._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos364_366.erdos_366_mod_eight_barrier._proof_1_1|∀ {n : ℕ}, n % 2 = 1 → ¬2 ∣ n + 1 → False
+AUDIT|Erdos364_366.not_powerful_of_mod_nine_eq_six._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos364_366.not_powerful_of_mod_nine_eq_six._proof_1_1|∀ {m : ℕ}, m % 9 = 6 → 3 ^ (1 + 1) ∣ m → False
+AUDIT|Erdos364_366.erdos_364_mod_thirtysix_barrier|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.erdos_364_mod_thirtysix_barrier|∀ {n : ℕ},
+  Erdos364_366.Powerful n →
+    Erdos364_366.Powerful (n + 1) → Erdos364_366.Powerful (n + 2) → n % 36 = 7 ∨ n % 36 = 27 ∨ n % 36 = 35
+AUDIT|Erdos364_366.golomb_pair|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.golomb_pair|Erdos364_366.Powerful 12167 ∧
+  Erdos364_366.Powerful 12168 ∧ ¬IsSquare 12167 ∧ ¬IsSquare 12168
+AUDIT|Erdos364_366.full_three_eight|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.full_three_eight|Erdos364_366.Full 3 8
+AUDIT|Erdos364_366.no_four_consecutive_full|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.no_four_consecutive_full|∀ {k : ℕ},
+  2 ≤ k →
+    ¬∃ n,
+        Erdos364_366.Full k n ∧ Erdos364_366.Full k (n + 1) ∧ Erdos364_366.Full k (n + 2) ∧ Erdos364_366.Full k (n + 3)
+AUDIT|Erdos364_366.full_three_12167|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.full_three_12167|Erdos364_366.Full 3 12167
+AUDIT|Erdos364_366.not_powerful_of_mod_nine_eq_six|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.not_powerful_of_mod_nine_eq_six|∀ {m : ℕ}, m % 9 = 6 → ¬Erdos364_366.Powerful m
+AUDIT|Erdos364_366.erdos_364_mod_thirtysix_barrier._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos364_366.erdos_364_mod_thirtysix_barrier._proof_1_1|∀ {n : ℕ},
+  n % 4 ≠ 2 →
+    (n + 1) % 4 ≠ 2 →
+      (n + 2) % 4 ≠ 2 →
+        n % 9 ≠ 3 →
+          n % 9 ≠ 6 →
+            (n + 1) % 9 ≠ 3 →
+              (n + 1) % 9 ≠ 6 → (n + 2) % 9 ≠ 3 → (n + 2) % 9 ≠ 6 → ¬(n % 36 = 7 ∨ n % 36 = 27 ∨ n % 36 = 35) → False
+AUDIT|Erdos364_366.erdos_366_mod_eight_barrier._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos364_366.erdos_366_mod_eight_barrier._proof_1_2|∀ {n : ℕ},
+  n % 2 = 1 → (n + 1) % 8 ≠ 0 → 2 ∣ n + 1 → 2 ^ 3 ∣ n + 1 → False
+AUDIT|Erdos364_366.not_powerful_of_mod_four_eq_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos364_366.not_powerful_of_mod_four_eq_two|∀ {m : ℕ}, m % 4 = 2 → ¬Erdos364_366.Powerful m

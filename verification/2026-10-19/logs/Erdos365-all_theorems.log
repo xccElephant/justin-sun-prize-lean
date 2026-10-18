@@ -1,0 +1,79 @@
+AUDIT|Erdos365.pellCubeStep_zmod_identity|[propext, Quot.sound]
+TYPE|Erdos365.pellCubeStep_zmod_identity|∀ (A B x y : ℤ),
+  A * (A * x ^ 3 + 3 * B * x * y ^ 2) ^ 2 - B * (3 * A * x ^ 2 * y + B * y ^ 3) ^ 2 = (A * x ^ 2 - B * y ^ 2) ^ 3
+AUDIT|Erdos365.not_isSquare_prime_cube_mul_sq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.not_isSquare_prime_cube_mul_sq|∀ {p y : ℕ}, Nat.Prime p → 0 < y → ¬IsSquare (p ^ 3 * y ^ 2)
+AUDIT|Erdos365.powerful_cube_mul_sq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.powerful_cube_mul_sq|∀ (a b : ℕ), (a ^ 3 * b ^ 2).Powerful
+AUDIT|Erdos365.powerful_mul|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.powerful_mul|∀ {a b : ℕ}, a.Powerful → b.Powerful → (a * b).Powerful
+AUDIT|Erdos365.parametric_nonSquare_powerful_family|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.parametric_nonSquare_powerful_family|∀ {p q x₀ y₀ : ℕ},
+  Nat.Prime p →
+    Nat.Prime q →
+      0 < x₀ →
+        0 < y₀ →
+          p ^ 3 * x₀ ^ 2 = q ^ 3 * y₀ ^ 2 + 1 →
+            have n := fun k => q ^ 3 * (Erdos365.pellCubeSeq (p ^ 3) (q ^ 3) x₀ y₀ k).2 ^ 2;
+            StrictMono n ∧
+              ∀ (k : ℕ), 0 < n k ∧ (n k).Powerful ∧ (n k + 1).Powerful ∧ ¬IsSquare (n k) ∧ ¬IsSquare (n k + 1)
+AUDIT|Erdos365.powerful_cube|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.powerful_cube|∀ (m : ℕ), (m ^ 3).Powerful
+AUDIT|Erdos365.pellCubeSeq_eq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.pellCubeSeq_eq|∀ {A B x₀ y₀ : ℕ},
+  A * x₀ ^ 2 = B * y₀ ^ 2 + 1 →
+    ∀ (k : ℕ), A * (Erdos365.pellCubeSeq A B x₀ y₀ k).1 ^ 2 = B * (Erdos365.pellCubeSeq A B x₀ y₀ k).2 ^ 2 + 1
+AUDIT|Erdos365.golombWalkerSeq_properties|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.golombWalkerSeq_properties|StrictMono Erdos365.golombWalkerSeq ∧
+  ∀ (k : ℕ),
+    0 < Erdos365.golombWalkerSeq k ∧
+      (Erdos365.golombWalkerSeq k).Powerful ∧
+        (Erdos365.golombWalkerSeq k + 1).Powerful ∧
+          ¬IsSquare (Erdos365.golombWalkerSeq k) ∧ ¬IsSquare (Erdos365.golombWalkerSeq k + 1)
+AUDIT|Erdos365.erdos_365.parts.i|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.erdos_365.parts.i|¬∀ (n : ℕ), 0 < n → n.Powerful → (n + 1).Powerful → IsSquare n ∨ IsSquare (n + 1)
+AUDIT|Erdos365.prime_mul_sq_ne_sq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.prime_mul_sq_ne_sq|∀ {p : ℕ}, Nat.Prime p → ∀ (u : ℕ), 0 < u → ∀ (r : ℕ), p * u ^ 2 ≠ r ^ 2
+AUDIT|Erdos365.pellCubeStep_preserves_eq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.pellCubeStep_preserves_eq|∀ {A B : ℕ} {xy : ℕ × ℕ},
+  A * xy.1 ^ 2 = B * xy.2 ^ 2 + 1 →
+    A * (Erdos365.pellCubeStep A B xy).1 ^ 2 = B * (Erdos365.pellCubeStep A B xy).2 ^ 2 + 1
+AUDIT|Erdos365.infinite_nonSquare_consecutive_powerful|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.infinite_nonSquare_consecutive_powerful|{n |
+    0 < n ∧ n.Powerful ∧ (n + 1).Powerful ∧ ¬IsSquare n ∧ ¬IsSquare (n + 1)}.Infinite
+AUDIT|Erdos365.parametric_nonSquare_powerful_family._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos365.parametric_nonSquare_powerful_family._proof_1_1|∀ {p q x₀ y₀ : ℕ} (k : ℕ),
+  p ^ 3 * (Erdos365.pellCubeSeq (p ^ 3) (q ^ 3) x₀ y₀ k).1 ^ 2 =
+      q ^ 3 * (Erdos365.pellCubeSeq (p ^ 3) (q ^ 3) x₀ y₀ k).2 ^ 2 + 1 →
+    ¬q ^ 3 * (Erdos365.pellCubeSeq (p ^ 3) (q ^ 3) x₀ y₀ k).2 ^ 2 + 1 =
+          p ^ 3 * (Erdos365.pellCubeSeq (p ^ 3) (q ^ 3) x₀ y₀ k).1 ^ 2 →
+      False
+AUDIT|Erdos365.walker_base_pair|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.walker_base_pair|Nat.Powerful 48689748233307 ∧
+  Nat.Powerful 48689748233308 ∧ ¬IsSquare 48689748233307 ∧ ¬IsSquare 48689748233308
+AUDIT|Erdos365.pellCubeSeq_snd_strictMono|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.pellCubeSeq_snd_strictMono|∀ {A B x₀ y₀ : ℕ},
+  0 < A → 0 < B → 0 < x₀ → 0 < y₀ → StrictMono fun k => (Erdos365.pellCubeSeq A B x₀ y₀ k).2
+AUDIT|Erdos365.golomb_pair|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.golomb_pair|Nat.Powerful 12167 ∧ Nat.Powerful 12168 ∧ ¬IsSquare 12167 ∧ ¬IsSquare 12168
+AUDIT|Erdos365.walkerSeq_properties|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.walkerSeq_properties|StrictMono Erdos365.walkerSeq ∧
+  ∀ (k : ℕ),
+    0 < Erdos365.walkerSeq k ∧
+      (Erdos365.walkerSeq k).Powerful ∧
+        (Erdos365.walkerSeq k + 1).Powerful ∧ ¬IsSquare (Erdos365.walkerSeq k) ∧ ¬IsSquare (Erdos365.walkerSeq k + 1)
+AUDIT|Erdos365.pellCubeSeq_snd_strictMono._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos365.pellCubeSeq_snd_strictMono._proof_1_1|∀ {A B x₀ y₀ : ℕ} (k : ℕ),
+  0 < 3 * A * (Erdos365.pellCubeSeq A B x₀ y₀ k).1 ^ 2 * (Erdos365.pellCubeSeq A B x₀ y₀ k).2 →
+    (Erdos365.pellCubeSeq A B x₀ y₀ k).2 ≤ B * (Erdos365.pellCubeSeq A B x₀ y₀ k).2 ^ 3 →
+      ¬(Erdos365.pellCubeSeq A B x₀ y₀ k).2 <
+            3 * A * (Erdos365.pellCubeSeq A B x₀ y₀ k).1 ^ 2 * (Erdos365.pellCubeSeq A B x₀ y₀ k).2 +
+              B * (Erdos365.pellCubeSeq A B x₀ y₀ k).2 ^ 3 →
+        False
+AUDIT|Erdos365.pellCubeSeq_pos|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.pellCubeSeq_pos|∀ {A B x₀ y₀ : ℕ},
+  0 < A →
+    0 < B →
+      0 < x₀ → 0 < y₀ → ∀ (k : ℕ), 0 < (Erdos365.pellCubeSeq A B x₀ y₀ k).1 ∧ 0 < (Erdos365.pellCubeSeq A B x₀ y₀ k).2
+AUDIT|Erdos365.powerful_sq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos365.powerful_sq|∀ (m : ℕ), (m ^ 2).Powerful

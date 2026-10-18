@@ -1,0 +1,82 @@
+AUDIT|Erdos319.five_mem_erdos319Set._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.five_mem_erdos319Set._simp_1_2|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos319.four_mem_erdos319Set._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.four_mem_erdos319Set._proof_1_5|∀ {N : ℕ}, 6 ≤ N → ¬(2 ≤ 6 ∧ 6 ≤ N) → False
+AUDIT|Erdos319.erdos_319_isTheta_of_lb|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.erdos_319_isTheta_of_lb|(∃ o,
+    o =o[Filter.atTop] 1 ∧
+      ∀ᶠ (N : ℕ) in Filter.atTop, (1 - 1 / Real.exp 1 + o N) * ↑N ≤ sSup (Erdos319.erdos319Set N)) →
+  ∀ (c : ℕ → ℝ),
+    (∀ (N : ℕ), IsGreatest (Erdos319.erdos319Set N) (c N)) →
+      c =Θ[Filter.atTop] Erdos319.erdos_319.variants.isTheta.answer
+AUDIT|Erdos319.five_mem_erdos319Set._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.five_mem_erdos319Set._proof_1_3|∀ {N : ℕ}, 42 ≤ N → ¬(2 ≤ 2 ∧ 2 ≤ N) → False
+AUDIT|Erdos319.erdos_319_lb_of_croot|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.erdos_319_lb_of_croot|(∃ o,
+    o =o[Filter.atTop] 1 ∧
+      ∀ᶠ (N : ℕ) in Filter.atTop,
+        ∃ B ⊆ Finset.Icc 2 N, ∑ n ∈ B, 1 / ↑n = 1 ∧ (1 - 1 / Real.exp 1 + o N) * ↑N ≤ ↑B.card) →
+  ∃ o,
+    o =o[Filter.atTop] 1 ∧ ∀ᶠ (N : ℕ) in Filter.atTop, (1 - 1 / Real.exp 1 + o N) * ↑N ≤ sSup (Erdos319.erdos319Set N)
+AUDIT|Erdos319.adenwalla_irreducible_of_unit_fraction_sum._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos319.adenwalla_irreducible_of_unit_fraction_sum._proof_1_1|2 ≤ 1 → False
+AUDIT|Erdos319.four_mem_erdos319Set._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.four_mem_erdos319Set._proof_1_4|∀ {N : ℕ}, 6 ≤ N → ¬(2 ≤ 3 ∧ 3 ≤ N) → False
+AUDIT|Erdos319.five_mem_erdos319Set._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.five_mem_erdos319Set._simp_1_1|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos319.adenwalla_irreducible_of_unit_fraction_sum._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos319.adenwalla_irreducible_of_unit_fraction_sum._proof_1_7|∀ {N : ℕ} ⦃x : ℕ⦄, 2 ≤ x ∧ x ≤ N → ¬1 ≤ x → False
+AUDIT|Erdos319.four_mem_erdos319Set|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.four_mem_erdos319Set|∀ {N : ℕ}, 6 ≤ N → 4 ∈ Erdos319.erdos319Set N
+AUDIT|Erdos319.card_add_one_mem_erdos319Set_of_unit_fraction_sum|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.card_add_one_mem_erdos319Set_of_unit_fraction_sum|∀ {N : ℕ} {B : Finset ℕ},
+  B ⊆ Finset.Icc 2 N → ∑ n ∈ B, 1 / ↑n = 1 → ↑(B.card + 1) ∈ Erdos319.erdos319Set N
+AUDIT|Erdos319.adenwalla_irreducible_of_unit_fraction_sum._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos319.adenwalla_irreducible_of_unit_fraction_sum._proof_1_5|∀ {N : ℕ} (n : ℕ), 2 ≤ n → ¬0 < n → False
+AUDIT|Erdos319.adenwallaSign.eq_1|[propext]
+TYPE|Erdos319.adenwallaSign.eq_1|∀ (n : ℕ), Erdos319.adenwallaSign n = if n = 1 then -1 else 1
+AUDIT|Erdos319.mem_erdos319Set_bounds|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.mem_erdos319Set_bounds|∀ {N : ℕ} {x : ℝ}, x ∈ Erdos319.erdos319Set N → 0 ≤ x ∧ x ≤ ↑N
+AUDIT|Erdos319.one_sub_inv_exp_one_pos|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.one_sub_inv_exp_one_pos|0 < 1 - 1 / Real.exp 1
+AUDIT|Erdos319.five_mem_erdos319Set|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.five_mem_erdos319Set|∀ {N : ℕ}, 42 ≤ N → 5 ∈ Erdos319.erdos319Set N
+AUDIT|Erdos319.adenwalla_irreducible_of_unit_fraction_sum._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos319.adenwalla_irreducible_of_unit_fraction_sum._proof_1_2|∀ {N : ℕ} (b : ℕ), 2 ≤ b ∧ b ≤ N → ¬2 ≤ N → False
+AUDIT|Erdos319.five_mem_erdos319Set._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.five_mem_erdos319Set._proof_1_4|∀ {N : ℕ}, 42 ≤ N → ¬(2 ≤ 3 ∧ 3 ≤ N) → False
+AUDIT|Erdos319.four_mem_erdos319Set._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.four_mem_erdos319Set._simp_1_1|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos319.erdos_319.variants.isTheta.answer.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.erdos_319.variants.isTheta.answer.eq_1|∀ (N : ℕ), Erdos319.erdos_319.variants.isTheta.answer N = ↑N
+AUDIT|Erdos319.zero_mem_erdos319Set|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.zero_mem_erdos319Set|∀ (N : ℕ), 0 ∈ Erdos319.erdos319Set N
+AUDIT|Erdos319.adenwalla_irreducible_of_unit_fraction_sum._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos319.adenwalla_irreducible_of_unit_fraction_sum._proof_1_6|∀ {N : ℕ}, 2 ≤ N → ¬1 ≤ N → False
+AUDIT|Erdos319.adenwalla_irreducible_of_unit_fraction_sum._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos319.adenwalla_irreducible_of_unit_fraction_sum._proof_1_3|∀ {N : ℕ} (n : ℕ), 2 ≤ n → n = 1 → False
+AUDIT|Erdos319.c_nonneg_and_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.c_nonneg_and_le|∀ {N : ℕ} {cN : ℝ}, IsGreatest (Erdos319.erdos319Set N) cN → 0 ≤ cN ∧ cN ≤ ↑N
+AUDIT|Erdos319.adenwalla_irreducible_of_unit_fraction_sum|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.adenwalla_irreducible_of_unit_fraction_sum|∀ {N : ℕ} {B : Finset ℕ},
+  B ⊆ Finset.Icc 2 N →
+    ∑ n ∈ B, 1 / ↑n = 1 →
+      insert 1 B ⊆ Finset.Icc 1 N ∧
+        (insert 1 B).card = B.card + 1 ∧
+          ∑ n ∈ insert 1 B, ↑↑(Erdos319.adenwallaSign n) / ↑n = 0 ∧
+            ∀ A' ⊂ insert 1 B, A'.Nonempty → ∑ n ∈ A', ↑↑(Erdos319.adenwallaSign n) / ↑n ≠ 0
+AUDIT|Erdos319.five_mem_erdos319Set._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.five_mem_erdos319Set._proof_1_6|∀ {N : ℕ}, 42 ≤ N → ¬(2 ≤ 42 ∧ 42 ≤ N) → False
+AUDIT|Erdos319.five_mem_erdos319Set._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.five_mem_erdos319Set._proof_1_5|∀ {N : ℕ}, 42 ≤ N → ¬(2 ≤ 7 ∧ 7 ≤ N) → False
+AUDIT|Erdos319.four_mem_erdos319Set._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.four_mem_erdos319Set._proof_1_3|∀ {N : ℕ}, 6 ≤ N → ¬(2 ≤ 2 ∧ 2 ≤ N) → False
+AUDIT|Erdos319.four_mem_erdos319Set._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.four_mem_erdos319Set._simp_1_2|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos319.bddAbove_erdos319Set|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.bddAbove_erdos319Set|∀ (N : ℕ), BddAbove (Erdos319.erdos319Set N)
+AUDIT|Erdos319.erdos_319_isBigO|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos319.erdos_319_isBigO|∀ (c : ℕ → ℝ),
+  (∀ (N : ℕ), IsGreatest (Erdos319.erdos319Set N) (c N)) → c =O[Filter.atTop] Erdos319.erdos_319.variants.isTheta.answer

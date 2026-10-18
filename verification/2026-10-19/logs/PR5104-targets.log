@@ -1,0 +1,1120 @@
+@Erdos413.barrier_coalesces_trajectories : ∀ {g : ℕ → ℕ} {n m k : ℕ},
+  Erdos413.IsBarrier (fun x => ↑(g x)) n →
+    m ≤ n → n ≤ (Erdos413.stepMap g)^[k] m → ∃ j ≤ k, (Erdos413.stepMap g)^[j] m = n
+theorem Erdos413.barrier_coalesces_trajectories : ∀ {g : ℕ → ℕ} {n m k : ℕ},
+  Erdos413.IsBarrier (fun x => ↑(g x)) n →
+    m ≤ n → n ≤ (Erdos413.stepMap g)^[k] m → ∃ j ≤ k, (Erdos413.stepMap g)^[j] m = n :=
+fun {g} {n m k} hbar hm hge =>
+  Or.casesOn (Erdos413.barrier_traps_iterates hbar hm k)
+    (fun hlt => Decidable.byContradiction fun a => Erdos413.barrier_coalesces_trajectories._proof_1_1 hge hlt)
+    fun hhit => hhit
+'Erdos413.barrier_coalesces_trajectories' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Erdos413.barrier_traps_iterates : ∀ {g : ℕ → ℕ} {n : ℕ},
+  Erdos413.IsBarrier (fun m => ↑(g m)) n →
+    ∀ {m : ℕ}, m ≤ n → ∀ (k : ℕ), (Erdos413.stepMap g)^[k] m < n ∨ ∃ j ≤ k, (Erdos413.stepMap g)^[j] m = n
+theorem Erdos413.barrier_traps_iterates : ∀ {g : ℕ → ℕ} {n : ℕ},
+  Erdos413.IsBarrier (fun m => ↑(g m)) n →
+    ∀ {m : ℕ}, m ≤ n → ∀ (k : ℕ), (Erdos413.stepMap g)^[k] m < n ∨ ∃ j ≤ k, (Erdos413.stepMap g)^[j] m = n :=
+fun {g} {n} hbar {m} hm k =>
+  Nat.recAux
+    (id
+      (Or.casesOn (lt_or_eq_of_le hm) (fun hlt => Or.inl hlt) fun h =>
+        Eq.ndrec (motive := fun {n} =>
+          Erdos413.IsBarrier (fun m => ↑(g m)) n → m ≤ n → m < n ∨ ∃ j ≤ 0, (Erdos413.stepMap g)^[j] m = n)
+          (fun hbar hm => Or.inr (Exists.intro 0 ⟨le_rfl, rfl⟩)) h hbar hm))
+    (fun k ih =>
+      Or.casesOn ih
+        (fun hlt =>
+          have hle_real := hbar ((Erdos413.stepMap g)^[k] m) hlt;
+          have hle_nat :=
+            cast
+              (Eq.trans
+                (congrFun'
+                  (congrArg LE.le (Nat.cast_add._simp_1 ((Erdos413.stepMap g)^[k] m) (g ((Erdos413.stepMap g)^[k] m))))
+                  ↑n)
+                Nat.cast_le._simp_1)
+              hle_real;
+          have hsucc :=
+            Eq.mpr
+              (id
+                (congrArg (fun _a => _a = (Erdos413.stepMap g)^[k] m + g ((Erdos413.stepMap g)^[k] m))
+                  (Function.iterate_succ_apply' (Erdos413.stepMap g) k m)))
+              (Eq.refl (Erdos413.stepMap g ((Erdos413.stepMap g)^[k] m)));
+          Or.casesOn (lt_or_eq_of_le hle_nat) (fun hlt' => Or.inl (Eq.symm hsucc ▸ hlt')) fun heq' =>
+            Or.inr (Exists.intro (k + 1) ⟨le_rfl, Eq.symm hsucc ▸ heq'⟩))
+        fun h =>
+        Exists.casesOn h fun j h =>
+          And.casesOn h fun hjk hj_eq => Or.inr (Exists.intro j ⟨Nat.le_succ_of_le hjk, hj_eq⟩))
+    k
+'Erdos413.barrier_traps_iterates' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos413.erdos_413_parts_ii_iff_linear_omega : (∃ ε > 0,
+    {n | Erdos413.IsBarrier (fun m => ε * ↑(ArithmeticFunction.cardDistinctFactors m)) n}.Infinite) ↔
+  ∃ C > 0, {n | ∀ k ∈ Set.Icc 1 n, ↑(ArithmeticFunction.cardDistinctFactors (n - k)) ≤ C * ↑k}.Infinite
+theorem Erdos413.erdos_413_parts_ii_iff_linear_omega : (∃ ε > 0,
+    {n | Erdos413.IsBarrier (fun m => ε * ↑(ArithmeticFunction.cardDistinctFactors m)) n}.Infinite) ↔
+  ∃ C > 0, {n | ∀ k ∈ Set.Icc 1 n, ↑(ArithmeticFunction.cardDistinctFactors (n - k)) ≤ C * ↑k}.Infinite :=
+{
+  mp := fun a =>
+    Exists.casesOn a fun ε h =>
+      And.casesOn h fun hε hinf =>
+        Exists.intro (1 / ε)
+          ⟨div_pos
+              (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one)
+                (Eq.refl (Nat.ble 1 1)))
+              hε,
+            Set.Infinite.mono
+              (fun n hn k hk =>
+                have h1 := (Erdos413.isBarrier_mul_iff hε n).mp hn k hk;
+                le_of_not_gt fun a =>
+                  Mathlib.Tactic.Linarith.lt_irrefl
+                    (Eq.mp
+                      (congrArg (fun _a => _a < 0)
+                        (Mathlib.Tactic.Ring.of_eq
+                          (Mathlib.Tactic.Ring.Common.add_congr
+                            (Mathlib.Tactic.Ring.Common.add_congr
+                              (Mathlib.Tactic.Ring.Common.sub_congr
+                                (Mathlib.Tactic.Ring.Common.mul_congr
+                                  (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                  (Mathlib.Tactic.Ring.Common.atom_pf
+                                    (↑(ArithmeticFunction.cardDistinctFactors (n - k))) rfl
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg
+                                          (fun _a =>
+                                            ↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                                Nat.rawCast 1 =
+                                              ↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 * _a)
+                                          (Eq.symm rfl)))
+                                      (Eq.refl
+                                        (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                          Nat.rawCast 1))))
+                                  (Mathlib.Tactic.Ring.Common.add_mul
+                                    (Mathlib.Tactic.Ring.Common.mul_add
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_right
+                                        (↑(ArithmeticFunction.cardDistinctFactors (n - k))) (Nat.rawCast 1)
+                                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                                      (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                            Nat.rawCast 1 +
+                                          0)))
+                                    (Mathlib.Tactic.Ring.Common.zero_mul
+                                      (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                          Nat.rawCast 1 +
+                                        0))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                          Nat.rawCast 1 +
+                                        0))))
+                                (Mathlib.Tactic.Ring.Common.mul_congr
+                                  (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                  (Mathlib.Tactic.Ring.Common.div_congr
+                                    (Mathlib.Tactic.Ring.Common.atom_pf (↑k) rfl
+                                      (Eq.mpr
+                                        (id
+                                          (congrArg
+                                            (fun _a => ↑k ^ Nat.rawCast 1 * Nat.rawCast 1 = ↑k ^ Nat.rawCast 1 * _a)
+                                            (Eq.symm rfl)))
+                                        (Eq.refl (↑k ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                    (Mathlib.Tactic.Ring.Common.atom_pf ε rfl
+                                      (Eq.mpr
+                                        (id
+                                          (congrArg
+                                            (fun _a => ε ^ Nat.rawCast 1 * Nat.rawCast 1 = ε ^ Nat.rawCast 1 * _a)
+                                            (Eq.symm rfl)))
+                                        (Eq.refl (ε ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                    (Mathlib.Tactic.Ring.Common.div_pf
+                                      (Mathlib.Tactic.Ring.Common.inv_single
+                                        (Mathlib.Tactic.Ring.Common.inv_mul (Eq.refl ε⁻¹)
+                                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                            (Mathlib.Meta.NormNum.IsNNRat.to_isNat
+                                              (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                                (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)))))
+                                          (Eq.symm
+                                              (Eq.mpr
+                                                (id
+                                                  (congrArg
+                                                    (fun _a =>
+                                                      ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 = ε⁻¹ ^ Nat.rawCast 1 * _a)
+                                                    (Eq.symm rfl)))
+                                                (Eq.refl (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1))) ▸
+                                            Mathlib.Tactic.Ring.Common.mul_pf_right ε⁻¹ (Nat.rawCast 1)
+                                              (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                                (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))))
+                                      (Mathlib.Tactic.Ring.Common.add_mul
+                                        (Mathlib.Tactic.Ring.Common.mul_add
+                                          (Mathlib.Tactic.Ring.Common.mul_pf_left (↑k) (Nat.rawCast 1)
+                                            (Mathlib.Tactic.Ring.Common.mul_pf_right ε⁻¹ (Nat.rawCast 1)
+                                              (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                                (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1)))))
+                                          (Mathlib.Tactic.Ring.Common.mul_zero (↑k ^ Nat.rawCast 1 * Nat.rawCast 1))
+                                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                            (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))
+                                        (Mathlib.Tactic.Ring.Common.zero_mul (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                          (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))))
+                                  (Mathlib.Tactic.Ring.Common.add_mul
+                                    (Mathlib.Tactic.Ring.Common.mul_add
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_right (↑k) (Nat.rawCast 1)
+                                        (Mathlib.Tactic.Ring.Common.mul_pf_right ε⁻¹ (Nat.rawCast 1)
+                                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1)))))
+                                      (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))
+                                    (Mathlib.Tactic.Ring.Common.zero_mul
+                                      (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0))))
+                                (Mathlib.Tactic.Ring.Common.sub_pf
+                                  (Mathlib.Tactic.Ring.Common.neg_add
+                                    (Mathlib.Tactic.Ring.Common.neg_mul (↑k) (Nat.rawCast 1)
+                                      (Mathlib.Tactic.Ring.Common.neg_mul ε⁻¹ (Nat.rawCast 1)
+                                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                            (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                            (Eq.refl (Int.negOfNat 1))))))
+                                    Mathlib.Tactic.Ring.Common.neg_zero)
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                    (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 * Nat.rawCast 1)
+                                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                      (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast) + 0)))))
+                              (Mathlib.Tactic.Ring.Common.sub_congr
+                                (Mathlib.Tactic.Ring.Common.mul_congr
+                                  (Mathlib.Tactic.Ring.Common.mul_congr
+                                    (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                    (Mathlib.Tactic.Ring.Common.div_congr
+                                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                      (Mathlib.Tactic.Ring.Common.atom_pf ε rfl
+                                        (Eq.mpr
+                                          (id
+                                            (congrArg
+                                              (fun _a => ε ^ Nat.rawCast 1 * Nat.rawCast 1 = ε ^ Nat.rawCast 1 * _a)
+                                              (Eq.symm rfl)))
+                                          (Eq.refl (ε ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                      (Mathlib.Tactic.Ring.Common.div_pf
+                                        (Mathlib.Tactic.Ring.Common.inv_single
+                                          (Mathlib.Tactic.Ring.Common.inv_mul (Eq.refl ε⁻¹)
+                                            (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                              (Mathlib.Meta.NormNum.IsNNRat.to_isNat
+                                                (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                                  (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                                    (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)))))
+                                            (Eq.symm
+                                                (Eq.mpr
+                                                  (id
+                                                    (congrArg
+                                                      (fun _a =>
+                                                        ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 = ε⁻¹ ^ Nat.rawCast 1 * _a)
+                                                      (Eq.symm rfl)))
+                                                  (Eq.refl (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1))) ▸
+                                              Mathlib.Tactic.Ring.Common.mul_pf_right ε⁻¹ (Nat.rawCast 1)
+                                                (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                                  (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                    (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                                    (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))))
+                                        (Mathlib.Tactic.Ring.Common.add_mul
+                                          (Mathlib.Tactic.Ring.Common.mul_add
+                                            (Mathlib.Tactic.Ring.Common.mul_pf_right ε⁻¹ (Nat.rawCast 1)
+                                              (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                                (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                                            (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                            (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                              (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))
+                                          (Mathlib.Tactic.Ring.Common.zero_mul
+                                            (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                            (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))))
+                                    (Mathlib.Tactic.Ring.Common.add_mul
+                                      (Mathlib.Tactic.Ring.Common.mul_add
+                                        (Mathlib.Tactic.Ring.Common.mul_pf_right ε⁻¹ (Nat.rawCast 1)
+                                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                                        (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                          (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))
+                                      (Mathlib.Tactic.Ring.Common.zero_mul (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                                  (Mathlib.Tactic.Ring.Common.mul_congr
+                                    (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                    (Mathlib.Tactic.Ring.Common.atom_pf (↑k) rfl
+                                      (Eq.mpr
+                                        (id
+                                          (congrArg
+                                            (fun _a => ↑k ^ Nat.rawCast 1 * Nat.rawCast 1 = ↑k ^ Nat.rawCast 1 * _a)
+                                            (Eq.symm rfl)))
+                                        (Eq.refl (↑k ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                    (Mathlib.Tactic.Ring.Common.add_mul
+                                      (Mathlib.Tactic.Ring.Common.mul_add
+                                        (Mathlib.Tactic.Ring.Common.mul_pf_right (↑k) (Nat.rawCast 1)
+                                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                                        (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                          (↑k ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))
+                                      (Mathlib.Tactic.Ring.Common.zero_mul (↑k ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (↑k ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                                  (Mathlib.Tactic.Ring.Common.add_mul
+                                    (Mathlib.Tactic.Ring.Common.mul_add
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_right (↑k) (Nat.rawCast 1)
+                                        (Mathlib.Tactic.Ring.Common.mul_pf_left ε⁻¹ (Nat.rawCast 1)
+                                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1)))))
+                                      (Mathlib.Tactic.Ring.Common.mul_zero (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))
+                                    (Mathlib.Tactic.Ring.Common.zero_mul (↑k ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0))))
+                                (Mathlib.Tactic.Ring.Common.mul_congr
+                                  (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                  (Mathlib.Tactic.Ring.Common.atom_pf
+                                    (↑(ArithmeticFunction.cardDistinctFactors (n - k))) rfl
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg
+                                          (fun _a =>
+                                            ↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                                Nat.rawCast 1 =
+                                              ↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 * _a)
+                                          (Eq.symm rfl)))
+                                      (Eq.refl
+                                        (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                          Nat.rawCast 1))))
+                                  (Mathlib.Tactic.Ring.Common.add_mul
+                                    (Mathlib.Tactic.Ring.Common.mul_add
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_right
+                                        (↑(ArithmeticFunction.cardDistinctFactors (n - k))) (Nat.rawCast 1)
+                                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                                      (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                            Nat.rawCast 1 +
+                                          0)))
+                                    (Mathlib.Tactic.Ring.Common.zero_mul
+                                      (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                          Nat.rawCast 1 +
+                                        0))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                          Nat.rawCast 1 +
+                                        0))))
+                                (Mathlib.Tactic.Ring.Common.sub_pf
+                                  (Mathlib.Tactic.Ring.Common.neg_add
+                                    (Mathlib.Tactic.Ring.Common.neg_mul
+                                      (↑(ArithmeticFunction.cardDistinctFactors (n - k))) (Nat.rawCast 1)
+                                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                        (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                          (Eq.refl (Int.negOfNat 1)))))
+                                    Mathlib.Tactic.Ring.Common.neg_zero)
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_gt
+                                    (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                      (Int.negOfNat 1).rawCast)
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))))
+                              (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                                (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero
+                                  (↑(ArithmeticFunction.cardDistinctFactors (n - k))) (Nat.rawCast 1)
+                                  (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                    (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                                      (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                      (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1)) (Eq.refl (Int.ofNat 0)))))
+                                (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                                  (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero (↑k) (Nat.rawCast 1)
+                                    (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero ε⁻¹ (Nat.rawCast 1)
+                                      (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                        (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                                          (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1))
+                                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                          (Eq.refl (Int.ofNat 0))))))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0))))
+                            (Mathlib.Tactic.Ring.Common.sub_congr
+                              (Mathlib.Tactic.Ring.Common.mul_congr
+                                (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                (Mathlib.Tactic.Ring.Common.div_congr
+                                  (Mathlib.Tactic.Ring.Common.atom_pf (↑k) rfl
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg
+                                          (fun _a => ↑k ^ Nat.rawCast 1 * Nat.rawCast 1 = ↑k ^ Nat.rawCast 1 * _a)
+                                          (Eq.symm rfl)))
+                                      (Eq.refl (↑k ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                  (Mathlib.Tactic.Ring.Common.atom_pf ε rfl
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg (fun _a => ε ^ Nat.rawCast 1 * Nat.rawCast 1 = ε ^ Nat.rawCast 1 * _a)
+                                          (Eq.symm rfl)))
+                                      (Eq.refl (ε ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                  (Mathlib.Tactic.Ring.Common.div_pf
+                                    (Mathlib.Tactic.Ring.Common.inv_single
+                                      (Mathlib.Tactic.Ring.Common.inv_mul (Eq.refl ε⁻¹)
+                                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                          (Mathlib.Meta.NormNum.IsNNRat.to_isNat
+                                            (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                              (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)))))
+                                        (Eq.symm
+                                            (Eq.mpr
+                                              (id
+                                                (congrArg
+                                                  (fun _a =>
+                                                    ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 = ε⁻¹ ^ Nat.rawCast 1 * _a)
+                                                  (Eq.symm rfl)))
+                                              (Eq.refl (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1))) ▸
+                                          Mathlib.Tactic.Ring.Common.mul_pf_right ε⁻¹ (Nat.rawCast 1)
+                                            (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                              (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))))
+                                    (Mathlib.Tactic.Ring.Common.add_mul
+                                      (Mathlib.Tactic.Ring.Common.mul_add
+                                        (Mathlib.Tactic.Ring.Common.mul_pf_left (↑k) (Nat.rawCast 1)
+                                          (Mathlib.Tactic.Ring.Common.mul_pf_right ε⁻¹ (Nat.rawCast 1)
+                                            (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                              (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1)))))
+                                        (Mathlib.Tactic.Ring.Common.mul_zero (↑k ^ Nat.rawCast 1 * Nat.rawCast 1))
+                                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                          (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))
+                                      (Mathlib.Tactic.Ring.Common.zero_mul (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))))
+                                (Mathlib.Tactic.Ring.Common.add_mul
+                                  (Mathlib.Tactic.Ring.Common.mul_add
+                                    (Mathlib.Tactic.Ring.Common.mul_pf_right (↑k) (Nat.rawCast 1)
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_right ε⁻¹ (Nat.rawCast 1)
+                                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1)))))
+                                    (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))
+                                  (Mathlib.Tactic.Ring.Common.zero_mul
+                                    (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                    (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0))))
+                              (Mathlib.Tactic.Ring.Common.mul_congr
+                                (Mathlib.Tactic.Ring.Common.mul_congr
+                                  (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                  (Mathlib.Tactic.Ring.Common.div_congr
+                                    (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                    (Mathlib.Tactic.Ring.Common.atom_pf ε rfl
+                                      (Eq.mpr
+                                        (id
+                                          (congrArg
+                                            (fun _a => ε ^ Nat.rawCast 1 * Nat.rawCast 1 = ε ^ Nat.rawCast 1 * _a)
+                                            (Eq.symm rfl)))
+                                        (Eq.refl (ε ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                    (Mathlib.Tactic.Ring.Common.div_pf
+                                      (Mathlib.Tactic.Ring.Common.inv_single
+                                        (Mathlib.Tactic.Ring.Common.inv_mul (Eq.refl ε⁻¹)
+                                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                            (Mathlib.Meta.NormNum.IsNNRat.to_isNat
+                                              (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                                (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)))))
+                                          (Eq.symm
+                                              (Eq.mpr
+                                                (id
+                                                  (congrArg
+                                                    (fun _a =>
+                                                      ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 = ε⁻¹ ^ Nat.rawCast 1 * _a)
+                                                    (Eq.symm rfl)))
+                                                (Eq.refl (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1))) ▸
+                                            Mathlib.Tactic.Ring.Common.mul_pf_right ε⁻¹ (Nat.rawCast 1)
+                                              (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                                (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))))
+                                      (Mathlib.Tactic.Ring.Common.add_mul
+                                        (Mathlib.Tactic.Ring.Common.mul_add
+                                          (Mathlib.Tactic.Ring.Common.mul_pf_right ε⁻¹ (Nat.rawCast 1)
+                                            (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                              (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                                          (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                            (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))
+                                        (Mathlib.Tactic.Ring.Common.zero_mul (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                          (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))))
+                                  (Mathlib.Tactic.Ring.Common.add_mul
+                                    (Mathlib.Tactic.Ring.Common.mul_add
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_right ε⁻¹ (Nat.rawCast 1)
+                                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                                      (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))
+                                    (Mathlib.Tactic.Ring.Common.zero_mul (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                                (Mathlib.Tactic.Ring.Common.mul_congr
+                                  (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                  (Mathlib.Tactic.Ring.Common.atom_pf (↑k) rfl
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg
+                                          (fun _a => ↑k ^ Nat.rawCast 1 * Nat.rawCast 1 = ↑k ^ Nat.rawCast 1 * _a)
+                                          (Eq.symm rfl)))
+                                      (Eq.refl (↑k ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                  (Mathlib.Tactic.Ring.Common.add_mul
+                                    (Mathlib.Tactic.Ring.Common.mul_add
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_right (↑k) (Nat.rawCast 1)
+                                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                                      (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (↑k ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))
+                                    (Mathlib.Tactic.Ring.Common.zero_mul (↑k ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (↑k ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                                (Mathlib.Tactic.Ring.Common.add_mul
+                                  (Mathlib.Tactic.Ring.Common.mul_add
+                                    (Mathlib.Tactic.Ring.Common.mul_pf_right (↑k) (Nat.rawCast 1)
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_left ε⁻¹ (Nat.rawCast 1)
+                                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1)))))
+                                    (Mathlib.Tactic.Ring.Common.mul_zero (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))
+                                  (Mathlib.Tactic.Ring.Common.zero_mul (↑k ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                    (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0))))
+                              (Mathlib.Tactic.Ring.Common.sub_pf
+                                (Mathlib.Tactic.Ring.Common.neg_add
+                                  (Mathlib.Tactic.Ring.Common.neg_mul (↑k) (Nat.rawCast 1)
+                                    (Mathlib.Tactic.Ring.Common.neg_mul ε⁻¹ (Nat.rawCast 1)
+                                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                        (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                          (Eq.refl (Int.negOfNat 1))))))
+                                  Mathlib.Tactic.Ring.Common.neg_zero)
+                                (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                                  (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero (↑k) (Nat.rawCast 1)
+                                    (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero ε⁻¹ (Nat.rawCast 1)
+                                      (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                        (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                          (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1))
+                                          (Eq.refl (Int.ofNat 0))))))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0))))
+                            (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0))
+                          (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))))
+                      (Mathlib.Tactic.Linarith.lt_of_lt_of_eq
+                        (Mathlib.Tactic.Linarith.add_lt_of_le_of_neg
+                          (Eq.mp
+                            (congrArg (fun _a => _a ≤ 0)
+                              (Mathlib.Tactic.Linarith.without_one_mul (Mathlib.Tactic.CancelDenoms.sub_subst rfl rfl)))
+                            (Mathlib.Tactic.Linarith.sub_nonpos_of_le h1))
+                          (Eq.mp
+                            (congrArg (fun _a => _a < 0)
+                              (Mathlib.Tactic.Linarith.without_one_mul
+                                (Mathlib.Tactic.CancelDenoms.sub_subst
+                                  (Mathlib.Tactic.CancelDenoms.mul_subst rfl rfl
+                                    (Mathlib.Meta.NormNum.isNat_eq_true
+                                      (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                        (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one)
+                                        (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl 1))
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one)))
+                                  rfl)))
+                            (Mathlib.Tactic.Linarith.sub_neg_of_lt a)))
+                        (Eq.mp
+                          (congrArg (fun _a => _a = 0)
+                            (Mathlib.Tactic.Linarith.without_one_mul
+                              (Mathlib.Tactic.CancelDenoms.sub_subst rfl
+                                (Mathlib.Tactic.CancelDenoms.mul_subst rfl rfl
+                                  (Mathlib.Meta.NormNum.isNat_eq_true
+                                    (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one)
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl 1))
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))))))
+                          (sub_eq_zero_of_eq
+                            (have this :=
+                              Mathlib.Tactic.Ring.of_eq
+                                (Mathlib.Tactic.Ring.Common.div_congr
+                                  (Mathlib.Tactic.Ring.Common.atom_pf (↑k) rfl
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg
+                                          (fun _a => ↑k ^ Nat.rawCast 1 * Nat.rawCast 1 = ↑k ^ Nat.rawCast 1 * _a)
+                                          (Eq.symm rfl)))
+                                      (Eq.refl (↑k ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                  (Mathlib.Tactic.Ring.Common.atom_pf ε rfl
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg (fun _a => ε ^ Nat.rawCast 1 * Nat.rawCast 1 = ε ^ Nat.rawCast 1 * _a)
+                                          (Eq.symm rfl)))
+                                      (Eq.refl (ε ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                  (Mathlib.Tactic.Ring.Common.div_pf
+                                    (Mathlib.Tactic.Ring.Common.inv_single
+                                      (Mathlib.Tactic.Ring.Common.inv_mul (Eq.refl ε⁻¹)
+                                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                          (Mathlib.Meta.NormNum.IsNNRat.to_isNat
+                                            (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                              (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)))))
+                                        (Eq.symm
+                                            (Eq.mpr
+                                              (id
+                                                (congrArg
+                                                  (fun _a =>
+                                                    ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 = ε⁻¹ ^ Nat.rawCast 1 * _a)
+                                                  (Eq.symm rfl)))
+                                              (Eq.refl (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1))) ▸
+                                          Mathlib.Tactic.Ring.Common.mul_pf_right ε⁻¹ (Nat.rawCast 1)
+                                            (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                              (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))))
+                                    (Mathlib.Tactic.Ring.Common.add_mul
+                                      (Mathlib.Tactic.Ring.Common.mul_add
+                                        (Mathlib.Tactic.Ring.Common.mul_pf_left (↑k) (Nat.rawCast 1)
+                                          (Mathlib.Tactic.Ring.Common.mul_pf_right ε⁻¹ (Nat.rawCast 1)
+                                            (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                              (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1)))))
+                                        (Mathlib.Tactic.Ring.Common.mul_zero (↑k ^ Nat.rawCast 1 * Nat.rawCast 1))
+                                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                          (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))
+                                      (Mathlib.Tactic.Ring.Common.zero_mul (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))))
+                                (Mathlib.Tactic.Ring.Common.mul_congr
+                                  (Mathlib.Tactic.Ring.Common.div_congr
+                                    (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                    (Mathlib.Tactic.Ring.Common.atom_pf ε rfl
+                                      (Eq.mpr
+                                        (id
+                                          (congrArg
+                                            (fun _a => ε ^ Nat.rawCast 1 * Nat.rawCast 1 = ε ^ Nat.rawCast 1 * _a)
+                                            (Eq.symm rfl)))
+                                        (Eq.refl (ε ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                    (Mathlib.Tactic.Ring.Common.div_pf
+                                      (Mathlib.Tactic.Ring.Common.inv_single
+                                        (Mathlib.Tactic.Ring.Common.inv_mul (Eq.refl ε⁻¹)
+                                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                            (Mathlib.Meta.NormNum.IsNNRat.to_isNat
+                                              (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                                (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)))))
+                                          (Eq.symm
+                                              (Eq.mpr
+                                                (id
+                                                  (congrArg
+                                                    (fun _a =>
+                                                      ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 = ε⁻¹ ^ Nat.rawCast 1 * _a)
+                                                    (Eq.symm rfl)))
+                                                (Eq.refl (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1))) ▸
+                                            Mathlib.Tactic.Ring.Common.mul_pf_right ε⁻¹ (Nat.rawCast 1)
+                                              (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                                (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))))
+                                      (Mathlib.Tactic.Ring.Common.add_mul
+                                        (Mathlib.Tactic.Ring.Common.mul_add
+                                          (Mathlib.Tactic.Ring.Common.mul_pf_right ε⁻¹ (Nat.rawCast 1)
+                                            (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                              (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                                          (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                            (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))
+                                        (Mathlib.Tactic.Ring.Common.zero_mul (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                          (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))))
+                                  (Mathlib.Tactic.Ring.Common.atom_pf (↑k) rfl
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg
+                                          (fun _a => ↑k ^ Nat.rawCast 1 * Nat.rawCast 1 = ↑k ^ Nat.rawCast 1 * _a)
+                                          (Eq.symm rfl)))
+                                      (Eq.refl (↑k ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                  (Mathlib.Tactic.Ring.Common.add_mul
+                                    (Mathlib.Tactic.Ring.Common.mul_add
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_right (↑k) (Nat.rawCast 1)
+                                        (Mathlib.Tactic.Ring.Common.mul_pf_left ε⁻¹ (Nat.rawCast 1)
+                                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1)))))
+                                      (Mathlib.Tactic.Ring.Common.mul_zero (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))
+                                    (Mathlib.Tactic.Ring.Common.zero_mul (↑k ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (↑k ^ Nat.rawCast 1 * (ε⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0))));
+                            this))))))
+              hinf⟩,
+  mpr := fun a =>
+    Exists.casesOn a fun C h =>
+      And.casesOn h fun hC hinf =>
+        Exists.intro (1 / C)
+          ⟨div_pos
+              (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one)
+                (Eq.refl (Nat.ble 1 1)))
+              hC,
+            Set.Infinite.mono
+              (fun n hn =>
+                (Erdos413.isBarrier_mul_iff
+                      (div_pos
+                        (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one)
+                          (Eq.refl (Nat.ble 1 1)))
+                        hC)
+                      n).mpr
+                  fun k hk =>
+                  have h1 := hn k hk;
+                  have h2 :=
+                    have this := LT.lt.ne' hC;
+                    of_eq_true
+                      (Eq.trans
+                        (Mathlib.Tactic.FieldSimp.eq_eq_cancel_eq
+                          (Mathlib.Tactic.FieldSimp.eq_mul_of_eq_eq_eq_mul (Eq.trans (congr_arg₂ HMul.hMul rfl rfl) rfl)
+                            (Eq.trans
+                              (Mathlib.Tactic.FieldSimp.NF.mul_eq_eval
+                                (Eq.trans (Eq.refl C) (Mathlib.Tactic.FieldSimp.NF.atom_eq_eval C))
+                                (Eq.trans (Eq.refl ↑k) (Mathlib.Tactic.FieldSimp.NF.atom_eq_eval ↑k))
+                                (Mathlib.Tactic.FieldSimp.NF.mul_eq_eval₃ (1, ↑k) (mul_one ((1, C) ::ᵣ []).eval)))
+                              (Eq.symm
+                                (Mathlib.Tactic.FieldSimp.NF.eval_mul_eval_cons 1 (↑k)
+                                  (Mathlib.Tactic.FieldSimp.NF.eval_cons_mul_eval 1 C
+                                    (one_mul (Mathlib.Tactic.FieldSimp.NF.eval []))))))
+                            rfl
+                            (Mathlib.Tactic.FieldSimp.eq_div_of_eq_one_of_subst
+                              (Mathlib.Tactic.FieldSimp.NF.cons_eq_div_of_eq_div 1 (↑k) (Eq.symm (div_one 1)))
+                              (Eq.mpr
+                                (id (congrArg (fun _a => _a = ↑k) (Mathlib.Tactic.FieldSimp.NF.eval_cons (1, ↑k) [])))
+                                (Eq.trans (one_mul (Mathlib.Tactic.FieldSimp.zpow' (1, ↑k).2 (1, ↑k).1))
+                                  (Mathlib.Tactic.FieldSimp.zpow'_one ↑k)))))
+                          (Mathlib.Tactic.FieldSimp.eq_mul_of_eq_eq_eq_mul
+                            (Eq.trans (congr_arg₂ HDiv.hDiv rfl (Eq.trans (congr_arg₂ HDiv.hDiv rfl rfl) rfl)) rfl)
+                            (Eq.trans
+                              (Mathlib.Tactic.FieldSimp.NF.div_eq_eval
+                                (Eq.trans (Eq.refl ↑k) (Mathlib.Tactic.FieldSimp.NF.atom_eq_eval ↑k))
+                                (Mathlib.Tactic.FieldSimp.NF.div_eq_eval (Mathlib.Tactic.FieldSimp.NF.one_eq_eval ℝ)
+                                  (Eq.trans (Eq.refl C) (Mathlib.Tactic.FieldSimp.NF.atom_eq_eval C))
+                                  (Mathlib.Tactic.FieldSimp.NF.one_div_eq_eval ((1, C) ::ᵣ [])))
+                                (Mathlib.Tactic.FieldSimp.NF.div_eq_eval₁ (1, ↑k)
+                                  (Mathlib.Tactic.FieldSimp.NF.one_div_eq_eval ((-1, C) ::ᵣ []))))
+                              (Eq.symm
+                                (Mathlib.Tactic.FieldSimp.NF.eval_mul_eval_cons 1 (↑k)
+                                  (Mathlib.Tactic.FieldSimp.NF.eval_cons_mul_eval 1 C
+                                    (one_mul (Mathlib.Tactic.FieldSimp.NF.eval []))))))
+                            rfl
+                            (Mathlib.Tactic.FieldSimp.eq_div_of_eq_one_of_subst
+                              (Mathlib.Tactic.FieldSimp.NF.cons_eq_div_of_eq_div 1 (↑k) (Eq.symm (div_one 1)))
+                              (Eq.mpr
+                                (id (congrArg (fun _a => _a = ↑k) (Mathlib.Tactic.FieldSimp.NF.eval_cons (1, ↑k) [])))
+                                (Eq.trans (one_mul (Mathlib.Tactic.FieldSimp.zpow' (1, ↑k).2 (1, ↑k).1))
+                                  (Mathlib.Tactic.FieldSimp.zpow'_one ↑k)))))
+                          (Mathlib.Tactic.FieldSimp.NF.cons_ne_zero 1 this one_ne_zero))
+                        (eq_self ↑k));
+                  le_of_not_gt fun a =>
+                    Mathlib.Tactic.Linarith.lt_irrefl
+                      (Eq.mp
+                        (congrArg (fun _a => _a < 0)
+                          (Mathlib.Tactic.Ring.of_eq
+                            (Mathlib.Tactic.Ring.Common.add_congr
+                              (Mathlib.Tactic.Ring.Common.sub_congr
+                                (Mathlib.Tactic.Ring.Common.atom_pf (↑(ArithmeticFunction.cardDistinctFactors (n - k)))
+                                  rfl
+                                  (Eq.mpr
+                                    (id
+                                      (congrArg
+                                        (fun _a =>
+                                          ↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                              Nat.rawCast 1 =
+                                            ↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 * _a)
+                                        (Eq.symm rfl)))
+                                    (Eq.refl
+                                      (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                        Nat.rawCast 1))))
+                                (Mathlib.Tactic.Ring.Common.mul_congr
+                                  (Mathlib.Tactic.Ring.Common.atom_pf C rfl
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg (fun _a => C ^ Nat.rawCast 1 * Nat.rawCast 1 = C ^ Nat.rawCast 1 * _a)
+                                          (Eq.symm rfl)))
+                                      (Eq.refl (C ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                  (Mathlib.Tactic.Ring.Common.atom_pf (↑k) rfl
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg
+                                          (fun _a => ↑k ^ Nat.rawCast 1 * Nat.rawCast 1 = ↑k ^ Nat.rawCast 1 * _a)
+                                          (Eq.symm rfl)))
+                                      (Eq.refl (↑k ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                  (Mathlib.Tactic.Ring.Common.add_mul
+                                    (Mathlib.Tactic.Ring.Common.mul_add
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_left C (Nat.rawCast 1)
+                                        (Mathlib.Tactic.Ring.Common.mul_pf_right (↑k) (Nat.rawCast 1)
+                                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1)))))
+                                      (Mathlib.Tactic.Ring.Common.mul_zero (C ^ Nat.rawCast 1 * Nat.rawCast 1))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (C ^ Nat.rawCast 1 * (↑k ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))
+                                    (Mathlib.Tactic.Ring.Common.zero_mul (↑k ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (C ^ Nat.rawCast 1 * (↑k ^ Nat.rawCast 1 * Nat.rawCast 1) + 0))))
+                                (Mathlib.Tactic.Ring.Common.sub_pf
+                                  (Mathlib.Tactic.Ring.Common.neg_add
+                                    (Mathlib.Tactic.Ring.Common.neg_mul C (Nat.rawCast 1)
+                                      (Mathlib.Tactic.Ring.Common.neg_mul (↑k) (Nat.rawCast 1)
+                                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                            (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                            (Eq.refl (Int.negOfNat 1))))))
+                                    Mathlib.Tactic.Ring.Common.neg_zero)
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                    (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 * Nat.rawCast 1)
+                                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                      (C ^ Nat.rawCast 1 * (↑k ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast) + 0)))))
+                              (Mathlib.Tactic.Ring.Common.sub_congr
+                                (Mathlib.Tactic.Ring.Common.mul_congr
+                                  (Mathlib.Tactic.Ring.Common.mul_congr
+                                    (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                    (Mathlib.Tactic.Ring.Common.atom_pf (↑k) rfl
+                                      (Eq.mpr
+                                        (id
+                                          (congrArg
+                                            (fun _a => ↑k ^ Nat.rawCast 1 * Nat.rawCast 1 = ↑k ^ Nat.rawCast 1 * _a)
+                                            (Eq.symm rfl)))
+                                        (Eq.refl (↑k ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                    (Mathlib.Tactic.Ring.Common.add_mul
+                                      (Mathlib.Tactic.Ring.Common.mul_add
+                                        (Mathlib.Tactic.Ring.Common.mul_pf_right (↑k) (Nat.rawCast 1)
+                                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                                        (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                          (↑k ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))
+                                      (Mathlib.Tactic.Ring.Common.zero_mul (↑k ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (↑k ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                                  (Mathlib.Tactic.Ring.Common.mul_congr
+                                    (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                    (Mathlib.Tactic.Ring.Common.atom_pf C rfl
+                                      (Eq.mpr
+                                        (id
+                                          (congrArg
+                                            (fun _a => C ^ Nat.rawCast 1 * Nat.rawCast 1 = C ^ Nat.rawCast 1 * _a)
+                                            (Eq.symm rfl)))
+                                        (Eq.refl (C ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                    (Mathlib.Tactic.Ring.Common.add_mul
+                                      (Mathlib.Tactic.Ring.Common.mul_add
+                                        (Mathlib.Tactic.Ring.Common.mul_pf_right C (Nat.rawCast 1)
+                                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                                        (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                          (C ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))
+                                      (Mathlib.Tactic.Ring.Common.zero_mul (C ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (C ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                                  (Mathlib.Tactic.Ring.Common.add_mul
+                                    (Mathlib.Tactic.Ring.Common.mul_add
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_right C (Nat.rawCast 1)
+                                        (Mathlib.Tactic.Ring.Common.mul_pf_left (↑k) (Nat.rawCast 1)
+                                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1)))))
+                                      (Mathlib.Tactic.Ring.Common.mul_zero (↑k ^ Nat.rawCast 1 * Nat.rawCast 1))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (C ^ Nat.rawCast 1 * (↑k ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))
+                                    (Mathlib.Tactic.Ring.Common.zero_mul (C ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (C ^ Nat.rawCast 1 * (↑k ^ Nat.rawCast 1 * Nat.rawCast 1) + 0))))
+                                (Mathlib.Tactic.Ring.Common.mul_congr
+                                  (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                  (Mathlib.Tactic.Ring.Common.atom_pf
+                                    (↑(ArithmeticFunction.cardDistinctFactors (n - k))) rfl
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg
+                                          (fun _a =>
+                                            ↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                                Nat.rawCast 1 =
+                                              ↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 * _a)
+                                          (Eq.symm rfl)))
+                                      (Eq.refl
+                                        (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                          Nat.rawCast 1))))
+                                  (Mathlib.Tactic.Ring.Common.add_mul
+                                    (Mathlib.Tactic.Ring.Common.mul_add
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_right
+                                        (↑(ArithmeticFunction.cardDistinctFactors (n - k))) (Nat.rawCast 1)
+                                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                                      (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                            Nat.rawCast 1 +
+                                          0)))
+                                    (Mathlib.Tactic.Ring.Common.zero_mul
+                                      (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                          Nat.rawCast 1 +
+                                        0))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                          Nat.rawCast 1 +
+                                        0))))
+                                (Mathlib.Tactic.Ring.Common.sub_pf
+                                  (Mathlib.Tactic.Ring.Common.neg_add
+                                    (Mathlib.Tactic.Ring.Common.neg_mul
+                                      (↑(ArithmeticFunction.cardDistinctFactors (n - k))) (Nat.rawCast 1)
+                                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                        (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                          (Eq.refl (Int.negOfNat 1)))))
+                                    Mathlib.Tactic.Ring.Common.neg_zero)
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_gt
+                                    (↑(ArithmeticFunction.cardDistinctFactors (n - k)) ^ Nat.rawCast 1 *
+                                      (Int.negOfNat 1).rawCast)
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (C ^ Nat.rawCast 1 * (↑k ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))))
+                              (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                                (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero
+                                  (↑(ArithmeticFunction.cardDistinctFactors (n - k))) (Nat.rawCast 1)
+                                  (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                    (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                                      (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                      (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1)) (Eq.refl (Int.ofNat 0)))))
+                                (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                                  (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero C (Nat.rawCast 1)
+                                    (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero (↑k) (Nat.rawCast 1)
+                                      (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                        (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                                          (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1))
+                                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                          (Eq.refl (Int.ofNat 0))))))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0))))
+                            (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))))
+                        (Mathlib.Tactic.Linarith.add_lt_of_le_of_neg (Mathlib.Tactic.Linarith.sub_nonpos_of_le h1)
+                          (Eq.mp
+                            (congrArg (fun _a => _a < 0)
+                              (Mathlib.Tactic.Linarith.without_one_mul
+                                (Mathlib.Tactic.CancelDenoms.derive_trans
+                                  (congrFun' (congrArg HSub.hSub (div_div_eq_mul_div (↑k) 1 C))
+                                    ↑(ArithmeticFunction.cardDistinctFactors (n - k)))
+                                  (Mathlib.Tactic.CancelDenoms.sub_subst
+                                    (Mathlib.Tactic.CancelDenoms.div_subst
+                                      (Mathlib.Tactic.CancelDenoms.mul_subst rfl rfl
+                                        (Mathlib.Meta.NormNum.isNat_eq_true
+                                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                            (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one)
+                                            (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl 1))
+                                          (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one)))
+                                      (Mathlib.Meta.NormNum.isNat_eq_true
+                                        (Mathlib.Meta.NormNum.IsNNRat.to_isNat
+                                          (Mathlib.Meta.NormNum.isNNRat_div
+                                            (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                              (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one)
+                                                (Mathlib.Meta.NormNum.IsNNRat.to_isNat
+                                                  (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                                    (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                                      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))))
+                                                (Eq.refl 1)))))
+                                        (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                      (Mathlib.Meta.NormNum.isNat_eq_true
+                                        (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                          (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one)
+                                          (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl 1))
+                                        (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one)))
+                                    rfl))))
+                            (Mathlib.Tactic.Linarith.sub_neg_of_lt a)))))
+              hinf⟩ }
+'Erdos413.erdos_413_parts_ii_iff_linear_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos413.erdos_413_parts_ii_of_lau : (∃ C > 0,
+    {n | ∀ k ∈ Set.Icc 1 n, ↑(ArithmeticFunction.cardDistinctFactors (n - k)) ≤ C * (Real.log ↑k + 1)}.Infinite) →
+  ∃ ε > 0, {n | Erdos413.IsBarrier (fun m => ε * ↑(ArithmeticFunction.cardDistinctFactors m)) n}.Infinite
+theorem Erdos413.erdos_413_parts_ii_of_lau : (∃ C > 0,
+    {n | ∀ k ∈ Set.Icc 1 n, ↑(ArithmeticFunction.cardDistinctFactors (n - k)) ≤ C * (Real.log ↑k + 1)}.Infinite) →
+  ∃ ε > 0, {n | Erdos413.IsBarrier (fun m => ε * ↑(ArithmeticFunction.cardDistinctFactors m)) n}.Infinite :=
+fun hlau =>
+  Eq.mpr (id (congrArg (fun _a => _a) (propext Erdos413.erdos_413_parts_ii_iff_linear_omega)))
+    (Exists.casesOn hlau fun C h =>
+      And.casesOn h fun hC hinf =>
+        Exists.intro C
+          ⟨hC,
+            Set.Infinite.mono
+              (fun n hn k hk =>
+                have hk_pos :=
+                  cast (Eq.symm (Eq.trans (congrFun' (congrArg LT.lt (Eq.symm Nat.cast_zero)) ↑k) Nat.cast_lt._simp_1))
+                    hk.left;
+                have hlog_le :=
+                  have this := Real.log_le_sub_one_of_pos hk_pos;
+                  le_of_not_gt fun a =>
+                    Mathlib.Tactic.Linarith.lt_irrefl
+                      (Eq.mp
+                        (congrArg (fun _a => _a < 0)
+                          (Mathlib.Tactic.Ring.of_eq
+                            (Mathlib.Tactic.Ring.Common.add_congr
+                              (Mathlib.Tactic.Ring.Common.sub_congr
+                                (Mathlib.Tactic.Ring.Common.atom_pf (Real.log ↑k) rfl
+                                  (Eq.mpr
+                                    (id
+                                      (congrArg
+                                        (fun _a =>
+                                          Real.log ↑k ^ Nat.rawCast 1 * Nat.rawCast 1 =
+                                            Real.log ↑k ^ Nat.rawCast 1 * _a)
+                                        (Eq.symm rfl)))
+                                    (Eq.refl (Real.log ↑k ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                (Mathlib.Tactic.Ring.Common.sub_congr
+                                  (Mathlib.Tactic.Ring.Common.atom_pf (↑k) rfl
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg
+                                          (fun _a => ↑k ^ Nat.rawCast 1 * Nat.rawCast 1 = ↑k ^ Nat.rawCast 1 * _a)
+                                          (Eq.symm rfl)))
+                                      (Eq.refl (↑k ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                  (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                  (Mathlib.Tactic.Ring.Common.sub_pf
+                                    (Mathlib.Tactic.Ring.Common.neg_add
+                                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                        (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                          (Eq.refl (Int.negOfNat 1))))
+                                      Mathlib.Tactic.Ring.Common.neg_zero)
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_gt (Int.negOfNat 1).rawCast
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (↑k ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))))
+                                (Mathlib.Tactic.Ring.Common.sub_pf
+                                  (Mathlib.Tactic.Ring.Common.neg_add
+                                    (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                      (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                        (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                          (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1))
+                                          (Eq.refl (Int.ofNat 1)))))
+                                    (Mathlib.Tactic.Ring.Common.neg_add
+                                      (Mathlib.Tactic.Ring.Common.neg_mul (↑k) (Nat.rawCast 1)
+                                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                            (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                            (Eq.refl (Int.negOfNat 1)))))
+                                      Mathlib.Tactic.Ring.Common.neg_zero))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_gt (Nat.rawCast 1)
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                      (Real.log ↑k ^ Nat.rawCast 1 * Nat.rawCast 1)
+                                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                        (↑k ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0))))))
+                              (Mathlib.Tactic.Ring.Common.sub_congr
+                                (Mathlib.Tactic.Ring.Common.atom_pf (↑k) rfl
+                                  (Eq.mpr
+                                    (id
+                                      (congrArg (fun _a => ↑k ^ Nat.rawCast 1 * Nat.rawCast 1 = ↑k ^ Nat.rawCast 1 * _a)
+                                        (Eq.symm rfl)))
+                                    (Eq.refl (↑k ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                (Mathlib.Tactic.Ring.Common.add_congr
+                                  (Mathlib.Tactic.Ring.Common.atom_pf (Real.log ↑k) rfl
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg
+                                          (fun _a =>
+                                            Real.log ↑k ^ Nat.rawCast 1 * Nat.rawCast 1 =
+                                              Real.log ↑k ^ Nat.rawCast 1 * _a)
+                                          (Eq.symm rfl)))
+                                      (Eq.refl (Real.log ↑k ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                  (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_gt (Nat.rawCast 1)
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (Real.log ↑k ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                                (Mathlib.Tactic.Ring.Common.sub_pf
+                                  (Mathlib.Tactic.Ring.Common.neg_add
+                                    (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                      (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                        (Eq.refl (Int.negOfNat 1))))
+                                    (Mathlib.Tactic.Ring.Common.neg_add
+                                      (Mathlib.Tactic.Ring.Common.neg_mul (Real.log ↑k) (Nat.rawCast 1)
+                                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                            (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                            (Eq.refl (Int.negOfNat 1)))))
+                                      Mathlib.Tactic.Ring.Common.neg_zero))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_gt (Int.negOfNat 1).rawCast
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_gt
+                                      (Real.log ↑k ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast)
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (↑k ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))))
+                              (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                                (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                  (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                                    (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                    (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1)) (Eq.refl (Int.ofNat 0))))
+                                (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                                  (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero (Real.log ↑k) (Nat.rawCast 1)
+                                    (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                      (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                        (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1))
+                                        (Eq.refl (Int.ofNat 0)))))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                                    (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero (↑k) (Nat.rawCast 1)
+                                      (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                        (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                                          (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1))
+                                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                          (Eq.refl (Int.ofNat 0)))))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0)))))
+                            (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))))
+                        (Mathlib.Tactic.Linarith.add_lt_of_le_of_neg (Mathlib.Tactic.Linarith.sub_nonpos_of_le this)
+                          (Mathlib.Tactic.Linarith.sub_neg_of_lt a)));
+                LE.le.trans (hn k hk) (mul_le_mul_of_nonneg_left hlog_le (LT.lt.le hC)))
+              hinf⟩)
+'Erdos413.erdos_413_parts_ii_of_lau' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos413.infinite_not_isBarrier_omega : {n |
+    ¬Erdos413.IsBarrier (fun m => ↑(ArithmeticFunction.cardDistinctFactors m)) n}.Infinite
+theorem Erdos413.infinite_not_isBarrier_omega : {n |
+    ¬Erdos413.IsBarrier (fun m => ↑(ArithmeticFunction.cardDistinctFactors m)) n}.Infinite :=
+Set.infinite_of_injective_forall_mem
+  (fun ⦃a b⦄ hab => Decidable.byContradiction fun a_1 => Erdos413.infinite_not_isBarrier_omega._proof_1_1 hab a_1)
+  fun k => Erdos413.not_isBarrier_omega_six_mul_succ_add_one k
+'Erdos413.infinite_not_isBarrier_omega' depends on axioms: [propext, Classical.choice, Quot.sound]

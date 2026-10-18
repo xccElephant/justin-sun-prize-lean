@@ -1,0 +1,403 @@
+Erdos23.erdos_23.variants.n1 : ∀ (G : SimpleGraph (Fin 5)),
+  G.CliqueFree 3 → ∃ H ≤ G, H.IsBipartite ∧ (G.edgeFinset \ H.edgeFinset).card ≤ 1
+theorem Erdos23.erdos_23.variants.n1 : ∀ (G : SimpleGraph (Fin 5)),
+  G.CliqueFree 3 → ∃ H ≤ G, H.IsBipartite ∧ (G.edgeFinset \ H.edgeFinset).card ≤ 1 :=
+fun G hcf =>
+  have h_not_tri := fun u v w h =>
+    match h with
+    | ⟨h1, ⟨h2, h3⟩⟩ =>
+      hcf {u, v, w}
+        {
+          isClique := fun ⦃x⦄ hx ⦃y⦄ hy hxy =>
+            Or.casesOn
+              (Eq.mp
+                (Eq.trans Erdos23.erdos_23.variants.n1._simp_1_3
+                  (Eq.trans Erdos23.erdos_23.variants.n1._simp_1_4
+                    (congrArg (Or (x = u))
+                      (Eq.trans Erdos23.erdos_23.variants.n1._simp_1_4
+                        (congrArg (Or (x = v)) Erdos23.erdos_23.variants.n1._simp_1_5)))))
+                hx)
+              (fun h =>
+                Eq.ndrec (motive := fun u => G.Adj u v → G.Adj u w → y = u ∨ y = v ∨ y = w → G.Adj x y)
+                  (fun h1 h3 hy =>
+                    Or.casesOn hy
+                      (fun h =>
+                        Eq.ndrec (motive := fun ⦃x⦄ => x ≠ y → G.Adj x v → G.Adj x w → G.Adj x y)
+                          (fun hxy h1 h3 => False.elim (hxy rfl)) h hxy h1 h3)
+                      fun h =>
+                      Or.casesOn h
+                        (fun h =>
+                          Eq.ndrec (motive := fun v => G.Adj v w → G.Adj x v → G.Adj x y) (fun h2 h1 => h1) h h2 h1)
+                        fun h =>
+                        Eq.ndrec (motive := fun w => G.Adj v w → G.Adj x w → G.Adj x y) (fun h2 h3 => h3) h h2 h3)
+                  h h1 h3
+                  (Eq.mp
+                    (Eq.trans Erdos23.erdos_23.variants.n1._simp_1_3
+                      (Eq.trans Erdos23.erdos_23.variants.n1._simp_1_4
+                        (congrArg (Or (y = u))
+                          (Eq.trans Erdos23.erdos_23.variants.n1._simp_1_4
+                            (congrArg (Or (y = v)) Erdos23.erdos_23.variants.n1._simp_1_5)))))
+                    hy))
+              fun h =>
+              Or.casesOn h
+                (fun h =>
+                  Eq.ndrec (motive := fun v => G.Adj u v → G.Adj v w → y = u ∨ y = v ∨ y = w → G.Adj x y)
+                    (fun h1 h2 hy =>
+                      Or.casesOn hy
+                        (fun h =>
+                          Eq.ndrec (motive := fun u => G.Adj u w → G.Adj u x → G.Adj x y)
+                            (fun h3 h1 => SimpleGraph.Adj.symm h1) h h3 h1)
+                        fun h =>
+                        Or.casesOn h
+                          (fun h =>
+                            Eq.ndrec (motive := fun ⦃x⦄ => x ≠ y → G.Adj u x → G.Adj x w → G.Adj x y)
+                              (fun hxy h1 h2 => False.elim (hxy rfl)) h hxy h1 h2)
+                          fun h =>
+                          Eq.ndrec (motive := fun w => G.Adj u w → G.Adj x w → G.Adj x y) (fun h3 h2 => h2) h h3 h2)
+                    h h1 h2
+                    (Eq.mp
+                      (Eq.trans Erdos23.erdos_23.variants.n1._simp_1_3
+                        (Eq.trans Erdos23.erdos_23.variants.n1._simp_1_4
+                          (congrArg (Or (y = u))
+                            (Eq.trans Erdos23.erdos_23.variants.n1._simp_1_4
+                              (congrArg (Or (y = v)) Erdos23.erdos_23.variants.n1._simp_1_5)))))
+                      hy))
+                fun h =>
+                Eq.ndrec (motive := fun w => G.Adj v w → G.Adj u w → y = u ∨ y = v ∨ y = w → G.Adj x y)
+                  (fun h2 h3 hy =>
+                    Or.casesOn hy
+                      (fun h =>
+                        Eq.ndrec (motive := fun u => G.Adj u v → G.Adj u x → G.Adj x y)
+                          (fun h1 h3 => SimpleGraph.Adj.symm h3) h h1 h3)
+                      fun h =>
+                      Or.casesOn h
+                        (fun h =>
+                          Eq.ndrec (motive := fun v => G.Adj u v → G.Adj v x → G.Adj x y)
+                            (fun h1 h2 => SimpleGraph.Adj.symm h2) h h1 h2)
+                        fun h =>
+                        Eq.ndrec (motive := fun ⦃x⦄ => x ≠ y → G.Adj v x → G.Adj u x → G.Adj x y)
+                          (fun hxy h2 h3 => False.elim (hxy rfl)) h hxy h2 h3)
+                  h h2 h3
+                  (Eq.mp
+                    (Eq.trans Erdos23.erdos_23.variants.n1._simp_1_3
+                      (Eq.trans Erdos23.erdos_23.variants.n1._simp_1_4
+                        (congrArg (Or (y = u))
+                          (Eq.trans Erdos23.erdos_23.variants.n1._simp_1_4
+                            (congrArg (Or (y = v)) Erdos23.erdos_23.variants.n1._simp_1_5)))))
+                    hy),
+          card_eq :=
+            have huv := SimpleGraph.ne_of_adj G h1;
+            have hvw := SimpleGraph.ne_of_adj G h2;
+            have huw := SimpleGraph.ne_of_adj G h3;
+            of_eq_true
+              (Eq.trans
+                (congrFun'
+                  (congrArg Eq
+                    (Eq.trans
+                      (Finset.card_insert_of_notMem
+                        (of_eq_true
+                          (Eq.trans
+                            (congrArg Not
+                              (Eq.trans Finset.mem_insert._simp_1
+                                (Eq.trans
+                                  (congr (congrArg Or (eq_false huv))
+                                    (Eq.trans Finset.mem_singleton._simp_1 (eq_false huw)))
+                                  (or_self False))))
+                            not_false_eq_true)))
+                      (congrFun'
+                        (congrArg HAdd.hAdd
+                          (Eq.trans
+                            (Finset.card_insert_of_notMem
+                              (of_eq_true
+                                (Eq.trans (congrArg Not (Eq.trans Finset.mem_singleton._simp_1 (eq_false hvw)))
+                                  not_false_eq_true)))
+                            (congrFun' (congrArg HAdd.hAdd (Finset.card_singleton w)) 1)))
+                        1)))
+                  3)
+                (eq_self 3)) };
+  if hex2 : ∃ v, 2 ≤ (G.neighborFinset v).card then
+    Exists.casesOn hex2 fun v hv =>
+      let S := G.neighborFinset v;
+      have hS := rfl;
+      Exists.intro (G ⊓ Erdos23.bipFromSet✝ S)
+        ⟨inf_le_left,
+          ⟨Erdos23.sub_bipFromSet_isBipartite✝ G S,
+            have h_not_mem_v := SimpleGraph.notMem_neighborFinset_self G v;
+            have h_card_Sv := le_trans (Finset.card_le_univ (insert v S)) (of_decide_eq_true (id (Eq.refl true)));
+            have h_card_compl :=
+              Eq.mpr (id (congrArg (fun _a => _a ≤ 2) (Finset.card_compl (insert v S))))
+                (Eq.mpr (id (congrArg (fun _a => _a - (insert v S).card ≤ 2) (Fintype.card_fin 5)))
+                  (Eq.mpr (id (congrArg (fun _a => 5 - _a ≤ 2) (Finset.card_insert_of_notMem h_not_mem_v)))
+                    (Eq.mpr (id (congrArg (fun _a => 5 - (_a.card + 1) ≤ 2) hS))
+                      (Decidable.byContradiction fun a => Erdos23.erdos_23.variants.n1._proof_1_6 G v hv a))));
+            have h_sub := fun ⦃e⦄ he =>
+              Quot.ind
+                (fun a he =>
+                  Prod.casesOn (motive := fun x =>
+                    Quot.mk (Sym2.Rel (Fin 5)) x ∈ G.edgeSet ∧
+                        Quot.mk (Sym2.Rel (Fin 5)) x ∉ (G ⊓ Erdos23.bipFromSet✝ S).edgeSet →
+                      Quot.mk (Sym2.Rel (Fin 5)) x ∈ {e ∈ (insert v S)ᶜ.sym2 | ¬e.IsDiag})
+                    a
+                    (fun x y he =>
+                      have hxy := he.left;
+                      have h_same :=
+                        have h1 := not_ne_iff.mp fun hdiff => he.right ⟨hxy, hdiff⟩;
+                        eq_iff_iff.mp h1;
+                      Eq.mpr (id (congrArg (fun _a => _a) (propext Finset.mem_filter)))
+                        (Eq.mpr
+                          (id
+                            (congrArg (fun _a => _a ∧ ¬Sym2.IsDiag (Quot.mk (Sym2.Rel (Fin 5)) (x, y)))
+                              (propext Finset.mem_sym2_iff)))
+                          ⟨fun z hz =>
+                            Eq.mpr (id (congrArg (fun _a => _a) (propext Finset.mem_compl)))
+                              (Eq.mpr (id (congrArg (fun _a => ¬_a) (propext Finset.mem_insert)))
+                                (Eq.mpr (id (congrArg (fun _a => _a) (propext not_or)))
+                                  (Or.casesOn (Sym2.mem_iff.mp hz)
+                                    (fun h =>
+                                      Eq.ndrec (motive := fun x =>
+                                        Quot.mk (Sym2.Rel (Fin 5)) (x, y) ∈ G.edgeSet ∧
+                                            Quot.mk (Sym2.Rel (Fin 5)) (x, y) ∉ (G ⊓ Erdos23.bipFromSet✝ S).edgeSet →
+                                          G.Adj x y →
+                                            (x ∈ S ↔ y ∈ S) → z ∈ Quot.mk (Sym2.Rel (Fin 5)) (x, y) → ¬z = v ∧ z ∉ S)
+                                        (fun he hxy h_same hz =>
+                                          have hxS := fun hxS =>
+                                            have hyS := h_same.mp hxS;
+                                            h_not_tri v z y
+                                              ⟨Eq.mp
+                                                  (congrArg (fun _a => _a)
+                                                    (propext (SimpleGraph.mem_neighborFinset G v z)))
+                                                  (Eq.mp (congrArg (fun _a => z ∈ _a) hS) hxS),
+                                                ⟨hxy,
+                                                  Eq.mp
+                                                    (congrArg (fun _a => _a)
+                                                      (propext (SimpleGraph.mem_neighborFinset G v y)))
+                                                    (Eq.mp (congrArg (fun _a => y ∈ _a) hS) hyS)⟩⟩;
+                                          ⟨fun a =>
+                                            Eq.ndrec (motive := fun v =>
+                                              2 ≤ (G.neighborFinset v).card →
+                                                let S := G.neighborFinset v;
+                                                S = G.neighborFinset v →
+                                                  v ∉ S →
+                                                    (insert v S).card ≤ 5 →
+                                                      (insert v S)ᶜ.card ≤ 2 →
+                                                        Quot.mk (Sym2.Rel (Fin 5)) (z, y) ∈ G.edgeSet ∧
+                                                            Quot.mk (Sym2.Rel (Fin 5)) (z, y) ∉
+                                                              (G ⊓ Erdos23.bipFromSet✝ S).edgeSet →
+                                                          (z ∈ S ↔ y ∈ S) → z ∉ S → False)
+                                              (fun hv =>
+                                                let S := G.neighborFinset z;
+                                                fun hS h_not_mem_v h_card_Sv h_card_compl he h_same hxS =>
+                                                have hyS :=
+                                                  Eq.mpr (id (congrArg (fun _a => y ∈ _a) hS))
+                                                    (Eq.mpr
+                                                      (id
+                                                        (congrArg (fun _a => _a)
+                                                          (propext (SimpleGraph.mem_neighborFinset G z y))))
+                                                      hxy);
+                                                hxS (h_same.mpr hyS))
+                                              a hv hS h_not_mem_v h_card_Sv h_card_compl he h_same hxS,
+                                            hxS⟩)
+                                        h he hxy h_same hz)
+                                    fun h =>
+                                    Eq.ndrec (motive := fun y =>
+                                      Quot.mk (Sym2.Rel (Fin 5)) (x, y) ∈ G.edgeSet ∧
+                                          Quot.mk (Sym2.Rel (Fin 5)) (x, y) ∉ (G ⊓ Erdos23.bipFromSet✝ S).edgeSet →
+                                        G.Adj x y →
+                                          (x ∈ S ↔ y ∈ S) → z ∈ Quot.mk (Sym2.Rel (Fin 5)) (x, y) → ¬z = v ∧ z ∉ S)
+                                      (fun he hxy h_same hz =>
+                                        have hyS := fun hyS =>
+                                          have hxS := h_same.mpr hyS;
+                                          h_not_tri v x z
+                                            ⟨Eq.mp
+                                                (congrArg (fun _a => _a)
+                                                  (propext (SimpleGraph.mem_neighborFinset G v x)))
+                                                (Eq.mp (congrArg (fun _a => x ∈ _a) hS) hxS),
+                                              ⟨hxy,
+                                                Eq.mp
+                                                  (congrArg (fun _a => _a)
+                                                    (propext (SimpleGraph.mem_neighborFinset G v z)))
+                                                  (Eq.mp (congrArg (fun _a => z ∈ _a) hS) hyS)⟩⟩;
+                                        ⟨fun a =>
+                                          Eq.ndrec (motive := fun v =>
+                                            2 ≤ (G.neighborFinset v).card →
+                                              let S := G.neighborFinset v;
+                                              S = G.neighborFinset v →
+                                                v ∉ S →
+                                                  (insert v S).card ≤ 5 →
+                                                    (insert v S)ᶜ.card ≤ 2 →
+                                                      Quot.mk (Sym2.Rel (Fin 5)) (x, z) ∈ G.edgeSet ∧
+                                                          Quot.mk (Sym2.Rel (Fin 5)) (x, z) ∉
+                                                            (G ⊓ Erdos23.bipFromSet✝ S).edgeSet →
+                                                        (x ∈ S ↔ z ∈ S) → z ∉ S → False)
+                                            (fun hv =>
+                                              let S := G.neighborFinset z;
+                                              fun hS h_not_mem_v h_card_Sv h_card_compl he h_same hyS =>
+                                              have hxS :=
+                                                Eq.mpr (id (congrArg (fun _a => x ∈ _a) hS))
+                                                  (Eq.mpr
+                                                    (id
+                                                      (congrArg (fun _a => _a)
+                                                        (propext (SimpleGraph.mem_neighborFinset G z x))))
+                                                    (SimpleGraph.Adj.symm hxy));
+                                              hyS (h_same.mp hxS))
+                                            a hv hS h_not_mem_v h_card_Sv h_card_compl he h_same hyS,
+                                          hyS⟩)
+                                      h he hxy h_same hz))),
+                            SimpleGraph.not_isDiag_of_mem_edgeSet G he.left⟩))
+                    he)
+                e
+                (Eq.mp (congrArg (fun _a => e ∈ G.edgeSet ∧ ¬_a) (propext SimpleGraph.mem_edgeFinset))
+                  (Eq.mp
+                    (congrArg (fun _a => _a ∧ e ∉ (G ⊓ Erdos23.bipFromSet✝ S).edgeFinset)
+                      (propext SimpleGraph.mem_edgeFinset))
+                    (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_sdiff)) he)));
+            have h_card_sym2 := Erdos23.erdos_23.variants.n1._proof_1_7;
+            le_trans
+              (Finset.card_le_card
+                (Eq.mpr
+                  (eq_of_heq
+                    ((fun α self a a' e'_3 a_1 =>
+                        Eq.casesOn (motive := fun a_2 x => a' = a_2 → e'_3 ≍ x → (a ≤ a_1) ≍ (a' ≤ a_1)) e'_3
+                          (fun h =>
+                            Eq.ndrec (motive := fun a' => ∀ (e_3 : a = a'), e_3 ≍ Eq.refl a → (a ≤ a_1) ≍ (a' ≤ a_1))
+                              (fun e_3 h => HEq.refl (a ≤ a_1)) (Eq.symm h) e'_3)
+                          (Eq.refl a') (HEq.refl e'_3))
+                      (Finset (Sym2 (Fin 5))) Finset.instPartialOrder.toLE
+                      (G.edgeFinset \ (G ⊓ Erdos23.bipFromSet✝ S).edgeFinset)
+                      (G.edgeFinset \ (G ⊓ Erdos23.bipFromSet✝ S).edgeFinset)
+                      (eq_of_heq
+                        ((fun α self a a_1 a' e'_4 =>
+                            Eq.casesOn (motive := fun a_2 x => a' = a_2 → e'_4 ≍ x → a \ a_1 ≍ a \ a') e'_4
+                              (fun h =>
+                                Eq.ndrec (motive := fun a' => ∀ (e_4 : a_1 = a'), e_4 ≍ Eq.refl a_1 → a \ a_1 ≍ a \ a')
+                                  (fun e_4 h => HEq.refl (a \ a_1)) (Eq.symm h) e'_4)
+                              (Eq.refl a') (HEq.refl e'_4))
+                          (Finset (Sym2 (Fin 5))) Finset.instSDiff G.edgeFinset (G ⊓ Erdos23.bipFromSet✝ S).edgeFinset
+                          (G ⊓ Erdos23.bipFromSet✝ S).edgeFinset
+                          (eq_of_heq
+                            ((fun V G inst inst' =>
+                                (fun e'_3 =>
+                                    Eq.casesOn (motive := fun a x => inst' = a → e'_3 ≍ x → G.edgeFinset ≍ G.edgeFinset)
+                                      e'_3
+                                      (fun h =>
+                                        Eq.ndrec (motive := fun inst' =>
+                                          ∀ (e_3 : inst = inst'), e_3 ≍ Eq.refl inst → G.edgeFinset ≍ G.edgeFinset)
+                                          (fun e_3 h => HEq.refl G.edgeFinset) (Eq.symm h) e'_3)
+                                      (Eq.refl inst') (HEq.refl e'_3))
+                                  (Lean.Meta.FastSubsingleton.elim inst inst'))
+                              (Fin 5) (G ⊓ Erdos23.bipFromSet✝ S) (G ⊓ Erdos23.bipFromSet✝ S).fintypeEdgeSet
+                              (G.fintypeEdgeSetInf (Erdos23.bipFromSet✝ S))))))
+                      ({e ∈ (insert v S)ᶜ.sym2 | ¬e.IsDiag})))
+                  h_sub))
+              (h_card_sym2 (insert v S)ᶜ h_card_compl)⟩⟩
+  else
+    if hcard : G.edgeFinset.card ≤ 1 then
+      Exists.intro ⊥
+        ⟨bot_le,
+          ⟨Nonempty.intro (SimpleGraph.Coloring.mk (fun x => 0) fun {v w} h => False.elim h),
+            le_trans (Finset.card_le_card Finset.sdiff_subset) hcard⟩⟩
+    else
+      Exists.casesOn
+        (Finset.card_pos.mp
+          (Decidable.byContradiction fun a => Erdos23.erdos_23.variants.n1._proof_1_8 G (Eq.mp not_le._simp_1 hcard) a))
+        fun e he =>
+        Quot.ind
+          (fun a he =>
+            Prod.casesOn (motive := fun x =>
+              Quot.mk (Sym2.Rel (Fin 5)) x ∈ G.edgeFinset →
+                ∃ H ≤ G, H.IsBipartite ∧ (G.edgeFinset \ H.edgeFinset).card ≤ 1)
+              a
+              (fun u v he =>
+                have huv := SimpleGraph.mem_edgeFinset.mp he;
+                let S := {u};
+                let H := G ⊓ Erdos23.bipFromSet✝ S;
+                Exists.intro H
+                  ⟨inf_le_left,
+                    ⟨Erdos23.sub_bipFromSet_isBipartite✝ G S,
+                      have h_sum_deg :=
+                        Trans.trans
+                          (Finset.sum_le_sum fun w x =>
+                            Eq.mpr
+                              (id
+                                (congrArg (fun _a => _a ≤ 1) (Eq.symm (SimpleGraph.card_neighborFinset_eq_degree G w))))
+                              (Nat.le_of_lt_succ
+                                (Eq.mp
+                                  (Eq.trans
+                                    (Mathlib.Tactic.Push.not_exists._simp_1 fun v => 2 ≤ (G.neighborFinset v).card)
+                                    (forall_congr fun v => not_le._simp_1))
+                                  hex2 w)))
+                          (of_eq_true
+                            (Eq.trans
+                              (congrFun'
+                                (congrArg Eq
+                                  (Eq.trans (Finset.sum_const 1)
+                                    (Eq.trans (congrFun' (congrArg HSMul.hSMul (Fintype.card_fin 5)) 1) (mul_one 5))))
+                                5)
+                              (eq_self 5)));
+                      have h_edges_le_2 :=
+                        have h_hand := SimpleGraph.sum_degrees_eq_twice_card_edges G;
+                        Decidable.byContradiction fun a => Erdos23.erdos_23.variants.n1._proof_1_9 G h_sum_deg h_hand a;
+                      Nat.le_of_lt_succ
+                        (lt_of_lt_of_le
+                          (Finset.card_lt_card
+                            ⟨Finset.sdiff_subset, fun hsub =>
+                              have hmem := hsub he;
+                              (Eq.mp (congrArg (fun _a => _a) (propext Finset.mem_sdiff)) hmem).right
+                                (have h_adj_H :=
+                                  ⟨huv,
+                                    id
+                                      (have hne := Ne.symm (SimpleGraph.ne_of_adj G huv);
+                                      of_eq_true
+                                        (Eq.trans
+                                          (congr (congrArg Ne (Eq.trans Finset.mem_singleton._simp_1 (eq_self u)))
+                                            (Eq.trans Finset.mem_singleton._simp_1 (eq_false hne)))
+                                          (Eq.trans
+                                            (congrArg Not
+                                              (Eq.trans eq_iff_iff._simp_1
+                                                (Eq.trans (iff_false True) not_true_eq_false)))
+                                            not_false_eq_true)))⟩;
+                                SimpleGraph.mem_edgeFinset.mpr h_adj_H)⟩)
+                          h_edges_le_2)⟩⟩)
+              he)
+          e he
+'Erdos23.erdos_23.variants.n1' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos23.erdos_23.variants.n1_tight : ∃ G,
+  G.CliqueFree 3 ∧ ∀ H ≤ G, H.IsBipartite → 1 ≤ (G.edgeFinset \ H.edgeFinset).card
+theorem Erdos23.erdos_23.variants.n1_tight : ∃ G,
+  G.CliqueFree 3 ∧ ∀ H ≤ G, H.IsBipartite → 1 ≤ (G.edgeFinset \ H.edgeFinset).card :=
+Exists.intro (SimpleGraph.cycleGraph 5)
+  ⟨id Erdos23.erdos_23.variants.n1_tight._proof_1_1, fun H hHG hH =>
+    Decidable.byContradiction fun hcon =>
+      have h0 := Finset.card_eq_zero.mp (Nat.lt_one_iff.mp (not_le.mp hcon));
+      have hsub := Finset.sdiff_eq_empty_iff_subset.mp h0;
+      have hGH :=
+        SimpleGraph.edgeSet_subset_edgeSet.mp fun x he =>
+          Eq.mp
+            (forall_congr fun ⦃x⦄ =>
+              implies_congr Erdos23.erdos_23.variants.n1_tight._simp_1_1 Erdos23.erdos_23.variants.n1_tight._simp_1_1)
+            (Eq.mp (congrArg (fun _a => _a) (propext Finset.subset_iff)) hsub) he;
+      Eq.ndrec (motive := fun H =>
+        H ≤ SimpleGraph.cycleGraph 5 →
+          H.IsBipartite →
+            ¬1 ≤ ((SimpleGraph.cycleGraph 5).edgeFinset \ H.edgeFinset).card →
+              (SimpleGraph.cycleGraph 5).edgeFinset \ H.edgeFinset = ∅ →
+                (∀ ⦃x : Sym2 (Fin 5)⦄, x ∈ (SimpleGraph.cycleGraph 5).edgeSet → x ∈ H.edgeSet) →
+                  SimpleGraph.cycleGraph 5 ≤ H → False)
+        (fun hHG hH hcon h0 hsub hGH =>
+          have h2 := SimpleGraph.Colorable.chromaticNumber_le hH;
+          absurd
+            (Eq.mp
+              (congrArg (fun _a => _a ≤ ↑2)
+                (SimpleGraph.chromaticNumber_cycleGraph_of_odd 5
+                  (Mathlib.Meta.NormNum.isNat_le_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2))
+                    (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 5)) (Eq.refl true))
+                  (of_decide_eq_true (id (Eq.refl true)))))
+              h2)
+            (of_decide_eq_true (id (Eq.refl true))))
+        (Eq.symm (le_antisymm hHG hGH)) hHG hH hcon h0
+        (Eq.mp
+          (forall_congr fun ⦃x⦄ =>
+            implies_congr Erdos23.erdos_23.variants.n1_tight._simp_1_1 Erdos23.erdos_23.variants.n1_tight._simp_1_1)
+          (Eq.mp (congrArg (fun _a => _a) (propext Finset.subset_iff)) hsub))
+        hGH⟩
+'Erdos23.erdos_23.variants.n1_tight' depends on axioms: [propext, Classical.choice, Quot.sound]

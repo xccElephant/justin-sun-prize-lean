@@ -1,0 +1,242 @@
+AUDIT|Erdos488.erdos_488_of_two_mem_nat._proof_1_11|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_of_two_mem_nat._proof_1_11|∀ (A : Finset ℕ) (n m : ℕ),
+  n < m → ∀ (b : ℕ), Erdos488.B_card A m ≤ m - 1 → ¬Erdos488.B_card A m + 1 ≤ m → False
+AUDIT|Erdos488.B_card_singleton|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.B_card_singleton|∀ (a x : ℕ), Erdos488.B_card {a} x = x / a
+AUDIT|Erdos488.singleMultiplesIn.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.singleMultiplesIn.eq_1|∀ (a x : ℕ), Erdos488.singleMultiplesIn a x = {x ∈ Finset.Icc 1 x | a ∣ x}
+AUDIT|Erdos488.B_card_pair_le._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.B_card_pair_le._simp_1_3|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α} {a : α},
+  (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos488.erdos_488_singleton|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_singleton|∀ (a n m : ℕ),
+  2 ≤ a →
+    a ≤ n →
+      n < m →
+        ↑{x ∈ Finset.Icc 1 m | x ∈ {k | k ≥ 1 ∧ ∃ x ∈ {a}, x ∣ k}}.card / ↑m <
+          2 * ↑{x ∈ Finset.Icc 1 n | x ∈ {k | k ≥ 1 ∧ ∃ x ∈ {a}, x ∣ k}}.card / ↑n
+AUDIT|Erdos488.erdos_488_of_two_mem_nat._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_of_two_mem_nat._simp_1_2|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α}
+  {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos488.B_card_pair_ge_of_not_dvd._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.B_card_pair_ge_of_not_dvd._simp_1_4|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p]
+  {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos488.card_singleMultiplesIn._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.card_singleMultiplesIn._simp_1_2|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α}
+  {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos488.B_card_le_pred|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.B_card_le_pred|∀ (A : Finset ℕ) (m : ℕ), 1 ∉ A → Erdos488.B_card A m ≤ m - 1
+AUDIT|Erdos488.erdos_488_insert_gt_half._simp_1_6|[propext]
+TYPE|Erdos488.erdos_488_insert_gt_half._simp_1_6|∀ {a b : Prop}, (¬(a ∧ b)) = (a → ¬b)
+AUDIT|Erdos488.erdos_488_singleton._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos488.erdos_488_singleton._proof_1_3|∀ (a n m : ℕ), 2 ≤ a → ¬1 ≤ a → False
+AUDIT|Erdos488.erdos_488_pair_nat._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_pair_nat._proof_1_5|∀ (a b n m : ℕ), 2 ≤ a → ¬0 < a → False
+AUDIT|Erdos488.rat_div_lt_two_mul_div_of_nat_lt|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.rat_div_lt_two_mul_div_of_nat_lt|∀ (A : Finset ℕ) (n m : ℕ),
+  0 < n →
+    0 < m →
+      n * Erdos488.B_card A m < 2 * m * Erdos488.B_card A n →
+        ↑{x ∈ Finset.Icc 1 m | x ∈ {k | k ≥ 1 ∧ ∃ a ∈ A, a ∣ k}}.card / ↑m <
+          2 * ↑{x ∈ Finset.Icc 1 n | x ∈ {k | k ≥ 1 ∧ ∃ a ∈ A, a ∣ k}}.card / ↑n
+AUDIT|Erdos488.B_card_pair_ge_of_not_dvd._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.B_card_pair_ge_of_not_dvd._simp_1_1|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos488.B_card_le_pred._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.B_card_le_pred._simp_1_3|∀ {α : Type u_1} [inst : Preorder α] [inst_1 : LocallyFiniteOrder α] {a b x : α},
+  (x ∈ Finset.Icc a b) = (a ≤ x ∧ x ≤ b)
+AUDIT|Erdos488.erdos_488_pair_nat._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_pair_nat._proof_1_6|∀ (a b n m : ℕ), b ≤ n → n < m → ¬b ≤ m → False
+AUDIT|Erdos488.erdos_488_of_two_mem|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_of_two_mem|∀ (A : Finset ℕ) (n m : ℕ),
+  0 ∉ A →
+    1 ∉ A →
+      2 ∈ A →
+        A.max ≤ ↑n →
+          n < m →
+            ↑{x ∈ Finset.Icc 1 m | x ∈ {k | k ≥ 1 ∧ ∃ a ∈ A, a ∣ k}}.card / ↑m <
+              2 * ↑{x ∈ Finset.Icc 1 n | x ∈ {k | k ≥ 1 ∧ ∃ a ∈ A, a ∣ k}}.card / ↑n
+AUDIT|Erdos488.card_singleMultiplesIn._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.card_singleMultiplesIn._proof_1_6|∀ (a x k : ℕ),
+  ¬((1 ≤ k ∧ k ≤ x) ∧ a ∣ k ↔ k ≤ x ∧ k ≠ 0 ∧ a ∣ k) → False
+AUDIT|Erdos488.erdos_488_of_two_mem_nat._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_of_two_mem_nat._simp_1_3|∀ {α : Type u_1} [inst : Preorder α] [inst_1 : LocallyFiniteOrder α]
+  {a b x : α}, (x ∈ Finset.Icc a b) = (a ≤ x ∧ x ≤ b)
+AUDIT|Erdos488.erdos_488_singleton_strengthened|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_singleton_strengthened|∀ (a n m : ℕ),
+  1 ≤ a → a ≤ n → (n + 1) * Erdos488.B_card {a} m ≤ 2 * m * Erdos488.B_card {a} n
+AUDIT|Erdos488.filter_B_eq_multiplesIn._simp_1_4|[propext]
+TYPE|Erdos488.filter_B_eq_multiplesIn._simp_1_4|∀ {α : Type u_1} [inst : LE α] {x y : α}, (x ≥ y) = (y ≤ x)
+AUDIT|Erdos488.erdos_488_pair_nat._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_pair_nat._proof_1_8|∀ (a b n m : ℕ),
+  n / a + 1 ≤ Erdos488.B_card {a, b} n → 0 ≤ n / a → ¬1 ≤ Erdos488.B_card {a, b} n → False
+AUDIT|Erdos488.erdos_488_of_two_mem._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos488.erdos_488_of_two_mem._proof_1_2|∀ (n m : ℕ), n < m → 0 < n → ¬0 < m → False
+AUDIT|Erdos488.card_singleMultiplesIn|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.card_singleMultiplesIn|∀ (a x : ℕ), (Erdos488.singleMultiplesIn a x).card = x / a
+AUDIT|Erdos488.erdos_488_pair_nat._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos488.erdos_488_pair_nat._proof_1_4|∀ (a b n m : ℕ), 2 ≤ a → a < b → ¬1 ≤ b → False
+AUDIT|Erdos488.erdos_488_pair_nat._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_pair_nat._proof_1_7|∀ (a b n m : ℕ), 2 ≤ a → a < b → ¬0 < b → False
+AUDIT|Erdos488.B_card_pair_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.B_card_pair_le|∀ (a b m : ℕ), Erdos488.B_card {a, b} m ≤ m / a + m / b
+AUDIT|Erdos488.filter_B_eq_multiplesIn._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.filter_B_eq_multiplesIn._simp_1_2|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α}
+  {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos488.multiplesIn_pair_eq_of_dvd._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.multiplesIn_pair_eq_of_dvd._simp_1_5|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos488.erdos_488_insert_gt_half._simp_1_7|[propext]
+TYPE|Erdos488.erdos_488_insert_gt_half._simp_1_7|∀ {α : Sort u_1} {p : α → Prop}, (¬∃ x, p x) = ∀ (x : α), ¬p x
+AUDIT|Erdos488.multiplesIn.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.multiplesIn.eq_1|∀ (A : Finset ℕ) (x : ℕ),
+  Erdos488.multiplesIn A x = {k ∈ Finset.Icc 1 x | ∃ a ∈ A, a ∣ k}
+AUDIT|Erdos488.erdos_488_of_two_mem_nat._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_of_two_mem_nat._simp_1_4|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos488.erdos_488_sharpness._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos488.erdos_488_sharpness._proof_1_1|∀ (a : ℕ), 2 ≤ a → ¬1 * a ≤ 2 * a - 1 → False
+AUDIT|Erdos488.erdos_488_singleton._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos488.erdos_488_singleton._proof_1_1|∀ (a n m : ℕ), 2 ≤ a → a ≤ n → ¬0 < n → False
+AUDIT|Erdos488.erdos_488_of_two_mem_nat|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_of_two_mem_nat|∀ (A : Finset ℕ) (n m : ℕ),
+  0 ∉ A → 1 ∉ A → 2 ∈ A → (∀ a ∈ A, a ≤ n) → n < m → n * Erdos488.B_card A m < 2 * m * Erdos488.B_card A n
+AUDIT|Erdos488.erdos_488_pair|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_pair|∀ (a b n m : ℕ),
+  2 ≤ a →
+    a < b →
+      b ≤ n →
+        n < m →
+          ↑{x ∈ Finset.Icc 1 m | x ∈ {k | k ≥ 1 ∧ ∃ x ∈ {a, b}, x ∣ k}}.card / ↑m <
+            2 * ↑{x ∈ Finset.Icc 1 n | x ∈ {k | k ≥ 1 ∧ ∃ x ∈ {a, b}, x ∣ k}}.card / ↑n
+AUDIT|Erdos488.multiplesIn_singleton|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.multiplesIn_singleton|∀ (a x : ℕ), Erdos488.multiplesIn {a} x = Erdos488.singleMultiplesIn a x
+AUDIT|Erdos488.erdos_488_insert_gt_half._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_insert_gt_half._simp_1_3|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α}
+  {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos488.erdos_488_singleton._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos488.erdos_488_singleton._proof_1_2|∀ (a n m : ℕ), 2 ≤ a → a ≤ n → n < m → ¬0 < m → False
+AUDIT|Erdos488.erdos_488_nonmultiples_false|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_nonmultiples_false|¬∀ (A : Finset ℕ),
+    A.Nonempty →
+      0 ∉ A →
+        1 ∉ A →
+          ∀ (n m : ℕ),
+            n < m →
+              (∀ a ∈ A, a ≤ n) → ↑(Erdos488.nonMultiplesIn A m).card / ↑m < 2 * ↑(Erdos488.nonMultiplesIn A n).card / ↑n
+AUDIT|Erdos488.B_card_pair_le._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.B_card_pair_le._simp_1_5|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos488.erdos_488_pair._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos488.erdos_488_pair._proof_1_1|∀ (a b n m : ℕ), 2 ≤ a → a < b → b ≤ n → ¬0 < n → False
+AUDIT|Erdos488.multiplesIn_pair_eq_of_dvd|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.multiplesIn_pair_eq_of_dvd|∀ (a b x : ℕ),
+  a ∣ b → Erdos488.multiplesIn {a, b} x = Erdos488.multiplesIn {a} x
+AUDIT|Erdos488.erdos_488_pair._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos488.erdos_488_pair._proof_1_2|∀ (a b n m : ℕ), 2 ≤ a → a < b → b ≤ n → n < m → ¬0 < m → False
+AUDIT|Erdos488.erdos_488_pair_nat._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_pair_nat._proof_1_3|∀ (a b n m : ℕ), a < b → b ≤ n → ¬a ≤ n → False
+AUDIT|Erdos488.card_singleMultiplesIn._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.card_singleMultiplesIn._simp_1_3|∀ {α : Type u_1} [inst : Preorder α] [inst_1 : LocallyFiniteOrder α]
+  {a b x : α}, (x ∈ Finset.Icc a b) = (a ≤ x ∧ x ≤ b)
+AUDIT|Erdos488.erdos_488_of_two_mem_nat._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_of_two_mem_nat._proof_1_6|∀ (A : Finset ℕ) (n m : ℕ), ¬1 ≤ 2 → False
+AUDIT|Erdos488.B_card_le_pred._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.B_card_le_pred._simp_1_2|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p] {s : Finset α} {a : α},
+  (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos488.B_card_pair_le._simp_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.B_card_pair_le._simp_1_6|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos488.erdos_488_sharpness._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos488.erdos_488_sharpness._proof_1_4|∀ (a : ℕ), 2 ≤ a → ¬2 * a < (2 + 1) * a → False
+AUDIT|Erdos488.multiplesIn_pair_eq_of_dvd._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.multiplesIn_pair_eq_of_dvd._simp_1_4|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos488.erdos_488_of_two_mem._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos488.erdos_488_of_two_mem._proof_1_1|∀ (n m : ℕ), 2 ≤ n → ¬0 < n → False
+AUDIT|Erdos488.B_card_pair_le._simp_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.B_card_pair_le._simp_1_7|∀ {α : Type u_1} [inst : DecidableEq α] {s t : Finset α} {a : α},
+  (a ∈ s ∪ t) = (a ∈ s ∨ a ∈ t)
+AUDIT|Erdos488.multiplesIn_pair_eq_of_dvd._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.multiplesIn_pair_eq_of_dvd._simp_1_3|∀ {α : Type u_1} [inst : Preorder α] [inst_1 : LocallyFiniteOrder α]
+  {a b x : α}, (x ∈ Finset.Icc a b) = (a ≤ x ∧ x ≤ b)
+AUDIT|Erdos488.erdos_488_insert_gt_half._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_insert_gt_half._simp_1_1|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos488.B_card_pair_ge_of_not_dvd|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.B_card_pair_ge_of_not_dvd|∀ (a b n : ℕ), 1 ≤ b → b ≤ n → ¬a ∣ b → n / a + 1 ≤ Erdos488.B_card {a, b} n
+AUDIT|Erdos488.erdos_488_of_two_mem_nat._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos488.erdos_488_of_two_mem_nat._proof_1_7|∀ (n m b : ℕ), ¬2 ∣ b + 1 + 1 → ¬2 ≤ b + 1 + 1 → False
+AUDIT|Erdos488.multiplesIn_pair_eq_of_dvd._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.multiplesIn_pair_eq_of_dvd._simp_1_2|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p]
+  {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos488.erdos_488_sharpness._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos488.erdos_488_sharpness._proof_1_2|∀ (a : ℕ), 2 ≤ a → ¬2 * a - 1 < (1 + 1) * a → False
+AUDIT|Erdos488.B_card_pair_ge_of_not_dvd._simp_1_7|[propext]
+TYPE|Erdos488.B_card_pair_ge_of_not_dvd._simp_1_7|∀ {a b : Prop}, (¬(a ∧ b)) = (a → ¬b)
+AUDIT|Erdos488.B_card_le_pred._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos488.B_card_le_pred._proof_1_4|∀ (m : ℕ) ⦃k : ℕ⦄, 1 ≤ k → ∀ (a : ℕ), ¬2 ≤ k → ¬k = 1 → False
+AUDIT|Erdos488.erdos_488_insert_gt_half._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_insert_gt_half._proof_1_5|∀ (A : Finset ℕ) (n m : ℕ) ⦃k : ℕ⦄, n / 2 < k → ¬1 ≤ k → False
+AUDIT|Erdos488.erdos_488_singleton_nat._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_singleton_nat._proof_1_1|∀ (a n m : ℕ), a ≤ n → n < m → ¬a ≤ m → False
+AUDIT|Erdos488.filter_B_eq_multiplesIn._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.filter_B_eq_multiplesIn._simp_1_3|∀ {α : Type u_1} [inst : Preorder α] [inst_1 : LocallyFiniteOrder α]
+  {a b x : α}, (x ∈ Finset.Icc a b) = (a ≤ x ∧ x ≤ b)
+AUDIT|Erdos488.erdos_488_insert_gt_half|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_insert_gt_half|∀ (A : Finset ℕ) (a n m : ℕ),
+  n / 2 < a →
+    a ≤ n →
+      (∀ b ∈ A, ¬b ∣ a) →
+        (n + 1) * Erdos488.B_card A m ≤ 2 * m * Erdos488.B_card A n →
+          (n + 1) * Erdos488.B_card (insert a A) m ≤ 2 * m * Erdos488.B_card (insert a A) n
+AUDIT|Erdos488.erdos_488_sharpness._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos488.erdos_488_sharpness._proof_1_3|∀ (a : ℕ), ¬2 * a ≤ 2 * a → False
+AUDIT|Erdos488.erdos_488_of_two_mem_nat._proof_1_12|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_of_two_mem_nat._proof_1_12|∀ (A : Finset ℕ) (n m b : ℕ),
+  n / 2 + 1 ≤ Erdos488.B_card A n → ¬n + 1 ≤ 2 * Erdos488.B_card A n → False
+AUDIT|Erdos488.card_singleMultiplesIn._simp_1_5|[propext]
+TYPE|Erdos488.card_singleMultiplesIn._simp_1_5|∀ {m n : ℕ}, (m < n.succ) = (m ≤ n)
+AUDIT|Erdos488.erdos_488_of_two_mem_nat._proof_1_10|[propext, Quot.sound]
+TYPE|Erdos488.erdos_488_of_two_mem_nat._proof_1_10|∀ (n m : ℕ) ⦃k : ℕ⦄, ¬2 ∣ k → 2 ≤ k → ¬1 ≤ k → False
+AUDIT|Erdos488.B_card_pair_ge_of_not_dvd._simp_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.B_card_pair_ge_of_not_dvd._simp_1_6|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos488.filter_B_eq_multiplesIn|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.filter_B_eq_multiplesIn|∀ (A : Finset ℕ) (x : ℕ),
+  {x ∈ Finset.Icc 1 x | x ∈ {n | n ≥ 1 ∧ ∃ a ∈ A, a ∣ n}} = Erdos488.multiplesIn A x
+AUDIT|Erdos488.erdos_488_of_two_mem_nat._simp_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_of_two_mem_nat._simp_1_8|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos488.erdos_488_sharpness._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos488.erdos_488_sharpness._proof_1_5|∀ (a : ℕ), 2 ≤ a → ¬(2 * a - 1 + 1) * 2 = 2 * (2 * a) * 1 → False
+AUDIT|Erdos488.erdos_488_pair_nat|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_pair_nat|∀ (a b n m : ℕ),
+  2 ≤ a → a < b → b ≤ n → n < m → n * Erdos488.B_card {a, b} m < 2 * m * Erdos488.B_card {a, b} n
+AUDIT|Erdos488.B_card_pair_ge_of_not_dvd._simp_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.B_card_pair_ge_of_not_dvd._simp_1_5|∀ {α : Type u_1} [inst : Preorder α] [inst_1 : LocallyFiniteOrder α]
+  {a b x : α}, (x ∈ Finset.Icc a b) = (a ≤ x ∧ x ≤ b)
+AUDIT|Erdos488.erdos_488_singleton_nat|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_singleton_nat|∀ (a n m : ℕ),
+  1 ≤ a → a ≤ n → n < m → n * Erdos488.B_card {a} m < 2 * m * Erdos488.B_card {a} n
+AUDIT|Erdos488.erdos_488_sharpness|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_sharpness|∀ (a : ℕ),
+  2 ≤ a →
+    Erdos488.B_card {a} (2 * a - 1) = 1 ∧
+      Erdos488.B_card {a} (2 * a) = 2 ∧
+        (2 * a - 1 + 1) * Erdos488.B_card {a} (2 * a) = 2 * (2 * a) * Erdos488.B_card {a} (2 * a - 1)
+AUDIT|Erdos488.erdos_488_insert_gt_half._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_insert_gt_half._proof_1_10|∀ (A : Finset ℕ) (a n m : ℕ), n / 2 < a → ¬n + 1 ≤ 2 * a → False
+AUDIT|Erdos488.B_card.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.B_card.eq_1|∀ (A : Finset ℕ) (x : ℕ), Erdos488.B_card A x = (Erdos488.multiplesIn A x).card
+AUDIT|Erdos488.succ_le_two_mul_div|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.succ_le_two_mul_div|∀ (a n : ℕ), 1 ≤ a → a ≤ n → n + 1 ≤ 2 * a * (n / a)
+AUDIT|Erdos488.B_card_pair_le._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.B_card_pair_le._simp_1_4|∀ {α : Type u_1} [inst : Preorder α] [inst_1 : LocallyFiniteOrder α] {a b x : α},
+  (x ∈ Finset.Icc a b) = (a ≤ x ∧ x ≤ b)
+AUDIT|Erdos488.erdos_488_insert_gt_half._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_insert_gt_half._simp_1_4|∀ {α : Type u_1} [inst : Preorder α] [inst_1 : LocallyFiniteOrder α]
+  {a b x : α}, (x ∈ Finset.Icc a b) = (a ≤ x ∧ x ≤ b)
+AUDIT|Erdos488.erdos_488_pair_nat._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_pair_nat._proof_1_2|∀ (a b n m : ℕ), 2 ≤ a → ¬1 ≤ a → False
+AUDIT|Erdos488.erdos_488_insert_gt_half._simp_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.erdos_488_insert_gt_half._simp_1_9|∀ {α : Type u_1} [inst : DecidableEq α] {s t : Finset α} {a : α},
+  (a ∈ s ∪ t) = (a ∈ s ∨ a ∈ t)
+AUDIT|Erdos488.card_singleMultiplesIn._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos488.card_singleMultiplesIn._simp_1_4|∀ {n m : ℕ}, (m ∈ Finset.range n) = (m < n)

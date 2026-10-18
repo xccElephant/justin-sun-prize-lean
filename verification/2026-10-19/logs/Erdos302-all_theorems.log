@@ -1,0 +1,87 @@
+AUDIT|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._proof_1_5|∀ (N a b c : ℕ), 1 ≤ b → b = 0 → False
+AUDIT|Erdos302.seventeenThirtySecondsSet_subset|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_subset|∀ (N : ℕ), Erdos302.seventeenThirtySecondsSet N ⊆ Finset.Icc 1 N
+AUDIT|Erdos302.seventeenThirtySecondsSet_card_ge|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_card_ge|∀ (N : ℕ),
+  32 ≤ N → 17 * (N / 32) - 1 ≤ (Erdos302.seventeenThirtySecondsSet N).card
+AUDIT|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple|∀ (N : ℕ),
+  Erdos302.NoUnitFractionTriple (Erdos302.seventeenThirtySecondsSet N)
+AUDIT|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._proof_1_11|[propext, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._proof_1_11|∀ (N a b c : ℕ),
+  (b - a) * (c - a) = a * a → (b - a) * (c - a) < a * a → False
+AUDIT|Erdos302.erdos_302.variants.lower_half._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos302.erdos_302.variants.lower_half._proof_1_2|∀ (f : ℕ → ℕ) (N : ℕ), ¬N ≤ 2 * ((N + 1) / 2) → False
+AUDIT|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._simp_1_3|∀ {α : Type u_1} [inst : Preorder α]
+  [inst_1 : LocallyFiniteOrder α] {a b x : α}, (x ∈ Finset.Icc a b) = (a ≤ x ∧ x ≤ b)
+AUDIT|Erdos302.erdos_302.variants.lower_half|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos302.erdos_302.variants.lower_half|∀ (f : ℕ → ℕ),
+  (∀ (N : ℕ), Erdos302.IsMaxNoTripleCard N (f N)) →
+    ∀ (ε : ℝ), 0 < ε → ∀ᶠ (N : ℕ) in Filter.atTop, (1 / 2 - ε) * ↑N ≤ ↑(f N)
+AUDIT|Erdos302.seventeenThirtySecondsSet_card_ge._proof_1_9|[propext, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_card_ge._proof_1_9|∀ (N k : ℕ), ¬(16 * (N / 32 + 1 + k) + 4) % 16 = 4 → False
+AUDIT|Erdos302.seventeenThirtySecondsSet_card_ge._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_card_ge._simp_1_3|∀ {α : Type u_1} {p : α → Prop} [inst : DecidablePred p]
+  {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos302.seventeenThirtySecondsSet.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet.eq_1|∀ (N : ℕ),
+  Erdos302.seventeenThirtySecondsSet N = {x ∈ Finset.Icc 1 N | x % 2 = 1 ∨ N / 2 + 1 ≤ x ∧ x % 16 = 4}
+AUDIT|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._proof_1_8|∀ (N a b c : ℕ), b % 16 = 4 → ¬b % 2 = 0 → False
+AUDIT|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._proof_1_6|∀ (N a b c : ℕ), 1 ≤ c → c = 0 → False
+AUDIT|Erdos302.seventeenThirtySecondsSet_card_ge._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_card_ge._proof_1_5|∀ (N k : ℕ),
+  k < 16 * (N / 32) →
+    ¬((1 ≤ 2 * k + 1 ∧ 2 * k + 1 ≤ N) ∧ ((2 * k + 1) % 2 = 1 ∨ N / 2 + 1 ≤ 2 * k + 1 ∧ (2 * k + 1) % 16 = 4)) → False
+AUDIT|Erdos302.seventeenThirtySecondsSet_card_ge._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_card_ge._proof_1_6|∀ (N k : ℕ), ¬1 ≤ 16 * (N / 32 + 1 + k) + 4 → False
+AUDIT|Erdos302.seventeenThirtySecondsSet_card_ge._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_card_ge._proof_1_1|∀ (N k1 k2 : ℕ),
+  16 * (N / 32 + 1 + k2) + 4 = 2 * k1 + 1 → False
+AUDIT|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._proof_1_4|∀ (N a b c : ℕ), 1 ≤ a → a = 0 → False
+AUDIT|Erdos302.erdos_302.variants.lower_seventeen_thirtyseconds._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos302.erdos_302.variants.lower_seventeen_thirtyseconds._proof_1_1|∀ (f : ℕ → ℕ) (N₀ N : ℕ),
+  (Erdos302.seventeenThirtySecondsSet N).card ≤ f N →
+    17 * (N / 32) - 1 ≤ (Erdos302.seventeenThirtySecondsSet N).card → ¬17 * N ≤ 32 * f N + 576 → False
+AUDIT|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._proof_1_9|[propext, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._proof_1_9|∀ (N a b c : ℕ),
+  a % 2 = 1 → 4 * 4 % 16 = a % 16 * ((4 + 4) % 16) % 16 → False
+AUDIT|Erdos302.erdos_302.parts.ii|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos302.erdos_302.parts.ii|∀ (f : ℕ → ℕ),
+  (∀ (N : ℕ), Erdos302.IsMaxNoTripleCard N (f N)) → ¬Filter.Tendsto (fun N => ↑(f N) / ↑N) Filter.atTop (nhds (1 / 2))
+AUDIT|Erdos302.seventeenThirtySecondsSet_card_ge._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_card_ge._simp_1_4|∀ {α : Type u_1} [inst : Preorder α]
+  [inst_1 : LocallyFiniteOrder α] {a b x : α}, (x ∈ Finset.Icc a b) = (a ≤ x ∧ x ≤ b)
+AUDIT|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._simp_1_2|∀ {α : Type u_1} {p : α → Prop}
+  [inst : DecidablePred p] {s : Finset α} {a : α}, (a ∈ Finset.filter p s) = (a ∈ s ∧ p a)
+AUDIT|Erdos302.seventeenThirtySecondsSet_card_ge._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_card_ge._proof_1_7|∀ (N k : ℕ),
+  k < N / 32 - 1 → ¬16 * (N / 32 + 1 + k) + 4 ≤ N → False
+AUDIT|Erdos302.erdos_302.variants.lower_seventeen_thirtyseconds|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos302.erdos_302.variants.lower_seventeen_thirtyseconds|∀ (f : ℕ → ℕ),
+  (∀ (N : ℕ), Erdos302.IsMaxNoTripleCard N (f N)) →
+    ∀ (ε : ℝ), 0 < ε → ∀ᶠ (N : ℕ) in Filter.atTop, (17 / 32 - ε) * ↑N ≤ ↑(f N)
+AUDIT|Erdos302.seventeenThirtySecondsSet_card_ge._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_card_ge._proof_1_8|∀ (N k : ℕ), ¬N / 2 + 1 ≤ 16 * (N / 32 + 1 + k) + 4 → False
+AUDIT|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._proof_1_10|[propext, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._proof_1_10|∀ (N a b c : ℕ),
+  ¬N < N / 2 + 1 + (N / 2 + 1) → False
+AUDIT|Erdos302.erdos_302.variants.lower_half._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos302.erdos_302.variants.lower_half._proof_1_1|∀ (N x : ℕ),
+  x < (N + 1) / 2 → ¬(1 ≤ 2 * x + 1 ∧ 2 * x + 1 ≤ N) → False
+AUDIT|Erdos302.seventeenThirtySecondsSet_card_ge._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_card_ge._proof_1_10|∀ (N : ℕ),
+  32 ≤ N →
+    (Finset.image (fun k => 2 * k + 1) (Finset.range (16 * (N / 32)))).card = 16 * (N / 32) →
+      (Finset.image (fun k => 16 * (N / 32 + 1 + k) + 4) (Finset.range (N / 32 - 1))).card = N / 32 - 1 →
+        ¬(Finset.image (fun k => 2 * k + 1) (Finset.range (16 * (N / 32)))).card +
+                (Finset.image (fun k => 16 * (N / 32 + 1 + k) + 4) (Finset.range (N / 32 - 1))).card =
+              17 * (N / 32) - 1 →
+          False
+AUDIT|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos302.seventeenThirtySecondsSet_noUnitFractionTriple._proof_1_7|∀ (N a b c : ℕ), c % 16 = 4 → ¬c % 2 = 0 → False

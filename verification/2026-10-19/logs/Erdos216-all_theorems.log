@@ -1,0 +1,156 @@
+AUDIT|Erdos216.hortonY_mul_sub_one_lt_pow|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.hortonY_mul_sub_one_lt_pow|∀ {c : ℕ}, 2 ≤ c → ∀ (k i : ℕ), (c - 1) * Erdos216.hortonY c k i < c ^ k
+AUDIT|_private.JspBounties.Erdos216.0.Erdos216.hortonY.match_1.eq_1|[]
+TYPE|_private.JspBounties.Erdos216.0.Erdos216.hortonY.match_1.eq_1|∀ (motive : ℕ → ℕ → Sort u_1) (x : ℕ)
+  (h_1 : (x : ℕ) → motive 0 x) (h_2 : (k i : ℕ) → motive k.succ i),
+  (match 0, x with
+    | 0, x => h_1 x
+    | k.succ, i => h_2 k i) =
+    h_1 x
+AUDIT|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_5|∀ {k c : ℕ} {m₁ m₂ : ℕ} {m₃ : ℕ},
+  m₁ < m₂ → ¬2 ≤ 2 * ↑m₂ - 2 * ↑m₁ → False
+AUDIT|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_3|∀ {k c : ℕ},
+  2 ^ (k + 1) + 1 ≤ c → ∀ {m₁ m₂ m₃ : ℕ}, 2 ≤ 2 ^ (k + 1) → ¬2 ≤ c → False
+AUDIT|Erdos216.card_hortonSet|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.card_hortonSet|∀ (k : ℕ), (Erdos216.hortonSet k).card = 2 ^ k
+AUDIT|Erdos216.hortonPoint.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.hortonPoint.eq_1|∀ (k : ℕ) (i : Fin (2 ^ k)),
+  Erdos216.hortonPoint k i = !₂[↑↑i, ↑(Erdos216.hortonY (2 ^ k + 1) k ↑i)]
+AUDIT|Erdos216.g_three_eq._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.g_three_eq._proof_1_3|∀ N < 3,
+  (Finset.image (fun i => EuclideanSpace.single 0 ↑i) (Finset.range N)).card = N →
+    ∀ ⦃x y z : EuclideanSpace ℝ (Fin 2)⦄,
+      {x, y, z}.card = 3 →
+        {x, y, z}.card ≤ (Finset.image (fun i => EuclideanSpace.single 0 ↑i) (Finset.range N)).card → False
+AUDIT|Erdos216.g.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.g.eq_1|∀ (k : ℕ), Erdos216.g k = sInf (Erdos216.emptyGonCardSet k)
+AUDIT|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_2|∀ {k : ℕ} {c m₁ m₂ m₃ : ℕ}, k + 1 = 0 → False
+AUDIT|Erdos216.emptyGonCardSet.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.emptyGonCardSet.eq_1|∀ (k : ℕ),
+  Erdos216.emptyGonCardSet k =
+    {N |
+      ∀ (pts : Finset (EuclideanSpace ℝ (Fin 2))),
+        pts.card = N → Erdos216.NonTrilinear ↑pts → Erdos216.HasEmptyConvexKGon k ↑pts}
+AUDIT|Erdos216.hortonY_lt_pow|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.hortonY_lt_pow|∀ {c : ℕ}, 2 ≤ c → ∀ (k i : ℕ), Erdos216.hortonY c k i < c ^ k
+AUDIT|Erdos216.hortonPoint._proof_1|[propext]
+TYPE|Erdos216.hortonPoint._proof_1|(1 + 1).AtLeastTwo
+AUDIT|Erdos216.hortonY_mul_sub_one_lt_pow._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos216.hortonY_mul_sub_one_lt_pow._proof_1_7|∀ {c : ℕ}, 2 ≤ c → ∀ (k i : ℕ), ¬1 ≤ c → False
+AUDIT|Erdos216.not_convexIndep_of_fourth_in_hull._simp_1_1|[propext]
+TYPE|Erdos216.not_convexIndep_of_fourth_in_hull._simp_1_1|∀ {α : Type u_1} {x a : α} {s : Set α},
+  (x ∈ insert a s) = (x = a ∨ x ∈ s)
+AUDIT|_private.JspBounties.Erdos216.0.Erdos216.hortonY.match_1.eq_2|[]
+TYPE|_private.JspBounties.Erdos216.0.Erdos216.hortonY.match_1.eq_2|∀ (motive : ℕ → ℕ → Sort u_1) (k i : ℕ)
+  (h_1 : (x : ℕ) → motive 0 x) (h_2 : (k i : ℕ) → motive k.succ i),
+  (match k.succ, i with
+    | 0, x => h_1 x
+    | k.succ, i => h_2 k i) =
+    h_2 k i
+AUDIT|Erdos216.g_three_eq._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.g_three_eq._simp_1_2|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos216.hortonPoint_injective._simp_1_2|[propext]
+TYPE|Erdos216.hortonPoint_injective._simp_1_2|∀ {R : Type u_1} [inst : AddMonoidWithOne R] [CharZero R] {m n : ℕ},
+  (↑m = ↑n) = (m = n)
+AUDIT|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_8|∀ {k : ℕ} {c : ℕ} {m₁ m₂ m₃ : ℕ},
+  2 ≤ c → ¬0 ≤ ↑c - 2 → False
+AUDIT|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_11|[propext, Quot.sound]
+TYPE|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_11|∀ {k : ℕ} {c : ℕ} {m₁ m₂ m₃ : ℕ},
+  2 ≤ c → ¬0 < ↑c - 1 → False
+AUDIT|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_7|∀ {k : ℕ} {c : ℕ} {m₁ m₂ m₃ : ℕ},
+  2 ≤ c → ¬0 ≤ ↑c - 1 → False
+AUDIT|Erdos216.g_zero_eq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.g_zero_eq|Erdos216.g 0 = 0
+AUDIT|Erdos216.hortonY_mul_sub_one_lt_pow._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos216.hortonY_mul_sub_one_lt_pow._proof_1_6|∀ {c : ℕ} (k i : ℕ), ¬(i % 2 = 0 ∨ i % 2 = 1) → False
+AUDIT|Erdos216.not_convexIndep_of_fourth_in_hull|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.not_convexIndep_of_fourth_in_hull|∀ {a b c d : EuclideanSpace ℝ (Fin 2)},
+  d ≠ a → d ≠ b → d ≠ c → d ∈ (convexHull ℝ) {a, b, c} → ¬Erdos216.ConvexIndep {a, b, c, d}
+AUDIT|Erdos216.not_convexIndep_of_fourth_in_hull._simp_1_3|[propext]
+TYPE|Erdos216.not_convexIndep_of_fourth_in_hull._simp_1_3|∀ {α : Type u} {s t : Set α} (x : α),
+  (x ∈ s \ t) = (x ∈ s ∧ x ∉ t)
+AUDIT|Erdos216.one_one_mem_convexHull_triangle|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.one_one_mem_convexHull_triangle|!₂[1, 1] ∈ (convexHull ℝ) {!₂[0, 0], !₂[3, 0], !₂[0, 3]}
+AUDIT|Erdos216.hortonY_two_mul_add_one._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos216.hortonY_two_mul_add_one._proof_1_1|∀ (m : ℕ), ¬(2 * m + 1) % 2 = 1 → False
+AUDIT|Erdos216.convexIndep_triple_of_not_collinear._simp_1_2|[propext]
+TYPE|Erdos216.convexIndep_triple_of_not_collinear._simp_1_2|∀ {α : Type u_1} {a b : α}, (a ∈ {b}) = (a = b)
+AUDIT|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_10|∀ {k c : ℕ} {m₁ m₂ : ℕ} {m₃ : ℕ},
+  m₁ < m₂ → ¬0 ≤ 2 * ↑m₂ - 2 * ↑m₁ → False
+AUDIT|Erdos216.horton_top_strictly_above_bottom_secant|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.horton_top_strictly_above_bottom_secant|∀ {k c : ℕ},
+  2 ^ (k + 1) + 1 ≤ c →
+    ∀ {m₁ m₂ m₃ : ℕ},
+      m₁ < m₂ →
+        2 * m₂ < 2 ^ (k + 1) →
+          2 * m₃ + 1 < 2 ^ (k + 1) →
+            have x₁ := 2 * ↑m₁;
+            have y₁ := ↑(Erdos216.hortonY c (k + 1) (2 * m₁));
+            have x₂ := 2 * ↑m₂;
+            have y₂ := ↑(Erdos216.hortonY c (k + 1) (2 * m₂));
+            have x₃ := 2 * ↑m₃ + 1;
+            have y₃ := ↑(Erdos216.hortonY c (k + 1) (2 * m₃ + 1));
+            (y₂ - y₁) * (x₃ - x₁) < (y₃ - y₁) * (x₂ - x₁)
+AUDIT|Erdos216.g_three_eq|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.g_three_eq|Erdos216.g 3 = 3
+AUDIT|Erdos216.not_convexIndep_of_fourth_in_hull._simp_1_2|[propext]
+TYPE|Erdos216.not_convexIndep_of_fourth_in_hull._simp_1_2|∀ {α : Type u_1} {a b : α}, (a ∈ {b}) = (a = b)
+AUDIT|Erdos216.hortonY_lt_pow._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos216.hortonY_lt_pow._proof_1_1|∀ {c : ℕ}, 2 ≤ c → ∀ (k i : ℕ), ¬1 ≤ c - 1 → False
+AUDIT|Erdos216.hortonY_two_mul|[propext]
+TYPE|Erdos216.hortonY_two_mul|∀ (c k m : ℕ), Erdos216.hortonY c (k + 1) (2 * m) = Erdos216.hortonY c k m
+AUDIT|Erdos216.convexIndep_triple_of_not_collinear._simp_1_1|[propext]
+TYPE|Erdos216.convexIndep_triple_of_not_collinear._simp_1_1|∀ {α : Type u_1} {x a : α} {s : Set α},
+  (x ∈ insert a s) = (x = a ∨ x ∈ s)
+AUDIT|Erdos216.g_three_eq._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.g_three_eq._simp_1_1|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos216.hortonY.eq_1|[propext]
+TYPE|Erdos216.hortonY.eq_1|∀ (c x : ℕ), Erdos216.hortonY c 0 x = 0
+AUDIT|Erdos216.hortonY.eq_2|[propext]
+TYPE|Erdos216.hortonY.eq_2|∀ (c x k : ℕ), Erdos216.hortonY c k.succ x = x % 2 * c ^ k + Erdos216.hortonY c k (x / 2)
+AUDIT|Erdos216.hortonY_two_mul_add_one._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos216.hortonY_two_mul_add_one._proof_1_2|∀ (m : ℕ), (2 * m + 1) % 2 = 1 → ¬(2 * m + 1) / 2 = m → False
+AUDIT|Erdos216.convexIndep_triple_of_not_collinear|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.convexIndep_triple_of_not_collinear|∀ {a b c : EuclideanSpace ℝ (Fin 2)},
+  a ≠ b → a ≠ c → b ≠ c → ¬Collinear ℝ {a, b, c} → Erdos216.ConvexIndep {a, b, c}
+AUDIT|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_6|∀ {k c : ℕ},
+  2 ^ (k + 1) + 1 ≤ c →
+    ∀ {m₁ m₂ m₃ : ℕ},
+      m₁ < m₂ →
+        2 * m₂ < 2 ^ (k + 1) →
+          2 * m₃ + 1 < 2 ^ (k + 1) → ¬(-(↑c - 2) ≤ 2 * ↑m₃ + 1 - 2 * ↑m₁ ∧ 2 * ↑m₃ + 1 - 2 * ↑m₁ ≤ ↑c - 2) → False
+AUDIT|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_1|∀ {k c m₁ m₂ m₃ : ℕ}, ¬1 ≤ 2 → False
+AUDIT|Erdos216.hortonY_two_mul_add_one|[propext, Quot.sound]
+TYPE|Erdos216.hortonY_two_mul_add_one|∀ (c k m : ℕ),
+  Erdos216.hortonY c (k + 1) (2 * m + 1) = c ^ k + Erdos216.hortonY c k m
+AUDIT|Erdos216.hortonPoint_injective|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.hortonPoint_injective|∀ (k : ℕ), Function.Injective (Erdos216.hortonPoint k)
+AUDIT|Erdos216.hortonY.eq_def|[propext]
+TYPE|Erdos216.hortonY.eq_def|∀ (c x x_1 : ℕ),
+  Erdos216.hortonY c x x_1 =
+    match x, x_1 with
+    | 0, x => 0
+    | k.succ, i => i % 2 * c ^ k + Erdos216.hortonY c k (i / 2)
+AUDIT|Erdos216.IsEmptyIn.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.IsEmptyIn.eq_1|∀ (S P : Set (EuclideanSpace ℝ (Fin 2))),
+  Erdos216.IsEmptyIn S P = ((convexHull ℝ) S ∩ P ⊆ S)
+AUDIT|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_4|∀ {k : ℕ} {c : ℕ} {m₁ m₂ m₃ : ℕ},
+  2 ≤ c → ¬1 ≤ c → False
+AUDIT|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.horton_top_strictly_above_bottom_secant._proof_1_9|∀ {k : ℕ} {c : ℕ} {m₁ m₂ m₃ : ℕ},
+  2 ≤ c → ¬1 ≤ ↑c → False
+AUDIT|Erdos216.g_three_eq._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos216.g_three_eq._proof_1_4|∀ N < 3,
+  (Finset.image (fun i => EuclideanSpace.single 0 ↑i) (Finset.range N)).card = N →
+    ∀ (S : Finset (EuclideanSpace ℝ (Fin 2))),
+      S.card = 3 → S.card ≤ (Finset.image (fun i => EuclideanSpace.single 0 ↑i) (Finset.range N)).card → False

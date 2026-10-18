@@ -1,0 +1,61 @@
+AUDIT|Erdos575.starEdge_injective._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos575.starEdge_injective._simp_1_2|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos575.matchingEdge_injective._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos575.matchingEdge_injective._proof_1_4|∀ ⦃i j : ℕ⦄, 2 * i = 2 * j ∨ 2 * i = 2 * j + 1 → ¬i = j → False
+AUDIT|Erdos575.matchingEdge.eq_1|[propext, Quot.sound]
+TYPE|Erdos575.matchingEdge.eq_1|∀ (i : ℕ), Erdos575.matchingEdge i = {2 * i, 2 * i + 1}
+AUDIT|Erdos575.matchingGraph_card_and_K12_free._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos575.matchingGraph_card_and_K12_free._proof_1_5|∀ (v i j : ℕ),
+  (v = 2 * i ∨ v = 2 * i + 1) ∧ (v = 2 * j ∨ v = 2 * j + 1) → ¬i = j → False
+AUDIT|Erdos575.matchingEdge_injective._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos575.matchingEdge_injective._simp_1_2|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos575.Z_uv_independent_of_C4_C6_free|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos575.Z_uv_independent_of_C4_C6_free|∀ {S : Type u_1} {T : Type u_2} {adj : S → T → Prop},
+  Erdos575.IsC4Free adj →
+    Erdos575.IsC6Free adj →
+      ∀ {u v : S},
+        u ≠ v →
+          ¬Erdos575.Related adj u v →
+            ∀ {w₁ w₂ : S}, w₁ ∈ Erdos575.Z_uv adj u v → w₂ ∈ Erdos575.Z_uv adj u v → ¬Erdos575.Related adj w₁ w₂
+AUDIT|Erdos575.matchingGraph_card_and_K12_free._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos575.matchingGraph_card_and_K12_free._proof_1_1|∀ (i : ℕ), 2 * i = 2 * i + 1 → False
+AUDIT|Erdos575.matchingGraph_card_and_K12_free._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos575.matchingGraph_card_and_K12_free._simp_1_3|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α}
+  {a b : α}, (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos575.matchingEdge_injective._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos575.matchingEdge_injective._simp_1_3|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos575.starGraph_card_and_2K2_free._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos575.starGraph_card_and_2K2_free._proof_1_1|∀ (i : ℕ), 0 = i + 1 → False
+AUDIT|Erdos575.common_neighbors_coincide_of_C4_C6_free|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos575.common_neighbors_coincide_of_C4_C6_free|∀ {S : Type u_1} {T : Type u_2} {adj : S → T → Prop},
+  Erdos575.IsC4Free adj →
+    Erdos575.IsC6Free adj →
+      ∀ {u v w : S},
+        u ≠ v → v ≠ w → u ≠ w → ∀ {a b c : T}, adj u a ∧ adj v a → adj v b ∧ adj w b → adj w c ∧ adj u c → a = b ∧ b = c
+AUDIT|Erdos575.matchingGraph_card_and_K12_free._simp_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos575.matchingGraph_card_and_K12_free._simp_1_4|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos575.starEdge_injective._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos575.starEdge_injective._simp_1_3|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos575.starEdge_injective|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos575.starEdge_injective|Function.Injective Erdos575.starEdge
+AUDIT|Erdos575.unique_common_neighbor_of_C4_free|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos575.unique_common_neighbor_of_C4_free|∀ {S : Type u_1} {T : Type u_2} {adj : S → T → Prop},
+  Erdos575.IsC4Free adj → ∀ {u v : S}, u ≠ v → ∀ {a b : T}, adj u a ∧ adj v a → adj u b ∧ adj v b → a = b
+AUDIT|Erdos575.matchingGraph_card_and_K12_free|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos575.matchingGraph_card_and_K12_free|∀ (m : ℕ),
+  (Erdos575.matchingGraph m).card = m ∧
+    Erdos575.IsEdgeSet (Erdos575.matchingGraph m) ∧ ¬Erdos575.HasK12 (Erdos575.matchingGraph m)
+AUDIT|Erdos575.matchingEdge_injective|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos575.matchingEdge_injective|Function.Injective Erdos575.matchingEdge
+AUDIT|Erdos575.card_le_one_of_no_K12_no_2K2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos575.card_le_one_of_no_K12_no_2K2|∀ {V : Type u_1} [inst : DecidableEq V] (E : Finset (Finset V)),
+  ¬Erdos575.HasK12 E → ¬Erdos575.Has2K2 E → E.card ≤ 1
+AUDIT|Erdos575.starEdge.eq_1|[propext, Quot.sound]
+TYPE|Erdos575.starEdge.eq_1|∀ (i : ℕ), Erdos575.starEdge i = {0, i + 1}
+AUDIT|Erdos575.starGraph_card_and_2K2_free|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos575.starGraph_card_and_2K2_free|∀ (m : ℕ),
+  (Erdos575.starGraph m).card = m ∧ Erdos575.IsEdgeSet (Erdos575.starGraph m) ∧ ¬Erdos575.Has2K2 (Erdos575.starGraph m)
+AUDIT|Erdos575.starEdge_injective._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos575.starEdge_injective._proof_1_4|∀ ⦃i j : ℕ⦄, i + 1 = 0 ∨ i + 1 = j + 1 → ¬i = j → False

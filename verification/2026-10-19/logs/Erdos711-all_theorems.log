@@ -1,0 +1,75 @@
+AUDIT|Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple|∀ {n m L : ℕ},
+  1 ≤ n → Erdos711.HasDivisibleDistinctTuple n m L → n + 1 ≤ L
+AUDIT|Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple._proof_1_2|∀ {n L : ℕ}, n ≤ L - 1 → 1 ≤ L → ¬n + 1 ≤ L → False
+AUDIT|Erdos711.exists_hasDivisibleDistinctTuple._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos711.exists_hasDivisibleDistinctTuple._proof_1_1|∀ (n m : ℕ) (i : Fin n),
+  ↑i < n → ¬m + ↑i + 1 ≤ m + n + 1 → False
+AUDIT|Erdos711.isMinimalIntervalLength_zero._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos711.isMinimalIntervalLength_zero._proof_1_1|∀ {n : ℕ} ⦃i j : Fin n⦄, ↑i + 1 = ↑j + 1 → ¬↑i = ↑j → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_7|∀ {n m M : ℕ} {L : ℕ} (a : Fin n → ℕ) (i : Fin n),
+  m < a i → ¬m + M < a i + M → False
+AUDIT|Erdos711.exists_hasDivisibleDistinctTuple|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.exists_hasDivisibleDistinctTuple|∀ (n m : ℕ), ∃ L, Erdos711.HasDivisibleDistinctTuple n m L
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_3|∀ {n M : ℕ} (a : Fin n → ℕ) ⦃i j : Fin n⦄,
+  a i - M = a j - M → M < a i → M < a j → ¬a i = a j → False
+AUDIT|Erdos711.isMinimalIntervalLength_zero._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos711.isMinimalIntervalLength_zero._proof_1_3|∀ {n : ℕ} (i : Fin n), ↑i < n → ¬↑i + 1 < 0 + (n + 1) → False
+AUDIT|Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple._proof_1_1|∀ {n m L : ℕ} (a : Fin n → ℕ) (i0 : Fin n),
+  m < a i0 → a i0 < m + L → ¬1 ≤ L → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd|∀ {n m M L : ℕ},
+  (∀ (i : Fin n), ↑i + 1 ∣ M) →
+    (Erdos711.HasDivisibleDistinctTuple n (m + M) L ↔ Erdos711.HasDivisibleDistinctTuple n m L)
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_1|∀ {n m M : ℕ} (a : Fin n → ℕ) ⦃i : Fin n⦄ ⦃j : Fin n⦄,
+  m + M < a i → ¬M < a i → False
+AUDIT|Erdos711.exists_hasDivisibleDistinctTuple._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos711.exists_hasDivisibleDistinctTuple._proof_1_3|∀ (n m : ℕ) (i : Fin n),
+  ¬(m + n + 1) * (n + 1) < m + ((m + n + 1) * (n + 1) + 1) → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_6|∀ {n M : ℕ} (a : Fin n → ℕ) ⦃i j : Fin n⦄,
+  a i + M = a j + M → ¬a i = a j → False
+AUDIT|Erdos711.isMinimalIntervalLength_unique|[]
+TYPE|Erdos711.isMinimalIntervalLength_unique|∀ {n m L₁ L₂ : ℕ},
+  Erdos711.IsMinimalIntervalLength n m L₁ → Erdos711.IsMinimalIntervalLength n m L₂ → L₁ = L₂
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_2|∀ {n m M : ℕ} (a : Fin n → ℕ) ⦃i : Fin n⦄ ⦃j : Fin n⦄,
+  m + M < a j → ¬M < a j → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_8|∀ {n m M L : ℕ} (a : Fin n → ℕ) (i : Fin n),
+  a i < m + L → ¬a i + M < m + M + L → False
+AUDIT|Erdos711.IsMinimalIntervalLength.eq_1|[]
+TYPE|Erdos711.IsMinimalIntervalLength.eq_1|∀ (n m L : ℕ),
+  Erdos711.IsMinimalIntervalLength n m L =
+    (Erdos711.HasDivisibleDistinctTuple n m L ∧ ∀ (L' : ℕ), Erdos711.HasDivisibleDistinctTuple n m L' → L ≤ L')
+AUDIT|Erdos711.erdos_711_parts_ii_of_van_doorn|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.erdos_711_parts_ii_of_van_doorn|(∀ (B : ℕ),
+    ∀ᶠ (n : ℕ) in Filter.atTop,
+      ∃ m,
+        ∀ (Lm Ln : ℕ),
+          Erdos711.HasDivisibleDistinctTuple n m Lm → Erdos711.IsMinimalIntervalLength n n Ln → B ≤ Lm - Ln) →
+  ∀ (B : ℕ),
+    ∀ᶠ (n : ℕ) in Filter.atTop,
+      ∃ m Lm Ln, Erdos711.IsMinimalIntervalLength n m Lm ∧ Erdos711.IsMinimalIntervalLength n n Ln ∧ B ≤ Lm - Ln
+AUDIT|Erdos711.isMinimalIntervalLength_add_iff_of_dvd|[propext, Quot.sound]
+TYPE|Erdos711.isMinimalIntervalLength_add_iff_of_dvd|∀ {n m M L : ℕ},
+  (∀ (i : Fin n), ↑i + 1 ∣ M) → (Erdos711.IsMinimalIntervalLength n (m + M) L ↔ Erdos711.IsMinimalIntervalLength n m L)
+AUDIT|Erdos711.exists_isMinimalIntervalLength|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.exists_isMinimalIntervalLength|∀ (n m : ℕ), ∃ L, Erdos711.IsMinimalIntervalLength n m L
+AUDIT|Erdos711.exists_hasDivisibleDistinctTuple._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos711.exists_hasDivisibleDistinctTuple._proof_1_2|∀ (n : ℕ) (i : Fin n), ↑i < n → ¬↑i + 1 ≤ n + 1 → False
+AUDIT|Erdos711.isMinimalIntervalLength_zero._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos711.isMinimalIntervalLength_zero._proof_1_2|∀ {n : ℕ} (i : Fin n), ¬0 < ↑i + 1 → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_4|∀ {n m M : ℕ} {L : ℕ} (a : Fin n → ℕ) (i : Fin n),
+  m + M < a i → ¬m < a i - M → False
+AUDIT|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd._proof_1_5|∀ {n m M L : ℕ} (a : Fin n → ℕ) (i : Fin n),
+  m + M < a i → a i < m + M + L → ¬a i - M < m + L → False
+AUDIT|Erdos711.isMinimalIntervalLength_zero|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos711.isMinimalIntervalLength_zero|∀ {n : ℕ}, 1 ≤ n → Erdos711.IsMinimalIntervalLength n 0 (n + 1)

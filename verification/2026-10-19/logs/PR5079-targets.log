@@ -1,0 +1,24 @@
+Erdos365.erdos_365.parts.i : ¬∀ (n : ℕ), 0 < n → n.Powerful → (n + 1).Powerful → IsSquare n ∨ IsSquare (n + 1)
+theorem Erdos365.erdos_365.parts.i : ¬∀ (n : ℕ),
+    0 < n → n.Powerful → (n + 1).Powerful → IsSquare n ∨ IsSquare (n + 1) :=
+fun h =>
+  And.casesOn Erdos365.golomb_pair fun hA right =>
+    And.casesOn right fun hB right =>
+      And.casesOn right fun hnA hnB =>
+        Or.casesOn
+          (h 12167
+            (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 0))
+              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 12167)) (Eq.refl false))
+            hA hB)
+          (fun hs => hnA hs) fun hs => hnB hs
+'Erdos365.erdos_365.parts.i' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos365.infinite_nonSquare_consecutive_powerful : {n |
+    0 < n ∧ n.Powerful ∧ (n + 1).Powerful ∧ ¬IsSquare n ∧ ¬IsSquare (n + 1)}.Infinite
+theorem Erdos365.infinite_nonSquare_consecutive_powerful : {n |
+    0 < n ∧ n.Powerful ∧ (n + 1).Powerful ∧ ¬IsSquare n ∧ ¬IsSquare (n + 1)}.Infinite :=
+And.casesOn Erdos365.walkerSeq_properties fun hMono hProps =>
+  Set.infinite_of_injective_forall_mem (StrictMono.injective hMono) hProps
+'Erdos365.infinite_nonSquare_consecutive_powerful' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/lean-verify-jsp-20261018/audit/PR5079.lean:8:8: error(lean.unknownIdentifier): Unknown identifier `Erdos365.jsp_000301_disproved`
+/tmp/lean-verify-jsp-20261018/audit/PR5079.lean:9:7: error(lean.unknownIdentifier): Unknown constant `Erdos365.jsp_000301_disproved`
+/tmp/lean-verify-jsp-20261018/audit/PR5079.lean:10:14: error(lean.unknownIdentifier): Unknown constant `Erdos365.jsp_000301_disproved`

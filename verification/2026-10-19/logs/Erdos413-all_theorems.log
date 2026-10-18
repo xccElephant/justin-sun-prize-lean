@@ -1,0 +1,80 @@
+AUDIT|Erdos413.erdos_413_parts_ii_iff_linear_omega._simp_1_3|[propext]
+TYPE|Erdos413.erdos_413_parts_ii_iff_linear_omega._simp_1_3|∀ {α : Type u_2} [inst : Zero α] [inst_1 : OfNat α 4]
+  [NeZero 4], (4 = 0) = False
+AUDIT|Erdos413.infinite_not_isBarrier_omega._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos413.infinite_not_isBarrier_omega._proof_1_1|∀ ⦃a b : ℕ⦄, 6 * (a + 1) + 1 = 6 * (b + 1) + 1 → ¬a = b → False
+AUDIT|Erdos413.expProd_eq_one_of_squarefree|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos413.expProd_eq_one_of_squarefree|∀ {m : ℕ}, Squarefree m → Erdos413.expProd m = 1
+AUDIT|Erdos413.two_le_omega_six_mul_succ._simp_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos413.two_le_omega_six_mul_succ._simp_1_3|∀ {α : Type u_1} {a b : α}, (b ∈ {a}) = (b = a)
+AUDIT|Erdos413.expProd_eq_one_of_squarefree._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos413.expProd_eq_one_of_squarefree._proof_1_1|∀ {m : ℕ} (p : ℕ),
+  m.factorization p ≠ 0 → m ≠ 0 → m.factorization p ≤ 1 → ¬m.factorization p = 1 → False
+AUDIT|Erdos413.infinite_not_isBarrier_omega|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos413.infinite_not_isBarrier_omega|{n |
+    ¬Erdos413.IsBarrier (fun m => ↑(ArithmeticFunction.cardDistinctFactors m)) n}.Infinite
+AUDIT|Erdos413.two_le_omega_six_mul_succ|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos413.two_le_omega_six_mul_succ|∀ (k : ℕ), 2 ≤ ArithmeticFunction.cardDistinctFactors (6 * (k + 1))
+AUDIT|Erdos413.isBarrier_mul_iff._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos413.isBarrier_mul_iff._proof_1_3|∀ (n k : ℕ), 1 ≤ k → k ≤ n → ¬n - k < n → False
+AUDIT|Erdos413.two_le_omega_six_mul_succ._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos413.two_le_omega_six_mul_succ._proof_1_1|∀ (k : ℕ), 6 * (k + 1) = 0 → False
+AUDIT|Erdos413.erdos_413_parts_ii_iff_linear_omega._simp_1_5|[propext]
+TYPE|Erdos413.erdos_413_parts_ii_iff_linear_omega._simp_1_5|∀ {M₀ : Type u_1} [inst : MonoidWithZero M₀] {a : M₀}
+  [IsReduced M₀] (n : ℕ), a ≠ 0 → (a ^ n = 0) = False
+AUDIT|Erdos413.isBarrier_mul_iff|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos413.isBarrier_mul_iff|∀ {f : ℕ → ℝ} {ε : ℝ},
+  0 < ε → ∀ (n : ℕ), Erdos413.IsBarrier (fun m => ε * f m) n ↔ ∀ k ∈ Set.Icc 1 n, f (n - k) ≤ ↑k / ε
+AUDIT|Erdos413.erdos_413_parts_ii_iff_linear_omega._simp_1_2|[propext]
+TYPE|Erdos413.erdos_413_parts_ii_iff_linear_omega._simp_1_2|∀ {α : Type u_2} [inst : Zero α] [inst_1 : OfNat α 3]
+  [NeZero 3], (3 = 0) = False
+AUDIT|Erdos413.erdos_413_parts_ii_iff_linear_omega._simp_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos413.erdos_413_parts_ii_iff_linear_omega._simp_1_6|∀ {G₀ : Type u_3} [inst : GroupWithZero G₀] {a : G₀}
+  (n : ℤ), a ≠ 0 → (a ^ n = 0) = False
+AUDIT|Erdos413.two_le_omega_six_mul_succ._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos413.two_le_omega_six_mul_succ._simp_1_2|∀ {α : Type u_1} [inst : DecidableEq α] {s : Finset α} {a b : α},
+  (a ∈ insert b s) = (a = b ∨ a ∈ s)
+AUDIT|Erdos413.barrier_ineq_expProd_of_squarefree|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos413.barrier_ineq_expProd_of_squarefree|∀ {m n : ℕ}, Squarefree m → m < n → ↑m + ↑(Erdos413.expProd m) ≤ ↑n
+AUDIT|Erdos413.barrier_coalesces_trajectories._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos413.barrier_coalesces_trajectories._proof_1_1|∀ {g : ℕ → ℕ} {n m k : ℕ},
+  n ≤ (Erdos413.stepMap g)^[k] m → (Erdos413.stepMap g)^[k] m < n → False
+AUDIT|Erdos413.isBarrier_mul_iff._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos413.isBarrier_mul_iff._proof_1_4|∀ (n m : ℕ), m < n → ¬1 ≤ n - m → False
+AUDIT|Erdos413.erdos_413_parts_ii_iff_linear_omega|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos413.erdos_413_parts_ii_iff_linear_omega|(∃ ε > 0,
+    {n | Erdos413.IsBarrier (fun m => ε * ↑(ArithmeticFunction.cardDistinctFactors m)) n}.Infinite) ↔
+  ∃ C > 0, {n | ∀ k ∈ Set.Icc 1 n, ↑(ArithmeticFunction.cardDistinctFactors (n - k)) ≤ C * ↑k}.Infinite
+AUDIT|Erdos413.erdos_413_parts_ii_iff_linear_omega._simp_1_7|[propext]
+TYPE|Erdos413.erdos_413_parts_ii_iff_linear_omega._simp_1_7|∀ {R : Type u_1} [inst : AddMonoidWithOne R] [CharZero R]
+  (n : ℕ), (↑n + 1 = 0) = False
+AUDIT|Erdos413.isBarrier_mul_iff._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos413.isBarrier_mul_iff._proof_1_5|∀ (n m : ℕ), m < n → ¬n - m ≤ n → False
+AUDIT|Erdos413.erdos_413_parts_ii_iff_linear_omega._simp_1_1|[propext]
+TYPE|Erdos413.erdos_413_parts_ii_iff_linear_omega._simp_1_1|∀ {α : Type u_2} [inst : Zero α] [inst_1 : OfNat α 2]
+  [NeZero 2], (2 = 0) = False
+AUDIT|Erdos413.not_isBarrier_omega_six_mul_succ_add_one|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos413.not_isBarrier_omega_six_mul_succ_add_one|∀ (k : ℕ),
+  ¬Erdos413.IsBarrier (fun m => ↑(ArithmeticFunction.cardDistinctFactors m)) (6 * (k + 1) + 1)
+AUDIT|Erdos413.erdos_413_parts_ii_iff_linear_omega._simp_1_4|[propext]
+TYPE|Erdos413.erdos_413_parts_ii_iff_linear_omega._simp_1_4|∀ {M₀ : Type u_1} [inst : Mul M₀] [inst_1 : Zero M₀]
+  [NoZeroDivisors M₀] {a b : M₀}, a ≠ 0 → b ≠ 0 → (a * b = 0) = False
+AUDIT|Erdos413.barrier_traps_iterates|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos413.barrier_traps_iterates|∀ {g : ℕ → ℕ} {n : ℕ},
+  Erdos413.IsBarrier (fun m => ↑(g m)) n →
+    ∀ {m : ℕ}, m ≤ n → ∀ (k : ℕ), (Erdos413.stepMap g)^[k] m < n ∨ ∃ j ≤ k, (Erdos413.stepMap g)^[j] m = n
+AUDIT|Erdos413.IsBarrier.mono|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos413.IsBarrier.mono|∀ {f g : ℕ → ℝ} {n : ℕ},
+  (∀ m < n, f m ≤ g m) → Erdos413.IsBarrier g n → Erdos413.IsBarrier f n
+AUDIT|Erdos413.not_isBarrier_omega_six_mul_succ_add_one._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos413.not_isBarrier_omega_six_mul_succ_add_one._proof_1_1|∀ (k : ℕ), ¬6 * (k + 1) < 6 * (k + 1) + 1 → False
+AUDIT|Erdos413.isBarrier_mul_iff._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos413.isBarrier_mul_iff._proof_1_6|∀ (n m : ℕ), m < n → ¬n - (n - m) = m → False
+AUDIT|Erdos413.barrier_coalesces_trajectories|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos413.barrier_coalesces_trajectories|∀ {g : ℕ → ℕ} {n m k : ℕ},
+  Erdos413.IsBarrier (fun x => ↑(g x)) n →
+    m ≤ n → n ≤ (Erdos413.stepMap g)^[k] m → ∃ j ≤ k, (Erdos413.stepMap g)^[j] m = n
+AUDIT|Erdos413.erdos_413_parts_ii_of_lau|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos413.erdos_413_parts_ii_of_lau|(∃ C > 0,
+    {n | ∀ k ∈ Set.Icc 1 n, ↑(ArithmeticFunction.cardDistinctFactors (n - k)) ≤ C * (Real.log ↑k + 1)}.Infinite) →
+  ∃ ε > 0, {n | Erdos413.IsBarrier (fun m => ε * ↑(ArithmeticFunction.cardDistinctFactors m)) n}.Infinite

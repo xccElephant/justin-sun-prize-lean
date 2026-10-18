@@ -1,0 +1,182 @@
+AUDIT|Erdos940.two_full_le_seven._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos940.two_full_le_seven._proof_1_3|2 ^ 2 ∣ 2 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_32|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_32|∀ (c : ℕ), 4 + (4 + c) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_47|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_47|1 + (1 + 4) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_11|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_11|0 + 0 = 7 → False
+AUDIT|Erdos940.two_full_le_seven._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos940.two_full_le_seven._proof_1_6|2 ^ 2 ∣ 6 → False
+AUDIT|Nat.Full.one_right|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.Full.one_right|∀ (k : ℕ), k.Full 1
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_41|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_41|0 + (4 + 4) = 7 → False
+AUDIT|Nat.Full.pow_of_le._simp_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.Full.pow_of_le._simp_1_1|∀ (k : ℕ), k.Full 1 = True
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_40|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_40|0 + (4 + 1) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_6|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_6|4 = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_14|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_14|1 + 0 = 7 → False
+AUDIT|Nat.exists_sq_mul_cube_of_two_full._proof_1_4|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.exists_sq_mul_cube_of_two_full._proof_1_4|∀ (n : ℕ), ¬n ≤ 1 → ∀ (p : ℕ), n = 0 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_52|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_52|4 + (0 + 1) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_57|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_57|4 + (4 + 0) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_24|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_24|∀ (c : ℕ), 0 + (0 + c) = 7 → ¬c ≤ 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_19|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_19|4 + 4 = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_46|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_46|1 + (1 + 1) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_50|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_50|1 + (4 + 4) = 7 → False
+AUDIT|Nat.exists_sq_mul_cube_of_two_full._proof_1_6|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.exists_sq_mul_cube_of_two_full._proof_1_6|∀ (n : ℕ),
+  ¬n ≤ 1 → ∀ (p m : ℕ), n = p ^ 3 * m → ∀ (q : ℕ), n = 0 → False
+AUDIT|Erdos940.two_full_le_seven._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos940.two_full_le_seven._proof_1_5|5 ^ 2 ∣ 5 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_15|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_15|1 + 1 = 7 → False
+AUDIT|Nat.exists_sq_mul_cube_of_two_full._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.exists_sq_mul_cube_of_two_full._proof_1_3|∀ (n : ℕ), ¬n ≤ 1 → ∀ (p : ℕ), n = 1 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_23|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_23|∀ (b c : ℕ), 4 + (b + c) = 7 → ¬b ≤ 7 → False
+AUDIT|Nat.two_full_sq_mul_cube._proof_1_1|[propext, Quot.sound]
+TYPE|Nat.two_full_sq_mul_cube._proof_1_1|¬2 ≤ 3 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_51|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_51|4 + (0 + 0) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_25|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_25|∀ (c : ℕ), 0 + (1 + c) = 7 → ¬c ≤ 7 → False
+AUDIT|Nat.Full.mono|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.Full.mono|∀ {k m n : ℕ}, k ≤ m → m.Full n → k.Full n
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_13|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_13|0 + 4 = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_26|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_26|∀ (c : ℕ), 0 + (4 + c) = 7 → ¬c ≤ 7 → False
+AUDIT|Nat.Full.mul|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.Full.mul|∀ {k a b : ℕ}, k.Full a → k.Full b → k.Full (a * b)
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_49|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_49|1 + (4 + 1) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_17|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_17|4 + 0 = 7 → False
+AUDIT|Erdos940.two_full_le_seven|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos940.two_full_le_seven|∀ {s : ℕ}, Nat.Full 2 s → s ≤ 7 → s = 0 ∨ s = 1 ∨ s = 4
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_30|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_30|∀ (c : ℕ), 4 + (0 + c) = 7 → ¬c ≤ 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_55|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_55|4 + (1 + 1) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_39|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_39|0 + (4 + 0) = 7 → False
+AUDIT|Erdos940.two_full_le_seven._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos940.two_full_le_seven._proof_1_7|7 ^ 2 ∣ 7 → False
+AUDIT|Nat.two_full_iff_exists_sq_mul_cube|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.two_full_iff_exists_sq_mul_cube|∀ (n : ℕ), Nat.Full 2 n ↔ ∃ a b, n = a ^ 2 * b ^ 3
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_54|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_54|4 + (1 + 0) = 7 → False
+AUDIT|Nat.Full.pow_of_le|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.Full.pow_of_le|∀ {k m : ℕ}, k ≤ m → ∀ (a : ℕ), k.Full (a ^ m)
+AUDIT|Erdos940.two_full_le_seven._simp_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos940.two_full_le_seven._simp_1_2|∀ {n p : ℕ}, (p ∈ n.primeFactors) = (Nat.Prime p ∧ p ∣ n ∧ n ≠ 0)
+AUDIT|Nat.exists_sq_mul_cube_of_two_full._proof_1_8|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.exists_sq_mul_cube_of_two_full._proof_1_8|∀ (n : ℕ), ¬n ≤ 1 → ∀ (p : ℕ), n = p ^ 2 * 0 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_43|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_43|1 + (0 + 1) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_3|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_3|∀ (a : ℕ), a = 7 → ¬a ≤ 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_28|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_28|∀ (c : ℕ), 1 + (1 + c) = 7 → ¬c ≤ 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_22|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_22|∀ (b c : ℕ), 1 + (b + c) = 7 → ¬b ≤ 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful|¬∃ S, S.card ≤ 3 ∧ (∀ s ∈ S, Nat.Full 2 s) ∧ S.sum = 7
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_48|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_48|1 + (4 + 0) = 7 → False
+AUDIT|Nat.Full.zero_right|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.Full.zero_right|∀ (k : ℕ), k.Full 0
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_29|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_29|∀ (c : ℕ), 1 + (4 + c) = 7 → ¬c ≤ 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_37|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_37|0 + (1 + 1) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_53|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_53|4 + (0 + 4) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_44|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_44|1 + (0 + 4) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_9|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_9|∀ (b : ℕ), 1 + b = 7 → ¬b ≤ 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_8|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_8|∀ (b : ℕ), 0 + b = 7 → ¬b ≤ 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_21|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_21|∀ (b c : ℕ), 0 + (b + c) = 7 → ¬b ≤ 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_45|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_45|1 + (1 + 0) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_4|0 = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_36|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_36|0 + (1 + 0) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_31|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_31|∀ (c : ℕ), 4 + (1 + c) = 7 → ¬c ≤ 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_34|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_34|0 + (0 + 1) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_1|∀ (S : Multiset ℕ),
+  S.card ≤ 3 → ¬(S.card = 0 ∨ S.card = 1 ∨ S.card = 2 ∨ S.card = 3) → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_5|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_5|1 = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_10|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_10|∀ (b : ℕ), 4 + b = 7 → ¬b ≤ 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_7|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_7|∀ (a b : ℕ), a + b = 7 → ¬a ≤ 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_16|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_16|1 + 4 = 7 → False
+AUDIT|Nat.exists_sq_mul_cube_of_two_full._proof_1_7|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.exists_sq_mul_cube_of_two_full._proof_1_7|∀ (n p m : ℕ), 3 = 0 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_35|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_35|0 + (0 + 4) = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_2|∀ (S : Multiset ℕ), 0 = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_33|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_33|0 + (0 + 0) = 7 → False
+AUDIT|Erdos940.two_full_le_seven._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos940.two_full_le_seven._proof_1_1|∀ {s : ℕ},
+  s ≤ 7 → ¬(s = 0 ∨ s = 1 ∨ s = 2 ∨ s = 3 ∨ s = 4 ∨ s = 5 ∨ s = 6 ∨ s = 7) → False
+AUDIT|Nat.exists_sq_mul_cube_of_two_full._proof_1_5|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.exists_sq_mul_cube_of_two_full._proof_1_5|∀ (n : ℕ), ¬n ≤ 1 → ∀ (p : ℕ), n = p ^ 3 * 0 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_56|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_56|4 + (1 + 4) = 7 → False
+AUDIT|Nat.exists_sq_mul_cube_of_two_full._proof_1_2|[propext, Quot.sound]
+TYPE|Nat.exists_sq_mul_cube_of_two_full._proof_1_2|∀ (n : ℕ), ¬n ≤ 1 → ¬1 < n → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_27|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_27|∀ (c : ℕ), 1 + (0 + c) = 7 → ¬c ≤ 7 → False
+AUDIT|Nat.two_full_sq_mul_cube|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.two_full_sq_mul_cube|∀ (a b : ℕ), Nat.Full 2 (a ^ 2 * b ^ 3)
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_20|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_20|∀ (a b c : ℕ), a + (b + c) = 7 → ¬a ≤ 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_58|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_58|4 + (4 + 1) = 7 → False
+AUDIT|Erdos940.two_full_le_seven._proof_1_4|[propext, Quot.sound]
+TYPE|Erdos940.two_full_le_seven._proof_1_4|3 ^ 2 ∣ 3 → False
+AUDIT|Nat.exists_sq_mul_cube_of_two_full|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.exists_sq_mul_cube_of_two_full|∀ (n : ℕ), Nat.Full 2 n → ∃ a b, n = a ^ 2 * b ^ 3
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_38|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_38|0 + (1 + 4) = 7 → False
+AUDIT|Nat.Full.eq_1|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.Full.eq_1|∀ (k n : ℕ), k.Full n = ∀ p ∈ n.primeFactors, p ^ k ∣ n
+AUDIT|Nat.exists_sq_mul_cube_of_two_full._proof_1_9|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.exists_sq_mul_cube_of_two_full._proof_1_9|∀ (n : ℕ),
+  ¬n ≤ 1 → ∀ (p m : ℕ), n = p ^ 2 * m → ∀ (q : ℕ), n = 0 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_59|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_59|4 + (4 + 4) = 7 → False
+AUDIT|Nat.exists_sq_mul_cube_of_two_full._proof_1_1|[propext, Quot.sound]
+TYPE|Nat.exists_sq_mul_cube_of_two_full._proof_1_1|∀ n ≤ 1, ¬(n = 0 ∨ n = 1) → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_18|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_18|4 + 1 = 7 → False
+AUDIT|Nat.exists_sq_mul_cube_of_two_full._proof_1_10|[propext, Classical.choice, Quot.sound]
+TYPE|Nat.exists_sq_mul_cube_of_two_full._proof_1_10|∀ (n p m : ℕ), 2 = 0 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_12|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_12|0 + 1 = 7 → False
+AUDIT|Erdos940.seven_not_sum_three_powerful._proof_1_42|[propext, Quot.sound]
+TYPE|Erdos940.seven_not_sum_three_powerful._proof_1_42|1 + (0 + 0) = 7 → False

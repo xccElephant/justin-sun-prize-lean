@@ -1,0 +1,693 @@
+Erdos885.erdos_885.variants.k_eq_2 : ∃ Ns,
+  (∀ n ∈ Ns, 1 ≤ n) ∧ Ns.card = 2 ∧ (⋂ n ∈ Ns, Erdos885.factorDifferenceSet n).ncard ≥ 2
+theorem Erdos885.erdos_885.variants.k_eq_2 : ∃ Ns,
+  (∀ n ∈ Ns, 1 ≤ n) ∧ Ns.card = 2 ∧ (⋂ n ∈ Ns, Erdos885.factorDifferenceSet n).ncard ≥ 2 :=
+Exists.intro {65984625, 508032000}
+  ⟨of_eq_true
+      (Eq.trans
+        (Eq.trans
+          (forall_congr fun n =>
+            implies_congr
+              (Eq.trans Finset.mem_insert._simp_1 (congrArg (Or (n = 65984625)) Finset.mem_singleton._simp_1))
+              (Eq.refl (1 ≤ n)))
+          forall_eq_or_imp._simp_1)
+        (Eq.trans (congr (congrArg And Nat.one_le_ofNat._simp_1) (Eq.trans forall_eq._simp_1 Nat.one_le_ofNat._simp_1))
+          (and_self True))),
+    ⟨of_decide_eq_true (id (Eq.refl true)),
+      have hsub := fun ⦃d⦄ hd =>
+        Eq.mpr
+          (id
+            (Eq.trans
+              (Eq.trans
+                (congrFun'
+                  (congrArg Membership.mem
+                    (congrArg Set.iInter
+                      (funext fun n =>
+                        Set.iInter_congr_Prop
+                          (Iff.of_eq
+                            (Eq.trans Erdos885.erdos_885.variants.k_eq_2._simp_1_4
+                              (congrArg (Or (n = 65984625)) Erdos885.erdos_885.variants.k_eq_2._simp_1_5)))
+                          fun x => Eq.refl (Erdos885.factorDifferenceSet n))))
+                  d)
+                Erdos885.erdos_885.variants.k_eq_2._simp_1_3)
+              (forall_congr fun i => Erdos885.erdos_885.variants.k_eq_2._simp_1_3)))
+          fun n i =>
+          Or.casesOn i
+            (fun h =>
+              Eq.symm h ▸
+                Or.casesOn
+                  (Eq.mp
+                    (Eq.trans
+                      (Eq.trans
+                        (congrFun'
+                          (congrArg Membership.mem
+                            (Eq.trans (Finset.coe_insert 5040 {27720})
+                              (congrArg (insert 5040) (Finset.coe_singleton 27720))))
+                          d)
+                        Erdos885.erdos_885.variants.k_eq_2._simp_1_1)
+                      (congrArg (Or (d = 5040)) Erdos885.erdos_885.variants.k_eq_2._simp_1_2))
+                    hd)
+                  (fun h =>
+                    Eq.symm h ▸
+                      Erdos885.mem_factorDifferenceSet_of_eq
+                        (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 65984625))
+                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                            (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 5985))
+                            (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 5985))
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 5040)) (Eq.refl 11025))
+                            (Eq.refl 65984625))))
+                  fun h =>
+                  Eq.symm h ▸
+                    Erdos885.mem_factorDifferenceSet_of_eq
+                      (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 65984625))
+                        (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                          (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2205))
+                          (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                            (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2205))
+                            (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 27720)) (Eq.refl 29925))
+                          (Eq.refl 65984625))))
+            fun h =>
+            Eq.symm h ▸
+              Or.casesOn
+                (Eq.mp
+                  (Eq.trans
+                    (Eq.trans
+                      (congrFun'
+                        (congrArg Membership.mem
+                          (Eq.trans (Finset.coe_insert 5040 {27720})
+                            (congrArg (insert 5040) (Finset.coe_singleton 27720))))
+                        d)
+                      Erdos885.erdos_885.variants.k_eq_2._simp_1_1)
+                    (congrArg (Or (d = 5040)) Erdos885.erdos_885.variants.k_eq_2._simp_1_2))
+                  hd)
+                (fun h =>
+                  Eq.symm h ▸
+                    Erdos885.mem_factorDifferenceSet_of_eq
+                      (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 508032000))
+                        (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                          (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 20160))
+                          (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                            (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 20160))
+                            (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 5040)) (Eq.refl 25200))
+                          (Eq.refl 508032000))))
+                fun h =>
+                Eq.symm h ▸
+                  Erdos885.mem_factorDifferenceSet_of_eq
+                    (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 508032000))
+                      (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                        (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 12600))
+                        (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                          (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 12600))
+                          (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 27720)) (Eq.refl 40320))
+                        (Eq.refl 508032000)));
+      have hfin :=
+        Set.Finite.subset
+          (Erdos885.factorDifferenceSet_finite
+            (Mathlib.Meta.NormNum.isNat_le_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 1))
+              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 65984625)) (Eq.refl true)))
+          (Set.iInter₂_subset 65984625
+            (of_eq_true
+              (Eq.trans Finset.mem_insert._simp_1
+                (Eq.trans
+                  (congr (congrArg Or (eq_self 65984625))
+                    (Eq.trans Finset.mem_singleton._simp_1 (eq_false_of_decide (Eq.refl false))))
+                  (or_false True)))));
+      Trans.trans
+        (Eq.mpr (id (congrArg (fun _a => 2 = _a) (Set.ncard_coe_finset {5040, 27720})))
+          (of_decide_eq_true (id (Eq.refl true))))
+        (Set.ncard_le_ncard hsub hfin)⟩⟩
+'Erdos885.erdos_885.variants.k_eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos885.erdos_885.variants.k_eq_3 : ∃ Ns,
+  (∀ n ∈ Ns, 1 ≤ n) ∧ Ns.card = 3 ∧ (⋂ n ∈ Ns, Erdos885.factorDifferenceSet n).ncard ≥ 3
+theorem Erdos885.erdos_885.variants.k_eq_3 : ∃ Ns,
+  (∀ n ∈ Ns, 1 ≤ n) ∧ Ns.card = 3 ∧ (⋂ n ∈ Ns, Erdos885.factorDifferenceSet n).ncard ≥ 3 :=
+Exists.intro {65984625, 508032000, 1578963456}
+  ⟨of_eq_true
+      (Eq.trans
+        (Eq.trans
+          (forall_congr fun n =>
+            implies_congr
+              (Eq.trans Finset.mem_insert._simp_1
+                (congrArg (Or (n = 65984625))
+                  (Eq.trans Finset.mem_insert._simp_1 (congrArg (Or (n = 508032000)) Finset.mem_singleton._simp_1))))
+              (Eq.refl (1 ≤ n)))
+          forall_eq_or_imp._simp_1)
+        (Eq.trans
+          (congr (congrArg And Nat.one_le_ofNat._simp_1)
+            (Eq.trans forall_eq_or_imp._simp_1
+              (Eq.trans
+                (congr (congrArg And Nat.one_le_ofNat._simp_1) (Eq.trans forall_eq._simp_1 Nat.one_le_ofNat._simp_1))
+                (and_self True))))
+          (and_self True))),
+    ⟨of_decide_eq_true (id (Eq.refl true)),
+      have hsub := fun ⦃d⦄ hd =>
+        Eq.mpr
+          (id
+            (Eq.trans
+              (Eq.trans
+                (congrFun'
+                  (congrArg Membership.mem
+                    (congrArg Set.iInter
+                      (funext fun n =>
+                        Set.iInter_congr_Prop
+                          (Iff.of_eq
+                            (Eq.trans Erdos885.erdos_885.variants.k_eq_3._simp_1_4
+                              (congrArg (Or (n = 65984625))
+                                (Eq.trans Erdos885.erdos_885.variants.k_eq_3._simp_1_4
+                                  (congrArg (Or (n = 508032000)) Erdos885.erdos_885.variants.k_eq_3._simp_1_5)))))
+                          fun x => Eq.refl (Erdos885.factorDifferenceSet n))))
+                  d)
+                Erdos885.erdos_885.variants.k_eq_3._simp_1_3)
+              (forall_congr fun i => Erdos885.erdos_885.variants.k_eq_3._simp_1_3)))
+          fun n i =>
+          Or.casesOn i
+            (fun h =>
+              Eq.symm h ▸
+                Or.casesOn
+                  (Eq.mp
+                    (Eq.trans
+                      (Eq.trans
+                        (congrFun'
+                          (congrArg Membership.mem
+                            (Eq.trans (Finset.coe_insert 5040 {27720, 68880})
+                              (congrArg (insert 5040)
+                                (Eq.trans (Finset.coe_insert 27720 {68880})
+                                  (congrArg (insert 27720) (Finset.coe_singleton 68880))))))
+                          d)
+                        Erdos885.erdos_885.variants.k_eq_3._simp_1_1)
+                      (congrArg (Or (d = 5040))
+                        (Eq.trans Erdos885.erdos_885.variants.k_eq_3._simp_1_1
+                          (congrArg (Or (d = 27720)) Erdos885.erdos_885.variants.k_eq_3._simp_1_2))))
+                    hd)
+                  (fun h =>
+                    Eq.symm h ▸
+                      Erdos885.mem_factorDifferenceSet_of_eq
+                        (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 65984625))
+                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                            (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 5985))
+                            (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 5985))
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 5040)) (Eq.refl 11025))
+                            (Eq.refl 65984625))))
+                  fun h =>
+                  Or.casesOn h
+                    (fun h =>
+                      Eq.symm h ▸
+                        Erdos885.mem_factorDifferenceSet_of_eq
+                          (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 65984625))
+                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2205))
+                              (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2205))
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 27720)) (Eq.refl 29925))
+                              (Eq.refl 65984625))))
+                    fun h =>
+                    Eq.symm h ▸
+                      Erdos885.mem_factorDifferenceSet_of_eq
+                        (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 65984625))
+                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                            (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 945))
+                            (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 945))
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 68880)) (Eq.refl 69825))
+                            (Eq.refl 65984625))))
+            fun h =>
+            Or.casesOn h
+              (fun h =>
+                Eq.symm h ▸
+                  Or.casesOn
+                    (Eq.mp
+                      (Eq.trans
+                        (Eq.trans
+                          (congrFun'
+                            (congrArg Membership.mem
+                              (Eq.trans (Finset.coe_insert 5040 {27720, 68880})
+                                (congrArg (insert 5040)
+                                  (Eq.trans (Finset.coe_insert 27720 {68880})
+                                    (congrArg (insert 27720) (Finset.coe_singleton 68880))))))
+                            d)
+                          Erdos885.erdos_885.variants.k_eq_3._simp_1_1)
+                        (congrArg (Or (d = 5040))
+                          (Eq.trans Erdos885.erdos_885.variants.k_eq_3._simp_1_1
+                            (congrArg (Or (d = 27720)) Erdos885.erdos_885.variants.k_eq_3._simp_1_2))))
+                      hd)
+                    (fun h =>
+                      Eq.symm h ▸
+                        Erdos885.mem_factorDifferenceSet_of_eq
+                          (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 508032000))
+                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 20160))
+                              (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 20160))
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 5040)) (Eq.refl 25200))
+                              (Eq.refl 508032000))))
+                    fun h =>
+                    Or.casesOn h
+                      (fun h =>
+                        Eq.symm h ▸
+                          Erdos885.mem_factorDifferenceSet_of_eq
+                            (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 508032000))
+                              (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 12600))
+                                (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 12600))
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 27720)) (Eq.refl 40320))
+                                (Eq.refl 508032000))))
+                      fun h =>
+                      Eq.symm h ▸
+                        Erdos885.mem_factorDifferenceSet_of_eq
+                          (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 508032000))
+                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 6720))
+                              (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 6720))
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 68880)) (Eq.refl 75600))
+                              (Eq.refl 508032000))))
+              fun h =>
+              Eq.symm h ▸
+                Or.casesOn
+                  (Eq.mp
+                    (Eq.trans
+                      (Eq.trans
+                        (congrFun'
+                          (congrArg Membership.mem
+                            (Eq.trans (Finset.coe_insert 5040 {27720, 68880})
+                              (congrArg (insert 5040)
+                                (Eq.trans (Finset.coe_insert 27720 {68880})
+                                  (congrArg (insert 27720) (Finset.coe_singleton 68880))))))
+                          d)
+                        Erdos885.erdos_885.variants.k_eq_3._simp_1_1)
+                      (congrArg (Or (d = 5040))
+                        (Eq.trans Erdos885.erdos_885.variants.k_eq_3._simp_1_1
+                          (congrArg (Or (d = 27720)) Erdos885.erdos_885.variants.k_eq_3._simp_1_2))))
+                    hd)
+                  (fun h =>
+                    Eq.symm h ▸
+                      Erdos885.mem_factorDifferenceSet_of_eq
+                        (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 1578963456))
+                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                            (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 37296))
+                            (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 37296))
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 5040)) (Eq.refl 42336))
+                            (Eq.refl 1578963456))))
+                  fun h =>
+                  Or.casesOn h
+                    (fun h =>
+                      Eq.symm h ▸
+                        Erdos885.mem_factorDifferenceSet_of_eq
+                          (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 1578963456))
+                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 28224))
+                              (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 28224))
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 27720)) (Eq.refl 55944))
+                              (Eq.refl 1578963456))))
+                    fun h =>
+                    Eq.symm h ▸
+                      Erdos885.mem_factorDifferenceSet_of_eq
+                        (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 1578963456))
+                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                            (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 18144))
+                            (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 18144))
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 68880)) (Eq.refl 87024))
+                            (Eq.refl 1578963456)));
+      have hfin :=
+        Set.Finite.subset
+          (Erdos885.factorDifferenceSet_finite
+            (Mathlib.Meta.NormNum.isNat_le_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 1))
+              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 65984625)) (Eq.refl true)))
+          (Set.iInter₂_subset 65984625
+            (of_eq_true
+              (Eq.trans Finset.mem_insert._simp_1
+                (Eq.trans
+                  (congr (congrArg Or (eq_self 65984625))
+                    (Eq.trans Finset.mem_insert._simp_1
+                      (Eq.trans
+                        (congr (congrArg Or (eq_false_of_decide (Eq.refl false)))
+                          (Eq.trans Finset.mem_singleton._simp_1 (eq_false_of_decide (Eq.refl false))))
+                        (or_self False))))
+                  (or_false True)))));
+      Trans.trans
+        (Eq.mpr (id (congrArg (fun _a => 3 = _a) (Set.ncard_coe_finset {5040, 27720, 68880})))
+          (of_decide_eq_true (id (Eq.refl true))))
+        (Set.ncard_le_ncard hsub hfin)⟩⟩
+'Erdos885.erdos_885.variants.k_eq_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos885.erdos_885.variants.k_eq_4 : ∃ Ns,
+  (∀ n ∈ Ns, 1 ≤ n) ∧ Ns.card = 4 ∧ (⋂ n ∈ Ns, Erdos885.factorDifferenceSet n).ncard ≥ 4
+theorem Erdos885.erdos_885.variants.k_eq_4 : ∃ Ns,
+  (∀ n ∈ Ns, 1 ≤ n) ∧ Ns.card = 4 ∧ (⋂ n ∈ Ns, Erdos885.factorDifferenceSet n).ncard ≥ 4 :=
+Exists.intro {65984625, 508032000, 1578963456, 2505664000}
+  ⟨of_eq_true
+      (Eq.trans
+        (Eq.trans
+          (forall_congr fun n =>
+            implies_congr
+              (Eq.trans Finset.mem_insert._simp_1
+                (congrArg (Or (n = 65984625))
+                  (Eq.trans Finset.mem_insert._simp_1
+                    (congrArg (Or (n = 508032000))
+                      (Eq.trans Finset.mem_insert._simp_1
+                        (congrArg (Or (n = 1578963456)) Finset.mem_singleton._simp_1))))))
+              (Eq.refl (1 ≤ n)))
+          forall_eq_or_imp._simp_1)
+        (Eq.trans
+          (congr (congrArg And Nat.one_le_ofNat._simp_1)
+            (Eq.trans forall_eq_or_imp._simp_1
+              (Eq.trans
+                (congr (congrArg And Nat.one_le_ofNat._simp_1)
+                  (Eq.trans forall_eq_or_imp._simp_1
+                    (Eq.trans
+                      (congr (congrArg And Nat.one_le_ofNat._simp_1)
+                        (Eq.trans forall_eq._simp_1 Nat.one_le_ofNat._simp_1))
+                      (and_self True))))
+                (and_self True))))
+          (and_self True))),
+    ⟨of_decide_eq_true (id (Eq.refl true)),
+      have hsub := fun ⦃d⦄ hd =>
+        Eq.mpr
+          (id
+            (Eq.trans
+              (Eq.trans
+                (congrFun'
+                  (congrArg Membership.mem
+                    (congrArg Set.iInter
+                      (funext fun n =>
+                        Set.iInter_congr_Prop
+                          (Iff.of_eq
+                            (Eq.trans Erdos885.erdos_885.variants.k_eq_4._simp_1_4
+                              (congrArg (Or (n = 65984625))
+                                (Eq.trans Erdos885.erdos_885.variants.k_eq_4._simp_1_4
+                                  (congrArg (Or (n = 508032000))
+                                    (Eq.trans Erdos885.erdos_885.variants.k_eq_4._simp_1_4
+                                      (congrArg (Or (n = 1578963456))
+                                        Erdos885.erdos_885.variants.k_eq_4._simp_1_5)))))))
+                          fun x => Eq.refl (Erdos885.factorDifferenceSet n))))
+                  d)
+                Erdos885.erdos_885.variants.k_eq_4._simp_1_3)
+              (forall_congr fun i => Erdos885.erdos_885.variants.k_eq_4._simp_1_3)))
+          fun n i =>
+          Or.casesOn i
+            (fun h =>
+              Eq.symm h ▸
+                Or.casesOn
+                  (Eq.mp
+                    (Eq.trans
+                      (Eq.trans
+                        (congrFun'
+                          (congrArg Membership.mem
+                            (Eq.trans (Finset.coe_insert 5040 {27720, 68880, 164976})
+                              (congrArg (insert 5040)
+                                (Eq.trans (Finset.coe_insert 27720 {68880, 164976})
+                                  (congrArg (insert 27720)
+                                    (Eq.trans (Finset.coe_insert 68880 {164976})
+                                      (congrArg (insert 68880) (Finset.coe_singleton 164976))))))))
+                          d)
+                        Erdos885.erdos_885.variants.k_eq_4._simp_1_1)
+                      (congrArg (Or (d = 5040))
+                        (Eq.trans Erdos885.erdos_885.variants.k_eq_4._simp_1_1
+                          (congrArg (Or (d = 27720))
+                            (Eq.trans Erdos885.erdos_885.variants.k_eq_4._simp_1_1
+                              (congrArg (Or (d = 68880)) Erdos885.erdos_885.variants.k_eq_4._simp_1_2))))))
+                    hd)
+                  (fun h =>
+                    Eq.symm h ▸
+                      Erdos885.mem_factorDifferenceSet_of_eq
+                        (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 65984625))
+                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                            (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 5985))
+                            (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 5985))
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 5040)) (Eq.refl 11025))
+                            (Eq.refl 65984625))))
+                  fun h =>
+                  Or.casesOn h
+                    (fun h =>
+                      Eq.symm h ▸
+                        Erdos885.mem_factorDifferenceSet_of_eq
+                          (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 65984625))
+                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2205))
+                              (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2205))
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 27720)) (Eq.refl 29925))
+                              (Eq.refl 65984625))))
+                    fun h =>
+                    Or.casesOn h
+                      (fun h =>
+                        Eq.symm h ▸
+                          Erdos885.mem_factorDifferenceSet_of_eq
+                            (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 65984625))
+                              (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 945))
+                                (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 945))
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 68880)) (Eq.refl 69825))
+                                (Eq.refl 65984625))))
+                      fun h =>
+                      Eq.symm h ▸
+                        Erdos885.mem_factorDifferenceSet_of_eq
+                          (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 65984625))
+                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 399))
+                              (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 399))
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 164976)) (Eq.refl 165375))
+                              (Eq.refl 65984625))))
+            fun h =>
+            Or.casesOn h
+              (fun h =>
+                Eq.symm h ▸
+                  Or.casesOn
+                    (Eq.mp
+                      (Eq.trans
+                        (Eq.trans
+                          (congrFun'
+                            (congrArg Membership.mem
+                              (Eq.trans (Finset.coe_insert 5040 {27720, 68880, 164976})
+                                (congrArg (insert 5040)
+                                  (Eq.trans (Finset.coe_insert 27720 {68880, 164976})
+                                    (congrArg (insert 27720)
+                                      (Eq.trans (Finset.coe_insert 68880 {164976})
+                                        (congrArg (insert 68880) (Finset.coe_singleton 164976))))))))
+                            d)
+                          Erdos885.erdos_885.variants.k_eq_4._simp_1_1)
+                        (congrArg (Or (d = 5040))
+                          (Eq.trans Erdos885.erdos_885.variants.k_eq_4._simp_1_1
+                            (congrArg (Or (d = 27720))
+                              (Eq.trans Erdos885.erdos_885.variants.k_eq_4._simp_1_1
+                                (congrArg (Or (d = 68880)) Erdos885.erdos_885.variants.k_eq_4._simp_1_2))))))
+                      hd)
+                    (fun h =>
+                      Eq.symm h ▸
+                        Erdos885.mem_factorDifferenceSet_of_eq
+                          (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 508032000))
+                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 20160))
+                              (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 20160))
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 5040)) (Eq.refl 25200))
+                              (Eq.refl 508032000))))
+                    fun h =>
+                    Or.casesOn h
+                      (fun h =>
+                        Eq.symm h ▸
+                          Erdos885.mem_factorDifferenceSet_of_eq
+                            (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 508032000))
+                              (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 12600))
+                                (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 12600))
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 27720)) (Eq.refl 40320))
+                                (Eq.refl 508032000))))
+                      fun h =>
+                      Or.casesOn h
+                        (fun h =>
+                          Eq.symm h ▸
+                            Erdos885.mem_factorDifferenceSet_of_eq
+                              (Mathlib.Meta.NormNum.isNat_eq_true
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 508032000))
+                                (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 6720))
+                                  (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 6720))
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 68880)) (Eq.refl 75600))
+                                  (Eq.refl 508032000))))
+                        fun h =>
+                        Eq.symm h ▸
+                          Erdos885.mem_factorDifferenceSet_of_eq
+                            (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 508032000))
+                              (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 3024))
+                                (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 3024))
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 164976)) (Eq.refl 168000))
+                                (Eq.refl 508032000))))
+              fun h =>
+              Or.casesOn h
+                (fun h =>
+                  Eq.symm h ▸
+                    Or.casesOn
+                      (Eq.mp
+                        (Eq.trans
+                          (Eq.trans
+                            (congrFun'
+                              (congrArg Membership.mem
+                                (Eq.trans (Finset.coe_insert 5040 {27720, 68880, 164976})
+                                  (congrArg (insert 5040)
+                                    (Eq.trans (Finset.coe_insert 27720 {68880, 164976})
+                                      (congrArg (insert 27720)
+                                        (Eq.trans (Finset.coe_insert 68880 {164976})
+                                          (congrArg (insert 68880) (Finset.coe_singleton 164976))))))))
+                              d)
+                            Erdos885.erdos_885.variants.k_eq_4._simp_1_1)
+                          (congrArg (Or (d = 5040))
+                            (Eq.trans Erdos885.erdos_885.variants.k_eq_4._simp_1_1
+                              (congrArg (Or (d = 27720))
+                                (Eq.trans Erdos885.erdos_885.variants.k_eq_4._simp_1_1
+                                  (congrArg (Or (d = 68880)) Erdos885.erdos_885.variants.k_eq_4._simp_1_2))))))
+                        hd)
+                      (fun h =>
+                        Eq.symm h ▸
+                          Erdos885.mem_factorDifferenceSet_of_eq
+                            (Mathlib.Meta.NormNum.isNat_eq_true
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 1578963456))
+                              (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 37296))
+                                (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 37296))
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 5040)) (Eq.refl 42336))
+                                (Eq.refl 1578963456))))
+                      fun h =>
+                      Or.casesOn h
+                        (fun h =>
+                          Eq.symm h ▸
+                            Erdos885.mem_factorDifferenceSet_of_eq
+                              (Mathlib.Meta.NormNum.isNat_eq_true
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 1578963456))
+                                (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 28224))
+                                  (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 28224))
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 27720)) (Eq.refl 55944))
+                                  (Eq.refl 1578963456))))
+                        fun h =>
+                        Or.casesOn h
+                          (fun h =>
+                            Eq.symm h ▸
+                              Erdos885.mem_factorDifferenceSet_of_eq
+                                (Mathlib.Meta.NormNum.isNat_eq_true
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 1578963456))
+                                  (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 18144))
+                                    (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 18144))
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 68880)) (Eq.refl 87024))
+                                    (Eq.refl 1578963456))))
+                          fun h =>
+                          Eq.symm h ▸
+                            Erdos885.mem_factorDifferenceSet_of_eq
+                              (Mathlib.Meta.NormNum.isNat_eq_true
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 1578963456))
+                                (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 9072))
+                                  (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 9072))
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 164976)) (Eq.refl 174048))
+                                  (Eq.refl 1578963456))))
+                fun h =>
+                Eq.symm h ▸
+                  Or.casesOn
+                    (Eq.mp
+                      (Eq.trans
+                        (Eq.trans
+                          (congrFun'
+                            (congrArg Membership.mem
+                              (Eq.trans (Finset.coe_insert 5040 {27720, 68880, 164976})
+                                (congrArg (insert 5040)
+                                  (Eq.trans (Finset.coe_insert 27720 {68880, 164976})
+                                    (congrArg (insert 27720)
+                                      (Eq.trans (Finset.coe_insert 68880 {164976})
+                                        (congrArg (insert 68880) (Finset.coe_singleton 164976))))))))
+                            d)
+                          Erdos885.erdos_885.variants.k_eq_4._simp_1_1)
+                        (congrArg (Or (d = 5040))
+                          (Eq.trans Erdos885.erdos_885.variants.k_eq_4._simp_1_1
+                            (congrArg (Or (d = 27720))
+                              (Eq.trans Erdos885.erdos_885.variants.k_eq_4._simp_1_1
+                                (congrArg (Or (d = 68880)) Erdos885.erdos_885.variants.k_eq_4._simp_1_2))))))
+                      hd)
+                    (fun h =>
+                      Eq.symm h ▸
+                        Erdos885.mem_factorDifferenceSet_of_eq
+                          (Mathlib.Meta.NormNum.isNat_eq_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2505664000))
+                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 47600))
+                              (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 47600))
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 5040)) (Eq.refl 52640))
+                              (Eq.refl 2505664000))))
+                    fun h =>
+                    Or.casesOn h
+                      (fun h =>
+                        Eq.symm h ▸
+                          Erdos885.mem_factorDifferenceSet_of_eq
+                            (Mathlib.Meta.NormNum.isNat_eq_true
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2505664000))
+                              (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 38080))
+                                (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 38080))
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 27720)) (Eq.refl 65800))
+                                (Eq.refl 2505664000))))
+                      fun h =>
+                      Or.casesOn h
+                        (fun h =>
+                          Eq.symm h ▸
+                            Erdos885.mem_factorDifferenceSet_of_eq
+                              (Mathlib.Meta.NormNum.isNat_eq_true
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2505664000))
+                                (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 26320))
+                                  (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 26320))
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 68880)) (Eq.refl 95200))
+                                  (Eq.refl 2505664000))))
+                        fun h =>
+                        Eq.symm h ▸
+                          Erdos885.mem_factorDifferenceSet_of_eq
+                            (Mathlib.Meta.NormNum.isNat_eq_true
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2505664000))
+                              (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 14000))
+                                (Mathlib.Meta.NormNum.isNat_add (Eq.refl HAdd.hAdd)
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 14000))
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 164976)) (Eq.refl 178976))
+                                (Eq.refl 2505664000)));
+      have hfin :=
+        Set.Finite.subset
+          (Erdos885.factorDifferenceSet_finite
+            (Mathlib.Meta.NormNum.isNat_le_true (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 1))
+              (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 65984625)) (Eq.refl true)))
+          (Set.iInter₂_subset 65984625
+            (of_eq_true
+              (Eq.trans Finset.mem_insert._simp_1
+                (Eq.trans
+                  (congr (congrArg Or (eq_self 65984625))
+                    (Eq.trans Finset.mem_insert._simp_1
+                      (Eq.trans
+                        (congr (congrArg Or (eq_false_of_decide (Eq.refl false)))
+                          (Eq.trans Finset.mem_insert._simp_1
+                            (Eq.trans
+                              (congr (congrArg Or (eq_false_of_decide (Eq.refl false)))
+                                (Eq.trans Finset.mem_singleton._simp_1 (eq_false_of_decide (Eq.refl false))))
+                              (or_self False))))
+                        (or_self False))))
+                  (or_false True)))));
+      Trans.trans
+        (Eq.mpr (id (congrArg (fun _a => 4 = _a) (Set.ncard_coe_finset {5040, 27720, 68880, 164976})))
+          (of_decide_eq_true (id (Eq.refl true))))
+        (Set.ncard_le_ncard hsub hfin)⟩⟩
+'Erdos885.erdos_885.variants.k_eq_4' depends on axioms: [propext, Classical.choice, Quot.sound]

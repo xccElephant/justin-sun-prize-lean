@@ -1,0 +1,12 @@
+/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:2:8: error(lean.unknownIdentifier): Unknown identifier `Erdos699.erdos_699_for_i_le_2`
+/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:3:7: error(lean.unknownIdentifier): Unknown constant `Erdos699.erdos_699_for_i_le_2`
+/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:4:14: error(lean.unknownIdentifier): Unknown constant `Erdos699.erdos_699_for_i_le_2`
+/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:5:8: error(lean.unknownIdentifier): Unknown identifier `Erdos699.erdos_szekeres_1978`
+/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:6:7: error(lean.unknownIdentifier): Unknown constant `Erdos699.erdos_szekeres_1978`
+/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:7:14: error(lean.unknownIdentifier): Unknown constant `Erdos699.erdos_szekeres_1978`
+/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:8:8: error(lean.unknownIdentifier): Unknown identifier `Erdos699.erdos_szekeres_tightness_28`
+/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:9:7: error(lean.unknownIdentifier): Unknown constant `Erdos699.erdos_szekeres_tightness_28`
+/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:10:14: error(lean.unknownIdentifier): Unknown constant `Erdos699.erdos_szekeres_tightness_28`
+/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:11:8: error(lean.unknownIdentifier): Unknown identifier `Erdos699.strengthened_conjecture_exceptions`
+/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:12:7: error(lean.unknownIdentifier): Unknown constant `Erdos699.strengthened_conjecture_exceptions`
+/tmp/lean-verify-jsp-20261018/audit/PR5094.lean:13:14: error(lean.unknownIdentifier): Unknown constant `Erdos699.strengthened_conjecture_exceptions`

@@ -1,0 +1,121 @@
+/tmp/lean-verify-jsp-20261018/audit/PR5080.lean:2:8: error(lean.unknownIdentifier): Unknown identifier `Erdos372.infinite_strictly_decreasing_pairs`
+/tmp/lean-verify-jsp-20261018/audit/PR5080.lean:3:7: error(lean.unknownIdentifier): Unknown constant `Erdos372.infinite_strictly_decreasing_pairs`
+/tmp/lean-verify-jsp-20261018/audit/PR5080.lean:4:14: error(lean.unknownIdentifier): Unknown constant `Erdos372.infinite_strictly_decreasing_pairs`
+/tmp/lean-verify-jsp-20261018/audit/PR5080.lean:5:8: error(lean.unknownIdentifier): Unknown identifier `Erdos372.jsp_000307_decreasing_quadruple_317`
+/tmp/lean-verify-jsp-20261018/audit/PR5080.lean:6:7: error(lean.unknownIdentifier): Unknown constant `Erdos372.jsp_000307_decreasing_quadruple_317`
+/tmp/lean-verify-jsp-20261018/audit/PR5080.lean:7:14: error(lean.unknownIdentifier): Unknown constant `Erdos372.jsp_000307_decreasing_quadruple_317`
+Erdos372.jsp_000307_least_decreasing_triple : IsLeast
+  {n | n.maxPrimeFac > (n + 1).maxPrimeFac ∧ (n + 1).maxPrimeFac > (n + 2).maxPrimeFac} 13
+theorem Erdos372.jsp_000307_least_decreasing_triple : IsLeast
+  {n | n.maxPrimeFac > (n + 1).maxPrimeFac ∧ (n + 1).maxPrimeFac > (n + 2).maxPrimeFac} 13 :=
+⟨Erdos372.jsp_000307_least_decreasing_triple._proof_1_1, fun n hn =>
+  Decidable.byContradiction fun h =>
+    have hcases :=
+      Decidable.byContradiction fun a =>
+        Erdos372.jsp_000307_least_decreasing_triple._proof_1_2 n (Eq.mp not_le._simp_1 h) a;
+    Or.casesOn hcases
+      (fun h_1 =>
+        Eq.ndrec (motive := fun n =>
+          n ∈ {n | n.maxPrimeFac > (n + 1).maxPrimeFac ∧ (n + 1).maxPrimeFac > (n + 2).maxPrimeFac} → n < 13 → False)
+          (fun hn hlt => Erdos372.jsp_000307_least_decreasing_triple._proof_1_3 hn) (Eq.symm h_1) hn
+          (Eq.mp not_le._simp_1 h))
+      fun h_1 =>
+      Or.casesOn h_1
+        (fun h_2 =>
+          Eq.ndrec (motive := fun n =>
+            n ∈ {n | n.maxPrimeFac > (n + 1).maxPrimeFac ∧ (n + 1).maxPrimeFac > (n + 2).maxPrimeFac} → n < 13 → False)
+            (fun hn hlt => Erdos372.jsp_000307_least_decreasing_triple._proof_1_4 hn) (Eq.symm h_2) hn
+            (Eq.mp not_le._simp_1 h))
+        fun h_2 =>
+        Or.casesOn h_2
+          (fun h_3 =>
+            Eq.ndrec (motive := fun n =>
+              n ∈ {n | n.maxPrimeFac > (n + 1).maxPrimeFac ∧ (n + 1).maxPrimeFac > (n + 2).maxPrimeFac} →
+                n < 13 → False)
+              (fun hn hlt => Erdos372.jsp_000307_least_decreasing_triple._proof_1_5 hn) (Eq.symm h_3) hn
+              (Eq.mp not_le._simp_1 h))
+          fun h_3 =>
+          Or.casesOn h_3
+            (fun h_4 =>
+              Eq.ndrec (motive := fun n =>
+                n ∈ {n | n.maxPrimeFac > (n + 1).maxPrimeFac ∧ (n + 1).maxPrimeFac > (n + 2).maxPrimeFac} →
+                  n < 13 → False)
+                (fun hn hlt => Erdos372.jsp_000307_least_decreasing_triple._proof_1_6 hn) (Eq.symm h_4) hn
+                (Eq.mp not_le._simp_1 h))
+            fun h_4 =>
+            Or.casesOn h_4
+              (fun h_5 =>
+                Eq.ndrec (motive := fun n =>
+                  n ∈ {n | n.maxPrimeFac > (n + 1).maxPrimeFac ∧ (n + 1).maxPrimeFac > (n + 2).maxPrimeFac} →
+                    n < 13 → False)
+                  (fun hn hlt => Erdos372.jsp_000307_least_decreasing_triple._proof_1_7 hn) (Eq.symm h_5) hn
+                  (Eq.mp not_le._simp_1 h))
+              fun h_5 =>
+              Or.casesOn h_5
+                (fun h_6 =>
+                  Eq.ndrec (motive := fun n =>
+                    n ∈ {n | n.maxPrimeFac > (n + 1).maxPrimeFac ∧ (n + 1).maxPrimeFac > (n + 2).maxPrimeFac} →
+                      n < 13 → False)
+                    (fun hn hlt => Erdos372.jsp_000307_least_decreasing_triple._proof_1_8 hn) (Eq.symm h_6) hn
+                    (Eq.mp not_le._simp_1 h))
+                fun h_6 =>
+                Or.casesOn h_6
+                  (fun h_7 =>
+                    Eq.ndrec (motive := fun n =>
+                      n ∈ {n | n.maxPrimeFac > (n + 1).maxPrimeFac ∧ (n + 1).maxPrimeFac > (n + 2).maxPrimeFac} →
+                        n < 13 → False)
+                      (fun hn hlt => Erdos372.jsp_000307_least_decreasing_triple._proof_1_9 hn) (Eq.symm h_7) hn
+                      (Eq.mp not_le._simp_1 h))
+                  fun h_7 =>
+                  Or.casesOn h_7
+                    (fun h_8 =>
+                      Eq.ndrec (motive := fun n =>
+                        n ∈ {n | n.maxPrimeFac > (n + 1).maxPrimeFac ∧ (n + 1).maxPrimeFac > (n + 2).maxPrimeFac} →
+                          n < 13 → False)
+                        (fun hn hlt => Erdos372.jsp_000307_least_decreasing_triple._proof_1_10 hn) (Eq.symm h_8) hn
+                        (Eq.mp not_le._simp_1 h))
+                    fun h_8 =>
+                    Or.casesOn h_8
+                      (fun h_9 =>
+                        Eq.ndrec (motive := fun n =>
+                          n ∈ {n | n.maxPrimeFac > (n + 1).maxPrimeFac ∧ (n + 1).maxPrimeFac > (n + 2).maxPrimeFac} →
+                            n < 13 → False)
+                          (fun hn hlt => Erdos372.jsp_000307_least_decreasing_triple._proof_1_11 hn) (Eq.symm h_9) hn
+                          (Eq.mp not_le._simp_1 h))
+                      fun h_9 =>
+                      Or.casesOn h_9
+                        (fun h_10 =>
+                          Eq.ndrec (motive := fun n =>
+                            n ∈ {n | n.maxPrimeFac > (n + 1).maxPrimeFac ∧ (n + 1).maxPrimeFac > (n + 2).maxPrimeFac} →
+                              n < 13 → False)
+                            (fun hn hlt => Erdos372.jsp_000307_least_decreasing_triple._proof_1_12 hn) (Eq.symm h_10) hn
+                            (Eq.mp not_le._simp_1 h))
+                        fun h_10 =>
+                        Or.casesOn h_10
+                          (fun h_11 =>
+                            Eq.ndrec (motive := fun n =>
+                              n ∈
+                                  {n |
+                                    n.maxPrimeFac > (n + 1).maxPrimeFac ∧ (n + 1).maxPrimeFac > (n + 2).maxPrimeFac} →
+                                n < 13 → False)
+                              (fun hn hlt => Erdos372.jsp_000307_least_decreasing_triple._proof_1_13 hn) (Eq.symm h_11)
+                              hn (Eq.mp not_le._simp_1 h))
+                          fun h_11 =>
+                          Or.casesOn h_11
+                            (fun h_12 =>
+                              Eq.ndrec (motive := fun n =>
+                                n ∈
+                                    {n |
+                                      n.maxPrimeFac > (n + 1).maxPrimeFac ∧ (n + 1).maxPrimeFac > (n + 2).maxPrimeFac} →
+                                  n < 13 → False)
+                                (fun hn hlt => Erdos372.jsp_000307_least_decreasing_triple._proof_1_14 hn)
+                                (Eq.symm h_12) hn (Eq.mp not_le._simp_1 h))
+                            fun h_12 =>
+                            Eq.ndrec (motive := fun n =>
+                              n ∈
+                                  {n |
+                                    n.maxPrimeFac > (n + 1).maxPrimeFac ∧ (n + 1).maxPrimeFac > (n + 2).maxPrimeFac} →
+                                n < 13 → False)
+                              (fun hn hlt => Erdos372.jsp_000307_least_decreasing_triple._proof_1_15 hn) (Eq.symm h_12)
+                              hn (Eq.mp not_le._simp_1 h)⟩
+'Erdos372.jsp_000307_least_decreasing_triple' depends on axioms: [propext, Classical.choice, Quot.sound]

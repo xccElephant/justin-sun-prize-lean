@@ -1,0 +1,356 @@
+AUDIT|CoveringSystem.ne_top|[propext, Classical.choice, Quot.sound]
+TYPE|CoveringSystem.ne_top|∀ {R : Type u_1} [inst : CommSemiring R] (self : CoveringSystem R) (i : self.ι),
+  self.moduli i ≠ ⊤
+AUDIT|Erdos273.primeVal_prime|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.primeVal_prime|∀ (i : Fin 12), Nat.Prime (Erdos273.primeVal i)
+AUDIT|Erdos273.primeVal.eq_2|[propext]
+TYPE|Erdos273.primeVal.eq_2|Erdos273.primeVal 1 = 5
+AUDIT|Erdos273.modVal_eq_primeVal_sub_one|[propext]
+TYPE|Erdos273.modVal_eq_primeVal_sub_one|∀ (i : Fin 12), Erdos273.modVal i = Erdos273.primeVal i - 1
+AUDIT|Erdos273.modVal_injective|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.modVal_injective|Function.Injective Erdos273.modVal
+AUDIT|Erdos273.span_modVal_ne_top|[propext, Quot.sound]
+TYPE|Erdos273.span_modVal_ne_top|∀ (i : Fin 12), Ideal.span {Erdos273.modVal i} ≠ ⊤
+AUDIT|Erdos273.erdos_273.variants.three|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.erdos_273.variants.three|∃ c, ∀ (i : c.ι), ∃ p, Nat.Prime p ∧ 3 ≤ p ∧ c.moduli i = Ideal.span {p - 1}
+AUDIT|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_5|[propext]
+TYPE|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_5|∀ (motive : Fin 12 → Sort u_1) (h_1 : Unit → motive 0)
+  (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3) (h_5 : Unit → motive 4)
+  (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7) (h_9 : Unit → motive 8)
+  (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 4 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_5 ()
+AUDIT|Erdos273.primeVal.eq_9|[propext]
+TYPE|Erdos273.primeVal.eq_9|Erdos273.primeVal 8 = 41
+AUDIT|Erdos273.span_modVal_ne_bot|[propext, Quot.sound]
+TYPE|Erdos273.span_modVal_ne_bot|∀ (i : Fin 12), Ideal.span {Erdos273.modVal i} ≠ ⊥
+AUDIT|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_11|[propext]
+TYPE|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_11|∀ (motive : Fin 12 → Sort u_1)
+  (h_1 : Unit → motive 0) (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3)
+  (h_5 : Unit → motive 4) (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7)
+  (h_9 : Unit → motive 8) (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 10 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_11 ()
+AUDIT|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_3|[propext]
+TYPE|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_3|∀ (motive : Fin 12 → Sort u_1) (h_1 : Unit → motive 0)
+  (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3) (h_5 : Unit → motive 4)
+  (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7) (h_9 : Unit → motive 8)
+  (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 2 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_3 ()
+AUDIT|Erdos273.primeVal.eq_4|[propext]
+TYPE|Erdos273.primeVal.eq_4|Erdos273.primeVal 3 = 11
+AUDIT|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_1|[propext]
+TYPE|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_1|∀ (motive : Fin 12 → Sort u_1) (h_1 : Unit → motive 0)
+  (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3) (h_5 : Unit → motive 4)
+  (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7) (h_9 : Unit → motive 8)
+  (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 0 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_1 ()
+AUDIT|Erdos273.primeVal.eq_10|[propext]
+TYPE|Erdos273.primeVal.eq_10|Erdos273.primeVal 9 = 61
+AUDIT|Erdos273.witnessCoveringSystem._proof_1|[propext, Quot.sound]
+TYPE|Erdos273.witnessCoveringSystem._proof_1|⋃ i, {Erdos273.resVal i} + ↑(Ideal.span {Erdos273.modVal i}) = Set.univ
+AUDIT|CoveringSystem.mk.sizeOf_spec|[propext, Classical.choice, Quot.sound]
+TYPE|CoveringSystem.mk.sizeOf_spec|∀ {R : Type u_1} [inst : CommSemiring R] [inst_1 : SizeOf R] (ι : Type)
+  [fintypeIndex : Fintype ι] (residue : ι → R) (moduli : ι → Ideal R)
+  (unionCovers : ⋃ i, {residue i} + ↑(moduli i) = Set.univ) (ne_bot : ∀ (i : ι), moduli i ≠ ⊥)
+  (ne_top : ∀ (i : ι), moduli i ≠ ⊤),
+  sizeOf
+      { ι := ι, fintypeIndex := fintypeIndex, residue := residue, moduli := moduli, unionCovers := unionCovers,
+        ne_bot := ne_bot, ne_top := ne_top } =
+    1 + sizeOf ι + sizeOf fintypeIndex + sizeOf unionCovers
+AUDIT|Erdos273.primeVal.eq_6|[propext]
+TYPE|Erdos273.primeVal.eq_6|Erdos273.primeVal 5 = 19
+AUDIT|Erdos273.primeVal.eq_11|[propext]
+TYPE|Erdos273.primeVal.eq_11|Erdos273.primeVal 10 = 73
+AUDIT|Erdos273.witnessCoveringSystem._simp_2|[propext]
+TYPE|Erdos273.witnessCoveringSystem._simp_2|∀ {α : Type u} (x : α), (x ∈ Set.univ) = True
+AUDIT|Erdos273.witnessCoveringSystem._simp_1|[propext]
+TYPE|Erdos273.witnessCoveringSystem._simp_1|∀ {α : Type u} {ι : Sort v} {x : α} {s : ι → Set α},
+  (x ∈ ⋃ i, s i) = ∃ i, x ∈ s i
+AUDIT|Erdos273.primeVal.eq_5|[propext]
+TYPE|Erdos273.primeVal.eq_5|Erdos273.primeVal 4 = 13
+AUDIT|Erdos273.span_modVal_ne_top._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos273.span_modVal_ne_top._proof_1_1|∀ (i : Fin 12), Erdos273.modVal i ≤ 1 → 2 ≤ Erdos273.modVal i → False
+AUDIT|Erdos273.nat_covered|[propext, Quot.sound]
+TYPE|Erdos273.nat_covered|∀ (n : ℕ), ∃ i, n ∈ {Erdos273.resVal i} + ↑(Ideal.span {Erdos273.modVal i})
+AUDIT|Erdos273.primeVal.eq_8|[propext]
+TYPE|Erdos273.primeVal.eq_8|Erdos273.primeVal 7 = 37
+AUDIT|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_4|[propext]
+TYPE|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_4|∀ (motive : Fin 12 → Sort u_1) (h_1 : Unit → motive 0)
+  (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3) (h_5 : Unit → motive 4)
+  (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7) (h_9 : Unit → motive 8)
+  (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 3 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_4 ()
+AUDIT|Erdos273.span_modVal_ne_bot._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos273.span_modVal_ne_bot._proof_1_1|∀ (i : Fin 12), Erdos273.modVal i = 0 → 2 ≤ Erdos273.modVal i → False
+AUDIT|Erdos273.span_modVal_injective|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos273.span_modVal_injective|Function.Injective fun i => Ideal.span {Erdos273.modVal i}
+AUDIT|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_8|[propext]
+TYPE|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_8|∀ (motive : Fin 12 → Sort u_1) (h_1 : Unit → motive 0)
+  (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3) (h_5 : Unit → motive 4)
+  (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7) (h_9 : Unit → motive 8)
+  (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 7 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_8 ()
+AUDIT|Erdos273.modVal_dvd_360|[propext]
+TYPE|Erdos273.modVal_dvd_360|∀ (i : Fin 12), Erdos273.modVal i ∣ 360
+AUDIT|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_7|[propext]
+TYPE|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_7|∀ (motive : Fin 12 → Sort u_1) (h_1 : Unit → motive 0)
+  (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3) (h_5 : Unit → motive 4)
+  (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7) (h_9 : Unit → motive 8)
+  (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 6 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_7 ()
+AUDIT|StrictCoveringSystem.mk.inj|[propext, Classical.choice, Quot.sound]
+TYPE|StrictCoveringSystem.mk.inj|∀ {R : Type u_1} {inst : CommSemiring R} {toCoveringSystem : CoveringSystem R}
+  {injective_moduli : Function.Injective toCoveringSystem.moduli} {toCoveringSystem_1 : CoveringSystem R}
+  {injective_moduli_1 : Function.Injective toCoveringSystem_1.moduli},
+  { toCoveringSystem := toCoveringSystem, injective_moduli := injective_moduli } =
+      { toCoveringSystem := toCoveringSystem_1, injective_moduli := injective_moduli_1 } →
+    toCoveringSystem = toCoveringSystem_1
+AUDIT|Erdos273.primeVal.eq_12|[propext]
+TYPE|Erdos273.primeVal.eq_12|Erdos273.primeVal 11 = 181
+AUDIT|Erdos273.three_le_primeVal|[propext]
+TYPE|Erdos273.three_le_primeVal|∀ (i : Fin 12), 3 ≤ Erdos273.primeVal i
+AUDIT|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_2|[propext]
+TYPE|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_2|∀ (motive : Fin 12 → Sort u_1) (h_1 : Unit → motive 0)
+  (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3) (h_5 : Unit → motive 4)
+  (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7) (h_9 : Unit → motive 8)
+  (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 1 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_2 ()
+AUDIT|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_9|[propext]
+TYPE|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_9|∀ (motive : Fin 12 → Sort u_1) (h_1 : Unit → motive 0)
+  (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3) (h_5 : Unit → motive 4)
+  (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7) (h_9 : Unit → motive 8)
+  (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 8 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_9 ()
+AUDIT|Erdos273.two_le_modVal|[propext]
+TYPE|Erdos273.two_le_modVal|∀ (i : Fin 12), 2 ≤ Erdos273.modVal i
+AUDIT|Erdos273.primeVal.eq_1|[propext]
+TYPE|Erdos273.primeVal.eq_1|Erdos273.primeVal 0 = 3
+AUDIT|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_6|[propext]
+TYPE|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_6|∀ (motive : Fin 12 → Sort u_1) (h_1 : Unit → motive 0)
+  (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3) (h_5 : Unit → motive 4)
+  (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7) (h_9 : Unit → motive 8)
+  (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 5 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_6 ()
+AUDIT|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_12|[propext]
+TYPE|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_12|∀ (motive : Fin 12 → Sort u_1)
+  (h_1 : Unit → motive 0) (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3)
+  (h_5 : Unit → motive 4) (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7)
+  (h_9 : Unit → motive 8) (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 11 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_12 ()
+AUDIT|Erdos273.primeVal.eq_7|[propext]
+TYPE|Erdos273.primeVal.eq_7|Erdos273.primeVal 6 = 31
+AUDIT|CoveringSystem.ne_bot|[propext, Classical.choice, Quot.sound]
+TYPE|CoveringSystem.ne_bot|∀ {R : Type u_1} [inst : CommSemiring R] (self : CoveringSystem R) (i : self.ι),
+  self.moduli i ≠ ⊥
+AUDIT|Erdos273.cover_mod_360|[propext, Quot.sound]
+TYPE|Erdos273.cover_mod_360|∀ (r : Fin 360), ∃ i, ↑r % Erdos273.modVal i = Erdos273.resVal i
+AUDIT|CoveringSystem.mk.injEq|[propext, Classical.choice, Quot.sound]
+TYPE|CoveringSystem.mk.injEq|∀ {R : Type u_1} [inst : CommSemiring R] (ι : Type) [fintypeIndex : Fintype ι]
+  (residue : ι → R) (moduli : ι → Ideal R) (unionCovers : ⋃ i, {residue i} + ↑(moduli i) = Set.univ)
+  (ne_bot : ∀ (i : ι), moduli i ≠ ⊥) (ne_top : ∀ (i : ι), moduli i ≠ ⊤) (ι_1 : Type) (fintypeIndex_1 : Fintype ι_1)
+  (residue_1 : ι_1 → R) (moduli_1 : ι_1 → Ideal R) (unionCovers_1 : ⋃ i, {residue_1 i} + ↑(moduli_1 i) = Set.univ)
+  (ne_bot_1 : ∀ (i : ι_1), moduli_1 i ≠ ⊥) (ne_top_1 : ∀ (i : ι_1), moduli_1 i ≠ ⊤),
+  ({ ι := ι, fintypeIndex := fintypeIndex, residue := residue, moduli := moduli, unionCovers := unionCovers,
+        ne_bot := ne_bot, ne_top := ne_top } =
+      { ι := ι_1, fintypeIndex := fintypeIndex_1, residue := residue_1, moduli := moduli_1,
+        unionCovers := unionCovers_1, ne_bot := ne_bot_1, ne_top := ne_top_1 }) =
+    (ι = ι_1 ∧ fintypeIndex ≍ fintypeIndex_1 ∧ residue ≍ residue_1 ∧ moduli ≍ moduli_1)
+AUDIT|Erdos273.primeVal.eq_3|[propext]
+TYPE|Erdos273.primeVal.eq_3|Erdos273.primeVal 2 = 7
+AUDIT|CoveringSystem.unionCovers|[propext, Classical.choice, Quot.sound]
+TYPE|CoveringSystem.unionCovers|∀ {R : Type u_1} [inst : CommSemiring R] (self : CoveringSystem R),
+  ⋃ i, {self.residue i} + ↑(self.moduli i) = Set.univ
+AUDIT|StrictCoveringSystem.mk.sizeOf_spec|[propext, Classical.choice, Quot.sound]
+TYPE|StrictCoveringSystem.mk.sizeOf_spec|∀ {R : Type u_1} [inst : CommSemiring R] [inst_1 : SizeOf R]
+  (toCoveringSystem : CoveringSystem R) (injective_moduli : Function.Injective toCoveringSystem.moduli),
+  sizeOf { toCoveringSystem := toCoveringSystem, injective_moduli := injective_moduli } = 1 + sizeOf toCoveringSystem
+AUDIT|Erdos273.nat_covered._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos273.nat_covered._proof_1_1|∀ (n : ℕ),
+  n % 360 < 360 →
+    ∀ (i : Fin 12),
+      n % Erdos273.modVal i = Erdos273.resVal i →
+        Erdos273.modVal i * (n / Erdos273.modVal i) + n % Erdos273.modVal i = n →
+          Erdos273.modVal i * (n / Erdos273.modVal i) = n / Erdos273.modVal i * Erdos273.modVal i →
+            ¬Erdos273.resVal i + n / Erdos273.modVal i * Erdos273.modVal i = n → False
+AUDIT|CoveringSystem.mk.inj|[propext, Classical.choice, Quot.sound]
+TYPE|CoveringSystem.mk.inj|∀ {R : Type u_1} {inst : CommSemiring R} {ι : Type} {fintypeIndex : Fintype ι}
+  {residue : ι → R} {moduli : ι → Ideal R} {unionCovers : ⋃ i, {residue i} + ↑(moduli i) = Set.univ}
+  {ne_bot : ∀ (i : ι), moduli i ≠ ⊥} {ne_top : ∀ (i : ι), moduli i ≠ ⊤} {ι_1 : Type} {fintypeIndex_1 : Fintype ι_1}
+  {residue_1 : ι_1 → R} {moduli_1 : ι_1 → Ideal R} {unionCovers_1 : ⋃ i, {residue_1 i} + ↑(moduli_1 i) = Set.univ}
+  {ne_bot_1 : ∀ (i : ι_1), moduli_1 i ≠ ⊥} {ne_top_1 : ∀ (i : ι_1), moduli_1 i ≠ ⊤},
+  { ι := ι, fintypeIndex := fintypeIndex, residue := residue, moduli := moduli, unionCovers := unionCovers,
+        ne_bot := ne_bot, ne_top := ne_top } =
+      { ι := ι_1, fintypeIndex := fintypeIndex_1, residue := residue_1, moduli := moduli_1,
+        unionCovers := unionCovers_1, ne_bot := ne_bot_1, ne_top := ne_top_1 } →
+    ι = ι_1 ∧ fintypeIndex ≍ fintypeIndex_1 ∧ residue ≍ residue_1 ∧ moduli ≍ moduli_1
+AUDIT|StrictCoveringSystem.mk.injEq|[propext, Classical.choice, Quot.sound]
+TYPE|StrictCoveringSystem.mk.injEq|∀ {R : Type u_1} [inst : CommSemiring R] (toCoveringSystem : CoveringSystem R)
+  (injective_moduli : Function.Injective toCoveringSystem.moduli) (toCoveringSystem_1 : CoveringSystem R)
+  (injective_moduli_1 : Function.Injective toCoveringSystem_1.moduli),
+  ({ toCoveringSystem := toCoveringSystem, injective_moduli := injective_moduli } =
+      { toCoveringSystem := toCoveringSystem_1, injective_moduli := injective_moduli_1 }) =
+    (toCoveringSystem = toCoveringSystem_1)
+AUDIT|StrictCoveringSystem.injective_moduli|[propext, Classical.choice, Quot.sound]
+TYPE|StrictCoveringSystem.injective_moduli|∀ {R : Type u_1} [inst : CommSemiring R] (self : StrictCoveringSystem R),
+  Function.Injective self.moduli
+AUDIT|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_10|[propext]
+TYPE|_private.JspBounties.Erdos273.0.Erdos273.resVal.match_1.eq_10|∀ (motive : Fin 12 → Sort u_1)
+  (h_1 : Unit → motive 0) (h_2 : Unit → motive 1) (h_3 : Unit → motive 2) (h_4 : Unit → motive 3)
+  (h_5 : Unit → motive 4) (h_6 : Unit → motive 5) (h_7 : Unit → motive 6) (h_8 : Unit → motive 7)
+  (h_9 : Unit → motive 8) (h_10 : Unit → motive 9) (h_11 : Unit → motive 10) (h_12 : Unit → motive 11),
+  (match 9 with
+    | 0 => h_1 ()
+    | 1 => h_2 ()
+    | 2 => h_3 ()
+    | 3 => h_4 ()
+    | 4 => h_5 ()
+    | 5 => h_6 ()
+    | 6 => h_7 ()
+    | 7 => h_8 ()
+    | 8 => h_9 ()
+    | 9 => h_10 ()
+    | 10 => h_11 ()
+    | 11 => h_12 ()) =
+    h_10 ()

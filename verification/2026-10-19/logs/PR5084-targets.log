@@ -1,0 +1,17 @@
+Erdos291.erdos_291.parts.ii : {n | (Erdos291.a n).gcd (Erdos291.L n) > 1}.Infinite
+theorem Erdos291.erdos_291.parts.ii : {n | (Erdos291.a n).gcd (Erdos291.L n) > 1}.Infinite :=
+Set.infinite_of_injective_forall_mem
+  (fun ⦃k₁ k₂⦄ h =>
+    have hpow := Decidable.byContradiction fun a => Erdos291.erdos_291.parts.ii._proof_1_1 h a;
+    have hinj := Nat.pow_right_injective (of_decide_eq_true (id (Eq.refl true))) hpow;
+    Decidable.byContradiction fun a => Erdos291.erdos_291.parts.ii._proof_1_2 hinj a)
+  fun k =>
+  id
+    (Erdos291.gcd_two_mul_pow_three_gt_one
+      (Decidable.byContradiction fun a => Erdos291.erdos_291.parts.ii._proof_1_3 k a))
+'Erdos291.erdos_291.parts.ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Erdos291.three_dvd_gcd_two_mul_pow_three : ∀ {k : ℕ}, 1 ≤ k → 3 ∣ (Erdos291.a (2 * 3 ^ k)).gcd (Erdos291.L (2 * 3 ^ k))
+theorem Erdos291.three_dvd_gcd_two_mul_pow_three : ∀ {k : ℕ},
+  1 ≤ k → 3 ∣ (Erdos291.a (2 * 3 ^ k)).gcd (Erdos291.L (2 * 3 ^ k)) :=
+fun {k} hk => Nat.dvd_gcd (Erdos291.three_dvd_a_two_mul_pow_three k) (Erdos291.three_dvd_L_two_mul_pow_three hk)
+'Erdos291.three_dvd_gcd_two_mul_pow_three' depends on axioms: [propext, Classical.choice, Quot.sound]

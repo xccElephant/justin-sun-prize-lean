@@ -1,0 +1,88 @@
+AUDIT|Erdos238.prime_nth_prime|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.prime_nth_prime|∀ (n : ℕ), Nat.Prime (Nat.nth Nat.Prime n)
+AUDIT|Erdos238.erdos_238_block_pigeonhole._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.erdos_238_block_pigeonhole._proof_1_2|∀ (M k B : ℕ) (c₂ : ℝ) (idx : Fin (B + 1) → Fin (k - 1))
+  (b : Fin (B + 1)), ↑(idx b) < k → ¬M + ↑b * k + ↑(idx b) < M + ↑b * k + k → False
+AUDIT|Erdos238.erdos_238_block_pigeonhole._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.erdos_238_block_pigeonhole._proof_1_1|∀ (M k B : ℕ) (c₂ : ℝ) (idx : Fin (B + 1) → Fin (k - 1))
+  (b : Fin (B + 1)), ¬M ≤ M + ↑b * k + ↑(idx b) → False
+AUDIT|Erdos238.isPSmooth_one|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.isPSmooth_one|∀ (P : Set ℕ), Erdos238.IsPSmooth P 1
+AUDIT|Erdos238.erdos_238_run_of_block_bound|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.erdos_238_run_of_block_bound|∀ {M k B : ℕ} {x c₂ : ℝ},
+  ↑(Nat.nth Nat.Prime (M + k * (B + 1))) ≤ x →
+    {j ∈ Finset.Ico M (M + k * (B + 1)) | ↑(Erdos238.primeGap j) ≤ c₂}.card ≤ B →
+      ∃ f m,
+        (∀ (i : Fin k), ↑(f i) ≤ x ∧ f i = Nat.nth Nat.Prime (m + ↑i)) ∧
+          ∀ (i : Fin (k - 1)), c₂ < ↑(Erdos238.primeGap (m + ↑i))
+AUDIT|Erdos238.IsPSmooth.mul|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.IsPSmooth.mul|∀ {P : Set ℕ} {a b : ℕ},
+  Erdos238.IsPSmooth P a → Erdos238.IsPSmooth P b → Erdos238.IsPSmooth P (a * b)
+AUDIT|Erdos238.single_prime_smooth_gap_ge._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos238.single_prime_smooth_gap_ge._proof_1_1|∀ (p k : ℕ), 2 ≤ p → ¬1 ≤ p - 1 → False
+AUDIT|Erdos238.nth_prime_zero|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.nth_prime_zero|Nat.nth Nat.Prime 0 = 2
+AUDIT|Erdos238.erdos_238_block_pigeonhole._proof_1_3|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.erdos_238_block_pigeonhole._proof_1_3|∀ (M k B : ℕ) (c₂ : ℝ),
+  {j ∈ Finset.Ico M (M + k * (B + 1)) | ↑(Erdos238.primeGap j) ≤ c₂}.card ≤ B →
+    B + 1 ≤ {j ∈ Finset.Ico M (M + k * (B + 1)) | ↑(Erdos238.primeGap j) ≤ c₂}.card → False
+AUDIT|Erdos238.isPSmooth_one._proof_1_1|[propext, Quot.sound]
+TYPE|Erdos238.isPSmooth_one._proof_1_1|¬0 < 1 → False
+AUDIT|Erdos238.odd_nth_prime_of_one_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.odd_nth_prime_of_one_le|∀ {n : ℕ}, 1 ≤ n → Odd (Nat.nth Nat.Prime n)
+AUDIT|Erdos238.one_le_primeGap._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.one_le_primeGap._proof_1_1|∀ (n : ℕ),
+  Nat.nth Nat.Prime n < Nat.nth Nat.Prime (n + 1) → ¬1 ≤ Nat.nth Nat.Prime (n + 1) - Nat.nth Nat.Prime n → False
+AUDIT|Erdos238.two_le_primeGap_of_one_le._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.two_le_primeGap_of_one_le._proof_1_1|∀ {n : ℕ}, 1 ≤ n → ∀ (a : ℕ), ¬1 ≤ n + 1 → False
+AUDIT|Erdos238.single_prime_smooth_gap_ge._proof_1_2|[propext, Quot.sound]
+TYPE|Erdos238.single_prime_smooth_gap_ge._proof_1_2|∀ (p k : ℕ),
+  k < 2 ^ k →
+    2 ^ k ≤ p ^ k → p ^ k ≤ p ^ k * (p - 1) → p ^ k * (p - 1) = p ^ (k + 1) - p ^ k → ¬k < p ^ (k + 1) - p ^ k → False
+AUDIT|Erdos238.erdos_238_unconditional_of_c2_lt_two|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.erdos_238_unconditional_of_c2_lt_two|∀ {k : ℕ} {x c₂ : ℝ},
+  c₂ < 2 →
+    ↑(Nat.nth Nat.Prime (1 + k)) ≤ x →
+      ∃ f m,
+        (∀ (i : Fin k), ↑(f i) ≤ x ∧ f i = Nat.nth Nat.Prime (m + ↑i)) ∧
+          ∀ (i : Fin (k - 1)), c₂ < ↑(Erdos238.primeGap (m + ↑i))
+AUDIT|Erdos238.single_prime_smooth_gap_ge|[propext, Quot.sound]
+TYPE|Erdos238.single_prime_smooth_gap_ge|∀ (p k : ℕ), Nat.Prime p → k < p ^ (k + 1) - p ^ k
+AUDIT|Erdos238.erdos_238_run_of_block_bound._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.erdos_238_run_of_block_bound._proof_1_1|∀ {M k : ℕ} {B : ℕ} {c₂ : ℝ} (b : ℕ) (i : Fin k),
+  ↑i < k → ¬M + b * k + ↑i ≤ M + b * k + k → False
+AUDIT|Erdos238.erdos_238_small_c1_of_brun_chebyshev|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.erdos_238_small_c1_of_brun_chebyshev|∀ (c₂ : ℝ),
+  (∀ᶠ (c₁ : ℝ) in nhdsWithin 0 (Set.Ioi 0),
+      ∀ᶠ (x : ℝ) in Filter.atTop,
+        ∃ k B,
+          c₁ * Real.log x < ↑k ∧
+            ↑(Nat.nth Nat.Prime (k * (B + 1))) ≤ x ∧
+              {j ∈ Finset.Ico 0 (k * (B + 1)) | ↑(Erdos238.primeGap j) ≤ c₂}.card ≤ B) →
+    ∀ᶠ (c₁ : ℝ) in nhdsWithin 0 (Set.Ioi 0),
+      ∀ᶠ (x : ℝ) in Filter.atTop,
+        ∃ k,
+          c₁ * Real.log x < ↑k ∧
+            ∃ f m,
+              (∀ (i : Fin k), ↑(f i) ≤ x ∧ f i = Nat.nth Nat.Prime (m + ↑i)) ∧
+                ∀ (i : Fin (k - 1)), c₂ < ↑(Erdos238.primeGap (m + ↑i))
+AUDIT|Erdos238.two_le_primeGap_of_one_le._proof_1_2|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.two_le_primeGap_of_one_le._proof_1_2|∀ {n : ℕ},
+  Nat.nth Nat.Prime n < Nat.nth Nat.Prime (n + 1) →
+    ∀ (a : ℕ),
+      Nat.nth Nat.Prime n = 2 * a + 1 →
+        ∀ (b : ℕ), Nat.nth Nat.Prime (n + 1) = 2 * b + 1 → ¬2 ≤ Nat.nth Nat.Prime (n + 1) - Nat.nth Nat.Prime n → False
+AUDIT|Erdos238.one_le_primeGap|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.one_le_primeGap|∀ (n : ℕ), 1 ≤ Erdos238.primeGap n
+AUDIT|Erdos238.odd_nth_prime_of_one_le._proof_1_1|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.odd_nth_prime_of_one_le._proof_1_1|∀ {n : ℕ}, 2 < Nat.nth Nat.Prime n → Nat.nth Nat.Prime n = 2 → False
+AUDIT|Erdos238.erdos_238_block_pigeonhole|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.erdos_238_block_pigeonhole|∀ (M k B : ℕ) (c₂ : ℝ),
+  {j ∈ Finset.Ico M (M + k * (B + 1)) | ↑(Erdos238.primeGap j) ≤ c₂}.card ≤ B →
+    ∃ b ≤ B, ∀ (i : Fin (k - 1)), c₂ < ↑(Erdos238.primeGap (M + b * k + ↑i))
+AUDIT|Erdos238.two_le_primeGap_of_one_le|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.two_le_primeGap_of_one_le|∀ {n : ℕ}, 1 ≤ n → 2 ≤ Erdos238.primeGap n
+AUDIT|Erdos238.isPSmooth_pow|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.isPSmooth_pow|∀ {P : Set ℕ} {p : ℕ}, Nat.Prime p → p ∈ P → ∀ (k : ℕ), Erdos238.IsPSmooth P (p ^ k)
+AUDIT|Erdos238.nth_prime_strictMono|[propext, Classical.choice, Quot.sound]
+TYPE|Erdos238.nth_prime_strictMono|StrictMono fun n => Nat.nth Nat.Prime n

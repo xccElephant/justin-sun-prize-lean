@@ -1,0 +1,89 @@
+Erdos711.erdos_711_parts_ii_of_van_doorn : (∀ (B : ℕ),
+    ∀ᶠ (n : ℕ) in Filter.atTop,
+      ∃ m,
+        ∀ (Lm Ln : ℕ),
+          Erdos711.HasDivisibleDistinctTuple n m Lm → Erdos711.IsMinimalIntervalLength n n Ln → B ≤ Lm - Ln) →
+  ∀ (B : ℕ),
+    ∀ᶠ (n : ℕ) in Filter.atTop,
+      ∃ m Lm Ln, Erdos711.IsMinimalIntervalLength n m Lm ∧ Erdos711.IsMinimalIntervalLength n n Ln ∧ B ≤ Lm - Ln
+theorem Erdos711.erdos_711_parts_ii_of_van_doorn : (∀ (B : ℕ),
+    ∀ᶠ (n : ℕ) in Filter.atTop,
+      ∃ m,
+        ∀ (Lm Ln : ℕ),
+          Erdos711.HasDivisibleDistinctTuple n m Lm → Erdos711.IsMinimalIntervalLength n n Ln → B ≤ Lm - Ln) →
+  ∀ (B : ℕ),
+    ∀ᶠ (n : ℕ) in Filter.atTop,
+      ∃ m Lm Ln, Erdos711.IsMinimalIntervalLength n m Lm ∧ Erdos711.IsMinimalIntervalLength n n Ln ∧ B ≤ Lm - Ln :=
+fun hvd B =>
+  Filter.mp_mem (hvd B)
+    (Filter.univ_mem'
+      (id fun n h =>
+        match h with
+        | Exists.intro m hm =>
+          Exists.casesOn (Erdos711.exists_isMinimalIntervalLength n m) fun Lm hLm =>
+            Exists.casesOn (Erdos711.exists_isMinimalIntervalLength n n) fun Ln hLn =>
+              Exists.intro m (Exists.intro Lm (Exists.intro Ln ⟨hLm, ⟨hLn, hm Lm Ln hLm.left hLn⟩⟩))))
+'Erdos711.erdos_711_parts_ii_of_van_doorn' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos711.exists_isMinimalIntervalLength : ∀ (n m : ℕ), ∃ L, Erdos711.IsMinimalIntervalLength n m L
+theorem Erdos711.exists_isMinimalIntervalLength : ∀ (n m : ℕ), ∃ L, Erdos711.IsMinimalIntervalLength n m L :=
+fun n m =>
+  have hex := Erdos711.exists_hasDivisibleDistinctTuple n m;
+  Exists.intro (Nat.find hex) ⟨Nat.find_spec hex, fun L' hL' => Nat.find_min' hex hL'⟩
+'Erdos711.exists_isMinimalIntervalLength' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Erdos711.isMinimalIntervalLength_add_iff_of_dvd : ∀ {n m M L : ℕ},
+  (∀ (i : Fin n), ↑i + 1 ∣ M) → (Erdos711.IsMinimalIntervalLength n (m + M) L ↔ Erdos711.IsMinimalIntervalLength n m L)
+theorem Erdos711.isMinimalIntervalLength_add_iff_of_dvd : ∀ {n m M L : ℕ},
+  (∀ (i : Fin n), ↑i + 1 ∣ M) →
+    (Erdos711.IsMinimalIntervalLength n (m + M) L ↔ Erdos711.IsMinimalIntervalLength n m L) :=
+fun {n m M L} hM =>
+  of_eq_true
+    (Eq.trans
+      (congrFun'
+        (congrArg Iff
+          (congr
+            (congrArg And
+              ((fun x_0 x_1 => propext ((fun x_0 x_1 => Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd hM) x_0 x_1))
+                m L))
+            (forall_congr fun L' =>
+              implies_congr
+                ((fun x_0 x_1 =>
+                    propext ((fun x_0 x_1 => Erdos711.hasDivisibleDistinctTuple_add_iff_of_dvd hM) x_0 x_1))
+                  m L')
+                (Eq.refl (L ≤ L')))))
+        (Erdos711.HasDivisibleDistinctTuple n m L ∧ ∀ (L' : ℕ), Erdos711.HasDivisibleDistinctTuple n m L' → L ≤ L'))
+      (iff_self
+        (Erdos711.HasDivisibleDistinctTuple n m L ∧ ∀ (L' : ℕ), Erdos711.HasDivisibleDistinctTuple n m L' → L ≤ L')))
+'Erdos711.isMinimalIntervalLength_add_iff_of_dvd' depends on axioms: [propext, Quot.sound]
+@Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple : ∀ {n m L : ℕ},
+  1 ≤ n → Erdos711.HasDivisibleDistinctTuple n m L → n + 1 ≤ L
+theorem Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple : ∀ {n m L : ℕ},
+  1 ≤ n → Erdos711.HasDivisibleDistinctTuple n m L → n + 1 ≤ L :=
+fun {n m L} hn h =>
+  Exists.casesOn h fun a h =>
+    And.casesOn h fun hinj ha =>
+      have hsub := fun ⦃x⦄ hx =>
+        Exists.casesOn (Finset.mem_image.mp hx) fun i h =>
+          And.casesOn h fun left right =>
+            Eq.ndrec (motive := fun ⦃x⦄ => x ∈ Finset.image a Finset.univ → x ∈ Finset.Ioo m (m + L))
+              (fun hx => Finset.mem_Ioo.mpr ⟨(ha i).left, (ha i).right.left⟩) right hx;
+      have hcard :=
+        Trans.trans
+          (Trans.trans
+            (Trans.trans (of_eq_true (Eq.trans (congrArg (Eq n) (Fintype.card_fin n)) (eq_self n)))
+              (Eq.symm (Finset.card_image_of_injective Finset.univ hinj)))
+            (Finset.card_le_card hsub))
+          (of_eq_true
+            (Eq.trans
+              (congrFun'
+                (congrArg Eq
+                  (Eq.trans (Nat.card_Ioo m (m + L)) (congrFun' (congrArg HSub.hSub (add_tsub_cancel_left m L)) 1)))
+                (L - 1))
+              (eq_self (L - 1))));
+      have hL_pos :=
+        have i0 := ⟨0, hn⟩;
+        have this := (ha i0).left;
+        have this_1 := (ha i0).right.left;
+        Decidable.byContradiction fun a_1 =>
+          Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple._proof_1_1 a i0 this this_1 a_1;
+      Decidable.byContradiction fun a => Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple._proof_1_2 hcard hL_pos a
+'Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple' depends on axioms: [propext, Classical.choice, Quot.sound]
