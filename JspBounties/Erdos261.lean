@@ -8,9 +8,13 @@ import Mathlib.Algebra.Order.Field.Basic
 import Mathlib.Algebra.BigOperators.Intervals
 import Mathlib.Data.Fin.VecNotation
 import Mathlib.Data.Set.Finite.Basic
+import Mathlib.SetTheory.Cardinal.Basic
+import Mathlib.Topology.Algebra.InfiniteSum.Order
+import Mathlib.Topology.Instances.Rat
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Linarith
 
 /-!
 # Erdős Problem 261 (JSP-000226)
@@ -22,12 +26,18 @@ import Mathlib.Tactic.FieldSimp
 - [Er88c] Erdős, P., *On the irrationality of certain series: problems and results*. New advances
   in transcendence theory (Durham, 1986) (1988), 102-109.
 
-We prove `erdos_261.parts.i`: there are infinitely many positive integers $n$ such that there
-exist $t \ge 2$ and distinct integers $a_1, \ldots, a_t \ge 1$ satisfying
-$$\frac{n}{2^n} = \sum_{1 \le k \le t} \frac{a_k}{2^{a_k}},$$
-as well as Borwein and Loring's identity and family construction (`erdos_261.variants.borwein_loring`
-and `erdos_261.variants.borwein_loring_property`).
+We prove:
+1. `erdos_261.parts.i`: there are infinitely many positive integers $n$ such that there
+   exist $t \ge 2$ and distinct integers $a_1, \ldots, a_t \ge 1$ satisfying
+   $$\frac{n}{2^n} = \sum_{1 \le k \le t} \frac{a_k}{2^{a_k}},$$
+   as well as Borwein and Loring's identity and family construction (`erdos_261.variants.borwein_loring`
+   and `erdos_261.variants.borwein_loring_property`).
+2. `erdos_261.variants.two_representations`: there exists a rational number $x$ with at least two
+   distinct representations $x = \sum_{k=1}^\infty a_k / 2^{a_k}$ by strictly increasing positive
+   integers $a_k$.
 -/
+
+open scoped Cardinal
 
 namespace Erdos261
 
@@ -36,6 +46,13 @@ pairwise distinct positive integers $a_1, \ldots, a_t$ such that
 $n / 2^n = \sum_{1 \le k \le t} a_k / 2^{a_k}$. -/
 def Erdos261Prop (n : ℕ) : Prop := ∃ᵉ (t ≥ 2) (a : Fin t → ℕ), a.Injective ∧
   (1 ≤ a) ∧ n / (2 ^ n : ℚ) = ∑ k, (a k) / (2 ^ (a k) : ℚ)
+
+/-- A canonical infinite representation of a rational number $x$ by positive integers. The
+denominators are strictly increasing so that reorderings are not counted as different
+representations. -/
+def Erdos261InfiniteRepresentation (x : ℚ) (a : ℕ → ℕ) : Prop :=
+  StrictMono a ∧ (1 ≤ a) ∧ Summable (fun k => (a k) / (2 ^ (a k) : ℚ)) ∧
+    x = ∑' k, (a k) / (2 ^ (a k) : ℚ)
 
 /-- Telescoping identity: for all $n, m \in \mathbb{N}$,
 $$\sum_{i=0}^{m-1} \frac{n + 1 + i}{2^{n + 1 + i}} = \frac{n + 2}{2^n} - \frac{n + m + 2}{2^{n + m}}.$$ -/
@@ -161,8 +178,144 @@ theorem erdos_261.parts.i : {n : ℕ | 0 < n ∧ Erdos261Prop n}.Infinite := by
         borwein_loring_strictMonoOn (by simp) (by simp) (by omega)
       omega
 
+/-- Exponential growth bound: $(k + 1)(k + 2) \le 2^{k + 2}$ for all $k \in \mathbb{N}$. -/
+lemma mul_succ_succ_le_two_pow (k : ℕ) : (k + 1) * (k + 2) ≤ 2 ^ (k + 2) := by
+  induction k with
+  | zero => norm_num
+  | succ k ih =>
+    rcases eq_or_ne k 0 with rfl | hk
+    · norm_num
+    · have hk1 : 1 ≤ k := Nat.pos_of_ne_zero hk
+      calc
+        (k + 2) * (k + 3) = (k + 1) * (k + 2) + 2 * (k + 2) := by ring
+        _ ≤ (k + 1) * (k + 2) + (k + 1) * (k + 2) := by nlinarith
+        _ ≤ 2 ^ (k + 2) + 2 ^ (k + 2) := Nat.add_le_add ih ih
+        _ = 2 ^ (k + 3) := by ring
+
+/-- Rational tail bound: $(n + m + 2) / 2^{n + m} \le 4 / (m + 1)$ for all $n, m \in \mathbb{N}$. -/
+lemma dyadic_tail_remainder_le (n m : ℕ) :
+    ((n + m + 2 : ℕ) : ℚ) / (2 ^ (n + m) : ℚ) ≤ 4 / ((m + 1 : ℕ) : ℚ) := by
+  have hnat : (m + 1) * (n + m + 2) ≤ 4 * 2 ^ (n + m) := by
+    calc
+      (m + 1) * (n + m + 2) ≤ (n + m + 1) * (n + m + 2) :=
+        Nat.mul_le_mul_right (n + m + 2) (by omega)
+      _ ≤ 2 ^ (n + m + 2) := mul_succ_succ_le_two_pow (n + m)
+      _ = 4 * 2 ^ (n + m) := by ring
+  have hrat : ((m + 1 : ℕ) : ℚ) * ((n + m + 2 : ℕ) : ℚ) ≤ 4 * (2 : ℚ) ^ (n + m) := by
+    exact_mod_cast hnat
+  have hm_pos : (0 : ℚ) < ((m + 1 : ℕ) : ℚ) := by positivity
+  have hpow_pos : (0 : ℚ) < (2 : ℚ) ^ (n + m) := by positivity
+  rw [div_le_div_iff₀ hpow_pos hm_pos]
+  linarith
+
+/-- Infinite dyadic tail series in $\mathbb{Q}$:
+$$\sum_{i=0}^\infty \frac{n + 1 + i}{2^{n + 1 + i}} = \frac{n + 2}{2^n}.$$ -/
+lemma hasSum_dyadic_tail (n : ℕ) :
+    HasSum (fun i : ℕ => ((n + 1 + i : ℕ) : ℚ) / (2 ^ (n + 1 + i) : ℚ))
+      (((n + 2 : ℕ) : ℚ) / (2 ^ n : ℚ)) := by
+  let f : ℕ → ℚ := fun i => ((n + 1 + i : ℕ) : ℚ) / (2 ^ (n + 1 + i) : ℚ)
+  have hf_nonneg : ∀ i, 0 ≤ f i := fun i => by dsimp [f]; positivity
+  apply hasSum_of_isLUB_of_nonneg _ hf_nonneg
+  constructor
+  · rintro _ ⟨s, rfl⟩
+    let M := s.sup id + 1
+    have hsub : s ⊆ Finset.range M := by
+      intro i hi
+      rw [Finset.mem_range]
+      have : i ≤ s.sup id := Finset.le_sup (f := id) hi
+      omega
+    have hle := Finset.sum_le_sum_of_subset_of_nonneg hsub (fun i _ _ => hf_nonneg i)
+    have hrem : (0 : ℚ) ≤ ((n + M + 2 : ℕ) : ℚ) / (2 ^ (n + M) : ℚ) := by positivity
+    dsimp [f] at hle ⊢
+    rw [sum_range_dyadic n M] at hle
+    linarith
+  · intro y hy
+    by_contra! hlt
+    set ε : ℚ := ((n + 2 : ℕ) : ℚ) / (2 ^ n : ℚ) - y
+    have hε : 0 < ε := sub_pos.mpr hlt
+    obtain ⟨m, hm⟩ := exists_nat_gt (4 / ε)
+    have hsum_le : ∑ i ∈ Finset.range m, f i ≤ y := hy ⟨Finset.range m, rfl⟩
+    dsimp [f] at hsum_le
+    rw [sum_range_dyadic n m] at hsum_le
+    have hrem_ge : ε ≤ ((n + m + 2 : ℕ) : ℚ) / (2 ^ (n + m) : ℚ) := by linarith
+    have hrem_le := dyadic_tail_remainder_le n m
+    have hm1_gt : 4 / ε < ((m + 1 : ℕ) : ℚ) := by
+      push_cast
+      linarith
+    have hm1_pos : (0 : ℚ) < ((m + 1 : ℕ) : ℚ) := by positivity
+    have hlt_eps : 4 / ((m + 1 : ℕ) : ℚ) < ε := (div_lt_iff₀ hm1_pos).mpr
+      ((div_lt_iff₀ hε).mp hm1_gt |>.trans_eq (mul_comm _ _))
+    linarith
+
+/-- First representation sequence for $x = 3/8$: $a_0(k) = k + 5$ ($5, 6, 7, 8, \ldots$). -/
+def repSeq0 (k : ℕ) : ℕ := k + 5
+
+/-- Second representation sequence for $x = 3/8$: $a_1(0) = 4$ and $a_1(k) = k + 6$ for $k \ge 1$
+($4, 7, 8, 9, \ldots$). -/
+def repSeq1 (k : ℕ) : ℕ := if k = 0 then 4 else k + 6
+
+lemma repSeq0_representation : Erdos261InfiniteRepresentation (3 / 8 : ℚ) repSeq0 := by
+  have hhas : HasSum (fun k : ℕ => (repSeq0 k : ℚ) / (2 ^ (repSeq0 k) : ℚ)) (3 / 8 : ℚ) := by
+    have h4 := hasSum_dyadic_tail 4
+    have heq : (fun i : ℕ => ((4 + 1 + i : ℕ) : ℚ) / (2 ^ (4 + 1 + i) : ℚ)) =
+        (fun k : ℕ => (repSeq0 k : ℚ) / (2 ^ (repSeq0 k) : ℚ)) := by
+      ext k
+      simp [repSeq0, add_comm]
+    have hval : (((4 + 2 : ℕ) : ℚ) / (2 ^ 4 : ℚ)) = (3 / 8 : ℚ) := by norm_num
+    rwa [heq, hval] at h4
+  refine ⟨?_, ?_, hhas.summable, hhas.tsum_eq.symm⟩
+  · intro i j hij; dsimp [repSeq0]; omega
+  · intro k; dsimp [repSeq0]; omega
+
+lemma repSeq1_representation : Erdos261InfiniteRepresentation (3 / 8 : ℚ) repSeq1 := by
+  let g : ℕ → ℚ := fun k => (repSeq1 k : ℚ) / (2 ^ (repSeq1 k) : ℚ)
+  have hhas : HasSum g (3 / 8 : ℚ) := by
+    have h6 := hasSum_dyadic_tail 6
+    have heq : (fun i : ℕ => ((6 + 1 + i : ℕ) : ℚ) / (2 ^ (6 + 1 + i) : ℚ)) =
+        (fun k : ℕ => g (k + 1)) := by
+      ext k
+      dsimp [g, repSeq1]
+      have hk : 7 + k = k + 1 + 6 := by omega
+      rw [hk]
+    rw [heq] at h6
+    have h0 : HasSum g (g 0 + (((6 + 2 : ℕ) : ℚ) / (2 ^ 6 : ℚ))) := HasSum.zero_add h6
+    have hval : g 0 + (((6 + 2 : ℕ) : ℚ) / (2 ^ 6 : ℚ)) = (3 / 8 : ℚ) := by
+      dsimp [g, repSeq1]
+      norm_num
+    rwa [hval] at h0
+  refine ⟨?_, ?_, hhas.summable, hhas.tsum_eq.symm⟩
+  · intro i j hij
+    dsimp [repSeq1]
+    split_ifs <;> omega
+  · intro k
+    dsimp [repSeq1]
+    split_ifs <;> omega
+
+/-- There exists a rational $x$ with at least two representations
+$$x = \sum_{k=1}^{\infty} \frac{a_k}{2^{a_k}}$$
+by pairwise distinct positive integers $a_k$. -/
+theorem erdos_261.variants.two_representations : ∃ x : ℚ,
+    2 ≤ #{a : ℕ → ℕ | Erdos261InfiniteRepresentation x a} := by
+  refine ⟨3 / 8, ?_⟩
+  have hne : repSeq0 ≠ repSeq1 := by
+    intro h
+    have := congrFun h 0
+    simp [repSeq0, repSeq1] at this
+  have hsub : ({repSeq0, repSeq1} : Set (ℕ → ℕ)) ⊆
+      {a : ℕ → ℕ | Erdos261InfiniteRepresentation (3 / 8) a} := by
+    intro a ha
+    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at ha
+    rcases ha with rfl | rfl
+    · exact repSeq0_representation
+    · exact repSeq1_representation
+  have hcard : #({repSeq0, repSeq1} : Set (ℕ → ℕ)) = 2 := by
+    rw [Cardinal.mk_insert (by simpa using hne), Cardinal.mk_singleton]
+    norm_num
+  exact hcard ▸ Cardinal.mk_le_mk_of_subset hsub
+
 #print axioms erdos_261.variants.borwein_loring
 #print axioms erdos_261.variants.borwein_loring_property
 #print axioms erdos_261.parts.i
+#print axioms erdos_261.variants.two_representations
 
 end Erdos261
