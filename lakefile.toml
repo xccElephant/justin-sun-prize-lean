@@ -13,4 +13,5 @@ rev = "v4.33.1"
 
 [[lean_lib]]
 name = "JspBounties"
-globs = ["JspBounties.*"]
+# Build the standalone problem modules; there is no JspBounties.lean root module.
+globs = ["JspBounties.+"]
