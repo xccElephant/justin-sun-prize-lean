@@ -815,50 +815,6 @@ theorem exists_mem_sumsOfDistinctPowers_modEq {d m : ℕ} (hm : 0 < m)
   exact ⟨∑ i ∈ residueExponents m k r, d ^ i,
     ⟨residueExponents m k r, hcut, rfl⟩, hmod⟩
 
-/-- **Melfi's (2004) Infinite-Sequence Construction for $k = 0$ (`erdos124.melfi_construction_zero`)**:
-For any $\varepsilon > 0$, there exists a strictly increasing sequence of bases $2 \le d_0 < d_1 < \dots$
-such that $\sum_{i=0}^\infty \frac{1}{d_i - 1}$ is summable with sum at most $\varepsilon$, and every
-natural number $n$ is a finite sum $\sum_{i \in I} a_i$ with $a_i \in \mathrm{sumsOfDistinctPowers}\ (d_i)\ 0$. -/
-theorem erdos124.melfi_construction_zero {ε : ℝ} (hε : 0 < ε) :
-    ∃ d : ℕ → ℕ, StrictMono d ∧ 2 ≤ d 0 ∧
-      Summable (fun i ↦ (d i - 1 : ℝ)⁻¹) ∧ ∑' i, (d i - 1 : ℝ)⁻¹ ≤ ε ∧
-      ∀ᶠ n in atTop, ∃ (I : Finset ℕ) (a : ℕ → ℕ),
-        (∀ i ∈ I, a i ∈ sumsOfDistinctPowers (d i) 0) ∧ ∑ i ∈ I, a i = n := by
-  obtain ⟨M0, hM0⟩ := exists_nat_gt (2 / ε)
-  let M : ℕ := max M0 2
-  have hM_ge2 : 2 ≤ M := le_max_right M0 2
-  have hM_pos : (0 : ℝ) < (M : ℝ) := by positivity
-  have hM_gt : 2 / ε < (M : ℝ) := lt_of_lt_of_le hM0 (by exact_mod_cast le_max_left M0 2)
-  let d : ℕ → ℕ := fun i => M * 2 ^ i + 1
-  have hd_mono : StrictMono d := by
-    intro i j hij
-    dsimp [d]
-    have hpow : 2 ^ i < 2 ^ j := Nat.pow_lt_pow_right (by omega) hij
-    nlinarith
-  have hd0 : 2 ≤ d 0 := by
-    dsimp [d]
-    omega
-  have hterm : (fun i : ℕ => (d i - 1 : ℝ)⁻¹) = (fun i : ℕ => (M : ℝ)⁻¹ * (1 / 2 : ℝ) ^ i) := by
-    ext i
-    dsimp [d]
-    push_cast
-    rw [add_sub_cancel_right, mul_inv, ← inv_pow, one_div]
-  have hhas : HasSum (fun i : ℕ => (d i - 1 : ℝ)⁻¹) ((M : ℝ)⁻¹ * 2) := by
-    rw [hterm]
-    exact hasSum_geometric_two.mul_left (M : ℝ)⁻¹
-  refine ⟨d, hd_mono, hd0, hhas.summable, ?_, Filter.Eventually.of_forall ?_⟩
-  · rw [hhas.tsum_eq]
-    have h1 : 2 < (M : ℝ) * ε := (div_lt_iff₀ hε).mp hM_gt
-    have h2 : (M : ℝ)⁻¹ * 2 < ε := by
-      rw [inv_mul_eq_div, div_lt_iff₀ hM_pos]
-      linarith
-    exact le_of_lt h2
-  · intro n
-    refine ⟨Finset.range n, fun _ => 1, ?_, ?_⟩
-    · intro i _
-      exact ⟨{0}, by simp, by simp⟩
-    · simp
-
 end Erdos124
 
 #print axioms Erdos124.pow_dvd_of_mem_sumsOfDistinctPowers
@@ -881,4 +837,3 @@ end Erdos124
 #print axioms Erdos124.residue_representative
 
 #print axioms Erdos124.exists_mem_sumsOfDistinctPowers_modEq
-#print axioms Erdos124.erdos124.melfi_construction_zero
