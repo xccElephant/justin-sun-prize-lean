@@ -1,0 +1,41 @@
+{
+  "reports/focused-2026-10-19/factorial/REPORT.md": {
+    "sha256": "2fd0077b172a0eb4c1f3bcab1f41da53226b1c614a171ae3ec1d580b11ab176e",
+    "note": "Local research evidence; not bundled third-party proof source."
+  },
+  "reports/focused-2026-10-19/totient/FINDINGS.md": {
+    "sha256": "83218d72d4e0495b139600f33a5220116a72c09c88dbce46360eda34eb4cf618",
+    "note": "Local research evidence; not bundled third-party proof source."
+  },
+  "reports/focused-2026-10-19/rotation/README-external.md": {
+    "sha256": "3bc55ea6bde1e8e6658268eb0f8edcc33c6260a33542a4ac75f8c3bd8733bb41",
+    "note": "Local research evidence; not bundled third-party proof source."
+  },
+  "reports/focused-2026-10-19/E372.html": {
+    "sha256": "053a6321c919ae6521a7f2f87055b197ca4855f4eae0016d42ccd2333a664a4c"
+  },
+  "reports/focused-2026-10-19/E465.html": {
+    "sha256": "4899584e75372805b0f6a3014939c17ef606f26f3820d3cae1766052f1b64f6b"
+  },
+  "reports/focused-2026-10-19/E1042.html": {
+    "sha256": "96a27e37eea476a46d907342f737225cefe14a3f722fe589133e693ad90bf288"
+  },
+  "reports/focused-2026-10-19/E1078.html": {
+    "sha256": "5de543227fbcc51320126768275c2dfd4a6d9786c3fb9139b7cabc4dbf863276"
+  },
+  "reports/focused-2026-10-19/rotation/Basic.lean": {
+    "sha256": "c1b39d13a543bae0894b8c44e0c62397468cbbf41d91a8c5d74904aa01156377"
+  },
+  "reports/focused-2026-10-19/rotation/Kesten.lean": {
+    "sha256": "e1aa9478aae605e7c01590188fffeed59c6f0f6021c6673ba90201b07469726d"
+  },
+  "reports/focused-2026-10-19/rotation/Necessity.lean": {
+    "sha256": "5798f972dec98dd7771d24f681405275c8e07108ad618f0b44aadf835b60df23"
+  },
+  "reports/focused-2026-10-19/rotation/Sufficiency.lean": {
+    "sha256": "e245a202d29a918ef6a823cb91a3f02a9e06695d8a9f5133d8d2ce7897f5620b"
+  },
+  "reports/focused-2026-10-19/own-prs-final.json": {
+    "sha256": "fb949e4f0dfdbdfc212e7246983a3b2d22ea0c15a9a618a8130dc5577b0a9025"
+  }
+}

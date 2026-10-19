@@ -1,4 +1,5 @@
 import glob, re, yaml, json
+from pathlib import Path
 
 # 1. Load problems.yaml from teorth/erdosproblems
 erdos_list = yaml.safe_load(open("/Users/xcc/Project/justin-sun-prize-lean/reference/erdosproblems/data/problems.yaml", encoding="utf-8"))
@@ -27,7 +28,8 @@ for p in glob.glob("/Users/xcc/Project/justin-sun-prize-lean/reference/formal-co
     if m:
         fc_files[int(m.group(1))] = p
 
-# 3. Parse JSP catalog (JSP-000043 to JSP-001022 are Erdos problems in strictly increasing Erdos number order!)
+# 3. Parse JSP catalog. Approximate ordering is a discovery heuristic only;
+# source review has found exceptions and cannot be replaced by this alignment.
 catalog_files = sorted(glob.glob("/Users/xcc/Project/justin-sun-prize-lean/reference/awards/problems/catalog-*.md"))
 jsp_items = []
 for cf in catalog_files:
@@ -170,5 +172,8 @@ for idx in range(len(clean_anchors) - 1):
             cj -= 1
 
 print("Mapped JSP entries:", len(jsp_to_erdos))
-with open("/Users/xcc/Project/justin-sun-prize-lean/jsp_erdos_map.json", "w") as f:
+output = Path(__file__).resolve().parents[1] / "reports" / "mapping-proposals.json"
+output.parent.mkdir(parents=True, exist_ok=True)
+print(f"Unverified mapping proposals (not the reviewed input table): {output}")
+with output.open("w") as f:
     json.dump(jsp_to_erdos, f, indent=2)

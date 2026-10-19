@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-19",
+  "official_main": "fd8fa66abb4e21df828fdebc25298e9ad75521bd",
+  "new_complete_problem_proofs": 0,
+  "new_award_prs": 0,
+  "existing_ready": 4,
+  "existing_draft": 28,
+  "existing_heads_unchanged": true,
+  "new_focused_candidates": 3,
+  "candidates_approved": 0,
+  "cumulative_records_with_documented_review": 34,
+  "records_without_substantive_review": 260,
+  "mapping_corrections": 4,
+  "proof_source_changed": false,
+  "tests": {
+    "statement_mapping_red": "4 expected statement-pair mismatches observed",
+    "module_invocation_red": "3 selectors failed with ModuleNotFoundError observed",
+    "green": "3 unittest tests pass; all three actual module invocations exit0"
+  },
+  "review": "Independent code review found module invocation regression; fixed and locally rechecked. Final agent re-review disconnected."
+}

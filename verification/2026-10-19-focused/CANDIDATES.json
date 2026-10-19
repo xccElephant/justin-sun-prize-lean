@@ -1,0 +1,38 @@
+[
+  {
+    "jsp": "JSP-000878",
+    "erdos": 1058,
+    "repository": "plby/lean-proofs",
+    "commit": "8822f7ddef30fadbd92e1c6ab4ed897af356af5e",
+    "target": "Erdos1058.erdos_1058",
+    "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1058.lean",
+    "scope": "All positive solutions classified as n=1,2,3,4,5; stronger than finiteness.",
+    "review": "Read root, exact first-two-primes definition, instantiated BL bound and finite certificate assembly; 29 local import files found.",
+    "limit": "No independent Lean compile or kernel replay; no priority or official acceptance determination.",
+    "local_report": "reports/focused-2026-10-19/factorial/REPORT.md"
+  },
+  {
+    "jsp": "JSP-000884",
+    "erdos": 1064,
+    "repository": "plby/lean-proofs",
+    "commit": "8822f7ddef30fadbd92e1c6ab4ed897af356af5e",
+    "target": "Erdos1064.erdos_1064",
+    "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1064.lean",
+    "scope": "Density-one totient inequality plus infinitely many reverse inequalities; general f=o(n) strengthening.",
+    "review": "Read density proof, small-prime divisibility, tail estimates, and analytic dependency bridge. PR2979 points to unrelated Erdos884; PR1956 and1224 alone do not prove density one.",
+    "limit": "AP-prime analytic closure not independently rebuilt or fully audited; no priority or official acceptance determination.",
+    "local_report": "reports/focused-2026-10-19/totient/FINDINGS.md"
+  },
+  {
+    "jsp": "JSP-000831",
+    "erdos": 998,
+    "repository": "CollinYuanjieRen/awards",
+    "commit": "c2ecac9d6afd79ad1547324cb222d43018931959",
+    "target": "Kesten.bounded_remainder_iff",
+    "source": "https://github.com/CollinYuanjieRen/awards/blob/c2ecac9d6afd79ad1547324cb222d43018931959/submissions/jsp-000831-cyr/MerLeanExperiment/Kesten.lean",
+    "scope": "Full interval-length characterization for irrational rotation; includes necessity and sufficiency.",
+    "review": "Read Basic, Kesten, Necessity and Sufficiency. The old plby endpoint-only counterexample does not supply this characterization; PR101 provides another actual source.",
+    "limit": "DenseBound, BoundedTransfer, Spectrum and other transitive modules not independently audited or built. Author build receipts are not our verification.",
+    "local_report": "reports/focused-2026-10-19/rotation/README-external.md"
+  }
+]

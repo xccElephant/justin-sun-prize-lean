@@ -1,6 +1,11 @@
 import json, glob, re, yaml, urllib.request
 
-jsp_erdos_map = {int(k): int(v) for k, v in json.load(open("/Users/xcc/Project/justin-sun-prize-lean/jsp_erdos_map.json")).items()}
+if __package__:
+    from .problem_mapping import load_problem_mapping
+else:
+    from problem_mapping import load_problem_mapping
+
+jsp_erdos_map = load_problem_mapping()
 erdos_list = yaml.safe_load(open("/Users/xcc/Project/justin-sun-prize-lean/reference/erdosproblems/data/problems.yaml", encoding="utf-8"))
 erdos_by_num = {int(p["number"]): p for p in erdos_list if str(p.get("number", "")).isdigit()}
 
@@ -37,6 +42,9 @@ for jnum in candidates:
     it = jsp_items.get(jnum)
     if not it: continue
     enum = jsp_erdos_map.get(jnum)
+    if enum is None:
+        print(f"JSP-{jnum:06d}: unresolved mapping; source availability not assessed")
+        continue
     ep = erdos_by_num.get(enum, {}) if enum else {}
     in_lp = enum in lp_files if enum else False
     in_fc = enum in fc_files if enum else False

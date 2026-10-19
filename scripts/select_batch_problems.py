@@ -1,8 +1,11 @@
 import glob, re, json, yaml
 
-jsp_erdos = {int(v): int(k) for k, v in json.load(open("/Users/xcc/Project/justin-sun-prize-lean/jsp_erdos_map.json")).items()}
-for j in range(1003, 1023):
-    jsp_erdos[1197 + (j - 1002)] = j
+if __package__:
+    from .problem_mapping import load_problem_mapping
+else:
+    from problem_mapping import load_problem_mapping
+
+jsp_erdos = {erdos: jsp for jsp, erdos in load_problem_mapping().items()}
 
 erdos_list = yaml.safe_load(open("/Users/xcc/Project/justin-sun-prize-lean/reference/erdosproblems/data/problems.yaml", encoding="utf-8"))
 erdos_by_num = {int(p["number"]): p for p in erdos_list if str(p.get("number", "")).isdigit()}

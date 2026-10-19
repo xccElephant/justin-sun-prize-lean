@@ -1,0 +1,30 @@
+[
+  {
+    "jsp": 307,
+    "old_erdos": 371,
+    "erdos": 372,
+    "source": "https://www.erdosproblems.com/372",
+    "scope": "Infinitely many strictly descending largest-prime-factor triples."
+  },
+  {
+    "jsp": 377,
+    "old_erdos": 464,
+    "erdos": 465,
+    "source": "https://www.erdosproblems.com/465",
+    "scope": "Planar sets in radius-X disks with all distances bounded away from integers."
+  },
+  {
+    "jsp": 865,
+    "old_erdos": 1043,
+    "erdos": 1042,
+    "source": "https://www.erdosproblems.com/1042",
+    "scope": "Transfinite diameter of the root set versus polynomial sublevel components."
+  },
+  {
+    "jsp": 896,
+    "old_erdos": 1077,
+    "erdos": 1078,
+    "source": "https://www.erdosproblems.com/1078",
+    "scope": "Transversal complete subgraphs in balanced multipartite graphs."
+  }
+]

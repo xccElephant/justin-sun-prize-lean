@@ -1,9 +1,12 @@
 import json, glob, re, yaml
 
-jsp_erdos_map = {int(k): int(v) for k, v in json.load(open("/Users/xcc/Project/justin-sun-prize-lean/jsp_erdos_map.json")).items()}
-# Add 1003..1022 mapping (1002 -> 1197, 1022 -> 1221)
-for j in range(1003, 1023):
-    jsp_erdos_map[j] = 1197 + (j - 1002)
+if __package__:
+    from .problem_mapping import load_problem_mapping
+else:
+    from problem_mapping import load_problem_mapping
+
+jsp_erdos_map = load_problem_mapping()
+# Unknown mappings are skipped below; numerical offsets are not evidence.
 
 erdos_list = yaml.safe_load(open("/Users/xcc/Project/justin-sun-prize-lean/reference/erdosproblems/data/problems.yaml", encoding="utf-8"))
 erdos_by_num = {int(p["number"]): p for p in erdos_list if str(p.get("number", "")).isdigit()}
@@ -42,22 +45,24 @@ for jnum, it in sorted(jsp_items.items()):
     ep_informal = ep.get("informal_status", {}).get("state", "")
     jsp_st = it["fields"].get("Current status", "")
     jsp_lean = it["fields"].get("Lean proof", "")
-    if jsp_lean == "No" and not in_lp and ep_formal != "Lean":
+    if jsp_lean.startswith("No") and not in_lp and ep_formal != "Lean":
         if jsp_st.startswith("Solved") or ep_informal in ("proved", "disproved", "solved"):
             unformalized_solved.append((jnum, enum, it, ep, in_fc))
 
-print(f"Total Solved/Disproved problems with NO Lean proof in JSP, plby, or erdosproblems: {len(unformalized_solved)}")
+unknown_mappings = [j for j in jsp_items if 43 <= j <= 1022 and j not in jsp_erdos_map]
+print(f"Metadata-only candidates: {len(unformalized_solved)}; full-proof availability unverified")
+print(f"Entries skipped for unresolved mapping: {len(unknown_mappings)}")
 
 # Highlight those where:
 # (a) JSP status is Open, but erdosproblems.com informal_status is proved/disproved! (Newly solved!)
 # (b) JSP status has Proof contributors or recent 2024-2026 papers or disproofs!
-print("\n=== [GOLD 1] JSP says Open, but erdosproblems.com says proved/disproved (and NO Lean proof yet!) ===")
+print("\n=== JSP Open / external solved metadata leads; verify mapping and existing proofs ===")
 for jnum, enum, it, ep, in_fc in unformalized_solved:
     if it["fields"].get("Current status") == "Open":
         print(f"  JSP-{jnum:06d} (Erdos #{enum}) | FC_stmt={in_fc} | ep_status={ep.get('status',{}).get('state')} ({ep.get('status',{}).get('last_update')}) | prize={ep.get('prize')}")
         print(f"     Title: {it['title'][:85]}")
 
-print("\n=== [GOLD 2] JSP says Solved + Lean=No, NOT in plby, with named contributors or 2024-2026 papers or FC statement ===")
+print("\n=== JSP Solved / Lean-No metadata leads with named contributors or recent sources ===")
 for jnum, enum, it, ep, in_fc in unformalized_solved:
     st = it["fields"].get("Current status", "")
     pub = it["fields"].get("Publication details", "")
@@ -69,7 +74,7 @@ for jnum, enum, it, ep, in_fc in unformalized_solved:
         if pub and "No publication" not in pub:
             print(f"     Pub: {pub[:110]}")
 
-print("\n=== ALL 15 Truly Unformalized Solved/Disproved Problems (NOT in plby/lean-proofs, NOT in erdosproblems Lean) ===")
+print("\n=== All metadata leads; no proof-vacancy or prize-eligibility conclusion ===")
 for jnum, enum, it, ep, in_fc in unformalized_solved:
     st = it["fields"].get("Current status", "")
     pub = it["fields"].get("Publication details", "")

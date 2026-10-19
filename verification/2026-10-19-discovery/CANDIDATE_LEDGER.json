@@ -11346,8 +11346,19 @@
         "title": "Formalize full Kesten interval characterization (JSP-000831 / Erdos 998)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "focused_source_review_no_implementation_approved",
+    "review": {
+      "erdos": 998,
+      "decision": "existing_same_scope_source_found",
+      "evidence_level": "source_review_no_independent_build",
+      "report": "verification/2026-10-19-focused/README.md",
+      "source": [
+        "https://github.com/CollinYuanjieRen/awards/blob/c2ecac9d6afd79ad1547324cb222d43018931959/submissions/jsp-000831-cyr/MerLeanExperiment/Kesten.lean"
+      ],
+      "limits": [
+        "DenseBound, BoundedTransfer, Spectrum and other transitive modules not independently audited or built. Author build receipts are not our verification."
+      ]
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -12175,8 +12186,19 @@
         "title": "Verify complete JSP-000878 classification on Lean 4.34"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "focused_source_review_no_implementation_approved",
+    "review": {
+      "erdos": 1058,
+      "decision": "existing_same_scope_source_found",
+      "evidence_level": "source_review_no_independent_build",
+      "report": "verification/2026-10-19-focused/README.md",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1058.lean"
+      ],
+      "limits": [
+        "No independent Lean compile or kernel replay; no priority or official acceptance determination."
+      ]
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -12223,8 +12245,19 @@
         "title": "JSP-000884: Lean formalization observation"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "focused_source_review_no_implementation_approved",
+    "review": {
+      "erdos": 1064,
+      "decision": "existing_same_scope_source_found",
+      "evidence_level": "source_review_no_independent_build",
+      "report": "verification/2026-10-19-focused/README.md",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1064.lean"
+      ],
+      "limits": [
+        "AP-prime analytic closure not independently rebuilt or fully audited; no priority or official acceptance determination."
+      ]
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
