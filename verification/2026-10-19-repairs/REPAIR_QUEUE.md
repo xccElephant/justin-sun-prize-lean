@@ -1,6 +1,6 @@
 # Remaining original-submission repair queue
 
-The user requested completion of all existing submissions before new problems. All 32 records remain in this queue; none is abandoned. A proved subproblem does not close a broader original record. As of this batch, two clearly scoped original proofs await external review and 30 records remain drafts with scope or mathematical requirements.
+The user requested completion of all existing submissions before new problems. All 32 records remain in this queue; none is abandoned. A proved subproblem does not close a broader original record. As of this batch, two clearly scoped original proofs await external review, PR5080 awaits scope review of its complete finite-existence proof, and29 records remain drafts with scope or mathematical requirements.
 
 This is an obligation ledger, not a claim that all open mathematical requirements are currently solvable. Known-proof formalization, new mathematical research, scope clarification, and external acceptance are separate activities.
 
@@ -38,7 +38,7 @@ Outstanding original-problem obligation: No scope gap for JSP-000301, whose revi
 
 ## PR5080 — JSP-000307 / Erdős372
 
-Status: `scope_clarification_active`. Abandoned: no.
+Status: `submitted_for_scope_review`. Abandoned: no.
 
 Existing proved scope: Proves the least decreasing triple begins at n=13 and gives a decreasing quadruple at n=317. Also proves infinitely many valleys P(n)>P(n+1)<P(n+2), and infinitely many individual adjacent increases and decreases.
 
@@ -47,6 +47,8 @@ Latest checked repair: Literal existence theorem stated entirely using prime div
 Selected repair commit: `de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe`.
 
 Outstanding original-problem obligation: Infinitely many decreasing triples are not proved; catalog scope remains unresolved.
+
+Review-state clarification: PR5080 is ready for scope review, not claimed to prove infinitude or qualify for a prize. See REVIEW_STATUS.md.
 
 ## PR5081 — JSP-000509 / Erdős628
 

@@ -73,13 +73,14 @@
     ],
     "proved_en": "Proves the least decreasing triple begins at n=13 and gives a decreasing quadruple at n=317. Also proves infinitely many valleys P(n)>P(n+1)<P(n+2), and infinitely many individual adjacent increases and decreases.",
     "gap_en": "Infinitely many decreasing triples are not proved; catalog scope remains unresolved.",
-    "repair_status": "scope_clarification_active",
+    "repair_status": "submitted_for_scope_review",
     "abandoned": false,
     "last_repair_commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe",
     "new_proved_result": "Literal existence theorem stated entirely using prime divisibility and domination of every prime divisor; witness 13,14,15.",
     "new_targets": [
       "Erdos372.jsp_000307_exists_prime_factor_chain"
-    ]
+    ],
+    "review_note": "Ready for maintainer review of complete finite existence and unresolved infinitude scope; not an award or full-infinitude claim."
   },
   {
     "pr": 5081,

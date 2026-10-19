@@ -16,7 +16,7 @@ Verified proof commit: `de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe`. This is a rep
 - Erdos372: an explicit largest-prime-factor existence statement without a custom function in its type; infinitude is not claimed.
 - Erdos727: exact factorial/carry equivalence and offset carry lemmas; the construction of infinitely many suitable simultaneous prime-pair congruences remains absent.
 
-All outstanding full-problem obligations remain in `targets.json`. In particular, completing the named subproblem does not set the whole JSP catalog record to solved. Drafts remain drafts until their full selected scope has been established and proved.
+All outstanding full-problem obligations remain in `targets.json`. In particular, completing the named subproblem does not set the whole JSP catalog record to solved. PR5080 is now ready for maintainer scope review of its complete finite-existence proof. The29 remaining drafts retain their unresolved requirements. Review readiness does not assert acceptance or eligibility; see [current review status](REVIEW_STATUS.md).
 
 ## Verification
 
