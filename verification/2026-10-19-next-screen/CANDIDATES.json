@@ -1,0 +1,42 @@
+[
+  {
+    "jsp": "JSP-001016",
+    "erdos": 1211,
+    "decision": "existing_upper_and_lower_sources",
+    "depth": "original_paper_and_source_review_no_build",
+    "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1211.lean",
+    "finding": "The original CFP/Erdoes target is the sharp upper logarithmic density (limsup), including the universal bound and an attaining partition. The catalogue lower wording also has a separate fixed-source counterexample in PR1060. Neither reading establishes a vacant implementation.",
+    "limits": "Read root plus supporting modules, not full transitive imports or independent Lean build.",
+    "local_report": "reports/opportunity-2026-10-19-next/log-density/REPORT.md"
+  },
+  {
+    "jsp": "JSP-000715",
+    "erdos": 863,
+    "decision": "original_conditional_comparison_already_proved",
+    "depth": "original_1992_scan_primary_papers_and_source_review_no_build",
+    "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos863.lean",
+    "finding": "The original comparison introduces existing asymptotic constants; current problem page makes these premises explicit. Both fixed plby and PR773 sources prove that comparison. Ho gives a stronger unconditional limsup/liminf separation; the inspected code lacks all-large-N sum lower bounds but that is not an established missing JSP obligation.",
+    "limits": "No claim that both limits exist or that their existence has an available proof. No full dependency build or priority decision.",
+    "local_report": "reports/opportunity-2026-10-19-next/sum-difference/REPORT.md"
+  },
+  {
+    "jsp": "JSP-000840",
+    "erdos": 1010,
+    "decision": "existing_full_endpoint_bounded_check",
+    "depth": "definition_and_even_odd_core_source_read_two_support_modules_built",
+    "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1010.lean",
+    "finding": "Actual root covers all finite simple graphs with floor(n^2/4)+t edges and t<floor(n/2), concluding at least t*floor(n/2) triangles. Read even/odd assembly, maximum-cut counting and sparse charge arguments. Counting and WeightedPairs independently compiled unchanged; stopped next module deliberately.",
+    "limits": "The full 23-module closure and final root were not independently compiled or axiom-audited. SIGTERM is not a mathematical failure.",
+    "local_report": "verification/2026-10-19-next-screen/README.md"
+  },
+  {
+    "jsp": "JSP-000404",
+    "erdos": 504,
+    "decision": "real_source_problem_but_no_complete_implementation_route",
+    "depth": "fixed_claimed_full_source_plus_primary_Sendov_scan",
+    "source": "https://github.com/Yi-111-a/jsp-000404-blumenthal-sendov/blob/f7bf2cce3bd37fec9f1bce2d04c47b8b88c88061/lean/JSP404/Defs.lean",
+    "finding": "PR2804 alpha is defined by the proposed numeric formula, rather than by actual geometric configurations. Its headline theorem merely unfolds that definition, so it cannot certify the original geometric problem. The full Sendov scan was acquired: final Theorem4.1 uses numerator2, while introduction formula1.1 uses1. General Lemma4.1 s>=4 maximum-profile assertions are not justified by an exhibited induction step.",
+    "limits": "No conclusion that final classification is false or that no proof exists elsewhere. Four-center capacity10 vs asserted intermediate9 is floating-point exploration only, not an exact counterexample certificate. It stays at the final bound10. No new award proof.",
+    "local_report": "verification/2026-10-19-next-screen/BLUMENTHAL.md"
+  }
+]

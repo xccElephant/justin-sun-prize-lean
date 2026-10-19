@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-19",
+  "official_main": "fd8fa66abb4e21df828fdebc25298e9ad75521bd",
+  "plby_source": "8822f7ddef30fadbd92e1c6ab4ed897af356af5e",
+  "new_full_proofs": 0,
+  "new_award_prs": 0,
+  "approved_implementation_candidates": 0,
+  "new_documented_pool_records": 3,
+  "existing_record_deepened": 1,
+  "pool_records": 294,
+  "documented_varied_depth": 37,
+  "without_substantive_review": 257,
+  "independent_triangle_support_modules_passed": 2,
+  "triangle_final_root_build": "not_run",
+  "triangle_next_module": "deliberately_terminated_exit_minus15",
+  "proof_sources_changed": false,
+  "existing_ready": 5,
+  "existing_draft": 27,
+  "existing_pr_heads_and_states_unchanged": true,
+  "agent_reviews": 2,
+  "new_global_absence_or_priority_claim": false
+}

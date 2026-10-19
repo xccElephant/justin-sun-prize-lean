@@ -1,0 +1,8 @@
+{
+  "reason": "Scope and source reading already found a full existing endpoint; stop further independent competitor rebuild to bound discovery time.",
+  "status": "deliberate_stop_not_mathematical_failure",
+  "completed_before_stop": [
+    "Counting",
+    "WeightedPairs"
+  ]
+}

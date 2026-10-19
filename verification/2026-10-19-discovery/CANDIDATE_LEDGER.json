@@ -4735,17 +4735,29 @@
         "title": "JSP-000404: document formula discrepancy and add partial Lean proofs"
       }
     ],
-    "assessment": "examined_no_candidate_approved",
+    "assessment": "next_screen_bounded_review_no_implementation_approved",
     "review": {
+      "erdos": 504,
+      "decision": "real_source_problem_but_no_complete_implementation_route",
+      "evidence_level": "fixed_claimed_full_source_plus_primary_Sendov_scan",
+      "report": "verification/2026-10-19-next-screen/BLUMENTHAL.md",
+      "source": [
+        "https://github.com/Yi-111-a/jsp-000404-blumenthal-sendov/blob/f7bf2cce3bd37fec9f1bce2d04c47b8b88c88061/lean/JSP404/Defs.lean"
+      ],
+      "limits": [
+        "No conclusion that final classification is false or that no proof exists elsewhere. Four-center capacity10 vs asserted intermediate9 is floating-point exploration only, not an exact counterexample certificate. It stays at the final bound10. No new award proof."
+      ]
+    },
+    "approved_for_implementation": false,
+    "award_eligibility_established": false,
+    "earlier_review": {
       "erdos": 504,
       "decision": "unresolved_mathematical_scope",
       "evidence_level": "limited_source_or_claim_read",
       "report": "FINAL_EVIDENCE.md",
       "source": [],
       "limits": "PR300 explicitly limits itself to a scoped component and reports a suspected gap in a published proof. Original paper/gap not independently verified; neither complete nor disproved is established here."
-    },
-    "approved_for_implementation": false,
-    "award_eligibility_established": false
+    }
   },
   {
     "jsp": "JSP-000410",
@@ -9550,8 +9562,19 @@
         "title": "JSP-000715: complete Lean proof, mathematical sources and verification evidence"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "next_screen_bounded_review_no_implementation_approved",
+    "review": {
+      "erdos": 863,
+      "decision": "original_conditional_comparison_already_proved",
+      "evidence_level": "original_1992_scan_primary_papers_and_source_review_no_build",
+      "report": "reports/opportunity-2026-10-19-next/sum-difference/REPORT.md",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos863.lean"
+      ],
+      "limits": [
+        "No claim that both limits exist or that their existence has an available proof. No full dependency build or priority decision."
+      ]
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -11632,8 +11655,19 @@
         "title": "JSP-000840: Lean formalization observation"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "next_screen_bounded_review_no_implementation_approved",
+    "review": {
+      "erdos": 1010,
+      "decision": "existing_full_endpoint_bounded_check",
+      "evidence_level": "definition_and_even_odd_core_source_read_two_support_modules_built",
+      "report": "verification/2026-10-19-next-screen/README.md",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1010.lean"
+      ],
+      "limits": [
+        "The full 23-module closure and final root were not independently compiled or axiom-audited. SIGTERM is not a mathematical failure."
+      ]
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -13949,8 +13983,19 @@
         "title": "JSP-001016: link complete literal lower-density counterexample for scope review"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "next_screen_bounded_review_no_implementation_approved",
+    "review": {
+      "erdos": 1211,
+      "decision": "existing_upper_and_lower_sources",
+      "evidence_level": "original_paper_and_source_review_no_build",
+      "report": "reports/opportunity-2026-10-19-next/log-density/REPORT.md",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1211.lean"
+      ],
+      "limits": [
+        "Read root plus supporting modules, not full transitive imports or independent Lean build."
+      ]
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },

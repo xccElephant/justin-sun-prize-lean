@@ -1,0 +1,24 @@
+[
+  {
+    "module": "ErdosProblems.Erdos1010.Counting",
+    "status": "completed",
+    "exit_code": 0,
+    "seconds": 136.17,
+    "sha256": "d69d9764c59dad032bf6911811cfcc80b9abafbf3054e0f6732c33785889297f"
+  },
+  {
+    "module": "ErdosProblems.Erdos1010.WeightedPairs",
+    "status": "completed",
+    "exit_code": 0,
+    "seconds": 107.83,
+    "sha256": "9f1a3050709e892a8d3aaca4e45a67f9fb29ae7190f0c065b812ef153d3230c3"
+  },
+  {
+    "module": "ErdosProblems.Erdos1010.PairFamily",
+    "status": "deliberately_terminated",
+    "exit_code": -15,
+    "seconds": 43.93,
+    "sha256": "3651386b17c283bf8c081d0cef1747e6f1c169b851983538611e998cb2c60a0d",
+    "reason": "Stop already-existing competitor build after bounded source review; not a mathematical failure."
+  }
+]

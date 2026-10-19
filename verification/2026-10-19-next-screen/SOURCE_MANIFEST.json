@@ -1,0 +1,38 @@
+{
+  "reports/opportunity-2026-10-19-next/log-density/REPORT.md": {
+    "sha256": "b2535ce6e4480ed675b5421b10e232437ef041ea8ea2d840cf28a5c9a8707adf",
+    "bytes": 7888
+  },
+  "reports/opportunity-2026-10-19-next/log-density/SOURCES.md": {
+    "sha256": "3b440c411c4ea821bfc331375e6dc753f37719ed8435b2fd5c48b88130b3dfab",
+    "bytes": 2003
+  },
+  "reports/opportunity-2026-10-19-next/sum-difference/REPORT.md": {
+    "sha256": "a67943043d36001999c389be5696803ff351d1ec1c07a95c0e5875789fd1047d",
+    "bytes": 12519
+  },
+  "reports/opportunity-2026-10-19-next/blumenthal/sendov-journal.pdf": {
+    "sha256": "785a71aa2fb338fc7a2964653d75eae4234e83bb9e881ecd1d6d1f02944ec123",
+    "bytes": 132038438
+  },
+  "reports/opportunity-2026-10-19-next/blumenthal/sendov.txt": {
+    "sha256": "678c9bbe8ed512fb52aa150330cc986f030470205ee93b14a9af7219bb22bf9c",
+    "bytes": 41302
+  },
+  "reports/opportunity-2026-10-19-next/blumenthal/yi-Defs.lean": {
+    "sha256": "12b046818cea1e2177a4af3f2adaeac1006c51b4db4f0e273f4db43cb94f5600",
+    "bytes": 1348
+  },
+  "reports/opportunity-2026-10-19-next/blumenthal/yi-lean_JSP404_Main.lean": {
+    "sha256": "a862a60fd226972283d99b97090ef11d202e83aed9b7c5192c0c506572399c81",
+    "bytes": 1399
+  },
+  "reports/opportunity-2026-10-19-next/blumenthal/four-center-exploration.json": {
+    "sha256": "ef71d60327b25367e408efd6d1b70ddf46eb4c5c8bcab848ecfe823eb6e3b469",
+    "bytes": 1699
+  },
+  "reports/opportunity-2026-10-19-next/triangles/build-results.json": {
+    "sha256": "8068750a59be9be52e8fef888ebdebfe3a1a8a9ffd105051b02b4c03817e60f0",
+    "bytes": 768
+  }
+}
