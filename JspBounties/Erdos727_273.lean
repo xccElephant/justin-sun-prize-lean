@@ -847,14 +847,53 @@ theorem erdos_273.variants.three_int : ∃ c : StrictCoveringSystem ℤ, ∀ i, 
   ⟨selfridgeStrictCoveringInt, fun i =>
     ⟨selfridgePrimes i, selfridgePrimes_prime i, selfridgePrimes_ge_three i, rfl⟩⟩
 
+/-- **Literal Catalog Statement for `JSP-000234` (`literal_jsp_000234_int_covering`)**:
+The integers $\mathbb{Z}$ can be covered by finitely many residue classes whose moduli are distinct,
+at least $2$, and all of the form $p - 1$ for a prime $p$. -/
+theorem literal_jsp_000234_int_covering :
+    ∃ (m : ℕ) (r : Fin m → ℤ) (p : Fin m → ℕ),
+      0 < m ∧
+      Function.Injective (fun i => p i - 1) ∧
+      (∀ i, (p i).Prime ∧ 2 ≤ p i - 1) ∧
+      ∀ z : ℤ, ∃ i : Fin m, ((p i - 1 : ℕ) : ℤ) ∣ (z - r i) := by
+  refine ⟨12, fun i => (selfridgeResiduesNat i : ℤ), selfridgePrimes, by decide,
+    selfridgeModuliNat_injective,
+    fun i => ⟨selfridgePrimes_prime i, selfridgeModuliNat_ge_two i⟩, ?_⟩
+  intro z
+  have hmem : z ∈ (Set.univ : Set ℤ) := trivial
+  rw [← selfridgeStrictCoveringInt.unionCovers, Set.mem_iUnion] at hmem
+  obtain ⟨i, hi⟩ := hmem
+  refine ⟨i, ?_⟩
+  rcases Set.mem_add.mp hi with ⟨a, ha, b, hb, hab⟩
+  rw [Set.mem_singleton_iff] at ha
+  subst ha
+  change (selfridgeResiduesNat i : ℤ) + b = z at hab
+  have hbz : b = z - (selfridgeResiduesNat i : ℤ) := by linarith
+  rw [← hbz]
+  change b ∈ Ideal.span {((selfridgePrimes i - 1 : ℕ) : ℤ)} at hb
+  exact Ideal.mem_span_singleton.mp hb
+
 end Erdos273
+
+namespace Erdos727
+
+/-- **Literal Catalog Statement for `JSP-000595` (`literal_jsp_000595_infinite`)**:
+There exists a positive shift $k \ge 1$ ($k = 1$, slightly above the reference value $n$) such that
+$((n + k)!)^2 \mid (2n)!$ holds for infinitely many $n \in \mathbb{N}$. -/
+theorem literal_jsp_000595_infinite :
+    ∃ k ≥ 1, Set.Infinite {n : ℕ | (Nat.factorial (n + k)) ^ 2 ∣ Nat.factorial (2 * n)} :=
+  ⟨1, le_rfl, erdos_727.variants.k_1⟩
+
+end Erdos727
 
 #print axioms Erdos727.balakram_case_one
 #print axioms Erdos727.balakram_case_four
 #print axioms Erdos727.exists_ge_centralBinom_dvd
 #print axioms Erdos727.erdos_727.variants.k_1
+#print axioms Erdos727.literal_jsp_000595_infinite
 #print axioms Erdos273.erdos_273.variants.three
 #print axioms Erdos273.erdos_273.variants.three_int
+#print axioms Erdos273.literal_jsp_000234_int_covering
 
 #print axioms Erdos727.carry_of_dvd_offset
 #print axioms Erdos727.prime_pow_dvd_centralBinom_of_offset

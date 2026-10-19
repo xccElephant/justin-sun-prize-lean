@@ -4,16 +4,19 @@ Formalization author: xccElephant (Ethan Xiang)
 Toolchain: leanprover/lean4:v4.33.1
 Mathlib: 0df444a360eaa60ab8c11dca51a86af692955474 (v4.33.1)
 -/
-import Mathlib
 import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Algebra.GCDMonoid.Finset
 import Mathlib.Algebra.GCDMonoid.Nat
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
 import Mathlib.Algebra.Order.Ring.Nat
+import Mathlib.Data.Nat.Choose.Sum
+import Mathlib.Data.Nat.Factorization.Basic
 import Mathlib.Data.Nat.PrimeFin
 import Mathlib.Data.Set.Finite.Basic
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.LinearCombination
 import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Zify
 
@@ -871,7 +874,7 @@ lemma labels_sum (r X Y : ℕ) (hr : 6 ≤ r) :
   rw [labels, Finset.sum_union (labels_disjoint r)]
   rw [Finset.sum_image (by intro a ha b hb h; exact congrArg Prod.fst h),
     Finset.sum_image (by intro a ha b hb h; exact congrArg Prod.snd h)]
-  simp only [Prod.fst, Prod.snd]
+  dsimp only
   rw [← Finset.sum_mul, ← Finset.sum_mul, (coefficient_spec r hr).2.1]
   exact Finset.sum_erase_add _ _ hthree
 
@@ -879,14 +882,18 @@ lemma labels_sum (r X Y : ℕ) (hr : 6 ≤ r) :
 /-- A multiple of every coefficient, including a factor `2` to keep it above `1`. -/
 def base (r : ℕ) : ℕ := 2 * ∏ z ∈ labels r, z.2
 
+lemma labels_prod_pos (r : ℕ) (hr : 6 ≤ r) : 0 < ∏ z ∈ labels r, z.2 := by
+  exact Nat.pos_of_ne_zero (Finset.prod_ne_zero_iff.mpr fun z hz =>
+    Nat.ne_of_gt (label_bounds r hr hz).2.2)
+
 lemma base_positive (r : ℕ) (hr : 6 ≤ r) : 0 < base r := by
-  exact mul_pos two_pos (Finset.prod_pos (fun z hz => (label_bounds r hr hz).2.2))
+  exact mul_pos two_pos (labels_prod_pos r hr)
 
 lemma coefficient_dvd_base {r : ℕ} {z : ℕ × ℕ} (hz : z ∈ labels r) : z.2 ∣ base r :=
   dvd_mul_of_dvd_right (Finset.dvd_prod_of_mem Prod.snd hz) 2
 
 lemma base_gt_one (r : ℕ) (hr : 6 ≤ r) : 1 < base r := by
-  have h := Finset.prod_pos (fun z hz => (label_bounds r hr hz).2.2)
+  have h := labels_prod_pos r hr
   unfold base
   omega
 
@@ -1086,9 +1093,169 @@ theorem erdos_939.variants.euler : ¬ (∀ k ≥ 4, ∀ S : Finset ℕ, S.card =
   push Not
   refine ⟨5, by omega, {27, 84, 110, 133}, by decide, by decide, 144, by norm_num⟩
 
+/-!
+## Part 3: Cohn's (1998) Strengthening — Infinitely Many Pairwise Coprime Non-Cube $3$-Powerful Triples
+-/
+
+/-- A positive integer belongs to `NonCube3FullClass` if it is of the form $32 m^3$, $16807 m^3$,
+or $81 m^3$ for some positive integer $m$. Every such integer is $3$-powerful and is never a
+perfect cube. -/
+def NonCube3FullClass (n : ℕ) : Prop :=
+  (∃ m > 0, n = 32 * m ^ 3) ∨ (∃ m > 0, n = 16807 * m ^ 3) ∨ (∃ m > 0, n = 81 * m ^ 3)
+
+lemma nonCube3FullClass_mul_cube {n L : ℕ} (hn : NonCube3FullClass n) (hL : 0 < L) :
+    NonCube3FullClass (n * L ^ 3) := by
+  rcases hn with ⟨m, hm, rfl⟩ | ⟨m, hm, rfl⟩ | ⟨m, hm, rfl⟩
+  · exact Or.inl ⟨m * L, Nat.mul_pos hm hL, by ring⟩
+  · exact Or.inr (Or.inl ⟨m * L, Nat.mul_pos hm hL, by ring⟩)
+  · exact Or.inr (Or.inr ⟨m * L, Nat.mul_pos hm hL, by ring⟩)
+
+lemma not_cube_of_nonCube3FullClass {n : ℕ} (hn : NonCube3FullClass n) :
+    ∀ k : ℕ, n ≠ k ^ 3 := by
+  intro k hk
+  rcases hn with ⟨m, hm, rfl⟩ | ⟨m, hm, rfl⟩ | ⟨m, hm, rfl⟩
+  · have hm0 : m ^ 3 ≠ 0 := pow_ne_zero 3 (Nat.ne_of_gt hm)
+    have hfac : (32 * m ^ 3).factorization 2 = (k ^ 3).factorization 2 := by rw [hk]
+    have h32 : (32 : ℕ) = 2 ^ 5 := by norm_num
+    simp only [h32, Nat.factorization_mul (by norm_num : (2 : ℕ) ^ 5 ≠ 0) hm0,
+      Nat.factorization_pow, Finsupp.coe_add, Pi.add_apply, Finsupp.coe_smul,
+      Pi.smul_apply, smul_eq_mul, Nat.Prime.factorization_self (by decide : Nat.Prime 2)] at hfac
+    omega
+  · have hm0 : m ^ 3 ≠ 0 := pow_ne_zero 3 (Nat.ne_of_gt hm)
+    have hfac : (16807 * m ^ 3).factorization 7 = (k ^ 3).factorization 7 := by rw [hk]
+    have h7 : (16807 : ℕ) = 7 ^ 5 := by norm_num
+    simp only [h7, Nat.factorization_mul (by norm_num : (7 : ℕ) ^ 5 ≠ 0) hm0,
+      Nat.factorization_pow, Finsupp.coe_add, Pi.add_apply, Finsupp.coe_smul,
+      Pi.smul_apply, smul_eq_mul, Nat.Prime.factorization_self (by decide : Nat.Prime 7)] at hfac
+    omega
+  · have hm0 : m ^ 3 ≠ 0 := pow_ne_zero 3 (Nat.ne_of_gt hm)
+    have hfac : (81 * m ^ 3).factorization 3 = (k ^ 3).factorization 3 := by rw [hk]
+    have h3 : (81 : ℕ) = 3 ^ 4 := by norm_num
+    simp only [h3, Nat.factorization_mul (by norm_num : (3 : ℕ) ^ 4 ≠ 0) hm0,
+      Nat.factorization_pow, Finsupp.coe_add, Pi.add_apply, Finsupp.coe_smul,
+      Pi.smul_apply, smul_eq_mul, Nat.Prime.factorization_self (by decide : Nat.Prime 3)] at hfac
+    omega
+
+/-- Cohn's (1998) explicit base parameters satisfying $32 X^3 + 49 Y^3 = 81 Z^3$ with $Y = 7 Y_1$. -/
+def cohnX : ℕ := 9712247684771506604963490444281
+def cohnY1 : ℕ := 4613685829279762057419703345193
+def cohnZ : ℕ := 27474621855216870941749052236511
+
+/-- Cohn's (1998) non-cube $3$-powerful seed triple $(32 X^3, 7^5 Y_1^3, 81 Z^3)$. -/
+def cohnSeedTriple : ℕ × ℕ × ℕ :=
+  (32 * cohnX ^ 3, 16807 * cohnY1 ^ 3, 81 * cohnZ ^ 3)
+
+lemma cohnSeedTriple_valid : ValidTriple cohnSeedTriple := by
+  refine ⟨by norm_num [cohnSeedTriple, cohnX], by norm_num [cohnSeedTriple, cohnY1],
+    by decide, Or.inr (Or.inr (by decide)), ?_, ?_, ?_,
+    by norm_num [cohnSeedTriple, cohnX, cohnY1, cohnZ]⟩
+  · have h32 : (32 : ℕ) = 2 ^ 5 := by norm_num
+    rw [cohnSeedTriple, h32]
+    exact (Full.pow_of_le (by omega : 3 ≤ 5) 2).mul (Full.pow_of_le (le_refl 3) cohnX)
+  · have h7 : (16807 : ℕ) = 7 ^ 5 := by norm_num
+    rw [cohnSeedTriple, h7]
+    exact (Full.pow_of_le (by omega : 3 ≤ 5) 7).mul (Full.pow_of_le (le_refl 3) cohnY1)
+  · have h81 : (81 : ℕ) = 3 ^ 4 := by norm_num
+    rw [cohnSeedTriple, h81]
+    exact (Full.pow_of_le (by omega : 3 ≤ 4) 3).mul (Full.pow_of_le (le_refl 3) cohnZ)
+
+lemma cohnSeedTriple_nonCube :
+    NonCube3FullClass cohnSeedTriple.1 ∧
+    NonCube3FullClass cohnSeedTriple.2.1 ∧
+    NonCube3FullClass cohnSeedTriple.2.2 := by
+  refine ⟨Or.inl ⟨cohnX, by decide, rfl⟩,
+    Or.inr (Or.inl ⟨cohnY1, by decide, rfl⟩),
+    Or.inr (Or.inr ⟨cohnZ, by decide, rfl⟩)⟩
+
+lemma nextTriple_preserves_nonCube {t : ℕ × ℕ × ℕ} (ht : ValidTriple t)
+    (hnc : NonCube3FullClass t.1 ∧ NonCube3FullClass t.2.1 ∧ NonCube3FullClass t.2.2) :
+    NonCube3FullClass (nextTriple t).1 ∧
+    NonCube3FullClass (nextTriple t).2.1 ∧
+    NonCube3FullClass (nextTriple t).2.2 := by
+  rcases t with ⟨a, b, c⟩
+  have hne : a ≠ b := by
+    rintro rfl
+    have h1 : a = 1 := by
+      have := ht.coprime.gcd_eq_one
+      rwa [Nat.gcd_self] at this
+    linarith [ht.one_lt_a]
+  unfold nextTriple
+  dsimp only at hnc ⊢
+  split_ifs with hle
+  · have hlt : a < b := lt_of_le_of_ne hle hne
+    refine ⟨nonCube3FullClass_mul_cube hnc.1 (by linarith [ht.one_lt_b]),
+      nonCube3FullClass_mul_cube hnc.2.2 (by omega),
+      nonCube3FullClass_mul_cube hnc.2.1 (by linarith [ht.one_lt_a])⟩
+  · refine ⟨nonCube3FullClass_mul_cube hnc.2.1 (by linarith [ht.one_lt_a]),
+      nonCube3FullClass_mul_cube hnc.2.2 (by omega),
+      nonCube3FullClass_mul_cube hnc.1 (by linarith [ht.one_lt_b])⟩
+
+/-- Cohn's (1998) infinite sequence of pairwise coprime non-cube $3$-powerful triples. -/
+def cohnTripleSeq : ℕ → ℕ × ℕ × ℕ
+  | 0 => cohnSeedTriple
+  | n + 1 => nextTriple (cohnTripleSeq n)
+
+lemma cohnTripleSeq_valid (n : ℕ) : ValidTriple (cohnTripleSeq n) := by
+  induction n with
+  | zero => exact cohnSeedTriple_valid
+  | succ n ih => exact (nextTriple_spec ih).1
+
+lemma cohnTripleSeq_nonCube (n : ℕ) :
+    NonCube3FullClass (cohnTripleSeq n).1 ∧
+    NonCube3FullClass (cohnTripleSeq n).2.1 ∧
+    NonCube3FullClass (cohnTripleSeq n).2.2 := by
+  induction n with
+  | zero => exact cohnSeedTriple_nonCube
+  | succ n ih => exact nextTriple_preserves_nonCube (cohnTripleSeq_valid n) ih
+
+lemma cohnTripleSeq_strictMono : StrictMono (fun n => (cohnTripleSeq n).2.2) :=
+  strictMono_nat_of_lt_succ fun n => (nextTriple_spec (cohnTripleSeq_valid n)).2
+
+/-- **Cohn's (1998) Non-Cube Strengthening of Erdős Problem 939 (`JSP-000780`)**:
+There are infinitely many triples $(a, b, c)$ of positive $3$-powerful integers satisfying
+$a + b = c$ that are both setwise and pairwise coprime and in which **none of $a, b, c$ is a
+perfect cube**. -/
+theorem erdos_939.variants.triples_non_cube :
+    {(a, b, c) : ℕ × ℕ × ℕ |
+      Nat.Coprime a b ∧ Nat.Coprime a c ∧ Nat.Coprime b c ∧
+      ({a, b, c} : Finset ℕ).Coprime ∧
+      0 < a ∧ 0 < b ∧ 0 < c ∧
+      (3).Full a ∧ (3).Full b ∧ (3).Full c ∧
+      (∀ k : ℕ, a ≠ k ^ 3) ∧ (∀ k : ℕ, b ≠ k ^ 3) ∧ (∀ k : ℕ, c ≠ k ^ 3) ∧
+      a + b = c}.Infinite := by
+  apply Set.infinite_of_injective_forall_mem (f := cohnTripleSeq)
+  · intro m₁ m₂ heq
+    apply cohnTripleSeq_strictMono.injective
+    exact congrArg (fun t => t.2.2) heq
+  · intro n
+    have hv := cohnTripleSeq_valid n
+    have hnc := cohnTripleSeq_nonCube n
+    rcases h : cohnTripleSeq n with ⟨a, b, c⟩
+    rw [h] at hv hnc
+    have hcop_ab : Nat.Coprime a b := hv.coprime
+    have hadd : a + b = c := hv.add_eq
+    have hac : Nat.Coprime a c := by
+      rw [← hadd]
+      exact Nat.coprime_self_add_right.mpr hcop_ab
+    have hbc : Nat.Coprime b c := by
+      rw [← hadd]
+      exact Nat.coprime_add_self_right.mpr hcop_ab.symm
+    have hset : ({a, b, c} : Finset ℕ).Coprime :=
+      finset_coprime_of_mem_coprime (by simp) (by simp) hcop_ab
+    have ha1 : 1 < a := hv.one_lt_a
+    have hb1 : 1 < b := hv.one_lt_b
+    refine ⟨hcop_ab, hac, hbc, hset,
+      by omega, by omega, by omega,
+      hv.full_a, hv.full_b, hv.full_c,
+      not_cube_of_nonCube3FullClass hnc.1,
+      not_cube_of_nonCube3FullClass hnc.2.1,
+      not_cube_of_nonCube3FullClass hnc.2.2,
+      hadd⟩
+
 end Erdos939
 
 #print axioms Erdos939.erdos_939.variants.triples
+#print axioms Erdos939.erdos_939.variants.triples_non_cube
 #print axioms Erdos939.erdos_939.variants.finite
 #print axioms Erdos939.erdos_939_five_nonempty
 #print axioms Erdos939.erdos_939_six_infinite
