@@ -18,11 +18,19 @@ We formalize the solved variants and disproofs in `FormalConjectures/ErdosProble
 - `erdos_602.variants.two_sets`: Every pair of infinite sets whose intersection is finite and of size $\neq 1$ has Property B.
 - `erdos_602.variants.single_set`, `erdos_602.variants.empty_index`, `erdos_602.variants.unique_index`: Foundational cases.
 - `disjoint_without_infinite_claim.disproof`: Dropping the infinite-set hypothesis refutes the disjoint Property B claim.
+- Scope certificates and disjoint-refinement reductions below are partial results only.
+
+The original problem (Erdős 1987, p. 227, §12) permits an arbitrary ground set
+and arbitrary index set. The full statement `originalProblem` below is a proposition,
+not a proved theorem. Countability of individual members does not imply countability
+of their union; the contrary renaming explanation in Formal Conjectures is invalid.
 -/
 
 open Set
 
 namespace Erdos602
+
+universe u v
 
 /-- A set `A ⊆ α` is **monochromatic** under a 2-colouring `f : α → Fin 2`
 if all elements of `A` receive the same colour. -/
@@ -33,6 +41,15 @@ def IsMonochromatic {α : Type*} (f : α → Fin 2) (A : Set α) : Prop :=
 a 2-colouring `f : α → Fin 2` such that no `A_i` is monochromatic. -/
 def HasPropertyB {α : Type*} (I : Type*) (A : I → Set α) : Prop :=
   ∃ f : α → Fin 2, ∀ i, ¬IsMonochromatic f (A i)
+
+/-- The exact original question, with neither the ground set nor the index restricted
+    to be countable. This definition asserts no proof of the proposition. -/
+def originalProblem : Prop :=
+  ∀ {α : Type u} {I : Type v} (A : I → Set α),
+    (∀ i, (A i).Countable ∧ (A i).Infinite) →
+    (∀ i j, i ≠ j → (A i ∩ A j).Finite) →
+    (∀ i j, i ≠ j → Set.ncard (A i ∩ A j) ≠ 1) →
+    HasPropertyB I A
 
 /--
 **Pairwise disjoint families.**
@@ -309,6 +326,235 @@ theorem disjoint_without_infinite_claim.disproof :
   intro x hx y hy
   simp only [Set.mem_singleton_iff] at hx hy
   rw [hx, hy]
+
+/-! ### New scope certificates and sufficient conditions
+
+These results do not settle `originalProblem`. In particular, finite pairwise
+intersections do not supply the finite deletions in the sufficient condition.
+-/
+
+/-- A colouring of an infinite disjoint refinement also splits the original family. -/
+theorem propertyB_of_disjoint_refinement {α I : Type*} (A B : I → Set α)
+    (hSub : ∀ i, B i ⊆ A i) (hInf : ∀ i, (B i).Infinite)
+    (hDisj : ∀ i j, i ≠ j → Disjoint (B i) (B j)) : HasPropertyB I A := by
+  obtain ⟨f, hf⟩ := erdos_602.variants.disjoint B hInf hDisj
+  exact ⟨f, fun i hMono => hf i (fun x hx y hy => hMono x (hSub i hx) y (hSub i hy))⟩
+
+/-- Essential disjointness is sufficient. The deletions must be proved to exist,
+    and are not consequences asserted here of the original hypotheses. -/
+theorem propertyB_of_finite_deletions {α I : Type*} (A D : I → Set α)
+    (hInf : ∀ i, (A i).Infinite) (hFin : ∀ i, (D i).Finite)
+    (hDisj : ∀ i j, i ≠ j → Disjoint (A i \ D i) (A j \ D j)) :
+    HasPropertyB I A := by
+  exact propertyB_of_disjoint_refinement A (fun i => A i \ D i)
+    (fun _ => Set.sdiff_subset) (fun i => (hInf i).sdiff (hFin i)) hDisj
+
+/-- A family of countably infinite, pairwise disjoint fibres whose union is
+    uncountable. This disproves the union-countability inference, not Property B. -/
+theorem countably_infinite_members_uncountable_union {β : Type*} [Uncountable β] :
+    let A : β → Set (β × ℕ) := fun i => Set.range (fun n => (i, n))
+    (∀ i, (A i).Countable ∧ (A i).Infinite) ∧
+    (∀ i j, i ≠ j → Disjoint (A i) (A j)) ∧
+    ¬ (⋃ i, A i).Countable := by
+  dsimp
+  refine ⟨fun i => ⟨Set.countable_range _, Set.infinite_range_of_injective ?_⟩,
+    ?_, ?_⟩
+  · intro n m h
+    exact congrArg Prod.snd h
+  · intro i j hij
+    rw [Set.disjoint_left]
+    rintro x ⟨n, rfl⟩ ⟨m, h⟩
+    exact hij (congrArg Prod.fst h).symm
+  · intro hc
+    have hUnion : (⋃ i : β, Set.range (fun n : ℕ => (i, n))) = Set.univ := by
+      ext x
+      simp only [Set.mem_iUnion, Set.mem_range, Set.mem_univ, iff_true]
+      exact ⟨x.1, x.2, Prod.eta x⟩
+    rw [hUnion] at hc
+    have hImage := hc.image Prod.fst
+    rw [Set.image_univ_of_surjective (fun i : β => ⟨(i, 0), rfl⟩)] at hImage
+    exact Set.not_countable_univ hImage
+
+/-- The accurate renaming premise is countability of the whole union. -/
+theorem countable_union_of_countable_index {α I : Type*} [Countable I]
+    (A : I → Set α) (hc : ∀ i, (A i).Countable) : (⋃ i, A i).Countable :=
+  Set.countable_iUnion hc
+
+/-- A global colouring can be pulled back along one common relabelling.
+    Separate bijections for each edge do not supply this common map. -/
+theorem propertyB_of_image {α β I : Type*} (A : I → Set α) (e : α → β)
+    (hB : HasPropertyB I (fun i => e '' A i)) :
+    HasPropertyB I A := by
+  obtain ⟨f, hf⟩ := hB
+  refine ⟨f ∘ e, fun i hMono => hf i ?_⟩
+  rintro x ⟨a, ha, rfl⟩ y ⟨b, hb, rfl⟩
+  exact hMono a ha b hb
+
+/-- Core for the fresh-witness obstruction. -/
+def pairedCore : Set (ℕ × ℕ × Fin 2) := {x | x.1 = 0}
+
+/-- Satellite `i` shares precisely its two core points, and has an infinite private row. -/
+def pairedSatellite (i : ℕ) : Set (ℕ × ℕ × Fin 2) :=
+  {x | x.1 = i + 1 ∨ (x.1 = 0 ∧ x.2.1 = i)}
+
+def pairedWitnesses (i : ℕ) : Set (ℕ × ℕ × Fin 2) := {(0, i, 0), (0, i, 1)}
+
+def pairedFamily : Option ℕ → Set (ℕ × ℕ × Fin 2)
+  | none => pairedCore
+  | some i => pairedSatellite i
+
+private theorem pairedCore_inter (i : ℕ) :
+    pairedCore ∩ pairedSatellite i = pairedWitnesses i := by
+  ext x
+  rcases x with ⟨a, b, c⟩
+  fin_cases c <;> simp [pairedCore, pairedSatellite, pairedWitnesses] <;> omega
+
+private theorem pairedSatellite_disjoint {i j : ℕ} (hij : i ≠ j) :
+    Disjoint (pairedSatellite i) (pairedSatellite j) := by
+  rw [Set.disjoint_left]
+  rintro ⟨a, b, c⟩ hi hj
+  simp only [pairedSatellite, Set.mem_ofPred_eq] at hi hj
+  rcases hi with hi | ⟨hi, hbi⟩ <;> rcases hj with hj | ⟨hj, hbj⟩ <;> omega
+
+/-- This example satisfies every original hypothesis; it is not a negative answer. -/
+theorem paired_core_original_hypotheses :
+    (∀ i, (pairedFamily i).Countable ∧ (pairedFamily i).Infinite) ∧
+    (∀ i j, i ≠ j → (pairedFamily i ∩ pairedFamily j).Finite) ∧
+    (∀ i j, i ≠ j → Set.ncard (pairedFamily i ∩ pairedFamily j) ≠ 1) := by
+  have hPairFin : ∀ i, (pairedWitnesses i).Finite := fun i =>
+    (Set.finite_singleton (0, i, (1 : Fin 2))).insert (0, i, (0 : Fin 2))
+  have hPairCard : ∀ i, (pairedWitnesses i).ncard = 2 := by
+    intro i
+    exact Set.ncard_pair (by simp)
+  have hInf : ∀ r : ℕ, Set.Infinite {x : ℕ × ℕ × Fin 2 | x.1 = r} := by
+    intro r
+    exact Set.infinite_of_injective_forall_mem
+      (f := fun n : ℕ => (r, n, (0 : Fin 2)))
+      (fun _ _ h => congrArg (fun x => x.2.1) h) (fun _ => rfl)
+  refine ⟨?_, ?_, ?_⟩
+  · intro i
+    refine ⟨Set.to_countable _, ?_⟩
+    cases i with
+    | none => exact hInf 0
+    | some i => exact (hInf (i + 1)).mono (fun _ hx => Or.inl hx)
+  · intro i j hij
+    cases i with
+    | none =>
+      cases j with
+      | none => exact (hij rfl).elim
+      | some j => simpa only [pairedFamily, pairedCore_inter] using hPairFin j
+    | some i =>
+      cases j with
+      | none => simpa only [pairedFamily, Set.inter_comm, pairedCore_inter] using hPairFin i
+      | some j =>
+        have hd := pairedSatellite_disjoint (fun h => hij (congrArg some h))
+        simpa only [pairedFamily, Set.disjoint_iff_inter_eq_empty.mp hd] using Set.finite_empty
+  · intro i j hij
+    cases i with
+    | none =>
+      cases j with
+      | none => exact (hij rfl).elim
+      | some j => simp only [pairedFamily, pairedCore_inter, hPairCard]; decide
+    | some i =>
+      cases j with
+      | none => simp only [pairedFamily, Set.inter_comm, pairedCore_inter, hPairCard]; decide
+      | some j =>
+        have hd := pairedSatellite_disjoint (fun h => hij (congrArg some h))
+        simp only [pairedFamily, Set.disjoint_iff_inter_eq_empty.mp hd, Set.ncard_empty]
+        decide
+
+/-- The last coordinate already splits all edges of the obstruction example. -/
+theorem paired_core_hasPropertyB : HasPropertyB (Option ℕ) pairedFamily := by
+  refine ⟨fun x => x.2.2, fun i hMono => ?_⟩
+  cases i with
+  | none =>
+    have h := hMono (0, 0, 0) rfl (0, 0, 1) rfl
+    exact (by decide : (0 : Fin 2) ≠ 1) h
+  | some i =>
+    have h := hMono (i + 1, 0, 0) (Or.inl rfl) (i + 1, 0, 1) (Or.inl rfl)
+    exact (by decide : (0 : Fin 2) ≠ 1) h
+
+/-- The satellites can use disjoint pairs of witnesses in the core. Their union
+    exhausts the core, preventing a later fresh pair although Property B holds. -/
+theorem paired_core_no_fresh_pair :
+    (∀ i, pairedWitnesses i ⊆ pairedSatellite i) ∧
+    (∀ i j, i ≠ j → Disjoint (pairedWitnesses i) (pairedWitnesses j)) ∧
+    pairedCore \ (⋃ i, pairedWitnesses i) = ∅ := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro i x hx
+    rw [← pairedCore_inter] at hx
+    exact hx.2
+  · intro i j hij
+    rw [Set.disjoint_left]
+    intro x hi hj
+    have hi' : x.2.1 = i := by
+      rcases hi with rfl | hi
+      · rfl
+      · rw [Set.mem_singleton_iff] at hi
+        rw [hi]
+    have hj' : x.2.1 = j := by
+      rcases hj with rfl | hj
+      · rfl
+      · rw [Set.mem_singleton_iff] at hj
+        rw [hj]
+    exact hij (hi'.symm.trans hj')
+  · apply Set.eq_empty_iff_forall_notMem.mpr
+    rintro ⟨a, b, c⟩ ⟨ha, hn⟩
+    change a = 0 at ha
+    subst a
+    apply hn
+    apply Set.mem_iUnion.mpr
+    refine ⟨b, ?_⟩
+    fin_cases c <;> simp [pairedWitnesses]
+
+/-- Split colourings converge pointwise to a monochromatic colouring even for one
+    infinite edge. This certifies the missing closedness in naive compactness. -/
+theorem splitting_condition_not_preserved_by_pointwise_limit :
+    (∀ n : ℕ, ¬IsMonochromatic (fun x : ℕ => if x ≤ n then (0 : Fin 2) else 1) Set.univ) ∧
+    (∀ x : ℕ, ∃ N : ℕ, ∀ n ≥ N,
+      (if x ≤ n then (0 : Fin 2) else 1) = 0) ∧
+    IsMonochromatic (fun _ : ℕ => (0 : Fin 2)) Set.univ := by
+  refine ⟨?_, ?_, fun _ _ _ _ => rfl⟩
+  · intro n hMono
+    have h := hMono 0 (Set.mem_univ _) (n + 1) (Set.mem_univ _)
+    simp at h
+  · intro x
+    exact ⟨x, fun _ hn => if_pos hn⟩
+
+/-- A chain of independent vertex sets can cease to be independent at its union,
+    even in a family satisfying all original hypotheses. Zorn's lemma therefore
+    cannot simply be applied to the inclusion order on independent sets. -/
+theorem independent_chain_union_obstruction :
+    let S : ℕ → Set (ℕ × ℕ × Fin 2) := fun n => {x | x.1 = 0 ∧ x.2.1 < n}
+    Monotone S ∧ (∀ n i, ¬pairedFamily i ⊆ S n) ∧
+      pairedFamily none ⊆ ⋃ n, S n := by
+  dsimp
+  refine ⟨?_, ?_, ?_⟩
+  · intro n m hnm x hx
+    exact ⟨hx.1, lt_of_lt_of_le hx.2 hnm⟩
+  · intro n i hSub
+    cases i with
+    | none =>
+      have h := hSub (show (0, n, (0 : Fin 2)) ∈ pairedFamily none from rfl)
+      exact (Nat.lt_irrefl n) h.2
+    | some i =>
+      have h := hSub (show (i + 1, 0, (0 : Fin 2)) ∈ pairedFamily (some i) from Or.inl rfl)
+      exact (Nat.succ_ne_zero i) h.1
+  · intro x hx
+    exact Set.mem_iUnion.mpr ⟨x.2.1 + 1, hx, Nat.lt_succ_self _⟩
+
+#print axioms independent_chain_union_obstruction
+
+#print axioms paired_core_original_hypotheses
+#print axioms paired_core_hasPropertyB
+#print axioms paired_core_no_fresh_pair
+#print axioms splitting_condition_not_preserved_by_pointwise_limit
+
+#print axioms propertyB_of_disjoint_refinement
+#print axioms propertyB_of_finite_deletions
+#print axioms countably_infinite_members_uncountable_union
+#print axioms countable_union_of_countable_index
+#print axioms propertyB_of_image
 
 #print axioms erdos_602.variants.disjoint
 #print axioms erdos_602.variants.countable_index

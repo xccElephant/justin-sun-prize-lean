@@ -1,0 +1,13 @@
+import JspBounties.Erdos80_596_668
+#check Erdos596.edge_count_le_of_cover
+#print axioms Erdos596.edge_count_le_of_cover
+#check Erdos596.monochromatic_copy_of_edge_count
+#print axioms Erdos596.monochromatic_copy_of_edge_count
+#check Erdos596.finite_ramsey_of_extremal_separation
+#print axioms Erdos596.finite_ramsey_of_extremal_separation
+#check Erdos596.projective_plane_threshold
+#print axioms Erdos596.projective_plane_threshold
+#check Erdos668.unitGraph_edge_count
+#print axioms Erdos668.unitGraph_edge_count
+#check Erdos668.not_maximizing_of_bounded_degree
+#print axioms Erdos668.not_maximizing_of_bounded_degree

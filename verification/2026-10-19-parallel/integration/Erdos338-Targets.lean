@@ -1,0 +1,5 @@
+import JspBounties.Erdos338
+#check Erdos338.erdos_338_bateman_exact
+#print axioms Erdos338.erdos_338_bateman_exact
+#check Erdos338.batemanBasis_not_isAsymptoticBasisOfOrder_lt
+#print axioms Erdos338.batemanBasis_not_isAsymptoticBasisOfOrder_lt

@@ -26,7 +26,7 @@ import Mathlib.Tactic.Positivity
 - [La26] Lau, C. F., *On the Number of Prime Factors of Consecutive Integers*.
   [arXiv:2604.15042](https://arxiv.org/abs/2604.15042) (2026).
 
-This file formalizes complete, zero-`sorry` results for `FormalConjectures/ErdosProblems/413.lean`:
+This file formalizes the following zero-`sorry` partial results related to `FormalConjectures/ErdosProblems/413.lean`:
 1. **Shifted-Difference Characterization of $\varepsilon$-Barriers (`isBarrier_mul_iff`)**:
    For any $\varepsilon > 0$ and $f : \mathbb{N} \to \mathbb{R}$ with $f(0) \le 0$, $n$ is an
    $\varepsilon$-barrier for $f$ (`IsBarrier (fun m => ε * f m) n`) if and only if
@@ -120,9 +120,11 @@ theorem erdos_413_parts_ii_iff_linear_omega :
     linarith
 
 /-- **Deduction of `erdos_413.parts.ii` from Lau's [La26] Logarithmic Shifted-$\omega$ Theorem**:
-Lau [La26, Theorem 1.1 / 1.3] proved that there exists $C > 0$ and infinitely many $n$ such that
-$\omega(n - k) \le C (\log k + 1)$ for all $1 \le k \le n$. Since $\log k + 1 \le k$ for all $k \ge 1$,
-this immediately yields `erdos_413.parts.ii`. -/
+The premise below is a strengthened endpoint-inclusive input; it is not the literal
+statement of Lau v3, Theorem 1.3, which covers only `1 < k < n`. This theorem remains
+conditional. The endpoint-correct deduction from the literal theorem is
+`erdos_413_parts_ii_of_lau_v3` below. Since $\log k + 1 \le k$ for all $k \ge 1$,
+the stated premise yields the epsilon-barrier conclusion. -/
 theorem erdos_413_parts_ii_of_lau
     (hlau : ∃ C > (0 : ℝ),
       { n : ℕ | ∀ k ∈ Set.Icc 1 n, (ω (n - k) : ℝ) ≤ C * (Real.log k + 1) }.Infinite) :
@@ -135,6 +137,53 @@ theorem erdos_413_parts_ii_of_lau
     have := Real.log_le_sub_one_of_pos hk_pos
     linarith
   exact (hn k hk).trans (mul_le_mul_of_nonneg_left hlog_le hC.le)
+
+/-- Endpoint-correct deduction from Lau v3, Theorem 1.3.
+The analytic theorem remains an explicit hypothesis. Translate n to n-2,
+so that the first required shift uses Lau's bound at k=3. -/
+theorem erdos_413_parts_ii_of_lau_v3
+    (hlau : ∃ C > (0 : ℝ),
+      {n : ℕ | ∀ k : ℕ, 1 < k → k < n →
+        (ω (n - k) : ℝ) ≤ C * Real.log k}.Infinite) :
+    ∃ ε > (0 : ℝ), {n | IsBarrier (fun m => ε * (ω m : ℝ)) n}.Infinite := by
+  obtain ⟨C, hC, hinf⟩ := hlau
+  let S : Set ℕ := {n | ∀ k : ℕ, 1 < k → k < n →
+    (ω (n - k) : ℝ) ≤ C * Real.log k} \ {0, 1, 2}
+  have hS : S.Infinite := hinf.sdiff (by simp)
+  have hlarge {n : ℕ} (hn : n ∈ S) : 2 < n := by
+    have hn' : n ∉ ({0, 1, 2} : Set ℕ) := hn.2
+    simp only [Set.mem_insert_iff, Set.mem_singleton_iff, not_or] at hn'
+    omega
+  have hinj : Set.InjOn (fun n : ℕ => n - 2) S := by
+    intro a ha b hb he
+    change a - 2 = b - 2 at he
+    have := hlarge ha
+    have := hlarge hb
+    omega
+  rw [erdos_413_parts_ii_iff_linear_omega]
+  refine ⟨2 * C, by positivity, (hS.image hinj).mono ?_⟩
+  rintro N ⟨n, hn, rfl⟩ k ⟨hk, hkn⟩
+  change k ≤ n - 2 at hkn
+  by_cases he : k = n - 2
+  · simp [he]
+    positivity
+  · have hklt : k + 2 < n := by
+      have := hlarge hn
+      omega
+    have hb := hn.1 (k + 2) (by omega) hklt
+    have hsub : n - (k + 2) = n - 2 - k := by omega
+    rw [hsub] at hb
+    have hpos : (0 : ℝ) < (k + 2 : ℕ) := by positivity
+    have hlog := Real.log_le_sub_one_of_pos hpos
+    push_cast at hlog
+    have hkreal : (1 : ℝ) ≤ k := by exact_mod_cast hk
+    have hlog' : Real.log (k + 2 : ℕ) ≤ 2 * (k : ℝ) := by
+      push_cast
+      linarith
+    calc
+      (ω (n - 2 - k) : ℝ) ≤ C * Real.log (k + 2 : ℕ) := hb
+      _ ≤ C * (2 * (k : ℝ)) := mul_le_mul_of_nonneg_left hlog' hC.le
+      _ = (2 * C) * k := by ring
 
 /-!
 ## Part 2: Erdős–Graham's Trajectory Trapping & Coalescence Theorem (`[ErGr80, p. 81]`)
@@ -261,3 +310,5 @@ end Erdos413
 #print axioms Erdos413.infinite_not_isBarrier_omega
 #print axioms Erdos413.expProd_eq_one_of_squarefree
 #print axioms Erdos413.barrier_ineq_expProd_of_squarefree
+
+#print axioms Erdos413.erdos_413_parts_ii_of_lau_v3

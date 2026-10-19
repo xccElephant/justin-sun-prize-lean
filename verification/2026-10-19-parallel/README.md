@@ -47,8 +47,29 @@ and no claim of byte identity is made.
 
 The campaign partitions all 32 existing PR records into 16 work/review groups,
 run in batches with a maximum of six simultaneous agents. Completion of a group
-report is not completion of its mathematical problems. Detailed campaign outcomes
-and live submission counts are maintained separately as groups finish.
+report is not completion of its mathematical problems. All sixteen groups have
+delivered a report. [The 32-record ledger](CAMPAIGN_LEDGER.json) and
+[group index](GROUPS.json) preserve that distinction.
+
+The source integration also adds Bateman's exact least-order result for E338,
+the endpoint-correct conditional Lau deduction for E413, E602 scope/invalid-route
+certificates, and E596/E668 extremal/edge-count reductions. It corrects incomplete
+scope descriptions in E44 and the JSP number in E699. None of these additional
+changes completes its whole original prize record.
+
+The complete project build passed 8,740 jobs, with all 34 source hashes stable:
+[result](lake-build.json), [log](lake-build.log). The six additional changed
+modules each passed bundled kernel replay. Nineteen relevant new target types
+and their axioms were checked in separate module imports. All ten integration
+commands exited 0: [commands/results](integration-checks.json), with check sources
+and outputs in `integration/`. An independent semantic review found no blocking
+issues: [review result](integration-review.json).
+
+PR5095 was updated and marked ready for **scope review**, with remote readback:
+[publication record](PR5095-published.json). The 32 PRs were then 28 drafts and
+four ready: 5076, 5079, 5080, 5095. The last two are literal-scope review requests,
+not accepted solutions of their stronger original conjectures. No award approval
+or payment has been established.
 
 Only curated proof evidence is published here. Exploratory failures, third-party
 papers and unverified work files remain outside this evidence package.

@@ -1,0 +1,40 @@
+Erdos602.propertyB_of_disjoint_refinement.{u_1, u_2} {α : Type u_1} {I : Type u_2} (A B : I → Set α)
+  (hSub : ∀ (i : I), B i ⊆ A i) (hInf : ∀ (i : I), (B i).Infinite) (hDisj : ∀ (i j : I), i ≠ j → Disjoint (B i) (B j)) :
+  Erdos602.HasPropertyB I A
+'Erdos602.propertyB_of_disjoint_refinement' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos602.propertyB_of_finite_deletions.{u_1, u_2} {α : Type u_1} {I : Type u_2} (A D : I → Set α)
+  (hInf : ∀ (i : I), (A i).Infinite) (hFin : ∀ (i : I), (D i).Finite)
+  (hDisj : ∀ (i j : I), i ≠ j → Disjoint (A i \ D i) (A j \ D j)) : Erdos602.HasPropertyB I A
+'Erdos602.propertyB_of_finite_deletions' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos602.countably_infinite_members_uncountable_union.{u_1} {β : Type u_1} [Uncountable β] :
+  have A := fun i => Set.range fun n => (i, n);
+  (∀ (i : β), (A i).Countable ∧ (A i).Infinite) ∧ (∀ (i j : β), i ≠ j → Disjoint (A i) (A j)) ∧ ¬(⋃ i, A i).Countable
+'Erdos602.countably_infinite_members_uncountable_union' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos602.countable_union_of_countable_index.{u_1, u_2} {α : Type u_1} {I : Type u_2} [Countable I] (A : I → Set α)
+  (hc : ∀ (i : I), (A i).Countable) : (⋃ i, A i).Countable
+'Erdos602.countable_union_of_countable_index' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos602.propertyB_of_image.{u_1, u_2, u_3} {α : Type u_1} {β : Type u_2} {I : Type u_3} (A : I → Set α) (e : α → β)
+  (hB : Erdos602.HasPropertyB I fun i => e '' A i) : Erdos602.HasPropertyB I A
+'Erdos602.propertyB_of_image' does not depend on any axioms
+Erdos602.paired_core_original_hypotheses :
+  (∀ (i : Option ℕ), (Erdos602.pairedFamily i).Countable ∧ (Erdos602.pairedFamily i).Infinite) ∧
+    (∀ (i j : Option ℕ), i ≠ j → (Erdos602.pairedFamily i ∩ Erdos602.pairedFamily j).Finite) ∧
+      ∀ (i j : Option ℕ), i ≠ j → (Erdos602.pairedFamily i ∩ Erdos602.pairedFamily j).ncard ≠ 1
+'Erdos602.paired_core_original_hypotheses' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos602.paired_core_hasPropertyB : Erdos602.HasPropertyB (Option ℕ) Erdos602.pairedFamily
+'Erdos602.paired_core_hasPropertyB' depends on axioms: [propext]
+Erdos602.paired_core_no_fresh_pair :
+  (∀ (i : ℕ), Erdos602.pairedWitnesses i ⊆ Erdos602.pairedSatellite i) ∧
+    (∀ (i j : ℕ), i ≠ j → Disjoint (Erdos602.pairedWitnesses i) (Erdos602.pairedWitnesses j)) ∧
+      Erdos602.pairedCore \ ⋃ i, Erdos602.pairedWitnesses i = ∅
+'Erdos602.paired_core_no_fresh_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos602.splitting_condition_not_preserved_by_pointwise_limit :
+  (∀ (n : ℕ), ¬Erdos602.IsMonochromatic (fun x => if x ≤ n then 0 else 1) Set.univ) ∧
+    (∀ (x : ℕ), ∃ N, ∀ n ≥ N, (if x ≤ n then 0 else 1) = 0) ∧ Erdos602.IsMonochromatic (fun x => 0) Set.univ
+'Erdos602.splitting_condition_not_preserved_by_pointwise_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Erdos602.independent_chain_union_obstruction :
+  have S := fun n => {x | x.1 = 0 ∧ x.2.1 < n};
+  Monotone S ∧ (∀ (n : ℕ) (i : Option ℕ), ¬Erdos602.pairedFamily i ⊆ S n) ∧ Erdos602.pairedFamily none ⊆ ⋃ n, S n
+'Erdos602.independent_chain_union_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]

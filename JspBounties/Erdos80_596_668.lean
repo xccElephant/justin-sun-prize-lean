@@ -8,6 +8,8 @@ import Mathlib.Combinatorics.SimpleGraph.Basic
 import Mathlib.Combinatorics.SimpleGraph.Clique
 import Mathlib.Combinatorics.SimpleGraph.Copy
 import Mathlib.Combinatorics.SimpleGraph.CycleGraph
+import Mathlib.Combinatorics.SimpleGraph.Extremal.Basic
+import Mathlib.Combinatorics.SimpleGraph.DegreeSum
 import Mathlib.SetTheory.Ordinal.Basic
 import Mathlib.SetTheory.Cardinal.Arithmetic
 import Mathlib.Analysis.InnerProductSpace.PiL2
@@ -32,7 +34,11 @@ import Mathlib.Tactic.FinCases
 - [erdosproblems.com/668](https://www.erdosproblems.com/668) (`FormalConjectures/ErdosProblems/668.lean`)
 - [erdosproblems.com/80](https://www.erdosproblems.com/80) (`FormalConjectures/ErdosProblems/80.lean`)
 
-This file formalizes complete, 100% original, zero-`sorry` Lean 4 (`v4.33.1`) proofs for:
+This file contains zero-`sorry` Lean 4 (`v4.33.1`) proofs of the restricted results below.
+It does not solve the full classification in Problem 596 or the asymptotic question in
+Problem 668. The finite Ramsey premise for `(C4, C6)` remains unproved here.
+
+Proved results:
 1. **Erdős Problem 596 (`JSP-000483`)**:
    - `Erdos596.erdos_596.variants.C4_free_countable_escape`:
      `HasCountableRamseyEscape (cycleGraph 4) (cycleGraph 6)` — Every $C_4$-free graph $H$ on an
@@ -509,7 +515,7 @@ theorem erdos_596.test.empty_is_free :
     (cycleGraph 4).Free (⊥ : SimpleGraph (Fin 0)) :=
   fun ⟨f⟩ => Fin.elim0 (f.toEmbedding 0)
 
-/-- Combining `HasFiniteRamseyProperty (cycleGraph 4) (cycleGraph 6)` (Nešetřil–Rödl) with our
+/-- Combining the unproved-here `HasFiniteRamseyProperty (cycleGraph 4) (cycleGraph 6)` with our
 proved `erdos_596.variants.C4_free_countable_escape` yields `IsErdosHajnalExceptional (cycleGraph 4) (cycleGraph 6)`. -/
 theorem erdos_596.variants.C4_C6_is_exceptional_of_finite_ramsey
     (hfin : HasFiniteRamseyProperty (cycleGraph 4) (cycleGraph 6)) :
@@ -533,6 +539,87 @@ theorem erdos_596.variants.original_conjecture_is_false_of_finite_ramsey
       ¬IsErdosHajnalExceptional G₁ G₂ :=
   fun H => H (cycleGraph 4) (cycleGraph 6)
     (erdos_596.variants.C4_C6_is_exceptional_of_finite_ramsey hfin)
+
+/-!
+### A finite extremal route to the missing Ramsey premise
+
+These lemmas are conditional reductions, not a proof of the original classification or of
+`C4_C6_finite_ramsey`. The actual extremal separation must still be established.
+-/
+
+open scoped Classical
+
+/-- A cover by `r` graphs with at most `b` edges each has at most `r * b` edges.
+Pairwise disjointness is unnecessary for this upper bound. -/
+lemma edge_count_le_of_cover {V : Type} [Fintype V] {r b : ℕ}
+    (H : SimpleGraph V) (c : Fin r → SimpleGraph V)
+    (hcover : H = ⨆ i, c i) (hbound : ∀ i, (c i).edgeFinset.card ≤ b) :
+    H.edgeFinset.card ≤ r * b := by
+  classical
+  have hsub : H.edgeFinset ⊆ Finset.univ.biUnion (fun i => (c i).edgeFinset) := by
+    intro e he
+    have he' : e ∈ (⨆ i, c i).edgeSet := by
+      simpa only [← hcover, SimpleGraph.mem_edgeFinset] using he
+    rw [SimpleGraph.edgeSet_iSup] at he'
+    obtain ⟨i, hi⟩ := Set.mem_iUnion.mp he'
+    exact Finset.mem_biUnion.mpr ⟨i, Finset.mem_univ i,
+      SimpleGraph.mem_edgeFinset.mpr hi⟩
+  calc
+    H.edgeFinset.card ≤ (Finset.univ.biUnion (fun i => (c i).edgeFinset)).card :=
+      Finset.card_le_card hsub
+    _ ≤ ∑ i : Fin r, (c i).edgeFinset.card := Finset.card_biUnion_le
+    _ ≤ ∑ _i : Fin r, b := Finset.sum_le_sum fun i _ => hbound i
+    _ = r * b := by simp
+
+/-- More than `r * ex(|V|,G)` edges forces a monochromatic copy of `G` in every
+`r`-edge colouring. This proves the colouring step, with no Ramsey assumption. -/
+theorem monochromatic_copy_of_edge_count {V U : Type} [Fintype V]
+    (H : SimpleGraph V) (G : SimpleGraph U) (r : ℕ)
+    (hdense : r * extremalNumber (Fintype.card V) G < H.edgeFinset.card)
+    (c : Fin r → SimpleGraph V) (hc : H.IsEdgeColouring c) :
+    ∃ i, G ⊑ c i := by
+  classical
+  by_contra h
+  have hfree : ∀ i, G.Free (c i) := by simpa only [not_exists] using h
+  exact (not_le_of_gt hdense) (edge_count_le_of_cover H c hc.1
+    fun i => SimpleGraph.card_edgeFinset_le_extremalNumber (hfree i))
+
+/-- An unbounded ratio of forbidden-subgraph extremal numbers suffices for finite Ramsey.
+The quantified separation hypothesis is a remaining mathematical obligation. -/
+theorem finite_ramsey_of_extremal_separation {U₁ U₂ : Type}
+    (G₁ : SimpleGraph U₁) (G₂ : SimpleGraph U₂)
+    (hsep : ∀ r : ℕ, 1 ≤ r → ∃ N : ℕ,
+      r * extremalNumber N G₂ < extremalNumber N G₁) :
+    HasFiniteRamseyProperty G₁ G₂ := by
+  classical
+  intro r hr
+  obtain ⟨N, hN⟩ := hsep r hr
+  obtain ⟨H, _, hfree, hdense⟩ :=
+    (SimpleGraph.lt_extremalNumber_iff (V := Fin N) G₁
+      (r * extremalNumber N G₂)).mp (by simpa using hN)
+  refine ⟨Fin N, H, hfree, ?_⟩
+  intro c hc
+  exact monochromatic_copy_of_edge_count H G₂ r (by simpa only [Fintype.card_fin, SimpleGraph.edgeFinset_card,
+    Fintype.card_eq_nat_card, Nat.card_fin] using hdense) c hc
+
+/-- Explicit arithmetic for a projective-plane incidence graph: it has
+`2*(q²+q+1)` vertices and `(q+1)*(q²+q+1)` edges. A cubic C6 extremal bound
+`ex(N,C6)^3 ≤ K^3*N^4` is beaten when `q > 1296*K^3*r^3`.
+This lemma proves only the threshold, not the incidence graph or the extremal bound. -/
+theorem projective_plane_threshold (q K r : ℕ) (hq : 1 ≤ q)
+    (hlarge : 1296 * K ^ 3 * r ^ 3 < q) :
+    (r * K) ^ 3 * (2 * (q ^ 2 + q + 1)) ^ 4 <
+      ((q + 1) * (q ^ 2 + q + 1)) ^ 3 := by
+  have hN : 2 * (q ^ 2 + q + 1) ≤ 6 * q ^ 2 := by nlinarith
+  have hE : q ^ 3 ≤ (q + 1) * (q ^ 2 + q + 1) := by nlinarith
+  have hqpos : 0 < q := by omega
+  have hpow : (r * K) ^ 3 * (2 * (q ^ 2 + q + 1)) ^ 4 ≤
+      (r * K) ^ 3 * (6 * q ^ 2) ^ 4 :=
+    Nat.mul_le_mul_left _ (Nat.pow_le_pow_left hN 4)
+  have hstrict : (r * K) ^ 3 * (6 * q ^ 2) ^ 4 < (q ^ 3) ^ 3 := by
+    have ht := Nat.mul_lt_mul_of_pos_right hlarge (pow_pos hqpos 8)
+    nlinarith only [ht]
+  exact lt_of_le_of_lt hpow (lt_of_lt_of_le hstrict (Nat.pow_le_pow_left hE 3))
 
 end Erdos596
 
@@ -1040,6 +1127,68 @@ theorem erdos_668.parts.ii :
   obtain ⟨f, hf⟩ := (h A hA).1 hAm
   obtain ⟨g, hg⟩ := (h B hB).1 hBm
   exact hAB ⟨f.symm.trans g, by rw [← hf, ← hg, Set.image_image]; simp⟩
+
+/-! ### A concrete obstruction to a fixed bounded-degree search space -/
+
+/-- The faithful unit-distance graph of a finite point set. -/
+def unitGraph (A : Finset ℝ²) : SimpleGraph ↥A where
+  Adj p q := dist p.val q.val = 1
+  symm := ⟨by intro p q h; simpa only [dist_comm] using h⟩
+  loopless := ⟨by intro p h; simp at h⟩
+
+open scoped Classical in
+/-- The graph edge count is exactly the number of unordered unit-distance pairs. -/
+lemma unitGraph_edge_count (A : Finset ℝ²) :
+    (unitGraph A).edgeFinset.card = unitDistNum A := by
+  classical
+  let emb : ↥A ↪ ℝ² := ⟨Subtype.val, Subtype.val_injective⟩
+  have hmap : (unitGraph A).edgeFinset.map emb.sym2Map =
+      A.sym2.filter (fun p => dist p.out.1 p.out.2 = 1) := by
+    ext p
+    induction p using Sym2.ind with
+    | _ u v =>
+      simp only [Finset.mem_map, Finset.mem_filter, dist_sym2_out,
+        Finset.mem_sym2_iff, Sym2.mem_iff, forall_eq_or_imp, forall_eq]
+      constructor
+      · rintro ⟨e, he, heq⟩
+        induction e using Sym2.ind with
+        | _ x y =>
+          change s(x.val, y.val) = s(u, v) at heq
+          have hd : dist x.val y.val = 1 :=
+            (SimpleGraph.mem_edgeFinset.mp he)
+          rcases Sym2.eq_iff.mp heq with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
+          · exact ⟨⟨x.property, y.property⟩, hd⟩
+          · exact ⟨⟨y.property, x.property⟩, by simpa only [dist_comm] using hd⟩
+      · rintro ⟨⟨hu, hv⟩, hd⟩
+        exact ⟨s((⟨u, hu⟩ : ↥A), (⟨v, hv⟩ : ↥A)),
+          SimpleGraph.mem_edgeFinset.mpr hd, rfl⟩
+  rw [unitDistNum, ← hmap, Finset.card_map]
+
+open scoped Classical in
+/-- A search space with unit-degree bound `D` cannot produce a maximizer once a
+configuration with more than `D * n / 2` unit pairs is known. -/
+theorem not_maximizing_of_bounded_degree (A B : Finset ℝ²) (D : ℕ)
+    (hcard : B.card = A.card) (hdegree : ∀ p : ↥A, (unitGraph A).degree p ≤ D)
+    (hbetter : D * A.card < 2 * unitDistNum B) :
+    unitDistNum A ≠ maxUnitDistances A.card := by
+  classical
+  have hsum : 2 * unitDistNum A ≤ D * A.card := by
+    rw [← unitGraph_edge_count, ← SimpleGraph.sum_degrees_eq_twice_card_edges]
+    calc
+      ∑ p : ↥A, (unitGraph A).degree p ≤ ∑ _p : ↥A, D :=
+        Finset.sum_le_sum fun p _ => hdegree p
+      _ = D * A.card := by simp [Nat.mul_comm]
+  have hbdd : BddAbove (unitDistanceCounts A.card) := by
+    refine ⟨(A.card + 1).choose 2, ?_⟩
+    rintro m ⟨C, hC, rfl⟩
+    calc
+      unitDistNum C ≤ C.sym2.card := Finset.card_filter_le _ _
+      _ = (A.card + 1).choose 2 := by rw [Finset.card_sym2, hC]
+  have hBmax : unitDistNum B ≤ maxUnitDistances A.card :=
+    le_csSup hbdd ⟨B, hcard, rfl⟩
+  intro hmax
+  rw [← hmax] at hBmax
+  omega
 
 end Erdos668
 

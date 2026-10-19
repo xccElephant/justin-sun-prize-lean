@@ -16,7 +16,7 @@ import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Ring
 
 /-!
-# Erdős Problems 338 & 339 (`JSP-000281`): Restricted Addition of Additive Bases
+# Erdős Problems 338 (`JSP-000280`) & 339 (`JSP-000281`): Partial Results
 
 *References:*
 - [erdosproblems.com/338](https://www.erdosproblems.com/338)
@@ -26,9 +26,14 @@ import Mathlib.Tactic.Ring
 - [HHP03] Hegyvári, N., Hennecart, F., and Plagne, A., *A proof of two Erdős conjectures on
   restricted addition and further results*. J. Reine Angew. Math. 560 (2003), 199–220.
 
+This file does not solve the complete original catalogue task JSP-000280. It proves
+Bateman's example, including its least ordinary order, but does not provide the general
+existence/equality criteria, bounds for bases with restricted order, or finite-deletion results.
+The order-two results below concern the separate problem 339.
+
 This file formalizes:
 1. **Erdős Problem 338 (Bateman's theorem)**: For every $h \ge 3$, the set
-   $A_h = \{1\} \cup \{x > 0 : h \mid x\}$ is an asymptotic additive basis of order $h$,
+   $A_h = \{1\} \cup \{x > 0 : h \mid x\}$ has least ordinary asymptotic additive order exactly $h$,
    yet has **no** restricted order $t$ for any $t \in \mathbb{N}$ (since every sum of distinct
    elements of $A_h$ is congruent to $0$ or $1 \pmod h$, missing the entire residue class
    $2 \pmod h$).
@@ -141,6 +146,77 @@ theorem erdos_338_bateman (h : ℕ) (hh : 3 ≤ h) :
     rw [Nat.mul_add_mod, Nat.mod_eq_of_lt (by omega)]
   exact not_sum_distinct_batemanBasis_of_mod_two hh hn_mod ⟨S, hS_sub, hS_sum⟩
 
+/-- The residue of a multiset sum counts the copies of the exceptional element `1`. -/
+lemma bateman_multiset_sum_mod {h : ℕ} (S : Multiset ℕ)
+    (hS : ∀ x ∈ S, x ∈ batemanBasis h) :
+    S.sum % h = S.count 1 % h := by
+  induction S using Multiset.induction_on with
+  | empty => simp
+  | cons a S ih =>
+    have ha := hS a (by simp)
+    have htail : ∀ x ∈ S, x ∈ batemanBasis h := fun x hx => hS x (by simp [hx])
+    by_cases ha1 : a = 1
+    · subst a
+      simpa only [Multiset.sum_cons, Multiset.count_cons_self, Nat.add_mod,
+        Nat.mod_mod, Nat.add_comm] using
+        congrArg (fun r => (1 % h + r) % h) (ih htail)
+    · have hamod := mod_eq_zero_of_mem_batemanBasis ha ha1
+      simp only [Multiset.sum_cons, Multiset.count_cons_of_ne (Ne.symm ha1)]
+      rw [Nat.add_mod, hamod, zero_add, ih htail, Nat.mod_mod]
+
+/-- A multiset consisting only of ones has sum equal to its cardinality. -/
+lemma multiset_sum_eq_card_of_all_one (S : Multiset ℕ)
+    (hS : ∀ x ∈ S, x = 1) : S.sum = S.card := by
+  induction S using Multiset.induction_on with
+  | empty => simp
+  | cons a S ih =>
+    have ha := hS a (by simp)
+    have ht : ∀ x ∈ S, x = 1 := fun x hx => hS x (by simp [hx])
+    simp only [Multiset.sum_cons, Multiset.card_cons, ha, ih ht]
+    omega
+
+/-- The ordinary order of Bateman's example cannot be decreased. -/
+theorem batemanBasis_not_isAsymptoticBasisOfOrder_lt (h k : ℕ)
+    (hh : 1 ≤ h) (hk : k < h) :
+    ¬ IsAsymptoticBasisOfOrder (batemanBasis h) k := by
+  intro hb
+  rw [IsAsymptoticBasisOfOrder, eventually_atTop] at hb
+  obtain ⟨N, hN⟩ := hb
+  let n := h * (N + 1) + (h - 1)
+  have hn : N ≤ n := by dsimp [n]; nlinarith
+  obtain ⟨S, hc, hS, hs⟩ := hN n hn
+  have hcount := Multiset.count_le_card 1 S
+  have hclt : S.count 1 < h := by omega
+  have hmod : n % h = h - 1 := by
+    dsimp [n]
+    rw [Nat.mul_add_mod, Nat.mod_eq_of_lt (by omega)]
+  have hceq : S.count 1 = h - 1 := by
+    have hm := bateman_multiset_sum_mod S hS
+    rw [hs, hmod, Nat.mod_eq_of_lt hclt] at hm
+    exact hm.symm
+  have hcard : S.count 1 = S.card := by omega
+  have hall : ∀ x ∈ S, x = 1 := by
+    intro x hx
+    exact ((Multiset.count_eq_card.mp hcard) x hx).symm
+  have hsum := multiset_sum_eq_card_of_all_one S hall
+  dsimp [n] at hs
+  nlinarith
+
+/-- Bateman's example has least ordinary order exactly `h`, and no restricted order. -/
+theorem erdos_338_bateman_exact (h : ℕ) (hh : 3 ≤ h) :
+    ∃ A : Set ℕ, IsAsymptoticBasisOfOrder A h ∧
+      (∀ k : ℕ, k < h → ¬ IsAsymptoticBasisOfOrder A k) ∧ ¬ HasRestrictedOrder A := by
+  refine ⟨batemanBasis h, batemanBasis_isAsymptoticBasisOfOrder h (by omega), ?_, ?_⟩
+  · intro k hk
+    exact batemanBasis_not_isAsymptoticBasisOfOrder_lt h k (by omega) hk
+  · rintro ⟨t, ht⟩
+    rw [HasRestrictedOrderLe, eventually_atTop] at ht
+    obtain ⟨N, hN⟩ := ht
+    obtain ⟨S, _, hS, hs⟩ := hN (h * N + 2) (by nlinarith)
+    exact not_sum_distinct_batemanBasis_of_mod_two hh
+      (by rw [Nat.mul_add_mod, Nat.mod_eq_of_lt (by omega)]) ⟨S, hS, hs⟩
+
+
 /-!
 ## Erdős Problem 339 (`JSP-000281`): Positive Lower Density of Restricted Sums
 -/
@@ -227,5 +303,6 @@ theorem erdos_339_order_two_counting_bound {A : Set ℕ} (h0 : 0 ∈ A)
 end Erdos338
 
 #print axioms Erdos338.erdos_338_bateman
+#print axioms Erdos338.erdos_338_bateman_exact
 #print axioms Erdos338.erdos_339_order_two_contains_all_large_odd
 #print axioms Erdos338.erdos_339_order_two_counting_bound

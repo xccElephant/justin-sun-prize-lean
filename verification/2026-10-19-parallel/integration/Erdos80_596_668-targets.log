@@ -1,0 +1,21 @@
+Erdos596.edge_count_le_of_cover {V : Type} [Fintype V] {r b : ℕ} (H : SimpleGraph V) (c : Fin r → SimpleGraph V)
+  (hcover : H = ⨆ i, c i) (hbound : ∀ (i : Fin r), (c i).edgeFinset.card ≤ b) : H.edgeFinset.card ≤ r * b
+'Erdos596.edge_count_le_of_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos596.monochromatic_copy_of_edge_count {V U : Type} [Fintype V] (H : SimpleGraph V) (G : SimpleGraph U) (r : ℕ)
+  (hdense : r * SimpleGraph.extremalNumber (Fintype.card V) G < H.edgeFinset.card) (c : Fin r → SimpleGraph V)
+  (hc : H.IsEdgeColouring c) : ∃ i, G.IsContained (c i)
+'Erdos596.monochromatic_copy_of_edge_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos596.finite_ramsey_of_extremal_separation {U₁ U₂ : Type} (G₁ : SimpleGraph U₁) (G₂ : SimpleGraph U₂)
+  (hsep : ∀ (r : ℕ), 1 ≤ r → ∃ N, r * SimpleGraph.extremalNumber N G₂ < SimpleGraph.extremalNumber N G₁) :
+  G₁.HasFiniteRamseyProperty G₂
+'Erdos596.finite_ramsey_of_extremal_separation' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos596.projective_plane_threshold (q K r : ℕ) (hq : 1 ≤ q) (hlarge : 1296 * K ^ 3 * r ^ 3 < q) :
+  (r * K) ^ 3 * (2 * (q ^ 2 + q + 1)) ^ 4 < ((q + 1) * (q ^ 2 + q + 1)) ^ 3
+'Erdos596.projective_plane_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos668.unitGraph_edge_count (A : Finset (EuclideanSpace ℝ (Fin 2))) :
+  (Erdos668.unitGraph A).edgeFinset.card = unitDistNum A
+'Erdos668.unitGraph_edge_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos668.not_maximizing_of_bounded_degree (A B : Finset (EuclideanSpace ℝ (Fin 2))) (D : ℕ) (hcard : B.card = A.card)
+  (hdegree : ∀ (p : ↥A), (Erdos668.unitGraph A).degree p ≤ D) (hbetter : D * A.card < 2 * unitDistNum B) :
+  unitDistNum A ≠ Erdos90.maxUnitDistances A.card
+'Erdos668.not_maximizing_of_bounded_degree' depends on axioms: [propext, Classical.choice, Quot.sound]

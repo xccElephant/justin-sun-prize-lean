@@ -1,0 +1,878 @@
+[
+  {
+    "pr": 5076,
+    "jsp": "JSP-000290",
+    "erdos": 348,
+    "classification": "full",
+    "targets": [
+      "Erdos348.erdos_348"
+    ],
+    "proved_en": "For every pair of natural numbers 0 <= m < n, a nondecreasing sequence a : N -> N exists such that deleting any m indexed occurrences leaves every sufficiently large natural number representable as a finite sum of remaining indexed occurrences, while deleting any n indexed occurrences destroys this property, if and only if m <= 1. The proof covers m = 0 by powers of two, m = 1 by the Fibonacci sequence 1,1,2,3,..., and impossibility for m >= 2. Deletion is Function.updateFinset a s 0; repeated values retain separate indices.",
+    "gap_en": "No mathematical scope gap for JSP-000290. Use the actual set-equality target Erdos348.erdos_348 and the nondecreasing, indexed-deletion formulation.",
+    "repair_status": "proof_complete_pending_review",
+    "abandoned": false,
+    "groups": [
+      "scope-eligibility"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": false,
+    "pr_head": "095f6263593c31a2d088459ff09dd85c35fb2459",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "complete_scoped_proof_review"
+  },
+  {
+    "pr": 5077,
+    "jsp": "JSP-000254",
+    "erdos": 302,
+    "classification": "partial",
+    "targets": [
+      "Erdos302.erdos_302.variants.lower_seventeen_thirtyseconds",
+      "Erdos302.erdos_302.parts.ii"
+    ],
+    "proved_en": "Constructs reciprocal-sum-free subsets of {1,...,N} with asymptotic density at least 17/32 and proves that the extremal density does not tend to 1/2 (parts.ii). The audited finite inequality uses additive constant 576, not 64.",
+    "gap_en": "The optimal asymptotic density and existence of its limit (parts.i) are not proved. The 5/8 lower bound and 9/10 upper bound are not established here.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "nt-density-products"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "6307b633a00cb800ea06d61958824f25dd6fc201",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5078,
+    "jsp": "JSP-000691",
+    "erdos": 835,
+    "classification": "partial",
+    "targets": [
+      "Erdos835.johnsonGraph_18_9_chromaticNumber",
+      "Erdos835.johnson_chromaticNumber_composite",
+      "Erdos835.johnson_chromaticNumber_four",
+      "Erdos835.johnson_chromaticNumber_odd",
+      "Erdos835.ma_tang_prop_2_1",
+      "Erdos835.not_property_four"
+    ],
+    "proved_en": "Proves necessary divisibility t | choose(k+t,t-1) for (k+1)-colorability of J(2k,k), exclusions for k>2 when k+1 is composite or k is odd, the k=4 exclusion, and chromaticNumber(J(18,9)) > 10.",
+    "gap_en": "Neither existence for some k > 2 nor nonexistence for all such k is proved. The general remaining prime-(k+1) cases remain uncovered. The coloring question concerns k-subsets of a 2k-set and all k+1 colors on each (k+1)-subset.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "graph-johnson"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "a4fa97306b3cd2cab0e3629aeaa6ee6c79c5dc64",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5079,
+    "jsp": "JSP-000301",
+    "erdos": 365,
+    "classification": "full",
+    "targets": [
+      "Erdos365.golomb_pair",
+      "Erdos365.erdos_365.parts.i",
+      "Erdos365.infinite_nonSquare_consecutive_powerful"
+    ],
+    "proved_en": "Fully disproves the scoped question: if two consecutive positive integers are powerful, must at least one be a perfect square? The counterexample is 12167 = 23^3 and 12168 = 2^3 * 39^2; both are powerful and neither is a square. The parts.i target directly proves the negation of the universal claim. Also proves infinitely many positive consecutive powerful pairs with neither member square.",
+    "gap_en": "No scope gap for JSP-000301, whose review notes explicitly exclude the separate counting question. The polylogarithmic counting upper bound in Erdos 365 parts.ii is not proved; the infinite family does not imply it.",
+    "repair_status": "proof_complete_pending_review",
+    "abandoned": false,
+    "groups": [
+      "scope-eligibility"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": false,
+    "pr_head": "55bb14395eb3dc77ab21e5a1339385af2b48e809",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "complete_scoped_proof_review"
+  },
+  {
+    "pr": 5080,
+    "jsp": "JSP-000307",
+    "erdos": 372,
+    "classification": "scope-uncertain",
+    "targets": [
+      "Erdos372.jsp_000307_least_decreasing_triple",
+      "Erdos372.decreasing_quadruple_317",
+      "Erdos372.infinite_maxPrimeFac_valley",
+      "Erdos372.infinite_maxPrimeFac_gt_succ",
+      "Erdos372.infinite_maxPrimeFac_lt_succ"
+    ],
+    "proved_en": "Proves the least decreasing triple begins at n=13 and gives a decreasing quadruple at n=317. Also proves infinitely many valleys P(n)>P(n+1)<P(n+2), and infinitely many individual adjacent increases and decreases.",
+    "gap_en": "Infinitely many decreasing triples are not proved; catalog scope remains unresolved.",
+    "repair_status": "submitted_for_scope_review",
+    "abandoned": false,
+    "last_repair_commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe",
+    "new_proved_result": "Literal existence theorem stated entirely using prime divisibility and domination of every prime divisor; witness 13,14,15.",
+    "new_targets": [
+      "Erdos372.jsp_000307_exists_prime_factor_chain"
+    ],
+    "review_note": "Ready for maintainer review of complete finite existence and unresolved infinitude scope; not an award or full-infinitude claim.",
+    "groups": [
+      "scope-eligibility"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": false,
+    "pr_head": "8e9bc32c9c1dbf1ebc26a901932731d8608f5acf",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "literal_scope_review"
+  },
+  {
+    "pr": 5081,
+    "jsp": "JSP-000509",
+    "erdos": 628,
+    "classification": "partial",
+    "targets": [
+      "Erdos628.erdos_628.variants.independence_number_2",
+      "Erdos628.erdos_628.variants.k_5_a_3_b_3"
+    ],
+    "proved_en": "Proves the Tihany partition variants k=5, a=b=3 and independence number exactly 2.",
+    "gap_en": "The conjecture for arbitrary graphs and arbitrary k,a,b is not proved. The independence-number hypothesis is a substantive restriction; the quasi-line variant is not established here.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "graph-core"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "30baed8ed572c59c4914f24daa732c8abcb8d562",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5082,
+    "jsp": "JSP-000500",
+    "erdos": 617,
+    "classification": "partial",
+    "targets": [
+      "Erdos617.erdos_617.variants.r2",
+      "Erdos617.erdos_617.variants.r_eq_3"
+    ],
+    "proved_en": "Proves the r=3 statement for edge colorings of K10. The target variants.r2 proves infinitely many parameters r admit an r-coloring on r^2 vertices in which every (r+1)-vertex subset contains every color; this is a counterexample family at r^2 vertices.",
+    "gap_en": "The general r>=3 statement on r^2+1 vertices, including the r=4 variant, is not proved. The name r2 refers to r^2 counterexamples, not an affirmative r=2 case.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "graph-core"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "9becef440cab45711dffcdf152c1bbf45ebe2a91",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5083,
+    "jsp": "JSP-000403",
+    "erdos": 503,
+    "classification": "partial",
+    "targets": [
+      "Erdos503.erdos_503.variants.R0",
+      "Erdos503.erdos_503.variants.R1",
+      "Erdos503.kelly_R2_lower_bound",
+      "Erdos503.kelly_R3_lower_bound",
+      "Erdos503.erdos_503_exists_isIsosceles_ge_choose"
+    ],
+    "proved_en": "Proves exact maxima 1 in dimension 0 and 3 in dimension 1, six-point and eight-point constructions in dimensions 2 and 3, and a choose(n+1,2)-point isosceles construction in general dimension.",
+    "gap_en": "The upper bounds proving optimality in dimensions 2 and 3 and the general upper bound are not proved. Other optimality wrappers assume hupper; the supremum lower-bound wrapper assumes BddAbove.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "geometry-extremal"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "c7f11dad68a64e839684483fe53c599702b40218",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5084,
+    "jsp": "JSP-000247",
+    "erdos": 291,
+    "classification": "partial",
+    "targets": [
+      "Erdos291.erdos_291.parts.ii",
+      "Erdos291.three_dvd_gcd_two_mul_pow_three"
+    ],
+    "proved_en": "Proves infinitely many n have gcd(a_n,L_n)>1, where L_n=lcm(1,...,n) and a_n=sum_{j=1}^n L_n/j, using n=2*3^(k+1). This completes parts.ii.",
+    "gap_en": "The infinitely-many coprime case (parts.i), the prime-digit equivalence, and counting or density results are not proved.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "nt-density-products"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "dd90c35d98a4e7359a3eb2649687b4eaac3a7bea",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5085,
+    "jsp": "JSP-000303",
+    "erdos": 367,
+    "classification": "partial",
+    "targets": [
+      "Erdos367.erdos_367.parts.ii",
+      "Erdos367.erdos_367.variants.k_ge_three_lower",
+      "Erdos367.erdos_367.variants.k_le_two"
+    ],
+    "proved_en": "Proves the O(n^2) bound for k<=2, disproves the universal O(n^2) claim in parts.ii, and proves an infinitely-often positive-constant n^2 log n lower bound for three consecutive B_2 factors.",
+    "gap_en": "The n^(2+o(1)) question in parts.i remains unproved and undisproved; n^2 log n is compatible with that bound. Higher-full variants for r>=3 are not proved.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "nt-density-products"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "51ceea6c1ccb544ec064fdff8cc5039e04071905",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5086,
+    "jsp": "JSP-000489",
+    "erdos": 602,
+    "classification": "partial",
+    "targets": [
+      "Erdos602.erdos_602.variants.countable_index",
+      "Erdos602.erdos_602.variants.disjoint",
+      "Erdos602.erdos_602.variants.two_sets"
+    ],
+    "proved_en": "Proves property B for countably indexed families of infinite sets, and the two-set and pairwise-disjoint variants.",
+    "gap_en": "The full arbitrary-index Property B proposition remains unproved. Countably infinite members do not imply a countable family or union.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "set-theory-property-b"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "bf4fb8857bc82f7383dd5fd665f9390ac9e2fa01",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "Checked arbitrary-ground/index scope; proved disjoint-refinement reductions and explicit counterexamples to invalid union-countability, fresh-witness, compactness and naive-Zorn steps. These do not solve Property B.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5087,
+    "jsp": "JSP-000544",
+    "erdos": 670,
+    "classification": "partial",
+    "targets": [
+      "Erdos670.erdos_670.variants.choose_two",
+      "Erdos670.erdos_670.variants.dim_one",
+      "Erdos670.erdos_670.variants.uniform_in_dim_of_ho"
+    ],
+    "proved_en": "Proves the fixed one-dimensional asymptotic statement and the choose(n,2) diameter lower bound in every dimension. Derives failure of a bound uniform in dimension only under the complete Ho-construction hypothesis hHo.",
+    "gap_en": "The fixed-dimension statement for d>=2 is not proved. The choose(n,2) bound has asymptotic constant 1/2. The Ho construction is assumed, and dimensions varying with n do not refute a fixed-dimension claim.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "geometry-extremal"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "58a516fbbfd889ac62cb5d6a6855b644a5e547e5",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5088,
+    "jsp": "JSP-000131",
+    "erdos": 124,
+    "classification": "scope-uncertain",
+    "targets": [
+      "Erdos124.erdos124.converse",
+      "Erdos124.erdos124.eventually_iff_le_sum",
+      "Erdos124.erdos124.zero",
+      "Erdos124.erdos124.zero_all"
+    ],
+    "proved_en": "Proves the k=0 digit-representation statement, including representation of every natural number under the reciprocal-sum condition, its converse, and the k=0 eventual-representation equivalence.",
+    "gap_en": "Positive-cutoff sufficiency, {3,4,7} completeness, and Melfi construction remain unproved.",
+    "repair_status": "scope_clarification_active",
+    "abandoned": false,
+    "last_repair_commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe",
+    "new_proved_result": "Necessary gcd obstruction and explicit distinct-exponent representatives for every residue.",
+    "new_targets": [
+      "Erdos124.erdos124.gcd_eq_one_of_eventually",
+      "Erdos124.erdos124.necessary_conditions",
+      "Erdos124.exists_mem_sumsOfDistinctPowers_modEq"
+    ],
+    "groups": [
+      "nt-bases",
+      "scope-eligibility"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "bfd566a0f96c292f56ba6f9d644737abd58b4a5c",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5089,
+    "jsp": "JSP-000780",
+    "erdos": 939,
+    "classification": "scope-uncertain",
+    "targets": [
+      "Erdos939.erdos_939.variants.triples"
+    ],
+    "proved_en": "Proves infinitely many triples of positive 3-powerful integers a,b,c with a+b=c and {a,b,c}.Coprime, using a proved seed and a growing recurrence.",
+    "gap_en": "The triples theorem is complete but its exact JSP scope remains unresolved. The new general r>=6 construction is a separate sum-family result; it does not resolve the scope or r=4/5 gaps.",
+    "repair_status": "scope_clarification_active",
+    "abandoned": false,
+    "last_repair_commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe",
+    "new_proved_result": "For every r>=6, infinitely many finite sets of exactly r-2 positive r-powerful terms, setwise gcd1 and r-powerful sum.",
+    "new_targets": [
+      "Erdos939.erdos_939.variants.infinite_of_six_le"
+    ],
+    "groups": [
+      "scope-eligibility"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "d2a8bb123a9678883f73b8a2f970fd6271582513",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5090,
+    "jsp": "JSP-000781",
+    "erdos": 939,
+    "classification": "partial",
+    "targets": [
+      "Erdos939.erdos_939.variants.eight",
+      "Erdos939.erdos_939.variants.examples",
+      "Erdos939.erdos_939.variants.finite",
+      "Erdos939.erdos_939.variants.seven",
+      "Erdos939.erdos_939_six_infinite"
+    ],
+    "proved_en": "Proves infinite higher-powerful sum families for r=6,7,8, examples, and the negation of the assertion that every r>=4 has only finitely many solutions.",
+    "gap_en": "r=4 existence, r=4/5 infinitude, full catalog counting/density questions and scope approval remain unresolved.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "last_repair_commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe",
+    "new_proved_result": "For every r>=6, infinitely many finite sets of exactly r-2 positive r-powerful terms, setwise gcd1 and r-powerful sum.",
+    "new_targets": [
+      "Erdos939.erdos_939.variants.infinite_of_six_le"
+    ],
+    "groups": [
+      "scope-eligibility"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "1887efc0c4551b7be26b1b70e3fb47fc50a3a418",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5091,
+    "jsp": "JSP-000058",
+    "erdos": 23,
+    "classification": "partial",
+    "targets": [
+      "Erdos23.erdos_23.variants.n1",
+      "Erdos23.erdos_23.variants.n1_tight"
+    ],
+    "proved_en": "Proves the five-vertex case (k=1) of the triangle-free bipartite edge-deletion problem and its C5 sharpness: at least one edge must be deleted.",
+    "gap_en": "The bound for all k>1, the n5 variants, and general C5-blowup tightness are not proved here.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "graph-core"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "109c6120ba269ecaeb35a4fc0e637e1bd9bf9489",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5092,
+    "jsp": "JSP-000244",
+    "erdos": 287,
+    "classification": "partial",
+    "targets": [
+      "Erdos287.erdos_287_best_possible",
+      "Erdos287.erdos_287_gap_at_least_two",
+      "Erdos287.erdos_287_prime_conjecture_implies"
+    ],
+    "proved_en": "Proves a maximum adjacent denominator gap of at least 2 and the sharpness witness (2,3,6) with reciprocal sum 1 and maximum gap 3. Derives the gap>=3 conclusion for sufficiently large lengths only under an additional prime-distribution conjecture.",
+    "gap_en": "The original unconditional gap>=3 statement for all lengths is not proved. The prime-distribution premise and the remaining small lengths are unresolved by this file.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "nt-prime-gaps"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "e7adf094a779fb5bde5c26dda5c789f5b284c453",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5093,
+    "jsp": "JSP-000280",
+    "erdos": 338,
+    "classification": "partial",
+    "targets": [
+      "Erdos338.erdos_338_bateman",
+      "Erdos338.erdos_339_order_two_contains_all_large_odd",
+      "Erdos338.erdos_339_order_two_counting_bound"
+    ],
+    "proved_en": "Proves the Bateman counterexample: for each h>=3, a set is an ordinary asymptotic basis of order at most h but has no restricted order. Separately proves large-odd coverage and a counting bound for order-two bases containing 0, which concern Erdos 339.",
+    "gap_en": "The general characterization, conditional bounds, equality and finite-deletion questions remain unproved. E339 is a separate problem.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "nt-additive-bases"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "52e5f287fc52ab7af1effeb6d3c6fbf3bc1f9870",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "Bateman’s example now has proved least ordinary order exactly h for every h>=3, and no restricted order.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5094,
+    "jsp": "JSP-000569",
+    "erdos": 699,
+    "classification": "partial",
+    "targets": [
+      "Erdos699.choose_gcd_gt_one",
+      "Erdos699.erdos_699_of_le_two",
+      "Erdos699.dvd_gcd_choose_of_prime_gt_dvd",
+      "Erdos699.erdos_699_of_prime_in_interval",
+      "Erdos699.erdos_699_succ_of_not_prime",
+      "Erdos699.erdos_szekeres_exceptional_triples",
+      "Erdos699.mem_exceptions_of_erdos_szekeres_strengthening"
+    ],
+    "proved_en": "Proves the requested common prime-factor bound for i<=2 and the weaker general gcd>1 result. Proves conditional prime-factor transfer steps, explicit exceptions to the strict p>i strengthening, and necessary membership of those exceptions in any valid exception set.",
+    "gap_en": "The general common-prime bound p>=i is not proved. A gcd>1 conclusion only ensures a common prime >=2; transfer results retain additional prime-existence or divisibility hypotheses. Necessary exceptions are not a full classification.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "nt-prime-gaps"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "1d697ac3687c1d94c7098080a02a506a4a632e9a",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5095,
+    "jsp": "JSP-000736",
+    "erdos": 885,
+    "classification": "scope-uncertain",
+    "targets": [
+      "Erdos885.erdos_885.variants.k_eq_2",
+      "Erdos885.erdos_885.variants.k_eq_3",
+      "Erdos885.erdos_885.variants.k_eq_4"
+    ],
+    "proved_en": "For every k, two positive integers N<M have at least k common factor differences; exactly k distinct positive witnesses are constructed. Complete literal two-integer scope, independently reviewed.",
+    "gap_en": "The original conjecture asking for k distinct integers remains unproved. Maintainers must decide whether the two-integer catalogue wording is the intended award scope; priority and acceptance remain unverified.",
+    "repair_status": "submitted_for_scope_review",
+    "abandoned": false,
+    "groups": [
+      "nt-factor-differences"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": false,
+    "pr_head": "b22aac6ae946e1f32df4767d7208982ff088911d",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "For every k, two positive integers N<M have at least k common factor differences; exactly k distinct positive witnesses are constructed. Complete literal two-integer scope, independently reviewed.",
+    "new_targets": [
+      "Erdos885.TwoNumbers.literal_two_numbers",
+      "Erdos885.TwoNumbers.literal_two_number_witnesses"
+    ],
+    "last_repair_commit": "1e438109a14119d26f891252a9dcc865a8a42ef4",
+    "literal_scope_complete": true,
+    "ready_purpose": "literal_scope_review"
+  },
+  {
+    "pr": 5096,
+    "jsp": "JSP-000395",
+    "erdos": 488,
+    "classification": "partial",
+    "targets": [
+      "Erdos488.erdos_488_singleton",
+      "Erdos488.erdos_488_pair",
+      "Erdos488.erdos_488_of_two_mem",
+      "Erdos488.erdos_488_insert_gt_half",
+      "Erdos488.erdos_488_nonmultiples_false"
+    ],
+    "proved_en": "Proves the union-of-multiples inequality for singleton and two-element sets and sets containing 2. Proves a conditional high-half insertion step and a counterexample to the nonmultiples misprint.",
+    "gap_en": "The general finite-set inequality is not proved. The insertion step assumes n/2<a<=n, nondivisibility by old elements, and the stronger bound (n+1)B(m)<=2mB(n). The nonmultiples counterexample does not refute the original multiples question.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "nt-multiples"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "6c20661911f6d93ae93ba2412dd4edc3d0caa6d4",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5097,
+    "jsp": "JSP-000546",
+    "erdos": 672,
+    "classification": "partial",
+    "targets": [
+      "Erdos672.not_erdos672With_two",
+      "Erdos672.not_erdos672With_three_two",
+      "Erdos672.three_term_ap_counterexample_two",
+      "Erdos672.euler_four_ap_identity",
+      "Erdos672.erdos_672_four_two_of_d_pow_four_lt",
+      "Erdos672.erdos_672_four_two_of_sq_le",
+      "Erdos672.four_consecutive_ne_sq",
+      "Erdos672.erdos_672_four_two_d_eq_one",
+      "Erdos672.coprime_middle_terms",
+      "Erdos672.erdos_672_four_two_primitive_pythagorean"
+    ],
+    "proved_en": "Proves k=2 and k=3 counterexamples outside the original k>=4 range. Proves the identity n(n+d)(n+2d)(n+3d)+d^4=(n^2+3nd+d^2)^2. Excludes square products when d^4+1<2(n^2+3nd+d^2), in particular for d>0 and n>=d^2, and for n>0,d=1. Derives a necessary primitive-Pythagorean condition for a hypothetical coprime four-term square-product counterexample.",
+    "gap_en": "The original assertion for arbitrary progression length and perfect-power exponent remains unproved.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "last_repair_commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe",
+    "new_proved_result": "Complete unconditional four-term square-product exclusion, with normalization and both infinite-descent branches.",
+    "new_targets": [
+      "Erdos672.four_ap_ne_sq",
+      "Erdos672.erdos_672_four_two"
+    ],
+    "groups": [
+      "scope-eligibility"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "f6c1392209a06074b60c8cf82873eebba8bdb625",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5098,
+    "jsp": "JSP-000234",
+    "erdos": 273,
+    "classification": "partial",
+    "targets": [
+      "Erdos273.erdos_273.variants.three"
+    ],
+    "proved_en": "Proves a finite distinct-modulus covering of N with moduli p-1 for primes p>=3, using twelve moduli including 2 and period 360.",
+    "gap_en": "The original requires p>=5 and a covering of Z. The construction uses p=3; removing modulus 2 loses coverage of 2. The later integer-domain bridge still permits p=3 and does not resolve the prime-bound gap.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "nt-cover-factorial"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "b009b74a6e6e850c5a952ac6ada22d703b8bb1c4",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5099,
+    "jsp": "JSP-000226",
+    "erdos": 261,
+    "classification": "partial",
+    "targets": [
+      "Erdos261.erdos_261.parts.i",
+      "Erdos261.erdos_261.variants.borwein_loring",
+      "Erdos261.erdos_261.variants.borwein_loring_property",
+      "Erdos261.erdos_261.variants.two_representations"
+    ],
+    "proved_en": "Proves the infinitely-many-n finite-representation question (parts.i), the Borwein-Loring construction and property, and two distinct infinite representations of 3/8, via (5,6,7,...) and (4,7,8,...).",
+    "gap_en": "A single rational with continuum many representations and finite decomposition for every positive n remain unproved; quantifiers cannot be exchanged.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "last_repair_commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe",
+    "new_proved_result": "For every finite r, a rational x_r has at least 2^r canonical infinite representations; each fiber has cardinality at most continuum.",
+    "new_targets": [
+      "Erdos261.finite_deletion_representation",
+      "Erdos261.erdos_261.variants.arbitrarily_many_representations",
+      "Erdos261.erdos_261.variants.representations_le_continuum"
+    ],
+    "groups": [
+      "nt-dyadic"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "c646276b7f49c76ec7c7582c2cb5135fea3a85f2",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5100,
+    "jsp": "JSP-000483",
+    "erdos": 596,
+    "classification": "partial",
+    "targets": [
+      "Erdos596.erdos_596.variants.C4_free_countable_escape"
+    ],
+    "proved_en": "Proves that every C4-free graph, on an arbitrary vertex type, has a countable decomposition into C6-free edge-color classes.",
+    "gap_en": "The unconditional finite Ramsey C4/C6 input and complete classification are still missing. The new separation premise is explicit and unproved for the required pair.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "graph-geometry-ramsey"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "c01069d1b3bd9be7b6c86c482cfe811b93655775",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "New edge-cover count, extremal-to-Ramsey reduction and projective-plane threshold arithmetic are proved.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5101,
+    "jsp": "JSP-000542",
+    "erdos": 668,
+    "classification": "partial",
+    "targets": [
+      "Erdos668.erdos_668.parts.ii",
+      "Erdos668.erdos_668.variants.four_points"
+    ],
+    "proved_en": "Proves the negation of the every-n>3 multiplicity claim (parts.ii): at n=4 the maximum unit-distance count is 5 and every maximizer is equivalent under a plane isometry to a unit rhombus.",
+    "gap_en": "The number of global maximizing configurations up to planar isometry tending to infinity is still unproved.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "graph-geometry-ramsey"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "abb7e8bb72b097a2b33827556f867496ce9b2b83",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "Proved faithful unit-distance edge count and a conditional bounded-degree non-maximizer criterion.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5102,
+    "jsp": "JSP-000533",
+    "erdos": 657,
+    "classification": "partial",
+    "targets": [
+      "Erdos657.erdos_657.variants.straus",
+      "Erdos657.isIsoscelesFree_real_iff_no_three_term_ap"
+    ],
+    "proved_en": "Proves the Straus construction of 2^k isosceles-free points in R^k with at most 2^k-1 distinct distances, and the equivalence between one-dimensional isosceles triples and three-term arithmetic progressions.",
+    "gap_en": "The fixed-plane asymptotic distance bound is not proved. Growing dimension with n does not answer it. The one-dimensional asymptotic reduction assumes the core Dumitrescu lower bound; the submitted targets do not prove that bound.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "geometry-extremal"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "06e6b114cb5ee577c90f5d11f16f97de10663c09",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5103,
+    "jsp": "JSP-000210",
+    "erdos": 238,
+    "classification": "partial",
+    "targets": [
+      "Erdos238.erdos_238_block_pigeonhole",
+      "Erdos238.erdos_238_run_of_block_bound",
+      "Erdos238.erdos_238_unconditional_of_c2_lt_two",
+      "Erdos238.erdos_238_small_c1_of_brun_chebyshev"
+    ],
+    "proved_en": "Proves block-pigeonhole and finite-run lemmas. For c2<2, supplies a run of prescribed length k when the (1+k)-th indexed prime is <=x. Derives the small-c1 logarithmic-run conclusion only under the explicit eventual block-count and sparse-bad-gap premise hBC.",
+    "gap_en": "Arbitrary c2>=2 and the unrestricted original question remain unproved.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "last_repair_commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe",
+    "new_proved_result": "Every positive c1 and every c2<2: all sufficiently large real x have more than c1 log x consecutive primes with every adjacent gap above c2.",
+    "new_targets": [
+      "Erdos238.erdos_238_eventually_of_c2_lt_two"
+    ],
+    "groups": [
+      "nt-analytic"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "b2f8fc9da31149127c08cf3b7a71c2d36cf7997e",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5104,
+    "jsp": "JSP-000340",
+    "erdos": 413,
+    "classification": "partial",
+    "targets": [
+      "Erdos413.barrier_coalesces_trajectories",
+      "Erdos413.barrier_traps_iterates",
+      "Erdos413.erdos_413_parts_ii_iff_linear_omega",
+      "Erdos413.erdos_413_parts_ii_of_lau",
+      "Erdos413.infinite_not_isBarrier_omega"
+    ],
+    "proved_en": "Proves trajectory trapping and coalescence conditional on a barrier, infinitely many nonbarriers, and an equivalence and a conditional reduction for parts.ii using the Lau hypothesis.",
+    "gap_en": "The analytic Lau premise remains unproved in Lean. The unconditional epsilon theorem and full original barrier scope remain incomplete.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "nt-analytic"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "82be55293de2db6443ebcf29c778bc4aa1c18210",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "Corrected the source attribution of Lau’s endpoints; proved the n-to-n-2 translation from the actual v3 1<k<n premise.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5105,
+    "jsp": "JSP-000072",
+    "erdos": 44,
+    "classification": "partial",
+    "targets": [
+      "Erdos44.erdos_44_empty_start_of_singer",
+      "Erdos44.erdos_turan_parabola_sidon",
+      "Erdos44.greedy_sidon_construction",
+      "Erdos44.maxSidonSubsetCard_icc_bound",
+      "Erdos44.sidon_set_lower_bound_sqrt_div_three"
+    ],
+    "proved_en": "Proves greedy and parabola Sidon constructions and an unconditional sqrt(N)/3 lower bound. Derives a near-optimal empty-start result only assuming Singer and the required prime-density input.",
+    "gap_en": "The actual original exists-M near-sqrt(M) extension of every prescribed finite Sidon A remains unproved. A stronger all-large-M probe was also unsuccessful, but is not an extra user requirement.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "groups": [
+      "nt-sidon"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "84ebd1cdf7ed8b00e3eb76ddeb575f76b8f9064c",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "Corrected the source header to mark arbitrary finite-start and near-optimal results incomplete. Diagnosed mixed triple conflicts.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5106,
+    "jsp": "JSP-000579",
+    "erdos": 711,
+    "classification": "partial",
+    "targets": [
+      "Erdos711.erdos_711_parts_ii_of_van_doorn",
+      "Erdos711.exists_isMinimalIntervalLength",
+      "Erdos711.isMinimalIntervalLength_add_iff_of_dvd",
+      "Erdos711.n_add_one_le_of_hasDivisibleDistinctTuple"
+    ],
+    "proved_en": "Proves existence and uniqueness of the minimum interval length, the lower bound n+1, the value at m=0, and periodicity under a common multiple. Derives parts.ii only under the van Doorn hypothesis hvd.",
+    "gap_en": "Parts.i uniform n^(1+o(1)) upper bound remains unproved.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "last_repair_commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe",
+    "new_proved_result": "Unconditional parts.ii, all sufficiently large n and explicit offset m=4n; no external gap hypothesis.",
+    "new_targets": [
+      "Erdos711.erdos_711_parts_ii",
+      "Erdos711.erdos_711.parts.ii"
+    ],
+    "groups": [
+      "nt-analytic"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "a5d4c47180cdf1545aa2e39356d9fb99d0d30614",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  },
+  {
+    "pr": 5107,
+    "jsp": "JSP-000595",
+    "erdos": 727,
+    "classification": "partial",
+    "targets": [
+      "Erdos727.erdos_727.variants.k_1"
+    ],
+    "proved_en": "Proves infinitely many n satisfy ((n+1)!)^2 | (2n)!, the k=1 variant.",
+    "gap_en": "Neither mixed-factorial infinitude nor the squared-factorial conjecture for k>=2 is proved.",
+    "repair_status": "proof_repair_active",
+    "abandoned": false,
+    "last_repair_commit": "de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe",
+    "new_proved_result": "Exact factorial/carry-count equivalence and offset carrying lemmas.",
+    "new_targets": [
+      "Erdos727.carry_of_dvd_offset",
+      "Erdos727.prime_pow_dvd_centralBinom_of_offset",
+      "Erdos727.mixed_factorial_dvd_iff",
+      "Erdos727.mixed_factorial_dvd_iff_carry_count",
+      "Erdos727.prime_pow_dvd_centralBinom_of_offset_interval"
+    ],
+    "groups": [
+      "nt-cover-factorial"
+    ],
+    "remote_state": "OPEN",
+    "is_draft": true,
+    "pr_head": "1d06308234e4e94202f547f95ce6eccd58e32b33",
+    "award_approved": false,
+    "campaign_new_full_original_solution": false,
+    "campaign_result": "No new complete original solution in this campaign; retained results and exact gaps reviewed.",
+    "ready_purpose": "incomplete_draft"
+  }
+]

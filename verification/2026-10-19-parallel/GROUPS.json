@@ -1,0 +1,211 @@
+[
+  {
+    "group": "nt-cover-factorial",
+    "prs": [
+      5098,
+      5107
+    ],
+    "report_present": true,
+    "new_complete_original_problems": 0,
+    "new_complete_literal_scope": 0,
+    "result_sha256": "a26d6bdcc710fecd6b841ce53f71e2483264b1d8454f0c0a4e717e36eafb0ae7",
+    "local_report": "reports/parallel-campaign-2026-10-19/nt-cover-factorial/REPORT.md",
+    "scope_review_only": false
+  },
+  {
+    "group": "nt-dyadic",
+    "prs": [
+      5099
+    ],
+    "report_present": true,
+    "new_complete_original_problems": 0,
+    "new_complete_literal_scope": 0,
+    "result_sha256": "bdffd65ee36b94638f8842e1a89d7cf93085d86bf67257092263df018842df91",
+    "local_report": "reports/parallel-campaign-2026-10-19/nt-dyadic/REPORT.md",
+    "scope_review_only": false
+  },
+  {
+    "group": "nt-bases",
+    "prs": [
+      5088
+    ],
+    "report_present": true,
+    "new_complete_original_problems": 0,
+    "new_complete_literal_scope": 0,
+    "result_sha256": "8da45e91cc5f93d1b07101a5048ab59e5a2d3cd296ece138b84e4c74c245f0a1",
+    "local_report": "reports/parallel-campaign-2026-10-19/nt-bases/REPORT.md",
+    "scope_review_only": false
+  },
+  {
+    "group": "nt-density-products",
+    "prs": [
+      5077,
+      5084,
+      5085
+    ],
+    "report_present": true,
+    "new_complete_original_problems": 0,
+    "new_complete_literal_scope": 0,
+    "result_sha256": "07702a876da14aedbbbebfec850d662e3532d518f5caf641eb6fef38c3ecc7ec",
+    "local_report": "reports/parallel-campaign-2026-10-19/nt-density-products/REPORT.md",
+    "scope_review_only": false
+  },
+  {
+    "group": "nt-prime-gaps",
+    "prs": [
+      5092,
+      5094
+    ],
+    "report_present": true,
+    "new_complete_original_problems": 0,
+    "new_complete_literal_scope": 0,
+    "result_sha256": "f8d98b2b6a5de559a0640be1c95ec7224ef97a111245415cceeeba5e786b74dc",
+    "local_report": "reports/parallel-campaign-2026-10-19/nt-prime-gaps/REPORT.md",
+    "scope_review_only": false
+  },
+  {
+    "group": "nt-multiples",
+    "prs": [
+      5096
+    ],
+    "report_present": true,
+    "new_complete_original_problems": 0,
+    "new_complete_literal_scope": 0,
+    "result_sha256": "aec04bb0bd9455bb86eaf9cbdda24d86c9922112eb45f42b30368e8d6a9daa32",
+    "local_report": "reports/parallel-campaign-2026-10-19/nt-multiples/REPORT.md",
+    "scope_review_only": false
+  },
+  {
+    "group": "nt-factor-differences",
+    "prs": [
+      5095
+    ],
+    "report_present": true,
+    "new_complete_original_problems": 0,
+    "new_complete_literal_scope": 1,
+    "result_sha256": "b978f0ce107fed58acf567da855b023a932db5d5277ba7357ed28349f382132a",
+    "local_report": "reports/parallel-campaign-2026-10-19/nt-factor-differences/REPORT.md",
+    "scope_review_only": true
+  },
+  {
+    "group": "nt-additive-bases",
+    "prs": [
+      5093
+    ],
+    "report_present": true,
+    "new_complete_original_problems": 0,
+    "new_complete_literal_scope": 0,
+    "result_sha256": "3f2407cd24ae84084b818be8a9da7e4753da27b54141361fae76891ea594be6f",
+    "local_report": "reports/parallel-campaign-2026-10-19/nt-additive-bases/REPORT.md",
+    "scope_review_only": false
+  },
+  {
+    "group": "graph-core",
+    "prs": [
+      5091,
+      5082,
+      5081
+    ],
+    "report_present": true,
+    "new_complete_original_problems": 0,
+    "new_complete_literal_scope": 0,
+    "result_sha256": "4f10dd58b07ef9f18d4d2f867fce025163fe2342cbf0a63244b9f999cd04577d",
+    "local_report": "reports/parallel-campaign-2026-10-19/graph-core/REPORT.md",
+    "scope_review_only": false
+  },
+  {
+    "group": "graph-johnson",
+    "prs": [
+      5078
+    ],
+    "report_present": true,
+    "new_complete_original_problems": 0,
+    "new_complete_literal_scope": 0,
+    "result_sha256": "f5e4926a18f54d7401b1edce99178cd3e996dd1a7367ba426486f906da5682de",
+    "local_report": "reports/parallel-campaign-2026-10-19/graph-johnson/REPORT.md",
+    "scope_review_only": false
+  },
+  {
+    "group": "geometry-extremal",
+    "prs": [
+      5083,
+      5087,
+      5102
+    ],
+    "report_present": true,
+    "new_complete_original_problems": 0,
+    "new_complete_literal_scope": 0,
+    "result_sha256": "beaa522a0910f06a1700b0ea9ce9c7e68090f48a9679cd21ee047124a3dfe1b1",
+    "local_report": "reports/parallel-campaign-2026-10-19/geometry-extremal/REPORT.md",
+    "scope_review_only": false
+  },
+  {
+    "group": "graph-geometry-ramsey",
+    "prs": [
+      5100,
+      5101
+    ],
+    "report_present": true,
+    "new_complete_original_problems": 0,
+    "new_complete_literal_scope": 0,
+    "result_sha256": "6714760eadde9a47bc4975a0083c30affac8d997d70f5f74aa2e34a26946dcd2",
+    "local_report": "reports/parallel-campaign-2026-10-19/graph-geometry-ramsey/REPORT.md",
+    "scope_review_only": false
+  },
+  {
+    "group": "nt-analytic",
+    "prs": [
+      5103,
+      5104,
+      5106
+    ],
+    "report_present": true,
+    "new_complete_original_problems": 0,
+    "new_complete_literal_scope": 0,
+    "result_sha256": "eca756a0b56295cdf6d86f8549c4fa5263983359b940925b2c91d6c8a30560aa",
+    "local_report": "reports/parallel-campaign-2026-10-19/nt-analytic/REPORT.md",
+    "scope_review_only": false
+  },
+  {
+    "group": "nt-sidon",
+    "prs": [
+      5105
+    ],
+    "report_present": true,
+    "new_complete_original_problems": 0,
+    "new_complete_literal_scope": 0,
+    "result_sha256": "169ffd4a9d5d7315f8c1d7f84372f2e84d702b1301a4327eb962940ee1ec73f0",
+    "local_report": "reports/parallel-campaign-2026-10-19/nt-sidon/RESULT.md",
+    "scope_review_only": false
+  },
+  {
+    "group": "set-theory-property-b",
+    "prs": [
+      5086
+    ],
+    "report_present": true,
+    "new_complete_original_problems": 0,
+    "new_complete_literal_scope": 0,
+    "result_sha256": "38ff3f254d773ee937148871cc73742c41d4f50f7b7c7d80c087d7d40b5fc526",
+    "local_report": "reports/parallel-campaign-2026-10-19/set-theory-property-b/REPORT.md",
+    "scope_review_only": false
+  },
+  {
+    "group": "scope-eligibility",
+    "prs": [
+      5076,
+      5079,
+      5080,
+      5088,
+      5089,
+      5090,
+      5097
+    ],
+    "report_present": true,
+    "new_complete_original_problems": 0,
+    "new_complete_literal_scope": 0,
+    "result_sha256": "d1851be98942ed0392dc3fcc504cda20e9b102c20cfd65ec8849ef718467954b",
+    "local_report": "reports/parallel-campaign-2026-10-19/scope-eligibility/REPORT.md",
+    "scope_review_only": false
+  }
+]

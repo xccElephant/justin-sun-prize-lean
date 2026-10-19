@@ -1,0 +1,132 @@
+[
+  {
+    "module": "Erdos338",
+    "kind": "target-types-and-axioms",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "verification/2026-10-19-parallel/integration/Erdos338-Targets.lean"
+    ],
+    "exit_code": 0,
+    "source_sha256": "4a406369ab3652325616abcf30057078672d809b885f715164cee4737770d087"
+  },
+  {
+    "module": "Erdos338",
+    "kind": "kernel-replay",
+    "command": [
+      "lake",
+      "env",
+      "leanchecker",
+      "-v",
+      "JspBounties.Erdos338"
+    ],
+    "exit_code": 0,
+    "source_sha256": "4a406369ab3652325616abcf30057078672d809b885f715164cee4737770d087"
+  },
+  {
+    "module": "Erdos413",
+    "kind": "target-types-and-axioms",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "verification/2026-10-19-parallel/integration/Erdos413-Targets.lean"
+    ],
+    "exit_code": 0,
+    "source_sha256": "c5fa838cd4ed2dfc26775e4b7b51783bdd2d781c820f1582741afbb6cd686cc4"
+  },
+  {
+    "module": "Erdos413",
+    "kind": "kernel-replay",
+    "command": [
+      "lake",
+      "env",
+      "leanchecker",
+      "-v",
+      "JspBounties.Erdos413"
+    ],
+    "exit_code": 0,
+    "source_sha256": "c5fa838cd4ed2dfc26775e4b7b51783bdd2d781c820f1582741afbb6cd686cc4"
+  },
+  {
+    "module": "Erdos44",
+    "kind": "kernel-replay",
+    "command": [
+      "lake",
+      "env",
+      "leanchecker",
+      "-v",
+      "JspBounties.Erdos44"
+    ],
+    "exit_code": 0,
+    "source_sha256": "38548040bdc8347a7762c1397cbe0e1649ba352c785e32a380cba43ecd183b82"
+  },
+  {
+    "module": "Erdos602",
+    "kind": "target-types-and-axioms",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "verification/2026-10-19-parallel/integration/Erdos602-Targets.lean"
+    ],
+    "exit_code": 0,
+    "source_sha256": "e7a2198263c8e5122e2e6c97bcaf8488361264d26ce6be330e9c8c21f4f918d1"
+  },
+  {
+    "module": "Erdos602",
+    "kind": "kernel-replay",
+    "command": [
+      "lake",
+      "env",
+      "leanchecker",
+      "-v",
+      "JspBounties.Erdos602"
+    ],
+    "exit_code": 0,
+    "source_sha256": "e7a2198263c8e5122e2e6c97bcaf8488361264d26ce6be330e9c8c21f4f918d1"
+  },
+  {
+    "module": "Erdos699",
+    "kind": "kernel-replay",
+    "command": [
+      "lake",
+      "env",
+      "leanchecker",
+      "-v",
+      "JspBounties.Erdos699"
+    ],
+    "exit_code": 0,
+    "source_sha256": "e61f2a821e9ada2dd619e8d6b156f88e9f3d96d3f7ee754057cfc63004a1987f"
+  },
+  {
+    "module": "Erdos80_596_668",
+    "kind": "target-types-and-axioms",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "verification/2026-10-19-parallel/integration/Erdos80_596_668-Targets.lean"
+    ],
+    "exit_code": 0,
+    "source_sha256": "d728e6a3ecc64cd0c9a21327ae35ceb1876e42f55bd3fb17e3c62abec4421801"
+  },
+  {
+    "module": "Erdos80_596_668",
+    "kind": "kernel-replay",
+    "command": [
+      "lake",
+      "env",
+      "leanchecker",
+      "-v",
+      "JspBounties.Erdos80_596_668"
+    ],
+    "exit_code": 0,
+    "source_sha256": "d728e6a3ecc64cd0c9a21327ae35ceb1876e42f55bd3fb17e3c62abec4421801"
+  }
+]

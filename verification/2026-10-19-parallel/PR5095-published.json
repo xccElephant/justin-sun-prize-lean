@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-19",
+  "pr": 5095,
+  "repo": "TheJustinSunPrize/awards",
+  "head": "b22aac6ae946e1f32df4767d7208982ff088911d",
+  "proof_commit": "1e438109a14119d26f891252a9dcc865a8a42ef4",
+  "draft": false,
+  "state": "OPEN",
+  "purpose": "complete_literal_two_integer_proof_scope_review",
+  "stronger_original_complete": false,
+  "award_approved": false,
+  "body_updated": true,
+  "remote_readback_verified": true,
+  "published_at_utc": "2026-10-19T04:37:21Z"
+}

@@ -1,0 +1,6 @@
+Erdos413.erdos_413_parts_ii_of_lau_v3
+  (hlau :
+    ∃ C > 0,
+      {n | ∀ (k : ℕ), 1 < k → k < n → ↑(ArithmeticFunction.cardDistinctFactors (n - k)) ≤ C * Real.log ↑k}.Infinite) :
+  ∃ ε > 0, {n | Erdos413.IsBarrier (fun m => ε * ↑(ArithmeticFunction.cardDistinctFactors m)) n}.Infinite
+'Erdos413.erdos_413_parts_ii_of_lau_v3' depends on axioms: [propext, Classical.choice, Quot.sound]

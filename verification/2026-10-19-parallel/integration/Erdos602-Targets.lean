@@ -1,0 +1,21 @@
+import JspBounties.Erdos602
+#check Erdos602.propertyB_of_disjoint_refinement
+#print axioms Erdos602.propertyB_of_disjoint_refinement
+#check Erdos602.propertyB_of_finite_deletions
+#print axioms Erdos602.propertyB_of_finite_deletions
+#check Erdos602.countably_infinite_members_uncountable_union
+#print axioms Erdos602.countably_infinite_members_uncountable_union
+#check Erdos602.countable_union_of_countable_index
+#print axioms Erdos602.countable_union_of_countable_index
+#check Erdos602.propertyB_of_image
+#print axioms Erdos602.propertyB_of_image
+#check Erdos602.paired_core_original_hypotheses
+#print axioms Erdos602.paired_core_original_hypotheses
+#check Erdos602.paired_core_hasPropertyB
+#print axioms Erdos602.paired_core_hasPropertyB
+#check Erdos602.paired_core_no_fresh_pair
+#print axioms Erdos602.paired_core_no_fresh_pair
+#check Erdos602.splitting_condition_not_preserved_by_pointwise_limit
+#print axioms Erdos602.splitting_condition_not_preserved_by_pointwise_limit
+#check Erdos602.independent_chain_union_obstruction
+#print axioms Erdos602.independent_chain_union_obstruction

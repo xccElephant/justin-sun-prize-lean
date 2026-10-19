@@ -1,0 +1,8 @@
+Erdos338.erdos_338_bateman_exact (h : ℕ) (hh : 3 ≤ h) :
+  ∃ A,
+    Erdos338.IsAsymptoticBasisOfOrder A h ∧
+      (∀ k < h, ¬Erdos338.IsAsymptoticBasisOfOrder A k) ∧ ¬Erdos338.HasRestrictedOrder A
+'Erdos338.erdos_338_bateman_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos338.batemanBasis_not_isAsymptoticBasisOfOrder_lt (h k : ℕ) (hh : 1 ≤ h) (hk : k < h) :
+  ¬Erdos338.IsAsymptoticBasisOfOrder (Erdos338.batemanBasis h) k
+'Erdos338.batemanBasis_not_isAsymptoticBasisOfOrder_lt' depends on axioms: [propext, Classical.choice, Quot.sound]

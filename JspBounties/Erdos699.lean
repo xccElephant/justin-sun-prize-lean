@@ -15,7 +15,7 @@ import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Ring
 
 /-!
-# Erdős Problem 699 (`JSP-000570`)
+# Erdős Problem 699 (`JSP-000569`)
 
 Erdős Problem 699 (Erdős–Szekeres, 1978) asks whether for every $1 \le i < j \le n / 2$,
 there exists a prime $p \ge i$ such that

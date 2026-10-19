@@ -29,7 +29,13 @@ import Mathlib.Tactic.Positivity
   related problems*. J. London Math. Soc. 16 (1941), 212–215.
 - [arXiv:2103.15850](https://arxiv.org/abs/2103.15850)
 
-This file formalizes complete, zero-`sorry` proofs for `FormalConjectures/ErdosProblems/44.lean`:
+This file proves the following auxiliary results without `sorry`. It does not prove the
+arbitrary finite-start extension theorem `Erdos44.erdos_44`, nor the unconditional
+near-optimal empty-start theorem. Items 5 below explicitly require unproved Singer and,
+for the asymptotic result, dense-prime hypotheses. They are not full solutions of Problem 44.
+The arbitrary finite-start extension is distinct from constructing a set starting from empty.
+
+Proved auxiliary results related to `FormalConjectures/ErdosProblems/44.lean`:
 1. **Upper bound `maxSidonSubsetCard_icc_bound`**:
    Every Sidon subset of $\{1, \ldots, N\}$ has cardinality at most $2 \sqrt{N}$.
 2. **Verified Sidon Example (`example_sidon_set`)**:
