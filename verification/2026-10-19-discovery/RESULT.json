@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-19",
+  "official_main": "fd8fa66abb4e21df828fdebc25298e9ad75521bd",
+  "catalog_records": 1072,
+  "solved_lean_no_pool": 291,
+  "official_pr_metadata_records": 4509,
+  "pr_metadata_pages": 46,
+  "pr_pagination_complete": true,
+  "all_pool_records_have_title_hits": true,
+  "min_title_hits": 3,
+  "max_title_hits": 63,
+  "pool_records_with_documented_review": 14,
+  "pool_records_unreviewed_beyond_metadata": 277,
+  "implementation_candidates_approved": 0,
+  "new_lean_modules": 0,
+  "new_award_prs": 0,
+  "existing_prs_open": 32,
+  "existing_prs_ready": 4,
+  "existing_prs_draft": 28,
+  "existing_pr_heads_unchanged": true,
+  "review_workers": 2,
+  "no_global_absence_claim": true,
+  "main_source_hashes_unchanged": true,
+  "independent_competitor_check": {
+    "jsp": "JSP-000925",
+    "erdos": 1114,
+    "source_sha256": "570e485a1548dd090451dc095ed1ed1128806631e1abff4893405f3e42ea1825",
+    "compile_exit_code": 0,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "source_modified": false,
+    "replay_run": false,
+    "toolchain": "Lean4.33.1 / pinned project Mathlib; original source header4.33.0",
+    "limitations": "Only this single standalone competitor module independently compiled; other reviewed sources not all compiled. This is not organizer acceptance or a final priority ruling."
+  },
+  "canvas_typecheck_exit_code": 0
+}

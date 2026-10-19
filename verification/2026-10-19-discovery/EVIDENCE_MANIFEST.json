@@ -1,0 +1,42 @@
+[
+  {
+    "local_evidence": "reports/discovery-2026-10-19/pool.json",
+    "sha256": "071ea71bb6d63420be8de95d10472f31d61172fbe1f979adf972ce1d0cccf02a",
+    "bytes": 744259
+  },
+  {
+    "local_evidence": "reports/discovery-2026-10-19/pr-index/all-pr-metadata.json",
+    "sha256": "766bcb2e3df74ed70b8a3f11507ef25076b74ef3cf86b87069515bd06eb70a0e",
+    "bytes": 1874414
+  },
+  {
+    "local_evidence": "reports/discovery-2026-10-19/pr-index/result.json",
+    "sha256": "a845f459eeb7f54a4c1207ab82b924da5570d50b57758c856547f8a49834788b",
+    "bytes": 90
+  },
+  {
+    "local_evidence": "reports/discovery-2026-10-19/own-prs-final.json",
+    "sha256": "e65e2f349f1e789a118897e897ef18a6d91398e175ea05cf990f342a9ba3ffdf",
+    "bytes": 2790
+  },
+  {
+    "local_evidence": "reports/discovery-2026-10-19/number-theory/RESULT.json",
+    "sha256": "cd7b7b4130fec4b096d989c9b940d44712fd8ef0b1c52b992af12600c02e3c64",
+    "bytes": 3766
+  },
+  {
+    "local_evidence": "reports/discovery-2026-10-19/graph-shortlist/RESULT.json",
+    "sha256": "df744036c685d9eabfde5c910c6a3cf6dd2e43c12a734947e9320556f82fd99e",
+    "bytes": 7677
+  },
+  {
+    "local_evidence": "reports/discovery-2026-10-19/other-shortlist/RESULT.json",
+    "sha256": "85088029d33a2aefa078ea265b10e80597433397a41dfd13031539610aef88b9",
+    "bytes": 8024
+  },
+  {
+    "local_evidence": "reports/discovery-2026-10-19/other-shortlist/925/RESULT.json",
+    "sha256": "01a1042bbd0415bed5a7815e798fc4d3e2ab13154523fc7e2180481cb30bb53b",
+    "bytes": 4839
+  }
+]
