@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-20",
+  "timezone": "Asia/Shanghai",
+  "official_main": "fd8fa66abb4e21df828fdebc25298e9ad75521bd",
+  "pool_total": 295,
+  "new_bounded_reviews": 12,
+  "documented_varied_depth": 65,
+  "without_substantive_review": 230,
+  "new_complete_proofs": 0,
+  "new_award_prs": 0,
+  "admitted_implementation_candidates": 0,
+  "existing_ready": 5,
+  "existing_draft": 27,
+  "proof_modules_changed": false,
+  "independent_competitor_builds": 0,
+  "mapping_fixes": 4,
+  "mapping_regression_tests": 6,
+  "mapping_tests_passed": true,
+  "agent_sidecars_completed": 2,
+  "active_agents": 0,
+  "scope_leads": [
+    "JSP-000204",
+    "JSP-000464",
+    "JSP-000601"
+  ]
+}

@@ -15,6 +15,15 @@ else:
 
 
 class ProblemMappingTests(unittest.TestCase):
+    def test_other_candidate_statement_pairs(self):
+        # Original pages and catalogue sources checked in the 2026-10-20
+        # other-candidates pass: entire functions, divisor pairs, cyclic
+        # vertex subsets, and measurable translate differences.
+        mapping = load_problem_mapping()
+        for jsp, erdos in {204: 227, 364: 449, 503: 622, 753: 908}.items():
+            with self.subTest(jsp=jsp):
+                self.assertEqual(mapping.get(jsp), erdos)
+
     def test_previously_audited_submission_pairs(self):
         # These exact scopes were independently established in the repair
         # queue; the legacy discovery map must not contradict that audit.

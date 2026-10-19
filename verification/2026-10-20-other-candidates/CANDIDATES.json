@@ -1,0 +1,206 @@
+[
+  {
+    "jsp": "JSP-000204",
+    "erdos": 227,
+    "decision": "scope_research_lead_not_admitted",
+    "finding": "Existing endpoint1/2 disproof; broader limiting-value scope remains unconfirmed",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos227.lean"
+    ],
+    "report": "verification/2026-10-20-other-candidates/README.md",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "limits": [
+      "Original page, actual coefficients/entire-series and ordinary-limit endpoint, PR846/4995 read; full Clunie-Hayman article not obtained; no classification or global vacancy established.",
+      "No prize eligibility or global proof priority certified."
+    ],
+    "approved_for_implementation": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-000243",
+    "erdos": 286,
+    "decision": "existing_full_scope_source",
+    "finding": "Croot ratio and shortest-interval endpoints already exist",
+    "source": [
+      "https://github.com/H0W4RD-dev/croot-unit-fractions/blob/a8b4cac51866d7d9cf78b0ef70266feee06b3237/Croot/Main.lean"
+    ],
+    "report": "verification/2026-10-20-other-candidates/README.md",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "limits": [
+      "Actual Croot/Main construction, lower bound, shortestEnd and cofinite-liminf assembly read; Proposition1/2 import closure not independently audited or built.",
+      "No prize eligibility or global proof priority certified."
+    ],
+    "approved_for_implementation": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-000315",
+    "erdos": 381,
+    "decision": "existing_two_sided_source",
+    "finding": "Another source adds the lower bound to the known upper bound",
+    "source": [
+      "https://github.com/CollinYuanjieRen/awards/blob/58d540b9a1de809493cf54ca149de6e59ae9d81b/submissions/jsp-000315-cyr/Erdos381Lower.lean"
+    ],
+    "report": "verification/2026-10-20-other-candidates/README.md",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "limits": [
+      "Actual root with two-sided target and named gap input read; complete lower-bound dependency proof not audited; contributor verification not rerun.",
+      "No prize eligibility or global proof priority certified."
+    ],
+    "approved_for_implementation": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-000364",
+    "erdos": 449,
+    "decision": "existing_full_original_endpoint",
+    "finding": "Positive-density large divisor-pair ratios already proved",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos449.lean"
+    ],
+    "report": "verification/2026-10-20-other-candidates/README.md",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "limits": [
+      "Original E449 statement, strict divisor-pair definition, amplifier/CRT progression and density contradiction inspected; no full build.",
+      "No prize eligibility or global proof priority certified."
+    ],
+    "approved_for_implementation": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-000397",
+    "erdos": 491,
+    "decision": "existing_full_original_endpoint",
+    "finding": "Coprime-additive logarithmic approximation endpoint already exists",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos491.lean"
+    ],
+    "report": "verification/2026-10-20-other-candidates/README.md",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "limits": [
+      "Original E491 statement, uniform2M bound, homogenization and rigidity assembly declarations read; no full transitive audit.",
+      "No prize eligibility or global proof priority certified."
+    ],
+    "approved_for_implementation": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-000428",
+    "erdos": 534,
+    "decision": "existing_full_original_endpoint",
+    "finding": "Universal prime-prefix maximizer theorem already exists",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos534.lean"
+    ],
+    "report": "verification/2026-10-20-other-candidates/README.md",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "limits": [
+      "Full primary paper obtained with selected proof/assembly reading. Static seven-file scan only, no compilation. See JSP428.md.",
+      "No prize eligibility or global proof priority certified."
+    ],
+    "approved_for_implementation": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-000464",
+    "erdos": 574,
+    "decision": "scope_rejection_no_route",
+    "finding": "Original conjecture disproved in source; broader catalogue scope rejected in PR504",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos574.lean"
+    ],
+    "report": "verification/2026-10-20-other-candidates/README.md",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "limits": [
+      "Original statement and counterexample assembly read. GordonLtron COLLABORATOR comment September30 objects to scope of PR504. No broader exact determination route or final committee ruling inferred. See GRAPHS.md.",
+      "No prize eligibility or global proof priority certified."
+    ],
+    "approved_for_implementation": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-000475",
+    "erdos": 586,
+    "decision": "existing_full_original_endpoint",
+    "finding": "Universal dividing-pair covering theorem already exists",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos586.lean"
+    ],
+    "report": "verification/2026-10-20-other-candidates/README.md",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "limits": [
+      "Full 2018 preprint and selected sieve assembly read; finite certificate and transitive axioms not rerun. See JSP475.md.",
+      "No prize eligibility or global proof priority certified."
+    ],
+    "approved_for_implementation": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-000503",
+    "erdos": 622,
+    "decision": "existing_full_original_endpoint",
+    "finding": "All three regular-Dirac cases supply cyclic-subset lower bound",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos622.lean"
+    ],
+    "report": "verification/2026-10-20-other-candidates/README.md",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "limits": [
+      "Original E622 statement, actual Hamiltonian-cycle subset definition and three-case assembly read; no full geometric/graph dependency audit.",
+      "No prize eligibility or global proof priority certified."
+    ],
+    "approved_for_implementation": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-000601",
+    "erdos": 733,
+    "decision": "existing_displayed_question_endpoint_scope_note",
+    "finding": "Multiplicity-retaining exp(C sqrt n) upper bound already exists",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos733.lean"
+    ],
+    "report": "verification/2026-10-20-other-candidates/README.md",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "limits": [
+      "Original E733 page, sorted multiset/distinct-line definitions and endpoint read. Additional normalized-limit commentary not proved or accepted as separate scope here.",
+      "No prize eligibility or global proof priority certified."
+    ],
+    "approved_for_implementation": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-000628",
+    "erdos": 767,
+    "decision": "existing_full_original_endpoint",
+    "finding": "Exact eventual extremal formula for all positive k already exists",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos767.lean"
+    ],
+    "report": "verification/2026-10-20-other-candidates/README.md",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "limits": [
+      "Exact chord/cycle definitions and selected lower/upper assembly read, plus liveFC link. Static27-module scan not a Lean build. See GRAPHS.md.",
+      "No prize eligibility or global proof priority certified."
+    ],
+    "approved_for_implementation": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-000753",
+    "erdos": 908,
+    "decision": "existing_both_wording_endpoints",
+    "finding": "Measurable decomposition and continuous-wording counterexample already exist",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos908.lean"
+    ],
+    "report": "verification/2026-10-20-other-candidates/README.md",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "limits": [
+      "Original E908 page, both decomposition definitions, per-increment null exceptional-set scope and final assembly read; entire analytic closure not independently audited.",
+      "No prize eligibility or global proof priority certified."
+    ],
+    "approved_for_implementation": false,
+    "award_eligibility_established": false
+  }
+]
