@@ -5294,6 +5294,41 @@
     "award_eligibility_established": false
   },
   {
+    "jsp": "JSP-000448",
+    "title": "Does the multicolor Ramsey number of a tree grow linearly with its order?",
+    "status_label": "Solved",
+    "lean_label": "Reported; standalone Lean source not located. The reviewed commentary derives this problem from the tree-embedding result in [JSP-000439](catalog-0401-0500.md#JSP-000439).<br>Formalization contributors: For the related proof of JSP-000439 only: GPT-6 Astra (Lean proof); Tom Adamczewski directed preparation of the public repository. This does not establish separate formalization authorship for JSP-000448.",
+    "normalized_lean_label": "No — reported; standalone source not located",
+    "pr_title_hits": 4,
+    "prs": [
+      {
+        "number": 4546,
+        "state": "OPEN",
+        "title": "JSP-000448: Lean formalization of the linear multicolour Ramsey bound for trees"
+      },
+      {
+        "number": 4224,
+        "state": "OPEN",
+        "title": "JSP-000448: register Lean formalization (plby/lean-proofs)"
+      },
+      {
+        "number": 3748,
+        "state": "CLOSED",
+        "title": "JSP-000448: record independent Lean formalization evidence"
+      },
+      {
+        "number": 574,
+        "state": "OPEN",
+        "title": "JSP-000448: register Lean formalization (Erdős #557)"
+      }
+    ],
+    "assessment": "unreviewed_beyond_metadata",
+    "review": null,
+    "approved_for_implementation": false,
+    "award_eligibility_established": false,
+    "pool_correction": "Added 2026-10-19: official index says No; detail begins Reported; standalone Lean source not located. See verification/2026-10-19-open-space/README.md."
+  },
+  {
     "jsp": "JSP-000450",
     "title": "Do graphs of bounded maximum degree have two-color size Ramsey numbers linear in their order?",
     "status_label": "Solved",

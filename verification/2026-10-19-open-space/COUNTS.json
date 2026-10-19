@@ -1,0 +1,86 @@
+{
+  "checked_at": "2026-10-19T13:24:43.562405+00:00",
+  "official_main": "fd8fa66abb4e21df828fdebc25298e9ad75521bd",
+  "official_main_committed_at": "2026-10-14T03:52:20Z",
+  "catalog_total": 1072,
+  "catalog_open": 677,
+  "catalog_solved": 395,
+  "solved_lean_recorded": 100,
+  "solved_lean_not_recorded": 295,
+  "solved_independent_math_review_pending": 41,
+  "pool_substantively_reviewed": 37,
+  "pool_without_substantive_review": 258,
+  "pool_approved_for_implementation": 0,
+  "pr_index_count": 4510,
+  "pr_live_total": 4510,
+  "delta_rows": 100,
+  "delta_oldest_updated_at": "2026-10-14T16:00:17Z",
+  "open_coverage": {
+    "records": 677,
+    "with_pr_title_hit": 670,
+    "without_pr_title_hit": 7,
+    "with_open_pr_title_hit": 425
+  },
+  "pool_coverage": {
+    "records": 295,
+    "with_pr_title_hit": 294,
+    "without_pr_title_hit": 1,
+    "with_open_pr_title_hit": 293
+  },
+  "pool_missed_by_detail_no_prefix": [
+    "JSP-000448"
+  ],
+  "source_manifests": [
+    {
+      "path": "problems/catalog-0001-0100.md",
+      "sha256": "2c7ac7ed202bf6cb26da5860426f6c305c35008e5e7a6e7c9a71a77e31a6eda4"
+    },
+    {
+      "path": "problems/catalog-0101-0200.md",
+      "sha256": "9dc8df1572a06fcdcf80b61885e20c9a7f7fda6a3d386e7319b0144f38304ec8"
+    },
+    {
+      "path": "problems/catalog-0201-0300.md",
+      "sha256": "f7737584b98557e2b3d18fab89f6642c8ff68476bb958ce1de1e895c16f846cb"
+    },
+    {
+      "path": "problems/catalog-0301-0400.md",
+      "sha256": "0a956bc288759e92f19e8dca78b2b4df094defbe5cdcae6376baa8974cd7c399"
+    },
+    {
+      "path": "problems/catalog-0401-0500.md",
+      "sha256": "dec926326471737961078c80c85a9d629b77e1224c9c4ce7c584f41d066d5882"
+    },
+    {
+      "path": "problems/catalog-0501-0600.md",
+      "sha256": "78ecc0e2a46520944d1b2f07196bd945433e82e4788a32585f22604c6b8b7834"
+    },
+    {
+      "path": "problems/catalog-0601-0700.md",
+      "sha256": "0f51c4141330655de15aed209bd890aa34b4819eeb45428a5bb763f6435c4368"
+    },
+    {
+      "path": "problems/catalog-0701-0800.md",
+      "sha256": "2645234266cb470e34c92cba86eb1a0caebf7219ea24395bdab03eb3bcf2d8b9"
+    },
+    {
+      "path": "problems/catalog-0801-0900.md",
+      "sha256": "a1300db8091025a36ce9432c3c94e0bda0bdaa3e79a894532c107561fcabdf9c"
+    },
+    {
+      "path": "problems/catalog-0901-1000.md",
+      "sha256": "a5e3205da7e7e4621b47c258d6c7bc962eb6e82deb0fceffe7465077568e8a90"
+    },
+    {
+      "path": "problems/catalog-1001-1022.md",
+      "sha256": "e5572a7cffe2897935a0b012cb74dd0b0f99b9713b84af97a9f62d6984914948"
+    }
+  ],
+  "limitations": [
+    "Open/Solved/Lean are official catalogue metadata, not a fresh mathematical audit.",
+    "PR matches use JSP IDs in titles only; no hit is not proof of no submission.",
+    "A title hit is not a complete proof, accepted claim, or established priority.",
+    "37 existing reviews have differing evidence depth; not 37 full independent builds.",
+    "No implementable or award-eligible vacancy is established by this census."
+  ]
+}
