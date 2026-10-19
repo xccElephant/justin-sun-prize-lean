@@ -43,12 +43,12 @@
     "git_diff_check": "passed",
     "main_five_module_build": {
       "exit_code": 0,
-      "evidence": "User report; not independently executed"
+      "evidence": "Coordinating agent execution result; not independently executed by reviewer."
     },
     "main_full_lake_build": {
       "status": "passed",
       "jobs": 8740,
-      "evidence": "User reports main full build passed; not independently executed by reviewer"
+      "evidence": "Coordinating agent execution result, independently recorded in lake-build.json; not executed by reviewer."
     },
     "main_final_replay": "not_independently_established"
   },

@@ -45,6 +45,8 @@ and no claim of byte identity is made.
 
 ## Campaign scope
 
+[Final campaign summary](CAMPAIGN_SUMMARY.md) and [verified final state](FINAL_STATE.json).
+
 The campaign partitions all 32 existing PR records into 16 work/review groups,
 run in batches with a maximum of six simultaneous agents. Completion of a group
 report is not completion of its mathematical problems. All sixteen groups have

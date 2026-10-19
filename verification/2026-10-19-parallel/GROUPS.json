@@ -48,7 +48,8 @@
     "new_complete_literal_scope": 0,
     "result_sha256": "07702a876da14aedbbbebfec850d662e3532d518f5caf641eb6fef38c3ecc7ec",
     "local_report": "reports/parallel-campaign-2026-10-19/nt-density-products/REPORT.md",
-    "scope_review_only": false
+    "scope_review_only": false,
+    "completed_followup": "DENSITY_FOLLOWUP.md"
   },
   {
     "group": "nt-prime-gaps",

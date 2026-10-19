@@ -1,0 +1,101 @@
+{
+  "group": "nt-density-products-followup",
+  "date": "2026-10-19",
+  "bounded_pass_complete": true,
+  "underlying_full_repairs_complete": false,
+  "full": false,
+  "skills_loaded": [
+    "coding",
+    "web-access"
+  ],
+  "exclusive_write_directory": "/Users/xcc/Project/justin-sun-prize-lean/reports/parallel-campaign-2026-10-19/nt-density-products-followup",
+  "sources_read_only": true,
+  "input_hashes_unchanged": true,
+  "lean_processes_started": 0,
+  "git_operations": 0,
+  "pr_mutations": 0,
+  "messages_sent": 0,
+  "subagents_started": 0,
+  "fresh_primary_source_retrieval": true,
+  "general_literature_search": false,
+  "report": "REPORT.md",
+  "source_manifest": "sources/manifest.json",
+  "prs": [
+    {
+      "full": false,
+      "ready": false,
+      "can_submit_full_solution": false,
+      "award_eligible_established": false,
+      "new_lean_proof": false,
+      "new_mathematical_route_analysis": true,
+      "source_changes": [],
+      "pr": 5077,
+      "erdos": 302,
+      "jsp": "JSP-000254",
+      "route": "Homogeneous scaling followed by Fekete-type composition",
+      "exact_missing_full_statement": "Determine sharp extremal asymptotics; an identified optimal delta with f(N)=delta*N+o(N) and matching bounds is sufficient. Unknown-limit existence alone does not determine the optimum.",
+      "proved_in_pass": [
+        "f(N)<=f(N+1)<=f(N)+1",
+        "f(qN)>=f(N), not q*f(N)",
+        "Translation does not preserve admissibility: {1,2,10}+2={3,4,12}.",
+        "Ordinary superadditivity fails: f(10)=9<2*f(5)=10.",
+        "Ordinary subadditivity fails: f(18)=16>f(6)+f(12)=15."
+      ],
+      "core_failure": "No composition/comparison inequality with asymptotically negligible error forcing density convergence; no identified optimal constant.",
+      "finite_check": "finite-E302-check.json; exact all-triple enumeration with hitting-set recursion through N=30, plus independently readable small covers/disjoint edges in REPORT.",
+      "existing_partial": "17/32 lower bound and nonconvergence to 1/2",
+      "outcome": "Route tested; naive Fekete hypotheses refuted; density limit and optimal value unresolved"
+    },
+    {
+      "full": false,
+      "ready": false,
+      "can_submit_full_solution": false,
+      "award_eligible_established": false,
+      "new_lean_proof": false,
+      "new_mathematical_route_analysis": true,
+      "source_changes": [],
+      "pr": 5084,
+      "erdos": 291,
+      "jsp": "JSP-000247",
+      "route": "Exact p-adic criterion plus simultaneous logarithmic recurrence to safe leading digits",
+      "exact_missing_full_statement": "For every N there is n>=max(N,1) with gcd(a_n,L_n)=1; together with the existing infinitely-many gcd>1 theorem.",
+      "proved_in_pass": [
+        "a_n=U*H_d modulo p, U=L_n/p^floor(log_p n) a p-adic unit, d the base-p leading digit.",
+        "p divides gcd iff H_d vanishes modulo p.",
+        "For every fixed finite prime set S, unbounded integers simultaneously have leading digit 1 for all p in S; proof via Dirichlet recurrence, without independence assumptions."
+      ],
+      "core_failure": "The fixed finite prime set does not cover all primes up to its own unbounded returned n. No quantitative cutoff closure; new primes through n/2 remain uncontrolled.",
+      "existing_partial": "Infinitely many gcd>1 via n=2*3^(k+1)",
+      "outcome": "Unconditional finite-prime simultaneous result established on paper; full coprime infinitude unresolved"
+    },
+    {
+      "full": false,
+      "ready": false,
+      "can_submit_full_solution": false,
+      "award_eligible_established": false,
+      "new_lean_proof": false,
+      "new_mathematical_route_analysis": true,
+      "source_changes": [],
+      "pr": 5085,
+      "erdos": 367,
+      "jsp": "JSP-000303",
+      "route": "Repeated-square divisor decomposition, fixed-gap gcd bounds and CRT",
+      "exact_missing_full_statement": "For every fixed k>=1 and epsilon>0, eventually product_{i<k} B_2(n+i)<=n^(2+epsilon), or a fixed-k polynomial-excess disproof.",
+      "proved_in_pass": [
+        "d_i^2<=B_2(n+i)<=d_i^3 for d_i=product p^floor(v_p(n+i)/2).",
+        "gcd(d_i,d_j)^2 divides abs(i-j); gcd(B_i,B_j) divides abs(i-j).",
+        "Q<=C_k*lcm(d_i), C_k=product_{i<j} floor(sqrt(j-i)).",
+        "CRT modulus does not lower-bound witness size: Pell x^2-8y^2=1 yields n=8y^2 solving coprime square moduli whose product is asymptotic to n^2/2."
+      ],
+      "core_failure": "Bounded overlap gives no exponent-2 control of the distinct repeated factors. CRT permits unusually small simultaneous solutions; required Diophantine size bound remains unproved.",
+      "existing_partial": "k<=2 O(n^2); failure of O(n^2) for k>=3; n^2*log(n) lower bound infinitely often",
+      "outcome": "Exact structural facts and shortcut obstruction established on paper; full n^(2+o(1)) statement unresolved"
+    }
+  ],
+  "limitations": [
+    "No new formal theorem or independent kernel replay.",
+    "No full-priority, awards-eligibility or live PR-status audit.",
+    "Failed routes are not impossibility theorems.",
+    "Current page upper-bound attribution is documentary; linked author note was not independently audited."
+  ]
+}

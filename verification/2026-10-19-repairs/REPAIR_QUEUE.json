@@ -167,9 +167,11 @@
       "Erdos602.erdos_602.variants.two_sets"
     ],
     "proved_en": "Proves property B for countably indexed families of infinite sets, and the two-set and pairwise-disjoint variants.",
-    "gap_en": "The original permits an arbitrary index set. Countability of each member does not imply countability of the family; the general almost-disjoint, forbidden-singleton-intersection case is not proved.",
+    "gap_en": "The full arbitrary-index Property B proposition remains unproved. Countably infinite members do not imply a countable family or union.",
     "repair_status": "proof_repair_active",
-    "abandoned": false
+    "abandoned": false,
+    "new_proved_result": "Checked arbitrary-ground/index scope; proved disjoint-refinement reductions and explicit counterexamples to invalid union-countability, fresh-witness, compactness and naive-Zorn steps. These do not solve Property B.",
+    "last_repair_commit": "36c356983c53bfd9ceec618f58107942b9afbcb1"
   },
   {
     "pr": 5087,
@@ -289,9 +291,14 @@
       "Erdos338.erdos_339_order_two_counting_bound"
     ],
     "proved_en": "Proves the Bateman counterexample: for each h>=3, a set is an ordinary asymptotic basis of order at most h but has no restricted order. Separately proves large-odd coverage and a counting bound for order-two bases containing 0, which concern Erdos 339.",
-    "gap_en": "The Erdos 338 classification, quantitative restricted-order bounds, equality conditions, and finite-deletion cases are not proved. Exact minimal ordinary order h is not independently established; the Erdos 339 results do not fill those gaps.",
+    "gap_en": "The general characterization, conditional bounds, equality and finite-deletion questions remain unproved. E339 is a separate problem.",
     "repair_status": "proof_repair_active",
-    "abandoned": false
+    "abandoned": false,
+    "new_proved_result": "Bateman’s example now has proved least ordinary order exactly h for every h>=3, and no restricted order.",
+    "last_repair_commit": "36c356983c53bfd9ceec618f58107942b9afbcb1",
+    "new_targets": [
+      "Erdos338.erdos_338_bateman_exact"
+    ]
   },
   {
     "pr": 5094,
@@ -310,22 +317,30 @@
     "proved_en": "Proves the requested common prime-factor bound for i<=2 and the weaker general gcd>1 result. Proves conditional prime-factor transfer steps, explicit exceptions to the strict p>i strengthening, and necessary membership of those exceptions in any valid exception set.",
     "gap_en": "The general common-prime bound p>=i is not proved. A gcd>1 conclusion only ensures a common prime >=2; transfer results retain additional prime-existence or divisibility hypotheses. Necessary exceptions are not a full classification.",
     "repair_status": "proof_repair_active",
-    "abandoned": false
+    "abandoned": false,
+    "last_repair_commit": "36c356983c53bfd9ceec618f58107942b9afbcb1"
   },
   {
     "pr": 5095,
     "jsp": "JSP-000736",
     "erdos": 885,
-    "classification": "partial",
+    "classification": "scope-uncertain",
     "targets": [
       "Erdos885.erdos_885.variants.k_eq_2",
       "Erdos885.erdos_885.variants.k_eq_3",
       "Erdos885.erdos_885.variants.k_eq_4"
     ],
     "proved_en": "Proves the k=2,3,4 complementary-factor-difference variants. For k=4 the numbers are 65984625,508032000,1578963456,2505664000, with common differences 5040,27720,68880,164976.",
-    "gap_en": "The assertion for every k is not proved. The original asks for k distinct positive integers with at least k common complementary-factor differences; it is not restricted to two integers.",
-    "repair_status": "proof_repair_active",
-    "abandoned": false
+    "gap_en": "The original conjecture asking for k distinct integers remains unproved. Maintainers must decide whether the two-integer catalogue wording is the intended award scope; priority and acceptance remain unverified.",
+    "repair_status": "submitted_for_scope_review",
+    "abandoned": false,
+    "new_proved_result": "For every k, two positive integers N<M have at least k common factor differences; exactly k distinct positive witnesses are constructed. Complete literal two-integer scope, independently reviewed.",
+    "last_repair_commit": "1e438109a14119d26f891252a9dcc865a8a42ef4",
+    "new_targets": [
+      "Erdos885.TwoNumbers.literal_two_numbers",
+      "Erdos885.TwoNumbers.literal_two_number_witnesses"
+    ],
+    "review_note": "Ready only for explicit literal-two-integer scope review; not stronger conjecture completion or award approval."
   },
   {
     "pr": 5096,
@@ -417,9 +432,11 @@
       "Erdos596.erdos_596.variants.C4_free_countable_escape"
     ],
     "proved_en": "Proves that every C4-free graph, on an arbitrary vertex type, has a countable decomposition into C6-free edge-color classes.",
-    "gap_en": "The finite-color Ramsey premise hfin is not proved; exceptional-pair and related existence conclusions depend on it. Classification of all graph pairs remains unproved. The audited escape result promises C6-free classes, not trees.",
+    "gap_en": "The unconditional finite Ramsey C4/C6 input and complete classification are still missing. The new separation premise is explicit and unproved for the required pair.",
     "repair_status": "proof_repair_active",
-    "abandoned": false
+    "abandoned": false,
+    "new_proved_result": "New edge-cover count, extremal-to-Ramsey reduction and projective-plane threshold arithmetic are proved.",
+    "last_repair_commit": "36c356983c53bfd9ceec618f58107942b9afbcb1"
   },
   {
     "pr": 5101,
@@ -431,9 +448,11 @@
       "Erdos668.erdos_668.variants.four_points"
     ],
     "proved_en": "Proves the negation of the every-n>3 multiplicity claim (parts.ii): at n=4 the maximum unit-distance count is 5 and every maximizer is equivalent under a plane isometry to a unit rhombus.",
-    "gap_en": "The first question, whether the number of maximizing configurations tends to infinity, is not proved. The unit-distance maximum 5 is distinct from the number of configurations up to isometry.",
+    "gap_en": "The number of global maximizing configurations up to planar isometry tending to infinity is still unproved.",
     "repair_status": "proof_repair_active",
-    "abandoned": false
+    "abandoned": false,
+    "new_proved_result": "Proved faithful unit-distance edge count and a conditional bounded-degree non-maximizer criterion.",
+    "last_repair_commit": "36c356983c53bfd9ceec618f58107942b9afbcb1"
   },
   {
     "pr": 5102,
@@ -483,9 +502,14 @@
       "Erdos413.infinite_not_isBarrier_omega"
     ],
     "proved_en": "Proves trajectory trapping and coalescence conditional on a barrier, infinitely many nonbarriers, and an equivalence and a conditional reduction for parts.ii using the Lau hypothesis.",
-    "gap_en": "Infinitely many omega-barriers are not proved. The second question asks for some epsilon>0 with infinitely many epsilon-barriers, not every fixed epsilon; the core Lau hypothesis and the infinitude on the equivalence right-hand side are unproved. Infinite nonbarriers do not rule out infinite barriers.",
+    "gap_en": "The analytic Lau premise remains unproved in Lean. The unconditional epsilon theorem and full original barrier scope remain incomplete.",
     "repair_status": "proof_repair_active",
-    "abandoned": false
+    "abandoned": false,
+    "new_proved_result": "Corrected the source attribution of Lau’s endpoints; proved the n-to-n-2 translation from the actual v3 1<k<n premise.",
+    "last_repair_commit": "36c356983c53bfd9ceec618f58107942b9afbcb1",
+    "new_targets": [
+      "Erdos413.erdos_413_parts_ii_of_lau_v3"
+    ]
   },
   {
     "pr": 5105,
@@ -500,9 +524,11 @@
       "Erdos44.sidon_set_lower_bound_sqrt_div_three"
     ],
     "proved_en": "Proves greedy and parabola Sidon constructions and an unconditional sqrt(N)/3 lower bound. Derives a near-optimal empty-start result only assuming Singer and the required prime-density input.",
-    "gap_en": "Extending an arbitrary prescribed Sidon set A while preserving A and proving A union B is Sidon is not established. The constant 1/3 does not give (1-epsilon)sqrt(M) for every epsilon>0; the Singer construction is assumed in the conditional results.",
+    "gap_en": "The actual original exists-M near-sqrt(M) extension of every prescribed finite Sidon A remains unproved. A stronger all-large-M probe was also unsuccessful, but is not an extra user requirement.",
     "repair_status": "proof_repair_active",
-    "abandoned": false
+    "abandoned": false,
+    "new_proved_result": "Corrected the source header to mark arbitrary finite-start and near-optimal results incomplete. Diagnosed mixed triple conflicts.",
+    "last_repair_commit": "36c356983c53bfd9ceec618f58107942b9afbcb1"
   },
   {
     "pr": 5106,

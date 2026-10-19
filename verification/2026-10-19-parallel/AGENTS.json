@@ -1,0 +1,116 @@
+[
+  {
+    "group": "nt-cover-factorial",
+    "nickname": "Curie",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "nt-dyadic",
+    "nickname": "Avicenna",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "nt-bases",
+    "nickname": "Nash",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "nt-density-products",
+    "nickname": "Wegener",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "nt-prime-gaps",
+    "nickname": "Averroes",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "nt-multiples",
+    "nickname": "Dirac",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "nt-factor-differences",
+    "nickname": "Beauvoir",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "graph-core",
+    "nickname": "Aristotle",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "graph-johnson",
+    "nickname": "James",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "geometry-extremal",
+    "nickname": "Dalton",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "graph-geometry-ramsey",
+    "nickname": "Kepler",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "nt-analytic",
+    "nickname": "Gauss",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "scope-eligibility",
+    "nickname": "Hume",
+    "assignment_finished": false,
+    "note": "Disconnected before complete delivery; replacement supplied final review."
+  },
+  {
+    "group": "set-theory-property-b",
+    "nickname": "Pauli",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "nt-sidon",
+    "nickname": "Mill",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "scope-eligibility-replacement",
+    "nickname": "Meitner",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "nt-additive-bases",
+    "nickname": "Hooke",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "integration-review",
+    "nickname": "Ptolemy",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  },
+  {
+    "group": "nt-density-products-followup",
+    "nickname": "Carver",
+    "assignment_finished": true,
+    "note": "Bounded assignment completed; not a claim of original mathematical solution."
+  }
+]

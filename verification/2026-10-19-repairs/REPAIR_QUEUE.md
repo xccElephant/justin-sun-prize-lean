@@ -1,8 +1,8 @@
 # Remaining original-submission repair queue
 
-The user requested completion of all existing submissions before new problems. All 32 records remain in this queue; none is abandoned. A proved subproblem does not close a broader original record. As of this batch, two clearly scoped original proofs await external review, PR5080 awaits scope review of its complete finite-existence proof, and29 records remain drafts with scope or mathematical requirements.
+Current as of 2026-10-19 after the parallel campaign: 32 open PRs, 28 drafts, two complete scoped-proof reviews (5076/5079), and two literal-scope reviews (5080/5095). All 32 records remain retained; none is abandoned. The full-original completion objective has not been achieved.
 
-This is an obligation ledger, not a claim that all open mathematical requirements are currently solvable. Known-proof formalization, new mathematical research, scope clarification, and external acceptance are separate activities.
+A group report, a compiled partial theorem and a request for scope review are distinct from a complete original proof or an award decision. See ../2026-10-19-parallel/CAMPAIGN_SUMMARY.md.
 
 ## PR5076 — JSP-000290 / Erdős348
 
@@ -48,7 +48,7 @@ Selected repair commit: `de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe`.
 
 Outstanding original-problem obligation: Infinitely many decreasing triples are not proved; catalog scope remains unresolved.
 
-Review-state clarification: PR5080 is ready for scope review, not claimed to prove infinitude or qualify for a prize. See REVIEW_STATUS.md.
+Review-state clarification: Ready for maintainer review of complete finite existence and unresolved infinitude scope; not an award or full-infinitude claim.
 
 ## PR5081 — JSP-000509 / Erdős628
 
@@ -96,7 +96,11 @@ Status: `proof_repair_active`. Abandoned: no.
 
 Existing proved scope: Proves property B for countably indexed families of infinite sets, and the two-set and pairwise-disjoint variants.
 
-Outstanding original-problem obligation: The original permits an arbitrary index set. Countability of each member does not imply countability of the family; the general almost-disjoint, forbidden-singleton-intersection case is not proved.
+Latest checked repair: Checked arbitrary-ground/index scope; proved disjoint-refinement reductions and explicit counterexamples to invalid union-countability, fresh-witness, compactness and naive-Zorn steps. These do not solve Property B.
+
+Selected repair commit: `36c356983c53bfd9ceec618f58107942b9afbcb1`.
+
+Outstanding original-problem obligation: The full arbitrary-index Property B proposition remains unproved. Countably infinite members do not imply a countable family or union.
 
 ## PR5087 — JSP-000544 / Erdős670
 
@@ -164,7 +168,11 @@ Status: `proof_repair_active`. Abandoned: no.
 
 Existing proved scope: Proves the Bateman counterexample: for each h>=3, a set is an ordinary asymptotic basis of order at most h but has no restricted order. Separately proves large-odd coverage and a counting bound for order-two bases containing 0, which concern Erdos 339.
 
-Outstanding original-problem obligation: The Erdos 338 classification, quantitative restricted-order bounds, equality conditions, and finite-deletion cases are not proved. Exact minimal ordinary order h is not independently established; the Erdos 339 results do not fill those gaps.
+Latest checked repair: Bateman’s example now has proved least ordinary order exactly h for every h>=3, and no restricted order.
+
+Selected repair commit: `36c356983c53bfd9ceec618f58107942b9afbcb1`.
+
+Outstanding original-problem obligation: The general characterization, conditional bounds, equality and finite-deletion questions remain unproved. E339 is a separate problem.
 
 ## PR5094 — JSP-000569 / Erdős699
 
@@ -172,15 +180,23 @@ Status: `proof_repair_active`. Abandoned: no.
 
 Existing proved scope: Proves the requested common prime-factor bound for i<=2 and the weaker general gcd>1 result. Proves conditional prime-factor transfer steps, explicit exceptions to the strict p>i strengthening, and necessary membership of those exceptions in any valid exception set.
 
+Selected repair commit: `36c356983c53bfd9ceec618f58107942b9afbcb1`.
+
 Outstanding original-problem obligation: The general common-prime bound p>=i is not proved. A gcd>1 conclusion only ensures a common prime >=2; transfer results retain additional prime-existence or divisibility hypotheses. Necessary exceptions are not a full classification.
 
 ## PR5095 — JSP-000736 / Erdős885
 
-Status: `proof_repair_active`. Abandoned: no.
+Status: `submitted_for_scope_review`. Abandoned: no.
 
 Existing proved scope: Proves the k=2,3,4 complementary-factor-difference variants. For k=4 the numbers are 65984625,508032000,1578963456,2505664000, with common differences 5040,27720,68880,164976.
 
-Outstanding original-problem obligation: The assertion for every k is not proved. The original asks for k distinct positive integers with at least k common complementary-factor differences; it is not restricted to two integers.
+Latest checked repair: For every k, two positive integers N<M have at least k common factor differences; exactly k distinct positive witnesses are constructed. Complete literal two-integer scope, independently reviewed.
+
+Selected repair commit: `1e438109a14119d26f891252a9dcc865a8a42ef4`.
+
+Outstanding original-problem obligation: The original conjecture asking for k distinct integers remains unproved. Maintainers must decide whether the two-integer catalogue wording is the intended award scope; priority and acceptance remain unverified.
+
+Review-state clarification: Ready only for explicit literal-two-integer scope review; not stronger conjecture completion or award approval.
 
 ## PR5096 — JSP-000395 / Erdős488
 
@@ -228,7 +244,11 @@ Status: `proof_repair_active`. Abandoned: no.
 
 Existing proved scope: Proves that every C4-free graph, on an arbitrary vertex type, has a countable decomposition into C6-free edge-color classes.
 
-Outstanding original-problem obligation: The finite-color Ramsey premise hfin is not proved; exceptional-pair and related existence conclusions depend on it. Classification of all graph pairs remains unproved. The audited escape result promises C6-free classes, not trees.
+Latest checked repair: New edge-cover count, extremal-to-Ramsey reduction and projective-plane threshold arithmetic are proved.
+
+Selected repair commit: `36c356983c53bfd9ceec618f58107942b9afbcb1`.
+
+Outstanding original-problem obligation: The unconditional finite Ramsey C4/C6 input and complete classification are still missing. The new separation premise is explicit and unproved for the required pair.
 
 ## PR5101 — JSP-000542 / Erdős668
 
@@ -236,7 +256,11 @@ Status: `proof_repair_active`. Abandoned: no.
 
 Existing proved scope: Proves the negation of the every-n>3 multiplicity claim (parts.ii): at n=4 the maximum unit-distance count is 5 and every maximizer is equivalent under a plane isometry to a unit rhombus.
 
-Outstanding original-problem obligation: The first question, whether the number of maximizing configurations tends to infinity, is not proved. The unit-distance maximum 5 is distinct from the number of configurations up to isometry.
+Latest checked repair: Proved faithful unit-distance edge count and a conditional bounded-degree non-maximizer criterion.
+
+Selected repair commit: `36c356983c53bfd9ceec618f58107942b9afbcb1`.
+
+Outstanding original-problem obligation: The number of global maximizing configurations up to planar isometry tending to infinity is still unproved.
 
 ## PR5102 — JSP-000533 / Erdős657
 
@@ -264,7 +288,11 @@ Status: `proof_repair_active`. Abandoned: no.
 
 Existing proved scope: Proves trajectory trapping and coalescence conditional on a barrier, infinitely many nonbarriers, and an equivalence and a conditional reduction for parts.ii using the Lau hypothesis.
 
-Outstanding original-problem obligation: Infinitely many omega-barriers are not proved. The second question asks for some epsilon>0 with infinitely many epsilon-barriers, not every fixed epsilon; the core Lau hypothesis and the infinitude on the equivalence right-hand side are unproved. Infinite nonbarriers do not rule out infinite barriers.
+Latest checked repair: Corrected the source attribution of Lau’s endpoints; proved the n-to-n-2 translation from the actual v3 1<k<n premise.
+
+Selected repair commit: `36c356983c53bfd9ceec618f58107942b9afbcb1`.
+
+Outstanding original-problem obligation: The analytic Lau premise remains unproved in Lean. The unconditional epsilon theorem and full original barrier scope remain incomplete.
 
 ## PR5105 — JSP-000072 / Erdős44
 
@@ -272,7 +300,11 @@ Status: `proof_repair_active`. Abandoned: no.
 
 Existing proved scope: Proves greedy and parabola Sidon constructions and an unconditional sqrt(N)/3 lower bound. Derives a near-optimal empty-start result only assuming Singer and the required prime-density input.
 
-Outstanding original-problem obligation: Extending an arbitrary prescribed Sidon set A while preserving A and proving A union B is Sidon is not established. The constant 1/3 does not give (1-epsilon)sqrt(M) for every epsilon>0; the Singer construction is assumed in the conditional results.
+Latest checked repair: Corrected the source header to mark arbitrary finite-start and near-optimal results incomplete. Diagnosed mixed triple conflicts.
+
+Selected repair commit: `36c356983c53bfd9ceec618f58107942b9afbcb1`.
+
+Outstanding original-problem obligation: The actual original exists-M near-sqrt(M) extension of every prescribed finite Sidon A remains unproved. A stronger all-large-M probe was also unsuccessful, but is not an extra user requirement.
 
 ## PR5106 — JSP-000579 / Erdős711
 

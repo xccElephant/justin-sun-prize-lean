@@ -1,12 +1,17 @@
-# Review status clarification — 19 October 2026
+# Review status — 19 October 2026
 
-There are 32 open PR records: **29 drafts and 3 ready for review**. Ready records are PR5076, PR5079, and PR5080.
+There are **32 open PR records: 28 drafts and four ready for review**. The ready records are PR5076, PR5079, PR5080 and PR5095. Live readback after the updates is preserved in the parallel campaign publication records.
 
-PR5080 is ready for **scope review**, not claimed complete for the original infinitude theorem. Its finite-existence statement is proved. The literal JSP catalog asks whether a decreasing triple exists; the original research source asks for infinitely many. The PR now explicitly asks maintainers to resolve this discrepancy. The proposed catalog retains Lean proof:No until the full scope is settled. This state transition is not mathematical acceptance, an award claim or an award decision.
+PR5076 and PR5079 contain complete proofs for their stated scoped questions. Their attribution, earlier competing proofs, priority and award qualification still require external review.
 
-The earlier decision to keep all30 records as drafts was an applicant-side workflow choice, not an automatic technical restriction or committee rejection. Code and evidence had already been submitted publicly. Being able to request review and being eligible for complete-proof acceptance are distinct.
+PR5080 is ready for **scope review** of finite existence of a decreasing largest-prime-factor triple; its original infinitude question is not proved. PR5095 is ready for **scope and proof review** of two integers with arbitrarily many positive common factor differences; the stronger original conjecture about k distinct integers remains unproved. Readiness is not organizer acceptance, eligibility or an award claim.
 
-The repair batch completed several missing subproblems, including the four-term square-product theorem, the second interval-length question and all r>=6 powerful-sum families. It did not complete all30 original prize records. Remaining drafts continue to identify their full-scope mathematical obligations or mapping uncertainty. No stronger unproved result is claimed merely to change PR status.
+The earlier 30-draft and then 29-draft counts were historical applicant workflow states, not committee rejections. The PRs stayed open and their source was public. They were not deleted. The overstrong complete-problem claims were withdrawn.
 
-Verified PR5080 head: `8e9bc32c9c1dbf1ebc26a901932731d8608f5acf`.
-Selected proof commit remains `de6cac2e9dcfd904988edf7e2603a87bc1c6f3fe`; no Lean source changed in this review-state update.
+The latest campaign used 19 agent instances: 16 planned groups, one disconnected-worker replacement, one integration reviewer, and one focused followup. All 16 group reports are present. It added one complete literal-catalogue theorem (E885), plus checked partial repairs and precise unsuccessful-route evidence. It did not complete the 28 remaining draft records or the stronger original statements behind the two scope reviews. No new prize problem was opened.
+
+E885 proof commit: `1e438109a14119d26f891252a9dcc865a8a42ef4`.
+Additional repair commit: `36c356983c53bfd9ceec618f58107942b9afbcb1`.
+PR5095 head: `b22aac6ae946e1f32df4767d7208982ff088911d`.
+
+[Campaign summary](../2026-10-19-parallel/CAMPAIGN_SUMMARY.md), [32-record ledger](../2026-10-19-parallel/CAMPAIGN_LEDGER.json), [verification](../2026-10-19-parallel/README.md), [seven draft updates](../2026-10-19-parallel/partial-pr-updates.json).

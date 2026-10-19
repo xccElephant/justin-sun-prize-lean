@@ -1,0 +1,86 @@
+[
+  {
+    "pr": 5086,
+    "jsp": "JSP-000489",
+    "head": "71f564ee06649e93f7da06d1c379573999a586f6",
+    "proof_commit": "36c356983c53bfd9ceec618f58107942b9afbcb1",
+    "is_draft": true,
+    "state": "open",
+    "body_verified": true,
+    "head_verified": true,
+    "updated_at": "2026-10-19T04:46:25Z",
+    "change": "checked partial repair; full original not solved"
+  },
+  {
+    "pr": 5093,
+    "jsp": "JSP-000280",
+    "head": "e3ff10f22bbd049408468ad1a0de2c3224c8a40e",
+    "proof_commit": "36c356983c53bfd9ceec618f58107942b9afbcb1",
+    "is_draft": true,
+    "state": "open",
+    "body_verified": true,
+    "head_verified": true,
+    "updated_at": "2026-10-19T04:46:32Z",
+    "change": "checked partial repair; full original not solved"
+  },
+  {
+    "pr": 5094,
+    "jsp": "JSP-000569",
+    "head": "6c86a7d8ae7aef30ea9556b0434b4172472eab97",
+    "proof_commit": "36c356983c53bfd9ceec618f58107942b9afbcb1",
+    "is_draft": true,
+    "state": "open",
+    "body_verified": true,
+    "head_verified": true,
+    "updated_at": "2026-10-19T04:46:38Z",
+    "change": "checked partial repair; full original not solved"
+  },
+  {
+    "pr": 5100,
+    "jsp": "JSP-000483",
+    "head": "df07c2f35b584ab3056684f74b5474e0d77126dd",
+    "proof_commit": "36c356983c53bfd9ceec618f58107942b9afbcb1",
+    "is_draft": true,
+    "state": "open",
+    "body_verified": true,
+    "head_verified": true,
+    "updated_at": "2026-10-19T04:46:45Z",
+    "change": "checked partial repair; full original not solved"
+  },
+  {
+    "pr": 5101,
+    "jsp": "JSP-000542",
+    "head": "0f2be0728fb830c95a67f47078a089578e64600c",
+    "proof_commit": "36c356983c53bfd9ceec618f58107942b9afbcb1",
+    "is_draft": true,
+    "state": "open",
+    "body_verified": true,
+    "head_verified": true,
+    "updated_at": "2026-10-19T04:46:51Z",
+    "change": "checked partial repair; full original not solved"
+  },
+  {
+    "pr": 5104,
+    "jsp": "JSP-000340",
+    "head": "c294629bf338ab60530a009bd48d682f05a78490",
+    "proof_commit": "36c356983c53bfd9ceec618f58107942b9afbcb1",
+    "is_draft": true,
+    "state": "open",
+    "body_verified": true,
+    "head_verified": true,
+    "updated_at": "2026-10-19T04:46:58Z",
+    "change": "checked partial repair; full original not solved"
+  },
+  {
+    "pr": 5105,
+    "jsp": "JSP-000072",
+    "head": "1cbf76e183b6a6c809fc302662ac8a80e99bb893",
+    "proof_commit": "36c356983c53bfd9ceec618f58107942b9afbcb1",
+    "is_draft": true,
+    "state": "open",
+    "body_verified": true,
+    "head_verified": true,
+    "updated_at": "2026-10-19T04:47:05Z",
+    "change": "checked partial repair; full original not solved"
+  }
+]

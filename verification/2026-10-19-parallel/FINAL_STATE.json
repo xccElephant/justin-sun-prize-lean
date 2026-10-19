@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-19",
+  "open_prs": 32,
+  "drafts": 28,
+  "ready_prs": [
+    5076,
+    5079,
+    5080,
+    5095
+  ],
+  "agent_instances": 19,
+  "planned_groups": 16,
+  "new_complete_literal_catalogue_results": 1,
+  "new_complete_stronger_original_results": 0,
+  "all_existing_originals_complete": false,
+  "award_approval_established": false,
+  "all_record_heads_and_states_match_ledger": true,
+  "source_hashes_match_validation": true,
+  "partial_pr_updates": 7,
+  "new_scope_review_updates": 1,
+  "canvas_typecheck_exit_code": 0
+}
