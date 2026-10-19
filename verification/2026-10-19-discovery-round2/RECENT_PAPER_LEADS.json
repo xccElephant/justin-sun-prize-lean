@@ -1,0 +1,98 @@
+[
+  {
+    "jsp": "JSP-000257",
+    "erdos": 306,
+    "status": "Open catalogue; recent full mathematical proof lead",
+    "decision": "no_new_implementation_existing_completion_evidence",
+    "finding": "arxiv2609.32140 ancillary Main has a real remaining Ramanujan hypothesis/sorry; Tang source has2RosserSchoenfeld axioms. Different public source PR1469 at87b247e729dfc676c6bbf451ddef1ec23486e89c replaces them by proved eventual PNT/Mertens inputs. Actual source endpoints and imported theorem types read; source SHA256s match the receipt for the claimed successful all-rational build and standard axioms. Historical UNCOMPILED comments explicitly superseded by README/receipts.",
+    "validation": "author build records verified against downloaded source hashes; no independent full build",
+    "sources": [
+      "https://arxiv.org/html/2609.32140v1",
+      "https://github.com/TheJustinSunPrize/awards/pull/1469",
+      "https://github.com/peilinliu66-dev/jsp-000257-lean/tree/87b247e729dfc676c6bbf451ddef1ec23486e89c"
+    ],
+    "implementation_approved": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-000645",
+    "erdos": 786,
+    "decision": "recent_full_paper_with_author_Lean",
+    "finding": "2026-09-28 paper resolves both distinct-factor questions and explicitly publishes corresponding Lean proof. Paper and author README read; not independently compiled.",
+    "sources": [
+      "https://arxiv.org/html/2609.37471v1",
+      "https://github.com/daizisheng/erdos-786"
+    ],
+    "implementation_approved": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-000309",
+    "erdos": 374,
+    "decision": "recent_paper_cost_and_scope_not_qualified",
+    "finding": "2026-10-01 paper gives growth orders but relies on Pell,Weil,large/larger sieves and strong prime equidistribution. Limits D_k(X)/X for k4,5,6 remain open; no full elementary implementation path or priority audit established.",
+    "sources": [
+      "https://arxiv.org/html/2610.01899v1"
+    ],
+    "implementation_approved": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-000405",
+    "erdos": 506,
+    "decision": "recent_short_proof_has_existing_full_author_source_claim",
+    "finding": "2026-10-12 short proof covers n8,n>=15, cites remaining finite cases; explicitly points to Wrona full classification Lean. Paper mathematical ranges and author link read; not independently audited the full Lean tree.",
+    "sources": [
+      "https://arxiv.org/html/2610.18918v1",
+      "https://github.com/rafalwronapl/erdos506-review-package-2026-08-16"
+    ],
+    "implementation_approved": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-000928",
+    "erdos": 1117,
+    "decision": "recent_second_question_with_author_Lean_full_catalog_not_certified",
+    "finding": "2026-10-14v2 proves bounded liminf maximum points, with author Lean for that conclusion. First-question old result,local-finiteness theorem and sharpness distinguished. No full catalogue/priority certification made.",
+    "sources": [
+      "https://arxiv.org/html/2610.15067v2",
+      "https://github.com/liyunpeng1991/liyunpeng1991.github.io/tree/c063e5f83dfa71c97871eabc8b70cf8a8c1e0bc9/proofs/maximum-modulus/lean"
+    ],
+    "implementation_approved": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": null,
+    "erdos": 522,
+    "decision": "recent_result_has_author_Lean",
+    "finding": "2026-10-08 paper and author README record all-degree almost-sure zero count theorem and Lean source. No complete mapping or independent source validation done after this preexisting-proof lead.",
+    "sources": [
+      "https://arxiv.org/html/2610.11324v1",
+      "https://github.com/chreia/erdos-522"
+    ],
+    "implementation_approved": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": null,
+    "erdos": null,
+    "decision": "not_admitted_no_exact_JSP_mapping",
+    "finding": "Tianchi Yang bipartite-link counterexample has feasible 9-template->497-point->blowup construction; finite arithmetic/bipartitions checked independently in Python. No exact JSP mapping established; Lean-vacancy unknown. No new source implementation.",
+    "sources": [
+      "https://arxiv.org/html/2610.11642v1"
+    ],
+    "implementation_approved": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": null,
+    "erdos": null,
+    "decision": "new_minimal_basis_density_result_not_same_as_E330",
+    "finding": "Chen-Yang2026-09-08 proves prescribed density alpha for all h>=3; E330 asks different robust deletion upper-density property and is already formally proved. No exact catalogue match established for new parameter theorem.",
+    "sources": [
+      "https://arxiv.org/html/2609.08706v1"
+    ],
+    "implementation_approved": false,
+    "award_eligibility_established": false
+  }
+]

@@ -1,5 +1,10 @@
 # Complete-proof opportunity screening — 19 October 2026
 
+> Historical first-round report. The cumulative ledger was subsequently updated by
+> [round2](../2026-10-19-discovery-round2/README.md): the corrected pool has294 entries,
+> with31 documented checks and263 without substantive review. The original291 pool
+> count below used an exact-field filter and missed3 entries labelled `No — ...`.
+
 The first execution of the revised strategy found **no new candidate approved for
 implementation**. No new award PR was opened, and the existing 32 PR heads and
 draft states were read back unchanged: four ready and 28 drafts. This is a bounded

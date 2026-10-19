@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-19",
+  "official_main": "fd8fa66abb4e21df828fdebc25298e9ad75521bd",
+  "catalog_records": 1072,
+  "solved_records": 395,
+  "previous_exact_No_pool": 291,
+  "corrected_No_prefix_pool": 294,
+  "new_original_pool_records_with_core_review": 10,
+  "new_original_pool_records_with_endpoint_spot_check": 7,
+  "cumulative_pool_records_with_documented_review": 31,
+  "cumulative_pool_records_without_substantive_review": 263,
+  "new_publisher_scope_flag_only_records": 3,
+  "official_pr_title_index_reused": 4509,
+  "pool_records_with_title_hits": 293,
+  "new_candidates_approved_for_implementation": 0,
+  "new_proof_modules": 0,
+  "new_award_prs": 0,
+  "existing_open_prs": 32,
+  "existing_ready_prs": 4,
+  "existing_draft_prs": 28,
+  "existing_pr_heads_unchanged": true,
+  "agent_instances": 3,
+  "source_mathlib_build_changes": false,
+  "independent_E632_build": {
+    "modules": 6,
+    "exit_codes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "source_unchanged": true,
+    "target": "Erdos632.not_erdos_632",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "record": "E632-build-results.json"
+  },
+  "no_global_absence_claim": true,
+  "independent_E632_root_replay": {
+    "status": "timeout_not_passed",
+    "timeout_seconds": 120,
+    "record": "E632-replay-result.json"
+  },
+  "no_new_confirmed_prize_eligibility": true,
+  "historical_title_index_date": "2026-10-19 round1",
+  "validation": {
+    "counts_and_uniqueness": "pass",
+    "all_six_competitor_source_hashes": "match_fixed_reference",
+    "project_Lean_source_diff": "none",
+    "local_report_links": "exist",
+    "canvas_typecheck_exit_code": 0,
+    "root_replay": "timeout_not_passed"
+  }
+}

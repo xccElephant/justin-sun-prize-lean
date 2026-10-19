@@ -1,0 +1,65 @@
+[
+  {
+    "jsp": "JSP-000346",
+    "erdos": 421,
+    "finding": "Actual density-one sequence endpoint with all block-products injective; necessary omission-only PRs do not constitute the full result.",
+    "depth": "actual_end_type_and_surrounding_proof_read_only",
+    "implementation_approved": false,
+    "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos421.lean",
+    "limitations": "Not a whole proof/dependency audit; this spot check does not establish validity or exact award scope."
+  },
+  {
+    "jsp": "JSP-000433",
+    "erdos": 542,
+    "finding": "Actual sharp31/30 all-set bound and counterexample family for the uncovered-density second question; finite{2,3,5} alone is partial.",
+    "depth": "actual_end_type_and_surrounding_proof_read_only",
+    "implementation_approved": false,
+    "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos542.lean",
+    "limitations": "Not a whole proof/dependency audit; this spot check does not establish validity or exact award scope."
+  },
+  {
+    "jsp": "JSP-000966",
+    "erdos": 1161,
+    "finding": "Actual three-clause asymptotic and modal-order characterization; a lower bound (n-1)! alone is partial.",
+    "depth": "actual_end_type_and_surrounding_proof_read_only",
+    "implementation_approved": false,
+    "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1161.lean",
+    "limitations": "Not a whole proof/dependency audit; this spot check does not establish validity or exact award scope."
+  },
+  {
+    "jsp": "JSP-000731",
+    "erdos": 880,
+    "finding": "Actual exact-order constructions with unbounded restricted gaps for each h>=3 and order2 bounded-gap branch.",
+    "depth": "actual_end_type_and_surrounding_proof_read_only",
+    "implementation_approved": false,
+    "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos880.lean",
+    "limitations": "Not a whole proof/dependency audit; this spot check does not establish validity or exact award scope."
+  },
+  {
+    "jsp": "JSP-000640",
+    "erdos": 780,
+    "finding": "Actual all-multiplicity endpoint supplies prime case via Tucker then multiplicative reduction; matching-size2 alone would be insufficient.",
+    "depth": "actual_end_type_and_surrounding_proof_read_only",
+    "implementation_approved": false,
+    "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos780.lean",
+    "limitations": "Not a whole proof/dependency audit; this spot check does not establish validity or exact award scope."
+  },
+  {
+    "jsp": "JSP-000689",
+    "erdos": 833,
+    "finding": "Actual uniform positive constant1/9 for all r>=2, with separate small-r and local-lemma cases.",
+    "depth": "actual_end_type_and_surrounding_proof_read_only",
+    "implementation_approved": false,
+    "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos833.lean",
+    "limitations": "Not a whole proof/dependency audit; this spot check does not establish validity or exact award scope."
+  },
+  {
+    "jsp": "JSP-000746",
+    "erdos": 895,
+    "finding": "Actual18-vertex LRAT-to-arbitrary-graph semantic bridge and all n>=18 transfer, not merely CNF unsatisfiability or an example.",
+    "depth": "actual_end_type_and_surrounding_proof_read_only",
+    "implementation_approved": false,
+    "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos895.lean",
+    "limitations": "Not a whole proof/dependency audit; this spot check does not establish validity or exact award scope."
+  }
+]

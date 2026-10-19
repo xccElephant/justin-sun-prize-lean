@@ -30,6 +30,12 @@ The new `Erdos885.TwoNumbers.literal_two_numbers` theorem proves that two positi
 
 Six further source modules gained verified partial repairs or corrected scope descriptions. The integrated project passed 8,740 jobs with stable hashes; nineteen new relevant target types passed axiom checks, and all six additional modules passed kernel replay. Seven existing drafts were updated to commit `36c356983c53bfd9ceec618f58107942b9afbcb1`. [Evidence](verification/2026-10-19-parallel/README.md). Full repair and award approval remain incomplete.
 
+## Current opportunity screening (2026-10-19)
+
+The revised strategy preserves the existing 4 Ready / 28 Draft records and admits new work only after full mathematical scope, implementation feasibility and earlier Lean evidence are checked. The corrected discovery pool contains 294 Solved records whose Lean-proof field begins with No; 31 have documented checks of varying depth and 263 remain without substantive review. Round2 adds ten core/source reviews and seven limited endpoint checks. No new implementation or award submission was approved. [Current screening report](verification/2026-10-19-discovery-round2/README.md), [candidate ledger](verification/2026-10-19-discovery/CANDIDATE_LEDGER.json), [strategy](NEXT_STRATEGY.md).
+
+The six fixed external E632 modules compiled independently with standard root axioms; a separate root replay timed out after120 seconds and is not recorded as passed. Existing mathematical project sources and PR heads remained unchanged.
+
 ## Quick Verification
 
 To verify any module using the precompiled Mathlib cache:

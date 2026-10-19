@@ -36,5 +36,7 @@
     "toolchain": "Lean4.33.1 / pinned project Mathlib; original source header4.33.0",
     "limitations": "Only this single standalone competitor module independently compiled; other reviewed sources not all compiled. This is not organizer acceptance or a final priority ruling."
   },
-  "canvas_typecheck_exit_code": 0
+  "canvas_typecheck_exit_code": 0,
+  "report_scope": "Historical first-round snapshot; cumulative ledger updated by round2",
+  "superseded_current_state": "../2026-10-19-discovery-round2/RESULT.json"
 }

@@ -1,0 +1,47 @@
+[
+  {
+    "local_evidence": "reports/discovery-2026-10-19-round2/own-prs-final.json",
+    "sha256": "e65e2f349f1e789a118897e897ef18a6d91398e175ea05cf990f342a9ba3ffdf",
+    "bytes": 2790
+  },
+  {
+    "local_evidence": "reports/discovery-2026-10-19-round2/e306/pr1469.json",
+    "sha256": "5c2447b89057582ee4ff23e48620c7a6cd4b9e51e94a577e6bfdcf06940a07ff",
+    "bytes": 44073
+  },
+  {
+    "local_evidence": "reports/discovery-2026-10-19-round2/e306/completed/result.json",
+    "sha256": "0ecf77b0c76aec9dad7f764f4f78b69c1c763ab678fb06059ee3bbcfc34b9c66",
+    "bytes": 1881
+  },
+  {
+    "local_evidence": "reports/discovery-2026-10-19-round2/e306/completed/source_hashes.json",
+    "sha256": "3ca3864907749fa205aa62abdaa45fe82fb075e6f1e22e31835ea9e6f6bfaab4",
+    "bytes": 12438
+  },
+  {
+    "local_evidence": "reports/discovery-2026-10-19-round2/e306/completed/RSPrimeSums.lean",
+    "sha256": "af3c47bdf6ddf87a39fa63815ae3d236883ef4bf1c59ebd73fb4a2f2e7209af8",
+    "bytes": 17361
+  },
+  {
+    "local_evidence": "reports/discovery-2026-10-19-round2/list-coloring/RESULT.json",
+    "sha256": "2d3e6f2c04c9282c304fe18bd21077ce53a6cd0d128764af397765a5a7d6b62b",
+    "bytes": 2456
+  },
+  {
+    "local_evidence": "reports/discovery-2026-10-19-round2/finite-graph/RESULT.json",
+    "sha256": "1c45f2bec61d108cdb962b72f01c9a2ae0cea5dbe67259f355783384fefaa828",
+    "bytes": 2296
+  },
+  {
+    "local_evidence": "reports/discovery-2026-10-19-round2/bipartite-link/RESULT.json",
+    "sha256": "c5a6596f390d86ad22222b591aa1166d8bcfe646430f93f42279864b3b6ed886",
+    "bytes": 1531
+  },
+  {
+    "local_evidence": "reports/discovery-2026-10-19-round2/extended-no-pool.json",
+    "sha256": "c4d5c1a8586e787474c7fa2012ab523f3032c09d0bd1ad00bccf8b2fd6ae20f4",
+    "bytes": 12054
+  }
+]

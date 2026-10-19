@@ -2251,8 +2251,18 @@
         "title": "JSP-000248: submit Lean formalization and certificates for largest unit-fraction denominators"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 292,
+      "decision": "existing_density_one_endpoint_scope_limit",
+      "finding": "Fixed plby erdos_292 proves natural density one for the actual attained-maximum-denominator set. It does not prove pointwise classification or the sharper exceptional-set asymptotic. PR303 explicitly acknowledges this boundary and prior PR781.",
+      "scope": "Every largest denominator occurs in a finite set of distinct positive denominators summing to1; density-one question complete. Arbitrary classification wording remains a scope matter.",
+      "evidence_level": "actual definition and density endpoint read; no full imported theorem rebuild",
+      "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos292.lean",
+      "limits": "Bounded source/claim review only; no official correctness, earliest-priority or reward verdict.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -2294,8 +2304,18 @@
         "title": "JSP-000250: complete unit-fraction bounds with our prime-obstruction upper proof"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 294,
+      "decision": "existing_unconditional_two_sided_endpoint",
+      "finding": "Both plby assembly and independent PR802 root prove eventual two-sided bounds for the actual least missing minimum denominator, no external mathematical input. The independent pin uses exponent22 and constant400; those exact constants are retained instead of another PR’s paraphrase.",
+      "scope": "One threshold before all N; firstException is the genuine least positive missing minimum denominator.",
+      "evidence_level": "final construction-to-interval-to-bound assembly read; large lower-bound dependency cone not rebuilt",
+      "source": "https://github.com/peilinliu66-dev/jsp-000250-lean/blob/37b7e70db36ea5cff44ef8c50c591b5f409fd820/JSP250Final.lean",
+      "limits": "Bounded source/claim review only; no official correctness, earliest-priority or reward verdict.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -2438,8 +2458,18 @@
         "title": "JSP-000259: Lean formalization of the N=6 representable-integer instance (Erdős 308)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 308,
+      "decision": "existing_eventual_set_and_first_missing_endpoint",
+      "finding": "Actual erdos_308 synchronizes each of the two possible represented-integer intervals with its correct firstMissing value. Croot interval/completion sources supply the input; N=6 certificate PRs alone are insufficient but are not the only source.",
+      "scope": "Every sufficiently large N, complete interval shape and matching first missing integer. Does not assert all-small-N classification.",
+      "evidence_level": "actual definitions, interval completion and final conjunction read; no independent build",
+      "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos308.lean",
+      "limits": "Bounded source/claim review only; no official correctness, earliest-priority or reward verdict.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -3650,8 +3680,18 @@
         "title": "JSP-000346: prove unconditional omission bounds with inverse-factorial error"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 421,
+      "decision": "existing_endpoint_spot_check",
+      "finding": "Actual density-one sequence endpoint with all block-products injective; necessary omission-only PRs do not constitute the full result.",
+      "scope": null,
+      "evidence_level": "actual_end_type_and_surrounding_proof_read_only",
+      "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos421.lean",
+      "limits": "Not a whole proof/dependency audit; this spot check does not establish validity or exact award scope.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -3925,8 +3965,18 @@
         "title": "Formalize JSP-000360: sharp bounded-lcm asymptotic and nonoptimal construction"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 441,
+      "decision": "existing_external_sharp_asymptotic_completion",
+      "finding": "The common plby file only proves nonoptimality of the proposed construction. PR188 external Target combines chen_asymptotic with arbitrary-large nonoptimality. Read upper-bound assembly, weighted finite-grid packing, prefix case split, tail injection and lower squared bound; deep sieve input remains in imported dependencies not audited fully.",
+      "scope": "Sharp leading asymptotic and nonoptimality at arbitrarily large N; stronger error term and growing excess not claimed.",
+      "evidence_level": "fixed endpoint and multiple core construction layers read; not independent full compilation",
+      "source": "https://github.com/CollinYuanjieRen/awards/blob/8604f1bacfc81ac8c6e4a4a4da640e92af7678ec/submissions/jsp-000360-cyr/MerLeanExperiment/Target.lean",
+      "limits": "Bounded source/claim review only; no official correctness, earliest-priority or reward verdict.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -4589,8 +4639,18 @@
         "title": "JSP-000400: Lean formalization of the sum-of-two-squares approximation theorem"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 496,
+      "decision": "corrected_positive_parameter_full_source_exists",
+      "finding": "Plby negates an erroneous negative-alpha reading and leaves positive-alpha Oppenheim as hypothesis. PR538 fixed final source obtains actual short-vector and small-value theorems, supplies positive and dual statements and arbitrary large denominator. The original positive indefinite-form scope is disclosed rather than exploiting negative-alpha typo.",
+      "scope": "Every positive irrational alpha, every positive epsilon, all three natural witnesses strictly positive.",
+      "evidence_level": "exact terminal and semantic definitions read; substantial homogeneous-space dependencies not independently compiled",
+      "source": "https://github.com/cronrpc/jsp-000400-lean/blob/e89bad0fdcfce3c6fb9d2e3de9f35b52ffdd38cd/FinalTheorem.lean",
+      "limits": "Bounded source/claim review only; no official correctness, earliest-priority or reward verdict.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -5039,8 +5099,18 @@
         "title": "JSP-000433: Erdős #542 — the sharpness example {2,3,5} (scoped component)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 542,
+      "decision": "existing_endpoint_spot_check",
+      "finding": "Actual sharp31/30 all-set bound and counterexample family for the uncovered-density second question; finite{2,3,5} alone is partial.",
+      "scope": null,
+      "evidence_level": "actual_end_type_and_surrounding_proof_read_only",
+      "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos542.lean",
+      "limits": "Not a whole proof/dependency audit; this spot check does not establish validity or exact award scope.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -6048,8 +6118,18 @@
         "title": "Formalize JSP-000511: planar bipartite list coloring from ordinary drawings"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 630,
+      "decision": "older_planarity_gap_addressed_by_external_source",
+      "finding": "Old plby IsPlanar bundles Euler/face certificates. PR4712 actual PlaneDrawing uses only continuous simple arcs and crossing conditions; final theorem proves arbitrary-palette list coloring, including infinite vertices by finite-list compactness. The main source derives edge bounds from named topology bridge rather than assuming them.",
+      "scope": "All ordinary planar bipartite graphs and arbitrary palettes, lists of at least3 colours.",
+      "evidence_level": "definition, edge-bound and final list-coloring bridge read; entire topology and compactness dependencies not audited or compiled",
+      "source": "https://github.com/Ghuffy1/jsp-000511-lean/blob/8ee0fc8cd9ac517f119efdb971467793d1f9a13b/Jsp511/Main.lean",
+      "limits": "Bounded source/claim review only; no official correctness, earliest-priority or reward verdict.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -6096,8 +6176,18 @@
         "title": "Partial formalization for JSP-000512: upper bound and geometric sharpness"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 631,
+      "decision": "older_rotation_gap_addressed_by_external_source",
+      "finding": "Old plby planarity is a recursive certificate; PR410 honestly lacks drawing-to-genus-zero bridge. PR922 actual main has ordinary drawing as hypothesis and supplies five-color upper plus geometric non-four-colourable witness. Infinite extension source also obtained.",
+      "scope": "Least universal list size5, finite and arbitrary vertex version.",
+      "evidence_level": "actual premise and combined endpoint read; topological correctness not independently certified",
+      "source": "https://github.com/devin-lai/jsp-000512-lean/blob/60d55783154b7cfd310d95f61a167bdaec8d53e4/JSP512/Main.lean",
+      "limits": "Bounded source/claim review only; no official correctness, earliest-priority or reward verdict.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -6149,8 +6239,18 @@
         "title": "JSP-000513: Lean formalization of a 4-choosable graph that is not (8:2)-choosable"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 632,
+      "decision": "no_go_credible_complete_same_scope_source",
+      "finding": "The exact arbitrary-palette/list definition,37-vertex positive gadget proof,negative counting/forcing proof,and root-clique uniformization were read. Both directions are supplied, not presumed.",
+      "scope": "There exists a finite simple graph G with ABChoosable(G,4,1) and not ABChoosable(G,8,2), refuting doubling and general integer scaling.",
+      "evidence_level": "Independent six-module build + final standard-axiom audit; root replay timed out120s.",
+      "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos632.lean",
+      "limits": "No from-scratch Mathlib build. Root replay timeout is not proof acceptance or proof failure. No organizer priority ruling.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -6359,8 +6459,18 @@
         "title": "Submit Lean formalization for JSP-000527 (Erdős #651, Pohoata–Zakharov subexponential bound)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 651,
+      "decision": "old_incompatibility_only_root_superseded_by_other_sources",
+      "finding": "Plby public root only shows subexponential and exponential incompatible, and its cap extraction remains an explicit input. Two different public packages supply actual point-set epsilon endpoints. PZ certificate now instantiates extraction; Yi main provides a proved geometric core and asymptotic assembly. Old uncompiled/unfinished comments do not alone decide completion.",
+      "scope": "For all epsilon>0, eventually any general-position set of size≥2^(epsilon*n) has convex n-subset; extension to d≥3.",
+      "evidence_level": "source endpoints, certificate fields, extraction call and dimensional bridge read; not full dependency/axiom/build audit",
+      "source": "https://github.com/CollinYuanjieRen/awards/blob/c367f399bf0513f01cc6124f71f500e06381aa44/submissions/jsp-000527-cyr/JSP527/PZ/Main.lean",
+      "limits": "Bounded source/claim review only; no official correctness, earliest-priority or reward verdict.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -7713,8 +7823,18 @@
         "title": "JSP-000622: catalog Lean evidence and formalization attribution"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 758,
+      "decision": "no_go_existing_credible_same_scope_source",
+      "finding": "Full table for1<=n<=19, quantified over all simple graphs, universal upper and existential lower. Read all-mask coverage induction and sample graph/clauses consumer; no unproved enumeration-coverage assumption found in inspected chain.",
+      "scope": "All n with 1 <= n <= 19; zmax over all SimpleGraph (Fin n); upper and lower bounds. Also declares zmax 20 = 6.",
+      "evidence_level": "source/one certificate semantic chain read; no build or all-certificate replay",
+      "source": "https://github.com/CollinYuanjieRen/awards/tree/7ac3e05dee385a64333b63ed7fbb82637d57c4d7",
+      "limits": "No independent full proof build or priority determination.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -8072,8 +8192,18 @@
         "title": "JSP-000640: Erdős #780 — sharpness of the Alon–Frankl–Lovász bound (scoped component)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 780,
+      "decision": "existing_endpoint_spot_check",
+      "finding": "Actual all-multiplicity endpoint supplies prime case via Tucker then multiplicative reduction; matching-size2 alone would be insufficient.",
+      "scope": null,
+      "evidence_level": "actual_end_type_and_surrounding_proof_read_only",
+      "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos780.lean",
+      "limits": "Not a whole proof/dependency audit; this spot check does not establish validity or exact award scope.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -8931,8 +9061,18 @@
         "title": "JSP-000689: independent alternative counting formalization of Erdős 833"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 833,
+      "decision": "existing_endpoint_spot_check",
+      "finding": "Actual uniform positive constant1/9 for all r>=2, with separate small-r and local-lemma cases.",
+      "scope": null,
+      "evidence_level": "actual_end_type_and_surrounding_proof_read_only",
+      "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos833.lean",
+      "limits": "Not a whole proof/dependency audit; this spot check does not establish validity or exact award scope.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -9602,8 +9742,18 @@
         "title": "Submit Lean formalization for JSP-000731 (Erdős #880, Burr–Erdős restricted-sumset gaps, both directions)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 880,
+      "decision": "existing_endpoint_spot_check",
+      "finding": "Actual exact-order constructions with unbounded restricted gaps for each h>=3 and order2 bounded-gap branch.",
+      "scope": null,
+      "evidence_level": "actual_end_type_and_surrounding_proof_read_only",
+      "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos880.lean",
+      "limits": "Not a whole proof/dependency audit; this spot check does not establish validity or exact award scope.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -9806,8 +9956,18 @@
         "title": "JSP-000746: complete Lean formalization of independent Schur triples (Erdős #895)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 895,
+      "decision": "existing_endpoint_spot_check",
+      "finding": "Actual18-vertex LRAT-to-arbitrary-graph semantic bridge and all n>=18 transfer, not merely CNF unsatisfiability or an example.",
+      "scope": null,
+      "evidence_level": "actual_end_type_and_surrounding_proof_read_only",
+      "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos895.lean",
+      "limits": "Not a whole proof/dependency audit; this spot check does not establish validity or exact award scope.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -13215,8 +13375,18 @@
         "title": "JSP-000966: Lean formalization of the (n-1)! lower bound on the maximal order-count in S_n (Erdős 1161)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "round2_bounded_review_no_implementation_approved",
+    "review": {
+      "round": 2,
+      "erdos": 1161,
+      "decision": "existing_endpoint_spot_check",
+      "finding": "Actual three-clause asymptotic and modal-order characterization; a lower bound (n-1)! alone is partial.",
+      "scope": null,
+      "evidence_level": "actual_end_type_and_surrounding_proof_read_only",
+      "source": "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1161.lean",
+      "limits": "Not a whole proof/dependency audit; this spot check does not establish validity or exact award scope.",
+      "report": "../2026-10-19-discovery-round2/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -14043,6 +14213,57 @@
     ],
     "assessment": "unreviewed_beyond_metadata",
     "review": null,
+    "approved_for_implementation": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-001059",
+    "title": "Hilbert's sixteenth problem: uniform bounds for planar limit cycles",
+    "status_label": "Solved<br>Proof contributors: OpenAI (published complete-solution claim; independent mathematical review pending).",
+    "lean_label": "No — the linked formalization does not cover the full stated problem. [Lean source](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/OAI/Analysis/LienardCycles/Main.lean); [Comparator configuration](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/ComparatorChallenges/QuinticLienard.json); [Scope](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/143.md)<br>Target theorem(s): `OAI.QuinticLienard.main`.<br>Formalization contributors: OpenAI (institutional project credit; individual authors not identified).",
+    "pr_title_hits": 0,
+    "prs": [],
+    "assessment": "publisher_scope_flag_read_only",
+    "review": null,
+    "official_scope_note": "The selected Lean target only claims the exact maximum of two limit cycles for x'=y-F(x), y'=-x when F is a real polynomial of degree at most five. It does not formalize a uniform bound for arbitrary polynomial vector fields of every degree. Solved records the broader manuscript's published mathematical claim, with independent review pending; complete Lean proof of that broader statement is No.",
+    "approved_for_implementation": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-001068",
+    "title": "Ionization and generalized ionization conjectures for Coulomb atoms",
+    "status_label": "Solved<br>Proof contributors: OpenAI (published complete-solution claim; independent mathematical review pending).",
+    "lean_label": "No — the linked formalization does not cover the full stated problem. [Lean source](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/OAI/Analysis/CoulombIonization/Main.lean); [Comparator configuration](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/ComparatorChallenges/CoulombIonization.json); [Lean source](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/OAI/Analysis/CoulombRadii/Main.lean); [Comparator configuration](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/ComparatorChallenges/CoulombRadii.json); [Scope](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/263.md)<br>Target theorem(s): `OAI.CoulombAtom.generalized_ionization`, `OAI.NeutralAtom.generalized_outer_radii`.<br>Formalization contributors: OpenAI (institutional project credit; individual authors not identified).",
+    "pr_title_hits": 1,
+    "prs": [
+      {
+        "number": 5063,
+        "title": "JSP-001068: Lean formalization of the ionization bounds and generalized ionization asymptotics",
+        "state": "OPEN"
+      }
+    ],
+    "assessment": "publisher_scope_flag_read_only",
+    "review": null,
+    "official_scope_note": "The selected Lean targets cover generalized large-ionization energy asymptotics and iterated-limit outer-electron radii, taking Z -> infinity first. They do not supply the ordinary fixed-ionization bounds in this combined statement or fixed-m convergence. Ground states are inputs to the radius statement, not a separately proved existence result. Therefore complete Lean proof is No for the full record.",
+    "approved_for_implementation": false,
+    "award_eligibility_established": false
+  },
+  {
+    "jsp": "JSP-001071",
+    "title": "Grothendieck homotopy hypothesis",
+    "status_label": "Solved<br>Proof contributors: OpenAI (published complete-solution claim; independent mathematical review pending).",
+    "lean_label": "No — the linked formalization does not cover the full stated problem. [Lean source](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/OAI/CategoryTheory/Globular/Main.lean); [Comparator configuration](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/ComparatorChallenges/GrothendieckElementaryExpansion.json); [Scope](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/312.md)<br>Target theorem(s): `OAI.Grothendieck.elementary_expansion`.<br>Formalization contributors: OpenAI (institutional project credit; individual authors not identified).",
+    "pr_title_hits": 1,
+    "prs": [
+      {
+        "number": 5068,
+        "title": "JSP-001071: Lean formalization of the Grothendieck homotopy hypothesis for coherators",
+        "state": "OPEN"
+      }
+    ],
+    "assessment": "publisher_scope_flag_read_only",
+    "review": null,
+    "official_scope_note": "The selected Lean theorem only establishes that elementary disk attachments along source faces are weak equivalences for boundary-cellular models. The later semi-model structure and full comparison with spaces are explicitly outside the formalized scope. A full-solution manuscript is linked, but complete Lean proof of this original hypothesis is not recorded.",
     "approved_for_implementation": false,
     "award_eligibility_established": false
   }

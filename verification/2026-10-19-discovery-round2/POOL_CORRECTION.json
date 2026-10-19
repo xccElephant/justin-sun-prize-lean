@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-19",
+  "official_main": "fd8fa66abb4e21df828fdebc25298e9ad75521bd",
+  "previous_filter": "Lean proof equals No",
+  "corrected_filter": "Lean proof begins No, including explanatory text",
+  "previous_pool": 291,
+  "corrected_pool": 294,
+  "added_records": [
+    {
+      "jsp": "JSP-001059",
+      "title": "Hilbert's sixteenth problem: uniform bounds for planar limit cycles",
+      "status_label": "Solved<br>Proof contributors: OpenAI (published complete-solution claim; independent mathematical review pending).",
+      "lean_label": "No — the linked formalization does not cover the full stated problem. [Lean source](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/OAI/Analysis/LienardCycles/Main.lean); [Comparator configuration](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/ComparatorChallenges/QuinticLienard.json); [Scope](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/143.md)<br>Target theorem(s): `OAI.QuinticLienard.main`.<br>Formalization contributors: OpenAI (institutional project credit; individual authors not identified).",
+      "pr_title_hits": 0,
+      "prs": [],
+      "assessment": "publisher_scope_flag_read_only",
+      "review": null,
+      "official_scope_note": "The selected Lean target only claims the exact maximum of two limit cycles for x'=y-F(x), y'=-x when F is a real polynomial of degree at most five. It does not formalize a uniform bound for arbitrary polynomial vector fields of every degree. Solved records the broader manuscript's published mathematical claim, with independent review pending; complete Lean proof of that broader statement is No.",
+      "approved_for_implementation": false,
+      "award_eligibility_established": false
+    },
+    {
+      "jsp": "JSP-001068",
+      "title": "Ionization and generalized ionization conjectures for Coulomb atoms",
+      "status_label": "Solved<br>Proof contributors: OpenAI (published complete-solution claim; independent mathematical review pending).",
+      "lean_label": "No — the linked formalization does not cover the full stated problem. [Lean source](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/OAI/Analysis/CoulombIonization/Main.lean); [Comparator configuration](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/ComparatorChallenges/CoulombIonization.json); [Lean source](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/OAI/Analysis/CoulombRadii/Main.lean); [Comparator configuration](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/ComparatorChallenges/CoulombRadii.json); [Scope](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/263.md)<br>Target theorem(s): `OAI.CoulombAtom.generalized_ionization`, `OAI.NeutralAtom.generalized_outer_radii`.<br>Formalization contributors: OpenAI (institutional project credit; individual authors not identified).",
+      "pr_title_hits": 1,
+      "prs": [
+        {
+          "number": 5063,
+          "title": "JSP-001068: Lean formalization of the ionization bounds and generalized ionization asymptotics",
+          "state": "OPEN"
+        }
+      ],
+      "assessment": "publisher_scope_flag_read_only",
+      "review": null,
+      "official_scope_note": "The selected Lean targets cover generalized large-ionization energy asymptotics and iterated-limit outer-electron radii, taking Z -> infinity first. They do not supply the ordinary fixed-ionization bounds in this combined statement or fixed-m convergence. Ground states are inputs to the radius statement, not a separately proved existence result. Therefore complete Lean proof is No for the full record.",
+      "approved_for_implementation": false,
+      "award_eligibility_established": false
+    },
+    {
+      "jsp": "JSP-001071",
+      "title": "Grothendieck homotopy hypothesis",
+      "status_label": "Solved<br>Proof contributors: OpenAI (published complete-solution claim; independent mathematical review pending).",
+      "lean_label": "No — the linked formalization does not cover the full stated problem. [Lean source](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/OAI/CategoryTheory/Globular/Main.lean); [Comparator configuration](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/ComparatorChallenges/GrothendieckElementaryExpansion.json); [Scope](https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/312.md)<br>Target theorem(s): `OAI.Grothendieck.elementary_expansion`.<br>Formalization contributors: OpenAI (institutional project credit; individual authors not identified).",
+      "pr_title_hits": 1,
+      "prs": [
+        {
+          "number": 5068,
+          "title": "JSP-001071: Lean formalization of the Grothendieck homotopy hypothesis for coherators",
+          "state": "OPEN"
+        }
+      ],
+      "assessment": "publisher_scope_flag_read_only",
+      "review": null,
+      "official_scope_note": "The selected Lean theorem only establishes that elementary disk attachments along source faces are weak equivalences for boundary-cellular models. The later semi-model structure and full comparison with spaces are explicitly outside the formalized scope. A full-solution manuscript is linked, but complete Lean proof of this original hypothesis is not recorded.",
+      "approved_for_implementation": false,
+      "award_eligibility_established": false
+    }
+  ],
+  "note": "These are published mathematical claims pending review with explicitly incomplete Lean coverage. No new proof/priority certification."
+}

@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-19",
+  "source_repository": "plby/lean-proofs",
+  "source_commit": "8822f7ddef30fadbd92e1c6ab4ed897af356af5e",
+  "original_source_header": "Lean4.33.0",
+  "executed_toolchain": "Lean4.33.1",
+  "executed_mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "source_unchanged": true,
+  "modules": [
+    {
+      "module": "ErdosProblems.Erdos632.Basic",
+      "exit_code": 0,
+      "seconds": 107.566961917,
+      "source_sha256": "bf72712446762341e516e894844d2a3fc1bac592b8e846b2391893ce8a000bc0",
+      "source_bytes_unchanged": true
+    },
+    {
+      "module": "ErdosProblems.Erdos632.Graph",
+      "exit_code": 0,
+      "seconds": 104.877038,
+      "source_sha256": "6028ec26ca6ba00e956ae0ff9a9a2ce7fbb04518585b515823fc6f2d90f7b88e",
+      "source_bytes_unchanged": true
+    },
+    {
+      "module": "ErdosProblems.Erdos632.Positive",
+      "exit_code": 0,
+      "seconds": 108.13617329200002,
+      "source_sha256": "a8e5eff8599ace3d6b74b8c54e194f4954a146f4bfb94ac40d15cd37a5519567",
+      "source_bytes_unchanged": true
+    },
+    {
+      "module": "ErdosProblems.Erdos632.Negative",
+      "exit_code": 0,
+      "seconds": 127.9739735,
+      "source_sha256": "d2fb85d7f0bcc2ad8821e6fc37c87457eb301cebc65a416995b850ed68631fe9",
+      "source_bytes_unchanged": true
+    },
+    {
+      "module": "ErdosProblems.Erdos632.Uniformization",
+      "exit_code": 0,
+      "seconds": 116.94594012500005,
+      "source_sha256": "166b05b971dbcac8aea90a4669ae85a94892aeeb5e20dd1995df4ec410596f79",
+      "source_bytes_unchanged": true
+    },
+    {
+      "module": "ErdosProblems.Erdos632",
+      "exit_code": 0,
+      "seconds": 67.90700299999992,
+      "source_sha256": "7b0bce017c9d0bd5686ac8291d2f4c6a72c4b3dccaf208bc89e9d3dd2161306a",
+      "source_bytes_unchanged": true
+    }
+  ],
+  "final_target": "Erdos632.not_erdos_632",
+  "final_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "All six project modules compiled from copied fixed bytes with a separate LEAN_PATH; Mathlib dependency cache reused. Not a from-scratch Mathlib build or organizer verification."
+}
