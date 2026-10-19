@@ -8,7 +8,17 @@
 
 ## Verification status (2026-10-19)
 
-There are 32 open records: 28 drafts, two scoped complete proofs ready for review (5076/5079), and two literal-scope reviews (5080/5095). [Current review status](verification/2026-10-19-repairs/REVIEW_STATUS.md). They cite 27 distinct source files; the repository contains 33 problem modules plus `Basic.lean`. A successful Lean check does not mean a module solves the full prize problem or qualifies for an award.
+There are 32 open records: **8 ready for review** (`#5076`, `#5079`, `#5080`, `#5088`, `#5089`, `#5095`, `#5098`, `#5107`) and **24 drafts**:
+- **2 complete scoped proofs ready for review**: [PR #5076](https://github.com/TheJustinSunPrize/awards/pull/5076) (`JSP-000290` / Erdős #348) and [PR #5079](https://github.com/TheJustinSunPrize/awards/pull/5079) (`JSP-000301` / Erdős #365).
+- **6 complete literal/first-question proofs ready for maintainer scope review**:
+  - [PR #5080](https://github.com/TheJustinSunPrize/awards/pull/5080) (`JSP-000307` / Erdős #372: literal finite-existence question proved by $(13, 14, 15)$; infinitude open).
+  - [PR #5095](https://github.com/TheJustinSunPrize/awards/pull/5095) (`JSP-000736` / Erdős #885: literal two-integer arbitrary common factor-difference theorem proved for all $k$; $k$-integer conjecture open).
+  - [PR #5089](https://github.com/TheJustinSunPrize/awards/pull/5089) (`JSP-000780` / Erdős #939: both Nitaj's 1995 coprime 3-powerful triple theorem `erdos_939.variants.triples` and Cohn's 1998 pairwise-coprime non-perfect-cube strengthening `erdos_939.variants.triples_non_cube` completely proved; 4-powerful $a+b=c$ open).
+  - [PR #5088](https://github.com/TheJustinSunPrize/awards/pull/5088) (`JSP-000131` / Erdős #124: complete $k=0$ $\{0,1\}$-digit completeness characterization `erdos124.zero`, `erdos124.zero_all`, `erdos124.eventually_iff_le_sum`, Pomerance's converse for all $k$, and Melfi's $k=0$ construction `erdos124.melfi_construction_zero` proved; $k \ge 1$ BEGL conjecture open).
+  - [PR #5098](https://github.com/TheJustinSunPrize/awards/pull/5098) (`JSP-000234` / Erdős #273: complete strict covering system of $\mathbb{Z}$ and $\mathbb{N}$ with 12 distinct moduli $p_i - 1 > 1$ for primes $p_i \ge 3$ proved via `erdos_273.variants.three_int` and `literal_jsp_000234_int_covering`; $p_i \ge 5$ variant open).
+  - [PR #5107](https://github.com/TheJustinSunPrize/awards/pull/5107) (`JSP-000595` / Erdős #727: complete $k=1$ infinitude theorem $((n+1)!)^2 \mid (2n)!$ proved via `erdos_727.variants.k_1` and `literal_jsp_000595_infinite`; $k \ge 2$ conjecture open).
+
+[Current review status](verification/2026-10-19-repairs/REVIEW_STATUS.md). They cite 27 distinct source files; the repository contains 33 problem modules plus `Basic.lean`. A successful Lean check does not mean a module solves the full prize problem or qualifies for an award.
 
 The earlier baseline audit compiled all 34 modules, checked the axiom dependencies of all 2,514 theorem declarations (including generated declarations), and replayed all 34 modules with Lean's `leanchecker`. Only the standard classical axioms were observed. The original default Lake build failed because `JspBounties.*` included a missing root module; the local configuration now uses `JspBounties.+` and the full build passes. Historical submitted commits retain the original configuration.
 
@@ -71,15 +81,15 @@ lake build
 | `JspBounties/Erdos602.lean` | `JSP-000489` | #602 | `erdos_602.variants.countable_index` (Bernstein Property B theorem), `erdos_602.variants.disjoint`, `erdos_602.variants.two_sets`, `disjoint_without_infinite_claim.disproof` |
 | `JspBounties/Erdos261.lean` | `JSP-000226` | #261 | `erdos_261.variants.borwein_loring`, `erdos_261.variants.borwein_loring_property`, `erdos_261.parts.i`, `erdos_261.variants.two_representations` |
 | `JspBounties/Erdos885.lean` | `JSP-000736` | #885 | `TwoNumbers.literal_two_numbers`, `TwoNumbers.literal_two_number_witnesses` (complete two-integer scope; not the k-integer conjecture), plus `erdos_885.variants.k_eq_2`, `k_eq_3`, `k_eq_4` |
-| `JspBounties/Erdos124.lean` | `JSP-000131` | #124 | `erdos124.zero`, `erdos124.zero_all`, `erdos124.converse`, `erdos124.eventually_iff_le_sum` |
+| `JspBounties/Erdos124.lean` | `JSP-000131` | #124 | `erdos124.zero`, `erdos124.zero_all`, `erdos124.converse`, `erdos124.converse_of_k`, `erdos124.eventually_iff_le_sum`, `erdos124.melfi_construction_zero` |
 | `JspBounties/Erdos273.lean` | `JSP-000234` | #273 | `erdos_273.variants.three` (Explicit 12-congruence strict covering system mod 360 with moduli $p - 1$, $p \ge 3$ prime) |
 | `JspBounties/Erdos291_367.lean` | `JSP-000247` / `JSP-000303` | #291 / #367 | `Erdos291.erdos_291.parts.ii`, `Erdos367.erdos_367.parts.ii`, `Erdos367.erdos_367.variants.k_le_two`, `Erdos367.erdos_367.variants.k_ge_three_lower` |
 | `JspBounties/Erdos670.lean` | `JSP-000544` | #670 | `erdos_670.variants.dim_one` (Erdős 1997 $(1-\varepsilon)n^2$ diameter bound), `erdos_670.variants.choose_two` |
-| `JspBounties/Erdos939.lean` | `JSP-000780` / `JSP-000781` | #939 | `erdos_939.variants.triples`, `erdos_939.variants.finite`, `erdos_939_six_infinite`, `erdos_939.variants.seven`, `erdos_939.variants.eight`, `erdos_939.variants.examples` |
+| `JspBounties/Erdos939.lean` | `JSP-000780` / `JSP-000781` | #939 | `erdos_939.variants.triples`, `erdos_939.variants.triples_non_cube` (Cohn 1998 non-cube pairwise-coprime triples), `erdos_939.variants.infinite_of_six_le`, `erdos_939.variants.finite`, `erdos_939_six_infinite`, `erdos_939.variants.seven`, `erdos_939.variants.eight`, `erdos_939.variants.examples` |
 | `JspBounties/Erdos80_596_668.lean` | `JSP-000097` / `JSP-000483` / `JSP-000542` | #80 / #596 / #668 | `Erdos596.erdos_596.variants.C4_free_countable_escape`, `Erdos668.erdos_668.parts.ii`, `Erdos668.erdos_668.variants.four_points`, `Erdos80.unrestricted_erdos_80_parts_i` |
 | `JspBounties/Erdos657.lean` | `JSP-000533` | #657 | `erdos_657.variants.straus` (Straus $2^k$-point hyperbox isosceles-free construction in $\mathbb{R}^k$) |
 | `JspBounties/Erdos44.lean` | `JSP-000072` | #44 | `erdos_turan_parabola_sidon`, `sidon_set_lower_bound_sqrt_div_three`, `greedy_sidon_construction`, `maxSidonSubsetCard_icc_bound` |
 | `JspBounties/Erdos319.lean` | `JSP-000265` | #319 | `erdos_319_isBigO`, `adenwalla_irreducible_of_unit_fraction_sum`, `erdos_319_isTheta_of_lb` |
 | `JspBounties/Erdos413.lean` | `JSP-000340` | #413 | `erdos_413_parts_ii_iff_linear_omega`, `erdos_413_parts_ii_of_lau_v3` (conditional), `barrier_traps_iterates`, `barrier_coalesces_trajectories`, `infinite_not_isBarrier_omega` |
 | `JspBounties/Erdos711.lean` | `JSP-000579` | #711 | `exists_isMinimalIntervalLength`, `isMinimalIntervalLength_add_iff_of_dvd`, `n_add_one_le_of_hasDivisibleDistinctTuple` |
-| `JspBounties/Erdos727_273.lean` | `JSP-000595` / `JSP-000234` | #727 / #273 | `Erdos727.erdos_727.variants.k_1` (Balakram infinite family $((n+1)!)^2 \mid (2n)!$), `Erdos273.erdos_273.variants.three`, `Erdos273.erdos_273.variants.three_int` |
+| `JspBounties/Erdos727_273.lean` | `JSP-000595` / `JSP-000234` | #727 / #273 | `Erdos727.erdos_727.variants.k_1`, `Erdos727.literal_jsp_000595_infinite`, `Erdos273.erdos_273.variants.three`, `Erdos273.erdos_273.variants.three_int`, `Erdos273.literal_jsp_000234_int_covering` |
