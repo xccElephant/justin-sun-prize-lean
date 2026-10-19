@@ -1,0 +1,226 @@
+[
+  {
+    "jsp": "JSP-000211",
+    "erdos": 240,
+    "decision": "Infinite prime-set smooth-gap endpoint already exists",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos240.lean"
+    ],
+    "limits": [
+      "Definitions and final assembly read; Baker source supplied by named theorem; no full analytic-closure build.",
+      "No global priority, proof acceptance or prize entitlement determined."
+    ],
+    "report": "verification/2026-10-20-execution/README.md"
+  },
+  {
+    "jsp": "JSP-000281",
+    "erdos": 339,
+    "decision": "Restricted additive-basis lower-density endpoint already exists",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos339.lean"
+    ],
+    "limits": [
+      "Restricted sums, equality-pattern counting and final lower-density proof read; imported closure not rebuilt.",
+      "No global priority, proof acceptance or prize entitlement determined."
+    ],
+    "report": "verification/2026-10-20-execution/README.md"
+  },
+  {
+    "jsp": "JSP-000320",
+    "erdos": 387,
+    "decision": "Common source conditional; another original repository supplies completed error limits",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "source": [
+      "https://github.com/CollinYuanjieRen/awards/blob/0f6c715ed6e5335ecdff85defbda605caca92475/submissions/jsp-000320-cyr/Erdos387Proof/Main.lean"
+    ],
+    "limits": [
+      "Canonical, Main, MainAssembly, ConvenientError and SeparatedError read; entire 699-module closure not rebuilt.",
+      "No global priority, proof acceptance or prize entitlement determined."
+    ],
+    "report": "verification/2026-10-20-execution/README.md"
+  },
+  {
+    "jsp": "JSP-000448",
+    "erdos": 557,
+    "decision": "Earlier standalone all-k,n tree Ramsey source already exists",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "source": [
+      "https://github.com/zhangjun725/erdos557/blob/c4e0ab13027f8bb50defade11cf8a53c7b8b0ba9/Erdos557/Basic.lean"
+    ],
+    "limits": [
+      "Full Basic.lean reduction read; imported Erdos548 not reverified.",
+      "No global priority, proof acceptance or prize entitlement determined."
+    ],
+    "report": "verification/2026-10-20-execution/README.md"
+  },
+  {
+    "jsp": "JSP-000603",
+    "erdos": 735,
+    "decision": "All magic-configuration classification endpoint already exists",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos735/Final.lean"
+    ],
+    "limits": [
+      "Actual primal definitions and full classification assembly read; large geometric core not reverified.",
+      "No global priority, proof acceptance or prize entitlement determined."
+    ],
+    "report": "verification/2026-10-20-execution/README.md"
+  },
+  {
+    "jsp": "JSP-000641",
+    "erdos": 781,
+    "decision": "Cubic bounds and rejection of quadratic formula already formalized",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos781.lean"
+    ],
+    "limits": [
+      "Primary Alon-Spencer proof and stronger competing endpoint read; no independent build. See COMBINATORICS.md.",
+      "No global priority, proof acceptance or prize entitlement determined."
+    ],
+    "report": "verification/2026-10-20-execution/README.md"
+  },
+  {
+    "jsp": "JSP-000644",
+    "erdos": 784,
+    "decision": "Both literal and intended nonmultiples thresholds already formalized",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos784.lean"
+    ],
+    "limits": [
+      "Primary Weingartner paper, definitions, threshold endpoint and critical constructions read. See NUMBER_THEORY.md.",
+      "No global priority, proof acceptance or prize entitlement determined."
+    ],
+    "report": "verification/2026-10-20-execution/README.md"
+  },
+  {
+    "jsp": "JSP-000679",
+    "erdos": 823,
+    "decision": "Arbitrary equal-sigma quotient limits already formalized",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos823.lean"
+    ],
+    "limits": [
+      "Primary Pollack proof and endpoint/analytic dependency interfaces read; no transitive build. See NUMBER_THEORY.md.",
+      "No global priority, proof acceptance or prize entitlement determined."
+    ],
+    "report": "verification/2026-10-20-execution/README.md"
+  },
+  {
+    "jsp": "JSP-000782",
+    "erdos": 941,
+    "decision": "Full eventual three-powerful representation endpoint already exists",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos941.lean"
+    ],
+    "limits": [
+      "Original E941 page and final all-residue-case assembly read; sphere/analytic closure not rebuilt.",
+      "No global priority, proof acceptance or prize entitlement determined."
+    ],
+    "report": "verification/2026-10-20-execution/README.md"
+  },
+  {
+    "jsp": "JSP-000854",
+    "erdos": 1027,
+    "decision": "Full hypergraph good-subset proportion endpoint already exists",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1027.lean"
+    ],
+    "limits": [
+      "FC statement, actual goodSets definition, fixed-budget and real-budget assembly read; imported DGK proof not fully audited.",
+      "No global priority, proof acceptance or prize entitlement determined."
+    ],
+    "report": "verification/2026-10-20-execution/README.md"
+  },
+  {
+    "jsp": "JSP-000857",
+    "erdos": 1031,
+    "decision": "Nontrivial regular induced-subgraph endpoint already exists",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1031.lean"
+    ],
+    "limits": [
+      "Original E1031 page, graph definitions and final quantitative extraction read; no full source build.",
+      "No global priority, proof acceptance or prize entitlement determined."
+    ],
+    "report": "verification/2026-10-20-execution/README.md"
+  },
+  {
+    "jsp": "JSP-000900",
+    "erdos": 1083,
+    "decision": "Full higher-dimensional distance upper/lower source already exists",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "source": [
+      "https://github.com/cadamcat/distinct-distances-lean4/blob/0e56d4c94cd6af4292479c961eb3dff10421ef56/DistinctDistances/Main.lean"
+    ],
+    "limits": [
+      "PR and actual main assembly read only; imported source and underlying mathematical claim remain independently unverified.",
+      "No global priority, proof acceptance or prize entitlement determined."
+    ],
+    "report": "verification/2026-10-20-execution/README.md"
+  },
+  {
+    "jsp": "JSP-000936",
+    "erdos": 1129,
+    "decision": "General free-node characterization exists beyond plby small-node theorem",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "source": [
+      "https://github.com/CollinYuanjieRen/awards/blob/791bf61df4366b60b6b47b9e062661ee65b3143b/submissions/jsp-000936-cyr/Jsp936/Main.lean"
+    ],
+    "limits": [
+      "Actual iff proof and dependency call sites read; canonical core and unit-circle extension not reverified.",
+      "No global priority, proof acceptance or prize entitlement determined."
+    ],
+    "report": "verification/2026-10-20-execution/README.md"
+  },
+  {
+    "jsp": "JSP-001010",
+    "erdos": 1205,
+    "decision": "Complete minimum-coverage asymptotic endpoint exists",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1205.lean"
+    ],
+    "limits": [
+      "Assignment, coverage, finite extremum and final asymptotic assembly read; no independent build.",
+      "No global priority, proof acceptance or prize entitlement determined."
+    ],
+    "report": "verification/2026-10-20-execution/README.md"
+  },
+  {
+    "jsp": "JSP-001018",
+    "erdos": 1213,
+    "decision": "Bounded-gap consecutive-block theorem and stronger multiplicity source exist",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1213.lean"
+    ],
+    "limits": [
+      "Full finite counting proof and signed/multiplicity interfaces read; historical PDF incomplete. See COMBINATORICS.md.",
+      "No global priority, proof acceptance or prize entitlement determined."
+    ],
+    "report": "verification/2026-10-20-execution/README.md"
+  },
+  {
+    "jsp": "JSP-001019",
+    "erdos": 1214,
+    "decision": "Full equal-prime-support implication already exists",
+    "evidence_level": "bounded_source_scope_review_no_independent_build",
+    "source": [
+      "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1214.lean"
+    ],
+    "limits": [
+      "FC exact statement and final order/factorization assembly read; imported deep dependencies not rebuilt.",
+      "No global priority, proof acceptance or prize entitlement determined."
+    ],
+    "report": "verification/2026-10-20-execution/README.md"
+  }
+]

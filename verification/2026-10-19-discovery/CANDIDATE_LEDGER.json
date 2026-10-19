@@ -2019,8 +2019,21 @@
         "title": "feat: record formal Lean 4 verification for JSP-000211"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "execution_bounded_review_no_implementation_approved",
+    "review": {
+      "jsp": "JSP-000211",
+      "erdos": 240,
+      "decision": "Infinite prime-set smooth-gap endpoint already exists",
+      "evidence_level": "bounded_source_scope_review_no_independent_build",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos240.lean"
+      ],
+      "limits": [
+        "Definitions and final assembly read; Baker source supplied by named theorem; no full analytic-closure build.",
+        "No global priority, proof acceptance or prize entitlement determined."
+      ],
+      "report": "verification/2026-10-20-execution/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -2682,8 +2695,21 @@
         "title": "JSP-000281 / Erdos 339: complete two-clause Lean proof, catalog evidence and prize review"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "execution_bounded_review_no_implementation_approved",
+    "review": {
+      "jsp": "JSP-000281",
+      "erdos": 339,
+      "decision": "Restricted additive-basis lower-density endpoint already exists",
+      "evidence_level": "bounded_source_scope_review_no_independent_build",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos339.lean"
+      ],
+      "limits": [
+        "Restricted sums, equality-pattern counting and final lower-density proof read; imported closure not rebuilt.",
+        "No global priority, proof acceptance or prize entitlement determined."
+      ],
+      "report": "verification/2026-10-20-execution/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -3544,8 +3570,21 @@
         "title": "JSP-000320: Lean formalization of the Erdős #387 disproof (Bui–Naprienko–Pratt–Zaharescu)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "execution_bounded_review_no_implementation_approved",
+    "review": {
+      "jsp": "JSP-000320",
+      "erdos": 387,
+      "decision": "Common source conditional; another original repository supplies completed error limits",
+      "evidence_level": "bounded_source_scope_review_no_independent_build",
+      "source": [
+        "https://github.com/CollinYuanjieRen/awards/blob/0f6c715ed6e5335ecdff85defbda605caca92475/submissions/jsp-000320-cyr/Erdos387Proof/Main.lean"
+      ],
+      "limits": [
+        "Canonical, Main, MainAssembly, ConvenientError and SeparatedError read; entire 699-module closure not rebuilt.",
+        "No global priority, proof acceptance or prize entitlement determined."
+      ],
+      "report": "verification/2026-10-20-execution/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -4757,6 +4796,12 @@
       "report": "FINAL_EVIDENCE.md",
       "source": [],
       "limits": "PR300 explicitly limits itself to a scoped component and reports a suspected gap in a published proof. Original paper/gap not independently verified; neither complete nor disproved is established here."
+    },
+    "capacity_followup_2026_10_20": {
+      "report": "verification/2026-10-20-execution/blumenthal-capacity/PROOF_ATTEMPT.md",
+      "complete_proof": false,
+      "final_counterexample": false,
+      "finding": "Cyclic adjacent-band bipartiteness route refuted by exact K5 matching coloring. Numerical probes give no proof."
     }
   },
   {
@@ -5322,8 +5367,21 @@
         "title": "JSP-000448: register Lean formalization (Erdős #557)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "execution_bounded_review_no_implementation_approved",
+    "review": {
+      "jsp": "JSP-000448",
+      "erdos": 557,
+      "decision": "Earlier standalone all-k,n tree Ramsey source already exists",
+      "evidence_level": "bounded_source_scope_review_no_independent_build",
+      "source": [
+        "https://github.com/zhangjun725/erdos557/blob/c4e0ab13027f8bb50defade11cf8a53c7b8b0ba9/Erdos557/Basic.lean"
+      ],
+      "limits": [
+        "Full Basic.lean reduction read; imported Erdos548 not reverified.",
+        "No global priority, proof acceptance or prize entitlement determined."
+      ],
+      "report": "verification/2026-10-20-execution/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false,
     "pool_correction": "Added 2026-10-19: official index says No; detail begins Reported; standalone Lean source not located. See verification/2026-10-19-open-space/README.md."
@@ -7478,8 +7536,21 @@
         "title": "JSP-000603: formalize exact degree certificates for magic configurations"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "execution_bounded_review_no_implementation_approved",
+    "review": {
+      "jsp": "JSP-000603",
+      "erdos": 735,
+      "decision": "All magic-configuration classification endpoint already exists",
+      "evidence_level": "bounded_source_scope_review_no_independent_build",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos735/Final.lean"
+      ],
+      "limits": [
+        "Actual primal definitions and full classification assembly read; large geometric core not reverified.",
+        "No global priority, proof acceptance or prize entitlement determined."
+      ],
+      "report": "verification/2026-10-20-execution/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -8292,8 +8363,21 @@
         "title": "Add JSP-000641 finite descending-wave certificate"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "execution_bounded_review_no_implementation_approved",
+    "review": {
+      "jsp": "JSP-000641",
+      "erdos": 781,
+      "decision": "Cubic bounds and rejection of quadratic formula already formalized",
+      "evidence_level": "bounded_source_scope_review_no_independent_build",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos781.lean"
+      ],
+      "limits": [
+        "Primary Alon-Spencer proof and stronger competing endpoint read; no independent build. See COMBINATORICS.md.",
+        "No global priority, proof acceptance or prize entitlement determined."
+      ],
+      "report": "verification/2026-10-20-execution/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -8360,8 +8444,21 @@
         "title": "JSP-000644: record existing Lean formalization (plby/lean-proofs)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "execution_bounded_review_no_implementation_approved",
+    "review": {
+      "jsp": "JSP-000644",
+      "erdos": 784,
+      "decision": "Both literal and intended nonmultiples thresholds already formalized",
+      "evidence_level": "bounded_source_scope_review_no_independent_build",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos784.lean"
+      ],
+      "limits": [
+        "Primary Weingartner paper, definitions, threshold endpoint and critical constructions read. See NUMBER_THEORY.md.",
+        "No global priority, proof acceptance or prize entitlement determined."
+      ],
+      "report": "verification/2026-10-20-execution/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -9017,8 +9114,21 @@
         "title": "JSP-000679: record existing Lean formalization (plby/lean-proofs)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "execution_bounded_review_no_implementation_approved",
+    "review": {
+      "jsp": "JSP-000679",
+      "erdos": 823,
+      "decision": "Arbitrary equal-sigma quotient limits already formalized",
+      "evidence_level": "bounded_source_scope_review_no_independent_build",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos823.lean"
+      ],
+      "limits": [
+        "Primary Pollack proof and endpoint/analytic dependency interfaces read; no transitive build. See NUMBER_THEORY.md.",
+        "No global priority, proof acceptance or prize entitlement determined."
+      ],
+      "report": "verification/2026-10-20-execution/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -10754,8 +10864,21 @@
         "title": "Record formal Lean proof for JSP-000782 (Heath-Brown sums of three powerful numbers)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "execution_bounded_review_no_implementation_approved",
+    "review": {
+      "jsp": "JSP-000782",
+      "erdos": 941,
+      "decision": "Full eventual three-powerful representation endpoint already exists",
+      "evidence_level": "bounded_source_scope_review_no_independent_build",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos941.lean"
+      ],
+      "limits": [
+        "Original E941 page and final all-residue-case assembly read; sphere/analytic closure not rebuilt.",
+        "No global priority, proof acceptance or prize entitlement determined."
+      ],
+      "report": "verification/2026-10-20-execution/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -12050,8 +12173,21 @@
         "title": "JSP-000854: Lean formalization of the hypergraph subset-counting theorem"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "execution_bounded_review_no_implementation_approved",
+    "review": {
+      "jsp": "JSP-000854",
+      "erdos": 1027,
+      "decision": "Full hypergraph good-subset proportion endpoint already exists",
+      "evidence_level": "bounded_source_scope_review_no_independent_build",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1027.lean"
+      ],
+      "limits": [
+        "FC statement, actual goodSets definition, fixed-budget and real-budget assembly read; imported DGK proof not fully audited.",
+        "No global priority, proof acceptance or prize entitlement determined."
+      ],
+      "report": "verification/2026-10-20-execution/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -12088,8 +12224,21 @@
         "title": "docs: record Lean formalization for JSP-000857"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "execution_bounded_review_no_implementation_approved",
+    "review": {
+      "jsp": "JSP-000857",
+      "erdos": 1031,
+      "decision": "Nontrivial regular induced-subgraph endpoint already exists",
+      "evidence_level": "bounded_source_scope_review_no_independent_build",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1031.lean"
+      ],
+      "limits": [
+        "Original E1031 page, graph definitions and final quantitative extraction read; no full source build.",
+        "No global priority, proof acceptance or prize entitlement determined."
+      ],
+      "report": "verification/2026-10-20-execution/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -12588,8 +12737,21 @@
         "title": "catalog: record Lean formalization for JSP-000900"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "execution_bounded_review_no_implementation_approved",
+    "review": {
+      "jsp": "JSP-000900",
+      "erdos": 1083,
+      "decision": "Full higher-dimensional distance upper/lower source already exists",
+      "evidence_level": "bounded_source_scope_review_no_independent_build",
+      "source": [
+        "https://github.com/cadamcat/distinct-distances-lean4/blob/0e56d4c94cd6af4292479c961eb3dff10421ef56/DistinctDistances/Main.lean"
+      ],
+      "limits": [
+        "PR and actual main assembly read only; imported source and underlying mathematical claim remain independently unverified.",
+        "No global priority, proof acceptance or prize entitlement determined."
+      ],
+      "report": "verification/2026-10-20-execution/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -13179,8 +13341,21 @@
         "title": "Formalize JSP-000936: complete free-node minimizer characterization"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "execution_bounded_review_no_implementation_approved",
+    "review": {
+      "jsp": "JSP-000936",
+      "erdos": 1129,
+      "decision": "General free-node characterization exists beyond plby small-node theorem",
+      "evidence_level": "bounded_source_scope_review_no_independent_build",
+      "source": [
+        "https://github.com/CollinYuanjieRen/awards/blob/791bf61df4366b60b6b47b9e062661ee65b3143b/submissions/jsp-000936-cyr/Jsp936/Main.lean"
+      ],
+      "limits": [
+        "Actual iff proof and dependency call sites read; canonical core and unit-circle extension not reverified.",
+        "No global priority, proof acceptance or prize entitlement determined."
+      ],
+      "report": "verification/2026-10-20-execution/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -13980,8 +14155,21 @@
         "title": "Submit Lean formalization for JSP-001010 (Erdős #1205, F(x) ∼ log x with explicit two-sided bounds)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "execution_bounded_review_no_implementation_approved",
+    "review": {
+      "jsp": "JSP-001010",
+      "erdos": 1205,
+      "decision": "Complete minimum-coverage asymptotic endpoint exists",
+      "evidence_level": "bounded_source_scope_review_no_independent_build",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1205.lean"
+      ],
+      "limits": [
+        "Assignment, coverage, finite extremum and final asymptotic assembly read; no independent build.",
+        "No global priority, proof acceptance or prize entitlement determined."
+      ],
+      "report": "verification/2026-10-20-execution/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -14102,8 +14290,21 @@
         "title": "problems, candidates: add Lean proof and observation candidate for JSP-001018"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "execution_bounded_review_no_implementation_approved",
+    "review": {
+      "jsp": "JSP-001018",
+      "erdos": 1213,
+      "decision": "Bounded-gap consecutive-block theorem and stronger multiplicity source exist",
+      "evidence_level": "bounded_source_scope_review_no_independent_build",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1213.lean"
+      ],
+      "limits": [
+        "Full finite counting proof and signed/multiplicity interfaces read; historical PDF incomplete. See COMBINATORICS.md.",
+        "No global priority, proof acceptance or prize entitlement determined."
+      ],
+      "report": "verification/2026-10-20-execution/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -14145,8 +14346,21 @@
         "title": "Record formal Lean proof for JSP-001019 (Corrales-Rodrigáñez-Schoof support problem)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "execution_bounded_review_no_implementation_approved",
+    "review": {
+      "jsp": "JSP-001019",
+      "erdos": 1214,
+      "decision": "Full equal-prime-support implication already exists",
+      "evidence_level": "bounded_source_scope_review_no_independent_build",
+      "source": [
+        "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1214.lean"
+      ],
+      "limits": [
+        "FC exact statement and final order/factorization assembly read; imported deep dependencies not rebuilt.",
+        "No global priority, proof acceptance or prize entitlement determined."
+      ],
+      "report": "verification/2026-10-20-execution/README.md"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },

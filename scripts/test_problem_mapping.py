@@ -15,6 +15,26 @@ else:
 
 
 class ProblemMappingTests(unittest.TestCase):
+    def test_previously_audited_submission_pairs(self):
+        # These exact scopes were independently established in the repair
+        # queue; the legacy discovery map must not contradict that audit.
+        mapping = load_problem_mapping()
+        for jsp, erdos in {500: 617, 403: 503, 247: 291, 780: 939,
+                           58: 23, 280: 338, 569: 699, 395: 488,
+                           210: 238, 579: 711}.items():
+            with self.subTest(jsp=jsp):
+                self.assertEqual(mapping.get(jsp), erdos)
+
+    def test_newly_source_verified_pairs(self):
+        # Exact statements and fixed-source evidence are recorded in
+        # verification/2026-10-20-execution/MAPPINGS.md.
+        mapping = load_problem_mapping()
+        for jsp, erdos in {211: 240, 281: 339, 585: 717, 782: 941,
+                           854: 1027, 857: 1031, 1010: 1205,
+                           1018: 1213, 1019: 1214}.items():
+            with self.subTest(jsp=jsp):
+                self.assertEqual(mapping.get(jsp), erdos)
+
     def test_statement_verified_pairs(self):
         mapping = json.loads(
             Path(__file__).with_name("jsp_erdos_map.json").read_text()

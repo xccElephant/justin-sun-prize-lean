@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-20",
+  "timezone": "Asia/Shanghai",
+  "official_main": "fd8fa66abb4e21df828fdebc25298e9ad75521bd",
+  "pool": 295,
+  "new_bounded_reviews": 16,
+  "documented_varied_depth": 53,
+  "without_substantive_review": 242,
+  "new_complete_proofs": 0,
+  "new_award_prs": 0,
+  "implementation_targets_admitted": 0,
+  "ready": 5,
+  "draft": 27,
+  "math_capacity_proof_complete": false,
+  "math_capacity_final_counterexample": false,
+  "mapping_fixes": 19,
+  "mapping_tests": "five tests pass; watched red for nineteen corrected pairs",
+  "pilot_status": "prepared; no currently activated exposition route established",
+  "active_agents": 0
+}
