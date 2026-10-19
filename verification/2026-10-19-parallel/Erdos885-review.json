@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-19",
+  "status": "ready_for_scope_review",
+  "proof_review": "pass_no_blocking_findings",
+  "scope": "literal_two_positive_integers_arbitrarily_many_common_positive_factor_differences",
+  "source_sha256": "652df654369c775e8afd8df238009a41ff5a2e2a1edce52f8da85a71ad4080d3",
+  "source_stable": true,
+  "targets": [
+    "Erdos885.TwoNumbers.literal_two_number_witnesses",
+    "Erdos885.TwoNumbers.literal_two_numbers"
+  ],
+  "literal_two_number_scope_complete": true,
+  "original_k_number_scope_complete": false,
+  "scope_review_submission_ready": true,
+  "official_scope_accepted": false,
+  "award_guaranteed": false,
+  "checks": {
+    "point_seed_and_total_doubling": "pass",
+    "curve_and_nonzero_denominators": "pass",
+    "two_adic_descent": "pass",
+    "absolute_u_injective": "pass",
+    "common_L_independent_of_i": "pass",
+    "positive_factor_pairs": "pass_independent_original_definition_bridge",
+    "positive_differences": "pass",
+    "exact_cardinality_no_duplicates": "pass",
+    "finite_intersection_ncard": "pass",
+    "k_zero": "pass"
+  },
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "sorryAx": false,
+  "blocking_findings": [],
+  "limitations": [
+    "Lean's own kernel replay with existing imported dependencies; not an independent kernel implementation",
+    "No complete source recompilation or from-scratch dependency build in this review",
+    "Offline catalog snapshot only; no live priority or eligibility determination",
+    "Literal catalog terminology/quantifier scope requires maintainer acceptance"
+  ],
+  "independent_check": "Independent885.lean, exact source included for reproduction",
+  "review_note": "A separate reviewer inspected the complete proof and independently compiled exact signatures plus a bridge to strictly positive factors. Bundled kernel replay also passed. This is internal technical verification, not organizer acceptance."
+}

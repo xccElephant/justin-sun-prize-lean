@@ -1,0 +1,5 @@
+'Erdos885.erdos_885.variants.k_eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos885.erdos_885.variants.k_eq_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos885.erdos_885.variants.k_eq_4' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos885.TwoNumbers.literal_two_number_witnesses' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos885.TwoNumbers.literal_two_numbers' depends on axioms: [propext, Classical.choice, Quot.sound]

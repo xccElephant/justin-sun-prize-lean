@@ -1,0 +1,13 @@
+Erdos885.erdos_885.variants.k_eq_2 :
+  ∃ Ns, (∀ n ∈ Ns, 1 ≤ n) ∧ Ns.card = 2 ∧ (⋂ n ∈ Ns, Erdos885.factorDifferenceSet n).ncard ≥ 2
+Erdos885.erdos_885.variants.k_eq_3 :
+  ∃ Ns, (∀ n ∈ Ns, 1 ≤ n) ∧ Ns.card = 3 ∧ (⋂ n ∈ Ns, Erdos885.factorDifferenceSet n).ncard ≥ 3
+Erdos885.erdos_885.variants.k_eq_4 :
+  ∃ Ns, (∀ n ∈ Ns, 1 ≤ n) ∧ Ns.card = 4 ∧ (⋂ n ∈ Ns, Erdos885.factorDifferenceSet n).ncard ≥ 4
+Erdos885.TwoNumbers.literal_two_numbers (k : ℕ) :
+  ∃ N M, 0 < N ∧ N < M ∧ k ≤ (Erdos885.factorDifferenceSet N ∩ Erdos885.factorDifferenceSet M).ncard
+Erdos885.TwoNumbers.literal_two_number_witnesses (k : ℕ) :
+  ∃ N M D,
+    0 < N ∧ N < M ∧ D.card = k ∧ ∀ d ∈ D, 0 < d ∧ d ∈ Erdos885.factorDifferenceSet N ∩ Erdos885.factorDifferenceSet M
+'Erdos885.TwoNumbers.literal_two_numbers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos885.TwoNumbers.literal_two_number_witnesses' depends on axioms: [propext, Classical.choice, Quot.sound]

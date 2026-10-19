@@ -1,0 +1,11 @@
+{
+  "command": [
+    "lake",
+    "build",
+    "+JspBounties.Erdos885"
+  ],
+  "exit_code": 0,
+  "seconds": 24.35409375,
+  "source_sha256": "652df654369c775e8afd8df238009a41ff5a2e2a1edce52f8da85a71ad4080d3",
+  "source_stable": true
+}
