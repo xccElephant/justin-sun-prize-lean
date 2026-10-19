@@ -1,0 +1,41 @@
+[
+  {
+    "pr": 5088,
+    "catalog_commit": "ed4713c15467dddda7e4f7084302348ae80fb8f2",
+    "path": "problems/catalog-0101-0200.md"
+  },
+  {
+    "pr": 5098,
+    "catalog_commit": "13c954429c3538a2622cb4e79eed658cdf107cd9",
+    "path": "problems/catalog-0201-0300.md"
+  },
+  {
+    "pr": 5107,
+    "catalog_commit": "d7d4fd3d3c184dd37b696f9d7da3db41a7dfb986",
+    "path": "problems/catalog-0501-0600.md"
+  },
+  {
+    "pr": 5088,
+    "body_updated": true,
+    "draft": true,
+    "title": "JSP-000131: formalize k=0 characterization and necessary conditions; k>=1 open"
+  },
+  {
+    "pr": 5089,
+    "body_updated": true,
+    "draft": false,
+    "title": "JSP-000780: complete 3-powerful and non-cube triples (Nitaj & Cohn); scope review"
+  },
+  {
+    "pr": 5098,
+    "body_updated": true,
+    "draft": true,
+    "title": "JSP-000234: partial p>=3 covering; original p>=5 problem unproved"
+  },
+  {
+    "pr": 5107,
+    "body_updated": true,
+    "draft": true,
+    "title": "JSP-000595: partial k=1 factorial divisibility; k>=2 unproved"
+  }
+]

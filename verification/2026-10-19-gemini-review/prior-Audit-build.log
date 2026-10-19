@@ -1,0 +1,22 @@
+def Nat.Full : ℕ → ℕ → Prop :=
+fun k n => ∀ p ∈ n.primeFactors, p ^ k ∣ n
+def Erdos939.Noncube : ℕ → Prop :=
+fun a => ¬∃ r, r ^ 3 = a
+Erdos939.noncube_triples_infinite : {t |
+    0 < t.1 ∧
+      0 < t.2.1 ∧
+        0 < t.2.2 ∧
+          t.1.Coprime t.2.1 ∧
+            t.1.Coprime t.2.2 ∧
+              t.2.1.Coprime t.2.2 ∧
+                Nat.Full 3 t.1 ∧
+                  Nat.Full 3 t.2.1 ∧
+                    Nat.Full 3 t.2.2 ∧
+                      t.1 + t.2.1 = t.2.2 ∧
+                        Erdos939.Noncube t.1 ∧ Erdos939.Noncube t.2.1 ∧ Erdos939.Noncube t.2.2}.Infinite
+'Erdos939.cube_of_mul_cube' depends on axioms: [propext, Quot.sound]
+'Erdos939.noncube_mul_cube' depends on axioms: [propext, Quot.sound]
+'Erdos939.cohn_seed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos939.larger_noncube' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos939.noncube_triples_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'cohn_noncube_statement' depends on axioms: [propext, Classical.choice, Quot.sound]

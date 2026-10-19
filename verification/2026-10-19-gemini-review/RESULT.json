@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-19",
+  "reviewed_project_commit": "5fe04774e75dbfac811c45d1bc235a38c5e97838",
+  "new_proof_commit": "a54cd54b44bc9b565cdb40e3b8ee9e935aa53e61",
+  "new_non_cube_theorem": "Erdos939.erdos_939.variants.triples_non_cube",
+  "new_non_cube_compile": 0,
+  "new_non_cube_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "new_non_cube_replay": 0,
+  "proof_bytes_match_published_pin": true,
+  "prior_same_scope": {
+    "pr": 265,
+    "repository": "pcycho/awards",
+    "commit": "255a6f7e4de24b3a65626fd6860fc31c66b4b8ac",
+    "files": [
+      "Prize939.lean",
+      "CohnNoncube.lean",
+      "Audit.lean"
+    ],
+    "compiled_all_three": true,
+    "target": "Erdos939.noncube_triples_infinite",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "pr_created_utc": "2026-09-16T19:42:46Z",
+    "pr_closed_utc": "2026-09-24T08:07:22Z",
+    "prior_kernel_replay_this_review": false
+  },
+  "prior_scope_objection": {
+    "date_utc": "2026-09-20T12:20:42Z",
+    "url": "https://github.com/TheJustinSunPrize/awards/pull/265#issuecomment-5749759383",
+    "author": "Federico2014",
+    "authorAssociation": "CONTRIBUTOR",
+    "limit": "Comment states full-original-problem requirement and closure for partial progress; does not identify a failing theorem, missing parameter, or final committee scope adjudication."
+  },
+  "corrected_bad_sha": {
+    "wrong": "5fe04775f78436998a1c6d420be636499e9f9d60",
+    "actual": "5fe04774e75dbfac811c45d1bc235a38c5e97838",
+    "remote_wrong_sha_status": "No commit found"
+  },
+  "E124_reverted_to_before_gemini_bytes": true,
+  "wrappers_E273_E727_compiled": true,
+  "wrappers_are_new_original_problem_solutions": false,
+  "ready": [
+    5076,
+    5079,
+    5080,
+    5089,
+    5095
+  ],
+  "draft_count": 27,
+  "new_award_eligibility_established": false,
+  "new_original_JSP_completion_established": false,
+  "remote_repairs": [
+    5088,
+    5089,
+    5098,
+    5107
+  ],
+  "new_award_prs": 0,
+  "draft_state_changes_by_this_review": 0,
+  "pdf_retrieval": "Leiden HTTPS failed with TLS errors; HTTP failed502. Primary PDF not reread in this review. Seed and proof checked independently; existing attribution retained.",
+  "limitations": [
+    "Cached pinned Mathlib, not a from-source Mathlib build.",
+    "Bundled leanchecker, not a second kernel implementation.",
+    "No global prior-art exhaustion or final priority/award judgment."
+  ]
+}

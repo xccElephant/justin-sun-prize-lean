@@ -1,0 +1,16 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-j1",
+    "-o",
+    "reports/gemini-review-2026-10-19/artifacts/JspBounties/Erdos727_273.olean",
+    "JspBounties/Erdos727_273.lean"
+  ],
+  "status": "completed",
+  "exit_code": 0,
+  "seconds": 48.94,
+  "source_sha256": "924c629a7df2ebf0c1f9153f985599d1dddb1a82e021f9df49e866d2a8117e15",
+  "source_unchanged": true
+}
