@@ -2929,8 +2929,16 @@
         "title": "feat: formalize constructive cubic-root bound f(n) <= 2*ceil(n^(1/3)) for JSP-000298 (Erdos #360)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "award_path_review_prior_full_scope_source",
+    "review": {
+      "date": "2026-10-20",
+      "erdos": 360,
+      "decision": "not_admitted_existing_full_scope_endpoint",
+      "source_pin": "8822f7ddef30fadbd92e1c6ab4ed897af356af5e",
+      "theorem": "Erdos360.erdos_360",
+      "report": "verification/2026-10-20-award-path/DECISION.md",
+      "evidence_level": "bounded source/scope review; no independent compiler or full external axiom audit"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -3830,8 +3838,16 @@
         "title": "Formalize JSP-000356 / Erdős 437: full square-prefix answer"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "award_path_review_prior_full_scope_source",
+    "review": {
+      "date": "2026-10-20",
+      "erdos": 437,
+      "decision": "not_admitted_existing_full_scope_endpoint",
+      "source_pin": "8822f7ddef30fadbd92e1c6ab4ed897af356af5e",
+      "theorem": "Erdos437.erdos_437",
+      "report": "verification/2026-10-20-award-path/DECISION.md",
+      "evidence_level": "bounded source/scope review; no independent compiler or full external axiom audit"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -4316,8 +4332,16 @@
         "title": "JSP-000383: Lean proof reference"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "award_path_review_prior_full_scope_source",
+    "review": {
+      "date": "2026-10-20",
+      "erdos": 471,
+      "decision": "not_admitted_existing_full_scope_endpoint",
+      "source_pin": "8822f7ddef30fadbd92e1c6ab4ed897af356af5e",
+      "theorem": "Erdos471.erdos_471",
+      "report": "verification/2026-10-20-award-path/DECISION.md",
+      "evidence_level": "bounded source/scope review; no independent compiler or full external axiom audit"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -9731,8 +9755,16 @@
         "title": "JSP-000699: register existing Lean proof evidence"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "award_path_review_prior_full_scope_source",
+    "review": {
+      "date": "2026-10-20",
+      "erdos": 843,
+      "decision": "not_admitted_existing_full_scope_endpoint",
+      "source_pin": "8822f7ddef30fadbd92e1c6ab4ed897af356af5e",
+      "theorem": "Erdos843.erdos_843",
+      "report": "verification/2026-10-20-award-path/DECISION.md",
+      "evidence_level": "bounded source/scope review; no independent compiler or full external axiom audit"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },

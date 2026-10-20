@@ -1,6 +1,15 @@
 # Erdős 883 / JSP-000734: bounded implementation candidate
 
 **This is an incomplete research development, not an award submission.**
+
+**Allocation update, later on October20:** this candidate is now in reserve.
+The planned n36 expansion is not the default next action. The user requires a
+credible complete award submission; unresolved earlier-priority evidence and
+the remaining all-n dependencies prevent treating this research gate as an
+admitted bounty implementation. The verified code remains intact. See
+`verification/2026-10-20-award-path/DECISION.md` for the re-entry conditions and
+newly read Della Pietra endpoint evidence. The technical next steps below apply
+only if this candidate is readmitted.
 The objective is the complete pair of original questions: all permitted odd
 cycles for every n, and eventual complete tripartite K(1,l,l) subgraphs.
 

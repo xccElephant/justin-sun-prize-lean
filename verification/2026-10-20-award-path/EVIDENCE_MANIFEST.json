@@ -1,0 +1,572 @@
+[
+  {
+    "path": "reports/award-path-2026-10-20/FETCH.json",
+    "sha256": "0177dfa7ab14fdea98475412e07992cabdb64d4f047c3cd8cc637e931d41083f",
+    "bytes": 1535
+  },
+  {
+    "path": "reports/award-path-2026-10-20/PR-search-734.raw",
+    "sha256": "58c0fed51dcbd01bcac44dfc1ea33c84c6b87f2e405f10a6682b95256323e039",
+    "bytes": 41753
+  },
+  {
+    "path": "reports/award-path-2026-10-20/PR-search-883.raw",
+    "sha256": "193f60ddfc41201201cba848e627e34d0f64510a9099e283cb5431b8e41493b2",
+    "bytes": 36377
+  },
+  {
+    "path": "reports/award-path-2026-10-20/PR4972-auth.json",
+    "sha256": "7fe148a00b708ac81b9b6182eb8d263af7730beb8ed1cc56c08698ebaed076a6",
+    "bytes": 120
+  },
+  {
+    "path": "reports/award-path-2026-10-20/PR4972.raw",
+    "sha256": "5b365b68671f6bf0038c378ef6061855d6148ab6011287a6b17d695b85ef14ad",
+    "bytes": 279
+  },
+  {
+    "path": "reports/award-path-2026-10-20/PR5021-auth.json",
+    "sha256": "d1257e9054deab95dfd9c4f4e03e45a7263a48abbd2977dbca0249ba301a7557",
+    "bytes": 28488
+  },
+  {
+    "path": "reports/award-path-2026-10-20/PR5021.raw",
+    "sha256": "c933bd5030f8e79a3af0c2cce614ad2462455d001bddf3d540843801424cb0a3",
+    "bytes": 279
+  },
+  {
+    "path": "reports/award-path-2026-10-20/award-main.raw",
+    "sha256": "c933bd5030f8e79a3af0c2cce614ad2462455d001bddf3d540843801424cb0a3",
+    "bytes": 279
+  },
+  {
+    "path": "reports/award-path-2026-10-20/award-process.raw",
+    "sha256": "c4bee7e6de3cb26a552486b9727e3e5e260d12026935ea85f87c2b5b27bb03c1",
+    "bytes": 19291
+  },
+  {
+    "path": "reports/award-path-2026-10-20/contributing.raw",
+    "sha256": "e223ec22aac34a1769110255a3c81b83875ba54e214f557682c9a37e5b678d17",
+    "bytes": 8338
+  },
+  {
+    "path": "reports/award-path-2026-10-20/ddp/CommonThreshold.lean",
+    "sha256": "f8154b08754cd7fa73637c9947b7509078d23db8a4cd4f2d4cd8acc0a65a8cdd",
+    "bytes": 4276
+  },
+  {
+    "path": "reports/award-path-2026-10-20/ddp/ConcreteHallAssembly.lean",
+    "sha256": "7cafaea0bc138250e5b732fb39ab8fe9ae95f87b6c05f7f0b701c92bf198ea9c",
+    "bytes": 6505
+  },
+  {
+    "path": "reports/award-path-2026-10-20/ddp/ConcreteHallGridApplication.lean",
+    "sha256": "764465c746c0cc3ee9a8bba77bf73287f5f217bb3bc1ef9536b802c63fe525ee",
+    "bytes": 14583
+  },
+  {
+    "path": "reports/award-path-2026-10-20/ddp/Defs.lean",
+    "sha256": "66062362e6cfb3f35d38e982b88cdb8af8ff76abd0cb63b90be57c42807b587d",
+    "bytes": 1886
+  },
+  {
+    "path": "reports/award-path-2026-10-20/ddp/GlobalInput.lean",
+    "sha256": "a50023519c775ab6c0f2380513134ff86fa59d2d53c50fd7be2f1ed376090ba4",
+    "bytes": 1042
+  },
+  {
+    "path": "reports/award-path-2026-10-20/ddp/Inputs.lean",
+    "sha256": "6854c6ca6664bf69fbbf354d7b1a67c1ad3fd51e5d983ec4310653e6881faf3c",
+    "bytes": 1409
+  },
+  {
+    "path": "reports/award-path-2026-10-20/ddp/Instance.lean",
+    "sha256": "1f099a6ce39e00b826e3025a7145687b2424920857c6e34063beaef0db782276",
+    "bytes": 1506
+  },
+  {
+    "path": "reports/award-path-2026-10-20/ddp/MainConditional.lean",
+    "sha256": "bb9f7f0627c9501c6f8ea66643bce32cc84ff1fe9dc2d505871bda519350cf05",
+    "bytes": 481
+  },
+  {
+    "path": "reports/award-path-2026-10-20/ddp/Obligations.lean",
+    "sha256": "da5f9dea9d1e1345073eadc90894a01a32e2e49b4b12b9513b1c90cebe18f29c",
+    "bytes": 2586
+  },
+  {
+    "path": "reports/award-path-2026-10-20/ddp/README.md",
+    "sha256": "728cd266117af4873b6a232a09b2f36114e50f5593fa97f3a2d655f3be5d6e1b",
+    "bytes": 2154
+  },
+  {
+    "path": "reports/award-path-2026-10-20/ddp/TinyEvenHall.lean",
+    "sha256": "fca967a0b2e8643e723ebf0208242c477590af56356f47667437272e6ad005c1",
+    "bytes": 14211
+  },
+  {
+    "path": "reports/award-path-2026-10-20/ddp/main.tex",
+    "sha256": "fe6b7fc5bfb666b2c389777a3b8f8e81ce9f430d028036c00c027392012e34b8",
+    "bytes": 22784
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jentges-commits.json",
+    "sha256": "ec9d53fd4ccd0984172fbb0923a2b5bd93f87ea52bd1d5ebc320502e09bc2406",
+    "bytes": 23977
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/BoundedGaps-MainTheorem-pinned.lean",
+    "sha256": "a58dd0df398be7decbe00c0419e0abda7c145bdeed78646c42999dc2352c05b3",
+    "bytes": 562
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/Erdos471-pinned.lean",
+    "sha256": "80350cda97600bc4d3835ab02b0ca130b34cc2d3c0429c40db2d0c2aba3f2d18",
+    "bytes": 10041
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/PR1202-Final-pinned.lean",
+    "sha256": "ff2d2241739c323f37aa529204a3a47c70380a67bbb6ed7e1fbfd4e61238811d",
+    "bytes": 3067
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/SHA256.json",
+    "sha256": "3507740166dbb69926813dcc322db5cbea73bcbddd0498f4b37acf5a13d10340",
+    "bytes": 6904
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/VinogradovsTheorem-remote.lean",
+    "sha256": "25b365825b757df636beb70c865c86df9f500b1edbdf4358f5d29e7021e8c411",
+    "bytes": 1612
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/cone-audit.json",
+    "sha256": "d2a23217b2cc1be1ef26e8991b992654d5be03949161ae8cbcc234d009be6270",
+    "bytes": 8483
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/erdos471.html",
+    "sha256": "50a9dae75eb438dba874ff83036f9b46634047ebc3938d1c7cf4f53c8e4a2e7b",
+    "bytes": 31656
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/forum471.html",
+    "sha256": "8c82829be5077dcdebbd340d900fc0bc280ae6406eb77b5545d5f9af93092843",
+    "bytes": 38339
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/local-catalog-record.md",
+    "sha256": "f37a97f16be7c6e4717d816338f3b48cf2e16e9a39243087c9efc4d490eba941",
+    "bytes": 1023
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/local-ledger-record.json",
+    "sha256": "f3f25d711bfe0c1dfa38e637556de289f4aea2c02508b72b99dd8934152e6c36",
+    "bytes": 1166
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pin-metadata/src/latest/ComparatorChallenges/ErdosProblems/Erdos471.json",
+    "sha256": "1dcf063773562ac1cc68f729d2332d417f0496a89063fc76f0c3784206c25adb",
+    "bytes": 245
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pin-metadata/src/latest/ComparatorChallenges/ErdosProblems/Erdos471.lean",
+    "sha256": "80f84a4265f85ada5ef36650e1a4a493653231893206e43092c8f7a458205570",
+    "bytes": 1510
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pin-metadata/src/latest/Wikipedia/VinogradovsTheorem.lean",
+    "sha256": "25b365825b757df636beb70c865c86df9f500b1edbdf4358f5d29e7021e8c411",
+    "bytes": 1612
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pin-metadata/src/latest/lake-manifest.json",
+    "sha256": "88334cc96de4bd0451f5202cfe9d5c44012440fc74bab93a1f2651420cebda17",
+    "bytes": 6278
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pin-metadata/src/latest/lakefile.lean",
+    "sha256": "be1fe13a49a52536bf453fb0d4a11192610d95136f2cf6984c269d5c178ae266",
+    "bytes": 3100
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pin-metadata/src/latest/lean-toolchain",
+    "sha256": "302cd63c54178885b89e669f33b38f12f4dd7ae7e5cac537b3203e3768d8fb2b",
+    "bytes": 25
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/ErdosProblems/Erdos387/AnalyticInputs.lean",
+    "sha256": "00bf2d2bcc61ae5cdef3612f53e5fa87d07f491f399a7336e5a298a02b683dbf",
+    "bytes": 30335
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/ErdosProblems/Erdos387/UniformAnalyticInputs.lean",
+    "sha256": "f1f21929493e5c1115f456c1e0699b000c9fb98a2636c40ac86b95a1c62eb818",
+    "bytes": 29479
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/ErdosProblems/Erdos471.lean",
+    "sha256": "80350cda97600bc4d3835ab02b0ca130b34cc2d3c0429c40db2d0c2aba3f2d18",
+    "bytes": 10041
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/PrimeNumberTheoremAnd/Consequences.lean",
+    "sha256": "c53d6857226b3e597174b7f78a9f937219b9b32e57f98f9188649f1ed2babb80",
+    "bytes": 130087
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/PrimeNumberTheoremAnd/Defs.lean",
+    "sha256": "1e3aba80fc36d4a349940394a6b3e5a0a7f7596d115764b3470d255e111532c4",
+    "bytes": 7995
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/PrimeNumberTheoremAnd/Fourier.lean",
+    "sha256": "5812d352fbc983626ff0b5c1ac51cb35b17008901598feeba9b2382cf10baac0",
+    "bytes": 3562
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/PrimeNumberTheoremAnd/Mathlib/Algebra/Notation/Support.lean",
+    "sha256": "dec487419be00fa77ecfc6273a7451d0c04ea90693ab50566a47ba827c5ab84d",
+    "bytes": 432
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/PrimeNumberTheoremAnd/Mathlib/Analysis/Asymptotics/Asymptotics.lean",
+    "sha256": "9ee475ea6d7b4db026c275b9e38326bf88724d2274b948b31fc53d8cf136975d",
+    "bytes": 1823
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/PrimeNumberTheoremAnd/Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+    "sha256": "21bc8312b14d87e78b42af2d1ab78bfe7ecaa3343f6c32bedd6b2483ef984af5",
+    "bytes": 832
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/PrimeNumberTheoremAnd/SmoothExistence.lean",
+    "sha256": "5943ee37e08b463e63332c8f3ccc918d734e7bf799705bb3c1a8ff0c35935952",
+    "bytes": 4496
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/PrimeNumberTheoremAnd/Sobolev.lean",
+    "sha256": "17cedc5898d6a696dca9e557bfaafbe1209e4a5252a62baddebc777c2a3a9bb2",
+    "bytes": 16524
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/PrimeNumberTheoremAnd/Wiener.lean",
+    "sha256": "5a45e04a848cd76797928286eb1bbfaef2dfb6e541bf3a848dbc5bb9ae4b9f94",
+    "bytes": 192209
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/AnalyticConclusion.lean",
+    "sha256": "01a7912ad578e9061e1389243aadc618d9b6b20e535caefc651510a2c0ba8e93",
+    "bytes": 5239
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/Arithmetic.lean",
+    "sha256": "0a8495211f1db4a95aaa4adb790ce647191fbe35fab7bc8b786371f2f936553d",
+    "bytes": 20009
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/CircleMethod.lean",
+    "sha256": "20351ff612fadbcc0deb16cd47b013813dc94126ef78d5c22b24e9fc6bbbb712",
+    "bytes": 11609
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/External/AnalyticNT/Bilinear/Schur.lean",
+    "sha256": "a7a00f4b38480c2e1d45e554937e70a5f3f07de5023a46357d4ab21532a7aa50",
+    "bytes": 39906
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/External/AnalyticNT/Bilinear/TypeI.lean",
+    "sha256": "c99276659184e1cab4ccc64f46f63cc5bfcb60011362301f0257a512aab48e1b",
+    "bytes": 110378
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/External/AnalyticNT/Bilinear/TypeII.lean",
+    "sha256": "dfb34dfa39a7ffe37aa7cc8b976d06f153e53b6a39e81cb8c3ea1b39aef6a93f",
+    "bytes": 94722
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/External/MathExtras/Analysis/AbelSummation.lean",
+    "sha256": "b3f60f649e6e80c0032d07e5dcb5e04f67bbd0fe8d9e9127a8deaedf9f9c8185",
+    "bytes": 14528
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/External/MathExtras/NumberTheory/Vinogradov/Bilinear.lean",
+    "sha256": "a6a0dbf4a19f7de45ffe379d5ad98a5c8c47753a03fcb09e50b19b658a21584b",
+    "bytes": 6038
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/External/MathExtras/NumberTheory/Vinogradov/CircleMethod.lean",
+    "sha256": "b2924fda7443384cbbdc2f2382ab184ed941931bcd972b6ee28260b5bcccc2ba",
+    "bytes": 24336
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/External/MathExtras/NumberTheory/Vinogradov/HardCutoffTypeIDistanceSensitive.lean",
+    "sha256": "f19e7492342496fbe20d8d01553029b3c3a7fd3d666bc0970049e51c7d8c3476",
+    "bytes": 14243
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/External/MathExtras/NumberTheory/Vinogradov/MajorArcExplicit.lean",
+    "sha256": "94f75da7b2be9b42601ba5d06a80b4820cfa88cbd8b8d29d97a2c51e48a427e8",
+    "bytes": 45917
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/External/MathExtras/NumberTheory/Vinogradov/MinorArcVaughan.lean",
+    "sha256": "6d542f2d136979b9fbba4a57b5a5af1da73ad6cb9ad948bd37abe4676f242b5e",
+    "bytes": 82901
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/MajorArcApproximation.lean",
+    "sha256": "0239b41aae340ffc8488f88c619254ec8ce8f5c77f3511ff939e89dbdd52b24c",
+    "bytes": 33485
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/MajorMinor.lean",
+    "sha256": "808febecddfc26abc8d8fbc08c8c0f7560c1959884379b3c6a28efb273207818",
+    "bytes": 180238
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/MinorArc.lean",
+    "sha256": "24297a8f9780c2cf487811d3faa001d2e1eb4f61e7d43240568f69790125a1b8",
+    "bytes": 19199
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/PrimePowerTail.lean",
+    "sha256": "d6ac18996bd75659dc6be3f268c63be6472ed3c7d6805ccf76f247bf7c80b3ff",
+    "bytes": 22757
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/SingularSeries.lean",
+    "sha256": "53728c881c0e5505b634af9b6227cf129ff8e55ae8d7ba1d153f13236203a494",
+    "bytes": 33109
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem/VaughanMinorArc.lean",
+    "sha256": "790088eecf24cd6d9500a0aaadd31a4b7a778d54ebe0a13da86921c2ab662641",
+    "bytes": 215066
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pinned-cone/src/latest/Wikipedia/VinogradovsTheorem.lean",
+    "sha256": "25b365825b757df636beb70c865c86df9f500b1edbdf4358f5d29e7021e8c411",
+    "bytes": 1612
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pr1202-files.json",
+    "sha256": "1bc319118bd3f4b39fb4cf2ba11e91f691afae43f4922fdcbee3cb4e24cdcbaa",
+    "bytes": 2149
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pr1202.json",
+    "sha256": "bda515cd8a395cf8928f7fbc55e731aedd4b13ba4e2fe4341030ef0dfdc1d6d1",
+    "bytes": 18237
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pr1297-files.json",
+    "sha256": "a7f3e4a8098dc47c7e0a727e96718a1c134832cdcc8d857dc7ddc18a31fd6b8d",
+    "bytes": 1476
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pr1297.json",
+    "sha256": "72e74c58bbd5bf7d05d6a0a52ab67fba536431a491aa36789e34f9a779f6468d",
+    "bytes": 18408
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pr3982-files.json",
+    "sha256": "e2be1cc575c4db4cf1817943313655cf64972a22ef82b5e6fd06755694bc8fb5",
+    "bytes": 9463
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383-evidence/pr3982.json",
+    "sha256": "2037d85a841da799cb77d081e4f60804c97a06e7941392af6e45d451d4657e13",
+    "bytes": 23540
+  },
+  {
+    "path": "reports/award-path-2026-10-20/jsp383.md",
+    "sha256": "8705887fdaa82f49e44102cd5a5ef8b6261159857f327820bc7ab5af4c32b092",
+    "bytes": 7766
+  },
+  {
+    "path": "reports/award-path-2026-10-20/latest-prs.json",
+    "sha256": "2fc418f19e066c474490c6946ecc4a120deba71be886177d00aeb5b450e92ea3",
+    "bytes": 633332
+  },
+  {
+    "path": "reports/award-path-2026-10-20/mathdb-pilot.md",
+    "sha256": "3fac2db937f4330014e805618ca7cd402cb7294ac3e2eb32a59b5bb4bb968263",
+    "bytes": 13335
+  },
+  {
+    "path": "reports/award-path-2026-10-20/own-PR5076.json",
+    "sha256": "6de0500cdd115a70d505f876f124cf204f88bd0a6764c0d36df3d1c874e81d1f",
+    "bytes": 23125
+  },
+  {
+    "path": "reports/award-path-2026-10-20/own-PR5079.json",
+    "sha256": "16d81cf14bba16f7eb9804383c6fc6e0fa4fd8e6415ef0800254334f49b36158",
+    "bytes": 22797
+  },
+  {
+    "path": "reports/award-path-2026-10-20/own-PR5080.json",
+    "sha256": "062f0134d74dcc2e33748a54f862327fc1ea1f542c86501af5c02db41e126c7e",
+    "bytes": 20895
+  },
+  {
+    "path": "reports/award-path-2026-10-20/own-PR5089.json",
+    "sha256": "2a93badf971cf3e10d4b6214ebe621c17f78cf13ebcf9fb9f5afa8fcbef60967",
+    "bytes": 22104
+  },
+  {
+    "path": "reports/award-path-2026-10-20/own-PR5095.json",
+    "sha256": "197123e09e47625e0f691a9f2d835b0978233d271153cdc6993d32256dbf435c",
+    "bytes": 22690
+  },
+  {
+    "path": "reports/award-path-2026-10-20/pan-manuscript.raw",
+    "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed",
+    "bytes": 14
+  },
+  {
+    "path": "reports/award-path-2026-10-20/pan-repo.raw",
+    "sha256": "c933bd5030f8e79a3af0c2cce614ad2462455d001bddf3d540843801424cb0a3",
+    "bytes": 279
+  },
+  {
+    "path": "reports/award-path-2026-10-20/repos-erdos-883.json",
+    "sha256": "c92013f8416cba70318f30ff6229e65d37d8115fd333cc81dd1fa2885e0d0bf9",
+    "bytes": 41621
+  },
+  {
+    "path": "reports/award-path-2026-10-20/repos-erdos883.json",
+    "sha256": "14a1744da6a51772b37944e77e8b222afff2c2ade45f4c6ade4e68cc1428e347",
+    "bytes": 6317
+  },
+  {
+    "path": "reports/award-path-2026-10-20/selection-rules.html",
+    "sha256": "8de6766a038895d345d625b6f751f558ec9d5288d0caec748c51e5350a247651",
+    "bytes": 300706
+  },
+  {
+    "path": "reports/award-path-2026-10-20/selection-rules.txt",
+    "sha256": "d3185f48e98357d9d1cf5df7b6b413b54f4bf67dfcad07a85a895391a62c56bb",
+    "bytes": 14659
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-candidates.md",
+    "sha256": "bd120a54400b6e52fadee96c64f586ac778c86a1907df6b230fcbad1cc351750",
+    "bytes": 6017
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/CFP.html",
+    "sha256": "e1466ccb02112452f45a2312039550447421fa553a9307470743dbef11431255",
+    "bytes": 7698
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/CFP.pdf",
+    "sha256": "e55494193baf77bb728e186a6fa948bf81c0d64fb167b52e964efd66c7b5fec4",
+    "bytes": 841870
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/CFP.txt",
+    "sha256": "e425be0ff98127cf71549f77371b74d90dd084c027c539086f03b4ea73b3c71b",
+    "bytes": 322889
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/FETCH.json",
+    "sha256": "255270ecb42acd95c0d9015cdb46f6a83647e8ffb237c2495c905713bc350306",
+    "bytes": 1014
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/MANIFEST.json",
+    "sha256": "fbcc79c209405dab2e422193d0e6a887454da7bb9cb28efeb3f98a1ff607fafb",
+    "bytes": 2512
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/PR3943-auth.json",
+    "sha256": "296af2e6b6952619e41bc988d054b7ea3459cb18600879502ea6dfb4be1c6fe9",
+    "bytes": 23540
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/PR3943.json",
+    "sha256": "c933bd5030f8e79a3af0c2cce614ad2462455d001bddf3d540843801424cb0a3",
+    "bytes": 279
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/PR4086-auth.json",
+    "sha256": "66d60d6e6105e749b96e02d089a43a4bc949ff85b6314f2467522333e41d8acd",
+    "bytes": 23541
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/PR4086.json",
+    "sha256": "5b365b68671f6bf0038c378ef6061855d6148ab6011287a6b17d695b85ef14ad",
+    "bytes": 279
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/catalog298.txt",
+    "sha256": "bd68c3e982a207f9477927a088913bb79841ef71664386a00877abfad741070b",
+    "bytes": 1322
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/catalog699.txt",
+    "sha256": "05034e517351e8ad1385e02676a75fc630b4df8e6985f0571128dbfd66d92029",
+    "bytes": 1176
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/definitions360.txt",
+    "sha256": "d7f005e1e947c8e6c9e267fb5e12db7001b138d01e3fd954b9f335f6f95b5d80",
+    "bytes": 1065
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/definitions843.txt",
+    "sha256": "117625079d71486153c10f04caa89b6c52d101bcafa19fb3afe76145c0cbf2da",
+    "bytes": 1052
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/erdos360.html",
+    "sha256": "a0e1dda368c2526fc2b9b5f617ef745050a0e42db144d312e0712b7acc7ac44e",
+    "bytes": 31801
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/erdos360.txt",
+    "sha256": "027eedf1e5c2fd4fd77895a5a1287941f76427654bfc4409ce7c931b59cc5025",
+    "bytes": 1725
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/erdos843.html",
+    "sha256": "1fa09d348cead133056f7aeb07c72c80a3245ed59176ae20a429a3a33df6aed1",
+    "bytes": 31922
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/erdos843.txt",
+    "sha256": "bdb0673932c8c17b9bc07d4d2364a7e59d62a405ac0ef4a3d945e415c047c26e",
+    "bytes": 1784
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/final360.txt",
+    "sha256": "941195efa68ef33fcfbe6add33567621d30a33f95e7fe4bc74129b91e5ac0801",
+    "bytes": 985
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/final843.txt",
+    "sha256": "76ce199b8bd40b7f029f1c299801403c5c124712861577aadc15e7e405f33aec",
+    "bytes": 1193
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/local-360-closure.json",
+    "sha256": "60ace5e267ed17174ab085f3040bb9a95b8f6e9cbd262cdb46b4a13df3c92502",
+    "bytes": 95563
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/local-843-closure.json",
+    "sha256": "c8284a23b9ba7ede31c64736f32be35e96ef47edb0ccc6918e1676cf8f48933d",
+    "bytes": 5498
+  },
+  {
+    "path": "reports/award-path-2026-10-20/subset-sum-evidence/resolutionScale360.txt",
+    "sha256": "b1b7e49d2615e90da1b5145a11aa05719b1f9bf6acb090d43e6bf560ea624d30",
+    "bytes": 466
+  },
+  {
+    "path": "reports/award-path-2026-10-20/vibe-tree.json",
+    "sha256": "07f5ebb75f2ac9437c42973ffa8098978f46c08476b4b37904367ab78d6ed530",
+    "bytes": 80036
+  }
+]

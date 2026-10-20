@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-20",
+  "official_main": "96e23a628707cf10d23e38d882fec1340f5e8ef4",
+  "primary_implementation_candidate": null,
+  "reserve_candidate": "JSP-000734 / Erdos883",
+  "n36_default_expansion_cancelled": true,
+  "new_complete_problems": 0,
+  "new_award_prs": 0,
+  "award_pr_mutations": false,
+  "existing_ready_prs": [
+    {
+      "number": 5076,
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "updated_at": "2026-10-18T16:59:58Z",
+      "comments": 0,
+      "review_comments": 0
+    },
+    {
+      "number": 5079,
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "updated_at": "2026-10-18T17:00:04Z",
+      "comments": 0,
+      "review_comments": 0
+    },
+    {
+      "number": 5080,
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "updated_at": "2026-10-19T04:05:48Z",
+      "comments": 0,
+      "review_comments": 0
+    },
+    {
+      "number": 5089,
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "updated_at": "2026-10-19T12:12:53Z",
+      "comments": 0,
+      "review_comments": 0
+    },
+    {
+      "number": 5095,
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "updated_at": "2026-10-19T04:37:21Z",
+      "comments": 0,
+      "review_comments": 0
+    }
+  ],
+  "source_scope_review_not_admitted": [
+    "JSP-000383 / Erdos471",
+    "JSP-000699 / Erdos843",
+    "JSP-000298 / Erdos360",
+    "JSP-000356 / Erdos437"
+  ],
+  "competitor_builds_this_turn": 0,
+  "pan_prior_claim": "unresolved; authenticated PR404 and raw source404 do not establish absence or invalidity",
+  "ddp_endpoint": "Erdos883.erdos883 : Erdos883Conclusion, actual pinned assembly read; uniform existential cutoff, no explicit usable cutoff established",
+  "active_agents": 0
+}
