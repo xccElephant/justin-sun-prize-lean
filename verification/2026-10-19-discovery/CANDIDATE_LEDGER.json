@@ -605,8 +605,17 @@
         "title": "JSP-000087: Lean proof of Tao's identity Σ ω(n)/2^n = Σ_p 1/(2^p − 1) (Erdős #69)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "final_bounded_review_prior_same_scope_source",
+    "review": {
+      "date": "2026-10-20",
+      "erdos": 69,
+      "decision": "not_admitted_prior_same_scope_source",
+      "theorem": "Erdos69.erdos_69",
+      "source_pin": "8822f7ddef30fadbd92e1c6ab4ed897af356af5e",
+      "scope": "Irrationality of the exact distinct-prime-factor binary series",
+      "report": "verification/2026-10-20-final-search/NUMBER_THEORY.md",
+      "evidence_level": "bounded source and scope review; no independent build or full kernel audit"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -1067,8 +1076,17 @@
         "title": "JSP-000139: Lean formalization observation"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "final_bounded_review_prior_same_scope_source",
+    "review": {
+      "date": "2026-10-20",
+      "erdos": 133,
+      "decision": "not_admitted_prior_same_scope_source",
+      "theorem": "Erdos133.erdos_133",
+      "source_pin": "8822f7ddef30fadbd92e1c6ab4ed897af356af5e",
+      "scope": "Theta(sqrt n) extremal maximum-degree growth; diameter-two formulation reviewed",
+      "report": "verification/2026-10-20-final-search/GRAPHS.md",
+      "evidence_level": "bounded source and scope review; no independent build or full kernel audit"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -4448,8 +4466,17 @@
         "title": "JSP-000388: submit Lean proof of the complete quadratic case"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "final_bounded_review_prior_same_scope_source",
+    "review": {
+      "date": "2026-10-20",
+      "erdos": 477,
+      "decision": "not_admitted_prior_same_scope_source",
+      "theorem": "Erdos477.erdos_477",
+      "source_pin": "8822f7ddef30fadbd92e1c6ab4ed897af356af5e",
+      "scope": "Complete existential polynomial tiling via X^6, unique pairs of values",
+      "report": "verification/2026-10-20-final-search/NUMBER_THEORY.md",
+      "evidence_level": "bounded source and scope review; no independent build or full kernel audit"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -8376,8 +8403,17 @@
         "title": "docs: record Lean proof for JSP-000632"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "final_bounded_review_prior_same_scope_source",
+    "review": {
+      "date": "2026-10-20",
+      "erdos": 771,
+      "decision": "not_admitted_prior_same_scope_source",
+      "theorem": "Erdos771.erdos_771",
+      "source_pin": "8822f7ddef30fadbd92e1c6ab4ed897af356af5e",
+      "scope": "Universal positive target optimization, ratio to n/log n tends to 1/2",
+      "report": "verification/2026-10-20-final-search/SUBSET_SUMS.md",
+      "evidence_level": "bounded source and scope review; no independent build or full kernel audit"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -10012,8 +10048,17 @@
         "title": "JSP-000725: complete admissible-set extremum, statement bridge and exact-commit self-check"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "final_bounded_review_prior_same_scope_source",
+    "review": {
+      "date": "2026-10-20",
+      "erdos": 874,
+      "decision": "not_admitted_prior_same_scope_source",
+      "theorem": "Erdos874.erdos_874",
+      "source_pin": "8822f7ddef30fadbd92e1c6ab4ed897af356af5e",
+      "scope": "True admissible-set extremum divided by sqrt N tends to 2; eventual exact formula also exists",
+      "report": "verification/2026-10-20-final-search/SUBSET_SUMS.md",
+      "evidence_level": "bounded source and scope review; no independent build or full kernel audit"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -10737,8 +10782,17 @@
         "title": "Record formal Lean proof for JSP-000760 (Dirac-Thomassen cycle with external vertex)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "final_bounded_review_prior_same_scope_source",
+    "review": {
+      "date": "2026-10-20",
+      "erdos": 916,
+      "decision": "not_admitted_prior_same_scope_source",
+      "theorem": "Erdos916.erdos_916",
+      "source_pin": "8822f7ddef30fadbd92e1c6ab4ed897af356af5e",
+      "scope": "Exactly 2n-2 edges for n>=4 force a cycle with external three-neighbor vertex",
+      "report": "verification/2026-10-20-final-search/GRAPHS.md",
+      "evidence_level": "bounded source and scope review; no independent build or full kernel audit"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },

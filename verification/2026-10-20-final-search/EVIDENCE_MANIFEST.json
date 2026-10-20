@@ -1,0 +1,62 @@
+[
+  {
+    "path": "reports/final-search-2026-10-20/main.json",
+    "sha256": "97f7a3aa1c320e6597126d41792523328d4210b54b34c70abcffe63256550c87",
+    "bytes": 43285
+  },
+  {
+    "path": "reports/final-search-2026-10-20/latest.json",
+    "sha256": "c8ff2af9431586d3c6189a8771faf943b7941479b9ebf095ed1860034e97d0bf",
+    "bytes": 216343
+  },
+  {
+    "path": "reports/final-search-2026-10-20/PR3850.json",
+    "sha256": "38900043085b70fba72e76d8e254b07fdc89f500a526d5f83008455111b09322",
+    "bytes": 23530
+  },
+  {
+    "path": "reports/final-search-2026-10-20/PR343.json",
+    "sha256": "db135716fb067f2763817d9addec0ec6a75cdf1f2a71fa9bf3b995fd4bf69755",
+    "bytes": 38828
+  },
+  {
+    "path": "reports/final-search-2026-10-20/fixed-Erdos69.lean",
+    "sha256": "5726edd6759e13c62675dad0b18597693924c37b8f39461db3273d922fa5c3ca",
+    "bytes": 2203
+  },
+  {
+    "path": "reports/final-search-2026-10-20/fixed-Erdos477.lean",
+    "sha256": "ec594a1aaa0714bbfd23347323eb0d29ea0ccddb148f9889d65664dd7a158564",
+    "bytes": 2478
+  },
+  {
+    "path": "reports/final-search-2026-10-20/erdos69.html",
+    "sha256": "9976405f7d1396d8e7b725c0d574cc6fb094650ba17689b1b7406c4911555166",
+    "bytes": 32627
+  },
+  {
+    "path": "reports/final-search-2026-10-20/erdos477.html",
+    "sha256": "cfb2a3d0db79d9ed39c01e4faf54b981bdcae2b8bff511f2122533c3404643da",
+    "bytes": 36129
+  },
+  {
+    "path": "reports/final-search-2026-10-20/coordinator-source-check.json",
+    "sha256": "b5c76b3cfd0a4fe857e4cae7fcb74141f405b78a9e095ef0d4730c63a895f2c5",
+    "bytes": 1887
+  },
+  {
+    "path": "reports/final-search-2026-10-20/graphs-evidence/source-closure.json",
+    "sha256": "cc06bba99e193cad9c405a8bfea98827e8f6038acbe13083c3d64f603ad18187",
+    "bytes": 11641
+  },
+  {
+    "path": "reports/final-search-2026-10-20/evidence/cone-771.json",
+    "sha256": "8a74ddd857df5c5ab920e3e1cd6fb3977243f95b5ebad32324fa04b9ed2e2956",
+    "bytes": 18312
+  },
+  {
+    "path": "reports/final-search-2026-10-20/evidence/cone-874.json",
+    "sha256": "c92e48db31c0b64b02a1cbec45f038adaca52b3da617f696a9594a951a0632e2",
+    "bytes": 17358
+  }
+]

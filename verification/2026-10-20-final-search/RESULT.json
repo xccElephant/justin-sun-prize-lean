@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-20",
+  "user_instruction": "继续，再找不到能做的新题就算了",
+  "search_status": "stopped_at_user_requested_condition",
+  "official_main": "96e23a628707cf10d23e38d882fec1340f5e8ef4",
+  "latest_pr": 5121,
+  "admitted_new_problems": 0,
+  "new_proofs": 0,
+  "new_award_prs": 0,
+  "award_pr_mutations": false,
+  "competitor_builds": 0,
+  "active_agents": 0,
+  "proof_source_pin": "8822f7ddef30fadbd92e1c6ab4ed897af356af5e",
+  "candidates": [
+    {
+      "jsp": "JSP-000087",
+      "erdos": 69,
+      "existing_endpoint": "Erdos69.erdos_69",
+      "scope": "Irrationality of the exact distinct-prime-factor binary series",
+      "report": "NUMBER_THEORY.md",
+      "decision": "not_admitted_prior_same_scope_source",
+      "evidence_limit": "bounded source and statement inspection; no independent build or complete kernel axiom audit"
+    },
+    {
+      "jsp": "JSP-000139",
+      "erdos": 133,
+      "existing_endpoint": "Erdos133.erdos_133",
+      "scope": "Theta(sqrt n) extremal maximum-degree growth; diameter-two formulation reviewed",
+      "report": "GRAPHS.md",
+      "decision": "not_admitted_prior_same_scope_source",
+      "evidence_limit": "bounded source and statement inspection; no independent build or complete kernel axiom audit"
+    },
+    {
+      "jsp": "JSP-000388",
+      "erdos": 477,
+      "existing_endpoint": "Erdos477.erdos_477",
+      "scope": "Complete existential polynomial tiling via X^6, unique pairs of values",
+      "report": "NUMBER_THEORY.md",
+      "decision": "not_admitted_prior_same_scope_source",
+      "evidence_limit": "bounded source and statement inspection; no independent build or complete kernel axiom audit"
+    },
+    {
+      "jsp": "JSP-000632",
+      "erdos": 771,
+      "existing_endpoint": "Erdos771.erdos_771",
+      "scope": "Universal positive target optimization, ratio to n/log n tends to 1/2",
+      "report": "SUBSET_SUMS.md",
+      "decision": "not_admitted_prior_same_scope_source",
+      "evidence_limit": "bounded source and statement inspection; no independent build or complete kernel axiom audit"
+    },
+    {
+      "jsp": "JSP-000725",
+      "erdos": 874,
+      "existing_endpoint": "Erdos874.erdos_874",
+      "scope": "True admissible-set extremum divided by sqrt N tends to 2; eventual exact formula also exists",
+      "report": "SUBSET_SUMS.md",
+      "decision": "not_admitted_prior_same_scope_source",
+      "evidence_limit": "bounded source and statement inspection; no independent build or complete kernel axiom audit"
+    },
+    {
+      "jsp": "JSP-000760",
+      "erdos": 916,
+      "existing_endpoint": "Erdos916.erdos_916",
+      "scope": "Exactly 2n-2 edges for n>=4 force a cycle with external three-neighbor vertex",
+      "report": "GRAPHS.md",
+      "decision": "not_admitted_prior_same_scope_source",
+      "evidence_limit": "bounded source and statement inspection; no independent build or complete kernel axiom audit"
+    }
+  ],
+  "exhaustive_bank_claim": false,
+  "restart_requires": "new explicit user direction; no autonomous further screening, draft research, monitoring or Erdos883 implementation"
+}
