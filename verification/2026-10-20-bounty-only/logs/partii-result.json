@@ -1,0 +1,21 @@
+{
+  "port_exit": 0,
+  "baseline_exit": 1,
+  "final_targets": {
+    "Erdos883.erdos_883_parts_ii_direct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Erdos883.erdos_883.parts.ii": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "standalone_compatibility": "PASS",
+  "aggregate_integration": "not performed",
+  "mathematical_blockers": [],
+  "source_sha256": "c7cf722baa0d9e7a0ef770d0a36896caec066d9544731009d1df06d39756fe9e",
+  "port_sha256": "d536b583793224c31d29df66905334cd178f5e513cb91c13efa1955140cacc8d"
+}

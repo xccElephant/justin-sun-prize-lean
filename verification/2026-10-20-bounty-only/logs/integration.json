@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "-o",
+    "Research/Erdos883/Check.olean",
+    "Research/Erdos883/Check.lean"
+  ],
+  "exit": 0,
+  "elapsed_seconds": 93.890101208,
+  "source_sha256": {
+    "Research/Erdos883/Compression.lean": "e64011c81f45c064bc1f4e340c265e0c7b351868e860c7e4a0702b537b95b2a7",
+    "Research/Erdos883/Check.lean": "c75876906af29e46092f3409d2d891a0df5d653e9bb547e5a1d05eba9d613b14",
+    "Research/Erdos883/FiniteWitness.lean": "4ab29ccc68250e923b222c68cdf6d8d975ee5e64e7e6149d8f24f4af69fd85dd",
+    "Research/Erdos883/ThirdParty/PartII.lean": "d536b583793224c31d29df66905334cd178f5e513cb91c13efa1955140cacc8d"
+  },
+  "scope": "Scoped compression and n12 graph integration plus attributed complete part(ii); NOT fullpart(i)"
+}

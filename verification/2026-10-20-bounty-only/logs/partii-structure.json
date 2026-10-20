@@ -1,0 +1,9 @@
+{
+  "declaration_signatures_identical": true,
+  "declaration_count": 86,
+  "all_definition_values_unchanged": true,
+  "edits_exactly_enumerated": true,
+  "no_sorry_native_decide_or_custom_axiom": true,
+  "local_sha256": "d536b583793224c31d29df66905334cd178f5e513cb91c13efa1955140cacc8d",
+  "review": "Checked source-relative diff against the authorized compatibility sites; only proof API changes, attribution header and final-target axiom commands."
+}

@@ -1,0 +1,51 @@
+{
+  "source_author": "Cecil Jentges / wizardscurtain",
+  "scope": "CNF unsatisfiability only, not graph encoding correctness",
+  "positive_checks": [
+    {
+      "instance": "n12_b0_l2",
+      "source_prefix": "https://github.com/wizardscurtain/erdos-883-ordered-weight-proof/blob/b5738d8944340f0ac9434f70f689316b18497026/evidence/hall_tail_20261010/sat_certificates/n12_b0_l2",
+      "check_module": "verification/2026-10-20-bounty-only/certificates/ReplayN12.lean",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "reports/bounty-only-2026-10-20/883/ReplayN12.lean"
+      ],
+      "observed_exit_code": 0,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "observation": "Compiler result observed in this task tool transcript; not an independent second-kernel check.",
+      "cnf_sha256": "0de600b326666f3c8edee110b4a53a40e16eb3c5d22cc122e1336f7bac8b40eb",
+      "lrat_sha256": "30d1955972369d52913c2da60416fef266b412a88fd0cf3022cf9ec36bc161f9"
+    },
+    {
+      "instance": "n36_b3_l6",
+      "source_prefix": "https://github.com/wizardscurtain/erdos-883-ordered-weight-proof/blob/b5738d8944340f0ac9434f70f689316b18497026/evidence/hall_tail_20261010/sat_certificates/n36_b3_l6",
+      "check_module": "verification/2026-10-20-bounty-only/certificates/ReplayN36.lean",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "reports/bounty-only-2026-10-20/883/ReplayN36.lean"
+      ],
+      "observed_exit_code": 0,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "observation": "Compiler result observed in this task tool transcript; not an independent second-kernel check.",
+      "cnf_sha256": "56ca2752c140499dce2e471948a6ec4ff25c7d50c38cad89d23e0356d2f4a932",
+      "lrat_sha256": "ec24aaa4928d374187b6ea8e8a8d250cc24d53e831a00440b9df99cd4d121ba7"
+    }
+  ],
+  "negative_control": {
+    "change": "Remove the final empty-clause derivation from n12 LRAT",
+    "exit_code": 1,
+    "error": "failed to prove empty clause"
+  }
+}

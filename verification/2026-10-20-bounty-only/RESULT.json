@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-20",
+  "timezone": "Asia/Shanghai",
+  "constraint": "mathematical bounties only; no grants/tools/exposition",
+  "candidate": "JSP-000734 / Erdos883",
+  "candidate_stage": "bounded implementation feasibility, full completion and prize priority not established",
+  "new_full_problems": 0,
+  "new_award_prs": 0,
+  "new_original_scoped_files": [
+    "Research/Erdos883/Compression.lean",
+    "Research/Erdos883/FiniteWitness.lean",
+    "Research/Erdos883/Check.lean"
+  ],
+  "third_party_dependency": "Research/Erdos883/ThirdParty/PartII.lean",
+  "joint_compile": {
+    "argv": [
+      "lake",
+      "env",
+      "lean",
+      "-o",
+      "Research/Erdos883/Check.olean",
+      "Research/Erdos883/Check.lean"
+    ],
+    "exit": 0,
+    "elapsed_seconds": 93.890101208,
+    "source_sha256": {
+      "Research/Erdos883/Compression.lean": "e64011c81f45c064bc1f4e340c265e0c7b351868e860c7e4a0702b537b95b2a7",
+      "Research/Erdos883/Check.lean": "c75876906af29e46092f3409d2d891a0df5d653e9bb547e5a1d05eba9d613b14",
+      "Research/Erdos883/FiniteWitness.lean": "4ab29ccc68250e923b222c68cdf6d8d975ee5e64e7e6149d8f24f4af69fd85dd",
+      "Research/Erdos883/ThirdParty/PartII.lean": "d536b583793224c31d29df66905334cd178f5e513cb91c13efa1955140cacc8d"
+    },
+    "scope": "Scoped compression and n12 graph integration plus attributed complete part(ii); NOT fullpart(i)"
+  },
+  "additional_kernel_replay": {
+    "argv": [
+      "/Users/xcc/.elan/toolchains/leanprover--lean4---v4.33.1/bin/leanchecker",
+      "-v",
+      "Research.Erdos883.Check"
+    ],
+    "status": "timeout_120_seconds",
+    "exit_code": -15,
+    "elapsed_seconds": 120.177,
+    "scope": "Bundled leanchecker over compiled Research.Erdos883.Check and imports; standard cached Mathlib, not second kernel implementation"
+  },
+  "positive_lrat_checks": 2,
+  "negative_control_rejected": true,
+  "independent_scoped_math_and_code_reviews": true,
+  "own_ready": 5,
+  "own_draft": 27,
+  "all_existing_pr_heads_unchanged": true,
+  "solved_pool_count_unchanged": 295,
+  "solved_pool_reviewed_count_unchanged": 65,
+  "active_agents": 0,
+  "mathematical_open_items": [
+    "prime-swap lex and cmax preservation",
+    "graph-to-CNF auxiliary assignment and blocking clause bridges",
+    "all finite and interval coverage certificates",
+    "uniform infinite-range analytic estimates"
+  ],
+  "priority_open_item": "cited Pan all-n proof inaccessible; absence/invalidity not established"
+}

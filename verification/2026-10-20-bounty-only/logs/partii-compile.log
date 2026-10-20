@@ -1,0 +1,2 @@
+'Erdos883.erdos_883_parts_ii_direct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos883.erdos_883.parts.ii' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,65 @@
+--- upstream/Erdos883.lean@f87d2d526a9f736818133baed805fff4a1e94d10
++++ Research/Erdos883/ThirdParty/PartII.lean
+@@ -0,0 +1,30 @@
++/-
++Third-party proof: baobingzhang/jsp-000734-erdos883-lean, Erdos883.lean.
++Source pin: f87d2d526a9f736818133baed805fff4a1e94d10
++Source URL:
++https://github.com/baobingzhang/jsp-000734-erdos883-lean/blob/f87d2d526a9f736818133baed805fff4a1e94d10/Erdos883.lean
++Source SHA256: c7cf722baa0d9e7a0ef770d0a36896caec066d9544731009d1df06d39756fe9e
++Attribution: upstream author baobingzhang; formal-conjectures definitions and
++statement attribution is retained in the original documentation below.
++
++SPDX-License-Identifier: Apache-2.0
++Licensed under the Apache License, Version 2.0 (the "License");
++you may not use this file except in compliance with the License.
++You may obtain a copy of the License at
++
++    http://www.apache.org/licenses/LICENSE-2.0
++
++Unless required by applicable law or agreed to in writing, software
++ distributed under the License is distributed on an "AS IS" BASIS,
++WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++See the License for the specific language governing permissions and
++limitations under the License.
++
++LOCAL COMPATIBILITY DERIVATIVE (2026-10-20): minimally ported from the supplied
++Lean 4.34 / Mathlib 5ed296.. source to Lean 4.33.1 / Mathlib
++0df444a360eaa60ab8c11dca51a86af692955474. Only proof API compatibility is changed;
++mathematical definitions and statements are preserved. This is reuse and
++independent verification of a third-party dependency, not our mathematical
++proof or a newly solved prize. See reports/bounty-only-2026-10-20/883/partii-port.
++-/
++
+@@ -106 +136 @@
+-  refine prod_le_one₀ (fun p hp => ?_) (fun p hp => ?_)
++  refine Finset.prod_le_one (fun p hp => ?_) (fun p hp => ?_)
+@@ -343 +373 @@
+-  refine prod_le_prod₀ (fun p hp => by positivity) (fun p hp => ?_)
++  refine Finset.prod_le_prod (fun p hp => by positivity) (fun p hp => ?_)
+@@ -414 +444 @@
+-      prod_le_prod₀ (fun p _ => by positivity) fun p _ => by
++      Finset.prod_le_prod (fun p _ => by positivity) fun p _ => by
+@@ -493 +523 @@
+-    exact prod_le_prod fun p hp => (mem_filter.1 hp).2
++    exact Finset.prod_le_prod (fun _ _ => Nat.zero_le _) fun p hp => (mem_filter.1 hp).2
+@@ -495 +525,2 @@
+-    prod_le_prod_of_subset_of_one_le (filter_subset _ _) fun p hp _ => by
++    Finset.prod_le_prod_of_subset_of_one_le (filter_subset _ _)
++      (fun _ _ => Nat.zero_le _) fun p hp _ => by
+@@ -858 +889 @@
+-    have hg : g u = 2 ^ (Classical.choose hex) * u := dite_eq_left hex
++    have hg : g u = 2 ^ (Classical.choose hex) * u := dif_pos hex
+@@ -875,2 +906,2 @@
+-    have hg1 : g u = 2 ^ (Classical.choose hex) * u := dite_eq_left hex
+-    have hg2 : g u' = 2 ^ (Classical.choose hex') * u' := dite_eq_left hex'
++    have hg1 : g u = 2 ^ (Classical.choose hex) * u := dif_pos hex
++    have hg2 : g u' = 2 ^ (Classical.choose hex') * u' := dif_pos hex'
+@@ -1355 +1386 @@
+-    simp [Bool.toNat]
++    simp [Bool.toNat, Bool.cond_decide]
+@@ -1908,0 +1940,4 @@
++
++-- Verification of the actual upstream final targets on the local toolchain.
++#print axioms Erdos883.erdos_883_parts_ii_direct
++#print axioms Erdos883.erdos_883.parts.ii

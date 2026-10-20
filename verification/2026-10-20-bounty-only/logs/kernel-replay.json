@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "/Users/xcc/.elan/toolchains/leanprover--lean4---v4.33.1/bin/leanchecker",
+    "-v",
+    "Research.Erdos883.Check"
+  ],
+  "status": "timeout_120_seconds",
+  "exit_code": -15,
+  "elapsed_seconds": 120.177,
+  "scope": "Bundled leanchecker over compiled Research.Erdos883.Check and imports; standard cached Mathlib, not second kernel implementation"
+}
