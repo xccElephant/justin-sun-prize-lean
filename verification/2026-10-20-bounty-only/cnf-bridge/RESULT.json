@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-20",
+  "timezone": "Asia/Shanghai",
+  "base_commit": "0687997b8024982d755ae787d5b77ef0a210d399",
+  "scope": "Erdos883 n12/b0/l2: arbitrary eligible set to exact CNF to C5 graph containment; general odd-multiple-of-three count monotonic normalization",
+  "new_complete_bounty_problems": 0,
+  "new_award_prs": 0,
+  "award_pr_mutations": false,
+  "bridge_theorem": "Erdos883Research.N12Certificate.n12_b0_has_five_cycle_via_lrat",
+  "assumptions": [
+    "A subset of Finset.Icc 1 12",
+    "A.card = 9",
+    "selected even count = 6"
+  ],
+  "conclusion": "cycleGraph 5 IsContained in coprimeGraph.induce A",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "lrat_refutation_axioms": [
+    "propext"
+  ],
+  "membership_variables": 12,
+  "counter_auxiliaries": 144,
+  "clauses": 321,
+  "cycle_blocks": 7,
+  "joint_compile": {
+    "exit_code": 0,
+    "module": "Research/Erdos883/Check.lean",
+    "log": "combined.log"
+  },
+  "module_compile_exit_codes": {
+    "CompressionCounts": 0,
+    "CycleWitness": 0,
+    "SequentialCounter": 0,
+    "SatCertificate": 0,
+    "N12Certificate": 0,
+    "N12Clauses": 0,
+    "FiniteWitness": 0
+  },
+  "toolchain": "leanprover/lean4:v4.33.1",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "negative_controls": [
+    {
+      "control": "auxiliary thresholds shifted by one",
+      "exit_code": 1,
+      "log": "bad-assignment.log",
+      "source": "BadAssignment.lean.txt"
+    },
+    {
+      "control": "cycle contains repeated vertex",
+      "exit_code": 1,
+      "log": "bad-cycle.log",
+      "source": "BadCycle.lean.txt"
+    }
+  ],
+  "independent_review": {
+    "findings": "no substantive findings",
+    "report": "INDEPENDENT_REVIEW.md",
+    "compiled_by_reviewer": false
+  },
+  "same_instance_as_previous_direct_proof": true,
+  "imports_previous_direct_finite_coverage": false,
+  "kernel_replay_additional": "not repeated; prior 120s timeout retained as historical non-pass",
+  "mathematical_source": "Cecil Jentges, wizardscurtain/erdos-883-ordered-weight-proof@b5738d8944340f0ac9434f70f689316b18497026",
+  "remaining": [
+    "generic encoding/block verification and larger n36 instance",
+    "prime-swap and lex normalization",
+    "cmax certificate integration",
+    "other finite coverage and all analytic tails",
+    "priority check of cited inaccessible Pan source"
+  ]
+}

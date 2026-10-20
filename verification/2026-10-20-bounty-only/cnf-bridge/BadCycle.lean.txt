@@ -1,0 +1,5 @@
+import Research.Erdos883.CycleWitness
+open Erdos883Research
+-- Deliberate defect: repeated 2, where Jentges's first block uses 7.
+example : IsCycleWitness ({5, 2, 7, 4, 11} : Finset ℕ)
+    (![5, 2, 2, 4, 11] : Fin 5 → ℕ) := by decide

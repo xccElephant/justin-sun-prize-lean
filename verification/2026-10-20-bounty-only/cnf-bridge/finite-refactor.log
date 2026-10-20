@@ -1,0 +1,1 @@
+'Erdos883Research.n12_b0_has_five_cycle' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,3 @@
+/tmp/883-bridge-negative/BadCycle.lean:5:42: error: Tactic `decide` proved that the proposition
+  IsCycleWitness {5, 2, 7, 4, 11} ![5, 2, 2, 4, 11]
+is false

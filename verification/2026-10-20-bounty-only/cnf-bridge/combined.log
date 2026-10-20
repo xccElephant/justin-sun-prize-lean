@@ -1,0 +1,14 @@
+'Erdos883Research.no_copy_after_replacement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos883Research.exists_support_compressed_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos883Research.exists_compressed_prefix_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos883Research.cycleWitness_isContained' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos883Research.n12_b0_has_five_cycle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos883.erdos_883_parts_ii_direct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos883Research.exists_compressed_prefix_counterexample_counts' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Erdos883Research.N12Certificate.refutation' depends on axioms: [propext]
+'Erdos883Research.N12Certificate.satisfies_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos883Research.N12Certificate.n12_b0_has_five_cycle_via_lrat' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

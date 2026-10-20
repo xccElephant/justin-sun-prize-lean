@@ -5,6 +5,18 @@ mathematical bounties. Grants, evaluation products and exposition awards are
 excluded from active work. Existing research about those alternatives is
 historical only and was not submitted anywhere.
 
+## Later same-day update: first semantic certificate bridge completed
+
+The n12/b0/l2 CNF is now connected to the original graph: arbitrary hypothetical
+no-C5 A → support/prefix-normalized B → explicit156-variable assignment → all
+321 archived clauses → the original LRAT contradiction. The proof is independent
+of the earlier direct20-set coverage theorem and covers the same small instance.
+Count monotonicity for selected odd multiples of three is also proved generally.
+See `cnf-bridge/README.md`, the exact-source manifest, compilation logs, negative
+controls and independent review. The sections below retain the earlier-stage
+record; statements that the n12 CNF has no graph bridge are superseded here.
+No new completed bounty problem or award PR was created.
+
 ## Selected direction
 
 The active bounded implementation candidate is **JSP-000734 / Erdős883**, using

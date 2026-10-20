@@ -1,5 +1,4 @@
-import Research.Erdos883.Compression
-import Mathlib.Combinatorics.SimpleGraph.CycleGraph
+import Research.Erdos883.CycleWitness
 
 /-!
 # A direct, checked finite witness interface for Erdős 883
@@ -8,31 +7,6 @@ This module connects a finite cycle table to actual graph containment. The
 first instance is n=12, all six evens selected, and a five-cycle. It is a
 bounded integration test, not the all-n theorem or a prize submission.
 -/
-
-namespace Erdos883Research
-
-def IsCycleWitness {k : ℕ} (A : Finset ℕ) (c : Fin k → ℕ) : Prop :=
-  Function.Injective c ∧ (∀ i, c i ∈ A) ∧
-    ∀ i j, (SimpleGraph.cycleGraph k).Adj i j → (c i).Coprime (c j)
-
-instance {k : ℕ} (A : Finset ℕ) (c : Fin k → ℕ) : Decidable (IsCycleWitness A c) := by
-  unfold IsCycleWitness Function.Injective
-  infer_instance
-
-theorem cycleWitness_isContained {k : ℕ} {A : Finset ℕ} {c : Fin k → ℕ}
-    (hc : IsCycleWitness A c) :
-    (SimpleGraph.cycleGraph k).IsContained (coprimeGraph.induce (A : Set ℕ)) := by
-  let f : Fin k → {z // z ∈ A} := fun i => ⟨c i, hc.2.1 i⟩
-  refine ⟨⟨{ toFun := f, map_rel' := ?_ }, ?_⟩⟩
-  · intro i j hij
-    apply coprimeGraph_adj.mpr
-    exact ⟨fun h => hij.ne (hc.1 h), hc.2.2 i j hij⟩
-  · intro i j hij
-    exact hc.1 (congrArg Subtype.val hij)
-
-end Erdos883Research
-
-#print axioms Erdos883Research.cycleWitness_isContained
 
 namespace Erdos883Research
 

@@ -1,0 +1,67 @@
+[
+  {
+    "path": "Research/Erdos883/Check.lean",
+    "sha256": "35b5c9f39c3ce875e4ce6e1c038150d42dd97eaa489a78f7e4f6407e64fb5c56",
+    "bytes": 2542
+  },
+  {
+    "path": "Research/Erdos883/Compression.lean",
+    "sha256": "e64011c81f45c064bc1f4e340c265e0c7b351868e860c7e4a0702b537b95b2a7",
+    "bytes": 13418
+  },
+  {
+    "path": "Research/Erdos883/CompressionCounts.lean",
+    "sha256": "165d0c4377dfccb7fa08bce5f00ed13785713353ac72d86b5f0e5b68eec31896",
+    "bytes": 6116
+  },
+  {
+    "path": "Research/Erdos883/CycleWitness.lean",
+    "sha256": "9574425ca34986072796383956af45d53a98969bc29341ac977766df99191e9e",
+    "bytes": 1411
+  },
+  {
+    "path": "Research/Erdos883/FiniteWitness.lean",
+    "sha256": "977714c54d444447a5224bbf8a7fee0501980ed198ee045c538dfa723d8f77a4",
+    "bytes": 2537
+  },
+  {
+    "path": "Research/Erdos883/N12Certificate.lean",
+    "sha256": "32ff674af5f612c6d291482162d3c60aca3f475257af289f9d3c017d41efef65",
+    "bytes": 3330
+  },
+  {
+    "path": "Research/Erdos883/N12Clauses.lean",
+    "sha256": "00f18b5854c7258a5ae4dffbc72d5b5ac4fc0dee79cc640cf556e0fb4d5bbc0c",
+    "bytes": 121693
+  },
+  {
+    "path": "Research/Erdos883/SatCertificate.lean",
+    "sha256": "c9b2d4cd5fa4c6d088d6e4157c1713cd2117b208aaab00ed3a7af62a68bd2ea0",
+    "bytes": 1091
+  },
+  {
+    "path": "Research/Erdos883/SequentialCounter.lean",
+    "sha256": "a35524d68ed95439b160da472a295986db7515491a9de5d281a9a72cd79e743a",
+    "bytes": 6239
+  },
+  {
+    "path": "Research/Erdos883/ThirdParty/PartII.lean",
+    "sha256": "d536b583793224c31d29df66905334cd178f5e513cb91c13efa1955140cacc8d",
+    "bytes": 97889
+  },
+  {
+    "path": "Research/Erdos883/scripts/generate_n12_bridge.py",
+    "sha256": "dbf9b4f513e50ea9e96f2113fca3b096fb0894893838e2464f46ae3b2ad0b796",
+    "bytes": 9224
+  },
+  {
+    "path": "verification/2026-10-20-bounty-only/certificates/n12_b0_l2.cnf",
+    "sha256": "0de600b326666f3c8edee110b4a53a40e16eb3c5d22cc122e1336f7bac8b40eb",
+    "bytes": 3363
+  },
+  {
+    "path": "verification/2026-10-20-bounty-only/certificates/n12_b0_l2.lrat",
+    "sha256": "30d1955972369d52913c2da60416fef266b412a88fd0cf3022cf9ec36bc161f9",
+    "bytes": 1456
+  }
+]
