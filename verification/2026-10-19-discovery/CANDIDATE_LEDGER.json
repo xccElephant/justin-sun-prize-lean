@@ -4528,8 +4528,16 @@
         "title": "JSP-000391: independent complete Lean formalization of Stoll's construction for every base g >= 2"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "reopened_search_prior_arbitrary_base_endpoint",
+    "review": {
+      "date": "2026-10-22",
+      "erdos": 482,
+      "decision": "existing_complete_arbitrary_base_source",
+      "source_pin": "14e5155e68554de4e053e4aacd77095a93e96dd4",
+      "theorem": "JSP000391.jsp000391",
+      "report": "verification/2026-10-22-reopened-search/TWO_CANDIDATES.md",
+      "evidence_level": "source/type review; no independent build"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },
@@ -13427,8 +13435,15 @@
         "title": "JSP-000930: Lean formalization of Erdős's Wetzel theorem, both halves (Erdős #1119, component)"
       }
     ],
-    "assessment": "unreviewed_beyond_metadata",
-    "review": null,
+    "assessment": "reopened_search_real_scope_gap_high_cost",
+    "review": {
+      "date": "2026-10-22",
+      "erdos": 1119,
+      "decision": "general_boundary_independence_gap_not_admitted",
+      "finding": "inspected sources do not cover two full forcing/consistency results; no validated implementation blueprint",
+      "report": "verification/2026-10-22-reopened-search/TWO_CANDIDATES.md",
+      "evidence_level": "source/type review; no complete paper reconstruction or exhaustive prior audit"
+    },
     "approved_for_implementation": false,
     "award_eligibility_established": false
   },

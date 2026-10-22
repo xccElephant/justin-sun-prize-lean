@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-22",
+  "user_reopened_search": true,
+  "official_main": "32d0e14fe6669bdf87d336348a2c5f4edba0e582",
+  "latest_pr": 5125,
+  "new_complete_route_in_our_records": {
+    "jsp": "JSP-000395",
+    "erdos": 488,
+    "pr": 5096,
+    "result": "full original multiples inequality refuted by prior source",
+    "prior_commit": "ccf4a26cb8a8c49f476d44304070a2b677da4d7e",
+    "prior_public_ci_utc": "2026-09-05T20:26:53Z",
+    "unmodified_source_compile_exit": 0,
+    "original_scope_adapter_compile_exit": 0,
+    "standard_axioms_only": true,
+    "new_first_contributor_opportunity_established": false
+  },
+  "genuine_gap_in_inspected_sources": {
+    "jsp": "JSP-000930",
+    "erdos": 1119,
+    "gap": "general uncountable-cardinal boundary independence; two forcing/consistency developments",
+    "admitted": false,
+    "limit": "full forcing papers and implementation blueprint not reconstructed"
+  },
+  "existing_same_scope_source": [
+    "JSP-000391 / Erdos482",
+    "JSP-000545 / Erdos671",
+    "JSP-000940 / Erdos1133"
+  ],
+  "new_paper_leads_at_statement_gate": 5,
+  "new_paper_leads_matching_full_JSP": 0,
+  "draft_original_pages_refreshed": 27,
+  "new_award_prs": 0,
+  "award_pr_mutations": false,
+  "new_original_complete_problems": 0,
+  "admitted_new_bounty_implementations": 0,
+  "active_agents": 0,
+  "proof_scope": "bounded search plus independent compile and exact-type check of prior488; not exhaustive bank search"
+}

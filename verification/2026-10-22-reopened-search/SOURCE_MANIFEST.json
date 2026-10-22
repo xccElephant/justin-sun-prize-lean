@@ -1,0 +1,18 @@
+[
+  {
+    "path": "reports/reopened-search-2026-10-22/raw-evidence/draft-leads/488-Counterexample.lean",
+    "sha256": "37d2f3b46b3979d676ad50802fa9e2c08eaaf1cd859dee85271ad3e5ca639fe2",
+    "bytes": 20230,
+    "source_url": "https://raw.githubusercontent.com/WoshuaJolk/jig-verifier/ccf4a26cb8a8c49f476d44304070a2b677da4d7e/Submissions/ErdosMultiplesSmoothRefuted/Counterexample.lean"
+  },
+  {
+    "path": "reports/reopened-search-2026-10-22/raw-evidence/draft-leads/488-OriginalScopeCheck.lean",
+    "sha256": "d1c919f70d0bf6ae168c8996ed717967dc3c5a4f4a9d6ef193b1bc3621d7de8a",
+    "bytes": 23206
+  },
+  {
+    "path": "reports/reopened-search-2026-10-22/raw-evidence/draft-leads/488-Erdos488-pinned.lean",
+    "sha256": "f2a7dcfde9689e00db7b697c22eb6436c1b02d834555a28a476d9e5e606e9ca0",
+    "bytes": 22801
+  }
+]

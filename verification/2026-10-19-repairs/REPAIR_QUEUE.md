@@ -200,6 +200,14 @@ Review-state clarification: Ready only for explicit literal-two-integer scope re
 
 ## PR5096 — JSP-000395 / Erdős488
 
+**2026-10-22 correction:** a complete prior refutation of the original multiples
+inequality was located at WoshuaJolk/jig-verifier@ccf4a26cb8a8c49f476d44304070a2b677da4d7e.
+Its unmodified source and our exact original-statement adapter compiled with
+standard axioms. The general inequality should not be pursued as a true theorem.
+Our submitted source remains partial; this prior result does not create our
+first-proof/Lean priority. See `../2026-10-22-reopened-search/E488_FULL_ROUTE.md`. Historical assessment follows.
+
+
 Status: `proof_repair_active`. Abandoned: no.
 
 Existing proved scope: Proves the union-of-multiples inequality for singleton and two-element sets and sets containing 2. Proves a conditional high-half insertion step and a counterexample to the nonmultiples misprint.

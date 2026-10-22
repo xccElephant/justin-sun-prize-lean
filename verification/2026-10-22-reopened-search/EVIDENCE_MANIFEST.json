@@ -1,0 +1,77 @@
+[
+  {
+    "path": "reports/reopened-search-2026-10-22/latest-prs.json",
+    "sha256": "8ed3b25c9f90765e890c91dafba61e69652fe2cc2839dc48274ea25a9490171a",
+    "bytes": 2216369
+  },
+  {
+    "path": "reports/reopened-search-2026-10-22/recent-erdos.xml",
+    "sha256": "832145c096fb35a4d90cebd17c8c740dffe82d24347e11750c295b810646676b",
+    "bytes": 37306
+  },
+  {
+    "path": "reports/reopened-search-2026-10-22/recent-elementary.xml",
+    "sha256": "7ad8e8020b204da508d3b1e9cc3b50a3a68cb826c280f1000b98457382e753c4",
+    "bytes": 21367
+  },
+  {
+    "path": "reports/reopened-search-2026-10-22/award-process-live.md",
+    "sha256": "0d1cf55728b517baf8f2c5e7a7ad001410adeae49cf78c09ac50e706ba76a467",
+    "bytes": 19291
+  },
+  {
+    "path": "reports/reopened-search-2026-10-22/PR5122.md",
+    "sha256": "5dce34604597f5f9c14d012ee77ff58446a11483966f9fc36bf5c27c8e3a9881",
+    "bytes": 3312
+  },
+  {
+    "path": "reports/reopened-search-2026-10-22/PR4589.json",
+    "sha256": "f75400cfd0b205ac1b45c5005ecf15c8cd55911a6d9bd3391fdf3554d7959055",
+    "bytes": 23014
+  },
+  {
+    "path": "reports/reopened-search-2026-10-22/new-paper-evidence/catalog-manifest.json",
+    "sha256": "f11d3ff4b350b3efb20534eb5f292caf8ce5367bbf6d16c6e1d75008dab703b1",
+    "bytes": 3386
+  },
+  {
+    "path": "reports/reopened-search-2026-10-22/raw-evidence/draft-pages/manifest.json",
+    "sha256": "9134bf4accfc30e5ed8f77e0ed99fb90ce3a1bece583a2ad68558b2628269c00",
+    "bytes": 31060
+  },
+  {
+    "path": "reports/reopened-search-2026-10-22/raw-evidence/draft-status-comparison.json",
+    "sha256": "4810ee8b54fa7e792ea259bc1b09049629d5e20919ceddf368d0474f3dc5a107",
+    "bytes": 22755
+  },
+  {
+    "path": "reports/reopened-search-2026-10-22/raw-evidence/draft-leads/488-source-commit.json",
+    "sha256": "09559a5c8fefc27ce5b392784c8a3f898471c7f9febb9372b4613da729c454e1",
+    "bytes": 26931
+  },
+  {
+    "path": "reports/reopened-search-2026-10-22/raw-evidence/draft-leads/488-verification-run.json",
+    "sha256": "2ea67f32f30a4dc90de491e25aeb3d0e73b9f9e79f6448048935c6f8ab61a74b",
+    "bytes": 12652
+  },
+  {
+    "path": "reports/reopened-search-2026-10-22/raw-evidence/draft-leads/488-pinned-manifest.json",
+    "sha256": "3e0f3343a80d6f7763bddaaa5d3ed8d76ad8edd500fdfe16d2a1a580eebf2226",
+    "bytes": 559
+  },
+  {
+    "path": "reports/reopened-search-2026-10-22/jsp545/prior-Erdos671.lean",
+    "sha256": "3854ae85aca322b5ad2c65fb9c7bae5ca19ed939ceca99521365d8690b8d8923",
+    "bytes": 125059
+  },
+  {
+    "path": "reports/reopened-search-2026-10-22/jsp545/prior-README.md",
+    "sha256": "8e10c938b2f91f0934327bc869c768e5acfc4cf67eee657bf19b89d30e8e1cbb",
+    "bytes": 4643
+  },
+  {
+    "path": "reports/reopened-search-2026-10-22/jsp940/Main.lean",
+    "sha256": "e0a692f5821c897e4f9c25208bb9716857306254b2111798d6cc1ca8fb419f18",
+    "bytes": 2019
+  }
+]
