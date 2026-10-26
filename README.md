@@ -6,6 +6,16 @@
 - **Mathlib revision**: `0df444a360eaa60ab8c11dca51a86af692955474` (`v4.33.1`)
 - **Verification**: All problem modules compile with **zero `sorry`**, **zero `admit`**, and **zero custom `axiom`** declarations, depending exclusively on the standard classical Lean axioms `[propext, Classical.choice, Quot.sound]`.
 
+## Papers on aiXiv
+
+Three companion papers by **Chucheng Xiang** describe selected results and their Lean formalizations:
+
+- **Erdős #365 and #939:** [Formalizing Infinite Families of Powerful Numbers in Lean 4](https://aixiv.online/abs/2610.02673). Consecutive nonsquare powerful numbers and internally pairwise-coprime, noncube 3-powerful additive triples. Proof sources: [Erdos365.lean](JspBounties/Erdos365.lean) and [Erdos939.lean](JspBounties/Erdos939.lean).
+- **Erdős #885, the two-integer case:** [Formalizing Arbitrarily Many Common Factor Differences for Two Integers in Lean 4](https://aixiv.online/abs/2610.02674). For every $k$, two distinct positive integers have a $k$-element set of positive common factor differences. Proof source: [Erdos885.lean](JspBounties/Erdos885.lean).
+- **Erdős #348, the natural-number case:** [A Lean 4 Formalization of the Deletion-Threshold Classification for Complete Sequences](https://aixiv.online/abs/2610.02675). The deletion-threshold classification for natural-valued nondecreasing sequences, with deletions of indexed occurrences. Proof source: [Erdos348.lean](JspBounties/Erdos348.lean).
+
+Each aiXiv page provides the paper PDF and a **TeX source** download containing its Lean verification supplement, explicit statement checks, pinned configuration, and reproduction instructions. The papers cite proof revision [`360d222`](https://github.com/xccElephant/justin-sun-prize-lean/tree/360d22229b6f7a468e8f473a8f890329d3a2caf6); the supplementary manuscript checks are included in the aiXiv downloads separately from that revision.
+
 ## Verification status (2026-10-19)
 
 There are 32 open records: **5 ready for review** (`#5076`, `#5079`, `#5080`, `#5089`, `#5095`) and **27 drafts**:
