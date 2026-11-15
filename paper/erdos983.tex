@@ -1,0 +1,90 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\title[Formalization of Erd\H{o}s Problem \#983 (JSP-000816)]{An Elementary Proof and Lean 4 Formalization of Erd\H{o}s Problem \#983 (JSP-000816)}
+\author{Chucheng Xiang}
+\thanks{Lean 4 formalization by Chucheng Xiang (\texttt{@xccElephant}). Mathematical credits: upper bound due to Erd\H{o}s--Straus (1970); symmetric prime inequality due to Pomerance (1979); semiprime path construction disproving Part~(i) due to Liam Price and Nat Sothanaphan (2026).}
+\date{November 2026}
+
+\begin{document}
+
+\begin{abstract}
+For $n \ge 2$ and $\pi(n) < k \le n$, let $f(k,n)$ denote the least integer $r$ such that every subset $A \subseteq \{1,\dots,n\}$ of size $|A| = k$ admits $r$ primes whose smooth numbers cover strictly more than $r$ elements of $A$. Erd\H{o}s and Straus (1970) proved $f(\pi(n)+1, n) \le 2\pi(\lfloor\sqrt{n}\rfloor) + 1$ and asked whether $2\pi(n^{1/2}) - f(\pi(n)+1, n) \to \infty$ as $n \to \infty$. Following the semiprime path construction of Price and Sothanaphan (2026) and Pomerance's symmetric prime inequality (1979), we present a completely self-contained, purely arithmetic proof (avoiding real logarithms and analytic number theory) that equality $f(\pi(n)+1, n) = 2\pi(\lfloor\sqrt{n}\rfloor) + 1$ holds for infinitely many $n$, answering the question of Erd\H{o}s and Straus in the negative. Every step is formally verified in Lean 4 (\texttt{v4.33.1}) using only the standard classical axioms.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction and Main Results}
+
+Let $\pi(x)$ denote the number of primes at most $x$. Given finite sets $A, S \subset \mathbb{N}$, write $\operatorname{numSmooth}(A, S)$ for the number of elements $a \in A$ all of whose prime divisors belong to $S$. For integers $n, k \in \mathbb{N}$, define
+\[
+  f(k, n) := \inf\bigl\{\, r \in \mathbb{N} : \forall A \subseteq \{1,\dots,n\},\ |A|=k \implies \exists S \text{ of } r \text{ primes},\ \operatorname{numSmooth}(A,S) > r \,\bigr\}.
+\]
+In 1970, Erd\H{o}s and Straus \cite[pp.~138--140]{Er70b} established $f(\pi(n)+1,n) \le 2\pi(\lfloor\sqrt{n}\rfloor)+1$ and asked whether $2\pi(n^{1/2}) - f(\pi(n)+1,n) \to \infty$ as $n \to \infty$ (recorded as Erd\H{o}s Problem \#983, Part~(i), and as the binary question \texttt{JSP-000816}).
+
+\begin{theorem}[Erd\H{o}s--Straus upper bound, \texttt{erdos\_983.variants.upper\_bound}]\label{thm:upper}
+For every $n \in \mathbb{N}$, $f(\pi(n)+1, n) \le 2\pi(\lfloor\sqrt{n}\rfloor) + 1$.
+\end{theorem}
+
+\begin{theorem}[Infinitely many sharp instances, \texttt{erdos\_983.variants.infinite\_exact\_equality}]\label{thm:sharp}
+There exist infinitely many integers $n \ge 2$ such that $f(\pi(n)+1, n) = 2\pi(\lfloor\sqrt{n}\rfloor) + 1$.
+\end{theorem}
+
+\begin{corollary}[Negative answer to Erd\H{o}s--Straus Part~(i), \texttt{erdos\_983.parts.i}]\label{cor:part1}
+As $n \to \infty$, $2\pi(\lfloor\sqrt{n}\rfloor) - f(\pi(n)+1, n) \not\to \infty$; indeed, the difference equals $-1$ for infinitely many $n$.
+\end{corollary}
+
+\section{Proof of Theorem~\ref{thm:upper}}
+
+Let $P_{\le} = \{p \le \lfloor\sqrt{n}\rfloor : p\text{ prime}\}$ with $t = |P_{\le}| = \pi(\lfloor\sqrt{n}\rfloor)$, and $P_{>} = \{q \text{ prime} : \lfloor\sqrt{n}\rfloor < q \le n\}$ with $M = |P_{>}| = \pi(n) - t$. If $M \le t+1$, taking all $\pi(n) \le 2t+1$ primes at most $n$ makes all $\pi(n)+1$ elements of $A$ smooth.
+
+Assume $M > t+1$ and fix $A \subseteq \{1,\dots,n\}$ of size $t + M + 1$. No $a \in A$ is divisible by two distinct primes $q_1, q_2 \in P_{>}$, since $(\lfloor\sqrt{n}\rfloor+1)^2 > n$. Hence the sets $B_q = \{a \in A : q \mid a\}$ ($q \in P_{>}$) are pairwise disjoint, and with $A_0 = \{a \in A : \forall q \in P_{>},\ q \nmid a\}$ we have $|A_0| + \sum_{q \in P_{>}} |B_q| = t + M + 1$. Let $P_{\ge 2} = \{q \in P_{>} : |B_q| \ge 2\}$.
+\begin{itemize}
+  \item If $|P_{\ge 2}| \ge t+1$, any $(t+1)$-subset $Q \subseteq P_{\ge 2}$ satisfies $|A_0| + \sum_{q \in Q}|B_q| \ge 2(t+1) = 2t+2$.
+  \item If $|P_{\ge 2}| < t+1$, extend $P_{\ge 2}$ to $Q \subseteq P_{>}$ of size $t+1$. Every $q \in P_{>} \setminus Q$ has $|B_q| \le 1$, so $\sum_{q \in P_{>} \setminus Q} |B_q| \le M - (t+1)$ and $|A_0| + \sum_{q \in Q}|B_q| \ge 2t+2$.
+\end{itemize}
+Setting $S = P_{\le} \cup Q$ gives $|S| = 2t+1$ primes with $\operatorname{numSmooth}(A,S) \ge 2t+2$. \qed
+
+\section{Pure-Arithmetic Proof of Pomerance's Inequality}
+
+Denote by $p_0 < p_1 < p_2 < \dots$ the $0$-indexed primes ($p_0 = 2$).
+
+\begin{lemma}\label{lem:dyadic}
+For every integer $u \ge 2$, $2^u \le u(\pi(2^u) + 1)$.
+\end{lemma}
+\begin{proof}
+Write $u = t+1$ ($t \ge 1$) and $N = 2^t$. By $4^N \le 2N\binom{2N}{N}$ and Kummer's bound $p^{v_p(\binom{2N}{N})} \le 2N$,
+\[
+  2^{2N} = 4^N \le 2N \prod_{p \le 2N} p^{v_p(\binom{2N}{N})} \le (2N)^{\pi(2N)+1}.
+\]
+Since $2N = 2^u$, comparing powers of $2$ gives $2^u \le u(\pi(2^u)+1)$.
+\end{proof}
+
+\begin{proposition}[Pomerance {\cite{Po79}}, \texttt{exists\_pomerance\_prime\_index}]\label{prop:pom}
+For every $K \ge 2$, there exists $M \ge K$ such that $p_{M-i}p_{M+i} < p_M^2$ for all $1 \le i \le M$.
+\end{proposition}
+\begin{proof}
+Set $E = 2^K p_{K-1} + 1$. For $0 \le m < K$, $(p_{K-1}+1)^E \ge p_{K-1}^E + E p_{K-1}^{E-1} > 2^K p_m^E$ implies $p_m^E 2^K < p_K^E 2^m$. Put $u_0 = 12 + E + K$ and $B = \max(K, \pi(2^{u_0}))$. For any $m > B$, let $u$ be minimal with $m < \pi(2^u)$; then $u - 1 \ge 12 + E + K$, $p_m \le 2^u$, and Lemma~\ref{lem:dyadic} gives $(u-1)^3 < 2^{u-1} \le (u-1)(m+1)$, whence $E u + K < m$ and $p_m^E 2^K \le 2^{Eu+K} < 2^m$.
+
+Choose $M \in \{0,\dots,B\}$ maximizing $G(m) := p_m^E 2^{B-m}$. Then $G(m) < G(K) \le G(M)$ for $m < K$ forces $M \ge K$, and for every $m \in \mathbb{N}$ one checks $p_m^E 2^M \le p_M^E 2^m$. Multiplying the cases $m = M - i$ and $m = M + i$ yields $(p_{M-i}p_{M+i})^E 2^{2M} \le (p_M^2)^E 2^{2M}$, so $p_{M-i}p_{M+i} \le p_M^2$. Strict inequality follows from unique factorization since $p_{M-i} < p_M < p_{M+i}$.
+\end{proof}
+
+\section{Zigzag Semiprime Path and Proof of Theorem~\ref{thm:sharp}}
+
+Let $M \ge 2$ satisfy Proposition~\ref{prop:pom} and put $n = p_M^2 - 1$, so $\lfloor\sqrt{n}\rfloor = p_M - 1$ and $\pi(\lfloor\sqrt{n}\rfloor) = M$. Since $2p_{2M} = p_0 p_{2M} < p_M^2$, we have $V_{\mathrm{path}} = \{p_0,\dots,p_{2M}\} \subseteq \{1,\dots,n\}$. Define $v_{2t} = p_{2M-t}$ ($0 \le t \le M$) and $v_{2t+1} = p_t$ ($0 \le t < M$), and set $e_j = v_j v_{j+1}$ for $0 \le j < 2M$. By Proposition~\ref{prop:pom}, every $e_j \le p_M^2 - 1 = n$, and the $2M$ semiprimes $e_j$ are distinct composites.
+
+Let $A = \{e_0,\dots,e_{2M-1}\} \sqcup \{v_0, v_{2M}\} \sqcup (\{q \le n \text{ prime}\} \setminus V_{\mathrm{path}})$, of cardinality $|A| = \pi(n) + 1$. Given any set $S$ of $r \le 2M$ primes, write $S_1 = S \cap V_{\mathrm{path}}$ and $S_2 = S \setminus V_{\mathrm{path}}$. Since $|S_1| \le 2M < |V_{\mathrm{path}}|$, choose $m_0 \in \{0,\dots,2M\}$ with $v_{m_0} \notin S$, and set $J_S = \{j \le 2M : v_j \in S\}$. Every $S$-smooth edge $e_j$ satisfies $j, j+1 \in J_S \setminus \{m_0\}$, so mapping $v_0 \mapsto 0$, $e_j \mapsto j+1$ ($j < m_0$), $e_j \mapsto j$ ($j > m_0$), and $v_{2M} \mapsto 2M$ injects all $S$-smooth members of $\{e_0,\dots,e_{2M-1}\} \cup \{v_0, v_{2M}\}$ into the four disjoint pieces $J_S \cap \{0\}$, $J_S \cap [1, m_0-1]$, $J_S \cap [m_0+1, 2M-1]$, and $J_S \cap \{2M\}$. Together with at most $|S_2|$ smooth primes outside $V_{\mathrm{path}}$, $\operatorname{numSmooth}(A,S) \le |J_S| + |S_2| = r$. Hence $f(\pi(n)+1,n) \ge 2M+1$, matching Theorem~\ref{thm:upper}. Letting $M \to \infty$ proves Theorem~\ref{thm:sharp} and Corollary~\ref{cor:part1}. \qed
+
+\begin{thebibliography}{9}
+\bibitem{Er70b} P. Erd\H{o}s, \emph{Some applications of graph theory to number theory}, Proc. Second Chapel Hill Conf. on Combinatorial Mathematics and its Applications (1970), 136--145.
+\bibitem{Po79} C. Pomerance, \emph{The prime number graph}, Math. Comp. \textbf{33} (1979), 399--408.
+\bibitem{Forum983} L. Price and N. Sothanaphan, Discussion on Erd\H{o}s Problem \#983, \url{https://www.erdosproblems.com/forum/thread/983}, April 2026.
+\end{thebibliography}
+
+\end{document}
