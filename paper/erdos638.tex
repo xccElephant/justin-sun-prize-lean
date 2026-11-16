@@ -1,0 +1,141 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\title[Formalization of Erd\H{o}s Problem \#638 (JSP-000519)]{An Elementary Rational-Container Disproof and Lean 4 Formalization of Erd\H{o}s Problem \#638 (JSP-000519)}
+\author{Chucheng Xiang}
+\thanks{Lean 4 formalization by Chucheng Xiang (\texttt{@xccElephant}). Mathematical credits: original problem due to Paul Erd\H{o}s (1997); finite-obstruction and disjoint-age hereditary counterexample strategy due to Kevin Barreto and Brian Saturnino (2026); sparse Ramsey hypergraph container framework due to Rajko Nenadov and Huy Tuan Pham (2024/2025), after Nenadov--Steger (2016) and R\"odl--Ruci\'nski (1994).}
+\date{November 2026}
+
+\begin{document}
+
+\begin{abstract}
+In 1997, Erd\H{o}s asked (Problem~\#638, \texttt{JSP-000519}) whether for every family $\mathcal{S}$ of finite graphs containing an $n$-color triangle-Ramsey graph $G_n \to (K_3)^2_n$ for every $n \ge 1$, and for every infinite cardinal $\kappa$, there exists a graph $G$ all of whose finite subgraphs belong to $\mathcal{S}$ such that $G \to (K_3)^2_\kappa$. Following the disjoint-age compactness strategy of Saturnino (2026) and the hypergraph container method of Nenadov and Pham (2024/2025), we present a completely self-contained, unconditional ZFC disproof---covering ordinary-subgraph hereditary classes, induced-subgraph hereditary classes, and literal non-hereditary families across all infinite cardinals $\kappa \ge \aleph_0$ simultaneously---and formalize the entire proof from first principles in Lean~4 (\texttt{v4.33.1}) using only the standard classical axioms. To avoid Ne\v{s}et\v{r}il--R\"odl partite amalgamation, Berge-cycle hypergraphs, and transcendental real analysis, we establish an elementary $(2|S|-3)$-sparsity $2$-coloring theorem, a single-function idempotent rational hypergraph container theorem over $\mathbb{Q}$, and an exact $(m^2+2, 1/m)$ finite-grid alteration argument.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction and Main Results}
+
+Given a simple graph $G = (V, E)$ and a color set $C$, write $G \to (K_3)^2_C$ (and $G \to (K_3)^2_\kappa$ when $|C| = \kappa$) if every edge-coloring $c : E \to C$ produces three mutually adjacent vertices in $G$ whose three edges receive the same color. In \cite[Item~9, pp.~83--84]{Er97d} (recorded as Erd\H{o}s Problem~\#638 and \texttt{JSP-000519}), Erd\H{o}s posed the following compactness question:
+
+\begin{quote}
+\emph{Let $\mathcal{S}$ be a family of finite graphs such that for every $n \ge 1$ there is $G_n \in \mathcal{S}$ with $G_n \to (K_3)^2_n$. Is it true that for every infinite cardinal $\kappa$ there is a graph $G$ all of whose finite subgraphs are in $\mathcal{S}$ such that $G \to (K_3)^2_\kappa$?}
+\end{quote}
+
+As noted by Barreto \cite{Forum638} on the literal non-hereditary reading (where $\mathcal{S} = \{K_{R_n(3)} : n \ge 1\}$ lacks $K_2$) and proved by Saturnino \cite{Forum638} on the intended hereditary readings (where $\mathcal{S}$ is downward closed under subgraphs or induced subgraphs), the answer is \textbf{no}: in fact, compactness already fails from finite palette sizes to $\aleph_0$, and hence fails simultaneously for every infinite cardinal $\kappa \ge \aleph_0$.
+
+In Saturnino's note \cite{Forum638}, the existence of finite $r$-Ramsey graphs avoiding any prescribed finite family of $2$-Ramsey subgraphs is deduced from the Ne\v{s}et\v{r}il--R\"odl sparse Ramsey theorem via Berge-cycle avoidance, and its companion Lean sketch left those sparse-Ramsey steps unformalized. Here we give an elementary, self-contained proof amenable to complete formal verification in Lean~4 (\texttt{v4.33.1}):
+
+\begin{theorem}[Ordinary-subgraph hereditary counterexample, \texttt{erdos\_638\_ordinary\_hereditary\_counterexample}]\label{thm:ord}
+There exists a family $\mathcal{S}_{\mathrm{ord}}$ of finite simple graphs, closed under subgraphs, such that:
+\begin{enumerate}
+  \item for every integer $n \ge 1$, there exists $G_n \in \mathcal{S}_{\mathrm{ord}}$ with $G_n \to (K_3)^2_n$;
+  \item for every graph $G = (V, E)$ (on any vertex set $V$) all of whose finite subgraphs are isomorphic to members of $\mathcal{S}_{\mathrm{ord}}$, there exists an integer $m \ge 2$ such that $G \not\to (K_3)^2_m$; consequently, $G \not\to (K_3)^2_\kappa$ for every infinite cardinal $\kappa \ge \aleph_0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Induced-subgraph hereditary counterexample, \texttt{erdos\_638\_induced\_hereditary\_counterexample}]\label{thm:ind}
+There exists a family $\mathcal{S}_{\mathrm{ind}}$ of finite simple graphs, closed under induced subgraphs, satisfying (1) of Theorem~\ref{thm:ord} and such that for every graph $G = (V, E)$ all of whose finite induced subgraphs are isomorphic to members of $\mathcal{S}_{\mathrm{ind}}$, there exists an integer $m \ge 2$ with $G \not\to (K_3)^2_m$, and hence $G \not\to (K_3)^2_\kappa$ for every infinite cardinal $\kappa \ge \aleph_0$.
+\end{theorem}
+
+\begin{corollary}[Disproof across all readings, \texttt{not\_erdos\_638\_*}]\label{cor:disproof}
+Erd\H{o}s Problem~\#638 has a negative answer under the ordinary-subgraph hereditary reading, the induced-subgraph hereditary reading, and both literal non-hereditary readings.
+\end{corollary}
+
+\section{The $(2|S|-3)$-Sparsity $2$-Coloring Theorem}
+
+Instead of high-girth Berge hypergraphs, we isolate a purely numerical local density obstruction to $G \to (K_3)^2_2$.
+
+\begin{theorem}[\texttt{two\_colorable\_of\_sparse\_subsets}]\label{thm:sparse2col}
+Let $H = (V, E)$ be a finite simple graph in which every vertex subset $S \subseteq V$ with $|S| \ge 4$ spans at most $2|S| - 3$ edges. Then $H \not\to (K_3)^2_2$.
+\end{theorem}
+
+\begin{proof}
+We proceed by strong induction on $|V|$. If $|V| \le 3$, $H$ contains at most one triangle, which is bicolored whenever $|E| = 3$. If $|V| = 4$, applying the hypothesis to $S = V$ yields $|E| \le 2(4) - 3 = 5 < \binom{4}{2}$, so $H$ is a subgraph of $K_4 - e$; assigning color $0$ to the common edge of the two triangles of $K_4 - e$ and color $1$ to the remaining edges avoids monochromatic triangles.
+
+Assume $|V| \ge 5$. Applying the hypothesis to $S = V$ gives $|E| \le 2|V| - 3$, whence $\sum_{v \in V} \deg_H(v) = 2|E| \le 4|V| - 6 < 4|V|$. Fix $v \in V$ with $\deg_H(v) \le 3$. Every subset $S \subseteq V \setminus \{v\}$ with $|S| \ge 4$ still spans at most $2|S| - 3$ edges, so by the induction hypothesis $H - v$ admits a monochromatic-$K_3$-free coloring $c : E(H - v) \to \{0, 1\}$. Let $N(v)$ be the neighborhood of $v$ in $H$, so $|N(v)| \le 3$. Crucially, $N(v)$ cannot induce $K_3$: if $|N(v)| = 3$ and $N(v)$ spanned all $3$ edges, then $S = \{v\} \cup N(v)$ would have $|S| = 4$ vertices and $3 + 3 = 6 > 5 = 2|S| - 3$ edges. Thus $N(v)$ spans at most $2$ edges in $H - v$:
+\begin{itemize}
+  \item If $N(v)$ spans $0$ edges, no triangle contains $v$; extend $c$ to incident edges of $v$ arbitrarily.
+  \item If $N(v)$ spans $1$ edge $u_1 u_2$, set $c(v u_1) = 0$ and $c(v u_2) = 1$ (and $0$ on any third edge), making $\{v, u_1, u_2\}$ bicolored.
+  \item If $N(v) = \{u_1, u_2, u_3\}$ spans $2$ edges $u_1 u_2$ and $u_2 u_3$ (with $u_1 u_3 \notin E$), set $c(v u_2) = 0$ and $c(v u_1) = c(v u_3) = 1$. Regardless of $c(u_1 u_2)$ and $c(u_2 u_3)$, both triangles $\{v, u_1, u_2\}$ and $\{v, u_2, u_3\}$ contain edges of both colors, and $\{v, u_1, u_3\}$ is not a triangle.
+\end{itemize}
+Hence the extended $2$-coloring of $H$ has no monochromatic triangle.
+\end{proof}
+
+\begin{corollary}[\texttt{exists\_dense\_four\_plus\_subset}]\label{cor:dense}
+Every finite graph $M$ satisfying $M \to (K_3)^2_2$ contains a vertex subset $S \subseteq V(M)$ with $4 \le |S| \le |V(M)|$ spanning at least $2|S| - 2$ edges.
+\end{corollary}
+
+\section{Single-Function Rational Containers and Grid Alteration}
+
+To construct finite graphs $W \to (K_3)^2_r$ in which every subset $S$ with $4 \le |S| \le B$ spans at most $2|S| - 3$ edges, we adapt the sparse Ramsey container proof of Nenadov and Pham \cite{NP24} purely over $\mathbb{Q}$.
+
+\subsection{Idempotent Rational Containers for $3$-Uniform Hypergraphs}
+
+Let $\mathcal{H} \subseteq \binom{[N_0]}{3}$ be a $3$-uniform hypergraph satisfying the $(p, \tau)$-spreadness bounds ($0 < p \le 1$, $\tau = 3$): for every nonempty $X \subseteq [N_0]$ of size $|X| \le 3$, the number of hyperedges containing $X$ is at most $\frac{3 p^{|X|-1}}{N_0} |\mathcal{H}|$. Running the deterministic maximum-degree peeling step (\texttt{containerStep} / \texttt{buildContainer3} in \texttt{Erdos638/Container.lean}) with membership oracle $I$ produces a fingerprint $S \subseteq I$ and container $C \supseteq I$. Defining the single canonical container map $\mathcal{C}(S)$ (\texttt{canonicalContainer}) by running the same deterministic procedure with oracle $S$ itself preserves the sandwich invariant $S \subseteq I \subseteq C$, yielding:
+
+\begin{proposition}[\texttt{exists\_fingerprint\_for\_indep}]\label{prop:container}
+For every independent set $I \subseteq [N_0]$ of a $(p, 3)$-spread $3$-uniform hypergraph $\mathcal{H} \subseteq \binom{[N_0]}{3}$, there exists $S \subseteq I$ with $|S| \le O(p N_0)$ such that $I \subseteq \mathcal{C}(S)$ and $\mathcal{H}[\mathcal{C}(S)]$ contains strictly fewer than $(1 - c)|\mathcal{H}|$ hyperedges for an explicit rational constant $c > 0$.
+\end{proposition}
+
+\subsection{Exact Scale $n = m^2 + 2$ and Finite Product-Grid Alteration}
+
+For an integer scale parameter $m \ge 1$, set $n := m^2 + 2$ and $N_0 := \binom{n}{2}$. Then $3\binom{n}{3} = (n - 2)\binom{n}{2} = m^2 N_0$ holds as an exact integer identity, so the triangle hypergraph $\mathcal{H}_\triangle(K_n) \subseteq \binom{[N_0]}{3}$ is $(1/m, 3)$-spread (\texttt{triangleHypergraph\_isSpread}) without irrational square roots.
+
+Let $\Omega := (\mathrm{Fin}\,N_0 \to \mathrm{Fin}\,m)$ be the finite product grid, and for an integer threshold $1 \le A \le m$ define the active edge set $E_A(\omega) := \{e \in [N_0] : \omega(e) < A\}$ (marginal density $q = A/m$). Given $r \ge 1$ and $B \ge 4$:
+\begin{enumerate}
+  \item \textbf{Deterministic purging and Markov bound (\texttt{purgeDenseObstructions\_sparse}, \texttt{card\_many\_obstructions\_lt\_half})}: Let $\mathcal{D}_{n, B}$ be the family of all edge sets $D$ of size $2|S| - 2$ inside vertex subsets $S \subseteq [n]$ with $4 \le |S| \le B$. Deleting from $E_A(\omega)$ all $D \in \mathcal{D}_{n, B}$ with $D \subseteq E_A(\omega)$ produces $E'_A(\omega) \subseteq E_A(\omega)$ whose graph $G'(\omega)$ satisfies $e_{G'(\omega)}(S) \le 2|S| - 3$ for every $4 \le |S| \le B$. Since $\binom{n}{k} \le n^k = O_B(m^{2k})$ and $(A/m)^{2k-2} = O_{A, B}(m^{-(2k-2)})$, double counting on $\Omega$ bounds the expected number of active $D \in \mathcal{D}_{n, B}$ by $C_{\mathrm{obs}} m^2$. By Markov's inequality, fewer than $|\Omega|/2$ grids $\omega$ activate more than $2 C_{\mathrm{obs}} m^2$ obstructions, and outside this bad event $|E_A(\omega) \setminus E'_A(\omega)| \le L := 4 B C_{\mathrm{obs}} m^2$.
+  \item \textbf{Ramsey supersaturation and container union bound (\texttt{ramsey\_supersaturation}, \texttt{exists\_locally\_sparse\_triangle\_ramsey})}: Let $R = R_r(3)$ be the $r$-color triangle Ramsey number (\texttt{ramseyBound}). Any $r$-coloring of $E(K_n)$ creates at least $\binom{n}{3}/\binom{R}{3} = \Omega_r(m^6)$ monochromatic triangles by averaging over $R$-subsets. If $\omega$ satisfies $|E_A(\omega) \setminus E'_A(\omega)| \le L$ and $G'(\omega) \not\to (K_3)^2_r$, then $E'_A(\omega) = I_1 \sqcup \dots \sqcup I_r$ partitions into $r$ independent sets of $\mathcal{H}_\triangle(K_n)$. Proposition~\ref{prop:container} gives fingerprints $S_1, \dots, S_r \subseteq E_A(\omega)$ with $I_c \subseteq \mathcal{C}(S_c)$, while $F := E_A(\omega) \setminus E'_A(\omega) \subseteq E_A(\omega)$ has $|F| \le L = O_{r, B}(m^2)$. Adding $F$ to $\mathcal{C}(S_1)$ creates at most $|F| m^2 = O_{r, B}(m^4)$ triangles (\texttt{triangleHypergraph\_union\_add\_le}), so Ramsey supersaturation forces at least $D_U = \Omega_r(N_0)$ edges of $K_n$ to lie outside $F \cup \bigcup_{c=1}^r \mathcal{C}(S_c)$, and hence outside $E_A(\omega)$. Choosing $A$ large in terms of $r$ and $m$ to be an exact integer multiple of $8 A K_m$, rational Bernstein and binomial tail bounds (\texttt{Erdos638/GridCounting.lean}) show that the number of such grids $\omega \in \Omega$ is strictly less than $|\Omega|/2$.
+\end{enumerate}
+Consequently, some $\omega \in \Omega$ lies outside both bad events, yielding:
+
+\begin{theorem}[\texttt{exists\_locally\_sparse\_triangle\_ramsey}, \texttt{exists\_ramsey\_avoiding\_family}]\label{thm:avoid}
+For every $r \ge 1$ and $B \ge 4$, there exists a finite graph $W$ with $W \to (K_3)^2_r$ in which every vertex set $S$ with $4 \le |S| \le B$ spans at most $2|S| - 3$ edges; in particular, by Corollary~\ref{cor:dense}, no graph $M$ on at most $B$ vertices with $M \to (K_3)^2_2$ embeds into $W$ as a subgraph.
+\end{theorem}
+
+\section{Ultrafilter Compactness and Proof of Theorems~\ref{thm:ord} and~\ref{thm:ind}}
+
+\begin{lemma}[Ultrafilter $2$-Ramsey compactness, \texttt{exists\_finite\_induced\_two\_ramsey}]\label{lem:compact}
+Let $G = (V, E)$ be any graph satisfying $G \to (K_3)^2_2$. Then there exists a finite subset $F_0 \subseteq V$ whose induced subgraph $G[F_0]$ satisfies $G[F_0] \to (K_3)^2_2$.
+\end{lemma}
+
+\begin{proof}
+Suppose for contradiction that for every finite $F \subseteq V$, $G[F]$ admits a monochromatic-$K_3$-free coloring $c_F : \mathrm{Sym}^2(V) \to \{0, 1\}$. Let $\mathcal{U}$ be an ultrafilter extending the upward-directed cofinal filter on $\mathrm{Finset}(V)$. Define $c^* : \mathrm{Sym}^2(V) \to \{0, 1\}$ by $c^*(e) = \alpha$ iff $\{F : c_F(e) = \alpha\} \in \mathcal{U}$. By $G \to (K_3)^2_2$, $c^*$ admits a monochromatic triangle $\{x, y, z\}$. The intersection in $\mathcal{U}$ of $\{F : \{x, y, z\} \subseteq F\}$ with the three agreement sets on $x y, y z, x z$ is nonempty, yielding a finite $F \supseteq \{x, y, z\}$ for which $\{x, y, z\}$ is monochromatic under $c_F$, a contradiction.
+\end{proof}
+
+\begin{proof}[Proof of Theorems~\ref{thm:ord} and~\ref{thm:ind}]
+Using Theorem~\ref{thm:avoid}, define a sequence of finite graphs $(W_k)_{k \ge 0}$ (\texttt{blockGraph}) recursively so that $W_k \to (K_3)^2_{k+2}$ and $W_k$ contains no $2$-Ramsey subgraph on at most $\max(\{4\} \cup \{|V(W_j)| : j < k\})$ vertices. If a finite graph $H_0$ with $H_0 \to (K_3)^2_2$ embedded as a subgraph into both $W_a$ and $W_b$ with $a < b$, then $|V(H_0)| \le |V(W_a)| \le \max_{j < b} |V(W_j)|$, contradicting the construction of $W_b$ (\texttt{blockGraph\_disjoint\_two\_ramsey}).
+
+Set
+\[
+  \mathcal{S}_{\mathrm{ord}} := \{H \text{ finite} : \exists k \ge 0,\ H \hookrightarrow_{\mathrm{sub}} W_k\}, \qquad
+  \mathcal{S}_{\mathrm{ind}} := \{H \text{ finite} : \exists k \ge 0,\ H \hookrightarrow_{\mathrm{ind}} W_k\} \subseteq \mathcal{S}_{\mathrm{ord}}.
+\]
+Then $\mathcal{S}_{\mathrm{ord}}$ is closed under subgraphs, $\mathcal{S}_{\mathrm{ind}}$ is closed under induced subgraphs, and for every $n \ge 1$, $W_n \in \mathcal{S}_{\mathrm{ind}} \subseteq \mathcal{S}_{\mathrm{ord}}$ satisfies $W_n \to (K_3)^2_{n+2}$, hence $W_n \to (K_3)^2_n$.
+
+Now let $G = (V, E)$ be any graph all of whose finite induced subgraphs belong to $\mathcal{S}_{\mathrm{ord}}$ (which holds both when all finite subgraphs of $G$ lie in $\mathcal{S}_{\mathrm{ord}}$ and when all finite induced subgraphs of $G$ lie in $\mathcal{S}_{\mathrm{ind}}$; see \texttt{exists\_finite\_palette\_obstruction}). If $G \not\to (K_3)^2_2$, take $m = 2$. Otherwise $G \to (K_3)^2_2$, so Lemma~\ref{lem:compact} yields a finite subset $F_0 \subseteq V$ with $H_0 := G[F_0] \to (K_3)^2_2$. Since $H_0 \in \mathcal{S}_{\mathrm{ord}}$, $H_0 \hookrightarrow_{\mathrm{sub}} W_{k_0}$ for some $k_0 \in \mathbb{N}$. For any finite subset $S \subseteq V$ with $F_0 \subseteq S$, we have $H_0 \hookrightarrow_{\mathrm{sub}} G[S] \hookrightarrow_{\mathrm{sub}} W_{k_1}$ for some $k_1 \in \mathbb{N}$; by disjointness of $2$-Ramsey subgraphs across blocks, $k_1 = k_0$, so $|S| \le |V(W_{k_0})|$. Hence $V$ itself is finite of size at most $|V(W_{k_0})|$, so $G$ has finitely many edges $e = |E|$ and assigning each edge a distinct color gives $G \not\to (K_3)^2_{\max(2, e+1)}$. Finally, for any infinite cardinal $\kappa \ge \aleph_0$ and color palette $C$ of cardinality $\kappa$, injecting $\{1, \dots, m\} \hookrightarrow C$ yields $G \not\to (K_3)^2_C$.
+\end{proof}
+
+\section{Lean 4 Formalization Overview}
+
+The formalization in \texttt{Erdos638/} and \texttt{StatementAudit.lean} totals $5{,}727$ lines on Lean \texttt{v4.33.1} and Mathlib \texttt{v4.33.1}, with zero \texttt{sorry}, zero \texttt{admit}, zero \texttt{native\_decide}, and strictly the three standard classical axioms \texttt{[propext, Classical.choice, Quot.sound]}, verified by independent kernel replay via \texttt{leanchecker --fresh}.
+
+\begin{thebibliography}{9}
+\bibitem{Er97d} P. Erd\H{o}s, \emph{Some of my new and almost new problems and results in combinatorial number theory}, Number Theory (Eger, 1996), Walter de Gruyter, Berlin, 1998, pp.~169--180 (preprint pagination Item~9, pp.~83--84).
+\bibitem{Forum638} K. Barreto and B. Saturnino, Discussion and note \emph{A counterexample to a hereditary triangle Ramsey compactness problem} on Erd\H{o}s Problem \#638, \url{https://www.erdosproblems.com/forum/thread/638}, January--April 2026.
+\bibitem{NP24} R. Nenadov and H.~T. Pham, \emph{Short proof of the sparse Ramsey theorem}, preprint (2024/2025).
+\bibitem{NS16} R. Nenadov and A. Steger, \emph{A short proof of the random Ramsey theorem}, Combin. Probab. Comput. \textbf{25} (2016), 130--144.
+\bibitem{RR94} V. R\"odl and A. Ruci\'nski, \emph{Random graphs with monochromatic triangles in every edge coloring}, Random Structures Algorithms \textbf{5} (1994), 253--270.
+\end{thebibliography}
+
+\end{document}
