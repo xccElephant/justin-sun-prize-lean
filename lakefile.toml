@@ -1,0 +1,18 @@
+name = "Erdos1019"
+defaultTargets = ["Erdos1019", "StatementAudit"]
+
+[leanOptions]
+pp.unicode.fun = true
+autoImplicit = false
+relaxedAutoImplicit = false
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.33.1"
+
+[[lean_lib]]
+name = "Erdos1019"
+
+[[lean_lib]]
+name = "StatementAudit"

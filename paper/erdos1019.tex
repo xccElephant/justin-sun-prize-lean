@@ -1,0 +1,74 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\title[Formalization of Erd\H{o}s Problem \#1019 (JSP-000849)]{Topological Planarity and Extremal Stability for Erd\H{o}s Problem \#1019 (JSP-000849) in Lean 4}
+\author{Chucheng Xiang}
+\thanks{100\% clean-room Lean 4 formalization by Chucheng Xiang (\texttt{@xccElephant}). Mathematical credits: extremal theorem due to Mikl\'os Simonovits (1970, PhD dissertation, Chapter~9); combinatorial proof exposition due to Stijn Cambie (November 2025).}
+\date{November 2026}
+
+\begin{document}
+
+\begin{abstract}
+A planar graph on $m$ vertices with $3m - 6$ edges is called \emph{saturated}. Erd\H{o}s (1969, 1971) asked whether every simple graph on $n$ vertices with $\lfloor n^2/4 \rfloor + \lfloor (n+1)/2 \rfloor$ edges contains a saturated planar subgraph on more than $3$ vertices (Erd\H{o}s Problem \#1019 / \texttt{JSP-000849}). Following Simonovits's 1970 dissertation result and Cambie's 2025 exposition, we present a complete, self-contained Lean 4 (\texttt{v4.33.1}) formalization proving both the stability characterization at $\lfloor n^2/4 \rfloor + \lfloor (n-1)/2 \rfloor$ edges (every extremal $K_4$- and bipyramid-free graph is a balanced join $T_a \vee \overline{K_b}$ of a tree and an independent set) and genuine Jordan-arc topological planarity in $\mathbb{R}^2$ for $K_4$ and all bipyramids $B_\ell = C_\ell \vee 2K_1$ ($\ell \ge 3$). All definitions and proofs are verified by the Lean kernel and \texttt{leanchecker --fresh} using only the standard classical axioms.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction and Main Results}
+
+A finite simple graph $H = (W, E(H))$ is \emph{topologically planar} ($\operatorname{IsPlanar}(H)$) if there exist an injective vertex map $\phi : W \hookrightarrow \mathbb{R}^2$ and, for each unordered edge $e = \{u, v\} \in E(H)$, a continuous injective curve $\gamma_e : [0, 1] \to \mathbb{R}^2$ such that $\{\gamma_e(0), \gamma_e(1)\} = \{\phi(u), \phi(v)\}$, $\gamma_e((0,1)) \cap \phi(W) = \emptyset$, and for distinct edges $e_1 \ne e_2$, $\gamma_{e_1}(t_1) = \gamma_{e_2}(t_2)$ implies $t_1, t_2 \in \{0,1\}$. A planar graph on $m \ge 3$ vertices with $3m - 6$ edges is called \emph{saturated}.
+
+In \cite[pp.~16--17]{Er69c} and \cite[item~13, p.~102]{Er71}, Erd\H{o}s posed Problem \#1019 (\texttt{JSP-000849}): must every simple graph on $n$ vertices with $\lfloor n^2/4 \rfloor + \lfloor (n+1)/2 \rfloor$ edges contain a saturated planar subgraph on $m > 3$ vertices? Set
+\[
+  f(n) := \left\lfloor \frac{n^2}{4} \right\rfloor + \left\lfloor \frac{n-1}{2} \right\rfloor, \qquad
+  f(n) + 1 = \left\lfloor \frac{n^2}{4} \right\rfloor + \left\lfloor \frac{n+1}{2} \right\rfloor \quad (n \ge 1).
+\]
+
+\begin{theorem}[Simonovits--Cambie stability, \texttt{simonovits\_stability}]\label{thm:stab}
+Every simple graph $G$ on $n \ge 1$ vertices with $e(G) \ge f(n)$ either contains $K_4$ or a bipyramid $B_\ell = C_\ell \vee 2K_1$ ($\ell \ge 3$), or else satisfies $e(G) = f(n)$ and admits a partition $V(G) = A \sqcup B$ with $|A| \ge 1$, $n \le 2|A| \le n+2$, $G[A]$ a tree, $B$ independent, and all cross edges $A \times B$ present.
+\end{theorem}
+
+\begin{theorem}[Topological planarity of witnesses, \texttt{completeGraph\_fin4\_isPlanar}, \texttt{bipyramidGraph\_isPlanar}]\label{thm:plan}
+The complete graph $K_4$ ($4$ vertices, $6$ edges) and every bipyramid $B_\ell = C_\ell \vee 2K_1$ ($\ell \ge 3$, $\ell+2$ vertices, $3\ell$ edges) admit non-crossing straight-line Jordan-arc plane drawings in $\mathbb{R}^2$.
+\end{theorem}
+
+\begin{corollary}[Affirmative resolution of Erd\H{o}s Problem \#1019, \texttt{erdos\_1019}, \texttt{erdos\_1019\_ge}]\label{cor:main}
+Every simple graph $G$ on $n \ge 1$ vertices with $e(G) \ge \lfloor n^2/4 \rfloor + \lfloor (n+1)/2 \rfloor$ (and in particular with $e(G) = \lfloor n^2/4 \rfloor + \lfloor (n+1)/2 \rfloor$) contains a topologically planar subgraph $H$ on $m > 3$ vertices with $3m - 6$ edges.
+\end{corollary}
+
+\section{Extremal Stability Proof}
+
+\begin{lemma}\label{lem:extra}
+Adding any single edge $u_0 v_0 \notin E(G_1)$ to a balanced tree-join $G_1 = T_a \vee \overline{K_b}$ creates either $K_4$ or $B_\ell$ ($\ell \ge 3$).
+\end{lemma}
+\begin{proof}
+Since all cross edges between $A = V(T_a)$ and $B = V(\overline{K_b})$ belong to $G_1$, either $u_0, v_0 \in A$ or $u_0, v_0 \in B$. If $u_0, v_0 \in A$, the unique path in $T_a$ between $u_0$ and $v_0$ has length $k \ge 2$ and closes with $u_0 v_0$ to a cycle $C_{k+1}$ in $A$, forcing $a \ge 3$ and $b \ge a - 2 \ge 1$; two vertices of $B$ give $B_{k+1}$ when $b \ge 2$, while $b = 1$ forces $a = 3, k = 2$ and yields $K_4$. If $u_0, v_0 \in B$, then $a \ge b \ge 2$, so $T_a$ contains an edge $a_1 a_2$ and $\{a_1, a_2, u_0, v_0\}$ spans $K_4$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:stab}]
+By Lemma~\ref{lem:extra}, it suffices to treat $e(G) = f(n)$ by strong induction on $n \ge 1$. The case $n = 1$ ($f(1) = 0$) is immediate. For $n \ge 2$, arithmetic modulo $4$ gives $f(n) - f(n-1) = \lfloor (n+1)/2 \rfloor$ and $2f(n) < n(\lfloor (n+1)/2 \rfloor + 1)$, so $G$ has a vertex $x$ of degree $d \le \lfloor (n+1)/2 \rfloor$. Let $G' = G - x$, so $e(G') = f(n) - d \ge f(n-1)$. If $e(G') > f(n-1)$, induction and Lemma~\ref{lem:extra} give $K_4$ or $B_\ell$ in $G'$. Otherwise $e(G') = f(n-1)$, $d = \lfloor (n+1)/2 \rfloor$, and assuming $G'$ avoids $K_4$ and $B_\ell$, $V(G') = A' \sqcup B'$ is a balanced tree-join ($a' = |A'|$, $b' = |B'|$, $n-1 \le 2a' \le n+1$). Let $p = |N_G(x) \cap A'| \le a'$ and $q = |N_G(x) \cap B'| \le b'$, so $p + q = \lfloor (n+1)/2 \rfloor$ and $p \ge 1$.
+\begin{enumerate}
+  \item If $p \ge 2$ and $q \ge 2$, pick $u_1 \ne u_2$ in $N_G(x) \cap A'$ and $v_1 \ne v_2$ in $N_G(x) \cap B'$. Either $u_1 u_2 \in E(G)$ gives $K_4$ on $\{x, u_1, u_2, v_1\}$, or the $u_1$--$u_2$ tree path in $A'$ plus $x$ forms a cycle $C_\ell$ ($\ell \ge 4$) joined to $v_1, v_2$, giving $B_\ell$.
+  \item If $p = 1$, then $q = b' = \lfloor (n-1)/2 \rfloor$, so $x$ is a leaf attached to $A'$ and $(A' \cup \{x\}, B')$ is a balanced tree-join.
+  \item If $p \ge 2$ and $q = 0$, then $p = a' = \lfloor (n+1)/2 \rfloor$, so $(A', B' \cup \{x\})$ is a balanced tree-join.
+  \item If $p \ge 2$ and $q = 1$ with $N_G(x) \cap B' = \{v\}$, then $p \in \{a', a' - 1\}$. When $p = a'$, any edge of the tree $G'[A']$ ($a' \ge 2$) forms $K_4$ with $x$ and $v$. When $p = a' - 1$ with $A' \setminus N_G(x) = \{u\}$, any edge inside $A' \setminus \{u\}$ forms $K_4$ with $x$ and $v$; otherwise $A' \setminus \{u\}$ is independent, forcing $G'[A']$ to be a star centered at $u$. Then $S = B' \cup \{u, x\}$ induces a broom tree and $(S, A' \setminus \{u\})$ is a balanced tree-join. \qedhere
+\end{enumerate}
+\end{proof}
+
+\section{Straight-Line Jordan-Arc Planarity of $B_\ell$ and $K_4$}
+
+For $\ell \ge 3$, place the cycle vertices of $B_\ell$ at $P_0 = (0,4)$ and $P_k = (k,0)$ ($1 \le k < \ell$), the north apex at $N = (1,1)$, and the south apex at $S = (0,-1)$, connecting adjacent vertices by affine segments $\gamma_{uv}(t) = (1-t)\phi(u) + t\phi(v)$. Every open edge segment lies in $-1 < y < 4$ and belongs to one of seven pairwise-disjoint linear regions separated by $x = 0$, $y = 0$, $y = 1$, $4x + y = 4$, and $4x + (\ell - 1)y = 4(\ell - 1)$, while avoiding every vertex coordinate. Hence $B_\ell$ ($\ell \ge 3$) is topologically planar, and $K_4$ embeds into $B_3$ on $\{P_0, P_1, P_2, N\}$.
+
+\begin{thebibliography}{9}
+\bibitem{Er69c} P. Erd\H{o}s, \emph{\"Uber die in Graphen enthaltenen saturierten planaren Graphen}, Math. Nachr. \textbf{40} (1969), 13--17.
+\bibitem{Er71} P. Erd\H{o}s, \emph{Some unsolved problems in graph theory and combinatorial analysis}, Combinatorial Mathematics and its Applications (Proc. Conf., Oxford, 1969), Academic Press, London, 1971, pp.~97--109.
+\bibitem{Cambie25} S. Cambie, Summary of M. Simonovits's solution to Erd\H{o}s Problem \#1019, \url{https://www.erdosproblems.com/forum/thread/1019}, November 2025.
+\end{thebibliography}
+
+\end{document}

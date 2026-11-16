@@ -1,0 +1,44 @@
+name: Verify Lean 4 Proof (JSP-000849 / Erdos 1019)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, jsp-000849-lean]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Install Elan and pinned Lean 4.33.1 toolchain
+        shell: bash
+        run: |
+          curl https://elan.lean-lang.org/elan-init.sh -sSf | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/lean" --version
+          "$HOME/.elan/bin/lake" --version
+
+      - name: Fetch pinned Mathlib cache
+        run: lake exe cache get
+
+      - name: Build all targets with warnings-as-errors
+        run: timeout 180s lake --wfail build
+
+      - name: Run independent first-principles statement and axiom audit
+        run: |
+          timeout 120s lake env lean StatementAudit.lean | tee audit.log
+          ! grep -E "sorryAx|ofReduceBool|trustCompiler" audit.log
+
+      - name: Replay compiled modules in Lean kernel (leanchecker)
+        run: |
+          timeout 180s lake env leanchecker -v Erdos1019 StatementAudit
+          timeout 300s lake env leanchecker --fresh Erdos1019
