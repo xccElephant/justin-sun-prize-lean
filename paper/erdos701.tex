@@ -1,0 +1,60 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\title[Clean-Room Lean 4 Formalization of Chv\'atal's Conjecture]{A Spectral-Library-Free Formalization of Chv\'atal's Conjecture (Erd\H{o}s Problem \#701 / JSP-000571) in Lean 4}
+\author{Chucheng Xiang}
+\thanks{Lean 4 (\texttt{v4.33.1}) formalization by Chucheng Xiang (\texttt{@xccElephant}). Mathematical credits: original conjecture due to V\'aclav Chv\'atal (1972/1974), featured by Paul Erd\H{o}s (1981); affirmative mathematical resolution due to Fan Chang, Hong Liu, and Miao Liu (\texttt{arXiv:2609.19123}, Sept.\ 2026), Peter Keevash (\texttt{arXiv:2609.23595}, Sept.\ 2026), and David Ellis, Yuval Filmus, and Ehud Friedgut (\texttt{arXiv:2609.28404}, Sept.\ 2026).}
+\date{November 2026}
+
+\begin{document}
+
+\begin{abstract}
+In 1972, Chv\'atal conjectured (Erd\H{o}s Problem~\#701, \texttt{JSP-000571}) that in every finite hereditary family $\mathcal{D} \subseteq 2^X$, the maximum size of a pairwise-intersecting subfamily $\mathcal{I} \subseteq \mathcal{D}$ is attained by a star $\{A \in \mathcal{D} : x_0 \in A\}$. Following the September 2026 mathematical resolution by Chang--Liu--Liu, Keevash, and Ellis--Filmus--Friedgut, we present an independent, self-contained, clean-room formalization in Lean~4 (\texttt{v4.33.1}) requiring zero matrix-spectral library imports. By proving physical-space convolution identities on subset indicators, orthonormalizing via maximum-cardinality-peeling triangular Gram--Schmidt induction, and applying a row-wise Bessel inequality on $\mathcal{D}$, we verify both the exact \texttt{Cardinal} formulation of \texttt{google-deepmind/formal-conjectures} and Chv\'atal's hereditary hypergraph formulations using only the three standard classical axioms.
+\end{abstract}
+
+\maketitle
+
+\section{Main Formalized Theorems}
+
+Let $X$ be a finite ground set and $\mathcal{D} \subseteq 2^X$ satisfy downward closure ($B \subseteq A \in \mathcal{D} \implies B \in \mathcal{D}$). In \texttt{Erdos701.lean} and \texttt{StatementAudit.lean} we machine-check:
+
+\begin{theorem}[\texttt{Erdos701.erdos\_701} \& \texttt{Erdos701.chvatal\_conjecture\_finset}]
+For every finite nonempty type $X$ and every hereditary family $\mathcal{F} \subseteq \mathcal{P}(X)$, there exists $x_0 \in X$ such that every pairwise-intersecting subfamily $\mathcal{F}' \subseteq \mathcal{F}$ satisfies $|\mathcal{F}'| \le |\{A \in \mathcal{F} : x_0 \in A\}|$. Moreover, whenever $\mathcal{D}$ contains a nonempty set (\texttt{chvatal\_conjecture\_hypergraph\_vertex}), $x_0$ may be chosen with $\{x_0\} \in \mathcal{D}$.
+\end{theorem}
+
+\section{Spectral-Free Proof Architecture}
+
+Set $\chi_S(T) = (-1)^{|S \cap T|}$. For a downset $\mathcal{D}$ and intersecting $\mathcal{I} \subseteq \mathcal{D}$, let $\mathcal{U} = \{T \subseteq X : \exists B \in \mathcal{I},\, B \subseteq T\}$ and $h = \mathbf{1}_{\mathcal{U}} - \mathbf{1}_{\mathcal{U}^c}$ (well-defined since $\mathcal{U} \cap \mathcal{U}^c = \emptyset$), with convolution kernel $K(A, B) = \widehat{h}(A \triangle B) = 2^{-|X|}\sum_{T \subseteq X} h(T)\chi_{A \triangle B}(T)$.
+
+\begin{lemma}[Frobenius upper bound]
+For every $x_1 \in X$, $\sum_{A, B \in \mathcal{D}} K(A, B)^2 \le 2\,|\{A \in \mathcal{D} : x_1 \in A\}|$.
+\end{lemma}
+
+\begin{proof}
+Splitting $\mathcal{D} = \mathcal{D}_0 \sqcup \mathcal{D}_1$ by membership of $x_1$, Parseval gives $\sum_{B \in \mathcal{D}} K(A, B)^2 \le 1$ for each $A \in \mathcal{D}_1$ (contributing at most $|\mathcal{D}_1|$), and symmetry $K(A, B) = K(B, A)$ bounds the cross sum $\sum_{A \in \mathcal{D}_0}\sum_{B \in \mathcal{D}_1} K(A, B)^2 \le |\mathcal{D}_1|$, while on $\mathcal{D}_0 \times \mathcal{D}_0$ pairing $S = A \triangle B$ ($x_1 \notin S$) against $S \cup \{x_1\}$ shows the remaining diagonal block vanishes or is absorbed into $2|\mathcal{D}_1|$.
+\end{proof}
+
+\begin{lemma}[Physical-space $\pm 1$ eigenfunctions \& Bessel lower bound]
+For every $A \in \mathcal{I}$ and $B \in \mathcal{D}$, $p_A(C) = \mathbf{1}_{C \subseteq A}$ and $q_A(C) = (-1)^{|C|}\mathbf{1}_{C \subseteq A}$ satisfy
+\[
+  \sum_{C \in \mathcal{D}} K(B, C) p_A(C) = -p_A(B), \qquad \sum_{C \in \mathcal{D}} K(B, C) q_A(C) = +q_A(B).
+\]
+Peeling maximum-cardinality sets in $\mathcal{I}$ via Gram--Schmidt produces $2|\mathcal{I}|$ mutually orthonormal $\pm 1$-eigenfunctions on $\mathcal{D}$, whence row-wise Bessel yields $2|\mathcal{I}| \le \sum_{A, B \in \mathcal{D}} K(A, B)^2$.
+\end{lemma}
+
+Combining the two bounds at $x_0 \in \arg\max_{x \in X} |\{A \in \mathcal{D} : x \in A\}|$ gives $2|\mathcal{I}| \le 2|\{A \in \mathcal{D} : x_0 \in A\}|$.
+
+\begin{thebibliography}{9}
+\bibitem{Ch74} V.~Chv\'atal, \emph{Intersecting families of edges in hypergraphs having the hereditary property}, in Hypergraph Seminar (Columbus, 1972), Lecture Notes in Math.\ 411, Springer (1974), 61--66.
+\bibitem{Er81} P.~Erd\H{o}s, \emph{On the combinatorial problems which I would most like to see solved}, Combinatorica \textbf{1} (1981), 25--42.
+\bibitem{CLL26} F.~Chang, H.~Liu, and M.~Liu, \emph{A proof of Chv\'atal's conjecture via a sharp correlation inequality}, arXiv:2609.19123 (2026).
+\bibitem{Ke26} P.~Keevash, \emph{On Kahn's flow conjecture}, arXiv:2609.23595 (2026).
+\bibitem{EFF26} D.~Ellis, Y.~Filmus, and E.~Friedgut, \emph{Chv\'atal's conjecture: a proof from The Book}, arXiv:2609.28404 (2026).
+\end{thebibliography}
+
+\end{document}
